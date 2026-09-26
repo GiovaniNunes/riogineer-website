@@ -1,0 +1,28 @@
+.people {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  border-top: var(--border-width) solid var(--color-line);
+  gap: var(--space-8);
+}
+.person {
+  padding-top: var(--space-6);
+}
+.person h3 {
+  margin-block: var(--space-5);
+}
+.person p {
+  color: var(--color-muted);
+  font-size: var(--font-base);
+}
+.person p + p {
+  margin-top: var(--space-5);
+}
+@media (max-width: 760px) {
+  .people {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+  .person + .person {
+    border-top: var(--border-width) solid var(--color-line);
+  }
+}

@@ -1,0 +1,70 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  border-top: var(--border-width) solid var(--color-line);
+  border-left: var(--border-width) solid var(--color-line);
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-6);
+  border-right: var(--border-width) solid var(--color-line);
+  border-bottom: var(--border-width) solid var(--color-line);
+  transition: background var(--duration-fast);
+}
+.card:hover {
+  background: var(--color-surface);
+}
+.topline {
+  display: flex;
+  justify-content: space-between;
+  font: var(--font-xs)/1.5 var(--font-mono);
+  color: var(--color-accent);
+  gap: var(--space-4);
+}
+.card h3 {
+  margin-block: var(--space-7) var(--space-4);
+}
+.card h3 a {
+  text-decoration: none;
+}
+.card p {
+  font-size: var(--font-sm);
+  color: var(--color-muted);
+  max-width: 50ch;
+  margin-bottom: var(--space-5);
+}
+.card > a {
+  align-self: flex-start;
+  margin-top: auto;
+}
+.status {
+  color: var(--color-warning);
+}
+@media (max-width: 650px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Optional, stable media frame: no empty space or invented illustration when absent. */
+.illustration {
+  margin-block: 0 var(--space-5);
+}
+.illustrationFrame {
+  position: relative;
+  aspect-ratio: var(--application-illustration-ratio);
+  background: var(--color-subtle);
+  border: var(--border-width) solid var(--color-line);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+.illustrationImage {
+  object-fit: contain;
+  padding: var(--space-4);
+}
+.illustration figcaption {
+  margin-top: var(--space-2);
+  color: var(--color-muted);
+  font-size: var(--font-sm);
+}

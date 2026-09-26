@@ -1,0 +1,47 @@
+{
+  "name": "riogineer-website",
+  "version": "0.1.0",
+  "private": true,
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "content:generate": "node scripts/generate-content.mjs",
+    "predev": "npm run content:generate",
+    "dev": "next dev --hostname 127.0.0.1",
+    "prebuild": "npm run content:generate",
+    "build": "next build",
+    "start": "next start --hostname 127.0.0.1",
+    "lint": "eslint .",
+    "pretypecheck": "npm run content:generate",
+    "typecheck": "next typegen && tsc --noEmit",
+    "test": "vitest run",
+    "smoke": "node scripts/smoke.mjs",
+    "format": "prettier --write src content scripts tests *.json *.mjs *.ts README.md DEVELOPMENT.md CONTENT_GUIDE.md CONTENT_REQUIRED.md .github",
+    "format:check": "prettier --check src content scripts tests *.json *.mjs *.ts README.md DEVELOPMENT.md CONTENT_GUIDE.md CONTENT_REQUIRED.md .github"
+  },
+  "dependencies": {
+    "@mdx-js/loader": "3.1.1",
+    "@mdx-js/react": "3.1.1",
+    "@next/mdx": "16.3.6",
+    "next": "16.3.6",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "remark-frontmatter": "5.0.0",
+    "remark-gfm": "4.0.1",
+    "remark-mdx-frontmatter": "6.0.0",
+    "zod": "4.6.5"
+  },
+  "devDependencies": {
+    "@types/mdx": "2.0.14",
+    "@types/node": "22.20.4",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "eslint": "9.39.5",
+    "eslint-config-next": "16.3.6",
+    "prettier": "3.9.9",
+    "typescript": "5.9.3",
+    "vitest": "5.0.2"
+  },
+  "type": "module"
+}
