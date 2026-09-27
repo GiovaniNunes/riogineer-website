@@ -46,6 +46,24 @@ function canonical(text: string) {
     return text;
   }
 }
+function draftIdentity(draft: string): { case_id?: string; profile?: string } {
+  try {
+    return JSON.parse(draft) ?? {};
+  } catch {
+    return {};
+  }
+}
+function flowsheetMatchesDraft(state: WorkflowState, flowsheet: Flowsheet) {
+  const draft = draftIdentity(state.draft);
+  return draft.case_id === flowsheet.case_id && draft.profile === flowsheet.profile;
+}
+function resultMatchesFlowsheet(results: Results, flowsheet: Flowsheet) {
+  return (
+    results.case_id === flowsheet.case_id &&
+    results.requirements_sha256 === flowsheet.requirements_sha256 &&
+    results.input_sha256 === flowsheet.calculation.input_sha256
+  );
+}
 export function workflowReducer(state: WorkflowState, action: Action): WorkflowState {
   if (action.type === 'invalidate')
     return {
@@ -60,6 +78,8 @@ export function workflowReducer(state: WorkflowState, action: Action): WorkflowS
     return {
       ...state,
       draft: action.draft,
+      results:
+        state.results?.case_id === draftIdentity(action.draft).case_id ? state.results : null,
       revision: state.revision + 1,
       validated: true,
       flowsheet: null,
@@ -72,6 +92,8 @@ export function workflowReducer(state: WorkflowState, action: Action): WorkflowS
     return {
       ...state,
       draft: action.draft,
+      results:
+        state.results?.case_id === draftIdentity(action.draft).case_id ? state.results : null,
       revision: state.revision + 1,
       validated: false,
       flowsheet: null,
@@ -94,11 +116,23 @@ export function workflowReducer(state: WorkflowState, action: Action): WorkflowS
   if (action.revision !== state.revision) return state;
   if (action.type === 'start') return { ...state, busy: true, error: null };
   if (action.type === 'validated') return { ...state, busy: false, validated: true };
-  if (action.type === 'built') return { ...state, busy: false, flowsheet: action.flowsheet };
+  if (action.type === 'built') {
+    if (!flowsheetMatchesDraft(state, action.flowsheet))
+      return {
+        ...state,
+        busy: false,
+        validated: false,
+        flowsheet: null,
+        error:
+          'The flowsheet does not match the active requirements case/profile. Validate and generate the PFD again.',
+      };
+    return { ...state, busy: false, flowsheet: action.flowsheet };
+  }
   if (action.type === 'calculated') {
     if (
       !state.flowsheet ||
-      action.results.input_sha256 !== state.flowsheet.calculation.input_sha256
+      !flowsheetMatchesDraft(state, state.flowsheet) ||
+      !resultMatchesFlowsheet(action.results, state.flowsheet)
     )
       return {
         ...state,
@@ -132,6 +166,7 @@ export function resultsAreCurrent(state: WorkflowState) {
     !!state.results &&
     state.validated &&
     state.flowsheet?.calculation.status === 'current' &&
-    state.flowsheet.calculation.input_sha256 === state.results.input_sha256
+    flowsheetMatchesDraft(state, state.flowsheet) &&
+    resultMatchesFlowsheet(state.results, state.flowsheet)
   );
 }

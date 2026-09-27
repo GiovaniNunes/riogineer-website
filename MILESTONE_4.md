@@ -266,3 +266,49 @@ Two new browser regressions exercise the exact load/validate sequence for Milest
 Only `src/app/digital-engineer/workspace.tsx`, `tests/e2e/network.spec.ts` and this document changed. No contracts, reducers, engine calculations, graph execution, numbering, reference values, interpretation or provenance code changed. No live-provider call was made.
 
 Correction validation: **183 TypeScript tests in 14 files, 38 Python tests and 21 browser tests passed**. Contract parity, ESLint, TypeScript checking, repository/document formatting and diff whitespace checks passed. The production build generated 41 static pages; production smoke passed 17 pages, 17 PNG social cards, internal links, 404s, preview indexing and disabled contact delivery. Both engineering reference cases and their identity regressions passed unchanged. Temporary test servers were stopped. Live-provider calls: **0**.
+
+## Manual case-transition diagnosis and correction
+
+The reported browser observation was the old `THREE_PHASE_SEPARATOR_DEV_001` / `single_separator_development` identity and single-separator limitations after the Milestone 4 workflow. A deterministic browser reproduction first completed Bia, then loaded, validated, built and calculated Milestone 4 using the real local API/Python engine. No provider was called. The test records full request/response and displayed-state objects in its `case-transition-trace.json` attachment.
+
+**Reproduced root cause:** the requirements `edit` reducer cleared validation and flowsheet but retained `results` unconditionally. The first mixed-case display occurred immediately at **Load Milestone 4 reference → local state**: active requirements were Milestone 4 and flowsheet was null, but the raw results and limitations still belonged to Bia. They were labelled not-current/STALE and could not be downloaded as current, yet remained visible through Validate and Generate PFD. Human approval of a different case had the same retention behavior.
+
+**Diagnostic limit:** no actual active-case replacement was reproduced. All Milestone 4 validation/build/calculation requests and responses retained the correct identity, and the successful final calculation replaced the stale Bia results even before this correction. An old final flowsheet with `single_separator_development` was not reproduced; results themselves do not have a `profile` field. The reported final-case reversion therefore cannot be attributed to the engine on this evidence. The demonstrated defect is cross-case stale presentation, not a numerical engine failure.
+
+The page initializes Bia only through `useReducer` initialization. Load Milestone 4 and Restore reference dispatch their respective fixtures as edits; no effect resets them. Build reads the current draft and calculate reads the current stored flowsheet. The Next API forwards the validated request payload unchanged; the Python POST adapter dispatches that payload, with requirements 1.1 selecting the network builder. The separate GET reference endpoint is not used by these actions. There is no default-fixture substitution in this path.
+
+### Captured identity at each boundary
+
+`M4` below means case **MILESTONE_4_BRANCH_MERGE**; `Bia` means **THREE_PHASE_SEPARATOR_DEV_001**. M4 equipment IDs are **SEP_1, SPLIT_1, MIX_1**, and boundary IDs are **FEED, GAS_SINK, WATER_SINK, OIL_SINK**. The prior Bia equipment ID is **SG-1223002**, with four streams. M4's requirements profile is already distinct; no identity/version correction was necessary.
+
+| Boundary                                 | Case | Schema | Profile / model                    | Equipment IDs         | Streams |
+| ---------------------------------------- | ---- | ------ | ---------------------------------- | --------------------- | ------: |
+| Loaded local requirements                | M4   | 1.1    | acyclic_development                | SEP_1, SPLIT_1, MIX_1 |       7 |
+| Validate request                         | M4   | 1.1    | acyclic_development                | SEP_1, SPLIT_1, MIX_1 |       7 |
+| Validate response requirements           | M4   | 1.1    | acyclic_development                | SEP_1, SPLIT_1, MIX_1 |       7 |
+| Validated local requirements             | M4   | 1.1    | acyclic_development                | SEP_1, SPLIT_1, MIX_1 |       7 |
+| Generate PFD / build request             | M4   | 1.1    | acyclic_development                | SEP_1, SPLIT_1, MIX_1 |       7 |
+| Build response / stored flowsheet        | M4   | 1.2    | acyclic_development                | SEP_1, SPLIT_1, MIX_1 |       7 |
+| Calculation request                      | M4   | 1.2    | acyclic_development                | SEP_1, SPLIT_1, MIX_1 |       7 |
+| Calculation response / displayed results | M4   | 1.2    | acyclic_component_conservation@1.0 | SEP_1, SPLIT_1, MIX_1 |       7 |
+
+M4 equipment models remain prescribed_component_recoveries@1.0, proportional_split@1.0 and equal_condition_mix@1.0. Before the fix, the results display at Load, Validate and Generate additionally retained Bia results schema 1.1 / prescribed_component_recoveries@1.0 / SG-1223002 / four streams. The new browser regression failed those three null-result assertions before production code changed; its other identity and final numerical assertions passed.
+
+### Correction and intended state machine
+
+On an engineering edit or approval, results are now cleared when their existing `case_id` differs from the new draft's case. The existing revision increment and late-response guard remain authoritative. Within-case numerical edits still retain explicitly stale results for the established Milestone 3 comparison workflow. Layout and formatting-only edits preserve their existing behavior.
+
+Build acceptance additionally checks flowsheet case/profile against the active draft. Calculation acceptance and current-result status now check case ID and `requirements_sha256` as well as the existing `input_sha256`; the current flowsheet must also match the draft case/profile. No parallel numbering, revision, hash algorithm or identity system was added. Mismatches cannot publish current results.
+
+| Completed action  | Active requirements           | Validation | Flowsheet                               | Results                                     |
+| ----------------- | ----------------------------- | ---------- | --------------------------------------- | ------------------------------------------- |
+| Load M4 after Bia | M4 1.1, new local revision    | Invalid    | null                                    | null                                        |
+| Validate          | Same M4 requirements/revision | Current    | null                                    | null                                        |
+| Generate PFD      | Same M4 requirements/revision | Current    | M4 1.2, seven numbered streams, not_run | null                                        |
+| Calculate         | Same M4 requirements/revision | Current    | Same M4 identity/streams, current       | M4 1.2, matching case and both fingerprints |
+
+The browser regression checks each request and response, stored artifacts, all seven PFD nodes, splitter/mixer visibility, seven table columns, unchanged stream identity/numbers and reference mass flows **110000, 22000, 77550, 10450, 46530, 31020, 77550 kg/h**. Unit regressions cover cross-case edit/approval invalidation, late responses, wrong-case/profile builds and mismatching result case/requirements hashes even with a matching input hash. Existing Bia and same-case stale-result regressions remain in place.
+
+Files changed for this correction: `src/lib/digital-engineer/workflow.ts`, `tests/engineering-workflow.test.ts`, `tests/e2e/network.spec.ts`, and `MILESTONE_4.md`. No contracts, reference identifiers, reference values, Python code, numerical models, graph scheduling, stream numbering, evidence anchoring or interpretation code changed.
+
+Case-transition correction validation: **186 TypeScript tests in 14 files, 38 Python tests, and 22 browser tests passed**. Contract parity, ESLint, type checking, repository/document formatting and whitespace checks passed. Production build passed with 41 static pages; smoke passed 17 pages, 17 PNG social cards, internal links, 404s, preview indexing and disabled contact delivery. Original Bia snapshots and both reference numerical results remain unchanged. Temporary validation servers were stopped. Live-provider calls: **0**.

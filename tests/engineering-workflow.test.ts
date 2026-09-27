@@ -102,3 +102,54 @@ describe('web engineering state machine', () => {
     expect(s.results).toEqual(results);
   });
 });
+
+it('clears prior-case results on edit or approval while rejecting delayed responses', () => {
+  for (const type of ['edit', 'approved'] as const) {
+    const draft = JSON.stringify({ ...requirements, case_id: 'another-case' });
+    const state = reduce(completed(), { type, draft });
+    expect(state.revision).toBe(1);
+    expect(state.results).toBeNull();
+    expect(state.flowsheet).toBeNull();
+    expect(resultsAreCurrent(state)).toBe(false);
+    for (const action of [
+      { type: 'validated', revision: 0 } as const,
+      { type: 'built', revision: 0, flowsheet } as const,
+      { type: 'calculated', revision: 0, results } as const,
+    ])
+      expect(reduce(state, action)).toEqual(state);
+  }
+});
+it('rejects a same-revision build for a different case or profile', () => {
+  for (const draft of [
+    { ...requirements, case_id: 'another-case' },
+    { ...requirements, profile: 'acyclic_development' },
+  ]) {
+    const state = reduce(initialWorkflow(JSON.stringify(draft)), {
+      type: 'built',
+      revision: 0,
+      flowsheet,
+    });
+    expect(state.flowsheet).toBeNull();
+    expect(state.validated).toBe(false);
+    expect(state.error).toContain('active requirements case/profile');
+  }
+});
+it('checks case and requirements fingerprints even when the input fingerprint matches', () => {
+  for (const wrong of [
+    { ...results, case_id: 'another-case' },
+    { ...results, requirements_sha256: 'a'.repeat(64) },
+  ]) {
+    const state = completed();
+    expect(resultsAreCurrent({ ...state, results: wrong })).toBe(false);
+    const rejected = reduce(state, { type: 'calculated', revision: 0, results: wrong });
+    expect(rejected.results).toBe(state.results);
+    expect(rejected.error).toBeTruthy();
+    expect(resultsAreCurrent(rejected)).toBe(false);
+  }
+  expect(
+    resultsAreCurrent({
+      ...completed(),
+      draft: JSON.stringify({ ...requirements, case_id: 'another-case' }),
+    }),
+  ).toBe(false);
+});
