@@ -42,3 +42,16 @@ engineering behavior is represented as `not calculated` plus a reason.
 The browser's JSON editor is a deterministic requirements editor, not a technical
 specification interpreter. PFD layout is read-only apart from a display-width
 toggle. No drawing-to-model importer exists.
+
+## Milestone 3.1: flowsheet/results 1.1
+
+Requirements and the registered calculation model remain unchanged. Newly built
+flowsheets use `schema_version: "1.1"` and require `engineering_number` on each
+material stream. Results 1.1 add typed `properties` to each stream result;
+unavailable quantities use null / `not_calculated`, with explicit units.
+The major-version schemas in `v1/` now accept both original 1.0 and new 1.1
+branches. Old strict clients must upgrade to read new 1.1 responses; legacy
+flowsheets remain accepted and legacy results remain readable. Stream numbering
+is assigned by the engine, never inferred by a frontend migration. Regenerate a
+legacy flowsheet to obtain numbers. See `MILESTONE_3_1.md` for the numbering rule,
+property semantics, fingerprint effects and compatibility limits.

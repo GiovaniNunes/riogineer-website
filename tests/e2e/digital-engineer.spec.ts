@@ -115,3 +115,84 @@ test('mobile workspace and engine-unavailable feedback', async ({ page }) => {
   );
   await expect(page.getByRole('heading', { name: 'Engineering results — STALE' })).toBeVisible();
 });
+
+test('numbered PFD and stream table share identity, preserve downloads and distinguish zero', async ({
+  page,
+}) => {
+  await page.goto('/digital-engineer');
+  await page.getByText('Engineering data / Advanced', { exact: true }).click();
+  await build(page);
+  const table = page.getByRole('table', { name: 'Engineering Stream Table', exact: true });
+  await expect(table).toBeVisible();
+  const ids = ['FEED', 'GAS', 'OIL', 'WATER'];
+  for (const [index, id] of ids.entries()) {
+    await expect(page.locator(`svg g[data-stream-id="${id}"] text`)).toHaveText(
+      `${index + 1} · ${id}`,
+    );
+    await expect(table.locator(`thead [data-stream-id="${id}"]`)).toContainText(
+      `${index + 1} ${id}`,
+    );
+  }
+  await expect(
+    table
+      .getByRole('row')
+      .filter({ has: page.getByRole('rowheader', { name: 'Total mass flow', exact: true }) })
+      .getByRole('cell'),
+  ).toHaveText(['kg/h', '—', '—', '—', '—']);
+  await page.getByRole('button', { name: 'Run engineering calculation', exact: true }).click();
+  await expect(page.getByRole('status')).toHaveText('Calculation complete — results current.');
+  await expect(
+    table
+      .getByRole('row')
+      .filter({ has: page.getByRole('rowheader', { name: 'Total mass flow', exact: true }) })
+      .getByRole('cell'),
+  ).toHaveText(['kg/h', '110,000', '22,000', '77,550', '10,450']);
+  await expect(
+    table
+      .getByRole('row')
+      .filter({ has: page.getByRole('rowheader', { name: 'Density', exact: true }) })
+      .getByRole('cell'),
+  ).toHaveText(['kg/m3', '—', '—', '—', '—']);
+  await expect(
+    table
+      .getByRole('row')
+      .filter({
+        has: page.getByRole('rowheader', { name: 'water — component mass flow', exact: true }),
+      })
+      .locator('[data-stream-id="GAS"]'),
+  ).toHaveText('0');
+  await expect(
+    table
+      .getByRole('row')
+      .filter({ has: page.getByRole('rowheader', { name: 'water — mass fraction', exact: true }) })
+      .getByRole('cell')
+      .first(),
+  ).toHaveText('kg/kg');
+  const before = await table.innerText();
+  await page.getByRole('button', { name: 'Change display layout' }).click();
+  await expect(table).toHaveText(before, { useInnerText: true });
+  const pendingDownload = page.waitForEvent('download');
+  await page.getByRole('button', { name: 'Download flowsheet', exact: true }).click();
+  const download = await pendingDownload;
+  const stream = await download.createReadStream();
+  const chunks: Buffer[] = [];
+  for await (const chunk of stream!) chunks.push(Buffer.from(chunk));
+  const flowsheet = JSON.parse(Buffer.concat(chunks).toString());
+  expect(flowsheet.schema_version).toBe('1.1');
+  expect(
+    flowsheet.streams.map((s: { id: string; engineering_number: number }) => [
+      s.id,
+      s.engineering_number,
+    ]),
+  ).toEqual(ids.map((id, i) => [id, i + 1]));
+  await page
+    .locator('[aria-labelledby="pfd-section-title"]')
+    .screenshot({ path: '.local/streams-desktop.png' });
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page
+    .locator('[aria-labelledby="pfd-section-title"]')
+    .screenshot({ path: '.local/streams-mobile.png' });
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(
+    true,
+  );
+});

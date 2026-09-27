@@ -85,7 +85,7 @@ export const requirementsSchema = z.strictObject({
     z.literal('energy_balance'),
   ]),
 });
-export const flowsheetSchema = z.strictObject({
+const legacyFlowsheetSchema = z.strictObject({
   schema_version: z.literal('1.0'),
   kind: z.literal('flowsheet'),
   case_id: id,
@@ -133,6 +133,47 @@ export const flowsheetSchema = z.strictObject({
   validation: validationSchema,
   presentation: z.strictObject({ layout: z.enum(['wide', 'compact']) }),
 });
+// v1.0 remains readable; new engine-built flowsheets explicitly use v1.1.
+export const flowsheetSchema = z.union([
+  legacyFlowsheetSchema,
+  legacyFlowsheetSchema.extend({
+    schema_version: z.literal('1.1'),
+    streams: z
+      .array(
+        legacyFlowsheetSchema.shape.streams.element.extend({
+          engineering_number: z.number().int().positive().max(Number.MAX_SAFE_INTEGER),
+        }),
+      )
+      .length(4),
+  }),
+]);
+
+function property(unit: string) {
+  return z.union([
+    z.strictObject({ value: nonnegative, status: z.literal('calculated'), unit: z.literal(unit) }),
+    z.strictObject({ value: z.null(), status: z.literal('not_calculated'), unit: z.literal(unit) }),
+  ]);
+}
+export const streamPropertiesSchema = z.strictObject({
+  molar_flow: property('kmol/h'),
+  molecular_mass: property('kg/kmol'),
+  density: property('kg/m3'),
+  gas_volumetric_flow: property('m3/h'),
+  oil_volumetric_flow: property('m3/h'),
+  water_volumetric_flow: property('m3/h'),
+  molar_composition: z.union([
+    z.strictObject({
+      value: fractionMap,
+      status: z.literal('calculated'),
+      unit: z.literal('mol/mol'),
+    }),
+    z.strictObject({
+      value: z.null(),
+      status: z.literal('not_calculated'),
+      unit: z.literal('mol/mol'),
+    }),
+  ]),
+});
 const stateSchema = z.strictObject({
   component_mass_flow_kg_h: rates,
   mass_flow_kg_h: nonnegative,
@@ -141,7 +182,7 @@ const stateSchema = z.strictObject({
   pressure_Pa_abs: positive,
   enthalpy_flow_W: num,
 });
-export const resultsSchema = z.strictObject({
+const legacyResultsSchema = z.strictObject({
   schema_version: z.literal('1.0'),
   kind: z.literal('results'),
   case_id: id,
@@ -188,6 +229,13 @@ export const resultsSchema = z.strictObject({
     )
     .min(1),
 });
+export const resultsSchema = z.union([
+  legacyResultsSchema,
+  legacyResultsSchema.extend({
+    schema_version: z.literal('1.1'),
+    streams: z.record(id, stateSchema.extend({ properties: streamPropertiesSchema })),
+  }),
+]);
 export const validationResponseSchema = z.strictObject({
   requirements: requirementsSchema,
   validation: validationSchema,

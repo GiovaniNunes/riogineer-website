@@ -1050,6 +1050,13 @@ identity.
 Moving an equipment symbol without changing the engineering topology must
 not invalidate calculation results.
 
+Milestone 3.1 adds engine-assigned engineering stream numbers alongside stable
+stream IDs. Source/destination owner and port identities remain in connections
+keyed by stream ID. The PFD and Engineering Stream Table view the same streams;
+results join by stable stream ID, never by labels, array order or geometry.
+Numbering is deterministic and independent of graphical layout. See
+MILESTONE_3_1.md for the traversal rule and flowsheet/results 1.1 compatibility.
+
 
 # 37. RESULTS CONTRACT
 
@@ -1168,6 +1175,13 @@ as stale and must never be presented as current results.
 # 42. FUTURE THERMODYNAMIC DIRECTION
 
 The current prescribed-recovery separator is a workflow-development model.
+
+The current architectural sequence is topology and stream identity first,
+rigorous thermodynamics later. Milestone 3.1 establishes numbered streams and
+an Engineering Stream Table without adding property estimates. Unsupported
+properties use null / not_calculated and display as “—”. Current composition
+is mass-based; future thermodynamic providers should enrich the same stable
+streams rather than redefine their identity or topology.
 
 A major future objective is to integrate appropriate thermodynamic models
 so that users can specify engineering information such as:
@@ -1607,7 +1621,9 @@ Current state:
 - rigorous three-phase thermodynamics not yet integrated into this workflow;
 - deterministic evidence anchoring and supported-topology normalization resolved;
 - first live end-to-end reference workflow manually demonstrated (Milestone 3);
-- explicit approval confirmation and validated PFD guidance implemented.
+- explicit approval confirmation and validated PFD guidance implemented;
+- numbered material streams and Engineering Stream Table implemented (Milestone 3.1);
+- unavailable stream properties explicitly represented; no new thermodynamics.
 
 
 # 62. IMMEDIATE NEXT STEP
@@ -1625,9 +1641,10 @@ Specification
 → Calculation
 → Verified Results
 
-Review customer feedback and define qualification criteria for an appropriate
-thermodynamic separator model as the next recommended development planning
-step. Broader equipment, process networks and graphical editing remain future
+Review Milestone 3.1 numbered stream documentation and customer feedback
+before defining any multi-equipment topology milestone. Preserve stable stream
+identity and plan thermodynamic model qualification separately; topology and
+stream identity come first, rigorous thermodynamics later. Broader equipment, process networks and graphical editing remain future
 work, not validated capability. Do not change the current engineering model
 or its regression basis without explicit scope and validation.
 

@@ -13,6 +13,7 @@ import {
   resultsAreCurrent,
 } from '@/lib/digital-engineer/workflow';
 import { Pfd } from './pfd';
+import { StreamTable } from './stream-table';
 import { SpecificationWorkspace } from './specification';
 import styles from './workspace.module.css';
 
@@ -187,6 +188,9 @@ export function EngineerWorkspace({ referenceText }: { referenceText: string }) 
               ? 'Requirements validated. Select Generate PFD to create the process flow diagram.'
               : 'Approve the requirements, then generate the PFD.'}
           </div>
+        )}
+        {state.flowsheet && (
+          <StreamTable flowsheet={state.flowsheet} results={current ? r : null} />
         )}
         <p>
           Display layout changes do not invalidate engineering results. Diagram editing is not

@@ -51,7 +51,7 @@ export function Pfd({ flowsheet }: { flowsheet: Flowsheet }) {
           const stream = flowsheet.streams.find((s) => s.id === c.stream_id)!;
           const mid = (a.x + b.x) / 2;
           return (
-            <g key={c.id}>
+            <g key={c.id} data-stream-id={stream.id}>
               <path
                 d={`M ${a.x} ${a.y} H ${mid} V ${b.y} H ${b.x}`}
                 fill="none"
@@ -59,8 +59,9 @@ export function Pfd({ flowsheet }: { flowsheet: Flowsheet }) {
                 strokeWidth="2"
                 markerEnd="url(#flow-arrow)"
               />
-              <text x={mid + 8} y={b.y - 9} fontSize="14">
-                {stream.id}
+              <text x={mid} y={b.y - 9} fontSize="14" textAnchor="middle">
+                {'engineering_number' in stream ? `${stream.engineering_number} · ` : ''}
+                {stream.service.toUpperCase()}
               </text>
             </g>
           );

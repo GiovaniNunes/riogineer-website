@@ -8,6 +8,7 @@ from pathlib import Path
 import uuid
 
 from jsonschema import Draft202012Validator
+from .streams import number_streams, unavailable_properties
 
 ROOT = Path(__file__).resolve().parents[2]
 FIXTURE = ROOT / 'engine/fixtures/treinamento-bia-110000'
@@ -122,7 +123,7 @@ def build_flowsheet(requirements):
     r = validated['requirements']
     unit = r['equipment'][0]
     source = r['feeds'][0]['id']
-    f = dict(schema_version='1.0', kind='flowsheet', case_id=r['case_id'], profile=r['profile'],
+    f = dict(schema_version='1.1', kind='flowsheet', case_id=r['case_id'], profile=r['profile'],
              units=r['units'], requirements_sha256=digest(r), components=r['components'],
              boundaries=[{'id': source, 'type': 'source', 'ports': [port('outlet', 'out')]}] +
                  [{'id': name + '_SINK', 'type': 'sink', 'ports': [port('inlet', 'in')]} for name in ('GAS', 'OIL', 'WATER')],
@@ -137,6 +138,7 @@ def build_flowsheet(requirements):
                    'target': {'owner_id': p.upper() + '_SINK', 'port_id': 'inlet'}} for p in ('gas', 'oil', 'water')],
              solver={'method': 'single_pass'}, calculation={'status': 'not_run', 'input_sha256': None},
              validation=validated['validation'], presentation={'layout': 'wide'})
+    number_streams(f['streams'], f['connections'], [source])
     validate_flowsheet(f)
     f['calculation']['input_sha256'] = semantic_hash(f)
     return f
@@ -159,6 +161,9 @@ def validate_flowsheet(f):
         raise Invalid('Four unique feed/gas/oil/water streams required')
     if len({c['id'] for c in f['connections']}) != 4 or {c['stream_id'] for c in f['connections']} != set(streams):
         raise Invalid('Exactly one unique connection per stream required')
+    if f['schema_version'] == '1.1':
+        numbers = [s['engineering_number'] for s in f['streams']]
+        if len(set(numbers)) != len(numbers): raise Invalid('Engineering stream numbers must be unique')
     unit = f['equipment'][0]
     used_sinks = set()
     for c in f['connections']:
@@ -197,10 +202,11 @@ def calculate(f):
         raise Invalid('Reference calculation failed: ' + str(error), code='CALCULATION_FAILED') from error
     if not result['checks_passed']:
         raise Invalid('Reference balance checks failed', code='CALCULATION_FAILED')
-    streams = {s['id']: result['streams']['FEED' if s['service'] == 'feed' else s['service'].upper()] for s in f['streams']}
+    streams = {s['id']: {**result['streams']['FEED' if s['service'] == 'feed' else s['service'].upper()],
+                         'properties': unavailable_properties()} for s in f['streams']}
     total_residual = sum(result['component_mass_residual_kg_h'].values())
     total_tolerance = len(f['components']) * 1e-8
-    output = dict(schema_version='1.0', kind='results', case_id=f['case_id'], run_id=str(uuid.uuid4()),
+    output = dict(schema_version='1.1', kind='results', case_id=f['case_id'], run_id=str(uuid.uuid4()),
         input_sha256=semantic_hash(f), requirements_sha256=f['requirements_sha256'],
         engine={'version': '1.0.0', 'implementation_sha256': implementation_hash(), 'evaluator_sha256': EVALUATOR_HASH, 'model': MODEL},
         status='completed', units=f['units'], streams=streams,
