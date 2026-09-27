@@ -312,3 +312,35 @@ The browser regression checks each request and response, stored artifacts, all s
 Files changed for this correction: `src/lib/digital-engineer/workflow.ts`, `tests/engineering-workflow.test.ts`, `tests/e2e/network.spec.ts`, and `MILESTONE_4.md`. No contracts, reference identifiers, reference values, Python code, numerical models, graph scheduling, stream numbering, evidence anchoring or interpretation code changed.
 
 Case-transition correction validation: **186 TypeScript tests in 14 files, 38 Python tests, and 22 browser tests passed**. Contract parity, ESLint, type checking, repository/document formatting and whitespace checks passed. Production build passed with 41 static pages; smoke passed 17 pages, 17 PNG social cards, internal links, 404s, preview indexing and disabled contact delivery. Original Bia snapshots and both reference numerical results remain unchanged. Temporary validation servers were stopped. Live-provider calls: **0**.
+
+## Final deterministic manual browser validation — 2026-09-27
+
+The final deterministic manual browser validation of Milestone 4 was **successfully completed on 2026-09-27**, as confirmed by the user. This records a human-operated browser validation, separately from the automated unit, integration and browser test coverage reported above. No live-provider call was made for this documentation update.
+
+The manually validated workflow was:
+
+**Load Milestone 4 reference → Validate requirements → Generate PFD → Run engineering calculation**.
+
+The final browser state confirmed successful execution of the multi-equipment topology in deterministic order **SEP_1 → SPLIT_1 → MIX_1**. Seven material streams were present, and both the PFD and Engineering Stream Table represented the Milestone 4 multi-equipment case.
+
+| Stream ID   | Total mass flow (kg/h) |
+| ----------- | ---------------------: |
+| FEED        |                 110000 |
+| GAS         |                  22000 |
+| OIL         |                  77550 |
+| WATER       |                  10450 |
+| OIL_A       |                  46530 |
+| OIL_B       |                  31020 |
+| OIL_PRODUCT |                  77550 |
+
+The manually confirmed branch and recombined component flows were:
+
+| Stream ID   | n_hexane (kg/h) | water (kg/h) |
+| ----------- | --------------: | -----------: |
+| OIL_A       |           46200 |          330 |
+| OIL_B       |           30800 |          220 |
+| OIL_PRODUCT |           77000 |          550 |
+
+All reference streams remained at **313.15 K** and **2000000 Pa absolute**. Mass-balance checks passed, with zero component and network mass residuals. Energy accounting passed within the documented restricted constant-Cp development model, with **network duty = 0 W**. Unsupported properties remained `not_calculated` and displayed as **—**.
+
+The previously observed mixed-case display was diagnosed as stale prior-case results retained in the UI, not an Engineering Engine case replacement. That defect was corrected before this successful manual test, as described in the case-transition diagnosis above.
