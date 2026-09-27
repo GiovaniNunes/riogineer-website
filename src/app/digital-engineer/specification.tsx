@@ -528,13 +528,17 @@ export function SpecificationWorkspace({ onInvalidate, onApproved }: Props) {
               ))}
             </ul>
           ) : (
-            <p>Review complete. Approval will run mandatory deterministic validation.</p>
+            <p aria-live="polite" className={approved ? styles.status : undefined}>
+              {approved
+                ? 'Requirements approved and deterministically validated. Next: Generate PFD below.'
+                : 'Review complete. Approval will run mandatory deterministic validation.'}
+            </p>
           )}
           <button
             disabled={busy || approved || pending.length > 0}
             onClick={() => void submit('approve-requirements')}
           >
-            Approve requirements
+            {approved ? 'Requirements approved' : 'Approve requirements'}
           </button>
         </section>
       )}

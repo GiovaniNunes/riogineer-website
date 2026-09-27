@@ -182,7 +182,11 @@ export function EngineerWorkspace({ referenceText }: { referenceText: string }) 
             <Pfd flowsheet={state.flowsheet} />
           </div>
         ) : (
-          <div className={styles.empty}>Approve the requirements, then generate the PFD.</div>
+          <div className={styles.empty}>
+            {state.validated
+              ? 'Requirements validated. Select Generate PFD to create the process flow diagram.'
+              : 'Approve the requirements, then generate the PFD.'}
+          </div>
         )}
         <p>
           Display layout changes do not invalidate engineering results. Diagram editing is not

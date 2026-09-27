@@ -802,9 +802,9 @@ a configured live provider using non-confidential reference cases.
 
 ---
 
-# 27. CURRENT EVIDENCE-ANCHORING ISSUE
+# 27. RESOLVED EVIDENCE-ANCHORING ISSUE
 
-Current active development issue:
+Former live-provider failure, now resolved through deterministic anchoring:
 
     excerpt_not_exact
 
@@ -818,7 +818,7 @@ Observed diagnostic example:
     field: components
     reason: excerpt_not_exact
 
-The architectural correction being pursued is:
+The implemented architectural correction is:
 
 - preserve original source exactly;
 - treat provider evidence as a locator/candidate;
@@ -827,8 +827,8 @@ The architectural correction being pursued is:
 - tolerate only non-semantic formatting differences during location;
 - reject ambiguous or engineering-inconsistent matches.
 
-This issue must be resolved before proceeding to the complete end-to-end
-engineering calculation demonstration.
+This correction has been regression-tested and the complete live end-to-end
+reference demonstration has now been manually completed (see MILESTONE_3.md).
 
 ---
 
@@ -1424,8 +1424,9 @@ Do not describe planned functionality as already operational.
 
 The immediate priority is NOT broader equipment support.
 
-The immediate priority is to complete a reliable end-to-end reference
-workflow:
+The first live end-to-end reference workflow has been manually demonstrated.
+The immediate priority is to preserve its reliability and clear approval
+feedback:
 
 Natural-language specification
         ↓
@@ -1446,10 +1447,10 @@ Verified results
 using the Treinamento Bia three-phase separator reference case.
 
 
-# 55. CURRENT ACTIVE ISSUE
+# 55. RESOLVED INTERPRETATION ISSUES
 
-At the time of this document update, the active technical issue is robust
-source-evidence anchoring for live LLM interpretation.
+Source-evidence anchoring and supported-topology normalization are resolved
+issues, retained here as engineering and architecture lessons.
 
 A real provider may return an evidence excerpt that is semantically correct
 but differs from the original source in:
@@ -1460,7 +1461,7 @@ but differs from the original source in:
 - dash characters;
 - punctuation.
 
-The application should use provider evidence as a locator and anchor it
+The application uses provider evidence as a locator and anchors it
 deterministically to the original source.
 
 The authoritative stored evidence must be the original source substring.
@@ -1470,40 +1471,40 @@ Engineering values, units and identities must remain strictly protected.
 Ambiguous evidence must not be silently accepted.
 
 
-# 56. NEXT VALIDATION TARGET
+# 56. COMPLETED LIVE END-TO-END VALIDATION
 
-After evidence anchoring is corrected, repeat the complete Treinamento Bia
-specification through the live LLM provider.
+The user manually completed the full Treinamento Bia specification through
+the live LLM provider and web interface, including human review, explicit
+approval of development-model assumptions, mandatory deterministic requirements
+validation, structured flowsheet generation, read-only PFD and Python calculation.
 
-Expected interpretation should populate all explicit engineering inputs.
+Interpretation completed without missing information, ambiguities, conflicts
+or false unsupported-capability warnings. Supported natural-language topology
+is normalized locally to one feed, one three-phase separator and gas/oil/water
+outlets; extra feeds, equipment, recycles and unsupported outlets remain blocked.
 
-After human approval:
-
-Generate PFD.
-
-Then run the deterministic engineering calculation.
-
-Expected results:
+Manually observed results:
 
     FEED  = 110,000 kg/h
     GAS   = 22,000 kg/h
     OIL   = 77,550 kg/h
     WATER = 10,450 kg/h
 
-Expected reference separator duty:
+Separator duty was 0 W. Component mass-balance checks passed; total
+mass-balance residual was 0. The energy-balance check passed with residual 0 W.
 
-    0 W
+This is the first complete live end-to-end Digital Engineer reference
+demonstration, using Prescribed Component Recoveries — Development Model
+and synthetic development assumptions, not I-ET or client data.
 
-The result should match the existing deterministic regression case.
-
-This constitutes the first complete live end-to-end Digital Engineer
-reference demonstration.
+See MILESTONE_3.md for the manual observations, separate automated coverage,
+reproducibility information and limitations.
 
 
 # 57. AFTER END-TO-END VALIDATION
 
-Only after the reference workflow is stable should development proceed
-toward major new capabilities.
+The first complete reference workflow has been demonstrated. Preserve its
+regression basis and review model qualification before major new capabilities.
 
 Recommended next areas include:
 
@@ -1604,17 +1605,17 @@ Current state:
 - graphical PFD editing not yet implemented;
 - broader equipment support not yet exposed through the web workflow;
 - rigorous three-phase thermodynamics not yet integrated into this workflow;
-- evidence anchoring for live-provider excerpts is the current active issue.
+- deterministic evidence anchoring and supported-topology normalization resolved;
+- first live end-to-end reference workflow manually demonstrated (Milestone 3);
+- explicit approval confirmation and validated PFD guidance implemented.
 
 
 # 62. IMMEDIATE NEXT STEP
 
-Resolve and validate deterministic evidence anchoring for live-provider
-interpretation.
+Preserve and reproduce the demonstrated live reference workflow documented
+in MILESTONE_3.md, including clear approval feedback and regression coverage.
 
-Then repeat the Treinamento Bia full natural-language specification.
-
-Do not proceed to broader functionality until the complete reference path:
+The complete reference path has now been demonstrated successfully:
 
 Specification
 → Interpretation
@@ -1624,7 +1625,11 @@ Specification
 → Calculation
 → Verified Results
 
-has been demonstrated successfully with the live provider.
+Review customer feedback and define qualification criteria for an appropriate
+thermodynamic separator model as the next recommended development planning
+step. Broader equipment, process networks and graphical editing remain future
+work, not validated capability. Do not change the current engineering model
+or its regression basis without explicit scope and validation.
 
 
 # 63. END OF MASTER CONTEXT

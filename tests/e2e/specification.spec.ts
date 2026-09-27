@@ -368,3 +368,75 @@ test('reported feed-to-separator sentence uses separate outlet evidence in unapp
   ).toBeDisabled();
   await expect(page.getByRole('button', { name: 'Generate PFD', exact: true })).toBeDisabled();
 });
+
+test('approval confirmation follows real validation and clears when review changes', async ({
+  page,
+}) => {
+  await page.goto('/digital-engineer');
+  await interpret(page, naturalFixture().draft);
+  await expect(
+    page.getByRole('button', { name: 'Approve requirements', exact: true }),
+  ).toBeDisabled();
+  await page.getByRole('checkbox', { name: /I approve use/ }).check();
+  const approval = page.waitForResponse((response) =>
+    response.url().endsWith('/approve-requirements'),
+  );
+  await page.getByRole('button', { name: 'Approve requirements', exact: true }).click();
+  expect((await approval).status()).toBe(200);
+  await expect(
+    page.getByText(
+      'Requirements approved and deterministically validated. Next: Generate PFD below.',
+      { exact: true },
+    ),
+  ).toBeVisible();
+  await expect(
+    page.getByRole('button', { name: 'Requirements approved', exact: true }),
+  ).toBeDisabled();
+  await expect(
+    page.getByText('Approve the requirements, then generate the PFD.', { exact: true }),
+  ).toHaveCount(0);
+  await expect(
+    page.getByText(
+      'Requirements validated. Select Generate PFD to create the process flow diagram.',
+      { exact: true },
+    ),
+  ).toBeVisible();
+  await expect(page.getByRole('button', { name: 'Generate PFD', exact: true })).toBeEnabled();
+  await page.getByRole('checkbox', { name: /I approve use/ }).uncheck();
+  await expect(
+    page.getByRole('button', { name: 'Requirements approved', exact: true }),
+  ).toHaveCount(0);
+  await expect(page.getByRole('button', { name: 'Generate PFD', exact: true })).toBeDisabled();
+  await expect(
+    page.getByText('Approve the requirements, then generate the PFD.', { exact: true }),
+  ).toBeVisible();
+});
+
+test('failed approval never displays success or enables PFD generation', async ({ page }) => {
+  await page.goto('/digital-engineer');
+  await interpret(page, naturalFixture().draft);
+  await page.route('**/api/digital-engineer/approve-requirements', (route) =>
+    route.fulfill({
+      status: 422,
+      json: {
+        error: {
+          code: 'VALIDATION_FAILED',
+          message: 'Deterministic validation failed.',
+          issues: [],
+        },
+      },
+    }),
+  );
+  await page.getByRole('checkbox', { name: /I approve use/ }).check();
+  await page.getByRole('button', { name: 'Approve requirements', exact: true }).click();
+  await expect(page.getByRole('alert', { name: 'Specification error' })).toContainText(
+    'Deterministic validation failed.',
+  );
+  await expect(
+    page.getByRole('button', { name: 'Requirements approved', exact: true }),
+  ).toHaveCount(0);
+  await expect(
+    page.getByRole('button', { name: 'Approve requirements', exact: true }),
+  ).toBeEnabled();
+  await expect(page.getByRole('button', { name: 'Generate PFD', exact: true })).toBeDisabled();
+});
