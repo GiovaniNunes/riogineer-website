@@ -17,7 +17,7 @@ export function streamColumns(flowsheet: Flowsheet, results: Results | null) {
       connection: flowsheet.connections.find((c) => c.stream_id === stream.id)!,
       result: current ? results?.streams[stream.id] : undefined,
       properties:
-        current && results?.schema_version === '1.1'
+        current && results && results.schema_version !== '1.0'
           ? results.streams[stream.id]?.properties
           : undefined,
     }));

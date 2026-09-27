@@ -16,11 +16,11 @@ component-key consistency, positive feed, recovery sums, pressure constraints,
 unique IDs, owned port directions and exact supported source/separator/sink
 topology. A schema-valid document is not necessarily engineering-valid.
 
-| Document | Purpose |
-| --- | --- |
-| `requirements.json` | Reference engineering data, units, component basis, source provenance, model/version and parameters |
-| `flowsheet.json` | Explicit nodes, ports, streams, directed connections, solver profile, validation and calculation status; independent presentation |
-| `results.json` | Immutable run values and provenance, source/model fingerprints, mass/energy checks, tolerances, warnings and unavailable calculations |
+| Document            | Purpose                                                                                                                               |
+| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
+| `requirements.json` | Reference engineering data, units, component basis, source provenance, model/version and parameters                                   |
+| `flowsheet.json`    | Explicit nodes, ports, streams, directed connections, solver profile, validation and calculation status; independent presentation     |
+| `results.json`      | Immutable run values and provenance, source/model fingerprints, mass/energy checks, tolerances, warnings and unavailable calculations |
 
 `examples/requirements.json` is the 110,000 kg/h reference transformed into this
 contract. Download flowsheet/results examples from the running workspace.
@@ -55,3 +55,23 @@ flowsheets remain accepted and legacy results remain readable. Stream numbering
 is assigned by the engine, never inferred by a frontend migration. Regenerate a
 legacy flowsheet to obtain numbers. See `MILESTONE_3_1.md` for the numbering rule,
 property semantics, fingerprint effects and compatibility limits.
+
+## Milestone 4: explicit acyclic graph versions
+
+Requirements **1.1** add the `acyclic_development` profile, explicit stream/connection
+and sink declarations, a common caloric basis, and registered splitter/mixer
+parameters alongside the unchanged separator model. Deterministic APIs accept
+both requirements branches; natural-language interpretation remains on 1.0.
+
+Flowsheets **1.2** preserve numbered stream identities and owner/port endpoints
+while allowing multiple registered equipment objects. `topological` execution
+rejects cycles and invalid/missing/occupied ports. Results **1.2** add execution
+order, model tolerances and equipment mass/energy checks. Network energy uses
+the existing constant-Cp basis with equal-condition mixing only; positive duty
+is explicitly `heat_into_network`, distinct from older separator-only results.
+
+Existing requirements 1.0 and flowsheet/results 1.0/1.1 branches retain their
+semantics. Single-separator builds/results remain 1.1. The new independent case
+is `examples/milestone-4-requirements.json`. See `MILESTONE_4.md` for all model
+limits, exact results, versioning and validation. No recycle or property package
+is enabled by these graph contracts.

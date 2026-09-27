@@ -106,6 +106,10 @@ def validate_parameters(components, feed, parameters):
 def validate_requirements(requirements):
     validate_schema('requirements', requirements)
     r = requirements
+    if r['schema_version'] == '1.1':
+        from .network import build
+        f = build(r)
+        return {'requirements': deepcopy(r), 'validation': f['validation']}
     reserved = {'GAS_SINK', 'OIL_SINK', 'WATER_SINK'}
     ids = [r['feeds'][0]['id'], r['equipment'][0]['id']]
     if len(set(ids)) != 2 or reserved.intersection(ids):
@@ -119,6 +123,10 @@ def port(name, direction):
 
 
 def build_flowsheet(requirements):
+    if isinstance(requirements, dict) and requirements.get('schema_version') == '1.1':
+        validate_schema('requirements', requirements)
+        from .network import build
+        return build(requirements)
     validated = validate_requirements(requirements)
     r = validated['requirements']
     unit = r['equipment'][0]
@@ -145,6 +153,10 @@ def build_flowsheet(requirements):
 
 
 def validate_flowsheet(f):
+    if isinstance(f, dict) and f.get('schema_version') == '1.2':
+        from .network import validate
+        validate(f)
+        return f
     validate_schema('flowsheet', f)
     nodes = f['boundaries'] + f['equipment']
     ids = [n['id'] for n in nodes]
@@ -192,6 +204,9 @@ def semantic_hash(f):
 
 
 def calculate(f):
+    if isinstance(f, dict) and f.get('schema_version') == '1.2':
+        from .network import calculate as calculate_network
+        return calculate_network(f)
     validate_flowsheet(f)
     p = f['equipment'][0]['operating_parameters']
     feed = next(s for s in f['streams'] if s['service'] == 'feed')['specified_state']

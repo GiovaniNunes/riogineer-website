@@ -1,8 +1,8 @@
 import {
-  requirementsSchema,
+  engineeringRequirementsSchema as requirementsSchema,
   flowsheetSchema,
   resultsSchema,
-  validationResponseSchema,
+  engineeringValidationResponseSchema as validationResponseSchema,
   errorSchema,
 } from './contracts';
 
@@ -130,7 +130,7 @@ export async function handleEngineeringRequest(
     // Legacy documents remain readable, but a new build must supply engine-owned numbers.
     if (
       operation === 'build-flowsheet' &&
-      flowsheetSchema.parse(parsed.data).schema_version !== '1.1'
+      flowsheetSchema.parse(parsed.data).schema_version === '1.0'
     )
       return error(
         502,

@@ -1,10 +1,10 @@
 'use client';
 import { useReducer } from 'react';
 import {
-  requirementsSchema,
+  engineeringRequirementsSchema as requirementsSchema,
   flowsheetSchema,
   resultsSchema,
-  validationResponseSchema,
+  engineeringValidationResponseSchema as validationResponseSchema,
   errorSchema,
 } from '@/lib/digital-engineer/contracts';
 import {
@@ -29,7 +29,13 @@ function download(name: string, value: unknown) {
 }
 const number = (value: number) =>
   new Intl.NumberFormat('en-US', { maximumFractionDigits: 6 }).format(value);
-export function EngineerWorkspace({ referenceText }: { referenceText: string }) {
+export function EngineerWorkspace({
+  referenceText,
+  networkReferenceText,
+}: {
+  referenceText: string;
+  networkReferenceText: string;
+}) {
   const [state, dispatch] = useReducer(workflowReducer, referenceText, initialWorkflow);
   const current = resultsAreCurrent(state);
   async function operate(operation: 'validate-requirements' | 'build-flowsheet' | 'calculate') {
@@ -95,7 +101,7 @@ export function EngineerWorkspace({ referenceText }: { referenceText: string }) 
       <details className={styles.panel}>
         <summary>Engineering data / Advanced</summary>
         <p>
-          Developer access to the approved Milestone 1 contracts and Bia regression reference.
+          Developer access to the Bia single-separator and Milestone 4 branch/merge references.
           Manual JSON validation is an advanced deterministic workflow, separate from specification
           approval.
         </p>
@@ -106,6 +112,10 @@ export function EngineerWorkspace({ referenceText }: { referenceText: string }) 
             The current Bia reference uses <strong>110,000 kg/h</strong>: methane 22,000, n-hexane
             77,000 and water 11,000. The historical 100,000 kg/h README basis is superseded for this
             workspace.
+          </p>
+          <p>
+            Milestone 4 adds an explicit 60/40 oil split and equal-condition recombination. This
+            deterministic reference does not expand natural-language interpretation support.
           </p>
           <label htmlFor="requirements">
             requirements.json — explicit units and development assumptions
@@ -134,6 +144,13 @@ export function EngineerWorkspace({ referenceText }: { referenceText: string }) 
             </button>
             <button
               className={styles.secondary}
+              disabled={state.busy}
+              onClick={() => dispatch({ type: 'edit', draft: networkReferenceText })}
+            >
+              Load Milestone 4 reference
+            </button>
+            <button
+              className={styles.secondary}
               disabled={!state.validated || state.busy}
               onClick={() => download('requirements.json', JSON.parse(state.draft))}
             >
@@ -150,8 +167,8 @@ export function EngineerWorkspace({ referenceText }: { referenceText: string }) 
         <span className={styles.eyebrow}>04–05 / PFD & simulation</span>
         <h2 id="pfd-section-title">Process flow diagram</h2>
         <p>
-          One feed source, one separator and three product sinks. The structured flowsheet controls
-          connections and calculation inputs.
+          The structured flowsheet controls equipment, material-stream connections and calculation
+          inputs.
         </p>
         <div className={styles.actions}>
           <button
@@ -316,8 +333,13 @@ export function EngineerWorkspace({ referenceText }: { referenceText: string }) 
                 Status: <strong>{r.balances.energy.status}</strong> within the constant-Cp model.
               </p>
               <p>
-                Calculated separator duty: <strong>{number(r.balances.energy.duty_W)} W</strong>{' '}
-                (positive into the separator).
+                {r.schema_version === '1.2'
+                  ? 'Calculated network duty: '
+                  : 'Calculated separator duty: '}
+                <strong>{number(r.balances.energy.duty_W)} W</strong>{' '}
+                {r.schema_version === '1.2'
+                  ? '(positive into the network).'
+                  : '(positive into the separator).'}
               </p>
               <p>
                 Residual: {r.balances.energy.residual_W.toExponential(3)} W; tolerance:{' '}
@@ -329,6 +351,43 @@ export function EngineerWorkspace({ referenceText }: { referenceText: string }) 
               </p>
             </div>
           </div>
+          {r.schema_version === '1.2' && (
+            <>
+              <h3>Equipment and branch/merge checks</h3>
+              <p>Execution order: {r.execution.equipment_order.join(' → ')}</p>
+              <div className={styles.tableWrap}>
+                <table aria-label="Equipment balance checks">
+                  <thead>
+                    <tr>
+                      <th>Equipment</th>
+                      <th>Total residual (kg/h)</th>
+                      <th>Component residuals (kg/h)</th>
+                      <th>Constant-Cp energy residual (W)</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {r.equipment.map((e) => (
+                      <tr key={e.id}>
+                        <th scope="row">{e.id}</th>
+                        <td>{number(e.mass_balance.total_residual_kg_h)}</td>
+                        <td>
+                          {Object.entries(e.mass_balance.component_residual_kg_h)
+                            .map(([c, v]) => `${c}: ${number(v)}`)
+                            .join('; ')}
+                        </td>
+                        <td>{number(e.energy_residual_W)}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+              <p>
+                Mixing is restricted to equal inlet temperature and pressure. Energy accounting uses
+                only the shared constant-Cp development basis; it is not a general plant
+                thermodynamic solution.
+              </p>
+            </>
+          )}
           <h3>Warnings and model limitations</h3>
           <ul>
             {r.warnings.map((w) => (

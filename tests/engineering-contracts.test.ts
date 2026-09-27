@@ -3,9 +3,10 @@ import { readFileSync } from 'node:fs';
 import { z } from 'zod';
 import {
   requirementsSchema,
+  engineeringRequirementsSchema,
   flowsheetSchema,
   resultsSchema,
-  validationResponseSchema,
+  engineeringValidationResponseSchema as validationResponseSchema,
   errorSchema,
 } from '../src/lib/digital-engineer/contracts';
 import {
@@ -16,7 +17,7 @@ import {
 describe('shared engineering contracts', () => {
   it('matches all committed Python JSON schemas', () => {
     for (const [name, schema] of Object.entries({
-      requirements: requirementsSchema,
+      requirements: engineeringRequirementsSchema,
       flowsheet: flowsheetSchema,
       results: resultsSchema,
       validation: validationResponseSchema,

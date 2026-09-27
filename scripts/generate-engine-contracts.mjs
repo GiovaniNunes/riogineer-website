@@ -1,10 +1,10 @@
 import { writeFileSync, readFileSync } from 'node:fs';
 import { z } from 'zod';
 import {
-  requirementsSchema,
+  engineeringRequirementsSchema as requirementsSchema,
   flowsheetSchema,
   resultsSchema,
-  validationResponseSchema,
+  engineeringValidationResponseSchema as validationResponseSchema,
   errorSchema,
 } from '../src/lib/digital-engineer/contracts.ts';
 

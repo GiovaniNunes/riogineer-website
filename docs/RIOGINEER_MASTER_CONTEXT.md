@@ -1058,6 +1058,13 @@ Numbering is deterministic and independent of graphical layout. See
 MILESTONE_3_1.md for the traversal rule and flowsheet/results 1.1 compatibility.
 
 
+Milestone 4 preserves this identity architecture for a deterministic acyclic
+separator/splitter/mixer network. Requirements 1.1 and flowsheet/results 1.2
+explicitly represent the graph; previous single-separator versions remain
+supported. Service names may repeat; stable IDs and stored engineering numbers
+remain distinct. See MILESTONE_4.md.
+
+
 # 37. RESULTS CONTRACT
 
 Engineering results should preserve:
@@ -1617,36 +1624,37 @@ Current state:
 - deterministic calculation implemented;
 - automated regression testing extensive;
 - graphical PFD editing not yet implemented;
-- broader equipment support not yet exposed through the web workflow;
+- broader facility equipment support remains outside the web workflow;
 - rigorous three-phase thermodynamics not yet integrated into this workflow;
 - deterministic evidence anchoring and supported-topology normalization resolved;
 - first live end-to-end reference workflow manually demonstrated (Milestone 3);
 - explicit approval confirmation and validated PFD guidance implemented;
 - numbered material streams and Engineering Stream Table implemented (Milestone 3.1);
-- unavailable stream properties explicitly represented; no new thermodynamics.
+- unavailable stream properties explicitly represented; no new thermodynamics;
+- Milestone 4 deterministic acyclic graph execution implemented for registered
+  three-phase separators, proportional splitters and equal-condition mixers;
+- seven-stream 60/40 branch/rejoin reference available in Engineering data / Advanced;
+- per-equipment and external material checks and scoped constant-Cp accounting;
+- natural-language interpretation still limited to the single-separator profile;
+- cycles, general thermal mixing and additional equipment remain unsupported.
 
 
 # 62. IMMEDIATE NEXT STEP
 
-Preserve and reproduce the demonstrated live reference workflow documented
-in MILESTONE_3.md, including clear approval feedback and regression coverage.
+Preserve both independent deterministic references: the Milestone 3/3.1 Bia
+single separator and the Milestone 4 acyclic separator → 60/40 splitter →
+equal-condition mixer network. Review numbered internal streams, balances and
+PFD/Stream Table consistency with engineering users. See MILESTONE_4.md for
+contracts, exact results, model tolerances and validation.
 
-The complete reference path has now been demonstrated successfully:
+The live specification → review/approval workflow remains scoped to a single
+separator. Milestone 4 is an explicit deterministic Advanced reference and does
+not broaden LLM interpretation, evidence anchoring or topology normalization.
 
-Specification
-→ Interpretation
-→ Review
-→ Approval
-→ PFD
-→ Calculation
-→ Verified Results
-
-Review Milestone 3.1 numbered stream documentation and customer feedback
-before defining any multi-equipment topology milestone. Preserve stable stream
-identity and plan thermodynamic model qualification separately; topology and
-stream identity come first, rigorous thermodynamics later. Broader equipment, process networks and graphical editing remain future
-work, not validated capability. Do not change the current engineering model
-or its regression basis without explicit scope and validation.
+Do not proceed automatically to recycle convergence, additional equipment or
+full Flowsheet 03 migration. A future dedicated milestone may qualify one
+analytically testable recycle. Topology and stable stream identity come first;
+rigorous EOS-based thermodynamics requires separate qualification and scope.
 
 
 # 63. END OF MASTER CONTEXT

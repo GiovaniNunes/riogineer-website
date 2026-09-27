@@ -133,9 +133,86 @@ const legacyFlowsheetSchema = z.strictObject({
   validation: validationSchema,
   presentation: z.strictObject({ layout: z.enum(['wide', 'compact']) }),
 });
-// v1.0 remains readable; new engine-built flowsheets explicitly use v1.1.
+const splitterModel = z.strictObject({
+  id: z.literal('proportional_split'),
+  version: z.literal('1.0'),
+});
+const mixerModel = z.strictObject({
+  id: z.literal('equal_condition_mix'),
+  version: z.literal('1.0'),
+});
+const graphModel = z.strictObject({
+  id: z.literal('acyclic_component_conservation'),
+  version: z.literal('1.0'),
+});
+const graphEquipmentInput = z.discriminatedUnion('type', [
+  requirementsSchema.shape.equipment.element,
+  z.strictObject({
+    id,
+    type: z.literal('splitter'),
+    model: splitterModel,
+    parameters: z.strictObject({
+      fractions: z.strictObject({ outlet_a: nonnegative, outlet_b: nonnegative }),
+    }),
+  }),
+  z.strictObject({
+    id,
+    type: z.literal('mixer'),
+    model: mixerModel,
+    parameters: z.strictObject({}),
+  }),
+]);
+const graphStreams = z
+  .array(z.strictObject({ id, service: z.string().min(1).max(80) }))
+  .min(1)
+  .max(200);
+const graphConnections = z.array(legacyFlowsheetSchema.shape.connections.element).min(1).max(200);
+export const networkRequirementsSchema = requirementsSchema.extend({
+  schema_version: z.literal('1.1'),
+  profile: z.literal('acyclic_development'),
+  feeds: z.array(requirementsSchema.shape.feeds.element).min(1).max(50),
+  equipment: z.array(graphEquipmentInput).min(1).max(50),
+  sinks: z.array(z.strictObject({ id })).min(1).max(100),
+  streams: graphStreams,
+  connections: graphConnections,
+  caloric_model: parametersSchema.shape.caloric_model,
+});
+// Interpretation stays on requirementsSchema (1.0); deterministic API accepts both.
+export const engineeringRequirementsSchema = z.union([
+  requirementsSchema,
+  networkRequirementsSchema,
+]);
+const graphEquipment = z.discriminatedUnion('type', [
+  graphEquipmentInput.options[0]
+    .omit({ parameters: true })
+    .extend({ ports: z.array(portSchema), operating_parameters: parametersSchema }),
+  graphEquipmentInput.options[1].omit({ parameters: true }).extend({
+    ports: z.array(portSchema),
+    operating_parameters: graphEquipmentInput.options[1].shape.parameters,
+  }),
+  graphEquipmentInput.options[2].omit({ parameters: true }).extend({
+    ports: z.array(portSchema),
+    operating_parameters: graphEquipmentInput.options[2].shape.parameters,
+  }),
+]);
+const numberedStream = legacyFlowsheetSchema.shape.streams.element.extend({
+  service: z.string().min(1).max(80),
+  engineering_number: z.number().int().positive().max(Number.MAX_SAFE_INTEGER),
+});
+const networkFlowsheetSchema = legacyFlowsheetSchema.extend({
+  schema_version: z.literal('1.2'),
+  profile: z.literal('acyclic_development'),
+  boundaries: z.array(legacyFlowsheetSchema.shape.boundaries.element).min(2).max(150),
+  equipment: z.array(graphEquipment).min(1).max(50),
+  streams: z.array(numberedStream).min(1).max(200),
+  connections: graphConnections,
+  solver: z.strictObject({ method: z.literal('topological') }),
+  caloric_model: parametersSchema.shape.caloric_model,
+});
+// Legacy 1.0/1.1 readers remain unchanged; graph builds explicitly use 1.2.
 export const flowsheetSchema = z.union([
   legacyFlowsheetSchema,
+  networkFlowsheetSchema,
   legacyFlowsheetSchema.extend({
     schema_version: z.literal('1.1'),
     streams: z
@@ -229,7 +306,44 @@ const legacyResultsSchema = z.strictObject({
     )
     .min(1),
 });
+const networkResultsSchema = legacyResultsSchema.extend({
+  schema_version: z.literal('1.2'),
+  engine: legacyResultsSchema.shape.engine.extend({
+    version: z.literal('1.1.0'),
+    model: graphModel,
+  }),
+  streams: z.record(id, stateSchema.extend({ properties: streamPropertiesSchema })),
+  equipment: z
+    .array(
+      z.strictObject({
+        id,
+        type: z.enum(['three_phase_separator', 'splitter', 'mixer']),
+        model: z.union([modelSchema, splitterModel, mixerModel]),
+        duty_W: num,
+        work_W: num,
+        mass_balance: legacyResultsSchema.shape.balances.shape.mass,
+        energy_residual_W: num,
+      }),
+    )
+    .min(1)
+    .max(50),
+  balances: legacyResultsSchema.shape.balances.extend({
+    energy: legacyResultsSchema.shape.balances.shape.energy.extend({
+      positive_duty: z.literal('heat_into_network'),
+    }),
+  }),
+  execution: z.strictObject({
+    method: z.literal('topological'),
+    equipment_order: z.array(id).min(1),
+  }),
+  model_tolerances: z.strictObject({
+    split_fraction: positive,
+    mixer_temperature_K: positive,
+    mixer_pressure_Pa: positive,
+  }),
+});
 export const resultsSchema = z.union([
+  networkResultsSchema,
   legacyResultsSchema,
   legacyResultsSchema.extend({
     schema_version: z.literal('1.1'),
@@ -239,6 +353,9 @@ export const resultsSchema = z.union([
 export const validationResponseSchema = z.strictObject({
   requirements: requirementsSchema,
   validation: validationSchema,
+});
+export const engineeringValidationResponseSchema = validationResponseSchema.extend({
+  requirements: engineeringRequirementsSchema,
 });
 export const errorSchema = z.strictObject({
   error: z.strictObject({ code: z.string(), message: z.string(), issues: z.array(messageSchema) }),

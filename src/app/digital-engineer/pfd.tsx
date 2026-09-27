@@ -1,6 +1,8 @@
 import type { Flowsheet } from '@/lib/digital-engineer/contracts';
+import { graphLayout } from '@/lib/digital-engineer/pfd-layout';
 import { streamLabel } from '@/lib/digital-engineer/stream-label';
 export function Pfd({ flowsheet }: { flowsheet: Flowsheet }) {
+  if (flowsheet.schema_version === '1.2') return <NetworkPfd flowsheet={flowsheet} />;
   const nodes = [...flowsheet.boundaries, ...flowsheet.equipment];
   const sinks = flowsheet.boundaries.filter((n) => n.type === 'sink');
   const positions = Object.fromEntries(
@@ -92,6 +94,85 @@ export function Pfd({ flowsheet }: { flowsheet: Flowsheet }) {
       </svg>
       <figcaption>
         Read-only PFD · Generated from flowsheet.json · Ports: inlet, gas, oil, water
+      </figcaption>
+    </figure>
+  );
+}
+
+function NetworkPfd({ flowsheet }: { flowsheet: Flowsheet }) {
+  const { nodes, positions, point, width, height } = graphLayout(flowsheet);
+  return (
+    <figure
+      aria-label="Read-only process flow diagram"
+      style={{ overflowX: 'auto', marginInline: 0 }}
+    >
+      <svg
+        viewBox={`0 0 ${width} ${height}`}
+        style={{ minWidth: 1100 }}
+        role="img"
+        aria-labelledby="network-pfd-title"
+      >
+        <title id="network-pfd-title">Multi-equipment PFD</title>
+        <defs>
+          <marker
+            id="network-flow-arrow"
+            viewBox="0 0 10 10"
+            refX="9"
+            refY="5"
+            markerWidth="6"
+            markerHeight="6"
+            orient="auto-start-reverse"
+          >
+            <path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor" />
+          </marker>
+        </defs>
+        {flowsheet.connections.map((c) => {
+          const a = point(c.source.owner_id, c.source.port_id),
+            b = point(c.target.owner_id, c.target.port_id);
+          const mid = (a.x + b.x) / 2;
+          const stream = flowsheet.streams.find((s) => s.id === c.stream_id)!;
+          return (
+            <g key={c.id} data-stream-id={stream.id}>
+              <path
+                d={`M ${a.x} ${a.y} H ${mid} V ${b.y} H ${b.x}`}
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                markerEnd="url(#network-flow-arrow)"
+              />
+              <text x={(mid + b.x) / 2} y={b.y - 10} textAnchor="middle" fontSize="13">
+                {streamLabel(stream)}
+              </text>
+            </g>
+          );
+        })}
+        {nodes.map((node) => {
+          const p = positions.get(node.id)!;
+          return (
+            <g key={node.id} data-equipment-id={node.id}>
+              <rect
+                x={p.x}
+                y={p.y}
+                width="160"
+                height="90"
+                rx={node.type === 'three_phase_separator' ? 25 : 6}
+                fill="var(--color-surface)"
+                stroke="currentColor"
+                strokeWidth="2"
+              />
+              <text x={p.x + 80} y={p.y + 37} textAnchor="middle" fontSize="16" fontWeight="bold">
+                {node.id}
+              </text>
+              <text x={p.x + 80} y={p.y + 60} textAnchor="middle" fontSize="11">
+                {node.type.replaceAll('_', ' ')}
+              </text>
+            </g>
+          );
+        })}
+      </svg>
+      <figcaption>
+        Read-only PFD · Numbered material streams and ports from the structured flowsheet · Scroll
+        horizontally if needed
       </figcaption>
     </figure>
   );

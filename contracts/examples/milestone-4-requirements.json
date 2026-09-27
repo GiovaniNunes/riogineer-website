@@ -1,0 +1,236 @@
+{
+  "schema_version": "1.1",
+  "kind": "requirements",
+  "case_id": "MILESTONE_4_BRANCH_MERGE",
+  "profile": "acyclic_development",
+  "units": {
+    "temperature": "K",
+    "pressure": "Pa_abs",
+    "component_mass_flow": "kg/h",
+    "heat_capacity": "J/(kg K)",
+    "duty": "W",
+    "recovery": "mass_fraction"
+  },
+  "provenance": {
+    "source": "Milestone 4 deterministic branch/merge reference; Bia feed and unchanged separator development assumptions",
+    "basis": "synthetic_development_assumptions"
+  },
+  "components": ["methane", "n_hexane", "water"],
+  "feeds": [
+    {
+      "id": "FEED",
+      "state": {
+        "temperature_K": 313.15,
+        "pressure_Pa_abs": 2000000,
+        "component_mass_flow_kg_h": {
+          "methane": 22000,
+          "n_hexane": 77000,
+          "water": 11000
+        }
+      }
+    }
+  ],
+  "equipment": [
+    {
+      "id": "SEP_1",
+      "type": "three_phase_separator",
+      "model": {
+        "id": "prescribed_component_recoveries",
+        "version": "1.0"
+      },
+      "parameters": {
+        "separator": {
+          "pressure_Pa_abs": 2000000,
+          "temperature_K": 313.15,
+          "thermal_mode": "specified_temperature_calculate_duty"
+        },
+        "recovery_fractions": {
+          "methane": {
+            "gas": 1.0,
+            "oil": 0.0,
+            "water": 0.0
+          },
+          "n_hexane": {
+            "gas": 0.0,
+            "oil": 1.0,
+            "water": 0.0
+          },
+          "water": {
+            "gas": 0.0,
+            "oil": 0.05,
+            "water": 0.95
+          }
+        },
+        "caloric_model": {
+          "type": "constant_cp_no_pressure_or_phase_dependence",
+          "reference_temperature_K": 273.15,
+          "cp_J_kg_K": {
+            "methane": 2200,
+            "n_hexane": 2200,
+            "water": 4180
+          }
+        }
+      }
+    },
+    {
+      "id": "SPLIT_1",
+      "type": "splitter",
+      "model": {
+        "id": "proportional_split",
+        "version": "1.0"
+      },
+      "parameters": {
+        "fractions": {
+          "outlet_a": 0.6,
+          "outlet_b": 0.4
+        }
+      }
+    },
+    {
+      "id": "MIX_1",
+      "type": "mixer",
+      "model": {
+        "id": "equal_condition_mix",
+        "version": "1.0"
+      },
+      "parameters": {}
+    }
+  ],
+  "required_outputs": ["streams", "mass_balance", "energy_balance"],
+  "caloric_model": {
+    "type": "constant_cp_no_pressure_or_phase_dependence",
+    "reference_temperature_K": 273.15,
+    "cp_J_kg_K": {
+      "methane": 2200,
+      "n_hexane": 2200,
+      "water": 4180
+    }
+  },
+  "sinks": [
+    {
+      "id": "GAS_SINK"
+    },
+    {
+      "id": "WATER_SINK"
+    },
+    {
+      "id": "OIL_SINK"
+    }
+  ],
+  "streams": [
+    {
+      "id": "FEED",
+      "service": "feed"
+    },
+    {
+      "id": "GAS",
+      "service": "gas"
+    },
+    {
+      "id": "OIL",
+      "service": "oil"
+    },
+    {
+      "id": "WATER",
+      "service": "water"
+    },
+    {
+      "id": "OIL_A",
+      "service": "oil_a"
+    },
+    {
+      "id": "OIL_B",
+      "service": "oil_b"
+    },
+    {
+      "id": "OIL_PRODUCT",
+      "service": "oil"
+    }
+  ],
+  "connections": [
+    {
+      "id": "C_FEED",
+      "stream_id": "FEED",
+      "source": {
+        "owner_id": "FEED",
+        "port_id": "outlet"
+      },
+      "target": {
+        "owner_id": "SEP_1",
+        "port_id": "inlet"
+      }
+    },
+    {
+      "id": "C_GAS",
+      "stream_id": "GAS",
+      "source": {
+        "owner_id": "SEP_1",
+        "port_id": "gas"
+      },
+      "target": {
+        "owner_id": "GAS_SINK",
+        "port_id": "inlet"
+      }
+    },
+    {
+      "id": "C_OIL",
+      "stream_id": "OIL",
+      "source": {
+        "owner_id": "SEP_1",
+        "port_id": "oil"
+      },
+      "target": {
+        "owner_id": "SPLIT_1",
+        "port_id": "inlet"
+      }
+    },
+    {
+      "id": "C_WATER",
+      "stream_id": "WATER",
+      "source": {
+        "owner_id": "SEP_1",
+        "port_id": "water"
+      },
+      "target": {
+        "owner_id": "WATER_SINK",
+        "port_id": "inlet"
+      }
+    },
+    {
+      "id": "C_OIL_A",
+      "stream_id": "OIL_A",
+      "source": {
+        "owner_id": "SPLIT_1",
+        "port_id": "outlet_a"
+      },
+      "target": {
+        "owner_id": "MIX_1",
+        "port_id": "inlet_a"
+      }
+    },
+    {
+      "id": "C_OIL_B",
+      "stream_id": "OIL_B",
+      "source": {
+        "owner_id": "SPLIT_1",
+        "port_id": "outlet_b"
+      },
+      "target": {
+        "owner_id": "MIX_1",
+        "port_id": "inlet_b"
+      }
+    },
+    {
+      "id": "C_OIL_PRODUCT",
+      "stream_id": "OIL_PRODUCT",
+      "source": {
+        "owner_id": "MIX_1",
+        "port_id": "outlet"
+      },
+      "target": {
+        "owner_id": "OIL_SINK",
+        "port_id": "inlet"
+      }
+    }
+  ]
+}

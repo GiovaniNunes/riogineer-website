@@ -1,6 +1,7 @@
 import { PageIntro } from '@/components/page-intro';
 import { pageMetadata } from '@/lib/metadata';
 import reference from '../../../contracts/examples/requirements.json';
+import networkReference from '../../../contracts/examples/milestone-4-requirements.json';
 import { EngineerWorkspace } from './workspace';
 export const metadata = pageMetadata(
   'Digital Engineer',
@@ -16,7 +17,10 @@ export default function DigitalEngineer() {
         description="Interpret your technical specification, review the evidence and approve requirements before generating a PFD and running the Python engineering calculation."
         crumbs={[{ label: 'Digital Engineer', href: '/digital-engineer' }]}
       />
-      <EngineerWorkspace referenceText={JSON.stringify(reference, null, 2)} />
+      <EngineerWorkspace
+        referenceText={JSON.stringify(reference, null, 2)}
+        networkReferenceText={JSON.stringify(networkReference, null, 2)}
+      />
     </>
   );
 }
