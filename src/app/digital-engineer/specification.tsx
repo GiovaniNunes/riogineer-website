@@ -97,7 +97,7 @@ export function SpecificationWorkspace({ onInvalidate, onApproved }: Props) {
   const pending = draft ? blockers(draft, review) : [];
   const conflicts = draft
     ? [...Map.groupBy(draft.facts, factKey)].filter(([, facts]) =>
-        facts.some((fact) => !sameValue(fact, facts[0])),
+        facts.some((fact) => !sameValue(fact, facts[0], values.get('outputs'))),
       )
     : [];
   function correct(
@@ -124,7 +124,10 @@ export function SpecificationWorkspace({ onInvalidate, onApproved }: Props) {
         {fields.map((f) => {
           const key = factKey(f),
             originalValue = values.get(key);
-          const value = originalValue?.unit === 'text' ? normalize(originalValue) : originalValue;
+          const value =
+            originalValue?.unit === 'text'
+              ? normalize(originalValue, values.get('outputs'))
+              : originalValue;
           const numeric = unitsFor(f.field)[0] !== 'text';
           const missing = numeric && f.field !== 'total_flow' && isMissingValue(value);
           const unit = value?.unit || unitsFor(f.field)[0];

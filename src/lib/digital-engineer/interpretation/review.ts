@@ -1,3 +1,4 @@
+import { normalizeTopology, singleSeparatorTopology } from './topology';
 import { requirementsSchema, type Requirements } from '../contracts';
 import { componentIdentifier, registeredComponentIds } from './components';
 import { isExplicitScopeExclusion } from './scope';
@@ -15,7 +16,7 @@ import {
 export const capabilityManifest = {
   profile: 'single_separator_development',
   equipment: 'three_phase_separator',
-  topology: 'one_feed_one_separator_gas_oil_water',
+  topology: singleSeparatorTopology,
   outputs: 'gas, oil, water',
   model: 'prescribed_component_recoveries@1.0',
   required: [
@@ -59,11 +60,11 @@ export function supportedRequestedOutputs(value: Value['value']) {
   const ids = outputIds(value);
   return ids.length === supportedOutputs.length && supportedOutputs.every((id) => ids.includes(id));
 }
-export function normalize(f: Value): Value {
+export function normalize(f: Value, outputs?: Value): Value {
   if (f.component !== null) f = { ...f, component: componentIdentifier(f.component) };
   if (f.field === 'components' && f.unit === 'text' && typeof f.value === 'string')
     return { ...f, value: registeredComponentIds(f.value).join(', ') };
-  // Whole-phrase aliases only: never infer topology or drop unsupported equipment.
+  // Equipment aliases and the topology grammar preserve the registered capability scope.
   if (f.unit === 'text' && typeof f.value === 'string') {
     const wording = f.value.trim().toLowerCase();
     if (
@@ -76,16 +77,18 @@ export function normalize(f: Value): Value {
       ].includes(wording)
     )
       return { ...f, value: capabilityManifest.equipment };
-    if (
-      f.field === 'topology' &&
-      [
-        'one_feed_one_separator_gas_oil_water',
-        'one feed, one separator, gas, oil and water outlets',
-        'one feed, one separator, gas, oil, water outlets',
-        'uma alimentação, um separador, saídas de gás, óleo e água',
-      ].includes(wording)
-    )
-      return { ...f, value: capabilityManifest.topology };
+    if (f.field === 'topology')
+      return {
+        ...f,
+        value: normalizeTopology(
+          f.value,
+          outputs?.field === 'outputs' &&
+            outputs.unit === 'text' &&
+            typeof outputs.value === 'string'
+            ? outputs.value
+            : undefined,
+        ),
+      };
   }
   if (f.field === 'outputs' && f.unit === 'text')
     return supportedRequestedOutputs(f.value) ? { ...f, value: capabilityManifest.outputs } : f;
@@ -100,9 +103,9 @@ export function normalize(f: Value): Value {
   const c = conversions[f.unit];
   return c ? { ...f, value: f.value * c[0] + c[1], unit: c[2] } : f;
 }
-export function sameValue(a: Value, b: Value) {
-  const x = normalize(a),
-    y = normalize(b);
+export function sameValue(a: Value, b: Value, outputs?: Value) {
+  const x = normalize(a, outputs),
+    y = normalize(b, outputs);
   return x.value === y.value && x.unit === y.unit;
 }
 export function effectiveValues(draft: Draft, review: Review) {
@@ -190,7 +193,7 @@ export function blockers(draft: Draft, review: Review): string[] {
       errors.push(`${key}: specify an explicit supported unit; pressure must be absolute.`);
     if (v.unit !== 'text' && (typeof v.value !== 'number' || !Number.isFinite(v.value)))
       errors.push(`${key}: enter a finite number.`);
-    const n = normalize(v);
+    const n = normalize(v, values.get('outputs'));
     if (typeof n.value === 'number') {
       if (
         (f.field.includes('temperature') || f.field.includes('pressure') || f.field === 'cp') &&
@@ -209,7 +212,7 @@ export function blockers(draft: Draft, review: Review): string[] {
     errors.push('UNSUPPORTED CAPABILITY: equipment must be a three-phase separator.');
   if (
     !values.has('topology') ||
-    normalize(values.get('topology')!).value !== capabilityManifest.topology
+    normalize(values.get('topology')!, values.get('outputs')).value !== capabilityManifest.topology
   )
     errors.push(
       'UNSUPPORTED CAPABILITY: exactly one feed, one separator and gas/oil/water outlets are supported.',
@@ -220,7 +223,7 @@ export function blockers(draft: Draft, review: Review): string[] {
     );
   const groups = Map.groupBy(draft.facts, factKey);
   for (const [key, facts] of groups) {
-    if (facts.some((f) => !sameValue(f, facts[0]))) {
+    if (facts.some((f) => !sameValue(f, facts[0], values.get('outputs')))) {
       if (!review.corrections.some((c) => factKey(c) === key))
         errors.push(`CONFLICT DETECTED: ${key}. Select or replace the value explicitly.`);
       if (!review.resolutions[`conflict:${key}`]?.trim())
@@ -312,12 +315,15 @@ export function finalizeRequirements(
     status: 'user_reviewed',
     normalized_values: [...values.values()].map((v) => {
       const correction = review.corrections.find((c) => factKey(c) === factKey(v));
-      const fact = draft.facts.find((f) => factKey(f) === factKey(v) && sameValue(f, v));
-      const converted = v.unit !== normalize(v).unit;
-      const normalizedText = v.unit === 'text' && v.value !== normalize(v).value;
-      const mappedComponent = v.component !== normalize(v).component;
+      const fact = draft.facts.find(
+        (f) => factKey(f) === factKey(v) && sameValue(f, v, values.get('outputs')),
+      );
+      const converted = v.unit !== normalize(v, values.get('outputs')).unit;
+      const normalizedText =
+        v.unit === 'text' && v.value !== normalize(v, values.get('outputs')).value;
+      const mappedComponent = v.component !== normalize(v, values.get('outputs')).component;
       return {
-        ...normalize(v),
+        ...normalize(v, values.get('outputs')),
         origin:
           converted || normalizedText || mappedComponent
             ? 'derived'
@@ -339,7 +345,7 @@ export function finalizeRequirements(
           ? {
               component_mapping: {
                 source_name: v.component,
-                registered_id: normalize(v).component,
+                registered_id: normalize(v, values.get('outputs')).component,
               },
             }
           : {}),

@@ -346,3 +346,25 @@ test('natural component rows populate all 15 fields and exclusions require no ma
   expect(audit.interpretation.facts).toEqual(draft.facts);
   expect(audit.review.corrections).toEqual([]);
 });
+
+test('reported feed-to-separator sentence uses separate outlet evidence in unapproved review', async ({
+  page,
+}) => {
+  const { draft } = naturalFixture();
+  const topology = draft.facts.find((f) => f.field === 'topology')!;
+  topology.value = 'The process shall comprise one feed stream entering one three-phase separator.';
+  topology.evidence.excerpt = topology.value;
+  draft.facts.push({ ...topology, value: 'one feed -> one separator -> gas + oil + water' });
+  await page.goto('/digital-engineer');
+  await interpret(page, draft);
+  await expect(
+    page.getByRole('combobox', { name: 'Process connections', exact: true }),
+  ).toHaveValue('one_feed_one_separator_gas_oil_water');
+  await expect(page.getByText(/UNSUPPORTED CAPABILITY/)).toHaveCount(0);
+  await expect(page.getByLabel(/Resolution note for Process connections/)).toHaveCount(0);
+  await expect(page.getByRole('checkbox', { name: /I approve use/ })).not.toBeChecked();
+  await expect(
+    page.getByRole('button', { name: 'Approve requirements', exact: true }),
+  ).toBeDisabled();
+  await expect(page.getByRole('button', { name: 'Generate PFD', exact: true })).toBeDisabled();
+});
