@@ -1,0 +1,398 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "1.0"
+    },
+    "kind": {
+      "type": "string",
+      "const": "results"
+    },
+    "case_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,79}$"
+    },
+    "run_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "input_sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "requirements_sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "engine": {
+      "type": "object",
+      "properties": {
+        "version": {
+          "type": "string",
+          "const": "1.0.0"
+        },
+        "implementation_sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "evaluator_sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "model": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "const": "prescribed_component_recoveries"
+            },
+            "version": {
+              "type": "string",
+              "const": "1.0"
+            }
+          },
+          "required": [
+            "id",
+            "version"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "version",
+        "implementation_sha256",
+        "evaluator_sha256",
+        "model"
+      ],
+      "additionalProperties": false
+    },
+    "status": {
+      "type": "string",
+      "const": "completed"
+    },
+    "units": {
+      "type": "object",
+      "properties": {
+        "temperature": {
+          "type": "string",
+          "const": "K"
+        },
+        "pressure": {
+          "type": "string",
+          "const": "Pa_abs"
+        },
+        "component_mass_flow": {
+          "type": "string",
+          "const": "kg/h"
+        },
+        "heat_capacity": {
+          "type": "string",
+          "const": "J/(kg K)"
+        },
+        "duty": {
+          "type": "string",
+          "const": "W"
+        },
+        "recovery": {
+          "type": "string",
+          "const": "mass_fraction"
+        }
+      },
+      "required": [
+        "temperature",
+        "pressure",
+        "component_mass_flow",
+        "heat_capacity",
+        "duty",
+        "recovery"
+      ],
+      "additionalProperties": false
+    },
+    "streams": {
+      "type": "object",
+      "propertyNames": {
+        "type": "string",
+        "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,79}$"
+      },
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "component_mass_flow_kg_h": {
+            "type": "object",
+            "propertyNames": {
+              "type": "string",
+              "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,79}$"
+            },
+            "additionalProperties": {
+              "type": "number",
+              "minimum": 0
+            }
+          },
+          "mass_flow_kg_h": {
+            "type": "number",
+            "minimum": 0
+          },
+          "component_mass_fractions": {
+            "anyOf": [
+              {
+                "type": "object",
+                "propertyNames": {
+                  "type": "string",
+                  "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,79}$"
+                },
+                "additionalProperties": {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 1
+                }
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "temperature_K": {
+            "type": "number",
+            "exclusiveMinimum": 0
+          },
+          "pressure_Pa_abs": {
+            "type": "number",
+            "exclusiveMinimum": 0
+          },
+          "enthalpy_flow_W": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "component_mass_flow_kg_h",
+          "mass_flow_kg_h",
+          "component_mass_fractions",
+          "temperature_K",
+          "pressure_Pa_abs",
+          "enthalpy_flow_W"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "equipment": {
+      "minItems": 1,
+      "maxItems": 1,
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,79}$"
+          },
+          "model": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "const": "prescribed_component_recoveries"
+              },
+              "version": {
+                "type": "string",
+                "const": "1.0"
+              }
+            },
+            "required": [
+              "id",
+              "version"
+            ],
+            "additionalProperties": false
+          },
+          "separator_duty_W": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "id",
+          "model",
+          "separator_duty_W"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "balances": {
+      "type": "object",
+      "properties": {
+        "mass": {
+          "type": "object",
+          "properties": {
+            "status": {
+              "type": "string",
+              "enum": [
+                "passed",
+                "failed"
+              ]
+            },
+            "component_residual_kg_h": {
+              "type": "object",
+              "propertyNames": {
+                "type": "string",
+                "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,79}$"
+              },
+              "additionalProperties": {
+                "type": "number"
+              }
+            },
+            "total_residual_kg_h": {
+              "type": "number"
+            },
+            "component_tolerance_kg_h": {
+              "type": "number",
+              "exclusiveMinimum": 0
+            },
+            "total_tolerance_kg_h": {
+              "type": "number",
+              "exclusiveMinimum": 0
+            }
+          },
+          "required": [
+            "status",
+            "component_residual_kg_h",
+            "total_residual_kg_h",
+            "component_tolerance_kg_h",
+            "total_tolerance_kg_h"
+          ],
+          "additionalProperties": false
+        },
+        "energy": {
+          "type": "object",
+          "properties": {
+            "status": {
+              "type": "string",
+              "enum": [
+                "passed",
+                "failed"
+              ]
+            },
+            "residual_W": {
+              "type": "number"
+            },
+            "tolerance_W": {
+              "type": "number",
+              "exclusiveMinimum": 0
+            },
+            "duty_W": {
+              "type": "number"
+            },
+            "model": {
+              "type": "string",
+              "const": "constant_cp_no_pressure_or_phase_dependence"
+            },
+            "reference_temperature_K": {
+              "type": "number",
+              "exclusiveMinimum": 0
+            },
+            "positive_duty": {
+              "type": "string",
+              "const": "heat_into_separator"
+            }
+          },
+          "required": [
+            "status",
+            "residual_W",
+            "tolerance_W",
+            "duty_W",
+            "model",
+            "reference_temperature_K",
+            "positive_duty"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "mass",
+        "energy"
+      ],
+      "additionalProperties": false
+    },
+    "warnings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string"
+          },
+          "path": {
+            "type": "string"
+          },
+          "severity": {
+            "type": "string",
+            "enum": [
+              "error",
+              "warning"
+            ]
+          },
+          "message": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "code",
+          "path",
+          "severity",
+          "message"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "limitations": {
+      "minItems": 1,
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "unavailable": {
+      "minItems": 1,
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "calculation": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string",
+            "const": "not calculated"
+          },
+          "reason": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "calculation",
+          "status",
+          "reason"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": [
+    "schema_version",
+    "kind",
+    "case_id",
+    "run_id",
+    "input_sha256",
+    "requirements_sha256",
+    "engine",
+    "status",
+    "units",
+    "streams",
+    "equipment",
+    "balances",
+    "warnings",
+    "limitations",
+    "unavailable"
+  ],
+  "additionalProperties": false
+}

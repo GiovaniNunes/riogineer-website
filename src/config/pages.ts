@@ -32,4 +32,9 @@ export const pages = [
   },
   { path: '/contact', title: 'Contact', subtitle: 'Talk to our Digital Engineers.' },
   { path: '/articles', title: 'Technical Articles', subtitle: 'Engineering in detail.' },
+  {
+    path: '/digital-engineer',
+    title: 'Digital Engineer',
+    subtitle: 'Deterministic three-phase separator development workspace.',
+  },
 ] as const;

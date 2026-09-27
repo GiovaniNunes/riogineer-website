@@ -11,6 +11,8 @@ const withMDX = createMDX({
 });
 
 export default withMDX({
+  // Browser tests can run alongside the user's development server.
+  distDir: process.env.RIOGINEER_E2E === '1' ? '.next/e2e' : '.next',
   pageExtensions: ['js', 'jsx', 'mdx', 'ts', 'tsx'],
   poweredByHeader: false,
   async headers() {

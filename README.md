@@ -60,6 +60,16 @@ GitHub Actions runs dependency installation, tests, lint, type checks and the pr
 
 ## Documentation
 
+The **Digital Engineer specification and review** workspace is available at
+`/digital-engineer`. It requires the separate local Python service. See
+[engine/README.md](engine/README.md) for exact setup commands, API endpoints,
+reference comparisons, model limitations and tests, and
+[contracts/README.md](contracts/README.md) for the versioned data contracts.
+See [MILESTONE_2.md](MILESTONE_2.md) for PDF/text interpretation, provider configuration,
+mandatory review/approval, provenance, limits and exact local commands. Interpretation
+requires server-side provider configuration; no simulated interpretation is used.
+Existing corporate pages remain independent of the engine.
+
 - `DEVELOPMENT.md`: architecture, configuration, visual identity, contact security and validation.
 - `CONTENT_GUIDE.md`: authoring applications, demonstrations and articles.
 - `CONTENT_REQUIRED.md`: outstanding information and release configuration.

@@ -1,0 +1,81 @@
+{
+  "case_id": "THREE_PHASE_SEPARATOR_DEV_001",
+  "case_version": "1.0",
+  "mode": "prescribed_component_recoveries",
+  "status": "prescribed_recovery_surrogate_not_equilibrium",
+  "streams": {
+    "FEED": {
+      "component_mass_flow_kg_h": {
+        "methane": 22000,
+        "n_hexane": 77000,
+        "water": 11000
+      },
+      "mass_flow_kg_h": 110000,
+      "component_mass_fractions": {
+        "methane": 0.2,
+        "n_hexane": 0.7,
+        "water": 0.1
+      },
+      "temperature_K": 313.15,
+      "pressure_Pa_abs": 2000000,
+      "enthalpy_flow_W": 2930888.888888889
+    },
+    "GAS": {
+      "component_mass_flow_kg_h": {
+        "methane": 22000.0,
+        "n_hexane": 0.0,
+        "water": 0.0
+      },
+      "mass_flow_kg_h": 22000.0,
+      "component_mass_fractions": {
+        "methane": 1.0,
+        "n_hexane": 0.0,
+        "water": 0.0
+      },
+      "temperature_K": 313.15,
+      "pressure_Pa_abs": 2000000,
+      "enthalpy_flow_W": 537777.7777777778
+    },
+    "OIL": {
+      "component_mass_flow_kg_h": {
+        "methane": 0.0,
+        "n_hexane": 77000.0,
+        "water": 550.0
+      },
+      "mass_flow_kg_h": 77550.0,
+      "component_mass_fractions": {
+        "methane": 0.0,
+        "n_hexane": 0.9929078014184397,
+        "water": 0.0070921985815602835
+      },
+      "temperature_K": 313.15,
+      "pressure_Pa_abs": 2000000,
+      "enthalpy_flow_W": 1907766.6666666667
+    },
+    "WATER": {
+      "component_mass_flow_kg_h": {
+        "methane": 0.0,
+        "n_hexane": 0.0,
+        "water": 10450.0
+      },
+      "mass_flow_kg_h": 10450.0,
+      "component_mass_fractions": {
+        "methane": 0.0,
+        "n_hexane": 0.0,
+        "water": 1.0
+      },
+      "temperature_K": 313.15,
+      "pressure_Pa_abs": 2000000,
+      "enthalpy_flow_W": 485344.44444444444
+    }
+  },
+  "separator_duty_W": 0.0,
+  "component_mass_residual_kg_h": {
+    "methane": 0.0,
+    "n_hexane": 0.0,
+    "water": 0.0
+  },
+  "energy_residual_W": 0.0,
+  "checks_passed": true,
+  "input_sha256": "9102b6a505b3b4c6315b7797e5e2c744887fc0e13c55111adc155fdcbbe3ba32"
+}

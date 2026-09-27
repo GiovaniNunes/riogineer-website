@@ -18,6 +18,7 @@ const paths = [
   '/about',
   '/contact',
   '/articles',
+  '/digital-engineer',
 ];
 const titles = new Set();
 const imagePaths = new Set();

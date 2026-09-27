@@ -18,7 +18,10 @@
     "test": "vitest run",
     "smoke": "node scripts/smoke.mjs",
     "format": "prettier --write src content scripts tests *.json *.mjs *.ts README.md DEVELOPMENT.md CONTENT_GUIDE.md CONTENT_REQUIRED.md .github",
-    "format:check": "prettier --check src content scripts tests *.json *.mjs *.ts README.md DEVELOPMENT.md CONTENT_GUIDE.md CONTENT_REQUIRED.md .github"
+    "format:check": "prettier --check src content scripts tests *.json *.mjs *.ts README.md DEVELOPMENT.md CONTENT_GUIDE.md CONTENT_REQUIRED.md .github",
+    "contracts:generate": "node --experimental-strip-types scripts/generate-engine-contracts.mjs",
+    "contracts:check": "node --experimental-strip-types scripts/generate-engine-contracts.mjs --check",
+    "test:e2e": "playwright test"
   },
   "dependencies": {
     "@mdx-js/loader": "3.1.1",
@@ -33,6 +36,7 @@
     "zod": "4.6.5"
   },
   "devDependencies": {
+    "@playwright/test": "1.56.1",
     "@types/mdx": "2.0.14",
     "@types/node": "22.20.4",
     "@types/react": "19.3.0",

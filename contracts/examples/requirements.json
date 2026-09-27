@@ -1,0 +1,85 @@
+{
+  "schema_version": "1.0",
+  "kind": "requirements",
+  "case_id": "THREE_PHASE_SEPARATOR_DEV_001",
+  "profile": "single_separator_development",
+  "units": {
+    "temperature": "K",
+    "pressure": "Pa_abs",
+    "component_mass_flow": "kg/h",
+    "heat_capacity": "J/(kg K)",
+    "duty": "W",
+    "recovery": "mass_fraction"
+  },
+  "provenance": {
+    "source": "Treinamento Bia current 110,000 kg/h reference; snapshot 2026-09-27",
+    "basis": "synthetic_development_assumptions"
+  },
+  "components": [
+    "methane",
+    "n_hexane",
+    "water"
+  ],
+  "feeds": [
+    {
+      "id": "FEED_SOURCE",
+      "state": {
+        "temperature_K": 313.15,
+        "pressure_Pa_abs": 2000000,
+        "component_mass_flow_kg_h": {
+          "methane": 22000,
+          "n_hexane": 77000,
+          "water": 11000
+        }
+      }
+    }
+  ],
+  "equipment": [
+    {
+      "id": "SG-1223002",
+      "type": "three_phase_separator",
+      "model": {
+        "id": "prescribed_component_recoveries",
+        "version": "1.0"
+      },
+      "parameters": {
+        "separator": {
+          "pressure_Pa_abs": 2000000,
+          "temperature_K": 313.15,
+          "thermal_mode": "specified_temperature_calculate_duty"
+        },
+        "recovery_fractions": {
+          "methane": {
+            "gas": 1.0,
+            "oil": 0.0,
+            "water": 0.0
+          },
+          "n_hexane": {
+            "gas": 0.0,
+            "oil": 1.0,
+            "water": 0.0
+          },
+          "water": {
+            "gas": 0.0,
+            "oil": 0.05,
+            "water": 0.95
+          }
+        },
+        "caloric_model": {
+          "type": "constant_cp_no_pressure_or_phase_dependence",
+          "reference_temperature_K": 273.15,
+          "cp_J_kg_K": {
+            "methane": 2200,
+            "n_hexane": 2200,
+            "water": 4180
+          }
+        }
+      }
+    }
+  ],
+  "required_outputs": [
+    "streams",
+    "mass_balance",
+    "energy_balance"
+  ]
+}

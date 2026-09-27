@@ -10,4 +10,7 @@ coverage/
 npm-debug.log*
 src/generated/content-registry.ts
 .local/
+engine/.venv/
+__pycache__/
+.pytest_cache/
 src/generated/design-tokens.ts

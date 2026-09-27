@@ -1,0 +1,21 @@
+{
+  "captured_on": "2026-09-27",
+  "basis_kg_h": 110000,
+  "files": [
+    {
+      "file": "separator_inputs.json",
+      "source": "/Users/giovaninunes/Folders/FieldDesignCode/Simulation Repository/RioGineer/Treinamento Bia/separator_inputs.json",
+      "sha256": "037ecb59bb403874293e67d7947ef6b98a85c24725e9a68952a533a07e7c31c7"
+    },
+    {
+      "file": "separator_results.json",
+      "source": "/Users/giovaninunes/Folders/FieldDesignCode/Simulation Repository/RioGineer/Treinamento Bia/separator_results.json",
+      "sha256": "7f4c397894fdd1110b847a600499c847a4618fce150d0d948d6247d8c3918b66"
+    },
+    {
+      "file": "recovery_model.py",
+      "source": "/Users/giovaninunes/Folders/FieldDesignCode/Simulation Repository/RioGineer/riogineer/education/recovery_model.py",
+      "sha256": "5f572bd718fccacc8aeef7f9f809af1d0db4dc9816301ffed6dca467ecb4ac17"
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "case_id": "THREE_PHASE_SEPARATOR_DEV_001",
+  "equipment_id": "SG-1223002",
+  "mode": "prescribed_component_recoveries",
+  "provenance": "Synthetic development assumptions carried over from the previous example; not I-ET data.",
+  "feed": {
+    "temperature_K": 313.15,
+    "pressure_Pa_abs": 2000000,
+    "component_mass_flow_kg_h": {
+      "methane": 22000,
+      "n_hexane": 77000,
+      "water": 11000
+    }
+  },
+  "separator": {
+    "pressure_Pa_abs": 2000000,
+    "temperature_K": 313.15,
+    "thermal_mode": "specified_temperature_calculate_duty"
+  },
+  "recovery_fractions": {
+    "methane": {
+      "gas": 1.0,
+      "oil": 0.0,
+      "water": 0.0
+    },
+    "n_hexane": {
+      "gas": 0.0,
+      "oil": 1.0,
+      "water": 0.0
+    },
+    "water": {
+      "gas": 0.0,
+      "oil": 0.05,
+      "water": 0.95
+    }
+  },
+  "caloric_model": {
+    "type": "constant_cp_no_pressure_or_phase_dependence",
+    "reference_temperature_K": 273.15,
+    "cp_J_kg_K": {
+      "methane": 2200,
+      "n_hexane": 2200,
+      "water": 4180
+    }
+  },
+  "streams": {
+    "FEED": {
+      "target_port": "feed",
+      "state_role": "prescribed"
+    },
+    "GAS": {
+      "source_port": "gas",
+      "state_role": "calculated"
+    },
+    "OIL": {
+      "source_port": "oil",
+      "state_role": "calculated"
+    },
+    "WATER": {
+      "source_port": "water",
+      "state_role": "calculated"
+    }
+  },
+  "thermodynamic_upgrade": {
+    "enabled": false,
+    "requirement": "Distinct vapor, hydrocarbon-liquid and aqueous-liquid support plus supported caloric models; ordinary gas/liquid flash is insufficient for full three-phase equilibrium."
+  },
+  "case_version": "1.0",
+  "units": {
+    "temperature": "K",
+    "pressure": "Pa_abs",
+    "component_mass_flow": "kg/h",
+    "heat_capacity": "J/(kg K)",
+    "duty": "W",
+    "recovery": "mass_fraction"
+  }
+}
