@@ -1,3 +1,4 @@
+import { anchorEvidence } from './anchoring';
 import { randomUUID } from 'node:crypto';
 import {
   componentFields,
@@ -88,8 +89,20 @@ export function validateProviderEvidence(facts: Fact[], source: Source, sourceIn
     if (fact.evidence.source_type !== source.type) reasons.push('source_type_mismatch');
     const pages = source.pages.filter((page) => page.page === fact.evidence.page);
     if (!pages.length) reasons.push('page_not_found');
-    else if (!pages.some((page) => page.text.includes(fact.evidence.excerpt)))
-      reasons.push('excerpt_not_exact');
+    else if (pages.length !== 1) reasons.push('excerpt_ambiguous');
+    else {
+      const anchored = anchorEvidence(pages[0].text, fact.evidence.excerpt);
+      if ('reason' in anchored) reasons.push(anchored.reason);
+      else if (anchored.excerpt !== fact.evidence.excerpt) {
+        fact.evidence = {
+          ...fact.evidence,
+          provider_excerpt: fact.evidence.excerpt,
+          excerpt: anchored.excerpt,
+          source_start: anchored.start,
+          source_end: anchored.end,
+        };
+      }
+    }
     if (componentFields.includes(fact.field) !== (fact.component !== null))
       reasons.push('component_scope_mismatch');
     if (fact.origin === 'derived') reasons.push('derived_origin_forbidden');
@@ -118,14 +131,27 @@ export function validateIssueEvidence(
     const reasons: string[] = [];
     if (issue.evidence) {
       const evidence = issue.evidence;
+      const pages = source.pages.filter((page) => page.page === evidence.page);
+      const anchored = pages.length === 1 ? anchorEvidence(pages[0].text, evidence.excerpt) : null;
       if (
         evidence.source_id !== source.id ||
         evidence.source_type !== source.type ||
-        !source.pages.some(
-          (page) => page.page === evidence.page && page.text.includes(evidence.excerpt),
-        )
+        !anchored ||
+        'reason' in anchored
       )
-        reasons.push('issue_evidence_not_exact');
+        reasons.push(
+          anchored && 'reason' in anchored && anchored.reason === 'excerpt_ambiguous'
+            ? 'issue_evidence_ambiguous'
+            : 'issue_evidence_not_exact',
+        );
+      else if (anchored.excerpt !== evidence.excerpt)
+        issue.evidence = {
+          ...evidence,
+          provider_excerpt: evidence.excerpt,
+          excerpt: anchored.excerpt,
+          source_start: anchored.start,
+          source_end: anchored.end,
+        };
     }
     if (issue.kind === 'scope_exclusion' && !isExplicitScopeExclusion(issue.evidence?.excerpt))
       reasons.push('not_an_explicit_scope_exclusion');

@@ -70,6 +70,7 @@ export async function interpretSources(
       id: s.id,
       type: s.type,
       label: s.label,
+      pages: s.pages,
       sha256: createHash('sha256').update(JSON.stringify(s.pages)).digest('hex'),
     })),
     facts,

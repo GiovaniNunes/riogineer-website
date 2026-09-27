@@ -37,7 +37,10 @@ export const unitSchema = z.enum([
 export const evidenceSchema = z.strictObject({
   source_id: z.string().min(1).max(80),
   source_type: z.enum(['uploaded_document', 'user_text']),
-  excerpt: z.string().min(1).max(1200),
+  excerpt: z.string().min(1).max(60000),
+  provider_excerpt: z.string().min(1).max(1200).optional(),
+  source_start: z.number().int().nonnegative().optional(),
+  source_end: z.number().int().positive().optional(),
   page: z.number().int().positive().nullable(),
 });
 export const factSchema = z.strictObject({
@@ -64,9 +67,12 @@ export const issueSchema = z
     path: ['evidence'],
     message: 'A scope exclusion requires source evidence.',
   });
+const providerEvidenceSchema = evidenceSchema
+  .omit({ provider_excerpt: true, source_start: true, source_end: true })
+  .extend({ excerpt: z.string().min(1).max(1200) });
 export const interpretationSchema = z.strictObject({
-  facts: z.array(factSchema).max(500),
-  issues: z.array(issueSchema).max(100),
+  facts: z.array(factSchema.extend({ evidence: providerEvidenceSchema })).max(500),
+  issues: z.array(issueSchema.safeExtend({ evidence: providerEvidenceSchema.optional() })).max(100),
 });
 export const sourceSchema = z.strictObject({
   id: z.string().min(1).max(80),
@@ -90,6 +96,7 @@ export const draftSchema = z.strictObject({
         type: z.enum(['uploaded_document', 'user_text']),
         label: z.string(),
         sha256: z.string(),
+        pages: sourceSchema.shape.pages.optional(),
       }),
     )
     .max(3),

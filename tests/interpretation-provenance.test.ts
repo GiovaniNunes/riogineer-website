@@ -136,7 +136,7 @@ describe('provider provenance diagnostics (constructed regressions, not a captur
     expect(components.origin).toBe('derived');
   });
 
-  it.each(['n_hexane = 77000 kg/h.', 'n-Hexane = 77000  kg/h.', 'n-Hexane =\n77000 kg/h.'])(
+  it.each(['n_hexane = 77000 kg/h.'])(
     'rejects normalized or reformatted evidence: %s',
     async (excerpt) => {
       const { source, draft } = fixture();
