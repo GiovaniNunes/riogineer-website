@@ -250,3 +250,19 @@ Modified:
 - `tests/engineering-contracts.test.ts`
 
 Stopped after the deterministic reference, documentation and complete validation. No recycle solver, additional equipment or new thermodynamic model was implemented.
+
+## Manual browser validation correction — requirements feedback
+
+The first manual test loaded the Milestone 4 reference and received HTTP 200 from **Validate requirements**, but the unchanged `null` JSON panels and lack of nearby confirmation made validation appear ineffective.
+
+The response contains exactly `requirements` (the unchanged validated input, including version 1.1 and numerical values) and `validation` (`status: valid` and model messages). The client already parses the engineering validation-response union and dispatches the revision-guarded `validated` action, setting `validated=true` and `busy=false`. It neither replaces the draft nor publishes a flowsheet or results. There was no lost response or requirements-version mismatch. Success feedback and the enabled PFD controls were farther down the page, while the validation button stayed enabled. The same presentation defect affected the original version-1.0 Bia reference.
+
+The Advanced requirements controls now include an accessible live confirmation, **Requirements validated**, with a **Generate PFD** link to the existing PFD controls. Repeat validation is disabled while the current requirements remain validated. Engineering edits invalidate that confirmation and enable validation again. Errors show a distinct nearby message linking to the existing detailed engineering error; unsuccessful validation cannot enable PFD generation.
+
+The intended workflow remains **Load reference → Validate requirements → Generate PFD → Run engineering calculation**. Immediately after initial validation, `flowsheet.json` and `results.json` **should both be null**. Generate PFD publishes the numbered structured flowsheet; only the explicit calculation action produces results. Version-1.1 backend validation internally builds a temporary graph to check graph/model semantics, but does not execute the engineering calculation or return that graph. This existing behavior was preserved. No frontend stream numbering was introduced.
+
+Two new browser regressions exercise the exact load/validate sequence for Milestone 4 and the original reference. They assert HTTP 200, the complete unchanged returned requirements, unchanged editor data, in-viewport confirmation, disabled repeat validation, enabled PFD generation, navigation to its controls, null flowsheet/results, and no build/calculation requests during validation. Both failed on the missing local confirmation before the correction. The invalid-split test now also verifies successful validation followed by edit invalidation and distinguishable failure feedback. Existing browser and Python tests continue to verify deterministic PFD/table numbering, layout/regeneration stability and both numerical references.
+
+Only `src/app/digital-engineer/workspace.tsx`, `tests/e2e/network.spec.ts` and this document changed. No contracts, reducers, engine calculations, graph execution, numbering, reference values, interpretation or provenance code changed. No live-provider call was made.
+
+Correction validation: **183 TypeScript tests in 14 files, 38 Python tests and 21 browser tests passed**. Contract parity, ESLint, TypeScript checking, repository/document formatting and diff whitespace checks passed. The production build generated 41 static pages; production smoke passed 17 pages, 17 PNG social cards, internal links, 404s, preview indexing and disabled contact delivery. Both engineering reference cases and their identity regressions passed unchanged. Temporary test servers were stopped. Live-provider calls: **0**.

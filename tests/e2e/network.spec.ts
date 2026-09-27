@@ -1,5 +1,47 @@
 import { test, expect } from '@playwright/test';
 
+for (const reference of ['Load Milestone 4 reference', 'Restore reference']) {
+  test(`${reference}: validation visibly succeeds before separate PFD generation`, async ({
+    page,
+  }) => {
+    await page.goto('/digital-engineer');
+    await page.getByText('Engineering data / Advanced', { exact: true }).click();
+    await page.getByRole('button', { name: reference, exact: true }).click();
+    const editor = page.getByLabel(
+      'requirements.json — explicit units and development assumptions',
+    );
+    const original = JSON.parse(await editor.inputValue());
+    const downstreamRequests: string[] = [];
+    page.on('request', (request) => {
+      if (/\/api\/digital-engineer\/(build-flowsheet|calculate)$/.test(request.url()))
+        downstreamRequests.push(request.url());
+    });
+    const pending = page.waitForResponse('**/api/digital-engineer/validate-requirements');
+    const validate = page.getByRole('button', { name: 'Validate requirements', exact: true });
+    await validate.click();
+    const response = await pending;
+    expect(response.status()).toBe(200);
+    const body = await response.json();
+    expect(Object.keys(body).sort()).toEqual(['requirements', 'validation']);
+    expect(body.validation.status).toBe('valid');
+    expect(body.requirements).toEqual(original);
+    expect(JSON.parse(await editor.inputValue())).toEqual(original);
+    await expect(page.getByRole('status')).toContainText('Requirements valid');
+    await expect(page.getByRole('button', { name: 'Generate PFD', exact: true })).toBeEnabled();
+    const feedback = page.getByLabel('Requirements validation');
+    await expect(feedback).toContainText('Requirements validated');
+    await expect(feedback).toBeInViewport();
+    await expect(validate).toBeDisabled();
+    await expect(page.getByLabel('flowsheet.json', { exact: true })).toHaveText('null');
+    await expect(page.getByLabel('results.json', { exact: true })).toHaveText('null');
+    await expect(page.getByRole('button', { name: 'Run engineering calculation' })).toBeDisabled();
+    expect(downstreamRequests).toEqual([]);
+    await feedback.getByRole('link', { name: 'Generate PFD', exact: true }).click();
+    await expect(page.getByRole('button', { name: 'Generate PFD', exact: true })).toBeInViewport();
+    expect(downstreamRequests).toEqual([]);
+  });
+}
+
 test('Milestone 4 graph → seven numbered streams → branch/merge results', async ({ page }) => {
   await page.goto('/digital-engineer');
   await page.getByText('Engineering data / Advanced', { exact: true }).click();
@@ -100,14 +142,28 @@ test('Milestone 4 invalid split blocks PFD generation', async ({ page }) => {
   await page.getByText('Engineering data / Advanced', { exact: true }).click();
   await page.getByRole('button', { name: 'Load Milestone 4 reference' }).click();
   const editor = page.getByLabel('requirements.json — explicit units and development assumptions');
+  await page.getByRole('button', { name: 'Validate requirements', exact: true }).click();
+  await expect(page.getByLabel('Requirements validation')).toContainText('Requirements validated');
   const requirements = JSON.parse(await editor.inputValue());
   requirements.equipment.find(
     (e: { type: string }) => e.type === 'splitter',
   ).parameters.fractions.outlet_a = 0.8;
   await editor.fill(JSON.stringify(requirements));
+  await expect(page.getByLabel('Requirements validation')).not.toContainText(
+    'Requirements validated',
+  );
+  await expect(
+    page.getByRole('button', { name: 'Validate requirements', exact: true }),
+  ).toBeEnabled();
   await page.getByRole('button', { name: 'Validate requirements', exact: true }).click();
   await expect(page.getByRole('alert', { name: 'Engineering error' })).toContainText(
     'fractions must sum to one',
   );
+  await expect(page.getByLabel('Requirements validation')).toContainText(
+    'Requirements are not validated',
+  );
+  await expect(
+    page.getByLabel('Requirements validation').getByRole('link', { name: 'Generate PFD' }),
+  ).toHaveCount(0);
   await expect(page.getByRole('button', { name: 'Generate PFD', exact: true })).toBeDisabled();
 });

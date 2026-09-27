@@ -131,8 +131,30 @@ export function EngineerWorkspace({
             Advanced contract editing. Changes invalidate validation and previous results. Normal
             specification review uses the engineering form above.
           </p>
+          <div aria-label="Requirements validation" aria-live="polite">
+            {state.validated ? (
+              <p>
+                <strong>Requirements validated.</strong>{' '}
+                {state.flowsheet
+                  ? 'The PFD is available below.'
+                  : 'Next: generate the process flow diagram.'}{' '}
+                <a href="#pfd-section">Generate PFD</a>. Validation does not run the engineering
+                calculation.
+              </p>
+            ) : state.error ? (
+              <p>
+                Requirements are not validated.{' '}
+                <a href="#engineering-error">Review the engineering error</a>.
+              </p>
+            ) : (
+              <p>Validate requirements to enable PFD generation.</p>
+            )}
+          </div>
           <div className={styles.actions}>
-            <button disabled={state.busy} onClick={() => void operate('validate-requirements')}>
+            <button
+              disabled={state.busy || state.validated}
+              onClick={() => void operate('validate-requirements')}
+            >
               Validate requirements
             </button>
             <button
@@ -159,11 +181,15 @@ export function EngineerWorkspace({
           </div>
         </section>
         <h3>flowsheet.json</h3>
-        <pre className={styles.json}>{JSON.stringify(state.flowsheet, null, 2)}</pre>
+        <pre aria-label="flowsheet.json" className={styles.json}>
+          {JSON.stringify(state.flowsheet, null, 2)}
+        </pre>
         <h3>results.json {current ? '' : '(not current)'}</h3>
-        <pre className={styles.json}>{JSON.stringify(state.results, null, 2)}</pre>
+        <pre aria-label="results.json" className={styles.json}>
+          {JSON.stringify(state.results, null, 2)}
+        </pre>
       </details>
-      <section className={styles.panel} aria-labelledby="pfd-section-title">
+      <section id="pfd-section" className={styles.panel} aria-labelledby="pfd-section-title">
         <span className={styles.eyebrow}>04–05 / PFD & simulation</span>
         <h2 id="pfd-section-title">Process flow diagram</h2>
         <p>
@@ -236,7 +262,12 @@ export function EngineerWorkspace({
                   : 'Requirements await validation.'}
       </div>
       {state.error && (
-        <pre aria-label="Engineering error" role="alert" className={styles.error}>
+        <pre
+          id="engineering-error"
+          aria-label="Engineering error"
+          role="alert"
+          className={styles.error}
+        >
           {state.error}
         </pre>
       )}
