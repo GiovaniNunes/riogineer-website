@@ -3,8 +3,8 @@
 }
 .heroGrid {
   display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
-  gap: var(--space-8);
+  grid-template-columns: var(--hero-desktop-columns);
+  gap: var(--hero-desktop-gap);
   align-items: center;
   padding-bottom: var(--space-8);
 }

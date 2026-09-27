@@ -85,3 +85,13 @@ The implementation uses no external fonts, stock imagery, AI image generator, ru
 Homepage internal sections use `--home-section-space` and `--home-section-heading-gap` at 82% of their original spacing. The final contact CTA uses `--home-cta-section-space` at 65% of the original section padding, retaining its heading size and button. These scoped settings do not alter the hero, header, palette, typography, other pages or dark demonstration section.
 
 Both general Digital Engineer diagrams consume the seven steps from `src/config/workflow.ts`. Domain-specific application/study sequences remain separate. `cardIllustration` is an optional application metadata field rendered by the shared card component; see `CONTENT_GUIDE.md`.
+
+## Homepage video visual evaluation
+
+`HeroVideo` replaces the right-hand hero workflow panel. The full `public/videos/digital-twin-oil-field.mp4` file is used unchanged: approximately 34.3 seconds, 848×436, 60 fps and 8.17 MB. It has not been trimmed, re-encoded or optimized. `src/config/hero-video.ts` holds the source, poster, intrinsic dimensions and accessible video label. No caption is displayed. The JPEG poster is extracted from its first frame; it is a still-image fallback, not an edited video. The original source outside this repository is untouched.
+
+The desktop hero allocates 45% of its column space to text and 55% to video, with a reduced gap; the existing mobile breakpoint stacks the video after the text and CTAs. The full image is shown without cropping, with intrinsic dimensions reserving its space. Frame styling uses existing palette tokens and `--hero-video-frame-padding`.
+
+The client checks `prefers-reduced-motion` before assigning the video source. Normal playback uses autoplay, muted, loop and playsInline. Reduced-motion visitors receive the poster without automatically downloading the MP4 and may explicitly choose Play. A change to reduced motion pauses playback. The native button is keyboard accessible, tracks actual play/pause events, and supports manual playback when autoplay is blocked. There are no conventional player controls or unmute control. The seven-step Digital Engineer workflow remains in the following Meet section.
+
+The full source is intentionally retained for visual review; its current size and visible loop transition are not production optimization decisions. Any later edit or encoding requires the user's next selection. No claims of live data, validated simulation results or model authorship are attached to this footage.

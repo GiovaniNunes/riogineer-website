@@ -57,6 +57,9 @@
   --content-width: 88rem;
   --prose-width: 48rem;
   --header-height: 6rem;
+  --hero-video-frame-padding: var(--space-2);
+  --hero-desktop-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  --hero-desktop-gap: var(--space-7);
   --radius-sm: 0.25rem;
   --radius-md: 0.5rem;
   --radius-pill: 999px;

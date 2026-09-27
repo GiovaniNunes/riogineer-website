@@ -1,5 +1,6 @@
+import { HeroVideo } from '@/components/hero-video';
 import Link from 'next/link';
-import { HeroWorkflow, DigitalEngineerWorkflow } from '@/components/workflow';
+import { DigitalEngineerWorkflow } from '@/components/workflow';
 import { ContentRequired } from '@/components/content-required';
 import { ContentCards } from '@/components/content-cards';
 import { getContent } from '@/lib/content';
@@ -40,7 +41,7 @@ export default function Home() {
                 ENGINEERING KNOWLEDGE → COMPUTATIONAL TOOLS → TECHNICAL DECISIONS
               </p>
             </div>
-            <HeroWorkflow />
+            <HeroVideo />
           </div>
           <div className={styles.disciplines}>
             <span>Initial application areas</span>
