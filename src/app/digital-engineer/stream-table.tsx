@@ -1,5 +1,6 @@
 import type { Flowsheet, Results } from '@/lib/digital-engineer/contracts';
 import { streamColumns, streamRows } from '@/lib/digital-engineer/stream-table';
+import { streamLabel } from '@/lib/digital-engineer/stream-label';
 import styles from './workspace.module.css';
 
 const format = new Intl.NumberFormat('en-US', { maximumFractionDigits: 8 });
@@ -29,8 +30,7 @@ export function StreamTable({
               <th scope="col">Unit / basis</th>
               {columns.map(({ stream }) => (
                 <th scope="col" key={stream.id} data-stream-id={stream.id}>
-                  {'engineering_number' in stream ? String(stream.engineering_number) : '—'}{' '}
-                  {stream.service.toUpperCase()}
+                  {streamLabel(stream)}
                   <br />
                   <small>ID: {stream.id}</small>
                 </th>

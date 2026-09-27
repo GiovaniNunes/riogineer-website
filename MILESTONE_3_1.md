@@ -124,3 +124,57 @@ Generated development/test caches and ignored screenshots are not project delive
 Only the existing one-feed / one-three-phase-separator / three-outlet topology is enabled. No multi-equipment execution, recycle solving, graphical editing, new equipment, rigorous equilibrium, flash algorithm, EOS, viscosity/density correlation or enthalpy model is implemented. The PFD remains its existing simple read-only layout. The table may scroll horizontally on small screens.
 
 The architectural sequence is **topology and stream identity first, rigorous thermodynamics later**. Next, review the numbered documentation and define the scope/tests for any future multi-equipment topology milestone. Qualified thermodynamic/property providers should later enrich these same identified streams. Neither expansion is part of this work.
+
+## Manual-test correction — stream numbers (2026-09-27)
+
+The manual browser test reported correct numerical results and unavailable-property markers, but headers `— FEED`, `— GAS`, `— OIL`, `— WATER`. The expected engineering cross-references are **1 — FEED, 2 — GAS, 3 — OIL, 4 — WATER**, matching the corresponding PFD material streams. FEED/GAS/OIL/WATER are service names; the internal IDs happen to use the same strings in this reference and are separate software identities.
+
+### Confirmed root cause and trace
+
+A direct deterministic reference build against the running local Python server on port 8001 returned `schema_version: "1.0"` and four streams with no `engineering_number`. That process had loaded the older engine implementation. Python's HTTP server does not reload imported modules when source files change. Fresh test processes used the current 1.1 builder, explaining why earlier tests passed while the manual UI still lacked numbers.
+
+The loss therefore occurred at **structured flowsheet creation by the stale running engine**, before the PFD, rather than during calculation:
+
+1. The API accepted a legacy 1.0 response as a successful new build because its document reader supports both versions.
+2. The PFD received streams with no numbers; it previously displayed service names alone.
+3. Calculation returned properties keyed by stable stream ID. The reducer retained the original flowsheet streams, including their absence of numbers.
+4. The Stream Table joined results to those same objects and rendered its missing-number fallback. It did not overwrite or discard numbered streams.
+
+### Correction and identity preservation
+
+New `build-flowsheet` responses must now be numbered 1.1 documents. An old engine response produces an actionable `ENGINE_VERSION` error instructing the user to restart the Python engine and generate the PFD again. Legacy documents remain readable and calculable; no contract schema changed and no frontend migration or numbering rule was added.
+
+The confirmed stale engine was restarted with the current repository implementation. Its reference build then returned numbers 1–4; repeated generation preserved those numbers. A deterministic calculation against that restarted server confirmed the unchanged reference values: 2,000,000 Pa absolute and 313.15 K for all four streams; mass flows 110000, 22000, 77550 and 10450 kg/h for FEED, GAS, OIL and WATER respectively. An already open browser's legacy state must be regenerated with **Generate PFD** before recalculation; restarting the server cannot mutate an existing browser document.
+
+A shared display formatter now renders the stored engineering number followed by the service name (`1 — FEED`) in both views. The table retains `ID: FEED` as secondary traceability. Legacy unnumbered labels explicitly say `Unnumbered — FEED`; unavailable _properties_ still display `—`.
+
+Calculation continues to enrich the view of the existing structured streams through `results.streams[stream.id]`. The reducer retains the same stream array and object references, updating only calculation status and the separately keyed results. Neither calculation nor layout assigns numbers. No replacement streams, duplicate identity fields or second numbering system were introduced.
+
+### Regression coverage and validation
+
+New API coverage reproduces the observed legacy build response, verifies its rejection with restart guidance, preserves legacy calculation compatibility, and checks the numbered response is forwarded unchanged. Reducer/projection coverage proves object identity survives repeated calculation and layout changes, using reordered streams, different internal IDs and engineering numbers 21–24 to rule out service-name or array-index numbering. Python coverage proves calculation leaves the complete numbered flowsheet unchanged, retains stream objects and arbitrary assigned numbers, and regenerates the same reference stream identities.
+
+Browser coverage explicitly checks matching PFD/table labels before calculation, after calculation, after layout changes, after repeated calculation and after PFD regeneration. It also checks exported numbering, reference mass flows, all-stream pressure/temperature, actual zero and unavailable-property rendering. The first full browser run passed 16/17: the new regeneration test incorrectly expected initial-validation status while the existing results were still current. The test now regenerates through the enabled PFD action and awaits its response.
+
+No engineering evaluator, reference fixture, contracts, evidence anchoring, topology normalization, LLM interpretation or equipment/thermodynamic scope changed. No live-provider call was made. No Flowsheet 03 work was started.
+
+Final correction validation:
+
+| Check                                            | Result                                                                                                     |
+| ------------------------------------------------ | ---------------------------------------------------------------------------------------------------------- |
+| TypeScript unit/integration tests                | 178 passed in 13 files                                                                                     |
+| Python suite                                     | 20 passed, including reference snapshot integrity and every saved numerical quantity                       |
+| Browser suite                                    | 17 passed on final full run                                                                                |
+| Contract parity, lint, type checking             | Passed                                                                                                     |
+| Repository/report formatting and diff whitespace | Passed                                                                                                     |
+| Production build                                 | Passed; 41 static pages generated                                                                          |
+| Production smoke checks                          | 17 pages, 17 PNG social cards, internal links, 404s, preview indexing and disabled contact delivery passed |
+| Restarted local engine                           | 1.1 numbered reference build, unchanged reference calculation and deterministic regeneration verified      |
+| Live-provider calls                              | 0                                                                                                          |
+
+Correction files:
+
+- Added `src/lib/digital-engineer/stream-label.ts`.
+- Modified `src/lib/digital-engineer/api.ts`, `src/app/digital-engineer/pfd.tsx` and `src/app/digital-engineer/stream-table.tsx`.
+- Extended `tests/engineering-api.test.ts`, `tests/engineering-workflow.test.ts`, `tests/e2e/digital-engineer.spec.ts` and `engine/tests/test_streams.py`.
+- Updated this report. No contract files changed.

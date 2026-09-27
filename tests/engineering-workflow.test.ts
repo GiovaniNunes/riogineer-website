@@ -9,6 +9,8 @@ import {
   referenceFlowsheet as flowsheet,
   referenceResults as results,
 } from './engine-fixture';
+import { streamColumns } from '../src/lib/digital-engineer/stream-table';
+import { streamLabel } from '../src/lib/digital-engineer/stream-label';
 function completed() {
   let s = initialWorkflow(JSON.stringify(requirements));
   s = reduce(s, { type: 'validated', revision: 0 });
@@ -16,6 +18,49 @@ function completed() {
   return reduce(s, { type: 'calculated', revision: 0, results });
 }
 describe('web engineering state machine', () => {
+  it('enriches original stream objects by ID without replacing or renumbering them', () => {
+    const f = structuredClone(flowsheet);
+    if (f.schema_version !== '1.1') throw new Error('Numbered fixture required');
+    const r = structuredClone(results);
+    // Deliberately separate service, software ID, number and array order.
+    f.streams.forEach((stream) => {
+      const oldId = stream.id;
+      stream.id = `stable-${oldId.toLowerCase()}`;
+      stream.engineering_number += 20;
+      f.connections.find((c) => c.stream_id === oldId)!.stream_id = stream.id;
+      r.streams[stream.id] = r.streams[oldId];
+      delete r.streams[oldId];
+    });
+    f.streams.reverse();
+    const original = structuredClone(f.streams);
+    let state = reduce(initialWorkflow(JSON.stringify(requirements)), {
+      type: 'built',
+      revision: 0,
+      flowsheet: f,
+    });
+    for (const action of [
+      { type: 'calculated', revision: 0, results: r } as const,
+      { type: 'layout' } as const,
+      { type: 'calculated', revision: 0, results: r } as const,
+    ]) {
+      state = reduce(state, action);
+      expect(state.flowsheet!.streams).toBe(f.streams);
+      expect(state.flowsheet!.streams).toEqual(original);
+      const columns = streamColumns(state.flowsheet!, state.results);
+      expect(columns.map((c) => streamLabel(c.stream))).toEqual([
+        '21 — FEED',
+        '22 — GAS',
+        '23 — OIL',
+        '24 — WATER',
+      ]);
+      columns.forEach((c) => {
+        expect(c.stream).toBe(f.streams.find((s) => s.id === c.stream.id));
+        expect(c.result).toBe(r.streams[c.stream.id]);
+        expect(c.connection.stream_id).toBe(c.stream.id);
+      });
+      expect(columns.map((c) => c.result!.mass_flow_kg_h)).toEqual([110000, 22000, 77550, 10450]);
+    }
+  });
   it('requires the validated model before a result is current', () => {
     expect(resultsAreCurrent(initialWorkflow('{}'))).toBe(false);
     expect(resultsAreCurrent(completed())).toBe(true);

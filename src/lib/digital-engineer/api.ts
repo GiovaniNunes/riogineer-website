@@ -127,6 +127,16 @@ export async function handleEngineeringRequest(
         'ENGINE_PROTOCOL',
         'The engine returned data outside the supported contract.',
       );
+    // Legacy documents remain readable, but a new build must supply engine-owned numbers.
+    if (
+      operation === 'build-flowsheet' &&
+      flowsheetSchema.parse(parsed.data).schema_version !== '1.1'
+    )
+      return error(
+        502,
+        'ENGINE_VERSION',
+        'The local engine returned a legacy flowsheet without engineering stream numbers. Restart the Python engine with the current code, then generate the PFD again.',
+      );
     if (operation === 'calculate') {
       const input = flowsheetSchema.parse(JSON.parse(raw));
       const result = resultsSchema.parse(parsed.data);

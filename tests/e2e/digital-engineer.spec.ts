@@ -125,14 +125,14 @@ test('numbered PFD and stream table share identity, preserve downloads and disti
   const table = page.getByRole('table', { name: 'Engineering Stream Table', exact: true });
   await expect(table).toBeVisible();
   const ids = ['FEED', 'GAS', 'OIL', 'WATER'];
-  for (const [index, id] of ids.entries()) {
-    await expect(page.locator(`svg g[data-stream-id="${id}"] text`)).toHaveText(
-      `${index + 1} · ${id}`,
-    );
-    await expect(table.locator(`thead [data-stream-id="${id}"]`)).toContainText(
-      `${index + 1} ${id}`,
-    );
+  async function expectIdentity() {
+    for (const [index, id] of ids.entries()) {
+      const label = `${index + 1} — ${id}`;
+      await expect(page.locator(`svg g[data-stream-id="${id}"] text`)).toHaveText(label);
+      await expect(table.locator(`thead [data-stream-id="${id}"]`)).toHaveText(`${label}ID: ${id}`);
+    }
   }
+  await expectIdentity();
   await expect(
     table
       .getByRole('row')
@@ -168,9 +168,32 @@ test('numbered PFD and stream table share identity, preserve downloads and disti
       .getByRole('cell')
       .first(),
   ).toHaveText('kg/kg');
+  await expectIdentity();
+  for (const [property, unit, value] of [
+    ['Pressure', 'Pa absolute', '2,000,000'],
+    ['Temperature', 'K', '313.15'],
+  ]) {
+    await expect(
+      table
+        .getByRole('row')
+        .filter({ has: page.getByRole('rowheader', { name: property, exact: true }) })
+        .getByRole('cell'),
+    ).toHaveText([unit, value, value, value, value]);
+  }
   const before = await table.innerText();
   await page.getByRole('button', { name: 'Change display layout' }).click();
   await expect(table).toHaveText(before, { useInnerText: true });
+  await expectIdentity();
+  await page.getByRole('button', { name: 'Run engineering calculation', exact: true }).click();
+  await expect(page.getByRole('status')).toHaveText('Calculation complete — results current.');
+  await expectIdentity();
+  const regenerated = page.waitForResponse('**/api/digital-engineer/build-flowsheet');
+  await page.getByRole('button', { name: 'Generate PFD', exact: true }).click();
+  expect((await regenerated).ok()).toBe(true);
+  await expectIdentity();
+  await page.getByRole('button', { name: 'Run engineering calculation', exact: true }).click();
+  await expect(page.getByRole('status')).toHaveText('Calculation complete — results current.');
+  await expectIdentity();
   const pendingDownload = page.waitForEvent('download');
   await page.getByRole('button', { name: 'Download flowsheet', exact: true }).click();
   const download = await pendingDownload;

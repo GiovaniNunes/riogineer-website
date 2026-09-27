@@ -24,6 +24,26 @@ class StreamIdentityTests(unittest.TestCase):
         number_streams(f['streams'], f['connections'], [f['boundaries'][0]['id']])
         self.assertEqual({s['id']: s['engineering_number'] for s in f['streams']}, identity)
 
+    def test_calculation_preserves_original_numbered_streams_and_regeneration(self):
+        f = reference()
+        streams = f['streams']
+        original_objects = list(streams)
+        before = copy.deepcopy(f)
+        for _ in range(2):
+            result = calculate(f)
+            self.assertIs(f['streams'], streams)
+            self.assertEqual(f, before)
+            for old, current in zip(original_objects, f['streams']):
+                self.assertIs(current, old)
+                self.assertEqual(result['streams'][current['id']]['temperature_K'], 313.15)
+                self.assertEqual(result['streams'][current['id']]['pressure_Pa_abs'], 2000000)
+        self.assertEqual(reference()['streams'], before['streams'])
+        # Existing nonconsecutive numbers must survive too; calculation cannot assign numbers.
+        for stream in streams: stream['engineering_number'] += 20
+        assigned = copy.deepcopy(streams)
+        calculate(f)
+        self.assertEqual(streams, assigned)
+
     def test_duplicate_missing_invalid_numbers_rejected(self):
         for number in [1, 0, -1, 1.5, True, 9007199254740992]:
             with self.subTest(number=number):

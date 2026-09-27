@@ -1,4 +1,5 @@
 import type { Flowsheet } from '@/lib/digital-engineer/contracts';
+import { streamLabel } from '@/lib/digital-engineer/stream-label';
 export function Pfd({ flowsheet }: { flowsheet: Flowsheet }) {
   const nodes = [...flowsheet.boundaries, ...flowsheet.equipment];
   const sinks = flowsheet.boundaries.filter((n) => n.type === 'sink');
@@ -60,8 +61,7 @@ export function Pfd({ flowsheet }: { flowsheet: Flowsheet }) {
                 markerEnd="url(#flow-arrow)"
               />
               <text x={mid} y={b.y - 9} fontSize="14" textAnchor="middle">
-                {'engineering_number' in stream ? `${stream.engineering_number} · ` : ''}
-                {stream.service.toUpperCase()}
+                {streamLabel(stream)}
               </text>
             </g>
           );

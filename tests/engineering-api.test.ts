@@ -46,8 +46,39 @@ describe('website to Python API boundary', () => {
     const response = await handleEngineeringRequest(request(), 'build-flowsheet', fetcher);
     expect(response.status).toBe(200);
     expect(response.headers.get('cache-control')).toBe('no-store');
+    expect(await response.json()).toEqual(flowsheet);
     expect(String(fetcher.mock.calls[0][0])).toBe('http://127.0.0.1:8001/v1/build-flowsheet');
     expect(JSON.parse(fetcher.mock.calls[0][1].body)).toEqual(requirements);
+  });
+  it('rejects the observed legacy engine build instead of displaying unnumbered streams', async () => {
+    const legacy = {
+      ...flowsheet,
+      schema_version: '1.0',
+      streams: flowsheet.streams.map(({ id, service, specified_state }) => ({
+        id,
+        service,
+        specified_state,
+      })),
+    };
+    const response = await handleEngineeringRequest(
+      request(),
+      'build-flowsheet',
+      vi.fn().mockResolvedValue(Response.json(legacy)),
+    );
+    expect(response.status).toBe(502);
+    const body = await response.json();
+    expect(body.error.code).toBe('ENGINE_VERSION');
+    expect(body.error.message).toContain('Restart the Python engine');
+    // Reading/calculating an existing legacy document remains supported.
+    expect(
+      (
+        await handleEngineeringRequest(
+          request(legacy),
+          'calculate',
+          vi.fn().mockResolvedValue(Response.json(results)),
+        )
+      ).status,
+    ).toBe(200);
   });
   it('accepts actual Python calculation result', async () => {
     expect(
