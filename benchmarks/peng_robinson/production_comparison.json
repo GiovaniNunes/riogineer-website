@@ -1,0 +1,2288 @@
+{
+  "reference_id": "pre_m8_methane_nhexane_canonical_pr@1.0",
+  "provider": "peng_robinson@1.0",
+  "passed": true,
+  "comparison_count": 122,
+  "maximum_absolute_errors": {
+    "kappa": 1.1102230246251565e-16,
+    "alpha": 0.0,
+    "a_i_Pa_m6_mol2": 4.440892098500626e-16,
+    "b_i_m3_mol": 0.0,
+    "a_mix_Pa_m6_mol2": 8.881784197001252e-16,
+    "b_mix_m3_mol": 0.0,
+    "A_B": 2.7755575615628914e-17,
+    "root_count": 0.0,
+    "Z_roots": 1.3322676295501878e-15,
+    "ln_phi": 6.217248937900877e-15,
+    "phi_from_ln_phi": 4.3298697960381105e-15,
+    "stability_TPD_negative_threshold": 8.881784197001252e-16,
+    "beta": 8.43769498715119e-15,
+    "x": 3.122502256758253e-17,
+    "composition_sum": 0.0,
+    "y": 1.8568480086855743e-14,
+    "K_from_x_y": 1.0658141036401503e-12,
+    "material_reconstruction": 2.275957200481571e-15,
+    "ln_fugacity_equilibrium": 2.4513724383723456e-13,
+    "rachford_rice": 8.104628079763643e-15
+  },
+  "comparisons": [
+    {
+      "quantity": "pure.methane.kappa",
+      "quantity_class": "kappa",
+      "reference": 0.39221740720531195,
+      "production": 0.392217407205312,
+      "absolute_error": 5.551115123125783e-17,
+      "relative_error": 1.4153158480852355e-16,
+      "tolerance": {
+        "atol": 1e-13,
+        "rtol": 1e-12
+      },
+      "allowed_absolute_error": 4.922174072053119e-13,
+      "passed": true
+    },
+    {
+      "quantity": "pure.methane.alpha",
+      "quantity_class": "alpha",
+      "reference": 0.8101834074909086,
+      "production": 0.8101834074909086,
+      "absolute_error": 0.0,
+      "relative_error": 0.0,
+      "tolerance": {
+        "atol": 1e-12,
+        "rtol": 1e-11
+      },
+      "allowed_absolute_error": 9.101834074909085e-12,
+      "passed": true
+    },
+    {
+      "quantity": "pure.methane.a",
+      "quantity_class": "a_i_Pa_m6_mol2",
+      "reference": 0.2022066134114174,
+      "production": 0.2022066134114174,
+      "absolute_error": 0.0,
+      "relative_error": 0.0,
+      "tolerance": {
+        "atol": 1e-12,
+        "rtol": 1e-10
+      },
+      "allowed_absolute_error": 2.122066134114174e-11,
+      "passed": true
+    },
+    {
+      "quantity": "pure.methane.b",
+      "quantity_class": "b_i_m3_mol",
+      "reference": 2.6802317444263274e-05,
+      "production": 2.6802317444263274e-05,
+      "absolute_error": 0.0,
+      "relative_error": 0.0,
+      "tolerance": {
+        "atol": 1e-15,
+        "rtol": 1e-10
+      },
+      "allowed_absolute_error": 3.680231744426328e-15,
+      "passed": true
+    },
+    {
+      "quantity": "pure.n_hexane.kappa",
+      "quantity_class": "kappa",
+      "reference": 0.8134653963141592,
+      "production": 0.813465396314159,
+      "absolute_error": 1.1102230246251565e-16,
+      "relative_error": 1.3648067018653982e-16,
+      "tolerance": {
+        "atol": 1e-13,
+        "rtol": 1e-12
+      },
+      "allowed_absolute_error": 9.134653963141592e-13,
+      "passed": true
+    },
+    {
+      "quantity": "pure.n_hexane.alpha",
+      "quantity_class": "alpha",
+      "reference": 1.4118862442770883,
+      "production": 1.4118862442770883,
+      "absolute_error": 0.0,
+      "relative_error": 0.0,
+      "tolerance": {
+        "atol": 1e-12,
+        "rtol": 1e-11
+      },
+      "allowed_absolute_error": 1.5118862442770884e-11,
+      "passed": true
+    },
+    {
+      "quantity": "pure.n_hexane.a",
+      "quantity_class": "a_i_Pa_m6_mol2",
+      "reference": 3.7806876057403356,
+      "production": 3.780687605740335,
+      "absolute_error": 4.440892098500626e-16,
+      "relative_error": 1.1746255077404124e-16,
+      "tolerance": {
+        "atol": 1e-12,
+        "rtol": 1e-10
+      },
+      "allowed_absolute_error": 3.790687605740336e-10,
+      "passed": true
+    },
+    {
+      "quantity": "pure.n_hexane.b",
+      "quantity_class": "b_i_m3_mol",
+      "reference": 0.00010791019597217473,
+      "production": 0.00010791019597217473,
+      "absolute_error": 0.0,
+      "relative_error": 0.0,
+      "tolerance": {
+        "atol": 1e-15,
+        "rtol": 1e-10
+      },
+      "allowed_absolute_error": 1.1791019597217474e-14,
+      "passed": true
+    },
+    {
+      "quantity": "A.homogeneous_mixture.a",
+      "quantity_class": "a_mix_Pa_m6_mol2",
+      "reference": 1.43289630014247,
+      "production": 1.43289630014247,
+      "absolute_error": 0.0,
+      "relative_error": 0.0,
+      "tolerance": {
+        "atol": 1e-12,
+        "rtol": 1e-10
+      },
+      "allowed_absolute_error": 1.44289630014247e-10,
+      "passed": true
+    },
+    {
+      "quantity": "A.homogeneous_mixture.b",
+      "quantity_class": "b_mix_m3_mol",
+      "reference": 6.7356256708219e-05,
+      "production": 6.7356256708219e-05,
+      "absolute_error": 0.0,
+      "relative_error": 0.0,
+      "tolerance": {
+        "atol": 1e-15,
+        "rtol": 1e-10
+      },
+      "allowed_absolute_error": 7.7356256708219e-15,
+      "passed": true
+    },
+    {
+      "quantity": "A.homogeneous_mixture.A",
+      "quantity_class": "A_B",
+      "reference": 6.90915819277255,
+      "production": 6.90915819277255,
+      "absolute_error": 0.0,
+      "relative_error": 0.0,
+      "tolerance": {
+        "atol": 1e-12,
+        "rtol": 1e-10
+      },
+      "allowed_absolute_error": 6.91915819277255e-10,
+      "passed": true
+    },
+    {
+      "quantity": "A.homogeneous_mixture.B",
+      "quantity_class": "A_B",
+      "reference": 0.8101095621159913,
+      "production": 0.8101095621159913,
+      "absolute_error": 0.0,
+      "relative_error": 0.0,
+      "tolerance": {
+        "atol": 1e-12,
+        "rtol": 1e-10
+      },
+      "allowed_absolute_error": 8.201095621159913e-11,
+      "passed": true
+    },
+    {
+      "quantity": "A.homogeneous_mixture.root_count",
+      "quantity_class": "root_count",
+      "reference": 1,
+      "production": 1,
+      "absolute_error": 0,
+      "relative_error": 0.0,
+      "tolerance": {
+        "atol": 0,
+        "rtol": 0
+      },
+      "allowed_absolute_error": 0,
+      "passed": true
+    },
+    {
+      "quantity": "A.homogeneous_mixture.root.0",
+      "quantity_class": "Z_roots",
+      "reference": 1.04595589143832,
+      "production": 1.04595589143832,
+      "absolute_error": 0.0,
+      "relative_error": 0.0,
+      "tolerance": {
+        "atol": 1e-10,
+        "rtol": 1e-09
+      },
+      "allowed_absolute_error": 1.1459558914383202e-09,
+      "passed": true
+    },
+    {
+      "quantity": "A.homogeneous_mixture.smallest_real_root",
+      "quantity_class": "Z_roots",
+      "reference": 1.04595589143832,
+      "production": 1.04595589143832,
+      "absolute_error": 0.0,
+      "relative_error": 0.0,
+      "tolerance": {
+        "atol": 1e-10,
+        "rtol": 1e-09
+      },
+      "allowed_absolute_error": 1.1459558914383202e-09,
+      "passed": true
+    },
+    {
+      "quantity": "A.homogeneous_mixture.largest_real_root",
+      "quantity_class": "Z_roots",
+      "reference": 1.04595589143832,
+      "production": 1.04595589143832,
+      "absolute_error": 0.0,
+      "relative_error": 0.0,
+      "tolerance": {
+        "atol": 1e-10,
+        "rtol": 1e-09
+      },
+      "allowed_absolute_error": 1.1459558914383202e-09,
+      "passed": true
+    },
+    {
+      "quantity": "A.fixed_liquid.Z",
+      "quantity_class": "Z_roots",
+      "reference": 1.04595589143832,
+      "production": 1.04595589143832,
+      "absolute_error": 0.0,
+      "relative_error": 0.0,
+      "tolerance": {
+        "atol": 1e-10,
+        "rtol": 1e-09
+      },
+      "allowed_absolute_error": 1.1459558914383202e-09,
+      "passed": true
+    },
+    {
+      "quantity": "A.fixed_liquid.ln_phi.methane",
+      "quantity_class": "ln_phi",
+      "reference": -0.07279770068523028,
+      "production": -0.07279770068523006,
+      "absolute_error": 2.220446049250313e-16,
+      "relative_error": 3.0501595906872003e-15,
+      "tolerance": {
+        "atol": 1e-09,
+        "rtol": 1e-09
+      },
+      "allowed_absolute_error": 1.0727977006852304e-09,
+      "passed": true
+    },
+    {
+      "quantity": "A.fixed_liquid.phi.methane",
+      "quantity_class": "phi_from_ln_phi",
+      "reference": 0.929788906659962,
+      "production": 0.9297889066599622,
+      "absolute_error": 2.220446049250313e-16,
+      "relative_error": 2.388118457152516e-16,
+      "tolerance": {
+        "atol": 9.97475401722486e-10,
+        "rtol": 0.0
+      },
+      "allowed_absolute_error": 9.97475401722486e-10,
+      "passed": true
+    },
+    {
+      "quantity": "A.fixed_liquid.ln_phi.n_hexane",
+      "quantity_class": "ln_phi",
+      "reference": -5.637079276965833,
+      "production": -5.637079276965832,
+      "absolute_error": 8.881784197001252e-16,
+      "relative_error": 1.5756003704425258e-16,
+      "tolerance": {
+        "atol": 1e-09,
+        "rtol": 1e-09
+      },
+      "allowed_absolute_error": 6.637079276965834e-09,
+      "passed": true
+    },
+    {
+      "quantity": "A.fixed_liquid.phi.n_hexane",
+      "quantity_class": "phi_from_ln_phi",
+      "reference": 0.0035632605196677333,
+      "production": 0.0035632605196677367,
+      "absolute_error": 3.469446951953614e-18,
+      "relative_error": 9.7367198744063e-16,
+      "tolerance": {
+        "atol": 2.36496426319995e-11,
+        "rtol": 0.0
+      },
+      "allowed_absolute_error": 2.36496426319995e-11,
+      "passed": true
+    },
+    {
+      "quantity": "A.classification",
+      "quantity_class": "classification",
+      "reference": "single_liquid",
+      "production": "single_liquid",
+      "absolute_error": null,
+      "relative_error": null,
+      "tolerance": "exact",
+      "passed": true
+    },
+    {
+      "quantity": "A.minimum_TPD",
+      "quantity_class": "stability_TPD_negative_threshold",
+      "reference": 0.0,
+      "production": 0.0,
+      "absolute_error": 0.0,
+      "relative_error": null,
+      "tolerance": {
+        "atol": 1e-09,
+        "rtol": 0.0
+      },
+      "allowed_absolute_error": 1e-09,
+      "passed": true
+    },
+    {
+      "quantity": "A.beta",
+      "quantity_class": "beta",
+      "reference": 0.0,
+      "production": 0.0,
+      "absolute_error": 0.0,
+      "relative_error": null,
+      "tolerance": {
+        "atol": 1e-09,
+        "rtol": 0.0
+      },
+      "allowed_absolute_error": 1e-09,
+      "passed": true
+    },
+    {
+      "quantity": "A.flash_liquid.Z",
+      "quantity_class": "Z_roots",
+      "reference": 1.04595589143832,
+      "production": 1.04595589143832,
+      "absolute_error": 0.0,
+      "relative_error": 0.0,
+      "tolerance": {
+        "atol": 1e-10,
+        "rtol": 1e-09
+      },
+      "allowed_absolute_error": 1.1459558914383202e-09,
+      "passed": true
+    },
+    {
+      "quantity": "A.flash_liquid.ln_phi.methane",
+      "quantity_class": "ln_phi",
+      "reference": -0.07279770068523028,
+      "production": -0.07279770068523006,
+      "absolute_error": 2.220446049250313e-16,
+      "relative_error": 3.0501595906872003e-15,
+      "tolerance": {
+        "atol": 1e-09,
+        "rtol": 1e-09
+      },
+      "allowed_absolute_error": 1.0727977006852304e-09,
+      "passed": true
+    },
+    {
+      "quantity": "A.flash_liquid.phi.methane",
+      "quantity_class": "phi_from_ln_phi",
+      "reference": 0.929788906659962,
+      "production": 0.9297889066599622,
+      "absolute_error": 2.220446049250313e-16,
+      "relative_error": 2.388118457152516e-16,
+      "tolerance": {
+        "atol": 9.97475401722486e-10,
+        "rtol": 0.0
+      },
+      "allowed_absolute_error": 9.97475401722486e-10,
+      "passed": true
+    },
+    {
+      "quantity": "A.flash_liquid.ln_phi.n_hexane",
+      "quantity_class": "ln_phi",
+      "reference": -5.637079276965833,
+      "production": -5.637079276965832,
+      "absolute_error": 8.881784197001252e-16,
+      "relative_error": 1.5756003704425258e-16,
+      "tolerance": {
+        "atol": 1e-09,
+        "rtol": 1e-09
+      },
+      "allowed_absolute_error": 6.637079276965834e-09,
+      "passed": true
+    },
+    {
+      "quantity": "A.flash_liquid.phi.n_hexane",
+      "quantity_class": "phi_from_ln_phi",
+      "reference": 0.0035632605196677333,
+      "production": 0.0035632605196677367,
+      "absolute_error": 3.469446951953614e-18,
+      "relative_error": 9.7367198744063e-16,
+      "tolerance": {
+        "atol": 2.36496426319995e-11,
+        "rtol": 0.0
+      },
+      "allowed_absolute_error": 2.36496426319995e-11,
+      "passed": true
+    },
+    {
+      "quantity": "A.x.methane",
+      "quantity_class": "x",
+      "reference": 0.5,
+      "production": 0.5,
+      "absolute_error": 0.0,
+      "relative_error": 0.0,
+      "tolerance": {
+        "atol": 1e-09,
+        "rtol": 0.0
+      },
+      "allowed_absolute_error": 1e-09,
+      "passed": true
+    },
+    {
+      "quantity": "A.x.n_hexane",
+      "quantity_class": "x",
+      "reference": 0.5,
+      "production": 0.5,
+      "absolute_error": 0.0,
+      "relative_error": 0.0,
+      "tolerance": {
+        "atol": 1e-09,
+        "rtol": 0.0
+      },
+      "allowed_absolute_error": 1e-09,
+      "passed": true
+    },
+    {
+      "quantity": "A.sum_x",
+      "quantity_class": "composition_sum",
+      "reference": 1.0,
+      "production": 1.0,
+      "absolute_error": 0.0,
+      "relative_error": 0.0,
+      "tolerance": {
+        "atol": 1e-12,
+        "rtol": 0.0
+      },
+      "allowed_absolute_error": 1e-12,
+      "passed": true
+    },
+    {
+      "quantity": "B.homogeneous_mixture.a",
+      "quantity_class": "a_mix_Pa_m6_mol2",
+      "reference": 1.43289630014247,
+      "production": 1.43289630014247,
+      "absolute_error": 0.0,
+      "relative_error": 0.0,
+      "tolerance": {
+        "atol": 1e-12,
+        "rtol": 1e-10
+      },
+      "allowed_absolute_error": 1.44289630014247e-10,
+      "passed": true
+    },
+    {
+      "quantity": "B.homogeneous_mixture.b",
+      "quantity_class": "b_mix_m3_mol",
+      "reference": 6.7356256708219e-05,
+      "production": 6.7356256708219e-05,
+      "absolute_error": 0.0,
+      "relative_error": 0.0,
+      "tolerance": {
+        "atol": 1e-15,
+        "rtol": 1e-10
+      },
+      "allowed_absolute_error": 7.7356256708219e-15,
+      "passed": true
+    },
+    {
+      "quantity": "B.homogeneous_mixture.A",
+      "quantity_class": "A_B",
+      "reference": 0.06909158192772549,
+      "production": 0.06909158192772549,
+      "absolute_error": 0.0,
+      "relative_error": 0.0,
+      "tolerance": {
+        "atol": 1e-12,
+        "rtol": 1e-10
+      },
+      "allowed_absolute_error": 7.90915819277255e-12,
+      "passed": true
+    },
+    {
+      "quantity": "B.homogeneous_mixture.B",
+      "quantity_class": "A_B",
+      "reference": 0.008101095621159913,
+      "production": 0.008101095621159913,
+      "absolute_error": 0.0,
+      "relative_error": 0.0,
+      "tolerance": {
+        "atol": 1e-12,
+        "rtol": 1e-10
+      },
+      "allowed_absolute_error": 1.8101095621159913e-12,
+      "passed": true
+    },
+    {
+      "quantity": "B.homogeneous_mixture.root_count",
+      "quantity_class": "root_count",
+      "reference": 3,
+      "production": 3,
+      "absolute_error": 0,
+      "relative_error": 0.0,
+      "tolerance": {
+        "atol": 0,
+        "rtol": 0
+      },
+      "allowed_absolute_error": 0,
+      "passed": true
+    },
+    {
+      "quantity": "B.homogeneous_mixture.root.0",
+      "quantity_class": "Z_roots",
+      "reference": 0.012080482090302068,
+      "production": 0.01208048209030206,
+      "absolute_error": 8.673617379884035e-18,
+      "relative_error": 7.179860302799517e-16,
+      "tolerance": {
+        "atol": 1e-10,
+        "rtol": 1e-09
+      },
+      "allowed_absolute_error": 1.1208048209030208e-10,
+      "passed": true
+    },
+    {
+      "quantity": "B.homogeneous_mixture.root.1",
+      "quantity_class": "Z_roots",
+      "reference": 0.043641122848020186,
+      "production": 0.04364112284802021,
+      "absolute_error": 2.0816681711721685e-17,
+      "relative_error": 4.769969320958031e-16,
+      "tolerance": {
+        "atol": 1e-10,
+        "rtol": 1e-09
+      },
+      "allowed_absolute_error": 1.4364112284802018e-10,
+      "passed": true
+    },
+    {
+      "quantity": "B.homogeneous_mixture.root.2",
+      "quantity_class": "Z_roots",
+      "reference": 0.936177299440518,
+      "production": 0.9361772994405179,
+      "absolute_error": 1.1102230246251565e-16,
+      "relative_error": 1.1859110718542872e-16,
+      "tolerance": {
+        "atol": 1e-10,
+        "rtol": 1e-09
+      },
+      "allowed_absolute_error": 1.0361772994405182e-09,
+      "passed": true
+    },
+    {
+      "quantity": "B.homogeneous_mixture.smallest_real_root",
+      "quantity_class": "Z_roots",
+      "reference": 0.012080482090302068,
+      "production": 0.01208048209030206,
+      "absolute_error": 8.673617379884035e-18,
+      "relative_error": 7.179860302799517e-16,
+      "tolerance": {
+        "atol": 1e-10,
+        "rtol": 1e-09
+      },
+      "allowed_absolute_error": 1.1208048209030208e-10,
+      "passed": true
+    },
+    {
+      "quantity": "B.homogeneous_mixture.largest_real_root",
+      "quantity_class": "Z_roots",
+      "reference": 0.936177299440518,
+      "production": 0.9361772994405179,
+      "absolute_error": 1.1102230246251565e-16,
+      "relative_error": 1.1859110718542872e-16,
+      "tolerance": {
+        "atol": 1e-10,
+        "rtol": 1e-09
+      },
+      "allowed_absolute_error": 1.0361772994405182e-09,
+      "passed": true
+    },
+    {
+      "quantity": "B.mixture_at_x.a",
+      "quantity_class": "a_mix_Pa_m6_mol2",
+      "reference": 3.690440196318239,
+      "production": 3.6904401963182383,
+      "absolute_error": 8.881784197001252e-16,
+      "relative_error": 2.4067004813848894e-16,
+      "tolerance": {
+        "atol": 1e-12,
+        "rtol": 1e-10
+      },
+      "allowed_absolute_error": 3.7004401963182394e-10,
+      "passed": true
+    },
+    {
+      "quantity": "B.mixture_at_x.b",
+      "quantity_class": "b_mix_m3_mol",
+      "reference": 0.00010664331361280222,
+      "production": 0.00010664331361280222,
+      "absolute_error": 0.0,
+      "relative_error": 0.0,
+      "tolerance": {
+        "atol": 1e-15,
+        "rtol": 1e-10
+      },
+      "allowed_absolute_error": 1.1664331361280222e-14,
+      "passed": true
+    },
+    {
+      "quantity": "B.mixture_at_x.A",
+      "quantity_class": "A_B",
+      "reference": 0.17794612991040662,
+      "production": 0.1779461299104066,
+      "absolute_error": 2.7755575615628914e-17,
+      "relative_error": 1.559774052383351e-16,
+      "tolerance": {
+        "atol": 1e-12,
+        "rtol": 1e-10
+      },
+      "allowed_absolute_error": 1.8794612991040662e-11,
+      "passed": true
+    },
+    {
+      "quantity": "B.mixture_at_x.B",
+      "quantity_class": "A_B",
+      "reference": 0.012826242477771728,
+      "production": 0.012826242477771728,
+      "absolute_error": 0.0,
+      "relative_error": 0.0,
+      "tolerance": {
+        "atol": 1e-12,
+        "rtol": 1e-10
+      },
+      "allowed_absolute_error": 2.282624247777173e-12,
+      "passed": true
+    },
+    {
+      "quantity": "B.mixture_at_x.root_count",
+      "quantity_class": "root_count",
+      "reference": 3,
+      "production": 3,
+      "absolute_error": 0,
+      "relative_error": 0.0,
+      "tolerance": {
+        "atol": 0,
+        "rtol": 0
+      },
+      "allowed_absolute_error": 0,
+      "passed": true
+    },
+    {
+      "quantity": "B.mixture_at_x.root.0",
+      "quantity_class": "Z_roots",
+      "reference": 0.01546966380242693,
+      "production": 0.015469663802426934,
+      "absolute_error": 3.469446951953614e-18,
+      "relative_error": 2.2427423092474163e-16,
+      "tolerance": {
+        "atol": 1e-10,
+        "rtol": 1e-09
+      },
+      "allowed_absolute_error": 1.1546966380242693e-10,
+      "passed": true
+    },
+    {
+      "quantity": "B.mixture_at_x.root.1",
+      "quantity_class": "Z_roots",
+      "reference": 0.17075834711857774,
+      "production": 0.17075834711857765,
+      "absolute_error": 8.326672684688674e-17,
+      "relative_error": 4.876290281087389e-16,
+      "tolerance": {
+        "atol": 1e-10,
+        "rtol": 1e-09
+      },
+      "allowed_absolute_error": 2.7075834711857775e-10,
+      "passed": true
+    },
+    {
+      "quantity": "B.mixture_at_x.root.2",
+      "quantity_class": "Z_roots",
+      "reference": 0.8009457466012236,
+      "production": 0.8009457466012236,
+      "absolute_error": 0.0,
+      "relative_error": 0.0,
+      "tolerance": {
+        "atol": 1e-10,
+        "rtol": 1e-09
+      },
+      "allowed_absolute_error": 9.009457466012237e-10,
+      "passed": true
+    },
+    {
+      "quantity": "B.mixture_at_x.smallest_real_root",
+      "quantity_class": "Z_roots",
+      "reference": 0.01546966380242693,
+      "production": 0.015469663802426934,
+      "absolute_error": 3.469446951953614e-18,
+      "relative_error": 2.2427423092474163e-16,
+      "tolerance": {
+        "atol": 1e-10,
+        "rtol": 1e-09
+      },
+      "allowed_absolute_error": 1.1546966380242693e-10,
+      "passed": true
+    },
+    {
+      "quantity": "B.mixture_at_x.largest_real_root",
+      "quantity_class": "Z_roots",
+      "reference": 0.8009457466012236,
+      "production": 0.8009457466012236,
+      "absolute_error": 0.0,
+      "relative_error": 0.0,
+      "tolerance": {
+        "atol": 1e-10,
+        "rtol": 1e-09
+      },
+      "allowed_absolute_error": 9.009457466012237e-10,
+      "passed": true
+    },
+    {
+      "quantity": "B.mixture_at_y.a",
+      "quantity_class": "a_mix_Pa_m6_mol2",
+      "reference": 0.3213157286530708,
+      "production": 0.32131572865307084,
+      "absolute_error": 5.551115123125783e-17,
+      "relative_error": 1.7276201032534581e-16,
+      "tolerance": {
+        "atol": 1e-12,
+        "rtol": 1e-10
+      },
+      "allowed_absolute_error": 3.313157286530708e-11,
+      "passed": true
+    },
+    {
+      "quantity": "B.mixture_at_y.b",
+      "quantity_class": "b_mix_m3_mol",
+      "reference": 3.316046076569499e-05,
+      "production": 3.316046076569499e-05,
+      "absolute_error": 0.0,
+      "relative_error": 0.0,
+      "tolerance": {
+        "atol": 1e-15,
+        "rtol": 1e-10
+      },
+      "allowed_absolute_error": 4.316046076569499e-15,
+      "passed": true
+    },
+    {
+      "quantity": "B.mixture_at_y.A",
+      "quantity_class": "A_B",
+      "reference": 0.015493243990296529,
+      "production": 0.01549324399029653,
+      "absolute_error": 1.734723475976807e-18,
+      "relative_error": 1.1196644660493763e-16,
+      "tolerance": {
+        "atol": 1e-12,
+        "rtol": 1e-10
+      },
+      "allowed_absolute_error": 2.549324399029653e-12,
+      "passed": true
+    },
+    {
+      "quantity": "B.mixture_at_y.B",
+      "quantity_class": "A_B",
+      "reference": 0.0039882867105920546,
+      "production": 0.0039882867105920546,
+      "absolute_error": 0.0,
+      "relative_error": 0.0,
+      "tolerance": {
+        "atol": 1e-12,
+        "rtol": 1e-10
+      },
+      "allowed_absolute_error": 1.3988286710592054e-12,
+      "passed": true
+    },
+    {
+      "quantity": "B.mixture_at_y.root_count",
+      "quantity_class": "root_count",
+      "reference": 1,
+      "production": 1,
+      "absolute_error": 0,
+      "relative_error": 0.0,
+      "tolerance": {
+        "atol": 0,
+        "rtol": 0
+      },
+      "allowed_absolute_error": 0,
+      "passed": true
+    },
+    {
+      "quantity": "B.mixture_at_y.root.0",
+      "quantity_class": "Z_roots",
+      "reference": 0.9885027848240134,
+      "production": 0.9885027848240135,
+      "absolute_error": 1.1102230246251565e-16,
+      "relative_error": 1.1231359604341563e-16,
+      "tolerance": {
+        "atol": 1e-10,
+        "rtol": 1e-09
+      },
+      "allowed_absolute_error": 1.0885027848240136e-09,
+      "passed": true
+    },
+    {
+      "quantity": "B.mixture_at_y.smallest_real_root",
+      "quantity_class": "Z_roots",
+      "reference": 0.9885027848240134,
+      "production": 0.9885027848240135,
+      "absolute_error": 1.1102230246251565e-16,
+      "relative_error": 1.1231359604341563e-16,
+      "tolerance": {
+        "atol": 1e-10,
+        "rtol": 1e-09
+      },
+      "allowed_absolute_error": 1.0885027848240136e-09,
+      "passed": true
+    },
+    {
+      "quantity": "B.mixture_at_y.largest_real_root",
+      "quantity_class": "Z_roots",
+      "reference": 0.9885027848240134,
+      "production": 0.9885027848240135,
+      "absolute_error": 1.1102230246251565e-16,
+      "relative_error": 1.1231359604341563e-16,
+      "tolerance": {
+        "atol": 1e-10,
+        "rtol": 1e-09
+      },
+      "allowed_absolute_error": 1.0885027848240136e-09,
+      "passed": true
+    },
+    {
+      "quantity": "B.fixed_liquid.Z",
+      "quantity_class": "Z_roots",
+      "reference": 0.01546966380242693,
+      "production": 0.015469663802426934,
+      "absolute_error": 3.469446951953614e-18,
+      "relative_error": 2.2427423092474163e-16,
+      "tolerance": {
+        "atol": 1e-10,
+        "rtol": 1e-09
+      },
+      "allowed_absolute_error": 1.1546966380242693e-10,
+      "passed": true
+    },
+    {
+      "quantity": "B.fixed_liquid.ln_phi.methane",
+      "quantity_class": "ln_phi",
+      "reference": 4.071750494821597,
+      "production": 4.071750494821597,
+      "absolute_error": 0.0,
+      "relative_error": 0.0,
+      "tolerance": {
+        "atol": 1e-09,
+        "rtol": 1e-09
+      },
+      "allowed_absolute_error": 5.071750494821597e-09,
+      "passed": true
+    },
+    {
+      "quantity": "B.fixed_liquid.phi.methane",
+      "quantity_class": "phi_from_ln_phi",
+      "reference": 58.659556020112824,
+      "production": 58.659556020112824,
+      "absolute_error": 0.0,
+      "relative_error": 0.0,
+      "tolerance": {
+        "atol": 2.975066330254621e-07,
+        "rtol": 0.0
+      },
+      "allowed_absolute_error": 2.975066330254621e-07,
+      "passed": true
+    },
+    {
+      "quantity": "B.fixed_liquid.ln_phi.n_hexane",
+      "quantity_class": "ln_phi",
+      "reference": -2.608403403247907,
+      "production": -2.608403403247901,
+      "absolute_error": 6.217248937900877e-15,
+      "relative_error": 2.3835457851953963e-15,
+      "tolerance": {
+        "atol": 1e-09,
+        "rtol": 1e-09
+      },
+      "allowed_absolute_error": 3.6084034032479076e-09,
+      "passed": true
+    },
+    {
+      "quantity": "B.fixed_liquid.phi.n_hexane",
+      "quantity_class": "phi_from_ln_phi",
+      "reference": 0.07365204255092747,
+      "production": 0.07365204255092793,
+      "absolute_error": 4.579669976578771e-16,
+      "relative_error": 6.217980952004298e-15,
+      "tolerance": {
+        "atol": 2.6576628147642235e-10,
+        "rtol": 0.0
+      },
+      "allowed_absolute_error": 2.6576628147642235e-10,
+      "passed": true
+    },
+    {
+      "quantity": "B.fixed_vapor.Z",
+      "quantity_class": "Z_roots",
+      "reference": 0.9885027848240134,
+      "production": 0.9885027848240135,
+      "absolute_error": 1.1102230246251565e-16,
+      "relative_error": 1.1231359604341563e-16,
+      "tolerance": {
+        "atol": 1e-10,
+        "rtol": 1e-09
+      },
+      "allowed_absolute_error": 1.0885027848240136e-09,
+      "passed": true
+    },
+    {
+      "quantity": "B.fixed_vapor.ln_phi.methane",
+      "quantity_class": "ln_phi",
+      "reference": -0.005836127771952308,
+      "production": -0.005836127771952464,
+      "absolute_error": 1.5612511283791264e-16,
+      "relative_error": 2.6751489847126067e-14,
+      "tolerance": {
+        "atol": 1e-09,
+        "rtol": 1e-09
+      },
+      "allowed_absolute_error": 1.0058361277719525e-09,
+      "passed": true
+    },
+    {
+      "quantity": "B.fixed_vapor.phi.methane",
+      "quantity_class": "phi_from_ln_phi",
+      "reference": 0.9941808693398857,
+      "production": 0.9941808693398856,
+      "absolute_error": 1.1102230246251565e-16,
+      "relative_error": 1.116721372200936e-16,
+      "tolerance": {
+        "atol": 9.999830364246936e-10,
+        "rtol": 0.0
+      },
+      "allowed_absolute_error": 9.999830364246936e-10,
+      "passed": true
+    },
+    {
+      "quantity": "B.fixed_vapor.ln_phi.n_hexane",
+      "quantity_class": "ln_phi",
+      "reference": -0.07810269840116162,
+      "production": -0.07810269840116231,
+      "absolute_error": 6.938893903907228e-16,
+      "relative_error": 8.88432031921195e-15,
+      "tolerance": {
+        "atol": 1e-09,
+        "rtol": 1e-09
+      },
+      "allowed_absolute_error": 1.0781026984011617e-09,
+      "passed": true
+    },
+    {
+      "quantity": "B.fixed_vapor.phi.n_hexane",
+      "quantity_class": "phi_from_ln_phi",
+      "reference": 0.924869439053417,
+      "production": 0.9248694390534165,
+      "absolute_error": 5.551115123125783e-16,
+      "relative_error": 6.002052710063838e-16,
+      "tolerance": {
+        "atol": 9.97104238449748e-10,
+        "rtol": 0.0
+      },
+      "allowed_absolute_error": 9.97104238449748e-10,
+      "passed": true
+    },
+    {
+      "quantity": "B.classification",
+      "quantity_class": "classification",
+      "reference": "vapor_liquid",
+      "production": "vapor_liquid",
+      "absolute_error": null,
+      "relative_error": null,
+      "tolerance": "exact",
+      "passed": true
+    },
+    {
+      "quantity": "B.minimum_TPD",
+      "quantity_class": "stability_TPD_negative_threshold",
+      "reference": -1.7686866157831627,
+      "production": -1.7686866157831618,
+      "absolute_error": 8.881784197001252e-16,
+      "relative_error": 5.021683387968907e-16,
+      "tolerance": {
+        "atol": 1e-09,
+        "rtol": 0.0
+      },
+      "allowed_absolute_error": 1e-09,
+      "passed": true
+    },
+    {
+      "quantity": "B.beta",
+      "quantity_class": "beta",
+      "reference": 0.5346425102237959,
+      "production": 0.5346425102238044,
+      "absolute_error": 8.43769498715119e-15,
+      "relative_error": 1.5781938072263008e-14,
+      "tolerance": {
+        "atol": 1e-09,
+        "rtol": 0.0
+      },
+      "allowed_absolute_error": 1e-09,
+      "passed": true
+    },
+    {
+      "quantity": "B.flash_liquid.Z",
+      "quantity_class": "Z_roots",
+      "reference": 0.01546966380242693,
+      "production": 0.015469663802426934,
+      "absolute_error": 3.469446951953614e-18,
+      "relative_error": 2.2427423092474163e-16,
+      "tolerance": {
+        "atol": 1e-10,
+        "rtol": 1e-09
+      },
+      "allowed_absolute_error": 1.1546966380242693e-10,
+      "passed": true
+    },
+    {
+      "quantity": "B.flash_liquid.ln_phi.methane",
+      "quantity_class": "ln_phi",
+      "reference": 4.071750494821597,
+      "production": 4.071750494821597,
+      "absolute_error": 0.0,
+      "relative_error": 0.0,
+      "tolerance": {
+        "atol": 1e-09,
+        "rtol": 1e-09
+      },
+      "allowed_absolute_error": 5.071750494821597e-09,
+      "passed": true
+    },
+    {
+      "quantity": "B.flash_liquid.phi.methane",
+      "quantity_class": "phi_from_ln_phi",
+      "reference": 58.659556020112824,
+      "production": 58.659556020112824,
+      "absolute_error": 0.0,
+      "relative_error": 0.0,
+      "tolerance": {
+        "atol": 2.975066330254621e-07,
+        "rtol": 0.0
+      },
+      "allowed_absolute_error": 2.975066330254621e-07,
+      "passed": true
+    },
+    {
+      "quantity": "B.flash_liquid.ln_phi.n_hexane",
+      "quantity_class": "ln_phi",
+      "reference": -2.608403403247907,
+      "production": -2.608403403247901,
+      "absolute_error": 6.217248937900877e-15,
+      "relative_error": 2.3835457851953963e-15,
+      "tolerance": {
+        "atol": 1e-09,
+        "rtol": 1e-09
+      },
+      "allowed_absolute_error": 3.6084034032479076e-09,
+      "passed": true
+    },
+    {
+      "quantity": "B.flash_liquid.phi.n_hexane",
+      "quantity_class": "phi_from_ln_phi",
+      "reference": 0.07365204255092747,
+      "production": 0.07365204255092793,
+      "absolute_error": 4.579669976578771e-16,
+      "relative_error": 6.217980952004298e-15,
+      "tolerance": {
+        "atol": 2.6576628147642235e-10,
+        "rtol": 0.0
+      },
+      "allowed_absolute_error": 2.6576628147642235e-10,
+      "passed": true
+    },
+    {
+      "quantity": "B.x.methane",
+      "quantity_class": "x",
+      "reference": 0.015619720085966004,
+      "production": 0.015619720085965972,
+      "absolute_error": 3.122502256758253e-17,
+      "relative_error": 1.9990769614135124e-15,
+      "tolerance": {
+        "atol": 1e-09,
+        "rtol": 0.0
+      },
+      "allowed_absolute_error": 1e-09,
+      "passed": true
+    },
+    {
+      "quantity": "B.x.n_hexane",
+      "quantity_class": "x",
+      "reference": 0.984380279914034,
+      "production": 0.984380279914034,
+      "absolute_error": 0.0,
+      "relative_error": 0.0,
+      "tolerance": {
+        "atol": 1e-09,
+        "rtol": 0.0
+      },
+      "allowed_absolute_error": 1e-09,
+      "passed": true
+    },
+    {
+      "quantity": "B.sum_x",
+      "quantity_class": "composition_sum",
+      "reference": 1.0,
+      "production": 1.0,
+      "absolute_error": 0.0,
+      "relative_error": 0.0,
+      "tolerance": {
+        "atol": 1e-12,
+        "rtol": 0.0
+      },
+      "allowed_absolute_error": 1e-12,
+      "passed": true
+    },
+    {
+      "quantity": "B.flash_vapor.Z",
+      "quantity_class": "Z_roots",
+      "reference": 0.9885027848240134,
+      "production": 0.9885027848240121,
+      "absolute_error": 1.3322676295501878e-15,
+      "relative_error": 1.3477631525209877e-15,
+      "tolerance": {
+        "atol": 1e-10,
+        "rtol": 1e-09
+      },
+      "allowed_absolute_error": 1.0885027848240136e-09,
+      "passed": true
+    },
+    {
+      "quantity": "B.flash_vapor.ln_phi.methane",
+      "quantity_class": "ln_phi",
+      "reference": -0.005836127771952308,
+      "production": -0.005836127771952084,
+      "absolute_error": 2.237793284010081e-16,
+      "relative_error": 3.8343802114214034e-14,
+      "tolerance": {
+        "atol": 1e-09,
+        "rtol": 1e-09
+      },
+      "allowed_absolute_error": 1.0058361277719525e-09,
+      "passed": true
+    },
+    {
+      "quantity": "B.flash_vapor.phi.methane",
+      "quantity_class": "phi_from_ln_phi",
+      "reference": 0.9941808693398857,
+      "production": 0.9941808693398859,
+      "absolute_error": 2.220446049250313e-16,
+      "relative_error": 2.233442744401872e-16,
+      "tolerance": {
+        "atol": 9.999830364246936e-10,
+        "rtol": 0.0
+      },
+      "allowed_absolute_error": 9.999830364246936e-10,
+      "passed": true
+    },
+    {
+      "quantity": "B.flash_vapor.ln_phi.n_hexane",
+      "quantity_class": "ln_phi",
+      "reference": -0.07810269840116162,
+      "production": -0.07810269840116629,
+      "absolute_error": 4.676814491233472e-15,
+      "relative_error": 5.988031895148854e-14,
+      "tolerance": {
+        "atol": 1e-09,
+        "rtol": 1e-09
+      },
+      "allowed_absolute_error": 1.0781026984011617e-09,
+      "passed": true
+    },
+    {
+      "quantity": "B.flash_vapor.phi.n_hexane",
+      "quantity_class": "phi_from_ln_phi",
+      "reference": 0.924869439053417,
+      "production": 0.9248694390534127,
+      "absolute_error": 4.3298697960381105e-15,
+      "relative_error": 4.6816011138497935e-15,
+      "tolerance": {
+        "atol": 9.97104238449748e-10,
+        "rtol": 0.0
+      },
+      "allowed_absolute_error": 9.97104238449748e-10,
+      "passed": true
+    },
+    {
+      "quantity": "B.y.methane",
+      "quantity_class": "y",
+      "reference": 0.9216088074693791,
+      "production": 0.9216088074693606,
+      "absolute_error": 1.8540724511240114e-14,
+      "relative_error": 2.0117781385087445e-14,
+      "tolerance": {
+        "atol": 1e-09,
+        "rtol": 0.0
+      },
+      "allowed_absolute_error": 1e-09,
+      "passed": true
+    },
+    {
+      "quantity": "B.y.n_hexane",
+      "quantity_class": "y",
+      "reference": 0.07839119253062085,
+      "production": 0.07839119253063942,
+      "absolute_error": 1.8568480086855743e-14,
+      "relative_error": 2.3686946820719173e-13,
+      "tolerance": {
+        "atol": 1e-09,
+        "rtol": 0.0
+      },
+      "allowed_absolute_error": 1e-09,
+      "passed": true
+    },
+    {
+      "quantity": "B.sum_y",
+      "quantity_class": "composition_sum",
+      "reference": 1.0,
+      "production": 1.0,
+      "absolute_error": 0.0,
+      "relative_error": 0.0,
+      "tolerance": {
+        "atol": 1e-12,
+        "rtol": 0.0
+      },
+      "allowed_absolute_error": 1e-12,
+      "passed": true
+    },
+    {
+      "quantity": "B.K.methane",
+      "quantity_class": "K_from_x_y",
+      "reference": 59.00290161393005,
+      "production": 59.002901613928984,
+      "absolute_error": 1.0658141036401503e-12,
+      "relative_error": 1.806375745067631e-14,
+      "tolerance": {
+        "atol": 3.841484037536702e-06,
+        "rtol": 0
+      },
+      "allowed_absolute_error": 3.841484037536702e-06,
+      "passed": true
+    },
+    {
+      "quantity": "B.material.methane",
+      "quantity_class": "material_reconstruction",
+      "reference": 0.0,
+      "production": -2.275957200481571e-15,
+      "absolute_error": 2.275957200481571e-15,
+      "relative_error": null,
+      "tolerance": {
+        "atol": 1e-10,
+        "rtol": 0.0
+      },
+      "allowed_absolute_error": 1e-10,
+      "passed": true
+    },
+    {
+      "quantity": "B.fugacity_residual.methane",
+      "quantity_class": "ln_fugacity_equilibrium",
+      "reference": 0.0,
+      "production": 1.9623191960249642e-14,
+      "absolute_error": 1.9623191960249642e-14,
+      "relative_error": null,
+      "tolerance": {
+        "atol": 1e-09,
+        "rtol": 0.0
+      },
+      "allowed_absolute_error": 1e-09,
+      "passed": true
+    },
+    {
+      "quantity": "B.K.n_hexane",
+      "quantity_class": "K_from_x_y",
+      "reference": 0.07963507003357154,
+      "production": 0.0796350700335904,
+      "absolute_error": 1.8859913630819847e-14,
+      "relative_error": 2.3682924649741783e-13,
+      "tolerance": {
+        "atol": 1.0967662472660678e-09,
+        "rtol": 0
+      },
+      "allowed_absolute_error": 1.0967662472660678e-09,
+      "passed": true
+    },
+    {
+      "quantity": "B.material.n_hexane",
+      "quantity_class": "material_reconstruction",
+      "reference": 0.0,
+      "production": 2.220446049250313e-15,
+      "absolute_error": 2.220446049250313e-15,
+      "relative_error": null,
+      "tolerance": {
+        "atol": 1e-10,
+        "rtol": 0.0
+      },
+      "allowed_absolute_error": 1e-10,
+      "passed": true
+    },
+    {
+      "quantity": "B.fugacity_residual.n_hexane",
+      "quantity_class": "ln_fugacity_equilibrium",
+      "reference": 0.0,
+      "production": -2.4513724383723456e-13,
+      "absolute_error": 2.4513724383723456e-13,
+      "relative_error": null,
+      "tolerance": {
+        "atol": 1e-09,
+        "rtol": 0.0
+      },
+      "allowed_absolute_error": 1e-09,
+      "passed": true
+    },
+    {
+      "quantity": "B.RR_residual",
+      "quantity_class": "rachford_rice",
+      "reference": 0.0,
+      "production": 8.104628079763643e-15,
+      "absolute_error": 8.104628079763643e-15,
+      "relative_error": null,
+      "tolerance": {
+        "atol": 1e-10,
+        "rtol": 0.0
+      },
+      "allowed_absolute_error": 1e-10,
+      "passed": true
+    },
+    {
+      "quantity": "C.homogeneous_mixture.a",
+      "quantity_class": "a_mix_Pa_m6_mol2",
+      "reference": 1.43289630014247,
+      "production": 1.43289630014247,
+      "absolute_error": 0.0,
+      "relative_error": 0.0,
+      "tolerance": {
+        "atol": 1e-12,
+        "rtol": 1e-10
+      },
+      "allowed_absolute_error": 1.44289630014247e-10,
+      "passed": true
+    },
+    {
+      "quantity": "C.homogeneous_mixture.b",
+      "quantity_class": "b_mix_m3_mol",
+      "reference": 6.7356256708219e-05,
+      "production": 6.7356256708219e-05,
+      "absolute_error": 0.0,
+      "relative_error": 0.0,
+      "tolerance": {
+        "atol": 1e-15,
+        "rtol": 1e-10
+      },
+      "allowed_absolute_error": 7.7356256708219e-15,
+      "passed": true
+    },
+    {
+      "quantity": "C.homogeneous_mixture.A",
+      "quantity_class": "A_B",
+      "reference": 0.00023030527309241832,
+      "production": 0.00023030527309241832,
+      "absolute_error": 0.0,
+      "relative_error": 0.0,
+      "tolerance": {
+        "atol": 1e-12,
+        "rtol": 1e-10
+      },
+      "allowed_absolute_error": 1.0230305273092417e-12,
+      "passed": true
+    },
+    {
+      "quantity": "C.homogeneous_mixture.B",
+      "quantity_class": "A_B",
+      "reference": 2.7003652070533046e-05,
+      "production": 2.7003652070533046e-05,
+      "absolute_error": 0.0,
+      "relative_error": 0.0,
+      "tolerance": {
+        "atol": 1e-12,
+        "rtol": 1e-10
+      },
+      "allowed_absolute_error": 1.0027003652070533e-12,
+      "passed": true
+    },
+    {
+      "quantity": "C.homogeneous_mixture.root_count",
+      "quantity_class": "root_count",
+      "reference": 3,
+      "production": 3,
+      "absolute_error": 0,
+      "relative_error": 0.0,
+      "tolerance": {
+        "atol": 0,
+        "rtol": 0
+      },
+      "allowed_absolute_error": 0,
+      "passed": true
+    },
+    {
+      "quantity": "C.homogeneous_mixture.root.0",
+      "quantity_class": "Z_roots",
+      "reference": 4.0395465984364656e-05,
+      "production": 4.0395465984364656e-05,
+      "absolute_error": 0.0,
+      "relative_error": 0.0,
+      "tolerance": {
+        "atol": 1e-10,
+        "rtol": 1e-09
+      },
+      "allowed_absolute_error": 1.0004039546598437e-10,
+      "passed": true
+    },
+    {
+      "quantity": "C.homogeneous_mixture.root.1",
+      "quantity_class": "Z_roots",
+      "reference": 0.0001359306767507044,
+      "production": 0.00013593067675070442,
+      "absolute_error": 2.710505431213761e-20,
+      "relative_error": 1.9940351184926438e-16,
+      "tolerance": {
+        "atol": 1e-10,
+        "rtol": 1e-09
+      },
+      "allowed_absolute_error": 1.001359306767507e-10,
+      "passed": true
+    },
+    {
+      "quantity": "C.homogeneous_mixture.root.2",
+      "quantity_class": "Z_roots",
+      "reference": 0.9997966702051944,
+      "production": 0.9997966702051944,
+      "absolute_error": 0.0,
+      "relative_error": 0.0,
+      "tolerance": {
+        "atol": 1e-10,
+        "rtol": 1e-09
+      },
+      "allowed_absolute_error": 1.0997966702051945e-09,
+      "passed": true
+    },
+    {
+      "quantity": "C.homogeneous_mixture.smallest_real_root",
+      "quantity_class": "Z_roots",
+      "reference": 4.0395465984364656e-05,
+      "production": 4.0395465984364656e-05,
+      "absolute_error": 0.0,
+      "relative_error": 0.0,
+      "tolerance": {
+        "atol": 1e-10,
+        "rtol": 1e-09
+      },
+      "allowed_absolute_error": 1.0004039546598437e-10,
+      "passed": true
+    },
+    {
+      "quantity": "C.homogeneous_mixture.largest_real_root",
+      "quantity_class": "Z_roots",
+      "reference": 0.9997966702051944,
+      "production": 0.9997966702051944,
+      "absolute_error": 0.0,
+      "relative_error": 0.0,
+      "tolerance": {
+        "atol": 1e-10,
+        "rtol": 1e-09
+      },
+      "allowed_absolute_error": 1.0997966702051945e-09,
+      "passed": true
+    },
+    {
+      "quantity": "C.fixed_vapor.Z",
+      "quantity_class": "Z_roots",
+      "reference": 0.9997966702051944,
+      "production": 0.9997966702051944,
+      "absolute_error": 0.0,
+      "relative_error": 0.0,
+      "tolerance": {
+        "atol": 1e-10,
+        "rtol": 1e-09
+      },
+      "allowed_absolute_error": 1.0997966702051945e-09,
+      "passed": true
+    },
+    {
+      "quantity": "C.fixed_vapor.ln_phi.methane",
+      "quantity_class": "ln_phi",
+      "reference": 6.804857049937677e-05,
+      "production": 6.804857049927615e-05,
+      "absolute_error": 1.0061396160665481e-16,
+      "relative_error": 1.4785609876636027e-12,
+      "tolerance": {
+        "atol": 1e-09,
+        "rtol": 1e-09
+      },
+      "allowed_absolute_error": 1.0000680485704994e-09,
+      "passed": true
+    },
+    {
+      "quantity": "C.fixed_vapor.phi.methane",
+      "quantity_class": "phi_from_ln_phi",
+      "reference": 1.000068050885856,
+      "production": 1.0000680508858557,
+      "absolute_error": 2.220446049250313e-16,
+      "relative_error": 2.2202949562116813e-16,
+      "tolerance": {
+        "atol": 1.000136104587223e-09,
+        "rtol": 0.0
+      },
+      "allowed_absolute_error": 1.000136104587223e-09,
+      "passed": true
+    },
+    {
+      "quantity": "C.fixed_vapor.ln_phi.n_hexane",
+      "quantity_class": "ln_phi",
+      "reference": -0.0004746799831260287,
+      "production": -0.0004746799831264976,
+      "absolute_error": 4.689174395999807e-16,
+      "relative_error": 9.878601505627042e-13,
+      "tolerance": {
+        "atol": 1e-09,
+        "rtol": 1e-09
+      },
+      "allowed_absolute_error": 1.000474679983126e-09,
+      "passed": true
+    },
+    {
+      "quantity": "C.fixed_vapor.phi.n_hexane",
+      "quantity_class": "phi_from_ln_phi",
+      "reference": 0.9995254326595934,
+      "production": 0.9995254326595929,
+      "absolute_error": 4.440892098500626e-16,
+      "relative_error": 4.443000601479495e-16,
+      "tolerance": {
+        "atol": 9.999998878753396e-10,
+        "rtol": 0.0
+      },
+      "allowed_absolute_error": 9.999998878753396e-10,
+      "passed": true
+    },
+    {
+      "quantity": "C.classification",
+      "quantity_class": "classification",
+      "reference": "single_vapor",
+      "production": "single_vapor",
+      "absolute_error": null,
+      "relative_error": null,
+      "tolerance": "exact",
+      "passed": true
+    },
+    {
+      "quantity": "C.minimum_TPD",
+      "quantity_class": "stability_TPD_negative_threshold",
+      "reference": -3.9547184801827073e-16,
+      "production": -5.089828590112726e-17,
+      "absolute_error": 3.4457356211714346e-16,
+      "relative_error": 0.8712973220314388,
+      "tolerance": {
+        "atol": 1e-09,
+        "rtol": 0.0
+      },
+      "allowed_absolute_error": 1e-09,
+      "passed": true
+    },
+    {
+      "quantity": "C.beta",
+      "quantity_class": "beta",
+      "reference": 1.0,
+      "production": 1.0,
+      "absolute_error": 0.0,
+      "relative_error": 0.0,
+      "tolerance": {
+        "atol": 1e-09,
+        "rtol": 0.0
+      },
+      "allowed_absolute_error": 1e-09,
+      "passed": true
+    },
+    {
+      "quantity": "C.flash_vapor.Z",
+      "quantity_class": "Z_roots",
+      "reference": 0.9997966702051944,
+      "production": 0.9997966702051944,
+      "absolute_error": 0.0,
+      "relative_error": 0.0,
+      "tolerance": {
+        "atol": 1e-10,
+        "rtol": 1e-09
+      },
+      "allowed_absolute_error": 1.0997966702051945e-09,
+      "passed": true
+    },
+    {
+      "quantity": "C.flash_vapor.ln_phi.methane",
+      "quantity_class": "ln_phi",
+      "reference": 6.804857049937677e-05,
+      "production": 6.804857049927615e-05,
+      "absolute_error": 1.0061396160665481e-16,
+      "relative_error": 1.4785609876636027e-12,
+      "tolerance": {
+        "atol": 1e-09,
+        "rtol": 1e-09
+      },
+      "allowed_absolute_error": 1.0000680485704994e-09,
+      "passed": true
+    },
+    {
+      "quantity": "C.flash_vapor.phi.methane",
+      "quantity_class": "phi_from_ln_phi",
+      "reference": 1.000068050885856,
+      "production": 1.0000680508858557,
+      "absolute_error": 2.220446049250313e-16,
+      "relative_error": 2.2202949562116813e-16,
+      "tolerance": {
+        "atol": 1.000136104587223e-09,
+        "rtol": 0.0
+      },
+      "allowed_absolute_error": 1.000136104587223e-09,
+      "passed": true
+    },
+    {
+      "quantity": "C.flash_vapor.ln_phi.n_hexane",
+      "quantity_class": "ln_phi",
+      "reference": -0.0004746799831260287,
+      "production": -0.0004746799831264976,
+      "absolute_error": 4.689174395999807e-16,
+      "relative_error": 9.878601505627042e-13,
+      "tolerance": {
+        "atol": 1e-09,
+        "rtol": 1e-09
+      },
+      "allowed_absolute_error": 1.000474679983126e-09,
+      "passed": true
+    },
+    {
+      "quantity": "C.flash_vapor.phi.n_hexane",
+      "quantity_class": "phi_from_ln_phi",
+      "reference": 0.9995254326595934,
+      "production": 0.9995254326595929,
+      "absolute_error": 4.440892098500626e-16,
+      "relative_error": 4.443000601479495e-16,
+      "tolerance": {
+        "atol": 9.999998878753396e-10,
+        "rtol": 0.0
+      },
+      "allowed_absolute_error": 9.999998878753396e-10,
+      "passed": true
+    },
+    {
+      "quantity": "C.y.methane",
+      "quantity_class": "y",
+      "reference": 0.5,
+      "production": 0.5,
+      "absolute_error": 0.0,
+      "relative_error": 0.0,
+      "tolerance": {
+        "atol": 1e-09,
+        "rtol": 0.0
+      },
+      "allowed_absolute_error": 1e-09,
+      "passed": true
+    },
+    {
+      "quantity": "C.y.n_hexane",
+      "quantity_class": "y",
+      "reference": 0.5,
+      "production": 0.5,
+      "absolute_error": 0.0,
+      "relative_error": 0.0,
+      "tolerance": {
+        "atol": 1e-09,
+        "rtol": 0.0
+      },
+      "allowed_absolute_error": 1e-09,
+      "passed": true
+    },
+    {
+      "quantity": "C.sum_y",
+      "quantity_class": "composition_sum",
+      "reference": 1.0,
+      "production": 1.0,
+      "absolute_error": 0.0,
+      "relative_error": 0.0,
+      "tolerance": {
+        "atol": 1e-12,
+        "rtol": 0.0
+      },
+      "allowed_absolute_error": 1e-12,
+      "passed": true
+    }
+  ],
+  "production_results": {
+    "A": {
+      "status": "success_single_phase",
+      "classification": "single_liquid",
+      "overall_state": {
+        "temperature_K": 300.0,
+        "pressure_Pa_abs": 30000000.0,
+        "composition": {
+          "component_ids": [
+            "methane",
+            "n_hexane"
+          ],
+          "molar_fractions": [
+            0.5,
+            0.5
+          ]
+        },
+        "provenance": {
+          "provider": "peng_robinson@1.0",
+          "bip_specification": "methane_nhexane_explicit_zero@1.0",
+          "input_basis": "molar_fractions"
+        }
+      },
+      "evaluated_molar_composition": [
+        0.5,
+        0.5
+      ],
+      "phases": [
+        {
+          "identifier": "liquid",
+          "fraction": 1.0,
+          "composition": [
+            0.5,
+            0.5
+          ],
+          "Z": 1.04595589143832,
+          "ln_phi": [
+            -0.07279770068523006,
+            -5.637079276965832
+          ],
+          "phi": [
+            0.9297889066599622,
+            0.0035632605196677367
+          ],
+          "fugacity_Pa": [
+            13946833.599899432,
+            53448.90779501605
+          ]
+        }
+      ],
+      "beta": 0.0,
+      "final_K": [],
+      "diagnostics": {
+        "iterations": 0,
+        "fugacity_residual": [],
+        "rr_residual": null,
+        "material_residual": [],
+        "raw_composition_sum_errors": [],
+        "rr_iterations": 0,
+        "stability": {
+          "stable": true,
+          "classification": "single_liquid",
+          "converged": true,
+          "iterations": 48,
+          "minimum_tpd_RT": 0.0,
+          "trials": [
+            {
+              "composition": [
+                0.0,
+                1.0
+              ],
+              "root_kind": "single_root",
+              "tpd_RT": 0.6239956893643583,
+              "iterations": 0,
+              "interval_width": 0.0,
+              "converged": true
+            },
+            {
+              "composition": [
+                0.5,
+                0.5
+              ],
+              "root_kind": "single_root",
+              "tpd_RT": 0.0,
+              "iterations": 0,
+              "interval_width": 0.0,
+              "converged": true
+            },
+            {
+              "composition": [
+                1.0,
+                0.0
+              ],
+              "root_kind": "single_root",
+              "tpd_RT": 0.3764660029259702,
+              "iterations": 0,
+              "interval_width": 0.0,
+              "converged": true
+            },
+            {
+              "composition": [
+                0.5000000198874339,
+                0.4999999801125661
+              ],
+              "root_kind": "single_root",
+              "tpd_RT": 2.722412365259217e-16,
+              "iterations": 48,
+              "interval_width": 7.267519919196275e-13,
+              "converged": true
+            }
+          ],
+          "phase_identification_parameter": 7.836225504723406,
+          "provider": "peng_robinson@1.0",
+          "algorithm": "binary_tpd_grid_golden@1.0"
+        },
+        "equilibrium_stability": null,
+        "message": ""
+      },
+      "provenance": {
+        "provider": "peng_robinson@1.0",
+        "component_dataset": "riogineer_components@1.0",
+        "bip": {
+          "identifier": "methane_nhexane_explicit_zero@1.0",
+          "component_ids": [
+            "methane",
+            "n_hexane"
+          ],
+          "values": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ]
+          ],
+          "source": "Explicit zero-kij mathematical qualification specification; not calibrated physical data",
+          "model": "peng_robinson@1.0"
+        },
+        "formulation": "PR1976: 0.45724/0.07780; classical quadratic a, linear b",
+        "solver": "binary_tpd_rr_ss@1.0",
+        "settings": {
+          "flash_max_iterations": 100,
+          "stability_max_iterations": 100,
+          "rr_max_iterations": 200,
+          "fugacity_tolerance": 1e-11,
+          "material_tolerance": 1e-10
+        }
+      }
+    },
+    "B": {
+      "status": "success_two_phase",
+      "classification": "vapor_liquid",
+      "overall_state": {
+        "temperature_K": 300.0,
+        "pressure_Pa_abs": 300000.0,
+        "composition": {
+          "component_ids": [
+            "methane",
+            "n_hexane"
+          ],
+          "molar_fractions": [
+            0.5,
+            0.5
+          ]
+        },
+        "provenance": {
+          "provider": "peng_robinson@1.0",
+          "bip_specification": "methane_nhexane_explicit_zero@1.0",
+          "input_basis": "molar_fractions"
+        }
+      },
+      "evaluated_molar_composition": [
+        0.5,
+        0.5
+      ],
+      "phases": [
+        {
+          "identifier": "liquid",
+          "fraction": 0.4653574897761956,
+          "composition": [
+            0.015619720085965972,
+            0.984380279914034
+          ],
+          "Z": 0.015469663802426934,
+          "ln_phi": [
+            4.071750494821597,
+            -2.608403403247901
+          ],
+          "phi": [
+            58.659556020112824,
+            0.07365204255092793
+          ],
+          "fugacity_Pa": [
+            274873.75362036075,
+            21750.485478756833
+          ]
+        },
+        {
+          "identifier": "vapor",
+          "fraction": 0.5346425102238044,
+          "composition": [
+            0.9216088074693606,
+            0.07839119253063942
+          ],
+          "Z": 0.9885027848240121,
+          "ln_phi": [
+            -0.005836127771952084,
+            -0.07810269840116629
+          ],
+          "phi": [
+            0.9941808693398859,
+            0.9248694390534127
+          ],
+          "fugacity_Pa": [
+            274873.75362035533,
+            21750.485478762166
+          ]
+        }
+      ],
+      "beta": 0.5346425102238044,
+      "final_K": [
+        59.002901613928984,
+        0.0796350700335904
+      ],
+      "diagnostics": {
+        "iterations": 7,
+        "fugacity_residual": [
+          1.93196153519537e-14,
+          -2.4541479959339085e-13
+        ],
+        "rr_residual": 1.021405182655144e-14,
+        "material_residual": [
+          -2.275957200481571e-15,
+          2.220446049250313e-15
+        ],
+        "raw_composition_sum_errors": [
+          -5.440092820663267e-15,
+          4.6629367034256575e-15
+        ],
+        "rr_iterations": 46,
+        "stability": {
+          "stable": false,
+          "classification": "vapor_liquid",
+          "converged": true,
+          "iterations": 94,
+          "minimum_tpd_RT": -1.7686866157831618,
+          "trials": [
+            {
+              "composition": [
+                0.0,
+                1.0
+              ],
+              "root_kind": "liquid_like",
+              "tpd_RT": -1.7672048811560777,
+              "iterations": 0,
+              "interval_width": 0.0,
+              "converged": true
+            },
+            {
+              "composition": [
+                0.5,
+                0.5
+              ],
+              "root_kind": "vapor_like",
+              "tpd_RT": 0.0,
+              "iterations": 0,
+              "interval_width": 0.0,
+              "converged": true
+            },
+            {
+              "composition": [
+                1.0,
+                0.0
+              ],
+              "root_kind": "single_root",
+              "tpd_RT": 0.663249587674022,
+              "iterations": 0,
+              "interval_width": 0.0,
+              "converged": true
+            },
+            {
+              "composition": [
+                0.001481008019221798,
+                0.9985189919807782
+              ],
+              "root_kind": "liquid_like",
+              "tpd_RT": -1.7686866157831618,
+              "iterations": 46,
+              "interval_width": 9.269703060699186e-13,
+              "converged": true
+            },
+            {
+              "composition": [
+                0.4999999988917114,
+                0.5000000011082886
+              ],
+              "root_kind": "vapor_like",
+              "tpd_RT": -1.0642488555750513e-16,
+              "iterations": 48,
+              "interval_width": 7.267519919196275e-13,
+              "converged": true
+            }
+          ],
+          "phase_identification_parameter": null,
+          "provider": "peng_robinson@1.0",
+          "algorithm": "binary_tpd_grid_golden@1.0"
+        },
+        "equilibrium_stability": {
+          "stable": true,
+          "classification": null,
+          "converged": true,
+          "iterations": 96,
+          "minimum_tpd_RT": -2.3755042165576793e-15,
+          "trials": [
+            {
+              "composition": [
+                0.0,
+                1.0
+              ],
+              "root_kind": "liquid_like",
+              "tpd_RT": 0.01570069557311138,
+              "iterations": 0,
+              "interval_width": 0.0,
+              "converged": true
+            },
+            {
+              "composition": [
+                0.5,
+                0.5
+              ],
+              "root_kind": "vapor_like",
+              "tpd_RT": 0.6003077831272402,
+              "iterations": 0,
+              "interval_width": 0.0,
+              "converged": true
+            },
+            {
+              "composition": [
+                1.0,
+                0.0
+              ],
+              "root_kind": "single_root",
+              "tpd_RT": 0.08095957719931335,
+              "iterations": 0,
+              "interval_width": 0.0,
+              "converged": true
+            },
+            {
+              "composition": [
+                0.01561972671152838,
+                0.9843802732884717
+              ],
+              "root_kind": "liquid_like",
+              "tpd_RT": -2.3755042165576793e-15,
+              "iterations": 48,
+              "interval_width": 7.267485224726755e-13,
+              "converged": true
+            },
+            {
+              "composition": [
+                0.9216088062485907,
+                0.07839119375140935
+              ],
+              "root_kind": "single_root",
+              "tpd_RT": 1.3557127651326466e-15,
+              "iterations": 48,
+              "interval_width": 7.267519919196275e-13,
+              "converged": true
+            }
+          ],
+          "phase_identification_parameter": null,
+          "provider": "peng_robinson@1.0",
+          "algorithm": "binary_tpd_grid_golden@1.0"
+        },
+        "message": ""
+      },
+      "provenance": {
+        "provider": "peng_robinson@1.0",
+        "component_dataset": "riogineer_components@1.0",
+        "bip": {
+          "identifier": "methane_nhexane_explicit_zero@1.0",
+          "component_ids": [
+            "methane",
+            "n_hexane"
+          ],
+          "values": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ]
+          ],
+          "source": "Explicit zero-kij mathematical qualification specification; not calibrated physical data",
+          "model": "peng_robinson@1.0"
+        },
+        "formulation": "PR1976: 0.45724/0.07780; classical quadratic a, linear b",
+        "solver": "binary_tpd_rr_ss@1.0",
+        "settings": {
+          "flash_max_iterations": 100,
+          "stability_max_iterations": 100,
+          "rr_max_iterations": 200,
+          "fugacity_tolerance": 1e-11,
+          "material_tolerance": 1e-10
+        }
+      }
+    },
+    "C": {
+      "status": "success_single_phase",
+      "classification": "single_vapor",
+      "overall_state": {
+        "temperature_K": 300.0,
+        "pressure_Pa_abs": 1000.0,
+        "composition": {
+          "component_ids": [
+            "methane",
+            "n_hexane"
+          ],
+          "molar_fractions": [
+            0.5,
+            0.5
+          ]
+        },
+        "provenance": {
+          "provider": "peng_robinson@1.0",
+          "bip_specification": "methane_nhexane_explicit_zero@1.0",
+          "input_basis": "molar_fractions"
+        }
+      },
+      "evaluated_molar_composition": [
+        0.5,
+        0.5
+      ],
+      "phases": [
+        {
+          "identifier": "vapor",
+          "fraction": 1.0,
+          "composition": [
+            0.5,
+            0.5
+          ],
+          "Z": 0.9997966702051944,
+          "ln_phi": [
+            6.804857049927615e-05,
+            -0.0004746799831264976
+          ],
+          "phi": [
+            1.0000680508858557,
+            0.9995254326595929
+          ],
+          "fugacity_Pa": [
+            500.0340254429278,
+            499.7627163297965
+          ]
+        }
+      ],
+      "beta": 1.0,
+      "final_K": [],
+      "diagnostics": {
+        "iterations": 0,
+        "fugacity_residual": [],
+        "rr_residual": null,
+        "material_residual": [],
+        "raw_composition_sum_errors": [],
+        "rr_iterations": 0,
+        "stability": {
+          "stable": true,
+          "classification": "single_vapor",
+          "converged": true,
+          "iterations": 48,
+          "minimum_tpd_RT": -5.089828590112726e-17,
+          "trials": [
+            {
+              "composition": [
+                0.0,
+                1.0
+              ],
+              "root_kind": "vapor_like",
+              "tpd_RT": 0.6930573314779357,
+              "iterations": 0,
+              "interval_width": 0.0,
+              "converged": true
+            },
+            {
+              "composition": [
+                0.5,
+                0.5
+              ],
+              "root_kind": "vapor_like",
+              "tpd_RT": 0.0,
+              "iterations": 0,
+              "interval_width": 0.0,
+              "converged": true
+            },
+            {
+              "composition": [
+                1.0,
+                0.0
+              ],
+              "root_kind": "single_root",
+              "tpd_RT": 0.6930573773357873,
+              "iterations": 0,
+              "interval_width": 0.0,
+              "converged": true
+            },
+            {
+              "composition": [
+                0.5000000010739756,
+                0.4999999989260244
+              ],
+              "root_kind": "vapor_like",
+              "tpd_RT": -5.089828590112726e-17,
+              "iterations": 48,
+              "interval_width": 7.267519919196275e-13,
+              "converged": true
+            }
+          ],
+          "phase_identification_parameter": 0.9994441541503631,
+          "provider": "peng_robinson@1.0",
+          "algorithm": "binary_tpd_grid_golden@1.0"
+        },
+        "equilibrium_stability": null,
+        "message": ""
+      },
+      "provenance": {
+        "provider": "peng_robinson@1.0",
+        "component_dataset": "riogineer_components@1.0",
+        "bip": {
+          "identifier": "methane_nhexane_explicit_zero@1.0",
+          "component_ids": [
+            "methane",
+            "n_hexane"
+          ],
+          "values": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ]
+          ],
+          "source": "Explicit zero-kij mathematical qualification specification; not calibrated physical data",
+          "model": "peng_robinson@1.0"
+        },
+        "formulation": "PR1976: 0.45724/0.07780; classical quadratic a, linear b",
+        "solver": "binary_tpd_rr_ss@1.0",
+        "settings": {
+          "flash_max_iterations": 100,
+          "stability_max_iterations": 100,
+          "rr_max_iterations": 200,
+          "fugacity_tolerance": 1e-11,
+          "material_tolerance": 1e-10
+        }
+      }
+    }
+  }
+}

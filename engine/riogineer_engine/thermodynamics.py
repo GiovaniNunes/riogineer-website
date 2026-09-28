@@ -41,20 +41,38 @@ class PropertyProvenance:
 
 
 @dataclass(frozen=True)
+class MolarComposition:
+    """Standalone molar specification; never a replacement for process mass flows."""
+    component_ids: tuple[str, ...]
+    molar_fractions: tuple[float, ...]
+
+    def __post_init__(self):
+        object.__setattr__(self, 'component_ids', tuple(self.component_ids))
+        object.__setattr__(self, 'molar_fractions', tuple(self.molar_fractions))
+
+
+@dataclass(frozen=True)
+class StateSpecificationProvenance:
+    provider: str
+    bip_specification: str
+    input_basis: str = 'molar_fractions'
+
+
+@dataclass(frozen=True)
 class ThermodynamicState:
     temperature_K: float
     pressure_Pa_abs: float
-    composition: Composition
-    provenance: PropertyProvenance
-    # Future providers may extend state with an arbitrary collection of phases.
-    # Absence of phase fields means unqualified, not single-phase or zero phases.
+    composition: Composition | MolarComposition
+    provenance: PropertyProvenance | StateSpecificationProvenance
 
 
 class PropertyPackage(Protocol):
-    """Capability-scoped boundary; flash is deliberately outside this interface."""
+    """Shared identity boundary; operations belong to capability-specific protocols."""
     identifier: str
     capabilities: frozenset[str]
 
+
+class MolecularPropertyPackage(PropertyPackage, Protocol):
     def enrich(self, state: Mapping) -> ThermodynamicState: ...
 
 
@@ -97,7 +115,7 @@ def enrich_results(output):
     """Called only after process execution. Stable-ID states and process numbers stay intact."""
     from copy import deepcopy
     enriched = deepcopy(output)
-    provider: PropertyPackage = MolecularCompositionProvider()
+    provider: MolecularPropertyPackage = MolecularCompositionProvider()
     for state in enriched['streams'].values():
         thermo = provider.enrich(state)
         c, p = thermo.composition, thermo.provenance
