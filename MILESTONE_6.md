@@ -4,7 +4,7 @@
 
 Milestone 6 adds a **pressure/work transformation** on the SEP_1 gas branch while preserving the Milestone 5 separator → heater → second-separator oil train and its numerical reference. The compressor is a deliberately restricted ideal-gas constant-property development model, not qualified compressor design or real-gas simulation. All values are synthetic development assumptions, not client or I-ET data.
 
-Case ID: **MILESTONE_6_GAS_COMPRESSION**. Profile: **acyclic_development**. The independent reference is `contracts/examples/milestone-6-requirements.json`. Earlier fixtures remain unchanged and executable. Automated validation is documented below; **human-operated manual browser validation has not yet occurred and is not claimed**.
+Case ID: **MILESTONE_6_GAS_COMPRESSION**. Profile: **acyclic_development**. The independent reference is `contracts/examples/milestone-6-requirements.json`. Earlier fixtures remain unchanged and executable. Automated validation is documented separately below. **Final deterministic human-operated manual browser validation was successfully completed on 2026-09-28**, as reported by the user and recorded in the manual-validation section.
 
 ## Exact topology and independent branches
 
@@ -165,7 +165,7 @@ Exact added input fields are `discharge_pressure_Pa_abs`, `cp_J_kg_K`, `heat_cap
 
 TypeScript integration checks old/new version separation, exact API payload forwarding and ID-based projection. Browser tests verify every PFD node and numbered stream, all stream flows/P/T/fractions, unavailable properties, every compressor results label/value, process versus shaft display, layout/regeneration and all six cross-case transitions between Milestone 6 and Bia/Milestones 4–5. Cross-case changes clear validation, flowsheet and results; existing revision/fingerprint protections remain authoritative.
 
-For later human validation, restart any already-running pre-Milestone-6 Python process, then run `PYTHONPATH=engine engine/.venv/bin/python -B -m riogineer_engine.server --port 8001` and `npm run dev` in separate terminals. At `/digital-engineer` use **Engineering data / Advanced → Load Milestone 6 reference → Validate requirements → Generate PFD → Run engineering calculation**. The Python process does not hot-reload. No LLM call is needed. This implementation prepares that manual workflow; it does not claim user manual validation.
+To reproduce the validated workflow, restart any already-running pre-Milestone-6 Python process, then run `PYTHONPATH=engine engine/.venv/bin/python -B -m riogineer_engine.server --port 8001` and `npm run dev` in separate terminals. At `/digital-engineer` use **Engineering data / Advanced → Load Milestone 6 reference → Validate requirements → Generate PFD → Run engineering calculation**. The Python process does not hot-reload. No LLM call is needed. The completed human-operated validation is recorded separately below.
 
 ## Physical limitations, future providers and recommendation
 
@@ -173,7 +173,7 @@ The compressor assumes ideal gas, constant Cp/k, prescribed isentropic/mechanica
 
 A future qualified property provider may supply Cp, Cv/k, Z, enthalpy, entropy, density and phase state behind the registered equipment/state interfaces. Stable equipment/stream identity, ports, graph topology, numbering and PFD/table projection need not change. No such provider is implemented now.
 
-**Recommend A: qualified thermodynamic/property infrastructure next**, after separate manual acceptance of Milestone 6. Milestones 3–6 have exercised prescribed separation, branch/merge, sequential state propagation, heat/temperature and pressure/work transformations, and independent branches. Another simplified equipment adapter would now add less architectural evidence than qualifying consistent thermodynamic states, reference enthalpy and phase/property validity. Define a narrow provider interface and independent benchmark/acceptance criteria before implementing any EOS. This recommendation is not implementation or authorization for the next milestone.
+**Recommend A: qualified thermodynamic/property infrastructure next**, following the completed manual validation of Milestone 6. Milestones 3–6 have exercised prescribed separation, branch/merge, sequential state propagation, heat/temperature and pressure/work transformations, and independent branches. Another simplified equipment adapter would now add less architectural evidence than qualifying consistent thermodynamic states, reference enthalpy and phase/property validity. Define a narrow provider interface and independent benchmark/acceptance criteria before implementing any EOS. This recommendation is not implementation or authorization for the next milestone.
 
 ## Implementation file inventory
 
@@ -217,4 +217,73 @@ These are automated checks and agent inspection of automated screenshots, **not 
 - Automated PFD and compressor/network-energy screenshots were visually inspected. All nine numbered connections and the separate heat/work/power quantities are displayed; the wide Stream Table remains horizontally scrollable.
 - Protected earlier reference fixtures, stream-property implementation, interpretation and workflow modules have no diff. The full earlier-case regression suite passed, and the Milestone 5 oil-train comparison passed.
 
-The temporary production server was stopped after validation. No live-provider/LLM call was made. Separate user manual validation remains pending using the workflow above. No next-milestone implementation was started.
+The temporary production server was stopped after validation. No live-provider/LLM call was made. Human-operated manual validation was subsequently completed and is recorded separately below. No next-milestone implementation was started.
+
+## Completed human-operated manual browser validation — 2026-09-28
+
+The user reported successful completion of the final deterministic human-operated manual browser validation of Milestone 6 on **2026-09-28**. This record documents human inspection of the browser workflow and results; it is separate from the automated test coverage and agent screenshot inspection recorded above.
+
+The manually validated workflow was:
+
+**Load Milestone 6 reference → Validate requirements → Generate PFD → Run engineering calculation.**
+
+The manual inspection confirmed the complete Milestone 6 PFD containing FEED, SEP_1, COMPRESSOR_1, COMPRESSED_GAS_SINK, WATER_1_SINK, HEATER_1, SEP_2, GAS_2_SINK, OIL_PRODUCT_SINK and WATER_2_SINK.
+
+Nine numbered material streams were present:
+
+| Engineering number | Stream service / stable ID |
+| -----------------: | -------------------------- |
+|                  1 | FEED                       |
+|                  2 | GAS_1                      |
+|                  3 | OIL_1                      |
+|                  4 | WATER_1                    |
+|                  5 | COMPRESSED_GAS             |
+|                  6 | HEATED_OIL                 |
+|                  7 | GAS_2                      |
+|                  8 | OIL_PRODUCT                |
+|                  9 | WATER_2                    |
+
+The observed deterministic execution order was **SEP_1 → COMPRESSOR_1 → HEATER_1 → SEP_2**.
+
+Manual inspection confirmed that COMPRESSOR_1 consumes the **calculated SEP_1 gas stream** and that its calculated outlet pressure, temperature and composition propagate to **COMPRESSED_GAS**:
+
+| Observed quantity        | Compressor inlet | Compressor outlet |
+| ------------------------ | ---------------: | ----------------: |
+| Total mass flow (kg/h)   |            22000 |             22000 |
+| Pressure (Pa absolute)   |          2000000 |           6000000 |
+| Temperature (K)          |           313.15 |      433.63373985 |
+| Methane mass flow (kg/h) |            22000 |             22000 |
+
+The following compressor values were manually confirmed:
+
+| Quantity                                              |            Observed value |
+| ----------------------------------------------------- | ------------------------: |
+| Pressure ratio                                        |                       3.0 |
+| Isentropic discharge temperature                      |              403.512805 K |
+| Actual discharge temperature                          | approximately 433.63374 K |
+| Cp                                                    |             2200 J/(kg K) |
+| k                                                     |                       1.3 |
+| Isentropic efficiency                                 |                      0.75 |
+| Gas/process power                                     |          1619836.946822 W |
+| Mechanical efficiency                                 |                      0.98 |
+| Shaft power                                           |          1652894.843696 W |
+| Mechanical losses outside the process-stream boundary |            33057.896874 W |
+| Compressor heat duty                                  |                       0 W |
+| Compressor total and component mass residuals         |                    0 kg/h |
+| Compressor energy residual                            |                       0 W |
+
+The manual inspection also confirmed the network and unchanged heater results:
+
+| Quantity                               |   Observed value |
+| -------------------------------------- | ---------------: |
+| HEATER_1 duty                          |  953883.333333 W |
+| Network heat input                     |  953883.333333 W |
+| Network gas/process work input         | 1619836.946822 W |
+| External sensible enthalpy-flow change | 2573720.280155 W |
+| Network energy residual                |              0 W |
+
+Global and component mass-balance checks passed with zero residuals. Milestone 5 oil-train values remained unchanged. Unsupported thermodynamic properties continued to display as **—**.
+
+The UI clearly distinguished gas/process power from shaft power and mechanical losses. The displayed limitations correctly identified the compressor as an **ideal-gas constant-Cp/k development model with prescribed efficiencies**, with no EOS, Z correction, real-gas enthalpy, compressor map or rigorous compressor design.
+
+This documentation update records the user-reported manual validation only. No source code, tests, contracts, fixtures or calculations were changed, and no live-provider call was made for this update.
