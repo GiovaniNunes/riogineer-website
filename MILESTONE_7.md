@@ -2,7 +2,7 @@
 
 ## Objective and scope
 
-Milestone 7 adds deterministic molecular/composition enrichment to the existing Milestone 3–6 streams. It uses Milestone 6 (`MILESTONE_6_GAS_COMPRESSION`) as its primary integration reference, with the same topology, four process equipment objects, nine numbered material streams and ordinary calculation workflow. No duplicate fixture, equipment type or topology was introduced. Human-operated Milestone 7 manual browser validation is pending; automated checks are recorded separately below.
+Milestone 7 adds deterministic molecular/composition enrichment to the existing Milestone 3–6 streams. It uses Milestone 6 (`MILESTONE_6_GAS_COMPRESSION`) as its primary integration reference, with the same topology, four process equipment objects, nine numbered material streams and ordinary calculation workflow. No duplicate fixture, equipment type or topology was introduced. Final deterministic human-operated manual browser validation of Milestone 7 was successfully completed on **2026-09-28**, as reported by the user. Manual observations and automated checks are recorded separately below.
 
 Process equipment must not own future thermodynamic equations. This milestone establishes an offline component-data → composition → thermodynamic-state → property-provider boundary. Existing prescribed recoveries, splitter/mixer arithmetic, heater constant-Cp accounting and ideal-gas compressor equations remain unchanged. The molecular provider does not supply Cp/k to those development models or replace their sensible enthalpy basis.
 
@@ -110,17 +110,17 @@ FEED remains 110000 kg/h (22000 methane, 77000 n_hexane, 11000 water). OIL_1 and
 
 All Milestone 3–6 process-state/equipment/balance values are protected by pre-change fingerprints and existing numerical regressions. HEATER_1 duty remains 953883.333333… W; compressor gas/shaft powers remain 1619836.9468215914 / 1652894.8436955013 W. Network energy residual remains zero. Molecular conversion does not participate in these equations.
 
-## Stream Table, identity and manual preparation
+## Stream Table, identity and workflow reproduction
 
 The existing table projection already reads the property slots; no frontend MW constants or conversion equations were added. It now shows calculated **Molar flow (kmol/h)**, **Molecular mass (kg/kmol)** and **component molar fraction (mol/mol)**. Mass flow, component mass flow and mass fraction rows remain. Copy clarifies the two composition bases and unavailable density/volumetric flow. Per-stream provider provenance is available in `results.json` without adding a dashboard or cluttering cells.
 
 Density, gas/oil/water volumetric flows continue to show **—**. There is no inferred phase, vapor fraction, rigorous enthalpy, entropy or Z. PFD/table numbers still come exclusively from the structured flowsheet: **1 FEED, 2 GAS_1, 3 OIL_1, 4 WATER_1, 5 COMPRESSED_GAS, 6 HEATED_OIL, 7 GAS_2, 8 OIL_PRODUCT, 9 WATER_2**.
 
-For later human-operated manual validation, restart an older Python engine process so the new code is loaded, then use the ordinary local website/engine setup:
+To reproduce the manually validated workflow, restart an older Python engine process so the new code is loaded, then use the ordinary local website/engine setup:
 
 **Engineering data / Advanced → Load Milestone 6 reference → Validate requirements → Generate PFD → Run engineering calculation → inspect Engineering Stream Table.**
 
-Expected change: molecular rows populate while topology, stream numbering and process results remain the same. No new milestone fixture or live LLM request is needed. This report does not claim human-operated Milestone 7 validation.
+Expected change: molecular rows populate while topology, stream numbering and process results remain the same. No new milestone fixture or live LLM request is needed. The completed human-operated Milestone 7 validation is recorded separately below.
 
 ## Regression coverage
 
@@ -142,7 +142,7 @@ A future provider can consume the stored critical data, actual stream T/P and ov
 
 ## Completed automated validation — 2026-09-28
 
-These checks and the agent's inspection of an automated screenshot are distinct from human-operated manual acceptance, which remains pending.
+These checks and the agent's inspection of an automated screenshot are distinct from the completed human-operated manual validation recorded below.
 
 | Check                                                   | Result                                                                                                                                  |
 | ------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
@@ -193,3 +193,47 @@ Modified:
 - `tests/e2e/compression.spec.ts`
 - `tests/e2e/network.spec.ts`
 - `tests/e2e/sequential.spec.ts`
+
+## Completed human-operated manual browser validation — 2026-09-28
+
+The user reported that the **final deterministic human-operated manual browser validation of Milestone 7 was successfully completed on 2026-09-28**. This section records the user's browser inspection, separately from the automated test coverage and agent screenshot inspection above. The coding agent did not rerun this manual validation.
+
+The manual validation used the existing Milestone 6 reference workflow:
+
+**Load Milestone 6 reference → Validate requirements → Generate PFD → Run engineering calculation.**
+
+Manual inspection confirmed that the Milestone 6 PFD topology and all nine numbered material streams remained unchanged: **1 FEED, 2 GAS_1, 3 OIL_1, 4 WATER_1, 5 COMPRESSED_GAS, 6 HEATED_OIL, 7 GAS_2, 8 OIL_PRODUCT, 9 WATER_2**. The Engineering Stream Table successfully displayed the new Milestone 7 molecular-property enrichment.
+
+The following displayed FEED values were confirmed:
+
+- Total molar flow: **2875.45175371 kmol/h**.
+- Mixture molecular mass: **38.25485851 kg/kmol**.
+- Methane molar fraction: approximately **0.47691**.
+- n_hexane molar fraction: approximately **0.31074313**.
+- Water molar fraction: approximately **0.21234687**.
+
+Both GAS_1 and COMPRESSED_GAS showed:
+
+- Total molar flow: approximately **1371.33168774 kmol/h**.
+- Molecular mass: **16.0428 kg/kmol**.
+- Methane molar fraction: **1**.
+- n_hexane molar fraction: **0**.
+- Water molar fraction: **0**.
+
+OIL_1 showed:
+
+- Total molar flow: approximately **924.05653319 kmol/h**.
+- Mixture molecular mass: approximately **83.92343673 kg/kmol**.
+- Methane molar fraction: **0**.
+- n_hexane molar fraction: approximately **0.96696126**.
+- Water molar fraction: approximately **0.03303874**.
+
+Molar fractions are dimensionless (mol/mol). These values record the displayed precision observed manually; the full-precision reference calculations above remain unchanged.
+
+Manual inspection also confirmed that molecular properties derive from component mass flows and that mass composition remains authoritative. Compressor pressure/temperature changes do not change molecular composition; the heater temperature change likewise does not change molecular composition.
+
+Density, gas volumetric flow, oil volumetric flow and water volumetric flow all remained displayed as **—**. Calculated zero remained distinct from unavailable / `not_calculated`. Milestone 6 process calculations, balances, compressor results and heater results remained unchanged.
+
+**This manual validation does not validate Peng–Robinson, any EOS, phase equilibrium, PT/PH/PS flash, VLE, VLLE, density or phase volumetric flow. No such capability was implemented in Milestone 7.** The manual validation confirms the bounded deterministic molecular-property enrichment and its integration with the existing workflow.
+
+This documentation update changes no source code, tests, contracts, fixtures, component constants or calculations. No live-provider call was made for this update.
