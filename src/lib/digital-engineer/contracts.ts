@@ -197,11 +197,37 @@ export const sequentialRequirementsSchema = networkRequirementsSchema.extend({
     .min(1)
     .max(50),
 });
+const compressorModel = z.strictObject({
+  id: z.literal('ideal_gas_isentropic_efficiency'),
+  version: z.literal('1.0'),
+});
+const efficiency = positive.max(1);
+const compressorInput = z.strictObject({
+  id,
+  type: z.literal('compressor'),
+  model: compressorModel,
+  parameters: z.strictObject({
+    discharge_pressure_Pa_abs: positive,
+    cp_J_kg_K: positive,
+    heat_capacity_ratio: num.gt(1),
+    isentropic_efficiency: efficiency,
+    mechanical_efficiency: efficiency,
+    inlet_phase: z.literal('gas'),
+  }),
+});
+export const compressionRequirementsSchema = sequentialRequirementsSchema.extend({
+  schema_version: z.literal('1.3'),
+  equipment: z
+    .array(z.union([sequentialRequirementsSchema.shape.equipment.element, compressorInput]))
+    .min(1)
+    .max(50),
+});
 // Interpretation stays on requirementsSchema (1.0); deterministic API accepts both.
 export const engineeringRequirementsSchema = z.union([
   requirementsSchema,
   networkRequirementsSchema,
   sequentialRequirementsSchema,
+  compressionRequirementsSchema,
 ]);
 const graphEquipment = z.discriminatedUnion('type', [
   graphEquipmentInput.options[0]
@@ -245,11 +271,27 @@ const sequentialFlowsheetSchema = networkFlowsheetSchema.extend({
     .min(1)
     .max(50),
 });
+const compressionFlowsheetSchema = sequentialFlowsheetSchema.extend({
+  schema_version: z.literal('1.4'),
+  equipment: z
+    .array(
+      z.union([
+        sequentialFlowsheetSchema.shape.equipment.element,
+        compressorInput.omit({ parameters: true }).extend({
+          ports: z.array(portSchema),
+          operating_parameters: compressorInput.shape.parameters,
+        }),
+      ]),
+    )
+    .min(1)
+    .max(50),
+});
 // Legacy 1.0/1.1 readers remain unchanged; graph builds explicitly use 1.2.
 export const flowsheetSchema = z.union([
   legacyFlowsheetSchema,
   networkFlowsheetSchema,
   sequentialFlowsheetSchema,
+  compressionFlowsheetSchema,
   legacyFlowsheetSchema.extend({
     schema_version: z.literal('1.1'),
     streams: z
@@ -392,9 +434,51 @@ const sequentialResultsSchema = networkResultsSchema.extend({
     .min(1)
     .max(50),
 });
+const compressionDetails = z.strictObject({
+  inlet_pressure_Pa_abs: positive,
+  discharge_pressure_Pa_abs: positive,
+  pressure_ratio: num.gt(1),
+  inlet_temperature_K: positive,
+  isentropic_discharge_temperature_K: positive,
+  discharge_temperature_K: positive,
+  cp_J_kg_K: positive,
+  heat_capacity_ratio: num.gt(1),
+  isentropic_efficiency: efficiency,
+  mechanical_efficiency: efficiency,
+  gas_power_W: nonnegative,
+  shaft_power_W: nonnegative,
+  mechanical_loss_W: nonnegative,
+});
+const compressionResultsSchema = sequentialResultsSchema.extend({
+  schema_version: z.literal('1.4'),
+  engine: sequentialResultsSchema.shape.engine.extend({ version: z.literal('1.3.0') }),
+  equipment: z
+    .array(
+      z.union([
+        sequentialResultsSchema.shape.equipment.element,
+        sequentialResultsSchema.shape.equipment.element.extend({
+          type: z.literal('compressor'),
+          model: compressorModel,
+          compression: compressionDetails,
+        }),
+      ]),
+    )
+    .min(1)
+    .max(50),
+  balances: sequentialResultsSchema.shape.balances.extend({
+    energy: sequentialResultsSchema.shape.balances.shape.energy.extend({
+      process_work_W: nonnegative,
+      shaft_power_W: nonnegative,
+      mechanical_loss_W: nonnegative,
+      external_enthalpy_change_W: num,
+      positive_work: z.literal('work_into_process'),
+    }),
+  }),
+});
 export const resultsSchema = z.union([
   networkResultsSchema,
   sequentialResultsSchema,
+  compressionResultsSchema,
   legacyResultsSchema,
   legacyResultsSchema.extend({
     schema_version: z.literal('1.1'),

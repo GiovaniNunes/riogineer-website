@@ -12,6 +12,7 @@ import {
   workflowReducer,
   resultsAreCurrent,
 } from '@/lib/digital-engineer/workflow';
+import { CompressionResults } from './compression-results';
 import { Pfd } from './pfd';
 import { StreamTable } from './stream-table';
 import { SpecificationWorkspace } from './specification';
@@ -33,10 +34,12 @@ export function EngineerWorkspace({
   referenceText,
   networkReferenceText,
   sequentialReferenceText,
+  compressionReferenceText,
 }: {
   referenceText: string;
   networkReferenceText: string;
   sequentialReferenceText: string;
+  compressionReferenceText: string;
 }) {
   const [state, dispatch] = useReducer(workflowReducer, referenceText, initialWorkflow);
   const current = resultsAreCurrent(state);
@@ -179,6 +182,13 @@ export function EngineerWorkspace({
               onClick={() => dispatch({ type: 'edit', draft: sequentialReferenceText })}
             >
               Load Milestone 5 reference
+            </button>
+            <button
+              className={styles.secondary}
+              disabled={state.busy}
+              onClick={() => dispatch({ type: 'edit', draft: compressionReferenceText })}
+            >
+              Load Milestone 6 reference
             </button>
             <button
               className={styles.secondary}
@@ -373,11 +383,15 @@ export function EngineerWorkspace({
                 Status: <strong>{r.balances.energy.status}</strong> within the constant-Cp model.
               </p>
               <p>
-                {r.schema_version === '1.2' || r.schema_version === '1.3'
+                {r.schema_version === '1.2' ||
+                r.schema_version === '1.3' ||
+                r.schema_version === '1.4'
                   ? 'Calculated network duty: '
                   : 'Calculated separator duty: '}
                 <strong>{number(r.balances.energy.duty_W)} W</strong>{' '}
-                {r.schema_version === '1.2' || r.schema_version === '1.3'
+                {r.schema_version === '1.2' ||
+                r.schema_version === '1.3' ||
+                r.schema_version === '1.4'
                   ? '(positive into the network).'
                   : '(positive into the separator).'}
               </p>
@@ -391,7 +405,9 @@ export function EngineerWorkspace({
               </p>
             </div>
           </div>
-          {(r.schema_version === '1.2' || r.schema_version === '1.3') && (
+          {(r.schema_version === '1.2' ||
+            r.schema_version === '1.3' ||
+            r.schema_version === '1.4') && (
             <>
               <h3>Equipment checks</h3>
               <p>Execution order: {r.execution.equipment_order.join(' → ')}</p>
@@ -430,6 +446,7 @@ export function EngineerWorkspace({
               </p>
             </>
           )}
+          {r.schema_version === '1.4' && <CompressionResults results={r} />}
           <h3>Warnings and model limitations</h3>
           <ul>
             {r.warnings.map((w) => (

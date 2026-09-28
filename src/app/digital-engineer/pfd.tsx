@@ -2,7 +2,11 @@ import type { Flowsheet } from '@/lib/digital-engineer/contracts';
 import { graphLayout } from '@/lib/digital-engineer/pfd-layout';
 import { streamLabel } from '@/lib/digital-engineer/stream-label';
 export function Pfd({ flowsheet }: { flowsheet: Flowsheet }) {
-  if (flowsheet.schema_version === '1.2' || flowsheet.schema_version === '1.3')
+  if (
+    flowsheet.schema_version === '1.2' ||
+    flowsheet.schema_version === '1.3' ||
+    flowsheet.schema_version === '1.4'
+  )
     return <NetworkPfd flowsheet={flowsheet} />;
   const nodes = [...flowsheet.boundaries, ...flowsheet.equipment];
   const sinks = flowsheet.boundaries.filter((n) => n.type === 'sink');
@@ -161,6 +165,16 @@ function NetworkPfd({ flowsheet }: { flowsheet: Flowsheet }) {
                 stroke="currentColor"
                 strokeWidth="2"
               />
+              {node.type === 'compressor' && (
+                <path
+                  data-symbol="compressor"
+                  d={`M ${p.x + 55} ${p.y + 67} L ${p.x + 105} ${p.y + 74} L ${p.x + 105} ${p.y + 86} L ${p.x + 55} ${p.y + 93} Z`}
+                  transform="translate(0 -5)"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                />
+              )}
               {node.type === 'heater' && (
                 <path
                   data-symbol="heater"

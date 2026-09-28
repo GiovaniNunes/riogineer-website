@@ -1,0 +1,328 @@
+{
+  "schema_version": "1.3",
+  "kind": "requirements",
+  "case_id": "MILESTONE_6_GAS_COMPRESSION",
+  "profile": "acyclic_development",
+  "units": {
+    "temperature": "K",
+    "pressure": "Pa_abs",
+    "component_mass_flow": "kg/h",
+    "heat_capacity": "J/(kg K)",
+    "duty": "W",
+    "recovery": "mass_fraction"
+  },
+  "provenance": {
+    "source": "Milestone 6 ideal-gas compression parallel to unchanged Milestone 5 oil train; synthetic development assumptions",
+    "basis": "synthetic_development_assumptions"
+  },
+  "components": ["methane", "n_hexane", "water"],
+  "feeds": [
+    {
+      "id": "FEED",
+      "state": {
+        "temperature_K": 313.15,
+        "pressure_Pa_abs": 2000000,
+        "component_mass_flow_kg_h": {
+          "methane": 22000,
+          "n_hexane": 77000,
+          "water": 11000
+        }
+      }
+    }
+  ],
+  "equipment": [
+    {
+      "id": "SEP_1",
+      "type": "three_phase_separator",
+      "model": {
+        "id": "prescribed_component_recoveries",
+        "version": "1.0"
+      },
+      "parameters": {
+        "separator": {
+          "pressure_Pa_abs": 2000000,
+          "temperature_K": 313.15,
+          "thermal_mode": "specified_temperature_calculate_duty"
+        },
+        "recovery_fractions": {
+          "methane": {
+            "gas": 1.0,
+            "oil": 0.0,
+            "water": 0.0
+          },
+          "n_hexane": {
+            "gas": 0.0,
+            "oil": 1.0,
+            "water": 0.0
+          },
+          "water": {
+            "gas": 0.0,
+            "oil": 0.05,
+            "water": 0.95
+          }
+        },
+        "caloric_model": {
+          "type": "constant_cp_no_pressure_or_phase_dependence",
+          "reference_temperature_K": 273.15,
+          "cp_J_kg_K": {
+            "methane": 2200,
+            "n_hexane": 2200,
+            "water": 4180
+          }
+        }
+      }
+    },
+    {
+      "id": "HEATER_1",
+      "type": "heater",
+      "model": {
+        "id": "specified_outlet_temperature_constant_cp",
+        "version": "1.0"
+      },
+      "parameters": {
+        "outlet_temperature_K": 333.15,
+        "caloric_model": {
+          "type": "constant_cp_no_pressure_or_phase_dependence",
+          "reference_temperature_K": 273.15,
+          "cp_J_kg_K": {
+            "methane": 2200,
+            "n_hexane": 2200,
+            "water": 4180
+          }
+        }
+      }
+    },
+    {
+      "id": "SEP_2",
+      "type": "three_phase_separator",
+      "model": {
+        "id": "prescribed_component_recoveries",
+        "version": "1.0"
+      },
+      "parameters": {
+        "separator": {
+          "pressure_Pa_abs": 2000000,
+          "temperature_K": 333.15,
+          "thermal_mode": "specified_temperature_calculate_duty"
+        },
+        "recovery_fractions": {
+          "methane": {
+            "gas": 1.0,
+            "oil": 0.0,
+            "water": 0.0
+          },
+          "n_hexane": {
+            "gas": 0.05,
+            "oil": 0.95,
+            "water": 0
+          },
+          "water": {
+            "gas": 0,
+            "oil": 0.1,
+            "water": 0.9
+          }
+        },
+        "caloric_model": {
+          "type": "constant_cp_no_pressure_or_phase_dependence",
+          "reference_temperature_K": 273.15,
+          "cp_J_kg_K": {
+            "methane": 2200,
+            "n_hexane": 2200,
+            "water": 4180
+          }
+        }
+      }
+    },
+    {
+      "id": "COMPRESSOR_1",
+      "type": "compressor",
+      "model": {
+        "id": "ideal_gas_isentropic_efficiency",
+        "version": "1.0"
+      },
+      "parameters": {
+        "discharge_pressure_Pa_abs": 6000000,
+        "cp_J_kg_K": 2200,
+        "heat_capacity_ratio": 1.3,
+        "isentropic_efficiency": 0.75,
+        "mechanical_efficiency": 0.98,
+        "inlet_phase": "gas"
+      }
+    }
+  ],
+  "required_outputs": ["streams", "mass_balance", "energy_balance"],
+  "caloric_model": {
+    "type": "constant_cp_no_pressure_or_phase_dependence",
+    "reference_temperature_K": 273.15,
+    "cp_J_kg_K": {
+      "methane": 2200,
+      "n_hexane": 2200,
+      "water": 4180
+    }
+  },
+  "sinks": [
+    {
+      "id": "COMPRESSED_GAS_SINK"
+    },
+    {
+      "id": "WATER_1_SINK"
+    },
+    {
+      "id": "GAS_2_SINK"
+    },
+    {
+      "id": "OIL_PRODUCT_SINK"
+    },
+    {
+      "id": "WATER_2_SINK"
+    }
+  ],
+  "streams": [
+    {
+      "id": "FEED",
+      "service": "feed"
+    },
+    {
+      "id": "GAS_1",
+      "service": "gas_1"
+    },
+    {
+      "id": "OIL_1",
+      "service": "oil_1"
+    },
+    {
+      "id": "WATER_1",
+      "service": "water_1"
+    },
+    {
+      "id": "HEATED_OIL",
+      "service": "heated_oil"
+    },
+    {
+      "id": "GAS_2",
+      "service": "gas_2"
+    },
+    {
+      "id": "OIL_PRODUCT",
+      "service": "oil_product"
+    },
+    {
+      "id": "WATER_2",
+      "service": "water_2"
+    },
+    {
+      "id": "COMPRESSED_GAS",
+      "service": "compressed_gas"
+    }
+  ],
+  "connections": [
+    {
+      "id": "C_FEED",
+      "stream_id": "FEED",
+      "source": {
+        "owner_id": "FEED",
+        "port_id": "outlet"
+      },
+      "target": {
+        "owner_id": "SEP_1",
+        "port_id": "inlet"
+      }
+    },
+    {
+      "id": "C_GAS_1",
+      "stream_id": "GAS_1",
+      "source": {
+        "owner_id": "SEP_1",
+        "port_id": "gas"
+      },
+      "target": {
+        "owner_id": "COMPRESSOR_1",
+        "port_id": "inlet"
+      }
+    },
+    {
+      "id": "C_OIL_1",
+      "stream_id": "OIL_1",
+      "source": {
+        "owner_id": "SEP_1",
+        "port_id": "oil"
+      },
+      "target": {
+        "owner_id": "HEATER_1",
+        "port_id": "inlet"
+      }
+    },
+    {
+      "id": "C_WATER_1",
+      "stream_id": "WATER_1",
+      "source": {
+        "owner_id": "SEP_1",
+        "port_id": "water"
+      },
+      "target": {
+        "owner_id": "WATER_1_SINK",
+        "port_id": "inlet"
+      }
+    },
+    {
+      "id": "C_HEATED_OIL",
+      "stream_id": "HEATED_OIL",
+      "source": {
+        "owner_id": "HEATER_1",
+        "port_id": "outlet"
+      },
+      "target": {
+        "owner_id": "SEP_2",
+        "port_id": "inlet"
+      }
+    },
+    {
+      "id": "C_GAS_2",
+      "stream_id": "GAS_2",
+      "source": {
+        "owner_id": "SEP_2",
+        "port_id": "gas"
+      },
+      "target": {
+        "owner_id": "GAS_2_SINK",
+        "port_id": "inlet"
+      }
+    },
+    {
+      "id": "C_OIL_PRODUCT",
+      "stream_id": "OIL_PRODUCT",
+      "source": {
+        "owner_id": "SEP_2",
+        "port_id": "oil"
+      },
+      "target": {
+        "owner_id": "OIL_PRODUCT_SINK",
+        "port_id": "inlet"
+      }
+    },
+    {
+      "id": "C_WATER_2",
+      "stream_id": "WATER_2",
+      "source": {
+        "owner_id": "SEP_2",
+        "port_id": "water"
+      },
+      "target": {
+        "owner_id": "WATER_2_SINK",
+        "port_id": "inlet"
+      }
+    },
+    {
+      "id": "C_COMPRESSED_GAS",
+      "stream_id": "COMPRESSED_GAS",
+      "source": {
+        "owner_id": "COMPRESSOR_1",
+        "port_id": "outlet"
+      },
+      "target": {
+        "owner_id": "COMPRESSED_GAS_SINK",
+        "port_id": "inlet"
+      }
+    }
+  ]
+}

@@ -1,5 +1,22 @@
 """Development models only: no property prediction or general thermal mixing."""
 
+from dataclasses import dataclass, field
+import math
+
+
+@dataclass
+class EquipmentResult:
+    streams: dict
+    duty_W: float
+    work_W: float = 0.0
+    details: dict = field(default_factory=dict)
+
+
+def equipment_result(value):
+    """Adapt existing heat-only models without changing their qualified equations."""
+    return value if isinstance(value, EquipmentResult) else EquipmentResult(*value)
+
+
 SPLIT_TOLERANCE = 1e-12
 TEMPERATURE_TOLERANCE_K = 1e-8
 PRESSURE_TOLERANCE_PA = 1e-8
@@ -55,8 +72,49 @@ def heater(unit, inputs, _evaluate):
     return {'outlet': state_from_rates(rates, temperature, feed['pressure_Pa_abs'], enthalpy)}, duty
 
 
+def compressor(unit, inputs, _evaluate):
+    if set(inputs) != {'inlet'}:
+        raise ValueError('Compressor requires exactly one inlet')
+    feed = inputs['inlet']
+    p = unit['operating_parameters']
+    t1, p1 = feed['temperature_K'], feed['pressure_Pa_abs']
+    p2, cp, k = p['discharge_pressure_Pa_abs'], p['cp_J_kg_K'], p['heat_capacity_ratio']
+    eta, mechanical = p['isentropic_efficiency'], p['mechanical_efficiency']
+    rates = dict(feed['component_mass_flow_kg_h'])
+    mass = sum(rates.values())
+    if any(not math.isfinite(v) or v <= 0 for v in (t1, p1, p2, cp, mass)):
+        raise ValueError('Compressor requires finite positive temperature, pressures, Cp and mass flow')
+    if any(not math.isfinite(v) or v < 0 for v in rates.values()):
+        raise ValueError('Compressor component flows must be finite and nonnegative')
+    if p2 <= p1:
+        raise ValueError('Compressor discharge pressure must exceed inlet pressure')
+    if not math.isfinite(k) or k <= 1:
+        raise ValueError('Compressor heat capacity ratio k must be finite and greater than one')
+    if any(not math.isfinite(v) or not 0 < v <= 1 for v in (eta, mechanical)):
+        raise ValueError('Compressor efficiencies must be finite and in (0, 1]')
+    if p['inlet_phase'] != 'gas':
+        raise ValueError('Compressor requires an explicitly assumed gas inlet; no liquid handling')
+    ratio = p2 / p1
+    t2s = t1 * ratio ** ((k - 1) / k)
+    t2 = t1 + (t2s - t1) / eta
+    gas = mass / 3600 * cp * (t2 - t1)
+    shaft = gas / mechanical
+    enthalpy = feed['enthalpy_flow_W'] + gas
+    if any(not math.isfinite(v) for v in (ratio, t2s, t2, gas, shaft, enthalpy)):
+        raise ValueError('Compressor calculated temperatures and powers must be finite')
+    details = dict(inlet_pressure_Pa_abs=p1, discharge_pressure_Pa_abs=p2, pressure_ratio=ratio,
+                   inlet_temperature_K=t1, isentropic_discharge_temperature_K=t2s, discharge_temperature_K=t2,
+                   cp_J_kg_K=cp, heat_capacity_ratio=k, isentropic_efficiency=eta,
+                   mechanical_efficiency=mechanical, gas_power_W=gas, shaft_power_W=shaft,
+                   mechanical_loss_W=shaft-gas)
+    return EquipmentResult({'outlet': state_from_rates(rates, t2, p2, enthalpy)}, 0.0, gas,
+                           {'compression': details})
+
+
 # Port definitions, capability identity and execution live together, not in parallel registries.
 MODELS = {
+    'compressor': {'model': {'id': 'ideal_gas_isentropic_efficiency', 'version': '1.0'},
+                   'ports': {'inlet': 'in', 'outlet': 'out'}, 'execute': compressor},
     'heater': {'model': {'id': 'specified_outlet_temperature_constant_cp', 'version': '1.0'},
                'ports': {'inlet': 'in', 'outlet': 'out'}, 'execute': heater},
     'three_phase_separator': {'model': {'id': 'prescribed_component_recoveries', 'version': '1.0'},

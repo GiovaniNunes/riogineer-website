@@ -2,7 +2,7 @@
 from copy import deepcopy
 import math
 import uuid
-from .network_models import MODELS, ports, state_from_rates, SPLIT_TOLERANCE, TEMPERATURE_TOLERANCE_K, PRESSURE_TOLERANCE_PA
+from .network_models import MODELS, ports, state_from_rates, equipment_result, SPLIT_TOLERANCE, TEMPERATURE_TOLERANCE_K, PRESSURE_TOLERANCE_PA
 from .streams import number_streams, unavailable_properties
 
 MODEL = {'id': 'acyclic_component_conservation', 'version': '1.0'}
@@ -26,7 +26,7 @@ def build(requirements):
         links = [c for c in connections if c['stream_id'] == stream['id']]
         source = links[0]['source']['owner_id'] if len(links) == 1 else None
         streams.append(dict(stream, specified_state=deepcopy(feed_by_id.get(source))))
-    f = dict(schema_version='1.3' if r['schema_version'] == '1.2' else '1.2', kind='flowsheet', case_id=r['case_id'], profile=r['profile'],
+    f = dict(schema_version={'1.1': '1.2', '1.2': '1.3', '1.3': '1.4'}[r['schema_version']], kind='flowsheet', case_id=r['case_id'], profile=r['profile'],
              units=r['units'], requirements_sha256=digest(r), components=r['components'],
              caloric_model=r['caloric_model'],
              boundaries=[dict(id=s['id'], type='source', ports=ports('source')) for s in r['feeds']] +
@@ -159,9 +159,18 @@ def calculate(f):
         try:
             if unit['type'] == 'three_phase_separator' and unit['operating_parameters']['separator']['pressure_Pa_abs'] > incoming['inlet']['pressure_Pa_abs']:
                 raise ValueError('Separator cannot increase pressure')
-            outgoing, duty = MODELS[unit['type']]['execute'](unit, incoming, reference.evaluate)
+            if unit['type'] == 'compressor':
+                feed = incoming['inlet']
+                rates = feed['component_mass_flow_kg_h']
+                total = sum(rates.values())
+                if total <= 0: raise ValueError('Compressor requires positive inlet mass flow')
+                effective_cp = sum(rates[c] / total * cal['cp_J_kg_K'][c] for c in components)
+                if not math.isclose(effective_cp, unit['operating_parameters']['cp_J_kg_K'], rel_tol=0, abs_tol=1e-8):
+                    raise ValueError('Compressor Cp must match the runtime mass-weighted network caloric basis')
+            executed = equipment_result(MODELS[unit['type']]['execute'](unit, incoming, reference.evaluate))
+            outgoing, duty, work = executed.streams, executed.duty_W, executed.work_W
             balance = mass_balance(list(incoming.values()), list(outgoing.values()), components)
-            energy = sum(s['enthalpy_flow_W'] for s in incoming.values()) + duty - sum(s['enthalpy_flow_W'] for s in outgoing.values())
+            energy = sum(s['enthalpy_flow_W'] for s in incoming.values()) + duty + work - sum(s['enthalpy_flow_W'] for s in outgoing.values())
             if not math.isfinite(energy) or abs(energy) > ENERGY_TOLERANCE:
                 raise ValueError('Constant-Cp energy accounting failed')
         except (ValueError, ArithmeticError) as error:
@@ -169,18 +178,19 @@ def calculate(f):
         for c in f['connections']:
             if c['source']['owner_id'] == uid:
                 states[c['stream_id']] = outgoing[c['source']['port_id']]
-        equipment.append(dict(id=uid, type=unit['type'], model=unit['model'], duty_W=duty, work_W=0.0,
+        equipment.append(dict(id=uid, type=unit['type'], model=unit['model'], duty_W=duty, work_W=work, **executed.details,
                               mass_balance=balance, energy_residual_W=energy))
     sink_ids = {b['id'] for b in f['boundaries'] if b['type'] == 'sink'}
     products = [states[c['stream_id']] for c in sorted(f['connections'], key=lambda c: c['stream_id']) if c['target']['owner_id'] in sink_ids]
     balance = mass_balance(feed_states, products, components)
     duty = sum(e['duty_W'] for e in equipment)
-    energy = sum(s['enthalpy_flow_W'] for s in feed_states) + duty - sum(s['enthalpy_flow_W'] for s in products)
+    work = sum(e['work_W'] for e in equipment)
+    energy = sum(s['enthalpy_flow_W'] for s in feed_states) + duty + work - sum(s['enthalpy_flow_W'] for s in products)
     if not math.isfinite(energy) or abs(energy) > ENERGY_TOLERANCE:
         raise Invalid('Network constant-Cp energy accounting failed', code='CALCULATION_FAILED')
     output = dict(schema_version=f['schema_version'], kind='results', case_id=f['case_id'], run_id=str(uuid.uuid4()),
                   input_sha256=semantic_hash(f), requirements_sha256=f['requirements_sha256'],
-                  engine=dict(version='1.2.0' if f['schema_version'] == '1.3' else '1.1.0', implementation_sha256=implementation_hash(), evaluator_sha256=EVALUATOR_HASH, model=MODEL),
+                  engine=dict(version={'1.2': '1.1.0', '1.3': '1.2.0', '1.4': '1.3.0'}[f['schema_version']], implementation_sha256=implementation_hash(), evaluator_sha256=EVALUATOR_HASH, model=MODEL),
                   status='completed', units=f['units'], streams={sid: dict(states[sid], properties=unavailable_properties()) for sid in sorted(states)},
                   equipment=equipment, execution={'method': 'topological', 'equipment_order': order},
                   model_tolerances=dict(split_fraction=SPLIT_TOLERANCE, mixer_temperature_K=TEMPERATURE_TOLERANCE_K, mixer_pressure_Pa=PRESSURE_TOLERANCE_PA),
@@ -194,5 +204,17 @@ def calculate(f):
                 ],
                   unavailable=[dict(calculation='Rigorous thermodynamics and general mixer temperature', status='not calculated',
                                     reason='Only prescribed recoveries and equal-condition mixing with constant-Cp accounting are supported.' if f['schema_version'] == '1.2' else 'Only prescribed recoveries, material splitting/mixing and specified-temperature constant-Cp heaters are supported; no rigorous properties or duty-specified temperature solve.')])
+    if f['schema_version'] == '1.4':
+        shaft = sum(e.get('compression', {}).get('shaft_power_W', 0) for e in equipment)
+        output['balances']['energy'].update(process_work_W=work, shaft_power_W=shaft,
+            mechanical_loss_W=shaft-work, positive_work='work_into_process',
+            external_enthalpy_change_W=sum(s['enthalpy_flow_W'] for s in products)-sum(s['enthalpy_flow_W'] for s in feed_states))
+        output['limitations'][0] = 'Acyclic separators, splitters, equal-condition mixers, specified-temperature heaters and ideal-gas compressors only; no recycles.'
+        output['limitations'].extend([
+            'Compressor is an ideal-gas development model with constant Cp/k and prescribed isentropic/mechanical efficiencies; inlet gas phase is explicitly assumed, not predicted.',
+            'No EOS, Z correction, real-gas enthalpy, compressor map, polytropic calculation, surge/choke, speed, stage design, intercooling, aftercooling, liquid carryover handling, mechanical sizing or driver sizing.',
+            'Positive process work is energy transferred to gas. Shaft power includes mechanical losses outside the material-stream energy boundary; driver power is not calculated.',
+        ])
+        output['unavailable'][0]['reason'] = 'Only registered deterministic development models; no rigorous properties, phase prediction or driver power.'
     validate_schema('results', output)
     return output
