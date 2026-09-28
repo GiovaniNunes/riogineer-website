@@ -2,7 +2,8 @@ import type { Flowsheet } from '@/lib/digital-engineer/contracts';
 import { graphLayout } from '@/lib/digital-engineer/pfd-layout';
 import { streamLabel } from '@/lib/digital-engineer/stream-label';
 export function Pfd({ flowsheet }: { flowsheet: Flowsheet }) {
-  if (flowsheet.schema_version === '1.2') return <NetworkPfd flowsheet={flowsheet} />;
+  if (flowsheet.schema_version === '1.2' || flowsheet.schema_version === '1.3')
+    return <NetworkPfd flowsheet={flowsheet} />;
   const nodes = [...flowsheet.boundaries, ...flowsheet.equipment];
   const sinks = flowsheet.boundaries.filter((n) => n.type === 'sink');
   const positions = Object.fromEntries(
@@ -140,7 +141,7 @@ function NetworkPfd({ flowsheet }: { flowsheet: Flowsheet }) {
                 strokeWidth="2"
                 markerEnd="url(#network-flow-arrow)"
               />
-              <text x={(mid + b.x) / 2} y={b.y - 10} textAnchor="middle" fontSize="13">
+              <text x={b.x - 8} y={b.y - 10} textAnchor="end" fontSize="13">
                 {streamLabel(stream)}
               </text>
             </g>
@@ -160,7 +161,24 @@ function NetworkPfd({ flowsheet }: { flowsheet: Flowsheet }) {
                 stroke="currentColor"
                 strokeWidth="2"
               />
-              <text x={p.x + 80} y={p.y + 37} textAnchor="middle" fontSize="16" fontWeight="bold">
+              {node.type === 'heater' && (
+                <path
+                  data-symbol="heater"
+                  d={`M ${p.x + 20} ${p.y + 75} l 15 -8 l 15 16 l 15 -16 l 15 16 l 15 -16 l 15 8`}
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                />
+              )}
+              <text
+                x={p.x + 80}
+                y={p.y + 37}
+                textAnchor="middle"
+                fontSize="16"
+                fontWeight="bold"
+                textLength={node.id.length > 14 ? 140 : undefined}
+                lengthAdjust="spacingAndGlyphs"
+              >
                 {node.id}
               </text>
               <text x={p.x + 80} y={p.y + 60} textAnchor="middle" fontSize="11">

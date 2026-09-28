@@ -26,7 +26,7 @@ def build(requirements):
         links = [c for c in connections if c['stream_id'] == stream['id']]
         source = links[0]['source']['owner_id'] if len(links) == 1 else None
         streams.append(dict(stream, specified_state=deepcopy(feed_by_id.get(source))))
-    f = dict(schema_version='1.2', kind='flowsheet', case_id=r['case_id'], profile=r['profile'],
+    f = dict(schema_version='1.3' if r['schema_version'] == '1.2' else '1.2', kind='flowsheet', case_id=r['case_id'], profile=r['profile'],
              units=r['units'], requirements_sha256=digest(r), components=r['components'],
              caloric_model=r['caloric_model'],
              boundaries=[dict(id=s['id'], type='source', ports=ports('source')) for s in r['feeds']] +
@@ -100,6 +100,8 @@ def validate(f, numbered=True):
     for unit in f['equipment']:
         if unit['model'] != MODELS[unit['type']]['model']: reject('Unsupported equipment model')
         p = unit['operating_parameters']
+        if unit['type'] == 'heater' and p['caloric_model'] != cal:
+            reject('All equipment must share the network caloric basis')
         if unit['type'] == 'splitter':
             if abs(sum(p['fractions'].values()) - 1) >= SPLIT_TOLERANCE:
                 reject('Splitter fractions must sum to one; values are not normalized')
@@ -176,16 +178,21 @@ def calculate(f):
     energy = sum(s['enthalpy_flow_W'] for s in feed_states) + duty - sum(s['enthalpy_flow_W'] for s in products)
     if not math.isfinite(energy) or abs(energy) > ENERGY_TOLERANCE:
         raise Invalid('Network constant-Cp energy accounting failed', code='CALCULATION_FAILED')
-    output = dict(schema_version='1.2', kind='results', case_id=f['case_id'], run_id=str(uuid.uuid4()),
+    output = dict(schema_version=f['schema_version'], kind='results', case_id=f['case_id'], run_id=str(uuid.uuid4()),
                   input_sha256=semantic_hash(f), requirements_sha256=f['requirements_sha256'],
-                  engine=dict(version='1.1.0', implementation_sha256=implementation_hash(), evaluator_sha256=EVALUATOR_HASH, model=MODEL),
+                  engine=dict(version='1.2.0' if f['schema_version'] == '1.3' else '1.1.0', implementation_sha256=implementation_hash(), evaluator_sha256=EVALUATOR_HASH, model=MODEL),
                   status='completed', units=f['units'], streams={sid: dict(states[sid], properties=unavailable_properties()) for sid in sorted(states)},
                   equipment=equipment, execution={'method': 'topological', 'equipment_order': order},
                   model_tolerances=dict(split_fraction=SPLIT_TOLERANCE, mixer_temperature_K=TEMPERATURE_TOLERANCE_K, mixer_pressure_Pa=PRESSURE_TOLERANCE_PA),
                   balances={'mass': balance, 'energy': dict(status='passed', residual_W=energy, tolerance_W=ENERGY_TOLERANCE,
                     duty_W=duty, model=cal['type'], reference_temperature_K=cal['reference_temperature_K'], positive_duty='heat_into_network')},
-                  warnings=[warning()], limitations=LIMITATIONS,
+                  warnings=[warning()], limitations=LIMITATIONS if f['schema_version'] == '1.2' else [
+                    'Acyclic separators, splitters, equal-condition mixers and specified-temperature constant-Cp heaters only; no recycle convergence.',
+                    'Heating does not cause or predict downstream separator recoveries: these are independently prescribed synthetic inputs.',
+                    'Constant-Cp sensible-heat accounting only: no latent heat, EOS, phase-equilibrium enthalpy, pressure work or rigorous property model.',
+                    'Heater pressure is unchanged; no pressure drop, sizing, heat-transfer area or duty-specified temperature solve.',
+                ],
                   unavailable=[dict(calculation='Rigorous thermodynamics and general mixer temperature', status='not calculated',
-                                    reason='Only prescribed recoveries and equal-condition mixing with constant-Cp accounting are supported.')])
+                                    reason='Only prescribed recoveries and equal-condition mixing with constant-Cp accounting are supported.' if f['schema_version'] == '1.2' else 'Only prescribed recoveries, material splitting/mixing and specified-temperature constant-Cp heaters are supported; no rigorous properties or duty-specified temperature solve.')])
     validate_schema('results', output)
     return output

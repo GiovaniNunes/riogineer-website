@@ -32,9 +32,11 @@ const number = (value: number) =>
 export function EngineerWorkspace({
   referenceText,
   networkReferenceText,
+  sequentialReferenceText,
 }: {
   referenceText: string;
   networkReferenceText: string;
+  sequentialReferenceText: string;
 }) {
   const [state, dispatch] = useReducer(workflowReducer, referenceText, initialWorkflow);
   const current = resultsAreCurrent(state);
@@ -101,9 +103,9 @@ export function EngineerWorkspace({
       <details className={styles.panel}>
         <summary>Engineering data / Advanced</summary>
         <p>
-          Developer access to the Bia single-separator and Milestone 4 branch/merge references.
-          Manual JSON validation is an advanced deterministic workflow, separate from specification
-          approval.
+          Developer access to the Bia, Milestone 4 branch/merge and Milestone 5 sequential
+          references. Manual JSON validation is an advanced deterministic workflow, separate from
+          specification approval.
         </p>
         <section aria-labelledby="inputs-title">
           <span className={styles.eyebrow}>01 / Engineering inputs</span>
@@ -170,6 +172,13 @@ export function EngineerWorkspace({
               onClick={() => dispatch({ type: 'edit', draft: networkReferenceText })}
             >
               Load Milestone 4 reference
+            </button>
+            <button
+              className={styles.secondary}
+              disabled={state.busy}
+              onClick={() => dispatch({ type: 'edit', draft: sequentialReferenceText })}
+            >
+              Load Milestone 5 reference
             </button>
             <button
               className={styles.secondary}
@@ -364,11 +373,11 @@ export function EngineerWorkspace({
                 Status: <strong>{r.balances.energy.status}</strong> within the constant-Cp model.
               </p>
               <p>
-                {r.schema_version === '1.2'
+                {r.schema_version === '1.2' || r.schema_version === '1.3'
                   ? 'Calculated network duty: '
                   : 'Calculated separator duty: '}
                 <strong>{number(r.balances.energy.duty_W)} W</strong>{' '}
-                {r.schema_version === '1.2'
+                {r.schema_version === '1.2' || r.schema_version === '1.3'
                   ? '(positive into the network).'
                   : '(positive into the separator).'}
               </p>
@@ -382,15 +391,16 @@ export function EngineerWorkspace({
               </p>
             </div>
           </div>
-          {r.schema_version === '1.2' && (
+          {(r.schema_version === '1.2' || r.schema_version === '1.3') && (
             <>
-              <h3>Equipment and branch/merge checks</h3>
+              <h3>Equipment checks</h3>
               <p>Execution order: {r.execution.equipment_order.join(' → ')}</p>
               <div className={styles.tableWrap}>
                 <table aria-label="Equipment balance checks">
                   <thead>
                     <tr>
                       <th>Equipment</th>
+                      <th>Duty (W, positive into process)</th>
                       <th>Total residual (kg/h)</th>
                       <th>Component residuals (kg/h)</th>
                       <th>Constant-Cp energy residual (W)</th>
@@ -400,6 +410,7 @@ export function EngineerWorkspace({
                     {r.equipment.map((e) => (
                       <tr key={e.id}>
                         <th scope="row">{e.id}</th>
+                        <td>{number(e.duty_W)}</td>
                         <td>{number(e.mass_balance.total_residual_kg_h)}</td>
                         <td>
                           {Object.entries(e.mass_balance.component_residual_kg_h)

@@ -106,7 +106,7 @@ def validate_parameters(components, feed, parameters):
 def validate_requirements(requirements):
     validate_schema('requirements', requirements)
     r = requirements
-    if r['schema_version'] == '1.1':
+    if r['schema_version'] in ('1.1', '1.2'):
         from .network import build
         f = build(r)
         return {'requirements': deepcopy(r), 'validation': f['validation']}
@@ -123,7 +123,7 @@ def port(name, direction):
 
 
 def build_flowsheet(requirements):
-    if isinstance(requirements, dict) and requirements.get('schema_version') == '1.1':
+    if isinstance(requirements, dict) and requirements.get('schema_version') in ('1.1', '1.2'):
         validate_schema('requirements', requirements)
         from .network import build
         return build(requirements)
@@ -153,7 +153,7 @@ def build_flowsheet(requirements):
 
 
 def validate_flowsheet(f):
-    if isinstance(f, dict) and f.get('schema_version') == '1.2':
+    if isinstance(f, dict) and f.get('schema_version') in ('1.2', '1.3'):
         from .network import validate
         validate(f)
         return f
@@ -204,7 +204,7 @@ def semantic_hash(f):
 
 
 def calculate(f):
-    if isinstance(f, dict) and f.get('schema_version') == '1.2':
+    if isinstance(f, dict) and f.get('schema_version') in ('1.2', '1.3'):
         from .network import calculate as calculate_network
         return calculate_network(f)
     validate_flowsheet(f)

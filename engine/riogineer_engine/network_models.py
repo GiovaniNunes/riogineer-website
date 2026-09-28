@@ -40,8 +40,25 @@ def mixer(_unit, inputs, _evaluate):
                                       sum(s['enthalpy_flow_W'] for s in ordered))}, 0.0
 
 
+def heater(unit, inputs, _evaluate):
+    feed = inputs['inlet']
+    p = unit['operating_parameters']
+    cal = p['caloric_model']
+    rates = dict(feed['component_mass_flow_kg_h'])
+    temperature = p['outlet_temperature_K']
+    if temperature < feed['temperature_K']:
+        raise ValueError('Heater outlet temperature cannot be below inlet temperature; cooling is not supported')
+    duty = sum(rate * cal['cp_J_kg_K'][c] * (temperature - feed['temperature_K']) / 3600
+               for c, rate in rates.items())
+    enthalpy = sum(rate * cal['cp_J_kg_K'][c] * (temperature - cal['reference_temperature_K']) / 3600
+                   for c, rate in rates.items())
+    return {'outlet': state_from_rates(rates, temperature, feed['pressure_Pa_abs'], enthalpy)}, duty
+
+
 # Port definitions, capability identity and execution live together, not in parallel registries.
 MODELS = {
+    'heater': {'model': {'id': 'specified_outlet_temperature_constant_cp', 'version': '1.0'},
+               'ports': {'inlet': 'in', 'outlet': 'out'}, 'execute': heater},
     'three_phase_separator': {'model': {'id': 'prescribed_component_recoveries', 'version': '1.0'},
                              'ports': {'inlet': 'in', 'gas': 'out', 'oil': 'out', 'water': 'out'}, 'execute': separator},
     'splitter': {'model': {'id': 'proportional_split', 'version': '1.0'},

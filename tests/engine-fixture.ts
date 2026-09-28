@@ -23,6 +23,6 @@ const data = JSON.parse(
 export const referenceRequirements = requirementsSchema.parse(data.requirements);
 export const referenceFlowsheet = flowsheetSchema.parse(data.flowsheet);
 const parsedResults = resultsSchema.parse(data.results);
-if (parsedResults.schema_version === '1.2')
+if (parsedResults.schema_version === '1.2' || parsedResults.schema_version === '1.3')
   throw new Error('Single-separator fixture changed version');
 export const referenceResults = parsedResults;

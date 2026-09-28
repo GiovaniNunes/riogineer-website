@@ -35,7 +35,7 @@ export default function About() {
         crumbs={[{ label: 'About', href: '/about' }]}
       />
       <section className="section">
-        <div className="container detailGrid">
+        <div className="container">
           <div className="prose">
             <h2>An engineering technology company</h2>
             <p>
@@ -49,14 +49,6 @@ export default function About() {
               optimize complex engineering systems.
             </p>
           </div>
-          <aside className="aside">
-            <h2>A distinct company</h2>
-            <p>
-              RIOGINEER LTDA is a new technology company, separate from Rio Petróleo. The founders’
-              experience does not establish RIOGINEER customer contracts, partnerships or project
-              history.
-            </p>
-          </aside>
         </div>
       </section>
       <section className="section">

@@ -1606,6 +1606,9 @@ Detailed implementation history belongs in:
 
 # 61. CURRENT STATE SUMMARY
 
+Milestone 5 adds the qualified deterministic `heater` adapter (`specified_outlet_temperature_constant_cp@1.0`) and independent `MILESTONE_5_SEQUENTIAL_PROCESS` reference: SEP_1 → HEATER_1 → SEP_2. Requirements 1.2 and flowsheet/results 1.3 extend existing readers without relabelling earlier cases. The heater preserves material/pressure and changes specified temperature; SEP_2 consumes its calculated output through the unchanged dependency scheduler. Recoveries remain independently prescribed, not predicted by heating. With the unchanged declared inputs, heater duty is 953883.333333… W; the requested informal benchmark was arithmetically inconsistent. See `MILESTONE_5.md` for equations, scope and validation. Natural-language interpretation remains unchanged; manual browser validation of Milestone 5 is pending.
+
+
 Current state:
 
 - corporate website operational locally;
@@ -1641,9 +1644,10 @@ Current state:
 
 # 62. IMMEDIATE NEXT STEP
 
-Preserve both independent deterministic references: the Milestone 3/3.1 Bia
-single separator and the Milestone 4 acyclic separator → 60/40 splitter →
-equal-condition mixer network. Review numbered internal streams, balances and
+Prepare separate user manual validation of Milestone 5 (see MILESTONE_5.md).
+Preserve all three independent deterministic references: the Milestone 3/3.1 Bia
+single separator, the Milestone 4 acyclic separator → 60/40 splitter →
+equal-condition mixer network, and the Milestone 5 separator → heater → separator. Review numbered internal streams, balances and
 PFD/Stream Table consistency with engineering users. See MILESTONE_4.md for
 contracts, exact results, model tolerances and validation.
 

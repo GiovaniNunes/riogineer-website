@@ -177,10 +177,31 @@ export const networkRequirementsSchema = requirementsSchema.extend({
   connections: graphConnections,
   caloric_model: parametersSchema.shape.caloric_model,
 });
+const heaterModel = z.strictObject({
+  id: z.literal('specified_outlet_temperature_constant_cp'),
+  version: z.literal('1.0'),
+});
+const heaterInput = z.strictObject({
+  id,
+  type: z.literal('heater'),
+  model: heaterModel,
+  parameters: z.strictObject({
+    outlet_temperature_K: positive,
+    caloric_model: parametersSchema.shape.caloric_model,
+  }),
+});
+export const sequentialRequirementsSchema = networkRequirementsSchema.extend({
+  schema_version: z.literal('1.2'),
+  equipment: z
+    .array(z.union([graphEquipmentInput, heaterInput]))
+    .min(1)
+    .max(50),
+});
 // Interpretation stays on requirementsSchema (1.0); deterministic API accepts both.
 export const engineeringRequirementsSchema = z.union([
   requirementsSchema,
   networkRequirementsSchema,
+  sequentialRequirementsSchema,
 ]);
 const graphEquipment = z.discriminatedUnion('type', [
   graphEquipmentInput.options[0]
@@ -209,10 +230,26 @@ const networkFlowsheetSchema = legacyFlowsheetSchema.extend({
   solver: z.strictObject({ method: z.literal('topological') }),
   caloric_model: parametersSchema.shape.caloric_model,
 });
+const sequentialFlowsheetSchema = networkFlowsheetSchema.extend({
+  schema_version: z.literal('1.3'),
+  equipment: z
+    .array(
+      z.union([
+        graphEquipment,
+        heaterInput.omit({ parameters: true }).extend({
+          ports: z.array(portSchema),
+          operating_parameters: heaterInput.shape.parameters,
+        }),
+      ]),
+    )
+    .min(1)
+    .max(50),
+});
 // Legacy 1.0/1.1 readers remain unchanged; graph builds explicitly use 1.2.
 export const flowsheetSchema = z.union([
   legacyFlowsheetSchema,
   networkFlowsheetSchema,
+  sequentialFlowsheetSchema,
   legacyFlowsheetSchema.extend({
     schema_version: z.literal('1.1'),
     streams: z
@@ -342,8 +379,22 @@ const networkResultsSchema = legacyResultsSchema.extend({
     mixer_pressure_Pa: positive,
   }),
 });
+const sequentialResultsSchema = networkResultsSchema.extend({
+  schema_version: z.literal('1.3'),
+  engine: networkResultsSchema.shape.engine.extend({ version: z.literal('1.2.0') }),
+  equipment: z
+    .array(
+      networkResultsSchema.shape.equipment.element.extend({
+        type: z.enum(['three_phase_separator', 'splitter', 'mixer', 'heater']),
+        model: z.union([modelSchema, splitterModel, mixerModel, heaterModel]),
+      }),
+    )
+    .min(1)
+    .max(50),
+});
 export const resultsSchema = z.union([
   networkResultsSchema,
+  sequentialResultsSchema,
   legacyResultsSchema,
   legacyResultsSchema.extend({
     schema_version: z.literal('1.1'),
