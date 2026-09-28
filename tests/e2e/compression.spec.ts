@@ -91,15 +91,10 @@ test('compression reference: runtime P/T, process versus shaft work, nine stable
       ).toHaveText(fmt(value));
   }
   for (const name of [
-    'Molar flow',
-    'Molecular mass',
     'Density',
     'Gas volumetric flow',
     'Oil volumetric flow',
     'Water volumetric flow',
-    'methane — molar fraction',
-    'n_hexane — molar fraction',
-    'water — molar fraction',
   ])
     await expect(
       table
@@ -170,6 +165,9 @@ test('all earlier cases ↔ Milestone 6 clear validation and downstream artifact
     await expect(page.getByLabel('results.json', { exact: true })).toHaveText('null');
     await expect(page.getByRole('button', { name: 'Generate PFD', exact: true })).toBeDisabled();
     await expect(page.locator('[data-results-status="current"]')).toHaveCount(0);
+    await expect(
+      page.getByRole('table', { name: 'Engineering Stream Table', exact: true }),
+    ).toHaveCount(0);
     await run(page);
     const req = JSON.parse(
       await page
@@ -182,5 +180,17 @@ test('all earlier cases ↔ Milestone 6 clear validation and downstream artifact
     expect(r.case_id).toBe(req.case_id);
     expect(r.input_sha256).toBe(f.calculation.input_sha256);
     expect(r.requirements_sha256).toBe(f.requirements_sha256);
+    expect(r.schema_version).toBe('1.5');
+    const table = page.getByRole('table', { name: 'Engineering Stream Table', exact: true });
+    for (const stream of f.streams) {
+      const cell = table
+        .getByRole('row')
+        .filter({ has: page.getByRole('rowheader', { name: 'Molar flow', exact: true }) })
+        .locator(`td[data-stream-id="${stream.id}"]`);
+      expect(Number((await cell.innerText()).replaceAll(',', ''))).toBeCloseTo(
+        r.streams[stream.id].properties.molar_flow.value,
+        7,
+      );
+    }
   }
 });

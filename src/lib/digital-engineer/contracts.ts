@@ -475,7 +475,53 @@ const compressionResultsSchema = sequentialResultsSchema.extend({
     }),
   }),
 });
+const molecularResultFields = {
+  schema_version: z.literal('1.5'),
+  streams: z.record(
+    id,
+    stateSchema.extend({
+      properties: streamPropertiesSchema.extend({
+        component_molar_flow: z.strictObject({
+          value: rates,
+          status: z.literal('calculated'),
+          unit: z.literal('kmol/h'),
+        }),
+      }),
+      property_provenance: z.strictObject({
+        provider: z.literal('molecular_composition@1.0'),
+        component_dataset: z.literal('riogineer_components@1.0'),
+        molecular_weights_kg_kmol: z.record(id, positive),
+        status: z.literal('completed'),
+        input_basis: z.literal('component_mass_flow_kg_h'),
+      }),
+    }),
+  ),
+};
+const molecularSingleResults = legacyResultsSchema.extend({
+  ...molecularResultFields,
+  process_result_version: z.literal('1.1'),
+  engine: legacyResultsSchema.shape.engine.extend({ version: z.literal('1.4.0') }),
+});
+const molecularNetworkResults = networkResultsSchema.extend({
+  ...molecularResultFields,
+  process_result_version: z.literal('1.2'),
+  engine: networkResultsSchema.shape.engine.extend({ version: z.literal('1.4.0') }),
+});
+const molecularSequentialResults = sequentialResultsSchema.extend({
+  ...molecularResultFields,
+  process_result_version: z.literal('1.3'),
+  engine: sequentialResultsSchema.shape.engine.extend({ version: z.literal('1.4.0') }),
+});
+const molecularCompressionResults = compressionResultsSchema.extend({
+  ...molecularResultFields,
+  process_result_version: z.literal('1.4'),
+  engine: compressionResultsSchema.shape.engine.extend({ version: z.literal('1.4.0') }),
+});
 export const resultsSchema = z.union([
+  molecularSingleResults,
+  molecularNetworkResults,
+  molecularSequentialResults,
+  molecularCompressionResults,
   networkResultsSchema,
   sequentialResultsSchema,
   compressionResultsSchema,

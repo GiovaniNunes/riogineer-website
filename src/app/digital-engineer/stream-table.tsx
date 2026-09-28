@@ -19,8 +19,9 @@ export function StreamTable({
         {columns.every((c) => c.result)
           ? 'Current engineering results.'
           : 'Awaiting current calculation. Only available specified feed conditions and component flows are shown.'}{' '}
-        Composition is on a mass-fraction basis (kg/kg); molar composition is not calculated by the
-        current model.
+        Mass composition (kg/kg) remains authoritative. Available molar composition (mol/mol), molar
+        flow and molecular mass are derived from component mass flows. Density and phase volumetric
+        flows remain unavailable.
       </p>
       <div className={styles.tableWrap}>
         <table aria-label="Engineering Stream Table">

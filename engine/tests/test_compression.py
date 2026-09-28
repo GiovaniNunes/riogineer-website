@@ -54,7 +54,7 @@ class CompressionTests(unittest.TestCase):
         self.assertGreater(abs(energy['external_enthalpy_change_W']-energy['duty_W']-energy['shaft_power_W']), 1000)
         self.assertLessEqual(abs(energy['residual_W']), 1e-6)
         for s in o['streams'].values():
-            for prop in s['properties'].values():
+            for prop in (s['properties'][key] for key in ('density', 'gas_volumetric_flow', 'oil_volumetric_flow', 'water_volumetric_flow')):
                 self.assertIsNone(prop['value']); self.assertEqual(prop['status'],'not_calculated')
 
     def test_upstream_runtime_component_pressure_temperature_propagation(self):

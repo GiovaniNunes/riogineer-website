@@ -77,15 +77,10 @@ test('Milestone 5 sequential heater state, duty, identity, properties and regene
         .locator('td[data-stream-id]'),
     ).toHaveText([...values]);
   for (const name of [
-    'Molar flow',
-    'Molecular mass',
     'Density',
     'Gas volumetric flow',
     'Oil volumetric flow',
     'Water volumetric flow',
-    'methane — molar fraction',
-    'n_hexane — molar fraction',
-    'water — molar fraction',
   ])
     await expect(
       table

@@ -40,12 +40,9 @@ describe('numbered material streams and table projection', () => {
     expect(rows.find((r) => r.label === 'water — component mass flow')!.value(columns[1])).toBe(0);
     for (const name of [
       'Density',
-      'Molar flow',
-      'Molecular mass',
       'Gas volumetric flow',
       'Oil volumetric flow',
       'Water volumetric flow',
-      'water — molar fraction',
     ])
       expect(columns.map((c) => rows.find((r) => r.label === name)!.value(c))).toEqual([
         null,
@@ -69,12 +66,16 @@ describe('numbered material streams and table projection', () => {
     expect(flowsheetSchema.safeParse(legacy).success).toBe(true);
     const oldResults = structuredClone(results) as unknown as Record<string, unknown>;
     oldResults.schema_version = '1.0';
-    for (const s of Object.values(oldResults.streams as Record<string, Record<string, unknown>>))
+    delete oldResults.process_result_version;
+    (oldResults.engine as Record<string, unknown>).version = '1.0.0';
+    for (const s of Object.values(oldResults.streams as Record<string, Record<string, unknown>>)) {
       delete s.properties;
+      delete s.property_provenance;
+    }
     expect(resultsSchema.safeParse(oldResults).success).toBe(true);
     for (const value of [0, Number.NaN]) {
       const bad = structuredClone(results);
-      if (bad.schema_version === '1.1')
+      if (bad.schema_version !== '1.0')
         Object.assign(bad.streams.FEED.properties.density, { value });
       expect(resultsSchema.safeParse(bad).success).toBe(false);
     }

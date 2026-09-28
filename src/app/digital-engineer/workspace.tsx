@@ -383,15 +383,9 @@ export function EngineerWorkspace({
                 Status: <strong>{r.balances.energy.status}</strong> within the constant-Cp model.
               </p>
               <p>
-                {r.schema_version === '1.2' ||
-                r.schema_version === '1.3' ||
-                r.schema_version === '1.4'
-                  ? 'Calculated network duty: '
-                  : 'Calculated separator duty: '}
+                {'execution' in r ? 'Calculated network duty: ' : 'Calculated separator duty: '}
                 <strong>{number(r.balances.energy.duty_W)} W</strong>{' '}
-                {r.schema_version === '1.2' ||
-                r.schema_version === '1.3' ||
-                r.schema_version === '1.4'
+                {'execution' in r
                   ? '(positive into the network).'
                   : '(positive into the separator).'}
               </p>
@@ -405,9 +399,7 @@ export function EngineerWorkspace({
               </p>
             </div>
           </div>
-          {(r.schema_version === '1.2' ||
-            r.schema_version === '1.3' ||
-            r.schema_version === '1.4') && (
+          {'execution' in r && (
             <>
               <h3>Equipment checks</h3>
               <p>Execution order: {r.execution.equipment_order.join(' → ')}</p>
@@ -446,7 +438,10 @@ export function EngineerWorkspace({
               </p>
             </>
           )}
-          {r.schema_version === '1.4' && <CompressionResults results={r} />}
+          {(r.schema_version === '1.4' ||
+            (r.schema_version === '1.5' && r.process_result_version === '1.4')) && (
+            <CompressionResults results={r} />
+          )}
           <h3>Warnings and model limitations</h3>
           <ul>
             {r.warnings.map((w) => (

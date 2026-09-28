@@ -75,7 +75,7 @@ class StreamIdentityTests(unittest.TestCase):
         self.assertEqual(set(result['streams']), set(mapping.values()))
         self.assertEqual([result['streams'][mapping[s]]['mass_flow_kg_h'] for s in ['FEED', 'GAS', 'OIL', 'WATER']], [110000, 22000, 77550, 10450])
         for state in result['streams'].values():
-            for quantity in state['properties'].values():
+            for quantity in (state['properties'][key] for key in ('density', 'gas_volumetric_flow', 'oil_volumetric_flow', 'water_volumetric_flow')):
                 self.assertIsNone(quantity['value'])
                 self.assertEqual(quantity['status'], 'not_calculated')
                 self.assertTrue(quantity['unit'])

@@ -133,7 +133,8 @@ describe('Milestone 4 deterministic network integration', () => {
     }
   });
   it('keeps unsupported property status and units strict in network results', () => {
-    if (results.schema_version !== '1.2') throw new Error('Expected network fixture');
+    if (results.schema_version !== '1.5' || results.process_result_version !== '1.2')
+      throw new Error('Expected network fixture');
     const bad = structuredClone(results);
     Object.assign(bad.streams.OIL_A.properties.density, { value: 0 });
     expect(resultsSchema.safeParse(bad).success).toBe(false);

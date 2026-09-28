@@ -57,7 +57,7 @@ class NetworkTests(unittest.TestCase):
             self.assertEqual(state['component_mass_fractions'], {c: v / sum(values) for c, v in state['component_mass_flow_kg_h'].items()})
             self.assertEqual(state['temperature_K'], 313.15)
             self.assertEqual(state['pressure_Pa_abs'], 2000000)
-            for prop in state['properties'].values():
+            for prop in (state['properties'][key] for key in ('density', 'gas_volumetric_flow', 'oil_volumetric_flow', 'water_volumetric_flow')):
                 self.assertIsNone(prop['value']); self.assertEqual(prop['status'], 'not_calculated')
         for sid in ['OIL_A', 'OIL_B', 'OIL_PRODUCT']:
             self.assertEqual(streams[sid]['component_mass_fractions'], streams['OIL']['component_mass_fractions'])

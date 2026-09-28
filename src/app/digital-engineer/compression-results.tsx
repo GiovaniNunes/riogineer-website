@@ -5,7 +5,10 @@ const format = (value: number) =>
 export function CompressionResults({
   results,
 }: {
-  results: Extract<Results, { schema_version: '1.4' }>;
+  results: Extract<
+    Results,
+    { schema_version: '1.4' } | { schema_version: '1.5'; process_result_version: '1.4' }
+  >;
 }) {
   const energy = results.balances.energy;
   return (

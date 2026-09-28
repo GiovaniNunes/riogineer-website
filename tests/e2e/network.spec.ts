@@ -100,15 +100,10 @@ test('Milestone 4 graph → seven numbered streams → branch/merge results', as
         .getByRole('cell'),
     ).toHaveText([...expected]);
   for (const name of [
-    'Molar flow',
-    'Molecular mass',
     'Density',
     'Gas volumetric flow',
     'Oil volumetric flow',
     'Water volumetric flow',
-    'methane — molar fraction',
-    'n_hexane — molar fraction',
-    'water — molar fraction',
   ])
     await expect(
       table
@@ -239,7 +234,8 @@ test('completed Bia → Milestone 4 preserves active case at every boundary', as
   const results = await operate('calculate', 'Run engineering calculation');
   expect(trace['calculate request']).toEqual(flowsheet);
   expect(results.case_id).toBe(requirements.case_id);
-  expect(results.schema_version).toBe('1.2');
+  expect(results.schema_version).toBe('1.5');
+  expect(results.process_result_version).toBe('1.2');
   expect(results.requirements_sha256).toBe(flowsheet.requirements_sha256);
   expect(results.input_sha256).toBe(flowsheet.calculation.input_sha256);
   await expect(page.getByRole('status')).toContainText('Calculation complete');

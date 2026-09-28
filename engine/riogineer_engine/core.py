@@ -203,7 +203,7 @@ def semantic_hash(f):
     return digest({'flowsheet': data, 'engine': implementation_hash(), 'evaluator': EVALUATOR_HASH, 'model': MODEL})
 
 
-def calculate(f):
+def _calculate_process(f):
     if isinstance(f, dict) and f.get('schema_version') in ('1.2', '1.3', '1.4'):
         from .network import calculate as calculate_network
         return calculate_network(f)
@@ -238,3 +238,14 @@ def calculate(f):
             ('Phase-dependent / latent-heat energy balance', 'Only the assumed constant-Cp caloric model is available.')]])
     validate_schema('results', output)
     return output
+
+
+def calculate(f):
+    from .thermodynamics import enrich_results
+    output = _calculate_process(f)
+    try:
+        enriched = enrich_results(output)
+    except (ValueError, ArithmeticError) as error:
+        raise Invalid('Molecular property calculation failed: ' + str(error), code='CALCULATION_FAILED') from error
+    validate_schema('results', enriched)
+    return enriched

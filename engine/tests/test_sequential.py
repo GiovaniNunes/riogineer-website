@@ -29,7 +29,7 @@ class SequentialTests(unittest.TestCase):
             self.assertEqual(state['temperature_K'], 313.15 if sid in list(expected)[:4] else 333.15)
             for c, rate in state['component_mass_flow_kg_h'].items():
                 self.assertEqual(state['component_mass_fractions'][c], rate / sum(values))
-            for prop in state['properties'].values():
+            for prop in (state['properties'][key] for key in ('density', 'gas_volumetric_flow', 'oil_volumetric_flow', 'water_volumetric_flow')):
                 self.assertIsNone(prop['value'])
                 self.assertEqual(prop['status'], 'not_calculated')
         duty = (77000 * 2200 + 550 * 4180) * 20 / 3600
