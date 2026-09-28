@@ -2,7 +2,7 @@
 
 ## Objective and relationship to Milestone 4
 
-This milestone qualifies deterministic sequential state propagation through a condition-changing heater and a second instance of the existing prescribed-recovery separator. Milestone 4's splitter/mixer branch remains independently supported and unchanged. These are synthetic development assumptions, not I-ET or client data. Automated validation is recorded below; **manual browser validation has not been performed by the user and is not claimed**.
+This milestone qualifies deterministic sequential state propagation through a condition-changing heater and a second instance of the existing prescribed-recovery separator. Milestone 4's splitter/mixer branch remains independently supported and unchanged. These are synthetic development assumptions, not I-ET or client data. Automated validation is recorded below. **The user successfully completed the final deterministic manual browser validation on 2026-09-28**; the separate manual-validation record closes this document.
 
 ## Reference case and topology
 
@@ -122,7 +122,7 @@ Independent fixture: `contracts/examples/milestone-5-requirements.json`. The ori
 
 Start/restart the local Python engine with the updated code (`PYTHONPATH=engine engine/.venv/bin/python -B -m riogineer_engine.server --port 8001`), and run the website with `npm run dev`. The Python server does not hot-reload; an already-running pre-Milestone-5 process must be stopped/restarted before testing the new contract.
 
-At `/digital-engineer` use **Engineering data / Advanced → Load Milestone 5 reference → Validate requirements → Generate PFD → Run engineering calculation**. No LLM call is required. Cross-case loading clears previous validation, flowsheet and results; validation alone produces neither PFD nor calculation results. Manual validation remains for the user to perform separately.
+At `/digital-engineer` use **Engineering data / Advanced → Load Milestone 5 reference → Validate requirements → Generate PFD → Run engineering calculation**. No LLM call is required. Cross-case loading clears previous validation, flowsheet and results; validation alone produces neither PFD nor calculation results. The user subsequently completed this manual workflow on 2026-09-28, as recorded below.
 
 ## Automated tests
 
@@ -134,7 +134,7 @@ TypeScript integration uses real Python-produced fixtures to check version bound
 
 No EOS (PR/SRK), PT/PH/PS flash, VLE/VLLE, phase envelopes, latent heat, rigorous enthalpy/density/viscosity, molecular-weight flow conversion, molar composition, pressure drop, sizing, area/UA, compressor, pump, valve, cooler, generic exchanger, recycle/tears/convergence, graphical editing, full Flowsheet 03 migration or broad natural-language network interpretation was added. No legacy thermodynamic code was copied.
 
-A future qualified property/equipment adapter can enrich the same ID-keyed state map through the registry while retaining structured topology, ports, numbering, PFD and table joins. No future property provider is implemented here. Recommended next gate: separate user manual validation and engineering review of this sequential case, followed by an explicitly scoped model-qualification milestone; do not infer authorization for new thermodynamics or recycles from this demonstration.
+A future qualified property/equipment adapter can enrich the same ID-keyed state map through the registry while retaining structured topology, ports, numbering, PFD and table joins. No future property provider is implemented here. Following the completed user manual validation, the recommended next gate is engineering review of this sequential case, followed by an explicitly scoped model-qualification milestone; do not infer authorization for new thermodynamics or recycles from this demonstration.
 
 ## File inventory
 
@@ -153,4 +153,48 @@ The existing unrelated About-page edit is retained separately. No original Bia/M
 - Production build: **passed**, 41 static pages generated.
 - Production smoke: **passed**, 17 pages, 17 PNG social cards, internal links, 404s, preview indexing and disabled contact delivery.
 - Protected original fixtures/evaluator, stream numbering and interpretation modules: no diff.
-- Live-provider calls: **0**. Temporary browser/production servers stopped. User manual validation remains pending; restart any pre-existing local Python engine before testing the new contract versions.
+- Live-provider calls: **0**. Temporary browser/production servers stopped. At automated-validation completion, user manual validation was still pending; it was subsequently completed on 2026-09-28 as recorded below. Restart any pre-existing local Python engine before testing the new contract versions.
+
+## Final deterministic manual browser validation — 2026-09-28
+
+The user reports that the final deterministic manual browser validation of Milestone 5 was **successfully completed on 2026-09-28**. This was a human-operated browser inspection, distinct from the automated test coverage and counts recorded above. These manual observations were supplied by the user; no browser test or engineering calculation was rerun for this documentation update.
+
+The manually validated workflow was:
+
+**Load Milestone 5 reference → Validate requirements → Generate PFD → Run engineering calculation**.
+
+The inspection confirmed the complete sequential PFD **FEED → SEP_1 → HEATER_1 → SEP_2**, with its product branches, and deterministic execution order **SEP_1 → HEATER_1 → SEP_2**. Eight numbered material streams were present:
+
+| Engineering number | Material stream |
+| -----------------: | --------------- |
+|                  1 | FEED            |
+|                  2 | GAS_1           |
+|                  3 | OIL_1           |
+|                  4 | WATER_1         |
+|                  5 | HEATED_OIL      |
+|                  6 | GAS_2           |
+|                  7 | OIL_PRODUCT     |
+|                  8 | WATER_2         |
+
+The manually confirmed stream values were:
+
+| Stream      | Total mass flow (kg/h) | Temperature (K) |
+| ----------- | ---------------------: | --------------: |
+| OIL_1       |                  77550 |          313.15 |
+| HEATED_OIL  |                  77550 |          333.15 |
+| GAS_2       |                   3850 |          333.15 |
+| OIL_PRODUCT |                  73205 |          333.15 |
+| WATER_2     |                    495 |          333.15 |
+
+OIL_1 and HEATED_OIL both remained at **2000000 Pa absolute**. The manual inspection confirmed that the calculated HEATER_1 outlet is propagated as the SEP_2 inlet, including the temperature change from **313.15 K to 333.15 K**, while total mass flow remains **77550 kg/h**.
+
+The browser also confirmed:
+
+- HEATER_1 calculated duty: **953883.333333 W**, positive into the process/network.
+- Equipment component and total mass residuals: **zero**.
+- Network mass-balance status: **passed**.
+- Restricted constant-Cp energy-balance status: **passed**, with energy residual **zero within the documented 1e-6 W tolerance**.
+- Unsupported properties continued to display **—**.
+- The UI explicitly states that heating does not predict SEP_2 recoveries; those recoveries remain independently prescribed synthetic development inputs.
+
+This manual validation confirms the deterministic sequential workflow within the documented restricted development model; it does not establish phase-equilibrium prediction. Only this milestone document was updated to record the observations. No source code, tests, contracts, fixtures or engineering calculations changed, and no live-provider call was made for this update.
