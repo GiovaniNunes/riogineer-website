@@ -1,0 +1,892 @@
+{
+  "benchmark_id": "pre_m8_methane_nhexane_canonical_pr@1.0",
+  "component_dataset": "riogineer_components@1.0",
+  "component_order": [
+    "methane",
+    "n_hexane"
+  ],
+  "components": [
+    {
+      "id": "methane",
+      "MW_kg_kmol": 16.0428,
+      "Tc_K": 190.564,
+      "Pc_Pa_abs": 4599200.0,
+      "omega": 0.01142
+    },
+    {
+      "id": "n_hexane",
+      "MW_kg_kmol": 86.17536,
+      "Tc_K": 507.82,
+      "Pc_Pa_abs": 3044115.328359688,
+      "omega": 0.3003189315498438
+    }
+  ],
+  "z": [
+    0.5,
+    0.5
+  ],
+  "kij": [
+    [
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      0.0
+    ]
+  ],
+  "formulation": {
+    "name": "Peng-Robinson",
+    "OmegaA": 0.45724,
+    "OmegaB": 0.0778,
+    "R_J_mol_K": 8.31446261815324,
+    "kappa_coefficients": [
+      0.37464,
+      1.54226,
+      -0.26992
+    ],
+    "mixing": "classical quadratic a with sqrt(ai*aj)*(1-kij); linear b",
+    "units": {
+      "a": "Pa m6/mol2",
+      "b": "m3/mol",
+      "temperature": "K",
+      "pressure": "Pa absolute",
+      "composition": "mol/mol"
+    }
+  },
+  "independent_reference": {
+    "primary": "thermo",
+    "versions": {
+      "thermo": "0.6.0",
+      "chemicals": "1.5.2",
+      "fluids": "1.3.1",
+      "numpy": "2.2.6",
+      "scipy": "1.15.3",
+      "teqp": "0.23.1",
+      "pandas": "2.3.3"
+    },
+    "python": "3.10.10",
+    "component_source_sha256": "91a9fee707b80fa7b5c67d41a8249aaf729eab0944275ea36fa6baf8667b4d50",
+    "configuration": "BenchmarkPRMIX: coefficient attributes only; all methods inherited",
+    "PT_SS_TOL": 1e-26,
+    "PT_STABILITY_XTOL": 1e-12,
+    "teqp_default_not_used": {
+      "Delta1": 2.414213562373095,
+      "Delta2": -0.41421356237309515,
+      "OmegaA": 0.4572355289213822,
+      "OmegaB": 0.07779607390388846,
+      "R / J/mol/K": 8.31446261815324,
+      "kind": "Peng-Robinson"
+    },
+    "source_sha256": {
+      "PRMIX_constructor": "14eb2f4d7b54b821bad863a5583f6d65b7ce4e44c25f0727f71f8a4112998168",
+      "PRMIX_fugacity": "a047b64f142e912f4eb48fe3accc615b155333a519316151e26998acc6bcc458",
+      "FlashVL_stability": "bde08e8a5a901a0b3b0ae6a29f2742bd1da8868ae240c2c8a5ba645b329e66e8",
+      "FlashVL_PT_stability": "4ca32b526e25279d42a745e711c1d56c00c45d08d841b9e0e5b0b916154aa87b"
+    }
+  },
+  "phase_scan": [
+    {
+      "T_K": 300.0,
+      "P_Pa_abs": 1000.0,
+      "phase": "V",
+      "beta": 1.0
+    },
+    {
+      "T_K": 300.0,
+      "P_Pa_abs": 10000.0,
+      "phase": "V",
+      "beta": 1.0
+    },
+    {
+      "T_K": 300.0,
+      "P_Pa_abs": 30000.0,
+      "phase": "V",
+      "beta": 1.0
+    },
+    {
+      "T_K": 300.0,
+      "P_Pa_abs": 100000.0,
+      "phase": "VL",
+      "beta": 0.6435199462837883
+    },
+    {
+      "T_K": 300.0,
+      "P_Pa_abs": 200000.0,
+      "phase": "VL",
+      "beta": 0.5600933706438906
+    },
+    {
+      "T_K": 300.0,
+      "P_Pa_abs": 300000.0,
+      "phase": "VL",
+      "beta": 0.5346425102237959
+    },
+    {
+      "T_K": 300.0,
+      "P_Pa_abs": 500000.0,
+      "phase": "VL",
+      "beta": 0.5120621889560412
+    },
+    {
+      "T_K": 300.0,
+      "P_Pa_abs": 1000000.0,
+      "phase": "VL",
+      "beta": 0.48541345721230333
+    },
+    {
+      "T_K": 300.0,
+      "P_Pa_abs": 5000000.0,
+      "phase": "VL",
+      "beta": 0.3397690865136887
+    },
+    {
+      "T_K": 300.0,
+      "P_Pa_abs": 10000000.0,
+      "phase": "VL",
+      "beta": 0.09760023867154376
+    },
+    {
+      "T_K": 300.0,
+      "P_Pa_abs": 20000000.0,
+      "phase": "L",
+      "beta": 0.0
+    },
+    {
+      "T_K": 300.0,
+      "P_Pa_abs": 30000000.0,
+      "phase": "L",
+      "beta": 0.0
+    },
+    {
+      "T_K": 300.0,
+      "P_Pa_abs": 50000000.0,
+      "phase": "L",
+      "beta": 0.0
+    }
+  ],
+  "saturation_at_300K": {
+    "bubble_pressure_Pa_abs": 11488247.24995131,
+    "dew_pressure_Pa_abs": 44484.799489176294
+  },
+  "pure_parameters": {
+    "T_K": 300.0,
+    "components": [
+      {
+        "id": "methane",
+        "kappa": 0.39221740720531195,
+        "alpha": 0.8101834074909086,
+        "a_i_Pa_m6_mol2": 0.2022066134114174,
+        "b_i_m3_mol": 2.6802317444263274e-05
+      },
+      {
+        "id": "n_hexane",
+        "kappa": 0.8134653963141592,
+        "alpha": 1.4118862442770883,
+        "a_i_Pa_m6_mol2": 3.7806876057403356,
+        "b_i_m3_mol": 0.00010791019597217473
+      }
+    ]
+  },
+  "cases": [
+    {
+      "case_id": "A",
+      "T_K": 300.0,
+      "P_Pa_abs": 30000000.0,
+      "z": [
+        0.5,
+        0.5
+      ],
+      "kij": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      "classification": "liquid",
+      "beta": 0.0,
+      "liquid_fraction": 1.0,
+      "convergence": {
+        "iterations": 0,
+        "err": 0.0,
+        "stab_info": null
+      },
+      "homogeneous_mixture": {
+        "composition": [
+          0.5,
+          0.5
+        ],
+        "a_mix_Pa_m6_mol2": 1.43289630014247,
+        "b_mix_m3_mol": 6.7356256708219e-05,
+        "A": 6.90915819277255,
+        "B": 0.8101095621159913,
+        "physical_real_Z_roots": [
+          1.04595589143832
+        ],
+        "smallest_real_root": 1.04595589143832,
+        "largest_real_root": 1.04595589143832,
+        "cubic_polynomial_residuals": [
+          -8.881784197001252e-16
+        ]
+      },
+      "stability": {
+        "homogeneous_feed_stable": true,
+        "michelsen_details": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "phase_identification_parameter": 7.836225504723409,
+        "binary_TPD_scan": {
+          "grid_points": 1002,
+          "composition_interval": [
+            1e-12,
+            0.999999999999
+          ],
+          "grid_min_TPD_RT": 0.0,
+          "refined_min_TPD_RT": 0.0,
+          "minima": [
+            {
+              "methane_fraction": 0.5,
+              "TPD_RT": 0.0
+            },
+            {
+              "methane_fraction": 0.49999998145052404,
+              "TPD_RT": 5.027155034158604e-16
+            },
+            {
+              "methane_fraction": 1e-12,
+              "TPD_RT": 0.62399568933595
+            },
+            {
+              "methane_fraction": 0.999999999999,
+              "TPD_RT": 0.37646600289946897
+            }
+          ]
+        }
+      },
+      "neighborhood": [
+        {
+          "T_K": 295.0,
+          "P_Pa_abs": 24000000.0,
+          "phase": "L",
+          "beta": 0.0
+        },
+        {
+          "T_K": 295.0,
+          "P_Pa_abs": 30000000.0,
+          "phase": "L",
+          "beta": 0.0
+        },
+        {
+          "T_K": 295.0,
+          "P_Pa_abs": 36000000.0,
+          "phase": "L",
+          "beta": 0.0
+        },
+        {
+          "T_K": 300.0,
+          "P_Pa_abs": 24000000.0,
+          "phase": "L",
+          "beta": 0.0
+        },
+        {
+          "T_K": 300.0,
+          "P_Pa_abs": 30000000.0,
+          "phase": "L",
+          "beta": 0.0
+        },
+        {
+          "T_K": 300.0,
+          "P_Pa_abs": 36000000.0,
+          "phase": "L",
+          "beta": 0.0
+        },
+        {
+          "T_K": 305.0,
+          "P_Pa_abs": 24000000.0,
+          "phase": "L",
+          "beta": 0.0
+        },
+        {
+          "T_K": 305.0,
+          "P_Pa_abs": 30000000.0,
+          "phase": "L",
+          "beta": 0.0
+        },
+        {
+          "T_K": 305.0,
+          "P_Pa_abs": 36000000.0,
+          "phase": "L",
+          "beta": 0.0
+        }
+      ],
+      "liquid": {
+        "composition": [
+          0.5,
+          0.5
+        ],
+        "Z": 1.04595589143832,
+        "phi": [
+          0.929788906659962,
+          0.0035632605196677333
+        ],
+        "ln_phi": [
+          -0.07279770068523028,
+          -5.637079276965833
+        ]
+      }
+    },
+    {
+      "case_id": "B",
+      "T_K": 300.0,
+      "P_Pa_abs": 300000.0,
+      "z": [
+        0.5,
+        0.5
+      ],
+      "kij": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      "classification": "vapor_liquid",
+      "beta": 0.5346425102237959,
+      "liquid_fraction": 0.46535748977620406,
+      "convergence": {
+        "iterations": 7,
+        "err": 3.6821315346355134e-28,
+        "stab_info": {
+          "stab_guess_name": "Wilson gas"
+        }
+      },
+      "homogeneous_mixture": {
+        "composition": [
+          0.5,
+          0.5
+        ],
+        "a_mix_Pa_m6_mol2": 1.43289630014247,
+        "b_mix_m3_mol": 6.7356256708219e-05,
+        "A": 0.06909158192772549,
+        "B": 0.008101095621159913,
+        "physical_real_Z_roots": [
+          0.012080482090302068,
+          0.043641122848020186,
+          0.936177299440518
+        ],
+        "smallest_real_root": 0.012080482090302068,
+        "largest_real_root": 0.936177299440518,
+        "cubic_polynomial_residuals": [
+          2.168404344971009e-19,
+          8.673617379884035e-19,
+          2.0925101928970236e-16
+        ]
+      },
+      "stability": {
+        "homogeneous_feed_stable": false,
+        "michelsen_details": [
+          [
+            0.9159536364806463,
+            0.08404636351935363
+          ],
+          [
+            0.01590711832438697,
+            0.984092881675613
+          ],
+          0.4621468202918281,
+          "Wilson gas",
+          0,
+          4.863147736568745,
+          22.48175294978504,
+          -1.2060522970946346
+        ],
+        "phase_identification_parameter": 0.8152761235331386,
+        "binary_TPD_scan": {
+          "grid_points": 1002,
+          "composition_interval": [
+            1e-12,
+            0.999999999999
+          ],
+          "grid_min_TPD_RT": -1.7686046697072653,
+          "refined_min_TPD_RT": -1.7686866157831627,
+          "minima": [
+            {
+              "methane_fraction": 0.5,
+              "TPD_RT": 2.7755575615628914e-17
+            },
+            {
+              "methane_fraction": 0.0014810074640768524,
+              "TPD_RT": -1.7686866157831627
+            },
+            {
+              "methane_fraction": 0.4999999895817907,
+              "TPD_RT": 7.115622067483142e-16
+            },
+            {
+              "methane_fraction": 1e-12,
+              "TPD_RT": -1.7672048811781984
+            },
+            {
+              "methane_fraction": 0.999999999999,
+              "TPD_RT": 0.6632495876455081
+            }
+          ]
+        }
+      },
+      "neighborhood": [
+        {
+          "T_K": 295.0,
+          "P_Pa_abs": 240000.0,
+          "phase": "VL",
+          "beta": 0.5358906087811746
+        },
+        {
+          "T_K": 295.0,
+          "P_Pa_abs": 300000.0,
+          "phase": "VL",
+          "beta": 0.5255197765094635
+        },
+        {
+          "T_K": 295.0,
+          "P_Pa_abs": 360000.0,
+          "phase": "VL",
+          "beta": 0.5181585854601323
+        },
+        {
+          "T_K": 300.0,
+          "P_Pa_abs": 240000.0,
+          "phase": "VL",
+          "beta": 0.5474262016624831
+        },
+        {
+          "T_K": 300.0,
+          "P_Pa_abs": 300000.0,
+          "phase": "VL",
+          "beta": 0.5346425102237959
+        },
+        {
+          "T_K": 300.0,
+          "P_Pa_abs": 360000.0,
+          "phase": "VL",
+          "beta": 0.5257841609551026
+        },
+        {
+          "T_K": 305.0,
+          "P_Pa_abs": 240000.0,
+          "phase": "VL",
+          "beta": 0.5616709565772106
+        },
+        {
+          "T_K": 305.0,
+          "P_Pa_abs": 300000.0,
+          "phase": "VL",
+          "beta": 0.5457674705292912
+        },
+        {
+          "T_K": 305.0,
+          "P_Pa_abs": 360000.0,
+          "phase": "VL",
+          "beta": 0.5349932818103498
+        }
+      ],
+      "vapor": {
+        "composition": [
+          0.9216088074693791,
+          0.07839119253062085
+        ],
+        "Z": 0.9885027848240134,
+        "phi": [
+          0.9941808693398857,
+          0.924869439053417
+        ],
+        "ln_phi": [
+          -0.005836127771952308,
+          -0.07810269840116162
+        ]
+      },
+      "liquid": {
+        "composition": [
+          0.015619720085966004,
+          0.984380279914034
+        ],
+        "Z": 0.01546966380242693,
+        "phi": [
+          58.659556020112824,
+          0.07365204255092747
+        ],
+        "ln_phi": [
+          4.071750494821597,
+          -2.608403403247907
+        ]
+      },
+      "equilibrium_common_tangent_TPD": {
+        "grid_points": 1002,
+        "composition_interval": [
+          1e-12,
+          0.999999999999
+        ],
+        "grid_min_TPD_RT": 0.0,
+        "refined_min_TPD_RT": -5.265732301738133e-16,
+        "minima": [
+          {
+            "methane_fraction": 0.015619720085966004,
+            "TPD_RT": 0.0
+          },
+          {
+            "methane_fraction": 0.0156197182539753,
+            "TPD_RT": 6.491569770179664e-16
+          },
+          {
+            "methane_fraction": 0.9216088069732469,
+            "TPD_RT": -5.265732301738133e-16
+          },
+          {
+            "methane_fraction": 1e-12,
+            "TPD_RT": 0.015700695548630902
+          },
+          {
+            "methane_fraction": 0.999999999999,
+            "TPD_RT": 0.08095957717316159
+          }
+        ]
+      },
+      "K": [
+        59.00290161393005,
+        0.07963507003357154
+      ],
+      "mixture_at_x": {
+        "composition": [
+          0.015619720085966004,
+          0.984380279914034
+        ],
+        "a_mix_Pa_m6_mol2": 3.690440196318239,
+        "b_mix_m3_mol": 0.00010664331361280222,
+        "A": 0.17794612991040662,
+        "B": 0.012826242477771728,
+        "physical_real_Z_roots": [
+          0.01546966380242693,
+          0.17075834711857774,
+          0.8009457466012236
+        ],
+        "smallest_real_root": 0.01546966380242693,
+        "largest_real_root": 0.8009457466012236,
+        "cubic_polynomial_residuals": [
+          -4.336808689942018e-19,
+          -3.0357660829594124e-18,
+          5.941427905220564e-17
+        ]
+      },
+      "mixture_at_y": {
+        "composition": [
+          0.9216088074693791,
+          0.07839119253062085
+        ],
+        "a_mix_Pa_m6_mol2": 0.3213157286530708,
+        "b_mix_m3_mol": 3.316046076569499e-05,
+        "A": 0.015493243990296529,
+        "B": 0.0039882867105920546,
+        "physical_real_Z_roots": [
+          0.9885027848240134
+        ],
+        "smallest_real_root": 0.9885027848240134,
+        "largest_real_root": 0.9885027848240134,
+        "cubic_polynomial_residuals": [
+          -1.444157293750692e-16
+        ]
+      },
+      "material_residual": [
+        0.0,
+        0.0
+      ],
+      "ln_fugacity_residual": [
+        2.085137618124122e-15,
+        -1.9165224962591765e-14
+      ],
+      "rachford_rice_residual": 0.0,
+      "Wilson_initial_K": [
+        111.30087562398208,
+        0.08024450358776494
+      ],
+      "precision_study": {
+        "looser_squared_K_tolerance": 1e-18,
+        "beta_difference": 3.4274805216227833e-12,
+        "x_difference": [
+          1.3600232051658168e-15,
+          -1.3322676295501878e-15
+        ],
+        "y_difference": [
+          -5.809130954048669e-12,
+          5.809352998653594e-12
+        ]
+      }
+    },
+    {
+      "case_id": "C",
+      "T_K": 300.0,
+      "P_Pa_abs": 1000.0,
+      "z": [
+        0.5,
+        0.5
+      ],
+      "kij": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      "classification": "vapor",
+      "beta": 1.0,
+      "liquid_fraction": 0.0,
+      "convergence": {
+        "iterations": 0,
+        "err": 0.0,
+        "stab_info": null
+      },
+      "homogeneous_mixture": {
+        "composition": [
+          0.5,
+          0.5
+        ],
+        "a_mix_Pa_m6_mol2": 1.43289630014247,
+        "b_mix_m3_mol": 6.7356256708219e-05,
+        "A": 0.00023030527309241832,
+        "B": 2.7003652070533046e-05,
+        "physical_real_Z_roots": [
+          4.0395465984364656e-05,
+          0.0001359306767507044,
+          0.9997966702051944
+        ],
+        "smallest_real_root": 4.0395465984364656e-05,
+        "largest_real_root": 0.9997966702051944,
+        "cubic_polynomial_residuals": [
+          0.0,
+          1.6543612251060553e-24,
+          -3.11329391674319e-17
+        ]
+      },
+      "stability": {
+        "homogeneous_feed_stable": true,
+        "michelsen_details": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "phase_identification_parameter": 0.9994441541503629,
+        "binary_TPD_scan": {
+          "grid_points": 1002,
+          "composition_interval": [
+            1e-12,
+            0.999999999999
+          ],
+          "grid_min_TPD_RT": 3.1170812458958252e-18,
+          "refined_min_TPD_RT": -3.9547184801827073e-16,
+          "minima": [
+            {
+              "methane_fraction": 0.5,
+              "TPD_RT": 3.1170812458958252e-18
+            },
+            {
+              "methane_fraction": 0.4999999895817907,
+              "TPD_RT": -3.9547184801827073e-16
+            },
+            {
+              "methane_fraction": 1e-12,
+              "TPD_RT": 0.6930573314493049
+            },
+            {
+              "methane_fraction": 0.999999999999,
+              "TPD_RT": 0.6930573773071571
+            }
+          ]
+        }
+      },
+      "neighborhood": [
+        {
+          "T_K": 295.0,
+          "P_Pa_abs": 800.0,
+          "phase": "V",
+          "beta": 1.0
+        },
+        {
+          "T_K": 295.0,
+          "P_Pa_abs": 1000.0,
+          "phase": "V",
+          "beta": 1.0
+        },
+        {
+          "T_K": 295.0,
+          "P_Pa_abs": 1200.0,
+          "phase": "V",
+          "beta": 1.0
+        },
+        {
+          "T_K": 300.0,
+          "P_Pa_abs": 800.0,
+          "phase": "V",
+          "beta": 1.0
+        },
+        {
+          "T_K": 300.0,
+          "P_Pa_abs": 1000.0,
+          "phase": "V",
+          "beta": 1.0
+        },
+        {
+          "T_K": 300.0,
+          "P_Pa_abs": 1200.0,
+          "phase": "V",
+          "beta": 1.0
+        },
+        {
+          "T_K": 305.0,
+          "P_Pa_abs": 800.0,
+          "phase": "V",
+          "beta": 1.0
+        },
+        {
+          "T_K": 305.0,
+          "P_Pa_abs": 1000.0,
+          "phase": "V",
+          "beta": 1.0
+        },
+        {
+          "T_K": 305.0,
+          "P_Pa_abs": 1200.0,
+          "phase": "V",
+          "beta": 1.0
+        }
+      ],
+      "vapor": {
+        "composition": [
+          0.5,
+          0.5
+        ],
+        "Z": 0.9997966702051944,
+        "phi": [
+          1.000068050885856,
+          0.9995254326595934
+        ],
+        "ln_phi": [
+          6.804857049937677e-05,
+          -0.0004746799831260287
+        ]
+      }
+    }
+  ],
+  "optional_nonzero_kij": {
+    "kij": [
+      [
+        0.0,
+        0.02
+      ],
+      [
+        0.02,
+        0.0
+      ]
+    ],
+    "T_K": 300.0,
+    "P_Pa_abs": 300000.0,
+    "beta": 0.5351623537032419,
+    "x": [
+      0.014571203415107516,
+      0.9854287965848927
+    ],
+    "y": [
+      0.9216394850791656,
+      0.07836051492083437
+    ]
+  },
+  "acceptance_tolerances": {
+    "alpha": {
+      "atol": 1e-12,
+      "rtol": 1e-11
+    },
+    "kappa": {
+      "atol": 1e-13,
+      "rtol": 1e-12
+    },
+    "a_i_Pa_m6_mol2": {
+      "atol": 1e-12,
+      "rtol": 1e-10
+    },
+    "b_i_m3_mol": {
+      "atol": 1e-15,
+      "rtol": 1e-10
+    },
+    "a_mix_Pa_m6_mol2": {
+      "atol": 1e-12,
+      "rtol": 1e-10
+    },
+    "b_mix_m3_mol": {
+      "atol": 1e-15,
+      "rtol": 1e-10
+    },
+    "A_B": {
+      "atol": 1e-12,
+      "rtol": 1e-10
+    },
+    "Z_roots": {
+      "atol": 1e-10,
+      "rtol": 1e-09
+    },
+    "ln_phi": {
+      "atol": 1e-09,
+      "rtol": 1e-09
+    },
+    "beta": {
+      "atol": 1e-09,
+      "rtol": 0.0
+    },
+    "x": {
+      "atol": 1e-09,
+      "rtol": 0.0
+    },
+    "y": {
+      "atol": 1e-09,
+      "rtol": 0.0
+    },
+    "composition_sum": {
+      "atol": 1e-12,
+      "rtol": 0.0
+    },
+    "material_reconstruction": {
+      "atol": 1e-10,
+      "rtol": 0.0
+    },
+    "ln_fugacity_equilibrium": {
+      "atol": 1e-09,
+      "rtol": 0.0
+    },
+    "rachford_rice": {
+      "atol": 1e-10,
+      "rtol": 0.0
+    },
+    "stability_TPD_negative_threshold": {
+      "atol": 1e-09,
+      "rtol": 0.0
+    }
+  }
+}
