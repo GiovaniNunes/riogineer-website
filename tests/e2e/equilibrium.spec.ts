@@ -11,6 +11,11 @@ async function calculate(page: Page) {
   expect(response.ok()).toBe(true);
   const r = await response.json();
   await expect(page.getByRole('status')).toHaveText('Calculation complete — results current.');
+  await expect(
+    page.getByRole('list', { name: 'Warnings and model limitations' }).getByRole('listitem'),
+  ).toHaveText([
+    ...new Set([...r.warnings.map((w: { message: string }) => w.message), ...r.limitations]),
+  ]);
   return { f, r };
 }
 test('M9 real PT flash: PFD, table, phase result, identity and repeat/layout/regeneration', async ({
@@ -44,6 +49,16 @@ test('M9 real PT flash: PFD, table, phase result, identity and repeat/layout/reg
   const response = await pending;
   expect(response.ok()).toBe(true);
   const r = await response.json();
+  const energyWarning =
+    'Isothermal/isobaric PT equilibrium does not calculate phase-change enthalpy, heat duty, shaft work or an energy balance.';
+  // The source records remain intact; only the combined presentation removes duplicates.
+  expect(r.warnings.some((w: { message: string }) => w.message === energyWarning)).toBe(true);
+  expect(r.limitations).toContain(energyWarning);
+  const warnings = page.getByRole('list', { name: 'Warnings and model limitations' });
+  await expect(warnings.getByText(energyWarning, { exact: true })).toHaveCount(1);
+  await expect(warnings.getByRole('listitem')).toHaveText([
+    ...new Set([...r.warnings.map((w: { message: string }) => w.message), ...r.limitations]),
+  ]);
   const panel = page.getByRole('region', { name: 'Separator thermodynamic results' });
   await expect(panel).toContainText('vapor_liquid');
   for (const text of [

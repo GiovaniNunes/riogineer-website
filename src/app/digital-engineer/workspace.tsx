@@ -485,13 +485,12 @@ export function EngineerWorkspace({
             <CompressionResults results={r} />
           )}
           <h3>Warnings and model limitations</h3>
-          <ul>
-            {r.warnings.map((w) => (
-              <li key={w.code}>{w.message}</li>
-            ))}
-            {r.limitations.map((l) => (
-              <li key={l}>{l}</li>
-            ))}
+          <ul aria-label="Warnings and model limitations">
+            {[...new Set([...r.warnings.map((w) => w.message), ...r.limitations])].map(
+              (message) => (
+                <li key={message}>{message}</li>
+              ),
+            )}
           </ul>
           <h3>Unavailable calculations</h3>
           <ul>

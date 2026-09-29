@@ -152,9 +152,9 @@ New coverage: **7 Python tests, 3 TypeScript tests and 3 browser tests**. Parame
 
 Validation results are recorded below after the complete suite finishes. The feed reconstruction, thermodynamic, phase-flow, mass-conversion, round-trip, process-balance, single-phase, identity and regression gates are explicitly exercised; general suite success alone is not the acceptance basis.
 
-## Manual validation preparation and next step
+## Manual validation workflow and next step
 
-**Human-operated M9 validation has not occurred.** Automated browser tests and coding-agent visual inspection are separate evidence.
+**Human-operated M9 browser validation was successfully completed on 2026-09-29, as reported by the user.** The separate manual acceptance record below documents that review; automated browser tests and coding-agent visual inspection remain separate evidence.
 
 Start the ordinary local Python engine and website, then open `/digital-engineer`:
 
@@ -220,8 +220,48 @@ For production smoke, start `SITE_URL=http://127.0.0.1:3200 SITE_INDEXABLE=false
 | Production build         | Passed                                                                                                                 |
 | Production smoke         | **17 pages and 17 PNG social cards passed**, plus internal links, 404s, preview indexing and disabled contact delivery |
 
-All nine M9 gates pass. Existing exact M3–M7 process-fingerprint regressions and M8 reference comparisons pass; previous recovery/energy calculations remain unchanged. No live external LLM/provider call was made. Water/VLLE remains unsupported. There are no unresolved acceptance failures; human-operated M9 review remains pending.
+All nine M9 gates pass. Existing exact M3–M7 process-fingerprint regressions and M8 reference comparisons pass; previous recovery/energy calculations remain unchanged. No live external LLM/provider call was made. Water/VLLE remains unsupported. There are no unresolved acceptance failures. The subsequent user-reported human-operated review is recorded separately below.
 
 The initial sandbox prevented the Python HTTP fixture and browser servers from binding local ports; rerunning those checks with local-server permission passed. An initial new browser assertion treated a horizontal stroked SVG line as a nonzero-area element; the test now checks the line's attachment and the vessel's visibility separately. Visual inspection also caught a long feed label overlapping its source symbol; M9 labels are now fitted to the available connection span. These corrections do not change process calculation or numbering.
 
 Coding-agent inspection of automated screenshots covered the three-stream PFD and thermodynamic result panel. Screenshots under `.local/` are local QA artifacts, not claims of human-operated validation.
+
+## Completed human-operated manual validation — 2026-09-29
+
+The user reported successful human-operated browser validation of the primary M9 Case B on **2026-09-29** using **Engineering data / Advanced → Load Milestone 9 reference → Validate requirements → Generate PFD → Run engineering calculation**. The following observations are the user's manual acceptance evidence, distinct from the automated coverage above.
+
+The PFD showed **HYDROCARBON_FEED → SEP_PR_1 → LIQUID_PRODUCT / VAPOR_PRODUCT**, with the separator displayed as PT-equilibrium/two-phase equipment. Deterministic numbering was **1 HYDROCARBON_FEED, 2 LIQUID_PRODUCT, 3 VAPOR_PRODUCT**. All streams were at **300 K and 300000 Pa absolute**.
+
+| Manually inspected quantity                                | Confirmed value                                        |
+| ---------------------------------------------------------- | ------------------------------------------------------ |
+| Feed total                                                 | 1000 kmol/h; 51109.08 kg/h                             |
+| Liquid product total                                       | 465.35748978 kmol/h; approximately 39592.57290305 kg/h |
+| Vapor product total                                        | 534.64251022 kmol/h; approximately 11516.50709695 kg/h |
+| Feed molar composition, methane / n_hexane                 | 0.5 / 0.5                                              |
+| Reconstructed liquid molar composition, methane / n_hexane | approximately 0.01561972 / 0.98438028                  |
+| Reconstructed vapor molar composition, methane / n_hexane  | approximately 0.92160881 / 0.07839119                  |
+| Phase classification / convergence                         | vapor_liquid / success_two_phase                       |
+| Flash iterations                                           | 7                                                      |
+| Vapor molar fraction beta / liquid molar fraction          | approximately 0.534642510224 / 0.465357489776          |
+| Z liquid / Z vapor                                         | approximately 0.0154696638024 / 0.988502784824         |
+| Final K, methane / n_hexane                                | approximately 59.0029016139 / 0.0796350700336          |
+| Rachford–Rice residual                                     | approximately 1.02e-14                                 |
+| Component and total process mass balances                  | Passed                                                 |
+| Total process mass residual                                | approximately -1.455e-10 kg/h                          |
+
+Manual review confirmed that M7 mass-to-molar outlet reconstruction agrees with M8 flash x/y. Density, phase volumetric flows and enthalpy remain unavailable. Separator heat duty, shaft work and rigorous phase-change energy balance remain unavailable rather than being reported as zero. BIP provenance and the zero-kij benchmark limitation are visible. Water/VLLE, PH/PS flash and sizing remain explicitly outside scope.
+
+**This manual acceptance qualifies only the defined M9 scope. It does not qualify any additional functionality.**
+
+Before recording final acceptance, the duplicate energy-scope sentence in Engineering Results → Warnings and model limitations was removed at the presentation layer by displaying identical message text once. The warning's wording and engineering meaning, underlying result records, thermodynamic equations, benchmark values, equipment calculations, contracts and fixtures are unchanged. No live-provider call was made for this cleanup. The focused browser regression checks the single displayed warning and preservation of distinct M5/M6 messages; cleanup checks are reported separately from the original automated qualification.
+
+### Presentation cleanup verification
+
+These checks were run for the duplicate-warning cleanup, separately from the original full-suite results above:
+
+- `npm run test:e2e -- tests/e2e/equilibrium.spec.ts` — **3 passed**, including the single-warning assertion, intact underlying warning/limitation records and M5/M6 message preservation.
+- `npm run format:check` and `node_modules/.bin/prettier --check MILESTONE_9.md` — passed.
+- `node_modules/.bin/eslint src/app/digital-engineer/workspace.tsx tests/e2e/equilibrium.spec.ts` — passed.
+- `git diff --check` — passed.
+
+Shared engine warning generation was not changed; only the combined results list is deduplicated for display.

@@ -1606,7 +1606,7 @@ Detailed implementation history belongs in:
 
 # 61. CURRENT STATE SUMMARY
 
-Milestone 9 adds a separate `equilibrium_separator_2phase` / `pt_flash_separator@1.0` and controlled `MILESTONE_9_PT_FLASH_SEPARATOR` reference. Actual inlet mass flows pass through M7 Composition into the qualified M8 `peng_robinson@1.0` PT provider; phase results become mass-basis outlet streams and independently reconstructed molecular properties. Case B uses 300 K, 300000 Pa, 1000 kmol/h equimolar methane/n_hexane with explicit zero kij; Cases A/C qualify zero-flow absent-phase semantics. Requirements 1.4 / flowsheet 1.5 / results 1.6 preserve older readers. Energy/duty, density and phase volumetric flows are unavailable. Existing prescribed separators, heaters and compressors remain unchanged. See `MILESTONE_9.md` for scope, results, tolerances and automated evidence. Human-operated M9 review remains pending.
+Milestone 9 adds a separate `equilibrium_separator_2phase` / `pt_flash_separator@1.0` and controlled `MILESTONE_9_PT_FLASH_SEPARATOR` reference. Actual inlet mass flows pass through M7 Composition into the qualified M8 `peng_robinson@1.0` PT provider; phase results become mass-basis outlet streams and independently reconstructed molecular properties. Case B uses 300 K, 300000 Pa, 1000 kmol/h equimolar methane/n_hexane with explicit zero kij; Cases A/C qualify zero-flow absent-phase semantics. Requirements 1.4 / flowsheet 1.5 / results 1.6 preserve older readers. Energy/duty, density and phase volumetric flows are unavailable. Existing prescribed separators, heaters and compressors remain unchanged. See `MILESTONE_9.md` for scope, results, tolerances and automated evidence. Human-operated M9 browser validation was successfully completed on 2026-09-29, as reported by the user and recorded separately from automated coverage in `MILESTONE_9.md`; acceptance is limited to the defined M9 scope.
 
 Milestone 8's standalone PR EOS, stability and PT flash remain unchanged and qualified against the independent A/B/C benchmark. Its human-operated comparison was completed on 2026-09-28 (see `MILESTONE_8.md`). Water/VLLE and caloric/PH/PS capabilities remain unsupported.
 
@@ -1652,7 +1652,7 @@ Current state:
 
 # 62. IMMEDIATE NEXT STEP
 
-Perform separate human-operated M9 browser validation: Engineering data / Advanced → Load Milestone 9 reference → Validate requirements → Generate PFD → Run engineering calculation. Review phase/process consistency, balances, identity and unavailable energy semantics. After review, separately scope qualified PR caloric properties / PH flash infrastructure; do not automatically proceed to water/VLLE or implement M10. See `MILESTONE_9.md`.
+Human-operated M9 browser validation was completed on 2026-09-29 using: Engineering data / Advanced → Load Milestone 9 reference → Validate requirements → Generate PFD → Run engineering calculation. The review confirmed phase/process consistency, balances, identity and unavailable energy semantics (see the manual record). Separately scope qualified PR caloric properties / PH flash infrastructure; do not automatically proceed to water/VLLE or implement M10. See `MILESTONE_9.md`.
 Preserve all four independent deterministic references: the Milestone 3/3.1 Bia
 single separator, the Milestone 4 acyclic separator → 60/40 splitter →
 equal-condition mixer network, the Milestone 5 separator → heater → separator, and Milestone 6 with its parallel gas compressor. Review numbered internal streams, balances and
