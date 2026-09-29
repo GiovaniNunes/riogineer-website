@@ -1,11 +1,17 @@
 """Standalone PT successive substitution with explicit stability and closure gates."""
-from dataclasses import dataclass
+from dataclasses import dataclass, replace
+from enum import Enum
 from math import log
 from .components import DATASET, component
-from .pr_eos import MODEL, BinaryInteractions, PengRobinsonEOS, ThermodynamicError, normalized, require, safe_exp
+from .pr_eos import MODEL, BinaryInteractions, PengRobinsonEOS, ThermodynamicError, finite, normalized, require, safe_exp
 from .pr_stability import StabilityResult, stability
-from .rachford_rice import reconstruct, solve_rr
+from .rachford_rice import RRResult, reconstruct, solve_rr
 from .thermodynamics import ThermodynamicState, MolarComposition
+
+
+class AccuracyProfile(str, Enum):
+    STANDARD = 'standard'
+    HIGH_ACCURACY = 'high_accuracy'
 
 
 @dataclass(frozen=True)
@@ -16,11 +22,76 @@ class SolverSettings:
     # Qualification tolerances are intentionally fixed, not user-loosenable.
     fugacity_tolerance: float = 1e-11
     material_tolerance: float = 1e-10
+    profile: AccuracyProfile = AccuracyProfile.STANDARD
+
+    @classmethod
+    def high_accuracy(cls):
+        return cls(fugacity_tolerance=1e-12, profile=AccuracyProfile.HIGH_ACCURACY)
 
     def validate(self):
         require(all(isinstance(v,int) and not isinstance(v,bool) and v > 0 for v in
                     (self.flash_max_iterations,self.stability_max_iterations,self.rr_max_iterations)), 'Invalid solver iteration limit')
-        require(self.fugacity_tolerance == 1e-11 and self.material_tolerance == 1e-10, 'Qualification tolerances are fixed')
+        require(isinstance(self.profile, AccuracyProfile), 'Explicit qualified accuracy profile required')
+        target = 1e-12 if self.profile == AccuracyProfile.HIGH_ACCURACY else 1e-11
+        require(self.fugacity_tolerance == target and self.material_tolerance == 1e-10, 'Qualification tolerances are fixed per profile')
+
+
+@dataclass(frozen=True)
+class RestartSeed:
+    component_ids: tuple[str, ...]
+    trial_composition: tuple[float, ...]
+    trial_tpd_RT: float
+    stability_sum: float
+    K: tuple[float, ...]
+    parent_pip: float
+    trial_pip: float
+    orientation: str = 'liquid_parent_vapor_trial'
+    algorithm: str = 'stationary_tpd_scaled_trial@1.0'
+
+
+@dataclass(frozen=True)
+class InitializationDiagnostics:
+    strategy: str = 'wilson'
+    initial_K: tuple[float, ...] = ()
+    initial_rr: RRResult | None = None
+    restart_count: int = 0
+    restart_seed: RestartSeed | None = None
+    restart_rr: RRResult | None = None
+
+
+def stability_restart_seed(eos, z, stab):
+    """Reuse the converged TPD minimum; only liquid-parent/vapor-trial is qualified.
+
+    At stationary normalized w, S=exp(-TPD/RT) and K=S*w/z. PIP uses the
+    existing EOS phase-identification API, including for a single cubic root;
+    it labels orientation AFTER instability, never establishes instability.
+    No minimization or EOS equations are repeated here.
+    """
+    # Preserve the existing failed-initialization status; message identifies
+    # why a safe seed was unavailable rather than implying RR iteration failed.
+    status = 'rachford_rice_not_converged'
+    require(stab.converged and stab.stable is False, 'Restart requires converged instability', status)
+    require(len(z) == len(eos.component_ids) == 2 and all(v > 0 for v in z),
+            'Restart requires positive binary feed fractions; pure feeds retain the stable path', status)
+    parent = eos.mixture(z)
+    parent_pip = eos.phase_identification(parent, eos.lowest_gibbs(parent).Z)
+    require(parent_pip > 1, 'Restart requires liquid-like parent', status)
+    candidates = sorted((t for t in stab.trials if t.converged and t.iterations > 0 and t.tpd_RT < -1e-9),
+                        key=lambda t: (t.tpd_RT, t.composition))
+    for trial in candidates:
+        w = trial.composition
+        require(len(w) == len(z) and all(finite(v) and v > 0 for v in w), 'Invalid restart trial composition', status)
+        normalized(w)
+        mixed = eos.mixture(w)
+        pip = eos.phase_identification(mixed, eos.lowest_gibbs(mixed).Z)
+        if pip > 1:
+            continue
+        s = safe_exp(-trial.tpd_RT)
+        require(finite(s) and s > 1, 'Invalid instability sum', status)
+        k = tuple(s*wi/zi for wi,zi in zip(w,z))
+        require(all(finite(v) and v > 0 for v in k), 'Invalid stability-derived K', status)
+        return RestartSeed(eos.component_ids,w,trial.tpd_RT,s,k,parent_pip,pip)
+    require(False, 'No converged vapor-like unstable trial for liquid-parent restart', status)
 
 
 @dataclass(frozen=True)
@@ -45,6 +116,7 @@ class FlashDiagnostics:
     stability: StabilityResult | None = None
     equilibrium_stability: StabilityResult | None = None
     message: str = ''
+    initialization: InitializationDiagnostics = InitializationDiagnostics()
 
 
 @dataclass(frozen=True)
@@ -113,10 +185,24 @@ def flash_pt(state, bip, settings=SolverSettings()):
             label = 'liquid' if stab.classification == 'single_liquid' else 'vapor'
             return result('success_single_phase',stab.classification,(phase(label,1.,z,f),),0. if label=='liquid' else 1.)
         k = wilson(eos)
+        initialization = InitializationDiagnostics(initial_K=k)
         for iteration in range(1,settings.flash_max_iterations+1):
             rr = solve_rr(z,k,settings.rr_max_iterations)
-            diag = FlashDiagnostics(iteration,rr_residual=rr.residual,rr_iterations=rr.iterations,stability=stab)
+            if iteration == 1:
+                initialization = replace(initialization, initial_rr=rr)
+                if rr.converged and rr.status in ('liquid_tendency','vapor_tendency'):
+                    initialization = replace(initialization, restart_count=1)
+                    diag = replace(diag, initialization=initialization)
+                    seed = stability_restart_seed(eos,z,stab)
+                    k = seed.K
+                    initialization = replace(initialization, restart_seed=seed)
+                    diag = replace(diag, initialization=initialization)
+                    rr = solve_rr(z,k,settings.rr_max_iterations)
+                    initialization = replace(initialization, restart_rr=rr)
+            diag = FlashDiagnostics(iteration,rr_residual=rr.residual,rr_iterations=rr.iterations,stability=stab,
+                                    initialization=initialization)
             if not rr.converged or rr.status != 'two_phase':
+                diag = replace(diag,message='RR did not establish a physical split; see initialization diagnostics')
                 return result('rachford_rice_not_converged')
             x,y,sums,material = reconstruct(z,k,rr.beta)
             lm,vm = eos.mixture(x),eos.mixture(y)
@@ -124,11 +210,11 @@ def flash_pt(state, bip, settings=SolverSettings()):
             # Zero inventory species contributes no chemical-potential constraint.
             fugacity = tuple(log(xi)+pl-log(yi)-pv if zi else 0.
                              for xi,yi,pl,pv,zi in zip(x,y,lf.ln_phi,vf.ln_phi,z))
-            diag = FlashDiagnostics(iteration,fugacity,rr.residual,material,sums,rr.iterations,stab)
+            diag = FlashDiagnostics(iteration,fugacity,rr.residual,material,sums,rr.iterations,stab,initialization=initialization)
             if max(abs(v) for v in fugacity) <= settings.fugacity_tolerance and max(abs(v) for v in material) <= settings.material_tolerance:
                 tangent = tuple(log(xi)+pl if xi else None for xi,pl in zip(x,lf.ln_phi))
                 equilibrium = stability(eos,z,settings.stability_max_iterations,tangent)
-                diag = FlashDiagnostics(iteration,fugacity,rr.residual,material,sums,rr.iterations,stab,equilibrium)
+                diag = replace(diag,equilibrium_stability=equilibrium)
                 if not equilibrium.converged:
                     return result('stability_not_converged')
                 if not equilibrium.stable:
@@ -138,10 +224,8 @@ def flash_pt(state, bip, settings=SolverSettings()):
             k = tuple(safe_exp(a-b) for a,b in zip(lf.ln_phi,vf.ln_phi))
         return result('flash_not_converged')
     except ThermodynamicError as error:
-        from dataclasses import replace
         diag = replace(diag,message=str(error))
         return result(error.status)
     except (OverflowError, ZeroDivisionError) as error:
-        from dataclasses import replace
         diag = replace(diag,message='Arithmetic outside representable numerical domain: '+type(error).__name__)
         return result('numerical_domain_error')
