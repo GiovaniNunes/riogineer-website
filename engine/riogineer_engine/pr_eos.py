@@ -51,6 +51,11 @@ class BinaryInteractions:
     source: str
     model: str = MODEL
 
+    @property
+    def temperature_dependence(self):
+        """This numeric matrix represents constant BIPs, never a temperature model."""
+        return 'constant'
+
     def __post_init__(self):
         object.__setattr__(self, 'component_ids', tuple(self.component_ids))
         object.__setattr__(self, 'values', tuple(tuple(row) for row in self.values))
@@ -70,6 +75,11 @@ class PureParameters:
     a: float  # Pa m6/mol2
     b: float  # m3/mol
     da_dT: float
+
+    @property
+    def dalpha_dT(self):
+        """Recover alpha derivative from the existing analytic da/dT and a=a0*alpha."""
+        return self.da_dT*self.alpha/self.a
 
 
 def pure_parameters(component_id, temperature):
