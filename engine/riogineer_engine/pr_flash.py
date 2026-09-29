@@ -60,9 +60,10 @@ class InitializationDiagnostics:
 
 
 def stability_restart_seed(eos, z, stab):
-    """Reuse the converged TPD minimum; only liquid-parent/vapor-trial is qualified.
+    """Reuse the converged TPD minimum with either qualified phase orientation.
 
-    At stationary normalized w, S=exp(-TPD/RT) and K=S*w/z. PIP uses the
+    At stationary normalized w, S=exp(-TPD/RT). K=y/x is S*w/z for a
+    liquid parent and z/(S*w) for a vapor parent. PIP uses the
     existing EOS phase-identification API, including for a single cubic root;
     it labels orientation AFTER instability, never establishes instability.
     No minimization or EOS equations are repeated here.
@@ -75,7 +76,7 @@ def stability_restart_seed(eos, z, stab):
             'Restart requires positive binary feed fractions; pure feeds retain the stable path', status)
     parent = eos.mixture(z)
     parent_pip = eos.phase_identification(parent, eos.lowest_gibbs(parent).Z)
-    require(parent_pip > 1, 'Restart requires liquid-like parent', status)
+    require(finite(parent_pip) and parent_pip != 1, 'Ambiguous restart parent phase', status)
     candidates = sorted((t for t in stab.trials if t.converged and t.iterations > 0 and t.tpd_RT < -1e-9),
                         key=lambda t: (t.tpd_RT, t.composition))
     for trial in candidates:
@@ -84,14 +85,22 @@ def stability_restart_seed(eos, z, stab):
         normalized(w)
         mixed = eos.mixture(w)
         pip = eos.phase_identification(mixed, eos.lowest_gibbs(mixed).Z)
-        if pip > 1:
+        require(finite(pip) and pip != 1, 'Ambiguous restart trial phase', status)
+        if (parent_pip > 1) == (pip > 1):
             continue
         s = safe_exp(-trial.tpd_RT)
         require(finite(s) and s > 1, 'Invalid instability sum', status)
-        k = tuple(s*wi/zi for wi,zi in zip(w,z))
+        if parent_pip > 1:
+            orientation = 'liquid_parent_vapor_trial'
+            k = tuple(s*wi/zi for wi,zi in zip(w,z))
+        else:
+            orientation = 'vapor_parent_liquid_trial'
+            k = tuple(zi/(s*wi) for wi,zi in zip(w,z))
         require(all(finite(v) and v > 0 for v in k), 'Invalid stability-derived K', status)
-        return RestartSeed(eos.component_ids,w,trial.tpd_RT,s,k,parent_pip,pip)
-    require(False, 'No converged vapor-like unstable trial for liquid-parent restart', status)
+        return RestartSeed(eos.component_ids,w,trial.tpd_RT,s,k,parent_pip,pip,orientation)
+    message = ('No converged vapor-like unstable trial for liquid-parent restart' if parent_pip > 1
+               else 'No qualified opposite phase orientation: expected liquid-like parent/vapor-like trial or vapor-like parent/liquid-like trial')
+    require(False, message, status)
 
 
 @dataclass(frozen=True)

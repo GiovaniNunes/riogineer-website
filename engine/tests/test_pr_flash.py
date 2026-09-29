@@ -214,10 +214,43 @@ class FlashTests(unittest.TestCase):
         self.assertTrue(r.diagnostics.fugacity_residual)
         self.assertTrue(r.diagnostics.material_residual)
 
-    def test_unstable_state_without_rr_bracket_is_failure(self):
+    def test_unstable_no_root_wilson_recovers_via_qualified_restart(self):
         with patch('riogineer_engine.pr_flash.wilson',return_value=(2.,3.)):
             r=flash()
-        self.assertEqual(r.status,'rachford_rice_not_converged'); self.assertEqual(r.phases,())
+        init=r.diagnostics.initialization
+        self.assertEqual(init.initial_K,(2.,3.))
+        self.assertEqual(init.initial_rr,solve_rr((.5,.5),(2.,3.)))
+        self.assertEqual(init.initial_rr.status,'vapor_tendency')
+        self.assertEqual(init.initial_rr.beta,1.)
+        self.assertGreater(residual((.5,.5),(2.,3.),0.),0.)
+        self.assertGreater(residual((.5,.5),(2.,3.),1.),0.)
+        self.assertTrue(r.diagnostics.stability.converged)
+        self.assertFalse(r.diagnostics.stability.stable)
+        self.assertEqual(init.restart_count,1)
+        seed=init.restart_seed
+        self.assertEqual(seed.orientation,'vapor_parent_liquid_trial')
+        self.assertIn(seed.trial_composition,[t.composition for t in r.diagnostics.stability.trials])
+        self.assertEqual(seed.stability_sum,exp(-seed.trial_tpd_RT))
+        self.assertEqual(seed.K,tuple(z/(seed.stability_sum*w) for z,w in
+                                     zip(r.evaluated_molar_composition,seed.trial_composition)))
+        self.assertEqual(init.restart_rr.status,'two_phase')
+        self.assertTrue(init.restart_rr.converged)
+        self.assertTrue(0 < init.restart_rr.beta < 1)
+        self.assertEqual(r.status,'success_two_phase')
+        self.assertEqual(r.classification,'vapor_liquid')
+        self.assertGreater(r.diagnostics.iterations,1)
+        self.assertTrue(r.diagnostics.equilibrium_stability.converged)
+        self.assertTrue(r.diagnostics.equilibrium_stability.stable)
+        ref=REFERENCE['cases'][1]
+        self.close(r.beta,ref['beta'],'beta')
+        self.assertEqual(tuple(p.identifier for p in r.phases),('liquid','vapor'))
+        for phase in r.phases:
+            self.close(phase.Z,ref[phase.identifier]['Z'],'Z_roots')
+            for actual,expected in zip(phase.composition,ref[phase.identifier]['composition']):
+                self.close(actual,expected,'x' if phase.identifier=='liquid' else 'y')
+        self.assertEqual(r.provenance.settings,SolverSettings())
+        self.assertLessEqual(max(map(abs,r.diagnostics.fugacity_residual)),
+                             r.provenance.settings.fugacity_tolerance)
 
     def test_wilson_is_only_initialization(self):
         k=wilson(eos())
