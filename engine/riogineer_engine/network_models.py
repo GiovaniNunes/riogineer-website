@@ -7,8 +7,8 @@ import math
 @dataclass
 class EquipmentResult:
     streams: dict
-    duty_W: float
-    work_W: float = 0.0
+    duty_W: float | None
+    work_W: float | None = 0.0
     details: dict = field(default_factory=dict)
 
 
@@ -111,8 +111,15 @@ def compressor(unit, inputs, _evaluate):
                            {'compression': details})
 
 
+def equilibrium_separator(unit, inputs, evaluate):
+    from .equilibrium_separator import separator
+    return separator(unit, inputs, evaluate)
+
+
 # Port definitions, capability identity and execution live together, not in parallel registries.
 MODELS = {
+    'equilibrium_separator_2phase': {'model': {'id': 'pt_flash_separator', 'version': '1.0'},
+        'ports': {'inlet': 'in', 'vapor': 'out', 'liquid': 'out'}, 'execute': equilibrium_separator},
     'compressor': {'model': {'id': 'ideal_gas_isentropic_efficiency', 'version': '1.0'},
                    'ports': {'inlet': 'in', 'outlet': 'out'}, 'execute': compressor},
     'heater': {'model': {'id': 'specified_outlet_temperature_constant_cp', 'version': '1.0'},

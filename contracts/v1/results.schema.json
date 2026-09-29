@@ -6,6 +6,1280 @@
       "properties": {
         "schema_version": {
           "type": "string",
+          "const": "1.6"
+        },
+        "kind": {
+          "type": "string",
+          "const": "results"
+        },
+        "case_id": {
+          "type": "string",
+          "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,79}$"
+        },
+        "run_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "input_sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "requirements_sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "engine": {
+          "type": "object",
+          "properties": {
+            "version": {
+              "type": "string",
+              "const": "1.5.0"
+            },
+            "implementation_sha256": {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            "evaluator_sha256": {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            "model": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "const": "acyclic_component_conservation"
+                },
+                "version": {
+                  "type": "string",
+                  "const": "1.0"
+                }
+              },
+              "required": [
+                "id",
+                "version"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "version",
+            "implementation_sha256",
+            "evaluator_sha256",
+            "model"
+          ],
+          "additionalProperties": false
+        },
+        "status": {
+          "type": "string",
+          "const": "completed"
+        },
+        "units": {
+          "type": "object",
+          "properties": {
+            "temperature": {
+              "type": "string",
+              "const": "K"
+            },
+            "pressure": {
+              "type": "string",
+              "const": "Pa_abs"
+            },
+            "component_mass_flow": {
+              "type": "string",
+              "const": "kg/h"
+            },
+            "heat_capacity": {
+              "type": "string",
+              "const": "J/(kg K)"
+            },
+            "duty": {
+              "type": "string",
+              "const": "W"
+            },
+            "recovery": {
+              "type": "string",
+              "const": "mass_fraction"
+            }
+          },
+          "required": [
+            "temperature",
+            "pressure",
+            "component_mass_flow",
+            "heat_capacity",
+            "duty",
+            "recovery"
+          ],
+          "additionalProperties": false
+        },
+        "streams": {
+          "type": "object",
+          "propertyNames": {
+            "type": "string",
+            "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,79}$"
+          },
+          "additionalProperties": {
+            "type": "object",
+            "properties": {
+              "component_mass_flow_kg_h": {
+                "type": "object",
+                "propertyNames": {
+                  "type": "string",
+                  "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,79}$"
+                },
+                "additionalProperties": {
+                  "type": "number",
+                  "minimum": 0
+                }
+              },
+              "mass_flow_kg_h": {
+                "type": "number",
+                "minimum": 0
+              },
+              "component_mass_fractions": {
+                "anyOf": [
+                  {
+                    "type": "object",
+                    "propertyNames": {
+                      "type": "string",
+                      "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,79}$"
+                    },
+                    "additionalProperties": {
+                      "type": "number",
+                      "minimum": 0,
+                      "maximum": 1
+                    }
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "temperature_K": {
+                "type": "number",
+                "exclusiveMinimum": 0
+              },
+              "pressure_Pa_abs": {
+                "type": "number",
+                "exclusiveMinimum": 0
+              },
+              "enthalpy_flow_W": {
+                "type": "null"
+              },
+              "properties": {
+                "type": "object",
+                "properties": {
+                  "molar_flow": {
+                    "anyOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "value": {
+                            "type": "number",
+                            "minimum": 0
+                          },
+                          "status": {
+                            "type": "string",
+                            "const": "calculated"
+                          },
+                          "unit": {
+                            "type": "string",
+                            "const": "kmol/h"
+                          }
+                        },
+                        "required": [
+                          "value",
+                          "status",
+                          "unit"
+                        ],
+                        "additionalProperties": false
+                      },
+                      {
+                        "type": "object",
+                        "properties": {
+                          "value": {
+                            "type": "null"
+                          },
+                          "status": {
+                            "type": "string",
+                            "const": "not_calculated"
+                          },
+                          "unit": {
+                            "type": "string",
+                            "const": "kmol/h"
+                          }
+                        },
+                        "required": [
+                          "value",
+                          "status",
+                          "unit"
+                        ],
+                        "additionalProperties": false
+                      }
+                    ]
+                  },
+                  "molecular_mass": {
+                    "anyOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "value": {
+                            "type": "number",
+                            "minimum": 0
+                          },
+                          "status": {
+                            "type": "string",
+                            "const": "calculated"
+                          },
+                          "unit": {
+                            "type": "string",
+                            "const": "kg/kmol"
+                          }
+                        },
+                        "required": [
+                          "value",
+                          "status",
+                          "unit"
+                        ],
+                        "additionalProperties": false
+                      },
+                      {
+                        "type": "object",
+                        "properties": {
+                          "value": {
+                            "type": "null"
+                          },
+                          "status": {
+                            "type": "string",
+                            "const": "not_calculated"
+                          },
+                          "unit": {
+                            "type": "string",
+                            "const": "kg/kmol"
+                          }
+                        },
+                        "required": [
+                          "value",
+                          "status",
+                          "unit"
+                        ],
+                        "additionalProperties": false
+                      }
+                    ]
+                  },
+                  "density": {
+                    "anyOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "value": {
+                            "type": "number",
+                            "minimum": 0
+                          },
+                          "status": {
+                            "type": "string",
+                            "const": "calculated"
+                          },
+                          "unit": {
+                            "type": "string",
+                            "const": "kg/m3"
+                          }
+                        },
+                        "required": [
+                          "value",
+                          "status",
+                          "unit"
+                        ],
+                        "additionalProperties": false
+                      },
+                      {
+                        "type": "object",
+                        "properties": {
+                          "value": {
+                            "type": "null"
+                          },
+                          "status": {
+                            "type": "string",
+                            "const": "not_calculated"
+                          },
+                          "unit": {
+                            "type": "string",
+                            "const": "kg/m3"
+                          }
+                        },
+                        "required": [
+                          "value",
+                          "status",
+                          "unit"
+                        ],
+                        "additionalProperties": false
+                      }
+                    ]
+                  },
+                  "gas_volumetric_flow": {
+                    "anyOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "value": {
+                            "type": "number",
+                            "minimum": 0
+                          },
+                          "status": {
+                            "type": "string",
+                            "const": "calculated"
+                          },
+                          "unit": {
+                            "type": "string",
+                            "const": "m3/h"
+                          }
+                        },
+                        "required": [
+                          "value",
+                          "status",
+                          "unit"
+                        ],
+                        "additionalProperties": false
+                      },
+                      {
+                        "type": "object",
+                        "properties": {
+                          "value": {
+                            "type": "null"
+                          },
+                          "status": {
+                            "type": "string",
+                            "const": "not_calculated"
+                          },
+                          "unit": {
+                            "type": "string",
+                            "const": "m3/h"
+                          }
+                        },
+                        "required": [
+                          "value",
+                          "status",
+                          "unit"
+                        ],
+                        "additionalProperties": false
+                      }
+                    ]
+                  },
+                  "oil_volumetric_flow": {
+                    "anyOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "value": {
+                            "type": "number",
+                            "minimum": 0
+                          },
+                          "status": {
+                            "type": "string",
+                            "const": "calculated"
+                          },
+                          "unit": {
+                            "type": "string",
+                            "const": "m3/h"
+                          }
+                        },
+                        "required": [
+                          "value",
+                          "status",
+                          "unit"
+                        ],
+                        "additionalProperties": false
+                      },
+                      {
+                        "type": "object",
+                        "properties": {
+                          "value": {
+                            "type": "null"
+                          },
+                          "status": {
+                            "type": "string",
+                            "const": "not_calculated"
+                          },
+                          "unit": {
+                            "type": "string",
+                            "const": "m3/h"
+                          }
+                        },
+                        "required": [
+                          "value",
+                          "status",
+                          "unit"
+                        ],
+                        "additionalProperties": false
+                      }
+                    ]
+                  },
+                  "water_volumetric_flow": {
+                    "anyOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "value": {
+                            "type": "number",
+                            "minimum": 0
+                          },
+                          "status": {
+                            "type": "string",
+                            "const": "calculated"
+                          },
+                          "unit": {
+                            "type": "string",
+                            "const": "m3/h"
+                          }
+                        },
+                        "required": [
+                          "value",
+                          "status",
+                          "unit"
+                        ],
+                        "additionalProperties": false
+                      },
+                      {
+                        "type": "object",
+                        "properties": {
+                          "value": {
+                            "type": "null"
+                          },
+                          "status": {
+                            "type": "string",
+                            "const": "not_calculated"
+                          },
+                          "unit": {
+                            "type": "string",
+                            "const": "m3/h"
+                          }
+                        },
+                        "required": [
+                          "value",
+                          "status",
+                          "unit"
+                        ],
+                        "additionalProperties": false
+                      }
+                    ]
+                  },
+                  "molar_composition": {
+                    "anyOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "value": {
+                            "type": "object",
+                            "propertyNames": {
+                              "type": "string",
+                              "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,79}$"
+                            },
+                            "additionalProperties": {
+                              "type": "number",
+                              "minimum": 0,
+                              "maximum": 1
+                            }
+                          },
+                          "status": {
+                            "type": "string",
+                            "const": "calculated"
+                          },
+                          "unit": {
+                            "type": "string",
+                            "const": "mol/mol"
+                          }
+                        },
+                        "required": [
+                          "value",
+                          "status",
+                          "unit"
+                        ],
+                        "additionalProperties": false
+                      },
+                      {
+                        "type": "object",
+                        "properties": {
+                          "value": {
+                            "type": "null"
+                          },
+                          "status": {
+                            "type": "string",
+                            "const": "not_calculated"
+                          },
+                          "unit": {
+                            "type": "string",
+                            "const": "mol/mol"
+                          }
+                        },
+                        "required": [
+                          "value",
+                          "status",
+                          "unit"
+                        ],
+                        "additionalProperties": false
+                      }
+                    ]
+                  },
+                  "component_molar_flow": {
+                    "type": "object",
+                    "properties": {
+                      "value": {
+                        "type": "object",
+                        "propertyNames": {
+                          "type": "string",
+                          "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,79}$"
+                        },
+                        "additionalProperties": {
+                          "type": "number",
+                          "minimum": 0
+                        }
+                      },
+                      "status": {
+                        "type": "string",
+                        "const": "calculated"
+                      },
+                      "unit": {
+                        "type": "string",
+                        "const": "kmol/h"
+                      }
+                    },
+                    "required": [
+                      "value",
+                      "status",
+                      "unit"
+                    ],
+                    "additionalProperties": false
+                  }
+                },
+                "required": [
+                  "molar_flow",
+                  "molecular_mass",
+                  "density",
+                  "gas_volumetric_flow",
+                  "oil_volumetric_flow",
+                  "water_volumetric_flow",
+                  "molar_composition",
+                  "component_molar_flow"
+                ],
+                "additionalProperties": false
+              },
+              "property_provenance": {
+                "type": "object",
+                "properties": {
+                  "provider": {
+                    "type": "string",
+                    "const": "molecular_composition@1.0"
+                  },
+                  "component_dataset": {
+                    "type": "string",
+                    "const": "riogineer_components@1.0"
+                  },
+                  "molecular_weights_kg_kmol": {
+                    "type": "object",
+                    "propertyNames": {
+                      "type": "string",
+                      "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,79}$"
+                    },
+                    "additionalProperties": {
+                      "type": "number",
+                      "exclusiveMinimum": 0
+                    }
+                  },
+                  "status": {
+                    "type": "string",
+                    "const": "completed"
+                  },
+                  "input_basis": {
+                    "type": "string",
+                    "const": "component_mass_flow_kg_h"
+                  }
+                },
+                "required": [
+                  "provider",
+                  "component_dataset",
+                  "molecular_weights_kg_kmol",
+                  "status",
+                  "input_basis"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "component_mass_flow_kg_h",
+              "mass_flow_kg_h",
+              "component_mass_fractions",
+              "temperature_K",
+              "pressure_Pa_abs",
+              "enthalpy_flow_W",
+              "properties",
+              "property_provenance"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "equipment": {
+          "minItems": 1,
+          "maxItems": 1,
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,79}$"
+              },
+              "type": {
+                "type": "string",
+                "const": "equilibrium_separator_2phase"
+              },
+              "model": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "const": "pt_flash_separator"
+                  },
+                  "version": {
+                    "type": "string",
+                    "const": "1.0"
+                  }
+                },
+                "required": [
+                  "id",
+                  "version"
+                ],
+                "additionalProperties": false
+              },
+              "duty_W": {
+                "type": "null"
+              },
+              "work_W": {
+                "type": "null"
+              },
+              "energy_residual_W": {
+                "type": "null"
+              },
+              "mass_balance": {
+                "type": "object",
+                "properties": {
+                  "status": {
+                    "type": "string",
+                    "enum": [
+                      "passed",
+                      "failed"
+                    ]
+                  },
+                  "component_residual_kg_h": {
+                    "type": "object",
+                    "propertyNames": {
+                      "type": "string",
+                      "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,79}$"
+                    },
+                    "additionalProperties": {
+                      "type": "number"
+                    }
+                  },
+                  "total_residual_kg_h": {
+                    "type": "number"
+                  },
+                  "component_tolerance_kg_h": {
+                    "type": "number",
+                    "exclusiveMinimum": 0
+                  },
+                  "total_tolerance_kg_h": {
+                    "type": "number",
+                    "exclusiveMinimum": 0
+                  }
+                },
+                "required": [
+                  "status",
+                  "component_residual_kg_h",
+                  "total_residual_kg_h",
+                  "component_tolerance_kg_h",
+                  "total_tolerance_kg_h"
+                ],
+                "additionalProperties": false
+              },
+              "thermodynamics": {
+                "type": "object",
+                "properties": {
+                  "property_package": {
+                    "type": "string",
+                    "const": "peng_robinson@1.0"
+                  },
+                  "component_dataset": {
+                    "type": "string",
+                    "const": "riogineer_components@1.0"
+                  },
+                  "bip": {
+                    "type": "object",
+                    "properties": {
+                      "identifier": {
+                        "type": "string",
+                        "const": "m9_methane_nhexane_zero_kij@1.0"
+                      },
+                      "component_ids": {
+                        "type": "array",
+                        "prefixItems": [
+                          {
+                            "type": "string",
+                            "const": "methane"
+                          },
+                          {
+                            "type": "string",
+                            "const": "n_hexane"
+                          }
+                        ],
+                        "items": false,
+                        "minItems": 2,
+                        "maxItems": 2
+                      },
+                      "values": {
+                        "type": "array",
+                        "prefixItems": [
+                          {
+                            "type": "array",
+                            "prefixItems": [
+                              {
+                                "type": "number",
+                                "const": 0
+                              },
+                              {
+                                "type": "number",
+                                "const": 0
+                              }
+                            ],
+                            "items": false,
+                            "minItems": 2,
+                            "maxItems": 2
+                          },
+                          {
+                            "type": "array",
+                            "prefixItems": [
+                              {
+                                "type": "number",
+                                "const": 0
+                              },
+                              {
+                                "type": "number",
+                                "const": 0
+                              }
+                            ],
+                            "items": false,
+                            "minItems": 2,
+                            "maxItems": 2
+                          }
+                        ],
+                        "items": false,
+                        "minItems": 2,
+                        "maxItems": 2
+                      },
+                      "source": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "model": {
+                        "type": "string",
+                        "const": "peng_robinson@1.0"
+                      }
+                    },
+                    "required": [
+                      "identifier",
+                      "component_ids",
+                      "values",
+                      "source",
+                      "model"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "input_basis": {
+                    "type": "string",
+                    "const": "component_mass_flow_kg_h"
+                  },
+                  "fraction_basis": {
+                    "type": "string",
+                    "const": "mol/mol"
+                  },
+                  "classification": {
+                    "type": "string",
+                    "enum": [
+                      "vapor_liquid",
+                      "single_liquid",
+                      "single_vapor"
+                    ]
+                  },
+                  "status": {
+                    "type": "string",
+                    "enum": [
+                      "success_two_phase",
+                      "success_single_phase"
+                    ]
+                  },
+                  "iterations": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 9007199254740991
+                  },
+                  "beta": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 1
+                  },
+                  "liquid_fraction": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 1
+                  },
+                  "x": {
+                    "anyOf": [
+                      {
+                        "type": "object",
+                        "propertyNames": {
+                          "type": "string",
+                          "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,79}$"
+                        },
+                        "additionalProperties": {
+                          "type": "number",
+                          "minimum": 0,
+                          "maximum": 1
+                        }
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "y": {
+                    "anyOf": [
+                      {
+                        "type": "object",
+                        "propertyNames": {
+                          "type": "string",
+                          "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,79}$"
+                        },
+                        "additionalProperties": {
+                          "type": "number",
+                          "minimum": 0,
+                          "maximum": 1
+                        }
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "Z_L": {
+                    "anyOf": [
+                      {
+                        "type": "number",
+                        "exclusiveMinimum": 0
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "Z_V": {
+                    "anyOf": [
+                      {
+                        "type": "number",
+                        "exclusiveMinimum": 0
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "phi_L": {
+                    "anyOf": [
+                      {
+                        "type": "object",
+                        "propertyNames": {
+                          "type": "string",
+                          "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,79}$"
+                        },
+                        "additionalProperties": {
+                          "type": "number",
+                          "minimum": 0
+                        }
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "phi_V": {
+                    "anyOf": [
+                      {
+                        "type": "object",
+                        "propertyNames": {
+                          "type": "string",
+                          "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,79}$"
+                        },
+                        "additionalProperties": {
+                          "type": "number",
+                          "minimum": 0
+                        }
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "final_K": {
+                    "anyOf": [
+                      {
+                        "type": "object",
+                        "propertyNames": {
+                          "type": "string",
+                          "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,79}$"
+                        },
+                        "additionalProperties": {
+                          "type": "number",
+                          "minimum": 0
+                        }
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "fugacity_residual": {
+                    "anyOf": [
+                      {
+                        "type": "object",
+                        "propertyNames": {
+                          "type": "string",
+                          "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,79}$"
+                        },
+                        "additionalProperties": {
+                          "type": "number"
+                        }
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "rachford_rice_residual": {
+                    "type": [
+                      "number",
+                      "null"
+                    ]
+                  },
+                  "material_reconstruction_residual": {
+                    "type": "object",
+                    "propertyNames": {
+                      "type": "string",
+                      "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,79}$"
+                    },
+                    "additionalProperties": {
+                      "type": "number"
+                    }
+                  },
+                  "inlet_molar_flow_kmol_h": {
+                    "type": "number",
+                    "exclusiveMinimum": 0
+                  },
+                  "vapor_molar_flow_kmol_h": {
+                    "type": "number",
+                    "minimum": 0
+                  },
+                  "liquid_molar_flow_kmol_h": {
+                    "type": "number",
+                    "minimum": 0
+                  },
+                  "component_molar_residual_kmol_h": {
+                    "type": "object",
+                    "propertyNames": {
+                      "type": "string",
+                      "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,79}$"
+                    },
+                    "additionalProperties": {
+                      "type": "number"
+                    }
+                  },
+                  "component_molar_tolerance_kmol_h": {
+                    "type": "number",
+                    "exclusiveMinimum": 0
+                  },
+                  "component_mass_residual_kg_h": {
+                    "type": "object",
+                    "propertyNames": {
+                      "type": "string",
+                      "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,79}$"
+                    },
+                    "additionalProperties": {
+                      "type": "number"
+                    }
+                  },
+                  "total_mass_residual_kg_h": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "property_package",
+                  "component_dataset",
+                  "bip",
+                  "input_basis",
+                  "fraction_basis",
+                  "classification",
+                  "status",
+                  "iterations",
+                  "beta",
+                  "liquid_fraction",
+                  "x",
+                  "y",
+                  "Z_L",
+                  "Z_V",
+                  "phi_L",
+                  "phi_V",
+                  "final_K",
+                  "fugacity_residual",
+                  "rachford_rice_residual",
+                  "material_reconstruction_residual",
+                  "inlet_molar_flow_kmol_h",
+                  "vapor_molar_flow_kmol_h",
+                  "liquid_molar_flow_kmol_h",
+                  "component_molar_residual_kmol_h",
+                  "component_molar_tolerance_kmol_h",
+                  "component_mass_residual_kg_h",
+                  "total_mass_residual_kg_h"
+                ],
+                "additionalProperties": false
+              },
+              "material_streams": {
+                "type": "object",
+                "properties": {
+                  "inlet": {
+                    "type": "string",
+                    "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,79}$"
+                  },
+                  "vapor": {
+                    "type": "string",
+                    "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,79}$"
+                  },
+                  "liquid": {
+                    "type": "string",
+                    "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,79}$"
+                  }
+                },
+                "required": [
+                  "inlet",
+                  "vapor",
+                  "liquid"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "id",
+              "type",
+              "model",
+              "duty_W",
+              "work_W",
+              "energy_residual_W",
+              "mass_balance",
+              "thermodynamics",
+              "material_streams"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "balances": {
+          "type": "object",
+          "properties": {
+            "mass": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "enum": [
+                    "passed",
+                    "failed"
+                  ]
+                },
+                "component_residual_kg_h": {
+                  "type": "object",
+                  "propertyNames": {
+                    "type": "string",
+                    "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,79}$"
+                  },
+                  "additionalProperties": {
+                    "type": "number"
+                  }
+                },
+                "total_residual_kg_h": {
+                  "type": "number"
+                },
+                "component_tolerance_kg_h": {
+                  "type": "number",
+                  "exclusiveMinimum": 0
+                },
+                "total_tolerance_kg_h": {
+                  "type": "number",
+                  "exclusiveMinimum": 0
+                }
+              },
+              "required": [
+                "status",
+                "component_residual_kg_h",
+                "total_residual_kg_h",
+                "component_tolerance_kg_h",
+                "total_tolerance_kg_h"
+              ],
+              "additionalProperties": false
+            },
+            "energy": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "const": "not_calculated"
+                },
+                "reason": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "duty_W": {
+                  "type": "null"
+                },
+                "residual_W": {
+                  "type": "null"
+                }
+              },
+              "required": [
+                "status",
+                "reason",
+                "duty_W",
+                "residual_W"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "mass",
+            "energy"
+          ],
+          "additionalProperties": false
+        },
+        "warnings": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "code": {
+                "type": "string"
+              },
+              "path": {
+                "type": "string"
+              },
+              "severity": {
+                "type": "string",
+                "enum": [
+                  "error",
+                  "warning"
+                ]
+              },
+              "message": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "code",
+              "path",
+              "severity",
+              "message"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "limitations": {
+          "minItems": 1,
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "unavailable": {
+          "minItems": 1,
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "calculation": {
+                "type": "string"
+              },
+              "status": {
+                "type": "string",
+                "const": "not calculated"
+              },
+              "reason": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "calculation",
+              "status",
+              "reason"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "execution": {
+          "type": "object",
+          "properties": {
+            "method": {
+              "type": "string",
+              "const": "topological"
+            },
+            "equipment_order": {
+              "minItems": 1,
+              "type": "array",
+              "items": {
+                "type": "string",
+                "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,79}$"
+              }
+            }
+          },
+          "required": [
+            "method",
+            "equipment_order"
+          ],
+          "additionalProperties": false
+        },
+        "process_result_version": {
+          "type": "string",
+          "const": "1.6"
+        }
+      },
+      "required": [
+        "schema_version",
+        "kind",
+        "case_id",
+        "run_id",
+        "input_sha256",
+        "requirements_sha256",
+        "engine",
+        "status",
+        "units",
+        "streams",
+        "equipment",
+        "balances",
+        "warnings",
+        "limitations",
+        "unavailable",
+        "execution",
+        "process_result_version"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "schema_version": {
+          "type": "string",
           "const": "1.5"
         },
         "kind": {

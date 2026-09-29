@@ -5,7 +5,8 @@ export function Pfd({ flowsheet }: { flowsheet: Flowsheet }) {
   if (
     flowsheet.schema_version === '1.2' ||
     flowsheet.schema_version === '1.3' ||
-    flowsheet.schema_version === '1.4'
+    flowsheet.schema_version === '1.4' ||
+    flowsheet.schema_version === '1.5'
   )
     return <NetworkPfd flowsheet={flowsheet} />;
   const nodes = [...flowsheet.boundaries, ...flowsheet.equipment];
@@ -113,7 +114,7 @@ function NetworkPfd({ flowsheet }: { flowsheet: Flowsheet }) {
     >
       <svg
         viewBox={`0 0 ${width} ${height}`}
-        style={{ minWidth: 1100 }}
+        style={{ minWidth: flowsheet.profile === 'pt_flash_separator' ? 860 : 1100 }}
         role="img"
         aria-labelledby="network-pfd-title"
       >
@@ -145,7 +146,14 @@ function NetworkPfd({ flowsheet }: { flowsheet: Flowsheet }) {
                 strokeWidth="2"
                 markerEnd="url(#network-flow-arrow)"
               />
-              <text x={b.x - 8} y={b.y - 10} textAnchor="end" fontSize="13">
+              <text
+                x={b.x - 8}
+                y={b.y - 10}
+                textAnchor="end"
+                fontSize="13"
+                textLength={flowsheet.profile === 'pt_flash_separator' ? b.x - a.x - 16 : undefined}
+                lengthAdjust="spacingAndGlyphs"
+              >
                 {streamLabel(stream)}
               </text>
             </g>
@@ -160,11 +168,25 @@ function NetworkPfd({ flowsheet }: { flowsheet: Flowsheet }) {
                 y={p.y}
                 width="160"
                 height="90"
-                rx={node.type === 'three_phase_separator' ? 25 : 6}
+                rx={
+                  node.type === 'three_phase_separator' ||
+                  node.type === 'equilibrium_separator_2phase'
+                    ? 25
+                    : 6
+                }
                 fill="var(--color-surface)"
                 stroke="currentColor"
                 strokeWidth="2"
               />
+              {node.type === 'equilibrium_separator_2phase' && (
+                <path
+                  data-symbol="equilibrium-separator-2phase"
+                  d={`M ${p.x + 16} ${p.y + 73} H ${p.x + 144}`}
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                />
+              )}
               {node.type === 'compressor' && (
                 <path
                   data-symbol="compressor"
@@ -196,7 +218,9 @@ function NetworkPfd({ flowsheet }: { flowsheet: Flowsheet }) {
                 {node.id}
               </text>
               <text x={p.x + 80} y={p.y + 60} textAnchor="middle" fontSize="11">
-                {node.type.replaceAll('_', ' ')}
+                {node.type === 'equilibrium_separator_2phase'
+                  ? 'PT equilibrium · 2 phase'
+                  : node.type.replaceAll('_', ' ')}
               </text>
             </g>
           );

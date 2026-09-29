@@ -26,9 +26,8 @@ def build(requirements):
         links = [c for c in connections if c['stream_id'] == stream['id']]
         source = links[0]['source']['owner_id'] if len(links) == 1 else None
         streams.append(dict(stream, specified_state=deepcopy(feed_by_id.get(source))))
-    f = dict(schema_version={'1.1': '1.2', '1.2': '1.3', '1.3': '1.4'}[r['schema_version']], kind='flowsheet', case_id=r['case_id'], profile=r['profile'],
+    f = dict(schema_version={'1.1': '1.2', '1.2': '1.3', '1.3': '1.4', '1.4': '1.5'}[r['schema_version']], kind='flowsheet', case_id=r['case_id'], profile=r['profile'],
              units=r['units'], requirements_sha256=digest(r), components=r['components'],
-             caloric_model=r['caloric_model'],
              boundaries=[dict(id=s['id'], type='source', ports=ports('source')) for s in r['feeds']] +
                         [dict(id=s['id'], type='sink', ports=ports('sink')) for s in r['sinks']],
              equipment=[dict(id=u['id'], type=u['type'], model=u['model'], ports=ports(u['type']),
@@ -36,12 +35,21 @@ def build(requirements):
              streams=streams, connections=connections, solver={'method': 'topological'},
              calculation={'status': 'not_run', 'input_sha256': None},
              validation={'status': 'valid', 'messages': [warning()]}, presentation={'layout': 'wide'})
+    if r['profile'] == 'pt_flash_separator':
+        f['validation']['messages'] = [equilibrium_warning()]
+    else:
+        f['caloric_model'] = r['caloric_model']
     # Topology is checked before assigning numbers; a cycle never receives a silent tear.
     validate(f, numbered=False)
     number_streams(f['streams'], f['connections'], list(feed_by_id))
     validate(f)
     f['calculation']['input_sha256'] = semantic_hash(f)
     return f
+
+
+def equilibrium_warning():
+    from .equilibrium_separator import ENERGY_REASON
+    return dict(code='PT_ENERGY_UNAVAILABLE', path='/', severity='warning', message=ENERGY_REASON)
 
 
 def warning():
@@ -60,11 +68,17 @@ def validate(f, numbered=True):
     if len(by_id) != len(nodes): reject('Duplicate equipment/boundary ID')
     components = set(f['components'])
     if len(components) != len(f['components']): reject('Duplicate component ID')
-    cal = f['caloric_model']
-    if set(cal['cp_J_kg_K']) != components: reject('Caloric component keys must match the component basis')
+    equilibrium = f['profile'] == 'pt_flash_separator'
+    cal = f.get('caloric_model')
+    if not equilibrium and set(cal['cp_J_kg_K']) != components: reject('Caloric component keys must match the component basis')
     sources = {n['id'] for n in f['boundaries'] if n['type'] == 'source'}
     sinks = {n['id'] for n in f['boundaries'] if n['type'] == 'sink'}
     if not sources or not sinks: reject('At least one explicit source and sink required')
+    if equilibrium:
+        if components != {'methane', 'n_hexane'} or len(sources) != 1 or len(sinks) != 2:
+            reject('PT separator requires one binary hydrocarbon feed and two product sinks')
+        if len(f['equipment']) != 1 or f['equipment'][0]['type'] != 'equilibrium_separator_2phase':
+            reject('PT reference supports one equilibrium separator only')
     port_map = {}
     for node in nodes:
         expected = {p['id']: p['direction'] for p in ports(node['type'])}
@@ -140,7 +154,8 @@ def mass_balance(inputs, outputs, components):
 def calculate(f):
     from .core import Invalid, reference, EVALUATOR_HASH, implementation_hash, semantic_hash, validate_schema
     order = validate(f)
-    cal = f['caloric_model']
+    equilibrium = f['profile'] == 'pt_flash_separator'
+    cal = f.get('caloric_model')
     components = sorted(f['components'])
     states = {}
     for s in sorted(f['streams'], key=lambda s: s['id']):
@@ -148,7 +163,7 @@ def calculate(f):
             state = s['specified_state']
             rates = deepcopy(state['component_mass_flow_kg_h'])
             # The same declared constant-Cp reference accounting as the preserved evaluator.
-            h = sum(rates[c] * cal['cp_J_kg_K'][c] * (state['temperature_K'] - cal['reference_temperature_K']) / 3600 for c in components)
+            h = None if equilibrium else sum(rates[c] * cal['cp_J_kg_K'][c] * (state['temperature_K'] - cal['reference_temperature_K']) / 3600 for c in components)
             states[s['id']] = state_from_rates(rates, state['temperature_K'], state['pressure_Pa_abs'], h)
     feed_states = list(states.values())
     units = {u['id']: u for u in f['equipment']}
@@ -170,31 +185,36 @@ def calculate(f):
             executed = equipment_result(MODELS[unit['type']]['execute'](unit, incoming, reference.evaluate))
             outgoing, duty, work = executed.streams, executed.duty_W, executed.work_W
             balance = mass_balance(list(incoming.values()), list(outgoing.values()), components)
-            energy = sum(s['enthalpy_flow_W'] for s in incoming.values()) + duty + work - sum(s['enthalpy_flow_W'] for s in outgoing.values())
-            if not math.isfinite(energy) or abs(energy) > ENERGY_TOLERANCE:
+            energy = None if equilibrium else sum(s['enthalpy_flow_W'] for s in incoming.values()) + duty + work - sum(s['enthalpy_flow_W'] for s in outgoing.values())
+            if not equilibrium and (not math.isfinite(energy) or abs(energy) > ENERGY_TOLERANCE):
                 raise ValueError('Constant-Cp energy accounting failed')
         except (ValueError, ArithmeticError) as error:
             raise Invalid(f'{uid}: {error}', code='CALCULATION_FAILED') from error
         for c in f['connections']:
             if c['source']['owner_id'] == uid:
                 states[c['stream_id']] = outgoing[c['source']['port_id']]
+        if equilibrium:
+            executed.details['material_streams'] = {
+                'inlet': next(c['stream_id'] for c in f['connections'] if c['target']['owner_id'] == uid),
+                **{c['source']['port_id']: c['stream_id'] for c in f['connections'] if c['source']['owner_id'] == uid},
+            }
         equipment.append(dict(id=uid, type=unit['type'], model=unit['model'], duty_W=duty, work_W=work, **executed.details,
                               mass_balance=balance, energy_residual_W=energy))
     sink_ids = {b['id'] for b in f['boundaries'] if b['type'] == 'sink'}
     products = [states[c['stream_id']] for c in sorted(f['connections'], key=lambda c: c['stream_id']) if c['target']['owner_id'] in sink_ids]
     balance = mass_balance(feed_states, products, components)
-    duty = sum(e['duty_W'] for e in equipment)
-    work = sum(e['work_W'] for e in equipment)
-    energy = sum(s['enthalpy_flow_W'] for s in feed_states) + duty + work - sum(s['enthalpy_flow_W'] for s in products)
-    if not math.isfinite(energy) or abs(energy) > ENERGY_TOLERANCE:
+    duty = None if equilibrium else sum(e['duty_W'] for e in equipment)
+    work = None if equilibrium else sum(e['work_W'] for e in equipment)
+    energy = None if equilibrium else sum(s['enthalpy_flow_W'] for s in feed_states) + duty + work - sum(s['enthalpy_flow_W'] for s in products)
+    if not equilibrium and (not math.isfinite(energy) or abs(energy) > ENERGY_TOLERANCE):
         raise Invalid('Network constant-Cp energy accounting failed', code='CALCULATION_FAILED')
-    output = dict(schema_version=f['schema_version'], kind='results', case_id=f['case_id'], run_id=str(uuid.uuid4()),
+    output = dict(schema_version='1.6' if equilibrium else f['schema_version'], kind='results', case_id=f['case_id'], run_id=str(uuid.uuid4()),
                   input_sha256=semantic_hash(f), requirements_sha256=f['requirements_sha256'],
-                  engine=dict(version={'1.2': '1.1.0', '1.3': '1.2.0', '1.4': '1.3.0'}[f['schema_version']], implementation_sha256=implementation_hash(), evaluator_sha256=EVALUATOR_HASH, model=MODEL),
+                  engine=dict(version={'1.2': '1.1.0', '1.3': '1.2.0', '1.4': '1.3.0', '1.5': '1.5.0'}[f['schema_version']], implementation_sha256=implementation_hash(), evaluator_sha256=EVALUATOR_HASH, model=MODEL),
                   status='completed', units=f['units'], streams={sid: dict(states[sid], properties=unavailable_properties()) for sid in sorted(states)},
                   equipment=equipment, execution={'method': 'topological', 'equipment_order': order},
                   model_tolerances=dict(split_fraction=SPLIT_TOLERANCE, mixer_temperature_K=TEMPERATURE_TOLERANCE_K, mixer_pressure_Pa=PRESSURE_TOLERANCE_PA),
-                  balances={'mass': balance, 'energy': dict(status='passed', residual_W=energy, tolerance_W=ENERGY_TOLERANCE,
+                  balances={'mass': balance, 'energy': dict(status='not_calculated', reason=equilibrium_warning()['message'], duty_W=None, residual_W=None) if equilibrium else dict(status='passed', residual_W=energy, tolerance_W=ENERGY_TOLERANCE,
                     duty_W=duty, model=cal['type'], reference_temperature_K=cal['reference_temperature_K'], positive_duty='heat_into_network')},
                   warnings=[warning()], limitations=LIMITATIONS if f['schema_version'] == '1.2' else [
                     'Acyclic separators, splitters, equal-condition mixers and specified-temperature constant-Cp heaters only; no recycle convergence.',
@@ -216,5 +236,17 @@ def calculate(f):
             'Positive process work is energy transferred to gas. Shaft power includes mechanical losses outside the material-stream energy boundary; driver power is not calculated.',
         ])
         output['unavailable'][0]['reason'] = 'Only registered deterministic development models; no rigorous properties, phase prediction or driver power.'
-    validate_schema('results', output)
+    if equilibrium:
+        output.pop('model_tolerances')
+        output['warnings'] = [equilibrium_warning()]
+        output['limitations'] = [
+            'Qualified methane/n_hexane hydrocarbon PT flash with explicit zero kij only; no water, VLLE, PH/PS flash or sizing.',
+            'Isothermal and isobaric at inlet conditions; beta is a molar fraction, not a mass fraction.',
+            equilibrium_warning()['message'],
+        ]
+        output['unavailable'] = [dict(calculation='Rigorous phase-change energy balance', status='not calculated',
+                                      reason=equilibrium_warning()['message'])]
+        # M9 has a single public enriched result contract, validated by core.calculate.
+    else:
+        validate_schema('results', output)
     return output

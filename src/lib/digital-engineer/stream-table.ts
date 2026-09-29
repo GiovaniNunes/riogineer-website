@@ -16,6 +16,10 @@ export function streamColumns(flowsheet: Flowsheet, results: Results | null) {
       stream,
       connection: flowsheet.connections.find((c) => c.stream_id === stream.id)!,
       result: current ? results?.streams[stream.id] : undefined,
+      componentMolarFlow:
+        current && (results?.schema_version === '1.5' || results?.schema_version === '1.6')
+          ? results.streams[stream.id]?.properties.component_molar_flow.value
+          : undefined,
       properties:
         current && results && results.schema_version !== '1.0'
           ? results.streams[stream.id]?.properties
@@ -75,6 +79,12 @@ export function streamRows(flowsheet: Flowsheet) {
         c.stream.specified_state?.component_mass_flow_kg_h[component] ??
         null,
     });
+    if (flowsheet.profile === 'pt_flash_separator')
+      rows.push({
+        label: `${component} — component molar flow`,
+        unit: 'kmol/h',
+        value: (c) => c.componentMolarFlow?.[component] ?? null,
+      });
     rows.push({
       label: `${component} — mass fraction`,
       unit: 'kg/kg',

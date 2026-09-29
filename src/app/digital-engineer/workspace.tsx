@@ -12,6 +12,7 @@ import {
   workflowReducer,
   resultsAreCurrent,
 } from '@/lib/digital-engineer/workflow';
+import { EquilibriumResults } from './equilibrium-results';
 import { CompressionResults } from './compression-results';
 import { Pfd } from './pfd';
 import { StreamTable } from './stream-table';
@@ -28,18 +29,20 @@ function download(name: string, value: unknown) {
   a.click();
   URL.revokeObjectURL(url);
 }
-const number = (value: number) =>
-  new Intl.NumberFormat('en-US', { maximumFractionDigits: 6 }).format(value);
+const number = (value: number | null) =>
+  value === null ? '—' : new Intl.NumberFormat('en-US', { maximumFractionDigits: 6 }).format(value);
 export function EngineerWorkspace({
   referenceText,
   networkReferenceText,
   sequentialReferenceText,
   compressionReferenceText,
+  equilibriumReferenceText,
 }: {
   referenceText: string;
   networkReferenceText: string;
   sequentialReferenceText: string;
   compressionReferenceText: string;
+  equilibriumReferenceText: string;
 }) {
   const [state, dispatch] = useReducer(workflowReducer, referenceText, initialWorkflow);
   const current = resultsAreCurrent(state);
@@ -79,15 +82,34 @@ export function EngineerWorkspace({
     }
   }
   const r = state.results;
+  let equilibrium = false;
+  try {
+    equilibrium = JSON.parse(state.draft).profile === 'pt_flash_separator';
+  } catch {
+    /* Draft may be incomplete. */
+  }
   return (
     <div className={`container ${styles.workspace}`}>
       <aside className={styles.model}>
-        <strong>Calculation model: Prescribed Component Recoveries — Development Model</strong>
-        <p>
-          Specified recoveries distribute components between outlets. Assumed constant heat
-          capacities provide the available energy accounting. This does not predict rigorous
-          vapor-oil-water equilibrium, vessel sizing or separation efficiency.
-        </p>
+        {equilibrium ? (
+          <>
+            <strong>Calculation model: Peng–Robinson PT-flash separator</strong>
+            <p>
+              Methane/n-hexane vapor–liquid equilibrium at inlet temperature and pressure. Phase
+              fractions are molar. Rigorous energy balance, heat duty and shaft work are
+              unavailable.
+            </p>
+          </>
+        ) : (
+          <>
+            <strong>Calculation model: Prescribed Component Recoveries — Development Model</strong>
+            <p>
+              Specified recoveries distribute components between outlets. Assumed constant heat
+              capacities provide the available energy accounting. This does not predict rigorous
+              vapor-oil-water equilibrium, vessel sizing or separation efficiency.
+            </p>
+          </>
+        )}
       </aside>
       <ol className={styles.steps} aria-label="Engineering workflow">
         <li>1. Specification</li>
@@ -107,8 +129,8 @@ export function EngineerWorkspace({
         <summary>Engineering data / Advanced</summary>
         <p>
           Developer access to the Bia, Milestone 4 branch/merge and Milestone 5 sequential
-          references. Manual JSON validation is an advanced deterministic workflow, separate from
-          specification approval.
+          references, plus the Milestone 9 PT-flash separator. Manual JSON validation is an advanced
+          deterministic workflow, separate from specification approval.
         </p>
         <section aria-labelledby="inputs-title">
           <span className={styles.eyebrow}>01 / Engineering inputs</span>
@@ -189,6 +211,13 @@ export function EngineerWorkspace({
               onClick={() => dispatch({ type: 'edit', draft: compressionReferenceText })}
             >
               Load Milestone 6 reference
+            </button>
+            <button
+              className={styles.secondary}
+              disabled={state.busy}
+              onClick={() => dispatch({ type: 'edit', draft: equilibriumReferenceText })}
+            >
+              Load Milestone 9 reference
             </button>
             <button
               className={styles.secondary}
@@ -342,7 +371,12 @@ export function EngineerWorkspace({
                     ['Total mass flow (kg/h)', 'mass_flow_kg_h'],
                     ['Temperature (K)', 'temperature_K'],
                     ['Pressure (Pa absolute)', 'pressure_Pa_abs'],
-                    ['Enthalpy flow (W; assumed Cp)', 'enthalpy_flow_W'],
+                    [
+                      r.schema_version === '1.6'
+                        ? 'Enthalpy flow (W; unavailable)'
+                        : 'Enthalpy flow (W; assumed Cp)',
+                      'enthalpy_flow_W',
+                    ],
                   ] as const
                 ).map(([label, key]) => (
                   <tr key={key}>
@@ -379,27 +413,34 @@ export function EngineerWorkspace({
             </div>
             <div>
               <h3>Available energy balance</h3>
-              <p>
-                Status: <strong>{r.balances.energy.status}</strong> within the constant-Cp model.
-              </p>
-              <p>
-                {'execution' in r ? 'Calculated network duty: ' : 'Calculated separator duty: '}
-                <strong>{number(r.balances.energy.duty_W)} W</strong>{' '}
-                {'execution' in r
-                  ? '(positive into the network).'
-                  : '(positive into the separator).'}
-              </p>
-              <p>
-                Residual: {r.balances.energy.residual_W.toExponential(3)} W; tolerance:{' '}
-                {r.balances.energy.tolerance_W.toExponential()} W.
-              </p>
-              <p>
-                Enthalpy reference: {r.balances.energy.reference_temperature_K} K. A zero duty at
-                equal temperatures is calculated by this model.
-              </p>
+              {r.balances.energy.status === 'not_calculated' ? (
+                <p>{r.balances.energy.reason}</p>
+              ) : (
+                <>
+                  <p>
+                    Status: <strong>{r.balances.energy.status}</strong> within the constant-Cp
+                    model.
+                  </p>
+                  <p>
+                    {'execution' in r ? 'Calculated network duty: ' : 'Calculated separator duty: '}
+                    <strong>{number(r.balances.energy.duty_W)} W</strong>{' '}
+                    {'execution' in r
+                      ? '(positive into the network).'
+                      : '(positive into the separator).'}
+                  </p>
+                  <p>
+                    Residual: {r.balances.energy.residual_W.toExponential(3)} W; tolerance:{' '}
+                    {r.balances.energy.tolerance_W.toExponential()} W.
+                  </p>
+                  <p>
+                    Enthalpy reference: {r.balances.energy.reference_temperature_K} K. A zero duty
+                    at equal temperatures is calculated by this model.
+                  </p>
+                </>
+              )}
             </div>
           </div>
-          {'execution' in r && (
+          {'execution' in r && r.schema_version !== '1.6' && (
             <>
               <h3>Equipment checks</h3>
               <p>Execution order: {r.execution.equipment_order.join(' → ')}</p>
@@ -438,6 +479,7 @@ export function EngineerWorkspace({
               </p>
             </>
           )}
+          {r.schema_version === '1.6' && current && <EquilibriumResults results={r} />}
           {(r.schema_version === '1.4' ||
             (r.schema_version === '1.5' && r.process_result_version === '1.4')) && (
             <CompressionResults results={r} />

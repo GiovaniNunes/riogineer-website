@@ -21,7 +21,20 @@ export function graphLayout(flowsheet: Flowsheet) {
     }
   }
   const layers = Array.from({ length: Math.max(...levels.values()) + 1 }, (_, level) =>
-    nodes.filter((n) => levels.get(n.id) === level).sort((a, b) => a.id.localeCompare(b.id)),
+    nodes
+      .filter((n) => levels.get(n.id) === level)
+      .sort((a, b) => {
+        const phaseRank = (id: string) => {
+          const link = flowsheet.connections.find((c) => c.target.owner_id === id);
+          const owner = nodes.find((n) => n.id === link?.source.owner_id);
+          return owner?.type === 'equilibrium_separator_2phase'
+            ? link?.source.port_id === 'vapor'
+              ? 0
+              : 1
+            : 0;
+        };
+        return phaseRank(a.id) - phaseRank(b.id) || a.id.localeCompare(b.id);
+      }),
   );
   const height = Math.max(...layers.map((layer) => layer.length)) * 180 + 60;
   const positions = new Map(
@@ -40,7 +53,13 @@ export function graphLayout(flowsheet: Flowsheet) {
     const direction = node.ports.find((p) => p.id === port)!.direction;
     const ports = node.ports
       .filter((p) => p.direction === direction)
-      .sort((a, b) => a.id.localeCompare(b.id));
+      .sort((a, b) =>
+        node.type === 'equilibrium_separator_2phase' && direction === 'out'
+          ? a.id === 'vapor'
+            ? -1
+            : 1
+          : a.id.localeCompare(b.id),
+      );
     const p = positions.get(owner)!;
     return {
       x: p.x + (direction === 'out' ? 160 : 0),

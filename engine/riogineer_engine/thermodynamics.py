@@ -128,6 +128,6 @@ def enrich_results(output):
             molecular_weights_kg_kmol=dict(p.molecular_weights_kg_kmol), status=p.status,
             input_basis='component_mass_flow_kg_h')
     enriched['process_result_version'] = output['schema_version']
-    enriched['schema_version'] = '1.5'
-    enriched['engine']['version'] = '1.4.0'
+    enriched['schema_version'] = '1.6' if output['schema_version'] == '1.6' else '1.5'
+    enriched['engine']['version'] = '1.5.0' if output['schema_version'] == '1.6' else '1.4.0'
     return enriched

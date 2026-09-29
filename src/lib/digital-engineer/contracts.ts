@@ -222,12 +222,51 @@ export const compressionRequirementsSchema = sequentialRequirementsSchema.extend
     .min(1)
     .max(50),
 });
+const equilibriumModel = z.strictObject({
+  id: z.literal('pt_flash_separator'),
+  version: z.literal('1.0'),
+});
+const bipSchema = z.strictObject({
+  identifier: z.literal('m9_methane_nhexane_zero_kij@1.0'),
+  component_ids: z.tuple([z.literal('methane'), z.literal('n_hexane')]),
+  values: z.tuple([z.tuple([z.literal(0), z.literal(0)]), z.tuple([z.literal(0), z.literal(0)])]),
+  source: z.string().min(1),
+  model: z.literal('peng_robinson@1.0'),
+});
+const equilibriumInput = z.strictObject({
+  id,
+  type: z.literal('equilibrium_separator_2phase'),
+  model: equilibriumModel,
+  parameters: z.strictObject({ property_package: z.literal('peng_robinson@1.0'), bip: bipSchema }),
+});
+export const equilibriumRequirementsSchema = networkRequirementsSchema
+  .omit({ caloric_model: true })
+  .extend({
+    schema_version: z.literal('1.4'),
+    profile: z.literal('pt_flash_separator'),
+    provenance: z.strictObject({
+      source: z.string().min(1),
+      basis: z.literal('qualified_pt_flash_reference'),
+    }),
+    components: z.array(z.enum(['methane', 'n_hexane'])).length(2),
+    feeds: z.array(requirementsSchema.shape.feeds.element).length(1),
+    equipment: z.array(equilibriumInput).length(1),
+    sinks: z.array(z.strictObject({ id })).length(2),
+    streams: graphStreams.length(3),
+    connections: graphConnections.length(3),
+    required_outputs: z.tuple([
+      z.literal('streams'),
+      z.literal('mass_balance'),
+      z.literal('pt_flash'),
+    ]),
+  });
 // Interpretation stays on requirementsSchema (1.0); deterministic API accepts both.
 export const engineeringRequirementsSchema = z.union([
   requirementsSchema,
   networkRequirementsSchema,
   sequentialRequirementsSchema,
   compressionRequirementsSchema,
+  equilibriumRequirementsSchema,
 ]);
 const graphEquipment = z.discriminatedUnion('type', [
   graphEquipmentInput.options[0]
@@ -286,12 +325,29 @@ const compressionFlowsheetSchema = sequentialFlowsheetSchema.extend({
     .min(1)
     .max(50),
 });
+const equilibriumFlowsheetSchema = networkFlowsheetSchema.omit({ caloric_model: true }).extend({
+  schema_version: z.literal('1.5'),
+  profile: z.literal('pt_flash_separator'),
+  components: equilibriumRequirementsSchema.shape.components,
+  boundaries: z.array(legacyFlowsheetSchema.shape.boundaries.element).length(3),
+  equipment: z
+    .array(
+      equilibriumInput.omit({ parameters: true }).extend({
+        ports: z.array(portSchema).length(3),
+        operating_parameters: equilibriumInput.shape.parameters,
+      }),
+    )
+    .length(1),
+  streams: z.array(numberedStream).length(3),
+  connections: graphConnections.length(3),
+});
 // Legacy 1.0/1.1 readers remain unchanged; graph builds explicitly use 1.2.
 export const flowsheetSchema = z.union([
   legacyFlowsheetSchema,
   networkFlowsheetSchema,
   sequentialFlowsheetSchema,
   compressionFlowsheetSchema,
+  equilibriumFlowsheetSchema,
   legacyFlowsheetSchema.extend({
     schema_version: z.literal('1.1'),
     streams: z
@@ -517,7 +573,74 @@ const molecularCompressionResults = compressionResultsSchema.extend({
   process_result_version: z.literal('1.4'),
   engine: compressionResultsSchema.shape.engine.extend({ version: z.literal('1.4.0') }),
 });
+const signedMap = z.record(id, num);
+const unavailableEnergy = z.strictObject({
+  status: z.literal('not_calculated'),
+  reason: z.string().min(1),
+  duty_W: z.null(),
+  residual_W: z.null(),
+});
+const equilibriumDetails = z.strictObject({
+  property_package: z.literal('peng_robinson@1.0'),
+  component_dataset: z.literal('riogineer_components@1.0'),
+  bip: bipSchema,
+  input_basis: z.literal('component_mass_flow_kg_h'),
+  fraction_basis: z.literal('mol/mol'),
+  classification: z.enum(['vapor_liquid', 'single_liquid', 'single_vapor']),
+  status: z.enum(['success_two_phase', 'success_single_phase']),
+  iterations: z.number().int().nonnegative(),
+  beta: num.min(0).max(1),
+  liquid_fraction: num.min(0).max(1),
+  x: fractionMap.nullable(),
+  y: fractionMap.nullable(),
+  Z_L: positive.nullable(),
+  Z_V: positive.nullable(),
+  phi_L: rates.nullable(),
+  phi_V: rates.nullable(),
+  final_K: rates.nullable(),
+  fugacity_residual: signedMap.nullable(),
+  rachford_rice_residual: num.nullable(),
+  material_reconstruction_residual: signedMap,
+  inlet_molar_flow_kmol_h: positive,
+  vapor_molar_flow_kmol_h: nonnegative,
+  liquid_molar_flow_kmol_h: nonnegative,
+  component_molar_residual_kmol_h: signedMap,
+  component_molar_tolerance_kmol_h: positive,
+  component_mass_residual_kg_h: signedMap,
+  total_mass_residual_kg_h: num,
+});
+export const equilibriumResultsSchema = networkResultsSchema
+  .omit({ model_tolerances: true })
+  .extend({
+    schema_version: z.literal('1.6'),
+    process_result_version: z.literal('1.6'),
+    engine: networkResultsSchema.shape.engine.extend({ version: z.literal('1.5.0') }),
+    streams: z.record(
+      id,
+      molecularResultFields.streams.valueType.extend({ enthalpy_flow_W: z.null() }),
+    ),
+    equipment: z
+      .array(
+        z.strictObject({
+          id,
+          type: z.literal('equilibrium_separator_2phase'),
+          model: equilibriumModel,
+          duty_W: z.null(),
+          work_W: z.null(),
+          energy_residual_W: z.null(),
+          mass_balance: legacyResultsSchema.shape.balances.shape.mass,
+          thermodynamics: equilibriumDetails,
+          material_streams: z.strictObject({ inlet: id, vapor: id, liquid: id }),
+        }),
+      )
+      .length(1),
+    balances: z.strictObject({
+      mass: legacyResultsSchema.shape.balances.shape.mass,
+      energy: unavailableEnergy,
+    }),
+  });
 export const resultsSchema = z.union([
+  equilibriumResultsSchema,
   molecularSingleResults,
   molecularNetworkResults,
   molecularSequentialResults,
