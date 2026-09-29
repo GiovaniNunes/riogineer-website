@@ -1,0 +1,4437 @@
+{
+  "benchmark_id": "pre_m10_methane_nhexane_pr_caloric@1.0",
+  "component_dataset": "riogineer_components@1.0",
+  "components": [
+    {
+      "id": "methane",
+      "MW_kg_kmol": 16.0428,
+      "Tc_K": 190.564,
+      "Pc_Pa_abs": 4599200.0,
+      "omega": 0.01142
+    },
+    {
+      "id": "n_hexane",
+      "MW_kg_kmol": 86.17536,
+      "Tc_K": 507.82,
+      "Pc_Pa_abs": 3044115.328359688,
+      "omega": 0.3003189315498438
+    }
+  ],
+  "component_order": ["methane", "n_hexane"],
+  "kij": [
+    [0.0, 0.0],
+    [0.0, 0.0]
+  ],
+  "dkij_dT": "zero; temperature-independent BIPs only",
+  "formulation": {
+    "R_J_mol_K": 8.31446261815324,
+    "OmegaA": 0.45724,
+    "OmegaB": 0.0778,
+    "kappa": [0.37464, 1.54226, -0.26992],
+    "mixing": "classical quadratic a, linear b"
+  },
+  "reference_state": {
+    "T_ref_h_K": 298.15,
+    "T_ref_s_K": 298.15,
+    "P_ref_s_Pa_abs": 101325.0,
+    "phase": "pure-component ideal gas",
+    "h_pure_ref_J_mol": [0.0, 0.0],
+    "s_pure_ref_J_mol_K": [0.0, 0.0],
+    "formation_included": false,
+    "basis": "relative sensible; not third-law absolute; mixture includes ideal mixing entropy"
+  },
+  "cp": {
+    "method": "POLING_POLY",
+    "source": "Poling, The Properties of Gases and Liquids, 5th edition; Chemicals 1.5.2 PolingDatabank.tsv",
+    "equation": "Cp/R=sum(c_j*T^j), j=0..4",
+    "coefficient_units": ["1", "K^-1", "K^-2", "K^-3", "K^-4"],
+    "components": [
+      {
+        "id": "methane",
+        "CAS": "74-82-8",
+        "coefficients": [4.568, -0.008975, 3.631e-5, -3.407e-8, 1.091e-11],
+        "Tmin_K": 50.0,
+        "Tmax_K": 1000.0
+      },
+      {
+        "id": "n_hexane",
+        "CAS": "110-54-3",
+        "coefficients": [8.831, -0.000166, 0.00014302, -1.8314e-7, 7.124e-11],
+        "Tmin_K": 200.0,
+        "Tmax_K": 1000.0
+      }
+    ],
+    "extrapolation": false,
+    "temperature_matrix_K": [280.0, 300.0, 350.0, 400.0]
+  },
+  "provenance": {
+    "library": "Thermo",
+    "versions": {
+      "thermo": "0.6.0",
+      "chemicals": "1.5.2",
+      "fluids": "1.3.1",
+      "numpy": "2.2.6",
+      "scipy": "1.15.3",
+      "pandas": "2.3.3",
+      "teqp": "0.23.1"
+    },
+    "python": "3.10.10",
+    "component_source_sha256": "91a9fee707b80fa7b5c67d41a8249aaf729eab0944275ea36fa6baf8667b4d50",
+    "M8_reference_sha256": "17f84d9a68fe0f4b40ecfa25606beaddee873a5f8e39af6677a4e04e8dd34908",
+    "source_sha256": {
+      "thermo_eos": "65eea2a3c6f987e67142f6a219fec6750d1636088dfb512b9bea8286da99f398",
+      "thermo_eos_mix": "ad4f4b10bdf09528c9e58631ec6e58746c10f76d3ef4f3b251df80fc7633deff",
+      "thermo_ceos": "6a7846b96afa2dca96198f5f064079b4b04d0d981b8deb3878f6b9e9976529e4",
+      "thermo_phase": "f20e4b1ef54dfa249a46fea27571e56bde407ee3f0b38eee3edd9a085cf82361",
+      "thermo_heat_capacity": "cecdde9db3d9c03c77ecc35a48a61fcd8b8bd3bd638e382c463fc515c5368ba2",
+      "chemicals_heat_capacity": "1c8eecac28c71696f5c00324bb2fb3923c6aa088018bb3eec57c89e1b6c4de3e",
+      "poling_databank": "9c707a81eb8896afc32cae53222b5596dabf98f318f6f26d97193016fe8f436b"
+    },
+    "PT_squared_K_tolerance": 1e-26,
+    "PT_stability_tolerance": 1e-12,
+    "sources": [
+      "https://chemicals.readthedocs.io/chemicals.heat_capacity.html",
+      "https://thermo.readthedocs.io/thermo.phases.html",
+      "https://thermo.readthedocs.io/thermo.eos.html"
+    ]
+  },
+  "units": {
+    "temperature": "K",
+    "pressure": "Pa absolute",
+    "molar_enthalpy": "J/mol",
+    "molar_entropy_and_Cp": "J/(mol K)",
+    "mass_enthalpy": "J/kg",
+    "mass_entropy": "J/(kg K)",
+    "MW": "kg/kmol and explicitly kg/mol",
+    "composition": "mol/mol"
+  },
+  "reference_shift_checks": {
+    "common_shift_J_mol": 12345.0,
+    "phase_difference_after_common_shift_J_mol": 30568.984904216915,
+    "same_composition_temperature_difference_J_mol": 11773.960020159033,
+    "temperature_difference_after_common_shift_J_mol": 11773.960020159033,
+    "component_shifts_J_mol": [10000.0, -3000.0],
+    "feed_shift_J_mol": 3500.0,
+    "phase_shifts_J_mol": [-2796.943638882442, 8980.914497101929],
+    "weighted_outlet_shift_J_mol": 3500.0000000000005,
+    "enthalpy_flow_difference_shift_error_W": 1.2631870857957336e-10,
+    "phase_difference_change_under_component_shifts_J_mol": 11777.85813598437
+  },
+  "acceptance_tolerances": {
+    "Cp": {
+      "atol": 1e-10,
+      "rtol": 1e-12
+    },
+    "alpha": {
+      "atol": 1e-13,
+      "rtol": 1e-12
+    },
+    "dalpha_dT": {
+      "atol": 1e-15,
+      "rtol": 1e-11
+    },
+    "a": {
+      "atol": 1e-13,
+      "rtol": 1e-12
+    },
+    "da_dT": {
+      "atol": 1e-13,
+      "rtol": 1e-10
+    },
+    "b": {
+      "atol": 1e-16,
+      "rtol": 1e-12
+    },
+    "Z": {
+      "atol": 1e-10,
+      "rtol": 1e-9
+    },
+    "h_ig": {
+      "atol": 1e-7,
+      "rtol": 1e-11
+    },
+    "s_ig": {
+      "atol": 1e-9,
+      "rtol": 1e-11
+    },
+    "h_res": {
+      "atol": 1e-7,
+      "rtol": 1e-11
+    },
+    "s_res": {
+      "atol": 1e-9,
+      "rtol": 1e-11
+    },
+    "h_total": {
+      "atol": 1e-7,
+      "rtol": 1e-11
+    },
+    "s_total": {
+      "atol": 1e-9,
+      "rtol": 1e-11
+    }
+  },
+  "cases": [
+    {
+      "case_id": "A",
+      "T_K": 300.0,
+      "P_Pa_abs": 30000000.0,
+      "z": [0.5, 0.5],
+      "classification": "L",
+      "beta": 0.0,
+      "equilibrium_source": "Frozen M8 (unchanged); independently rechecked by Thermo",
+      "phases": {
+        "liquid": {
+          "T_K": 300.0,
+          "P_Pa_abs": 30000000.0,
+          "composition": [0.5, 0.5],
+          "phase": "liquid",
+          "Z": 1.04595589143832,
+          "frozen_M8_Z": 1.04595589143832,
+          "mixture_MW_kg_kmol": 51.10908,
+          "mixture_MW_kg_mol": 0.05110908,
+          "pure_parameters": [
+            {
+              "id": "methane",
+              "alpha": 0.8101834074909086,
+              "dalpha_dT_K_inv": -0.0014765136941440559,
+              "a_i_Pa_m6_mol2": 0.2022066134114174,
+              "da_i_dT_Pa_m6_mol2_K": -0.00036851018051958957,
+              "b_i_m3_mol": 2.6802317444263274e-5
+            },
+            {
+              "id": "n_hexane",
+              "alpha": 1.4118862442770883,
+              "dalpha_dT_K_inv": -0.0024764149031830706,
+              "a_i_Pa_m6_mol2": 3.7806876057403356,
+              "da_i_dT_Pa_m6_mol2_K": -0.00663123617011276,
+              "b_i_m3_mol": 0.00010791019597217473
+            }
+          ],
+          "a_mix_Pa_m6_mol2": 1.43289630014247,
+          "da_mix_dT_Pa_m6_mol2_K": -0.002531693258740157,
+          "b_mix_m3_mol": 6.7356256708219e-5,
+          "A": 6.90915819277255,
+          "B": 0.8101095621159913,
+          "Cp_ig_J_mol_K": 89.78432738066756,
+          "h_ig_J_mol": 165.75492421744366,
+          "s_ig_J_mol_K": -40.997070836572746,
+          "h_res_J_mol": -16469.702948888516,
+          "s_res_J_mol_K": -31.161730487161627,
+          "h_total_J_mol": -16303.948024671074,
+          "s_total_J_mol_K": -72.15880132373437,
+          "departure_intermediates": {
+            "T_da_minus_a_Pa_m6_mol2": -2.192404277764517,
+            "PR_log_term": 1.4411204891944844,
+            "ln_Z_minus_B": -1.4445748329840524
+          },
+          "ideal_entropy_terms": {
+            "s_ig_temperature_J_mol_K": 0.5542258499738448,
+            "s_ig_pressure_J_mol_K": -47.314443008190544,
+            "s_ig_mixing_J_mol_K": 5.763146321643979
+          },
+          "h_total_J_kg": -319002.9643396256,
+          "s_total_J_kg_K": -1411.8587406334523,
+          "direct_equation_comparison": {
+            "reference": {
+              "Cp_ig_J_mol_K": 89.78432738066756,
+              "h_ig_J_mol": 165.75492421744335,
+              "s_ig_temperature_J_mol_K": 0.5542258499738448,
+              "s_ig_pressure_J_mol_K": -47.314443008190544,
+              "s_ig_mixing_J_mol_K": 5.763146321643979,
+              "s_ig_J_mol_K": -40.99707083657272,
+              "h_res_J_mol": -16469.70294888852,
+              "s_res_J_mol_K": -31.16173048716163,
+              "h_total_J_mol": -16303.948024671077,
+              "s_total_J_mol_K": -72.15880132373435
+            },
+            "library_minus_direct": {
+              "Cp_ig_J_mol_K": 0.0,
+              "h_ig_J_mol": 3.126388037344441e-13,
+              "s_ig_J_mol_K": -2.842170943040401e-14,
+              "h_res_J_mol": 3.637978807091713e-12,
+              "s_res_J_mol_K": 3.552713678800501e-15,
+              "h_total_J_mol": 3.637978807091713e-12,
+              "s_total_J_mol_K": -1.4210854715202004e-14
+            }
+          },
+          "consistency": {
+            "g_res_from_fugacity_J_mol": -7121.183802740035,
+            "g_res_identity_error_J_mol": 7.275957614183426e-12,
+            "finite_difference_step_K": 0.01,
+            "da_mix_dT_finite_difference": -0.002531693259277823,
+            "dHres_dT_minus_T_dSres_dT_J_mol_K": -8.838441090119886e-9
+          }
+        }
+      },
+      "classification_neighborhood": [
+        {
+          "T_K": 298.0,
+          "P_Pa_abs": 28500000.0,
+          "phase": "L",
+          "beta": 0.0
+        },
+        {
+          "T_K": 298.0,
+          "P_Pa_abs": 30000000.0,
+          "phase": "L",
+          "beta": 0.0
+        },
+        {
+          "T_K": 298.0,
+          "P_Pa_abs": 31500000.0,
+          "phase": "L",
+          "beta": 0.0
+        },
+        {
+          "T_K": 300.0,
+          "P_Pa_abs": 28500000.0,
+          "phase": "L",
+          "beta": 0.0
+        },
+        {
+          "T_K": 300.0,
+          "P_Pa_abs": 30000000.0,
+          "phase": "L",
+          "beta": 0.0
+        },
+        {
+          "T_K": 300.0,
+          "P_Pa_abs": 31500000.0,
+          "phase": "L",
+          "beta": 0.0
+        },
+        {
+          "T_K": 302.0,
+          "P_Pa_abs": 28500000.0,
+          "phase": "L",
+          "beta": 0.0
+        },
+        {
+          "T_K": 302.0,
+          "P_Pa_abs": 30000000.0,
+          "phase": "L",
+          "beta": 0.0
+        },
+        {
+          "T_K": 302.0,
+          "P_Pa_abs": 31500000.0,
+          "phase": "L",
+          "beta": 0.0
+        }
+      ]
+    },
+    {
+      "case_id": "B",
+      "T_K": 300.0,
+      "P_Pa_abs": 300000.0,
+      "z": [0.5, 0.5],
+      "classification": "VL",
+      "beta": 0.5346425102237959,
+      "equilibrium_source": "Frozen M8 (unchanged); independently rechecked by Thermo",
+      "phases": {
+        "liquid": {
+          "T_K": 300.0,
+          "P_Pa_abs": 300000.0,
+          "composition": [0.015619720085966004, 0.984380279914034],
+          "phase": "liquid",
+          "Z": 0.01546966380242693,
+          "frozen_M8_Z": 0.01546966380242693,
+          "mixture_MW_kg_kmol": 85.07990904388778,
+          "mixture_MW_kg_mol": 0.08507990904388778,
+          "pure_parameters": [
+            {
+              "id": "methane",
+              "alpha": 0.8101834074909086,
+              "dalpha_dT_K_inv": -0.0014765136941440559,
+              "a_i_Pa_m6_mol2": 0.2022066134114174,
+              "da_i_dT_Pa_m6_mol2_K": -0.00036851018051958957,
+              "b_i_m3_mol": 2.6802317444263274e-5
+            },
+            {
+              "id": "n_hexane",
+              "alpha": 1.4118862442770883,
+              "dalpha_dT_K_inv": -0.0024764149031830706,
+              "a_i_Pa_m6_mol2": 3.7806876057403356,
+              "da_i_dT_Pa_m6_mol2_K": -0.00663123617011276,
+              "b_i_m3_mol": 0.00010791019597217473
+            }
+          ],
+          "a_mix_Pa_m6_mol2": 3.690440196318239,
+          "da_mix_dT_Pa_m6_mol2_K": -0.006473868195340526,
+          "b_mix_m3_mol": 0.00010664331361280222,
+          "A": 0.17794612991040662,
+          "B": 0.012826242477771728,
+          "Cp_ig_J_mol_K": 142.03283358759762,
+          "h_ig_J_mol": 262.14522290762045,
+          "s_ig_J_mol_K": -7.479400680444944,
+          "h_res_J_mol": -30837.964045622575,
+          "s_res_J_mol_K": -81.9732896688397,
+          "h_total_J_mol": -30575.818822714955,
+          "s_total_J_mol_K": -89.45269034928464,
+          "departure_intermediates": {
+            "T_da_minus_a_Pa_m6_mol2": -5.632600654920397,
+            "PR_log_term": 1.5199030986681379,
+            "ln_Z_minus_B": -5.935681244541684
+          },
+          "ideal_entropy_terms": {
+            "s_ig_temperature_J_mol_K": 0.8765206866750135,
+            "s_ig_pressure_J_mol_K": -9.024927646558757,
+            "s_ig_mixing_J_mol_K": 0.6690062794388291
+          },
+          "h_total_J_kg": -359377.6623214614,
+          "s_total_J_kg_K": -1051.3961680793664,
+          "direct_equation_comparison": {
+            "reference": {
+              "Cp_ig_J_mol_K": 142.03283358759762,
+              "h_ig_J_mol": 262.1452229076195,
+              "s_ig_temperature_J_mol_K": 0.8765206866750135,
+              "s_ig_pressure_J_mol_K": -9.024927646558757,
+              "s_ig_mixing_J_mol_K": 0.6690062794388291,
+              "s_ig_J_mol_K": -7.479400680444915,
+              "h_res_J_mol": -30837.964045622575,
+              "s_res_J_mol_K": -81.97328966883963,
+              "h_total_J_mol": -30575.818822714955,
+              "s_total_J_mol_K": -89.45269034928454
+            },
+            "library_minus_direct": {
+              "Cp_ig_J_mol_K": 0.0,
+              "h_ig_J_mol": 9.663381206337363e-13,
+              "s_ig_J_mol_K": -2.930988785010413e-14,
+              "h_res_J_mol": 0.0,
+              "s_res_J_mol_K": -7.105427357601002e-14,
+              "h_total_J_mol": 0.0,
+              "s_total_J_mol_K": -9.947598300641403e-14
+            }
+          },
+          "consistency": {
+            "g_res_from_fugacity_J_mol": -6245.97714497068,
+            "g_res_identity_error_J_mol": 1.1823431123048067e-11,
+            "finite_difference_step_K": 0.01,
+            "da_mix_dT_finite_difference": -0.006473868196699151,
+            "dHres_dT_minus_T_dSres_dT_J_mol_K": -1.0200551514571998e-8
+          }
+        },
+        "vapor": {
+          "T_K": 300.0,
+          "P_Pa_abs": 300000.0,
+          "composition": [0.9216088074693791, 0.07839119253062085],
+          "phase": "vapor",
+          "Z": 0.9885027848240134,
+          "frozen_M8_Z": 0.9885027848240134,
+          "mixture_MW_kg_kmol": 21.54057501362532,
+          "mixture_MW_kg_mol": 0.02154057501362532,
+          "pure_parameters": [
+            {
+              "id": "methane",
+              "alpha": 0.8101834074909086,
+              "dalpha_dT_K_inv": -0.0014765136941440559,
+              "a_i_Pa_m6_mol2": 0.2022066134114174,
+              "da_i_dT_Pa_m6_mol2_K": -0.00036851018051958957,
+              "b_i_m3_mol": 2.6802317444263274e-5
+            },
+            {
+              "id": "n_hexane",
+              "alpha": 1.4118862442770883,
+              "dalpha_dT_K_inv": -0.0024764149031830706,
+              "a_i_Pa_m6_mol2": 3.7806876057403356,
+              "da_i_dT_Pa_m6_mol2_K": -0.00663123617011276,
+              "b_i_m3_mol": 0.00010791019597217473
+            }
+          ],
+          "a_mix_Pa_m6_mol2": 0.3213157286530708,
+          "da_mix_dT_Pa_m6_mol2_K": -0.0005796641821812488,
+          "b_mix_m3_mol": 3.316046076569499e-5,
+          "A": 0.015493243990296529,
+          "B": 0.0039882867105920546,
+          "Cp_ig_J_mol_K": 44.3067732616812,
+          "h_ig_J_mol": 81.85597009487873,
+          "s_ig_J_mol_K": -6.466229340434821,
+          "h_res_J_mol": -88.68988859291721,
+          "s_res_J_mol_K": -0.2000067441344874,
+          "h_total_J_mol": -6.833918498038489,
+          "s_total_J_mol_K": -6.666236084569309,
+          "departure_intermediates": {
+            "T_da_minus_a_Pa_m6_mol2": -0.4952149833074454,
+            "PR_log_term": 0.011366046586010519,
+            "ln_Z_minus_B": -0.015606654639198426
+          },
+          "ideal_entropy_terms": {
+            "s_ig_temperature_J_mol_K": 0.27369762165861716,
+            "s_ig_pressure_J_mol_K": -9.024927646558757,
+            "s_ig_mixing_J_mol_K": 2.2850006844653423
+          },
+          "h_total_J_kg": -317.25794198695945,
+          "s_total_J_kg_K": -309.47345093399946,
+          "direct_equation_comparison": {
+            "reference": {
+              "Cp_ig_J_mol_K": 44.3067732616812,
+              "h_ig_J_mol": 81.85597009487897,
+              "s_ig_temperature_J_mol_K": 0.27369762165861716,
+              "s_ig_pressure_J_mol_K": -9.024927646558757,
+              "s_ig_mixing_J_mol_K": 2.2850006844653423,
+              "s_ig_J_mol_K": -6.466229340434798,
+              "h_res_J_mol": -88.68988859291744,
+              "s_res_J_mol_K": -0.2000067441344875,
+              "h_total_J_mol": -6.8339184980384715,
+              "s_total_J_mol_K": -6.666236084569285
+            },
+            "library_minus_direct": {
+              "Cp_ig_J_mol_K": 0.0,
+              "h_ig_J_mol": -2.4158453015843406e-13,
+              "s_ig_J_mol_K": -2.3092638912203256e-14,
+              "h_res_J_mol": 2.2737367544323206e-13,
+              "s_res_J_mol_K": 8.326672684688674e-17,
+              "h_total_J_mol": -1.7763568394002505e-14,
+              "s_total_J_mol_K": -2.398081733190338e-14
+            }
+          },
+          "consistency": {
+            "g_res_from_fugacity_J_mol": -28.687865352570757,
+            "g_res_identity_error_J_mol": -2.3803181647963356e-13,
+            "finite_difference_step_K": 0.01,
+            "da_mix_dT_finite_difference": -0.0005796641823069271,
+            "dHres_dT_minus_T_dSres_dT_J_mol_K": -6.013300968277235e-10
+          }
+        }
+      },
+      "x": [0.015619720085966004, 0.984380279914034],
+      "y": [0.9216088074693791, 0.07839119253062085],
+      "material_residual": [0.0, 0.0],
+      "overall_h_J_mol": -14232.339998531099,
+      "overall_s_J_mol_K": -45.191532628669755,
+      "phase_difference_h_J_mol": 30568.984904216915,
+      "phase_difference_s_J_mol_K": 82.78645426471533,
+      "benchmark_feed_kmol_h": 1000.0,
+      "benchmark_equilibrium_enthalpy_flow_W": -3953427.7773697497,
+      "benchmark_phase_enthalpy_flows_W": {
+        "liquid": -3952412.8597751786,
+        "vapor": -1014.9175945711477
+      },
+      "benchmark_flow_is_not_separator_duty": true,
+      "classification_neighborhood": [
+        {
+          "T_K": 298.0,
+          "P_Pa_abs": 285000.0,
+          "phase": "VL",
+          "beta": 0.5332870634304343
+        },
+        {
+          "T_K": 298.0,
+          "P_Pa_abs": 300000.0,
+          "phase": "VL",
+          "beta": 0.5307758013973582
+        },
+        {
+          "T_K": 298.0,
+          "P_Pa_abs": 315000.0,
+          "phase": "VL",
+          "beta": 0.5284755627004611
+        },
+        {
+          "T_K": 300.0,
+          "P_Pa_abs": 285000.0,
+          "phase": "VL",
+          "beta": 0.5373652981786234
+        },
+        {
+          "T_K": 300.0,
+          "P_Pa_abs": 300000.0,
+          "phase": "VL",
+          "beta": 0.5346425102237959
+        },
+        {
+          "T_K": 300.0,
+          "P_Pa_abs": 315000.0,
+          "phase": "VL",
+          "beta": 0.5321542898099576
+        },
+        {
+          "T_K": 302.0,
+          "P_Pa_abs": 285000.0,
+          "phase": "VL",
+          "beta": 0.5417851699154452
+        },
+        {
+          "T_K": 302.0,
+          "P_Pa_abs": 300000.0,
+          "phase": "VL",
+          "beta": 0.5388284931929911
+        },
+        {
+          "T_K": 302.0,
+          "P_Pa_abs": 315000.0,
+          "phase": "VL",
+          "beta": 0.5361326181853168
+        }
+      ]
+    },
+    {
+      "case_id": "C",
+      "T_K": 300.0,
+      "P_Pa_abs": 1000.0,
+      "z": [0.5, 0.5],
+      "classification": "V",
+      "beta": 1.0,
+      "equilibrium_source": "Frozen M8 (unchanged); independently rechecked by Thermo",
+      "phases": {
+        "vapor": {
+          "T_K": 300.0,
+          "P_Pa_abs": 1000.0,
+          "composition": [0.5, 0.5],
+          "phase": "vapor",
+          "Z": 0.9997966702051944,
+          "frozen_M8_Z": 0.9997966702051944,
+          "mixture_MW_kg_kmol": 51.10908,
+          "mixture_MW_kg_mol": 0.05110908,
+          "pure_parameters": [
+            {
+              "id": "methane",
+              "alpha": 0.8101834074909086,
+              "dalpha_dT_K_inv": -0.0014765136941440559,
+              "a_i_Pa_m6_mol2": 0.2022066134114174,
+              "da_i_dT_Pa_m6_mol2_K": -0.00036851018051958957,
+              "b_i_m3_mol": 2.6802317444263274e-5
+            },
+            {
+              "id": "n_hexane",
+              "alpha": 1.4118862442770883,
+              "dalpha_dT_K_inv": -0.0024764149031830706,
+              "a_i_Pa_m6_mol2": 3.7806876057403356,
+              "da_i_dT_Pa_m6_mol2_K": -0.00663123617011276,
+              "b_i_m3_mol": 0.00010791019597217473
+            }
+          ],
+          "a_mix_Pa_m6_mol2": 1.43289630014247,
+          "da_mix_dT_Pa_m6_mol2_K": -0.002531693258740157,
+          "b_mix_m3_mol": 6.7356256708219e-5,
+          "A": 0.00023030527309241832,
+          "B": 2.7003652070533046e-5,
+          "Cp_ig_J_mol_K": 89.78432738066756,
+          "h_ig_J_mol": 165.75492421744366,
+          "s_ig_J_mol_K": 44.7163306926656,
+          "h_res_J_mol": -1.3862804890527514,
+          "s_res_J_mol_K": -0.0029304741236806323,
+          "h_total_J_mol": 164.3686437283909,
+          "s_total_J_mol_K": 44.71340021854192,
+          "departure_intermediates": {
+            "T_da_minus_a_Pa_m6_mol2": -2.192404277764517,
+            "PR_log_term": 7.639133180952341e-5,
+            "ln_Z_minus_B": -0.0002303599776985845
+          },
+          "ideal_entropy_terms": {
+            "s_ig_temperature_J_mol_K": 0.5542258499738448,
+            "s_ig_pressure_J_mol_K": 38.3989585210478,
+            "s_ig_mixing_J_mol_K": 5.763146321643979
+          },
+          "h_total_J_kg": 3216.0360493358694,
+          "s_total_J_kg_K": 874.8621618417299,
+          "direct_equation_comparison": {
+            "reference": {
+              "Cp_ig_J_mol_K": 89.78432738066756,
+              "h_ig_J_mol": 165.75492421744335,
+              "s_ig_temperature_J_mol_K": 0.5542258499738448,
+              "s_ig_pressure_J_mol_K": 38.3989585210478,
+              "s_ig_mixing_J_mol_K": 5.763146321643979,
+              "s_ig_J_mol_K": 44.71633069266563,
+              "h_res_J_mol": -1.3862804890527576,
+              "s_res_J_mol_K": -0.0029304741236812447,
+              "h_total_J_mol": 164.3686437283906,
+              "s_total_J_mol_K": 44.71340021854195
+            },
+            "library_minus_direct": {
+              "Cp_ig_J_mol_K": 0.0,
+              "h_ig_J_mol": 3.126388037344441e-13,
+              "s_ig_J_mol_K": -2.842170943040401e-14,
+              "h_res_J_mol": 6.217248937900877e-15,
+              "s_res_J_mol_K": 6.123573870198129e-16,
+              "h_total_J_mol": 3.126388037344441e-13,
+              "s_total_J_mol_K": -2.842170943040401e-14
+            }
+          },
+          "consistency": {
+            "g_res_from_fugacity_J_mol": -0.5071382519476715,
+            "g_res_identity_error_J_mol": -8.901768211444505e-13,
+            "finite_difference_step_K": 0.01,
+            "da_mix_dT_finite_difference": -0.002531693259277823,
+            "dHres_dT_minus_T_dSres_dT_J_mol_K": -8.029427817080048e-12
+          }
+        }
+      },
+      "classification_neighborhood": [
+        {
+          "T_K": 298.0,
+          "P_Pa_abs": 950.0,
+          "phase": "V",
+          "beta": 1.0
+        },
+        {
+          "T_K": 298.0,
+          "P_Pa_abs": 1000.0,
+          "phase": "V",
+          "beta": 1.0
+        },
+        {
+          "T_K": 298.0,
+          "P_Pa_abs": 1050.0,
+          "phase": "V",
+          "beta": 1.0
+        },
+        {
+          "T_K": 300.0,
+          "P_Pa_abs": 950.0,
+          "phase": "V",
+          "beta": 1.0
+        },
+        {
+          "T_K": 300.0,
+          "P_Pa_abs": 1000.0,
+          "phase": "V",
+          "beta": 1.0
+        },
+        {
+          "T_K": 300.0,
+          "P_Pa_abs": 1050.0,
+          "phase": "V",
+          "beta": 1.0
+        },
+        {
+          "T_K": 302.0,
+          "P_Pa_abs": 950.0,
+          "phase": "V",
+          "beta": 1.0
+        },
+        {
+          "T_K": 302.0,
+          "P_Pa_abs": 1000.0,
+          "phase": "V",
+          "beta": 1.0
+        },
+        {
+          "T_K": 302.0,
+          "P_Pa_abs": 1050.0,
+          "phase": "V",
+          "beta": 1.0
+        }
+      ]
+    },
+    {
+      "case_id": "T280_L",
+      "T_K": 280.0,
+      "P_Pa_abs": 30000000.0,
+      "z": [0.5, 0.5],
+      "classification": "L",
+      "beta": 0.0,
+      "equilibrium_source": "Thermo PT flash",
+      "phases": {
+        "liquid": {
+          "T_K": 280.0,
+          "P_Pa_abs": 30000000.0,
+          "composition": [0.5, 0.5],
+          "phase": "liquid",
+          "Z": 1.088054745974565,
+          "frozen_M8_Z": null,
+          "mixture_MW_kg_kmol": 51.10908,
+          "mixture_MW_kg_mol": 0.05110908,
+          "pure_parameters": [
+            {
+              "id": "methane",
+              "alpha": 0.8405014234199728,
+              "dalpha_dT_K_inv": -0.0015566703206319854,
+              "a_i_Pa_m6_mol2": 0.20977342269149796,
+              "da_i_dT_Pa_m6_mol2_K": -0.0003885157741108037,
+              "b_i_m3_mol": 2.6802317444263274e-5
+            },
+            {
+              "id": "n_hexane",
+              "alpha": 1.4627182012854119,
+              "dalpha_dT_K_inv": -0.002609068610829134,
+              "a_i_Pa_m6_mol2": 3.916803210390407,
+              "da_i_dT_Pa_m6_mol2_K": -0.006986450501568878,
+              "b_i_m3_mol": 0.00010791019597217473
+            }
+          ],
+          "a_mix_Pa_m6_mol2": 1.484866293501271,
+          "da_mix_dT_Pa_m6_mol2_K": -0.0026676508711382784,
+          "b_mix_m3_mol": 6.7356256708219e-5,
+          "A": 8.219098227252317,
+          "B": 0.8679745308385621,
+          "Cp_ig_J_mol_K": 85.78753603298645,
+          "h_ig_J_mol": -1589.787332186028,
+          "s_ig_J_mol_K": -47.05148056302083,
+          "h_res_J_mol": -17071.0209467226,
+          "s_res_J_mol_K": -33.23591899630811,
+          "h_total_J_mol": -18660.808278908633,
+          "s_total_J_mol_K": -80.28739955932895,
+          "departure_intermediates": {
+            "T_da_minus_a_Pa_m6_mol2": -2.231808537419989,
+            "PR_log_term": 1.4747201658936708,
+            "ln_Z_minus_B": -1.5137631848308406
+          },
+          "ideal_entropy_terms": {
+            "s_ig_temperature_J_mol_K": -5.500183876474244,
+            "s_ig_pressure_J_mol_K": -47.314443008190544,
+            "s_ig_mixing_J_mol_K": 5.763146321643979
+          },
+          "h_total_J_kg": -365117.2801175179,
+          "s_total_J_kg_K": -1570.9028524741386,
+          "direct_equation_comparison": {
+            "reference": {
+              "Cp_ig_J_mol_K": 85.78753603298645,
+              "h_ig_J_mol": -1589.7873321860275,
+              "s_ig_temperature_J_mol_K": -5.500183876474244,
+              "s_ig_pressure_J_mol_K": -47.314443008190544,
+              "s_ig_mixing_J_mol_K": 5.763146321643979,
+              "s_ig_J_mol_K": -47.05148056302081,
+              "h_res_J_mol": -17071.020946722594,
+              "s_res_J_mol_K": -33.23591899630811,
+              "h_total_J_mol": -18660.808278908622,
+              "s_total_J_mol_K": -80.28739955932892
+            },
+            "library_minus_direct": {
+              "Cp_ig_J_mol_K": 0.0,
+              "h_ig_J_mol": -4.547473508864641e-13,
+              "s_ig_J_mol_K": -2.1316282072803006e-14,
+              "h_res_J_mol": -7.275957614183426e-12,
+              "s_res_J_mol_K": 0.0,
+              "h_total_J_mol": -1.0913936421275139e-11,
+              "s_total_J_mol_K": -2.842170943040401e-14
+            }
+          },
+          "consistency": {
+            "g_res_from_fugacity_J_mol": -7764.9636277563295,
+            "g_res_identity_error_J_mol": -1.8189894035458565e-12,
+            "finite_difference_step_K": 0.01,
+            "da_mix_dT_finite_difference": -0.0026676508718015413,
+            "dHres_dT_minus_T_dSres_dT_J_mol_K": -1.0541612027736846e-8
+          }
+        }
+      },
+      "classification_neighborhood": [
+        {
+          "T_K": 278.0,
+          "P_Pa_abs": 28500000.0,
+          "phase": "L",
+          "beta": 0.0
+        },
+        {
+          "T_K": 278.0,
+          "P_Pa_abs": 30000000.0,
+          "phase": "L",
+          "beta": 0.0
+        },
+        {
+          "T_K": 278.0,
+          "P_Pa_abs": 31500000.0,
+          "phase": "L",
+          "beta": 0.0
+        },
+        {
+          "T_K": 280.0,
+          "P_Pa_abs": 28500000.0,
+          "phase": "L",
+          "beta": 0.0
+        },
+        {
+          "T_K": 280.0,
+          "P_Pa_abs": 30000000.0,
+          "phase": "L",
+          "beta": 0.0
+        },
+        {
+          "T_K": 280.0,
+          "P_Pa_abs": 31500000.0,
+          "phase": "L",
+          "beta": 0.0
+        },
+        {
+          "T_K": 282.0,
+          "P_Pa_abs": 28500000.0,
+          "phase": "L",
+          "beta": 0.0
+        },
+        {
+          "T_K": 282.0,
+          "P_Pa_abs": 30000000.0,
+          "phase": "L",
+          "beta": 0.0
+        },
+        {
+          "T_K": 282.0,
+          "P_Pa_abs": 31500000.0,
+          "phase": "L",
+          "beta": 0.0
+        }
+      ]
+    },
+    {
+      "case_id": "T280_VL",
+      "T_K": 280.0,
+      "P_Pa_abs": 300000.0,
+      "z": [0.5, 0.5],
+      "classification": "VL",
+      "beta": 0.5068005424258007,
+      "equilibrium_source": "Thermo PT flash",
+      "phases": {
+        "liquid": {
+          "T_K": 280.0,
+          "P_Pa_abs": 300000.0,
+          "composition": [0.01875238975195603, 0.9812476102480439],
+          "phase": "liquid",
+          "Z": 0.016153268070894528,
+          "frozen_M8_Z": null,
+          "mixture_MW_kg_kmol": 84.86020690057755,
+          "mixture_MW_kg_mol": 0.08486020690057755,
+          "pure_parameters": [
+            {
+              "id": "methane",
+              "alpha": 0.8405014234199728,
+              "dalpha_dT_K_inv": -0.0015566703206319854,
+              "a_i_Pa_m6_mol2": 0.20977342269149796,
+              "da_i_dT_Pa_m6_mol2_K": -0.0003885157741108037,
+              "b_i_m3_mol": 2.6802317444263274e-5
+            },
+            {
+              "id": "n_hexane",
+              "alpha": 1.4627182012854119,
+              "dalpha_dT_K_inv": -0.002609068610829134,
+              "a_i_Pa_m6_mol2": 3.916803210390407,
+              "da_i_dT_Pa_m6_mol2_K": -0.006986450501568878,
+              "b_i_m3_mol": 0.00010791019597217473
+            }
+          ],
+          "a_mix_Pa_m6_mol2": 3.8047139754466324,
+          "da_mix_dT_Pa_m6_mol2_K": -0.006787660794134652,
+          "b_mix_m3_mol": 0.000106389229422065,
+          "A": 0.2106002272908942,
+          "B": 0.013709660543327827,
+          "Cp_ig_J_mol_K": 134.5796597075332,
+          "h_ig_J_mol": -2501.0077700225183,
+          "s_ig_J_mol_K": -16.90297674190066,
+          "h_res_J_mol": -31639.925291158037,
+          "s_res_J_mol_K": -84.92317015306543,
+          "h_total_J_mol": -34140.933061180556,
+          "s_total_J_mol_K": -101.82614689496609,
+          "departure_intermediates": {
+            "T_da_minus_a_Pa_m6_mol2": -5.705258997804335,
+            "PR_log_term": 1.5479884767752492,
+            "ln_Z_minus_B": -6.014279836670122
+          },
+          "ideal_entropy_terms": {
+            "s_ig_temperature_J_mol_K": -8.652483884595226,
+            "s_ig_pressure_J_mol_K": -9.024927646558757,
+            "s_ig_mixing_J_mol_K": 0.7744347892533349
+          },
+          "h_total_J_kg": -402319.7009309695,
+          "s_total_J_kg_K": -1199.9281007441552,
+          "direct_equation_comparison": {
+            "reference": {
+              "Cp_ig_J_mol_K": 134.5796597075332,
+              "h_ig_J_mol": -2501.007770022519,
+              "s_ig_temperature_J_mol_K": -8.652483884595226,
+              "s_ig_pressure_J_mol_K": -9.024927646558757,
+              "s_ig_mixing_J_mol_K": 0.7744347892533349,
+              "s_ig_J_mol_K": -16.90297674190065,
+              "h_res_J_mol": -31639.925291158037,
+              "s_res_J_mol_K": -84.92317015306517,
+              "h_total_J_mol": -34140.933061180556,
+              "s_total_J_mol_K": -101.82614689496582
+            },
+            "library_minus_direct": {
+              "Cp_ig_J_mol_K": 0.0,
+              "h_ig_J_mol": 4.547473508864641e-13,
+              "s_ig_J_mol_K": -1.0658141036401503e-14,
+              "h_res_J_mol": 0.0,
+              "s_res_J_mol_K": -2.5579538487363607e-13,
+              "h_total_J_mol": 0.0,
+              "s_total_J_mol_K": -2.7000623958883807e-13
+            }
+          },
+          "consistency": {
+            "g_res_from_fugacity_J_mol": -7861.43764829972,
+            "g_res_identity_error_J_mol": 2.7284841053187847e-12,
+            "finite_difference_step_K": 0.01,
+            "da_mix_dT_finite_difference": -0.006787660795826156,
+            "dHres_dT_minus_T_dSres_dT_J_mol_K": -1.3460521586239338e-8
+          }
+        },
+        "vapor": {
+          "T_K": 280.0,
+          "P_Pa_abs": 300000.0,
+          "composition": [0.9683322934050823, 0.03166770659491779],
+          "phase": "vapor",
+          "Z": 0.9896167176476162,
+          "frozen_M8_Z": null,
+          "mixture_MW_kg_kmol": 18.26373733283047,
+          "mixture_MW_kg_mol": 0.01826373733283047,
+          "pure_parameters": [
+            {
+              "id": "methane",
+              "alpha": 0.8405014234199728,
+              "dalpha_dT_K_inv": -0.0015566703206319854,
+              "a_i_Pa_m6_mol2": 0.20977342269149796,
+              "da_i_dT_Pa_m6_mol2_K": -0.0003885157741108037,
+              "b_i_m3_mol": 2.6802317444263274e-5
+            },
+            {
+              "id": "n_hexane",
+              "alpha": 1.4627182012854119,
+              "dalpha_dT_K_inv": -0.002609068610829134,
+              "a_i_Pa_m6_mol2": 3.916803210390407,
+              "da_i_dT_Pa_m6_mol2_K": -0.006986450501568878,
+              "b_i_m3_mol": 0.00010791019597217473
+            }
+          ],
+          "a_mix_Pa_m6_mol2": 0.2562176260827665,
+          "da_mix_dT_Pa_m6_mol2_K": -0.0004723651684147437,
+          "b_mix_m3_mol": 2.9370817944021408e-5,
+          "A": 0.014182272474931498,
+          "B": 0.003784818689634227,
+          "Cp_ig_J_mol_K": 38.304854157793145,
+          "h_ig_J_mol": -703.0214587314254,
+          "s_ig_J_mol_K": -10.289292068874465,
+          "h_res_J_mol": -74.56657580259161,
+          "s_res_J_mol_K": -0.17991803318615768,
+          "h_total_J_mol": -777.588034534017,
+          "s_total_J_mol_K": -10.469210102060625,
+          "departure_intermediates": {
+            "T_da_minus_a_Pa_m6_mol2": -0.38847987323889477,
+            "PR_log_term": 0.010776294428140482,
+            "ln_Z_minus_B": -0.014269426786440196
+          },
+          "ideal_entropy_terms": {
+            "s_ig_temperature_J_mol_K": -2.432482633151219,
+            "s_ig_pressure_J_mol_K": -9.024927646558757,
+            "s_ig_mixing_J_mol_K": 1.168118210835544
+          },
+          "h_total_J_kg": -42575.51564411972,
+          "s_total_J_kg_K": -573.2238649337896,
+          "direct_equation_comparison": {
+            "reference": {
+              "Cp_ig_J_mol_K": 38.304854157793145,
+              "h_ig_J_mol": -703.0214587314241,
+              "s_ig_temperature_J_mol_K": -2.432482633151219,
+              "s_ig_pressure_J_mol_K": -9.024927646558757,
+              "s_ig_mixing_J_mol_K": 1.168118210835544,
+              "s_ig_J_mol_K": -10.289292068874431,
+              "h_res_J_mol": -74.56657580259167,
+              "s_res_J_mol_K": -0.17991803318615715,
+              "h_total_J_mol": -777.5880345340158,
+              "s_total_J_mol_K": -10.469210102060588
+            },
+            "library_minus_direct": {
+              "Cp_ig_J_mol_K": 0.0,
+              "h_ig_J_mol": -1.2505552149377763e-12,
+              "s_ig_J_mol_K": -3.375077994860476e-14,
+              "h_res_J_mol": 5.684341886080802e-14,
+              "s_res_J_mol_K": -5.273559366969494e-16,
+              "h_total_J_mol": -1.1368683772161603e-12,
+              "s_total_J_mol_K": -3.730349362740526e-14
+            }
+          },
+          "consistency": {
+            "g_res_from_fugacity_J_mol": -24.189526510467648,
+            "g_res_identity_error_J_mol": 1.8118839761882555e-13,
+            "finite_difference_step_K": 0.01,
+            "da_mix_dT_finite_difference": -0.0004723651685301089,
+            "dHres_dT_minus_T_dSres_dT_J_mol_K": -5.914158052178209e-10
+          }
+        }
+      },
+      "x": [0.01875238975195603, 0.9812476102480439],
+      "y": [0.9683322934050823, 0.03166770659491779],
+      "material_residual": [0.0, 0.0],
+      "overall_h_J_mol": -17232.37170453695,
+      "overall_s_J_mol_K": -55.52640177396201,
+      "phase_difference_h_J_mol": 33363.34502664654,
+      "phase_difference_s_J_mol_K": 91.35693679290546,
+      "classification_neighborhood": [
+        {
+          "T_K": 278.0,
+          "P_Pa_abs": 285000.0,
+          "phase": "VL",
+          "beta": 0.5062792725907508
+        },
+        {
+          "T_K": 278.0,
+          "P_Pa_abs": 300000.0,
+          "phase": "VL",
+          "beta": 0.5050315092125963
+        },
+        {
+          "T_K": 278.0,
+          "P_Pa_abs": 315000.0,
+          "phase": "VL",
+          "beta": 0.50385596314453
+        },
+        {
+          "T_K": 280.0,
+          "P_Pa_abs": 285000.0,
+          "phase": "VL",
+          "beta": 0.5081237812898101
+        },
+        {
+          "T_K": 280.0,
+          "P_Pa_abs": 300000.0,
+          "phase": "VL",
+          "beta": 0.5068005424258007
+        },
+        {
+          "T_K": 280.0,
+          "P_Pa_abs": 315000.0,
+          "phase": "VL",
+          "beta": 0.5055579354658042
+        },
+        {
+          "T_K": 282.0,
+          "P_Pa_abs": 285000.0,
+          "phase": "VL",
+          "beta": 0.5101186886968374
+        },
+        {
+          "T_K": 282.0,
+          "P_Pa_abs": 300000.0,
+          "phase": "VL",
+          "beta": 0.508711247907474
+        },
+        {
+          "T_K": 282.0,
+          "P_Pa_abs": 315000.0,
+          "phase": "VL",
+          "beta": 0.5073937461934772
+        }
+      ]
+    },
+    {
+      "case_id": "T280_V",
+      "T_K": 280.0,
+      "P_Pa_abs": 1000.0,
+      "z": [0.5, 0.5],
+      "classification": "V",
+      "beta": 1.0,
+      "equilibrium_source": "Thermo PT flash",
+      "phases": {
+        "vapor": {
+          "T_K": 280.0,
+          "P_Pa_abs": 1000.0,
+          "composition": [0.5, 0.5],
+          "phase": "vapor",
+          "Z": 0.99975491917216,
+          "frozen_M8_Z": null,
+          "mixture_MW_kg_kmol": 51.10908,
+          "mixture_MW_kg_mol": 0.05110908,
+          "pure_parameters": [
+            {
+              "id": "methane",
+              "alpha": 0.8405014234199728,
+              "dalpha_dT_K_inv": -0.0015566703206319854,
+              "a_i_Pa_m6_mol2": 0.20977342269149796,
+              "da_i_dT_Pa_m6_mol2_K": -0.0003885157741108037,
+              "b_i_m3_mol": 2.6802317444263274e-5
+            },
+            {
+              "id": "n_hexane",
+              "alpha": 1.4627182012854119,
+              "dalpha_dT_K_inv": -0.002609068610829134,
+              "a_i_Pa_m6_mol2": 3.916803210390407,
+              "da_i_dT_Pa_m6_mol2_K": -0.006986450501568878,
+              "b_i_m3_mol": 0.00010791019597217473
+            }
+          ],
+          "a_mix_Pa_m6_mol2": 1.484866293501271,
+          "da_mix_dT_Pa_m6_mol2_K": -0.0026676508711382784,
+          "b_mix_m3_mol": 6.7356256708219e-5,
+          "A": 0.00027396994090841053,
+          "B": 2.8932484361285404e-5,
+          "Cp_ig_J_mol_K": 85.78753603298645,
+          "h_ig_J_mol": -1589.787332186028,
+          "s_ig_J_mol_K": 38.661920966217515,
+          "h_res_J_mol": -1.5294278106925958,
+          "s_res_J_mol_K": -0.0034247071293899813,
+          "h_total_J_mol": -1591.3167599967205,
+          "s_total_J_mol_K": 38.658496259088125,
+          "departure_intermediates": {
+            "T_da_minus_a_Pa_m6_mol2": -2.231808537419989,
+            "PR_log_term": 8.185111558248725e-5,
+            "ln_Z_minus_B": -0.00027405086070832
+          },
+          "ideal_entropy_terms": {
+            "s_ig_temperature_J_mol_K": -5.500183876474244,
+            "s_ig_pressure_J_mol_K": 38.3989585210478,
+            "s_ig_mixing_J_mol_K": 5.763146321643979
+          },
+          "h_total_J_kg": -31135.695653232666,
+          "s_total_J_kg_K": 756.3919416880155,
+          "direct_equation_comparison": {
+            "reference": {
+              "Cp_ig_J_mol_K": 85.78753603298645,
+              "h_ig_J_mol": -1589.7873321860275,
+              "s_ig_temperature_J_mol_K": -5.500183876474244,
+              "s_ig_pressure_J_mol_K": 38.3989585210478,
+              "s_ig_mixing_J_mol_K": 5.763146321643979,
+              "s_ig_J_mol_K": 38.66192096621754,
+              "h_res_J_mol": -1.5294278106925034,
+              "s_res_J_mol_K": -0.003424707129389268,
+              "h_total_J_mol": -1591.31675999672,
+              "s_total_J_mol_K": 38.658496259088146
+            },
+            "library_minus_direct": {
+              "Cp_ig_J_mol_K": 0.0,
+              "h_ig_J_mol": -4.547473508864641e-13,
+              "s_ig_J_mol_K": -2.1316282072803006e-14,
+              "h_res_J_mol": -9.237055564881302e-14,
+              "s_res_J_mol_K": -7.134050294954619e-16,
+              "h_total_J_mol": -4.547473508864641e-13,
+              "s_total_J_mol_K": -2.1316282072803006e-14
+            }
+          },
+          "consistency": {
+            "g_res_from_fugacity_J_mol": -0.5705098144628794,
+            "g_res_identity_error_J_mol": -5.216937992713611e-13,
+            "finite_difference_step_K": 0.01,
+            "da_mix_dT_finite_difference": -0.0026676508718015413,
+            "dHres_dT_minus_T_dSres_dT_J_mol_K": -2.260552856014897e-11
+          }
+        }
+      },
+      "classification_neighborhood": [
+        {
+          "T_K": 278.0,
+          "P_Pa_abs": 950.0,
+          "phase": "V",
+          "beta": 1.0
+        },
+        {
+          "T_K": 278.0,
+          "P_Pa_abs": 1000.0,
+          "phase": "V",
+          "beta": 1.0
+        },
+        {
+          "T_K": 278.0,
+          "P_Pa_abs": 1050.0,
+          "phase": "V",
+          "beta": 1.0
+        },
+        {
+          "T_K": 280.0,
+          "P_Pa_abs": 950.0,
+          "phase": "V",
+          "beta": 1.0
+        },
+        {
+          "T_K": 280.0,
+          "P_Pa_abs": 1000.0,
+          "phase": "V",
+          "beta": 1.0
+        },
+        {
+          "T_K": 280.0,
+          "P_Pa_abs": 1050.0,
+          "phase": "V",
+          "beta": 1.0
+        },
+        {
+          "T_K": 282.0,
+          "P_Pa_abs": 950.0,
+          "phase": "V",
+          "beta": 1.0
+        },
+        {
+          "T_K": 282.0,
+          "P_Pa_abs": 1000.0,
+          "phase": "V",
+          "beta": 1.0
+        },
+        {
+          "T_K": 282.0,
+          "P_Pa_abs": 1050.0,
+          "phase": "V",
+          "beta": 1.0
+        }
+      ]
+    },
+    {
+      "case_id": "T350_L",
+      "T_K": 350.0,
+      "P_Pa_abs": 30000000.0,
+      "z": [0.5, 0.5],
+      "classification": "L",
+      "beta": 0.0,
+      "equilibrium_source": "Thermo PT flash",
+      "phases": {
+        "liquid": {
+          "T_K": 350.0,
+          "P_Pa_abs": 30000000.0,
+          "composition": [0.5, 0.5],
+          "phase": "liquid",
+          "Z": 0.9762340414300265,
+          "frozen_M8_Z": null,
+          "mixture_MW_kg_kmol": 51.10908,
+          "mixture_MW_kg_mol": 0.05110908,
+          "pure_parameters": [
+            {
+              "id": "methane",
+              "alpha": 0.7407561093955177,
+              "dalpha_dT_K_inv": -0.0013071036672720965,
+              "a_i_Pa_m6_mol2": 0.18487885935428255,
+              "da_i_dT_Pa_m6_mol2_K": -0.00032622860884706616,
+              "b_i_m3_mol": 2.6802317444263274e-5
+            },
+            {
+              "id": "n_hexane",
+              "alpha": 1.2953445266579169,
+              "dalpha_dT_K_inv": -0.002196052952317178,
+              "a_i_Pa_m6_mol2": 3.4686172607387875,
+              "da_i_dT_Pa_m6_mol2_K": -0.005880495126309631,
+              "b_i_m3_mol": 0.00010791019597217473
+            }
+          ],
+          "a_mix_Pa_m6_mol2": 1.313771957934353,
+          "da_mix_dT_Pa_m6_mol2_K": -0.0022443485465312237,
+          "b_mix_m3_mol": 6.7356256708219e-5,
+          "A": 4.654111500374087,
+          "B": 0.6943796246708497,
+          "Cp_ig_J_mol_K": 100.13714156899593,
+          "h_ig_J_mol": 4912.087665967401,
+          "s_ig_J_mol_K": -26.38456220786462,
+          "h_res_J_mol": -14929.907922258579,
+          "s_res_J_mol_K": -26.416719417784474,
+          "h_total_J_mol": -10017.820256291177,
+          "s_total_J_mol_K": -52.801281625649096,
+          "departure_intermediates": {
+            "T_da_minus_a_Pa_m6_mol2": -2.0992939492202813,
+            "PR_log_term": 1.3486223054465245,
+            "ln_Z_minus_B": -1.2663645939753247
+          },
+          "ideal_entropy_terms": {
+            "s_ig_temperature_J_mol_K": 15.16673447868198,
+            "s_ig_pressure_J_mol_K": -47.314443008190544,
+            "s_ig_mixing_J_mol_K": 5.763146321643979
+          },
+          "h_total_J_kg": -196008.6203134781,
+          "s_total_J_kg_K": -1033.1096084227909,
+          "direct_equation_comparison": {
+            "reference": {
+              "Cp_ig_J_mol_K": 100.13714156899593,
+              "h_ig_J_mol": 4912.087665967404,
+              "s_ig_temperature_J_mol_K": 15.16673447868198,
+              "s_ig_pressure_J_mol_K": -47.314443008190544,
+              "s_ig_mixing_J_mol_K": 5.763146321643979,
+              "s_ig_J_mol_K": -26.384562207864583,
+              "h_res_J_mol": -14929.907922258575,
+              "s_res_J_mol_K": -26.416719417784474,
+              "h_total_J_mol": -10017.820256291172,
+              "s_total_J_mol_K": -52.801281625649054
+            },
+            "library_minus_direct": {
+              "Cp_ig_J_mol_K": 0.0,
+              "h_ig_J_mol": -2.7284841053187847e-12,
+              "s_ig_J_mol_K": -3.552713678800501e-14,
+              "h_res_J_mol": -3.637978807091713e-12,
+              "s_res_J_mol_K": 0.0,
+              "h_total_J_mol": -5.4569682106375694e-12,
+              "s_total_J_mol_K": -4.263256414560601e-14
+            }
+          },
+          "consistency": {
+            "g_res_from_fugacity_J_mol": -5684.056126034013,
+            "g_res_identity_error_J_mol": 0.0,
+            "finite_difference_step_K": 0.01,
+            "da_mix_dT_finite_difference": -0.0022443485468759405,
+            "dHres_dT_minus_T_dSres_dT_J_mol_K": -6.579625733138528e-9
+          }
+        }
+      },
+      "classification_neighborhood": [
+        {
+          "T_K": 348.0,
+          "P_Pa_abs": 28500000.0,
+          "phase": "L",
+          "beta": 0.0
+        },
+        {
+          "T_K": 348.0,
+          "P_Pa_abs": 30000000.0,
+          "phase": "L",
+          "beta": 0.0
+        },
+        {
+          "T_K": 348.0,
+          "P_Pa_abs": 31500000.0,
+          "phase": "L",
+          "beta": 0.0
+        },
+        {
+          "T_K": 350.0,
+          "P_Pa_abs": 28500000.0,
+          "phase": "L",
+          "beta": 0.0
+        },
+        {
+          "T_K": 350.0,
+          "P_Pa_abs": 30000000.0,
+          "phase": "L",
+          "beta": 0.0
+        },
+        {
+          "T_K": 350.0,
+          "P_Pa_abs": 31500000.0,
+          "phase": "L",
+          "beta": 0.0
+        },
+        {
+          "T_K": 352.0,
+          "P_Pa_abs": 28500000.0,
+          "phase": "L",
+          "beta": 0.0
+        },
+        {
+          "T_K": 352.0,
+          "P_Pa_abs": 30000000.0,
+          "phase": "L",
+          "beta": 0.0
+        },
+        {
+          "T_K": 352.0,
+          "P_Pa_abs": 31500000.0,
+          "phase": "L",
+          "beta": 0.0
+        }
+      ]
+    },
+    {
+      "case_id": "T350_VL",
+      "T_K": 350.0,
+      "P_Pa_abs": 1000000.0,
+      "z": [0.5, 0.5],
+      "classification": "VL",
+      "beta": 0.5690121399213712,
+      "equilibrium_source": "Thermo PT flash",
+      "phases": {
+        "liquid": {
+          "T_K": 350.0,
+          "P_Pa_abs": 1000000.0,
+          "composition": [0.039059003632273534, 0.9609409963677266],
+          "phase": "liquid",
+          "Z": 0.04703558839085793,
+          "frozen_M8_Z": null,
+          "mixture_MW_kg_kmol": 83.43605208421936,
+          "mixture_MW_kg_mol": 0.08343605208421935,
+          "pure_parameters": [
+            {
+              "id": "methane",
+              "alpha": 0.7407561093955177,
+              "dalpha_dT_K_inv": -0.0013071036672720965,
+              "a_i_Pa_m6_mol2": 0.18487885935428255,
+              "da_i_dT_Pa_m6_mol2_K": -0.00032622860884706616,
+              "b_i_m3_mol": 2.6802317444263274e-5
+            },
+            {
+              "id": "n_hexane",
+              "alpha": 1.2953445266579169,
+              "dalpha_dT_K_inv": -0.002196052952317178,
+              "a_i_Pa_m6_mol2": 3.4686172607387875,
+              "da_i_dT_Pa_m6_mol2_K": -0.005880495126309631,
+              "b_i_m3_mol": 0.00010791019597217473
+            }
+          ],
+          "a_mix_Pa_m6_mol2": 3.2633427660432344,
+          "da_mix_dT_Pa_m6_mol2_K": -0.005534584255219974,
+          "b_mix_m3_mol": 0.00010474220305014704,
+          "A": 0.3853525467992804,
+          "B": 0.035993118380584534,
+          "Cp_ig_J_mol_K": 157.36397395626483,
+          "h_ig_J_mol": 7677.51737361615,
+          "s_ig_J_mol_K": 6.037722390828588,
+          "h_res_J_mol": -27833.737525404682,
+          "s_res_J_mol_K": -64.1357552306915,
+          "h_total_J_mol": -20156.220151788533,
+          "s_total_J_mol_K": -58.09803283986292,
+          "departure_intermediates": {
+            "T_da_minus_a_Pa_m6_mol2": -5.200447255370225,
+            "PR_log_term": 1.4276331899786197,
+            "ln_Z_minus_B": -4.506006530343022
+          },
+          "ideal_entropy_terms": {
+            "s_ig_temperature_J_mol_K": 23.701632874503087,
+            "s_ig_pressure_J_mol_K": -19.035314521399876,
+            "s_ig_mixing_J_mol_K": 1.3714040377254078
+          },
+          "h_total_J_kg": -241576.86813181292,
+          "s_total_J_kg_K": -696.318094979128,
+          "direct_equation_comparison": {
+            "reference": {
+              "Cp_ig_J_mol_K": 157.36397395626483,
+              "h_ig_J_mol": 7677.517373616155,
+              "s_ig_temperature_J_mol_K": 23.701632874503087,
+              "s_ig_pressure_J_mol_K": -19.035314521399876,
+              "s_ig_mixing_J_mol_K": 1.3714040377254078,
+              "s_ig_J_mol_K": 6.037722390828619,
+              "h_res_J_mol": -27833.73752540467,
+              "s_res_J_mol_K": -64.13575523069144,
+              "h_total_J_mol": -20156.220151788515,
+              "s_total_J_mol_K": -58.098032839862825
+            },
+            "library_minus_direct": {
+              "Cp_ig_J_mol_K": 0.0,
+              "h_ig_J_mol": -5.4569682106375694e-12,
+              "s_ig_J_mol_K": -3.108624468950438e-14,
+              "h_res_J_mol": -1.0913936421275139e-11,
+              "s_res_J_mol_K": -5.684341886080802e-14,
+              "h_total_J_mol": -1.8189894035458565e-11,
+              "s_total_J_mol_K": -9.237055564881302e-14
+            }
+          },
+          "consistency": {
+            "g_res_from_fugacity_J_mol": -5386.223194662661,
+            "g_res_identity_error_J_mol": 4.547473508864641e-12,
+            "finite_difference_step_K": 0.01,
+            "da_mix_dT_finite_difference": -0.005534584256050579,
+            "dHres_dT_minus_T_dSres_dT_J_mol_K": 9.237055564881302e-11
+          }
+        },
+        "vapor": {
+          "T_K": 350.0,
+          "P_Pa_abs": 1000000.0,
+          "composition": [0.8491313448505496, 0.1508686551494504],
+          "phase": "vapor",
+          "Z": 0.9643679110244935,
+          "frozen_M8_Z": null,
+          "mixture_MW_kg_kmol": 26.623605009388136,
+          "mixture_MW_kg_mol": 0.026623605009388138,
+          "pure_parameters": [
+            {
+              "id": "methane",
+              "alpha": 0.7407561093955177,
+              "dalpha_dT_K_inv": -0.0013071036672720965,
+              "a_i_Pa_m6_mol2": 0.18487885935428255,
+              "da_i_dT_Pa_m6_mol2_K": -0.00032622860884706616,
+              "b_i_m3_mol": 2.6802317444263274e-5
+            },
+            {
+              "id": "n_hexane",
+              "alpha": 1.2953445266579169,
+              "dalpha_dT_K_inv": -0.002196052952317178,
+              "a_i_Pa_m6_mol2": 3.4686172607387875,
+              "da_i_dT_Pa_m6_mol2_K": -0.005880495126309631,
+              "b_i_m3_mol": 0.00010791019597217473
+            }
+          ],
+          "a_mix_Pa_m6_mol2": 0.41742811391377044,
+          "da_mix_dT_Pa_m6_mol2_K": -0.000724009805893307,
+          "b_mix_m3_mol": 3.903895399979426e-5,
+          "A": 0.04929209045279936,
+          "B": 0.013415162674171158,
+          "Cp_ig_J_mol_K": 56.791721850753035,
+          "h_ig_J_mol": 2817.463407050712,
+          "s_ig_J_mol_K": -6.8060807293743615,
+          "h_res_J_mol": -339.4804230947657,
+          "s_res_J_mol_K": -0.6726221673551782,
+          "h_total_J_mol": 2477.982983955946,
+          "s_total_J_mol_K": -7.47870289672954,
+          "departure_intermediates": {
+            "T_da_minus_a_Pa_m6_mol2": -0.6708315459764279,
+            "PR_log_term": 0.038810830057202074,
+            "ln_Z_minus_B": -0.050290903948414345
+          },
+          "ideal_entropy_terms": {
+            "s_ig_temperature_J_mol_K": 8.702131463161496,
+            "s_ig_pressure_J_mol_K": -19.035314521399876,
+            "s_ig_mixing_J_mol_K": 3.527102328864054
+          },
+          "h_total_J_kg": 93074.65998996561,
+          "s_total_J_kg_K": -280.9049673811028,
+          "direct_equation_comparison": {
+            "reference": {
+              "Cp_ig_J_mol_K": 56.791721850753035,
+              "h_ig_J_mol": 2817.463407050713,
+              "s_ig_temperature_J_mol_K": 8.702131463161496,
+              "s_ig_pressure_J_mol_K": -19.035314521399876,
+              "s_ig_mixing_J_mol_K": 3.527102328864054,
+              "s_ig_J_mol_K": -6.806080729374326,
+              "h_res_J_mol": -339.4804230947657,
+              "s_res_J_mol_K": -0.6726221673551764,
+              "h_total_J_mol": 2477.9829839559475,
+              "s_total_J_mol_K": -7.478702896729502
+            },
+            "library_minus_direct": {
+              "Cp_ig_J_mol_K": 0.0,
+              "h_ig_J_mol": -1.3642420526593924e-12,
+              "s_ig_J_mol_K": -3.552713678800501e-14,
+              "h_res_J_mol": 0.0,
+              "s_res_J_mol_K": -1.7763568394002505e-15,
+              "h_total_J_mol": -1.3642420526593924e-12,
+              "s_total_J_mol_K": -3.730349362740526e-14
+            }
+          },
+          "consistency": {
+            "g_res_from_fugacity_J_mol": -104.06266452045352,
+            "g_res_identity_error_J_mol": 2.2737367544323206e-13,
+            "finite_difference_step_K": 0.01,
+            "da_mix_dT_finite_difference": -0.0007240098060107281,
+            "dHres_dT_minus_T_dSres_dT_J_mol_K": -1.5500156713699198e-9
+          }
+        }
+      },
+      "x": [0.039059003632273534, 0.9609409963677266],
+      "y": [0.8491313448505496, 0.1508686551494504],
+      "material_residual": [0.0, 0.0],
+      "overall_h_J_mol": -7277.083790103556,
+      "overall_s_J_mol_K": -29.295019587534654,
+      "phase_difference_h_J_mol": 22634.20313574448,
+      "phase_difference_s_J_mol_K": 50.61932994313338,
+      "classification_neighborhood": [
+        {
+          "T_K": 348.0,
+          "P_Pa_abs": 950000.0,
+          "phase": "VL",
+          "beta": 0.568409440694685
+        },
+        {
+          "T_K": 348.0,
+          "P_Pa_abs": 1000000.0,
+          "phase": "VL",
+          "beta": 0.5628023127457358
+        },
+        {
+          "T_K": 348.0,
+          "P_Pa_abs": 1050000.0,
+          "phase": "VL",
+          "beta": 0.5576696272061475
+        },
+        {
+          "T_K": 350.0,
+          "P_Pa_abs": 950000.0,
+          "phase": "VL",
+          "beta": 0.574980964758063
+        },
+        {
+          "T_K": 350.0,
+          "P_Pa_abs": 1000000.0,
+          "phase": "VL",
+          "beta": 0.5690121399213712
+        },
+        {
+          "T_K": 350.0,
+          "P_Pa_abs": 1050000.0,
+          "phase": "VL",
+          "beta": 0.5635618844189119
+        },
+        {
+          "T_K": 352.0,
+          "P_Pa_abs": 950000.0,
+          "phase": "VL",
+          "beta": 0.5819900603329622
+        },
+        {
+          "T_K": 352.0,
+          "P_Pa_abs": 1000000.0,
+          "phase": "VL",
+          "beta": 0.5756265823446887
+        },
+        {
+          "T_K": 352.0,
+          "P_Pa_abs": 1050000.0,
+          "phase": "VL",
+          "beta": 0.5698303281784198
+        }
+      ]
+    },
+    {
+      "case_id": "T350_V",
+      "T_K": 350.0,
+      "P_Pa_abs": 1000.0,
+      "z": [0.5, 0.5],
+      "classification": "V",
+      "beta": 1.0,
+      "equilibrium_source": "Thermo PT flash",
+      "phases": {
+        "vapor": {
+          "T_K": 350.0,
+          "P_Pa_abs": 1000.0,
+          "composition": [0.5, 0.5],
+          "phase": "vapor",
+          "Z": 0.9998679992312263,
+          "frozen_M8_Z": null,
+          "mixture_MW_kg_kmol": 51.10908,
+          "mixture_MW_kg_mol": 0.05110908,
+          "pure_parameters": [
+            {
+              "id": "methane",
+              "alpha": 0.7407561093955177,
+              "dalpha_dT_K_inv": -0.0013071036672720965,
+              "a_i_Pa_m6_mol2": 0.18487885935428255,
+              "da_i_dT_Pa_m6_mol2_K": -0.00032622860884706616,
+              "b_i_m3_mol": 2.6802317444263274e-5
+            },
+            {
+              "id": "n_hexane",
+              "alpha": 1.2953445266579169,
+              "dalpha_dT_K_inv": -0.002196052952317178,
+              "a_i_Pa_m6_mol2": 3.4686172607387875,
+              "da_i_dT_Pa_m6_mol2_K": -0.005880495126309631,
+              "b_i_m3_mol": 0.00010791019597217473
+            }
+          ],
+          "a_mix_Pa_m6_mol2": 1.313771957934353,
+          "da_mix_dT_Pa_m6_mol2_K": -0.0022443485465312237,
+          "b_mix_m3_mol": 6.7356256708219e-5,
+          "A": 0.00015513705001246955,
+          "B": 2.3145987489028325e-5,
+          "Cp_ig_J_mol_K": 100.13714156899593,
+          "h_ig_J_mol": 4912.087665967401,
+          "s_ig_J_mol_K": 59.32883932137373,
+          "h_res_J_mol": -1.1056004521437899,
+          "s_res_J_mol_K": -0.0020613833309870203,
+          "h_total_J_mol": 4910.982065515258,
+          "s_total_J_mol_K": 59.32677793804274,
+          "departure_intermediates": {
+            "T_da_minus_a_Pa_m6_mol2": -2.0992939492202813,
+            "PR_log_term": 6.547386600975507e-5,
+            "ln_Z_minus_B": -0.00015515879276566913
+          },
+          "ideal_entropy_terms": {
+            "s_ig_temperature_J_mol_K": 15.16673447868198,
+            "s_ig_pressure_J_mol_K": 38.3989585210478,
+            "s_ig_mixing_J_mol_K": 5.763146321643979
+          },
+          "h_total_J_kg": 96088.25018011003,
+          "s_total_J_kg_K": 1160.7874361667778,
+          "direct_equation_comparison": {
+            "reference": {
+              "Cp_ig_J_mol_K": 100.13714156899593,
+              "h_ig_J_mol": 4912.087665967404,
+              "s_ig_temperature_J_mol_K": 15.16673447868198,
+              "s_ig_pressure_J_mol_K": 38.3989585210478,
+              "s_ig_mixing_J_mol_K": 5.763146321643979,
+              "s_ig_J_mol_K": 59.32883932137376,
+              "h_res_J_mol": -1.1056004521439393,
+              "s_res_J_mol_K": -0.0020613833309863494,
+              "h_total_J_mol": 4910.98206551526,
+              "s_total_J_mol_K": 59.326777938042774
+            },
+            "library_minus_direct": {
+              "Cp_ig_J_mol_K": 0.0,
+              "h_ig_J_mol": -2.7284841053187847e-12,
+              "s_ig_J_mol_K": -3.552713678800501e-14,
+              "h_res_J_mol": 1.4943601911454607e-13,
+              "s_res_J_mol_K": -6.709043043340301e-16,
+              "h_total_J_mol": -1.8189894035458565e-12,
+              "s_total_J_mol_K": -3.552713678800501e-14
+            }
+          },
+          "consistency": {
+            "g_res_from_fugacity_J_mol": -0.38411628630000083,
+            "g_res_identity_error_J_mol": 1.6681100944992977e-12,
+            "finite_difference_step_K": 0.01,
+            "da_mix_dT_finite_difference": -0.0022443485468759405,
+            "dHres_dT_minus_T_dSres_dT_J_mol_K": -4.1822361546151043e-11
+          }
+        }
+      },
+      "classification_neighborhood": [
+        {
+          "T_K": 348.0,
+          "P_Pa_abs": 950.0,
+          "phase": "V",
+          "beta": 1.0
+        },
+        {
+          "T_K": 348.0,
+          "P_Pa_abs": 1000.0,
+          "phase": "V",
+          "beta": 1.0
+        },
+        {
+          "T_K": 348.0,
+          "P_Pa_abs": 1050.0,
+          "phase": "V",
+          "beta": 1.0
+        },
+        {
+          "T_K": 350.0,
+          "P_Pa_abs": 950.0,
+          "phase": "V",
+          "beta": 1.0
+        },
+        {
+          "T_K": 350.0,
+          "P_Pa_abs": 1000.0,
+          "phase": "V",
+          "beta": 1.0
+        },
+        {
+          "T_K": 350.0,
+          "P_Pa_abs": 1050.0,
+          "phase": "V",
+          "beta": 1.0
+        },
+        {
+          "T_K": 352.0,
+          "P_Pa_abs": 950.0,
+          "phase": "V",
+          "beta": 1.0
+        },
+        {
+          "T_K": 352.0,
+          "P_Pa_abs": 1000.0,
+          "phase": "V",
+          "beta": 1.0
+        },
+        {
+          "T_K": 352.0,
+          "P_Pa_abs": 1050.0,
+          "phase": "V",
+          "beta": 1.0
+        }
+      ]
+    },
+    {
+      "case_id": "T400_L",
+      "T_K": 400.0,
+      "P_Pa_abs": 30000000.0,
+      "z": [0.5, 0.5],
+      "classification": "L",
+      "beta": 0.0,
+      "equilibrium_source": "Thermo PT flash",
+      "phases": {
+        "liquid": {
+          "T_K": 400.0,
+          "P_Pa_abs": 30000000.0,
+          "composition": [0.5, 0.5],
+          "phase": "liquid",
+          "Z": 0.9459918186592278,
+          "frozen_M8_Z": null,
+          "mixture_MW_kg_kmol": 51.10908,
+          "mixture_MW_kg_mol": 0.05110908,
+          "pure_parameters": [
+            {
+              "id": "methane",
+              "alpha": 0.678928787938732,
+              "dalpha_dT_K_inv": -0.0011705461763198712,
+              "a_i_Pa_m6_mol2": 0.16944791720898075,
+              "da_i_dT_Pa_m6_mol2_K": -0.0002921464152028824,
+              "b_i_m3_mol": 2.6802317444263274e-5
+            },
+            {
+              "id": "n_hexane",
+              "alpha": 1.1913802480267277,
+              "dalpha_dT_K_inv": -0.00197005969043278,
+              "a_i_Pa_m6_mol2": 3.1902262350779886,
+              "da_i_dT_Pa_m6_mol2_K": -0.005275340194281346,
+              "b_i_m3_mol": 0.00010791019597217473
+            }
+          ],
+          "a_mix_Pa_m6_mol2": 1.2075383113971898,
+          "da_mix_dT_Pa_m6_mol2_K": -0.002012726642785831,
+          "b_mix_m3_mol": 6.7356256708219e-5,
+          "A": 3.27516979718036,
+          "B": 0.6075821715869935,
+          "Cp_ig_J_mol_K": 110.7361703798739,
+          "h_ig_J_mol": 10183.544198446856,
+          "s_ig_J_mol_K": -12.322214494906547,
+          "h_res_J_mol": -13338.68434795247,
+          "s_res_J_mol_K": -22.168408177651656,
+          "h_total_J_mol": -3155.1401495056125,
+          "s_total_J_mol_K": -34.4906226725582,
+          "departure_intermediates": {
+            "T_da_minus_a_Pa_m6_mol2": -2.012628968511522,
+            "PR_log_term": 1.2456161813541429,
+            "ln_Z_minus_B": -1.0834981437597377
+          },
+          "ideal_entropy_terms": {
+            "s_ig_temperature_J_mol_K": 29.229082191640018,
+            "s_ig_pressure_J_mol_K": -47.314443008190544,
+            "s_ig_mixing_J_mol_K": 5.763146321643979
+          },
+          "h_total_J_kg": -61733.4561589763,
+          "s_total_J_kg_K": -674.8433482378905,
+          "direct_equation_comparison": {
+            "reference": {
+              "Cp_ig_J_mol_K": 110.73617037987393,
+              "h_ig_J_mol": 10183.54419844686,
+              "s_ig_temperature_J_mol_K": 29.229082191640018,
+              "s_ig_pressure_J_mol_K": -47.314443008190544,
+              "s_ig_mixing_J_mol_K": 5.763146321643979,
+              "s_ig_J_mol_K": -12.322214494906547,
+              "h_res_J_mol": -13338.684347952465,
+              "s_res_J_mol_K": -22.168408177651656,
+              "h_total_J_mol": -3155.140149505605,
+              "s_total_J_mol_K": -34.4906226725582
+            },
+            "library_minus_direct": {
+              "Cp_ig_J_mol_K": -2.842170943040401e-14,
+              "h_ig_J_mol": -3.637978807091713e-12,
+              "s_ig_J_mol_K": 0.0,
+              "h_res_J_mol": -5.4569682106375694e-12,
+              "s_res_J_mol_K": 0.0,
+              "h_total_J_mol": -7.275957614183426e-12,
+              "s_total_J_mol_K": 0.0
+            }
+          },
+          "consistency": {
+            "g_res_from_fugacity_J_mol": -4471.321076891809,
+            "g_res_identity_error_J_mol": 0.0,
+            "finite_difference_step_K": 0.01,
+            "da_mix_dT_finite_difference": -0.0020127266430636226,
+            "dHres_dT_minus_T_dSres_dT_J_mol_K": -6.002665031701326e-9
+          }
+        }
+      },
+      "classification_neighborhood": [
+        {
+          "T_K": 398.0,
+          "P_Pa_abs": 28500000.0,
+          "phase": "L",
+          "beta": 0.0
+        },
+        {
+          "T_K": 398.0,
+          "P_Pa_abs": 30000000.0,
+          "phase": "L",
+          "beta": 0.0
+        },
+        {
+          "T_K": 398.0,
+          "P_Pa_abs": 31500000.0,
+          "phase": "L",
+          "beta": 0.0
+        },
+        {
+          "T_K": 400.0,
+          "P_Pa_abs": 28500000.0,
+          "phase": "L",
+          "beta": 0.0
+        },
+        {
+          "T_K": 400.0,
+          "P_Pa_abs": 30000000.0,
+          "phase": "L",
+          "beta": 0.0
+        },
+        {
+          "T_K": 400.0,
+          "P_Pa_abs": 31500000.0,
+          "phase": "L",
+          "beta": 0.0
+        },
+        {
+          "T_K": 402.0,
+          "P_Pa_abs": 28500000.0,
+          "phase": "L",
+          "beta": 0.0
+        },
+        {
+          "T_K": 402.0,
+          "P_Pa_abs": 30000000.0,
+          "phase": "L",
+          "beta": 0.0
+        },
+        {
+          "T_K": 402.0,
+          "P_Pa_abs": 31500000.0,
+          "phase": "L",
+          "beta": 0.0
+        }
+      ]
+    },
+    {
+      "case_id": "T400_VL",
+      "T_K": 400.0,
+      "P_Pa_abs": 3000000.0,
+      "z": [0.5, 0.5],
+      "classification": "VL",
+      "beta": 0.5858169819901142,
+      "equilibrium_source": "Thermo PT flash",
+      "phases": {
+        "liquid": {
+          "T_K": 400.0,
+          "P_Pa_abs": 3000000.0,
+          "composition": [0.10389339310751823, 0.8961066068924814],
+          "phase": "liquid",
+          "Z": 0.13409085488863748,
+          "frozen_M8_Z": null,
+          "mixture_MW_kg_kmol": 78.88905037428336,
+          "mixture_MW_kg_mol": 0.07888905037428336,
+          "pure_parameters": [
+            {
+              "id": "methane",
+              "alpha": 0.678928787938732,
+              "dalpha_dT_K_inv": -0.0011705461763198712,
+              "a_i_Pa_m6_mol2": 0.16944791720898075,
+              "da_i_dT_Pa_m6_mol2_K": -0.0002921464152028824,
+              "b_i_m3_mol": 2.6802317444263274e-5
+            },
+            {
+              "id": "n_hexane",
+              "alpha": 1.1913802480267277,
+              "dalpha_dT_K_inv": -0.00197005969043278,
+              "a_i_Pa_m6_mol2": 3.1902262350779886,
+              "da_i_dT_Pa_m6_mol2_K": -0.005275340194281346,
+              "b_i_m3_mol": 0.00010791019597217473
+            }
+          ],
+          "a_mix_Pa_m6_mol2": 2.700504104665145,
+          "da_mix_dT_Pa_m6_mol2_K": -0.004470494048547308,
+          "b_mix_m3_mol": 9.948362326415755e-5,
+          "A": 0.7324495957836038,
+          "B": 0.08973847243622668,
+          "Cp_ig_J_mol_K": 166.2768502158323,
+          "h_ig_J_mol": 15178.641734784127,
+          "s_ig_J_mol_K": 18.15109699185035,
+          "h_res_J_mol": -23397.01377881407,
+          "s_res_J_mol_K": -46.3384085687962,
+          "h_total_J_mol": -8218.372044029942,
+          "s_total_J_mol_K": -28.187311576945852,
+          "departure_intermediates": {
+            "T_da_minus_a_Pa_m6_mol2": -4.488701724084068,
+            "PR_log_term": 1.286155969859363,
+            "ln_Z_minus_B": -3.115588852336555
+          },
+          "ideal_entropy_terms": {
+            "s_ig_temperature_J_mol_K": 43.54745696855863,
+            "s_ig_pressure_J_mol_K": -28.16968532737465,
+            "s_ig_mixing_J_mol_K": 2.7733253506663527
+          },
+          "h_total_J_kg": -104176.33378825673,
+          "s_total_J_kg_K": -357.3032181679613,
+          "direct_equation_comparison": {
+            "reference": {
+              "Cp_ig_J_mol_K": 166.2768502158323,
+              "h_ig_J_mol": 15178.641734784132,
+              "s_ig_temperature_J_mol_K": 43.54745696855863,
+              "s_ig_pressure_J_mol_K": -28.16968532737465,
+              "s_ig_mixing_J_mol_K": 2.7733253506663527,
+              "s_ig_J_mol_K": 18.15109699185033,
+              "h_res_J_mol": -23397.01377881407,
+              "s_res_J_mol_K": -46.338408568796204,
+              "h_total_J_mol": -8218.372044029938,
+              "s_total_J_mol_K": -28.187311576945874
+            },
+            "library_minus_direct": {
+              "Cp_ig_J_mol_K": 0.0,
+              "h_ig_J_mol": -5.4569682106375694e-12,
+              "s_ig_J_mol_K": 1.7763568394002505e-14,
+              "h_res_J_mol": 0.0,
+              "s_res_J_mol_K": 7.105427357601002e-15,
+              "h_total_J_mol": -3.637978807091713e-12,
+              "s_total_J_mol_K": 2.1316282072803006e-14
+            }
+          },
+          "consistency": {
+            "g_res_from_fugacity_J_mol": -4861.650351295597,
+            "g_res_identity_error_J_mol": 3.637978807091713e-12,
+            "finite_difference_step_K": 0.01,
+            "da_mix_dT_finite_difference": -0.0044704940491469,
+            "dHres_dT_minus_T_dSres_dT_J_mol_K": 1.6768808563938364e-8
+          }
+        },
+        "vapor": {
+          "T_K": 400.0,
+          "P_Pa_abs": 3000000.0,
+          "composition": [0.7800544110876458, 0.21994558891235402],
+          "phase": "vapor",
+          "Z": 0.9061329691960348,
+          "frozen_M8_Z": null,
+          "mixture_MW_kg_kmol": 31.468147211131,
+          "mixture_MW_kg_mol": 0.031468147211131,
+          "pure_parameters": [
+            {
+              "id": "methane",
+              "alpha": 0.678928787938732,
+              "dalpha_dT_K_inv": -0.0011705461763198712,
+              "a_i_Pa_m6_mol2": 0.16944791720898075,
+              "da_i_dT_Pa_m6_mol2_K": -0.0002921464152028824,
+              "b_i_m3_mol": 2.6802317444263274e-5
+            },
+            {
+              "id": "n_hexane",
+              "alpha": 1.1913802480267277,
+              "dalpha_dT_K_inv": -0.00197005969043278,
+              "a_i_Pa_m6_mol2": 3.1902262350779886,
+              "da_i_dT_Pa_m6_mol2_K": -0.005275340194281346,
+              "b_i_m3_mol": 0.00010791019597217473
+            }
+          ],
+          "a_mix_Pa_m6_mol2": 0.509726480946024,
+          "da_mix_dT_Pa_m6_mol2_K": -0.0008590460501260468,
+          "b_mix_m3_mol": 4.464163755251643e-5,
+          "A": 0.13825157839388227,
+          "B": 0.04026866161053711,
+          "Cp_ig_J_mol_K": 71.46792260967479,
+          "h_ig_J_mol": 6651.921462237357,
+          "s_ig_J_mol_K": -4.683564693265488,
+          "h_res_J_mol": -1126.5129945774847,
+          "s_res_J_mol_K": -2.017279630543363,
+          "h_total_J_mol": 5525.408467659872,
+          "s_total_J_mol_K": -6.700844323808852,
+          "departure_intermediates": {
+            "T_da_minus_a_Pa_m6_mol2": -0.8533449009964427,
+            "PR_log_term": 0.12049296975294188,
+            "ln_Z_minus_B": -0.14402707139700782
+          },
+          "ideal_entropy_terms": {
+            "s_ig_temperature_J_mol_K": 19.10573674345214,
+            "s_ig_pressure_J_mol_K": -28.16968532737465,
+            "s_ig_mixing_J_mol_K": 4.380383890657036
+          },
+          "h_total_J_kg": 175587.34648684398,
+          "s_total_J_kg_K": -212.9405420297071,
+          "direct_equation_comparison": {
+            "reference": {
+              "Cp_ig_J_mol_K": 71.46792260967479,
+              "h_ig_J_mol": 6651.921462237358,
+              "s_ig_temperature_J_mol_K": 19.10573674345214,
+              "s_ig_pressure_J_mol_K": -28.16968532737465,
+              "s_ig_mixing_J_mol_K": 4.380383890657036,
+              "s_ig_J_mol_K": -4.683564693265474,
+              "h_res_J_mol": -1126.512994577484,
+              "s_res_J_mol_K": -2.0172796305433613,
+              "h_total_J_mol": 5525.408467659874,
+              "s_total_J_mol_K": -6.700844323808836
+            },
+            "library_minus_direct": {
+              "Cp_ig_J_mol_K": 0.0,
+              "h_ig_J_mol": -9.094947017729282e-13,
+              "s_ig_J_mol_K": -1.4210854715202004e-14,
+              "h_res_J_mol": -6.821210263296962e-13,
+              "s_res_J_mol_K": -1.7763568394002505e-15,
+              "h_total_J_mol": -1.8189894035458565e-12,
+              "s_total_J_mol_K": -1.5987211554602254e-14
+            }
+          },
+          "consistency": {
+            "g_res_from_fugacity_J_mol": -319.6011423601394,
+            "g_res_identity_error_J_mol": -1.1368683772161603e-13,
+            "finite_difference_step_K": 0.01,
+            "da_mix_dT_finite_difference": -0.0008590460502444497,
+            "dHres_dT_minus_T_dSres_dT_J_mol_K": -4.789413310390955e-9
+          }
+        }
+      },
+      "x": [0.10389339310751823, 0.8961066068924814],
+      "y": [0.7800544110876458, 0.21994558891235402],
+      "material_residual": [-5.551115123125783e-17, -1.6653345369377348e-16],
+      "overall_h_J_mol": -167.03202353726738,
+      "overall_s_J_mol_K": -15.600174177083714,
+      "phase_difference_h_J_mol": 13743.780511689814,
+      "phase_difference_s_J_mol_K": 21.486467253137,
+      "classification_neighborhood": [
+        {
+          "T_K": 398.0,
+          "P_Pa_abs": 2850000.0,
+          "phase": "VL",
+          "beta": 0.587541557279672
+        },
+        {
+          "T_K": 398.0,
+          "P_Pa_abs": 3000000.0,
+          "phase": "VL",
+          "beta": 0.5776488058129259
+        },
+        {
+          "T_K": 398.0,
+          "P_Pa_abs": 3150000.0,
+          "phase": "VL",
+          "beta": 0.568424541089006
+        },
+        {
+          "T_K": 400.0,
+          "P_Pa_abs": 2850000.0,
+          "phase": "VL",
+          "beta": 0.5961415583775589
+        },
+        {
+          "T_K": 400.0,
+          "P_Pa_abs": 3000000.0,
+          "phase": "VL",
+          "beta": 0.5858169819901142
+        },
+        {
+          "T_K": 400.0,
+          "P_Pa_abs": 3150000.0,
+          "phase": "VL",
+          "beta": 0.5762155043011187
+        },
+        {
+          "T_K": 402.0,
+          "P_Pa_abs": 2850000.0,
+          "phase": "VL",
+          "beta": 0.6052279701444374
+        },
+        {
+          "T_K": 402.0,
+          "P_Pa_abs": 3000000.0,
+          "phase": "VL",
+          "beta": 0.5944374627209245
+        },
+        {
+          "T_K": 402.0,
+          "P_Pa_abs": 3150000.0,
+          "phase": "VL",
+          "beta": 0.5844295210878123
+        }
+      ]
+    },
+    {
+      "case_id": "T400_V",
+      "T_K": 400.0,
+      "P_Pa_abs": 1000.0,
+      "z": [0.5, 0.5],
+      "classification": "V",
+      "beta": 1.0,
+      "equilibrium_source": "Thermo PT flash",
+      "phases": {
+        "vapor": {
+          "T_K": 400.0,
+          "P_Pa_abs": 1000.0,
+          "composition": [0.5, 0.5],
+          "phase": "vapor",
+          "Z": 0.9999110773377053,
+          "frozen_M8_Z": null,
+          "mixture_MW_kg_kmol": 51.10908,
+          "mixture_MW_kg_mol": 0.05110908,
+          "pure_parameters": [
+            {
+              "id": "methane",
+              "alpha": 0.678928787938732,
+              "dalpha_dT_K_inv": -0.0011705461763198712,
+              "a_i_Pa_m6_mol2": 0.16944791720898075,
+              "da_i_dT_Pa_m6_mol2_K": -0.0002921464152028824,
+              "b_i_m3_mol": 2.6802317444263274e-5
+            },
+            {
+              "id": "n_hexane",
+              "alpha": 1.1913802480267277,
+              "dalpha_dT_K_inv": -0.00197005969043278,
+              "a_i_Pa_m6_mol2": 3.1902262350779886,
+              "da_i_dT_Pa_m6_mol2_K": -0.005275340194281346,
+              "b_i_m3_mol": 0.00010791019597217473
+            }
+          ],
+          "a_mix_Pa_m6_mol2": 1.2075383113971898,
+          "da_mix_dT_Pa_m6_mol2_K": -0.002012726642785831,
+          "b_mix_m3_mol": 6.7356256708219e-5,
+          "A": 0.00010917232657267865,
+          "B": 2.0252739052899783e-5,
+          "Cp_ig_J_mol_K": 110.7361703798739,
+          "h_ig_J_mol": 10183.544198446856,
+          "s_ig_J_mol_K": 73.39118703433181,
+          "h_res_J_mol": -0.900938284543372,
+          "s_res_J_mol_K": -0.0015130143428134595,
+          "h_total_J_mol": 10182.643260162313,
+          "s_total_J_mol_K": 73.38967401998899,
+          "departure_intermediates": {
+            "T_da_minus_a_Pa_m6_mol2": -2.012628968511522,
+            "PR_log_term": 5.72873304198771e-5,
+            "ln_Z_minus_B": -0.00010918136141551204
+          },
+          "ideal_entropy_terms": {
+            "s_ig_temperature_J_mol_K": 29.229082191640018,
+            "s_ig_pressure_J_mol_K": 38.3989585210478,
+            "s_ig_mixing_J_mol_K": 5.763146321643979
+          },
+          "h_total_J_kg": 199233.5463710619,
+          "s_total_J_kg_K": 1435.9419895640654,
+          "direct_equation_comparison": {
+            "reference": {
+              "Cp_ig_J_mol_K": 110.73617037987393,
+              "h_ig_J_mol": 10183.54419844686,
+              "s_ig_temperature_J_mol_K": 29.229082191640018,
+              "s_ig_pressure_J_mol_K": 38.3989585210478,
+              "s_ig_mixing_J_mol_K": 5.763146321643979,
+              "s_ig_J_mol_K": 73.3911870343318,
+              "h_res_J_mol": -0.9009382845433551,
+              "s_res_J_mol_K": -0.0015130143428136364,
+              "h_total_J_mol": 10182.643260162316,
+              "s_total_J_mol_K": 73.38967401998897
+            },
+            "library_minus_direct": {
+              "Cp_ig_J_mol_K": -2.842170943040401e-14,
+              "h_ig_J_mol": -3.637978807091713e-12,
+              "s_ig_J_mol_K": 1.4210854715202004e-14,
+              "h_res_J_mol": -1.687538997430238e-14,
+              "s_res_J_mol_K": 1.7694179454963432e-16,
+              "h_total_J_mol": -3.637978807091713e-12,
+              "s_total_J_mol_K": 1.4210854715202004e-14
+            }
+          },
+          "consistency": {
+            "g_res_from_fugacity_J_mol": -0.2957325474180353,
+            "g_res_identity_error_J_mol": 4.7128967395337895e-14,
+            "finite_difference_step_K": 0.01,
+            "da_mix_dT_finite_difference": -0.0020127266430636226,
+            "dHres_dT_minus_T_dSres_dT_J_mol_K": -1.814017686063707e-11
+          }
+        }
+      },
+      "classification_neighborhood": [
+        {
+          "T_K": 398.0,
+          "P_Pa_abs": 950.0,
+          "phase": "V",
+          "beta": 1.0
+        },
+        {
+          "T_K": 398.0,
+          "P_Pa_abs": 1000.0,
+          "phase": "V",
+          "beta": 1.0
+        },
+        {
+          "T_K": 398.0,
+          "P_Pa_abs": 1050.0,
+          "phase": "V",
+          "beta": 1.0
+        },
+        {
+          "T_K": 400.0,
+          "P_Pa_abs": 950.0,
+          "phase": "V",
+          "beta": 1.0
+        },
+        {
+          "T_K": 400.0,
+          "P_Pa_abs": 1000.0,
+          "phase": "V",
+          "beta": 1.0
+        },
+        {
+          "T_K": 400.0,
+          "P_Pa_abs": 1050.0,
+          "phase": "V",
+          "beta": 1.0
+        },
+        {
+          "T_K": 402.0,
+          "P_Pa_abs": 950.0,
+          "phase": "V",
+          "beta": 1.0
+        },
+        {
+          "T_K": 402.0,
+          "P_Pa_abs": 1000.0,
+          "phase": "V",
+          "beta": 1.0
+        },
+        {
+          "T_K": 402.0,
+          "P_Pa_abs": 1050.0,
+          "phase": "V",
+          "beta": 1.0
+        }
+      ]
+    }
+  ],
+  "pure_states": [
+    {
+      "T_K": 280.0,
+      "P_Pa_abs": 100000.0,
+      "composition": [1.0, 0.0],
+      "phase": "vapor",
+      "Z": 0.9972836496741846,
+      "frozen_M8_Z": null,
+      "mixture_MW_kg_kmol": 16.0428,
+      "mixture_MW_kg_mol": 0.0160428,
+      "pure_parameters": [
+        {
+          "id": "methane",
+          "alpha": 0.8405014234199728,
+          "dalpha_dT_K_inv": -0.0015566703206319854,
+          "a_i_Pa_m6_mol2": 0.20977342269149796,
+          "da_i_dT_Pa_m6_mol2_K": -0.0003885157741108037,
+          "b_i_m3_mol": 2.6802317444263274e-5
+        },
+        {
+          "id": "n_hexane",
+          "alpha": 1.4627182012854119,
+          "dalpha_dT_K_inv": -0.002609068610829134,
+          "a_i_Pa_m6_mol2": 3.916803210390407,
+          "da_i_dT_Pa_m6_mol2_K": -0.006986450501568878,
+          "b_i_m3_mol": 0.00010791019597217473
+        }
+      ],
+      "a_mix_Pa_m6_mol2": 0.20977342269149796,
+      "da_mix_dT_Pa_m6_mol2_K": -0.0003885157741108037,
+      "b_mix_m3_mol": 2.6802317444263274e-5,
+      "A": 0.003870490728389312,
+      "B": 0.001151277799865815,
+      "Cp_ig_J_mol_K": 35.094168797979926,
+      "h_ig_J_mol": -643.0600981880962,
+      "s_ig_J_mol_K": -2.115607562115187,
+      "h_res_J_mol": -20.028724285553835,
+      "s_res_J_mol_K": -0.048934237669920264,
+      "h_total_J_mol": -663.08882247365,
+      "s_total_J_mol_K": -2.1645417997851073,
+      "departure_intermediates": {
+        "T_da_minus_a_Pa_m6_mol2": -0.318557839442523,
+        "PR_log_term": 0.003261412590892216,
+        "ln_Z_minus_B": -0.0038751267401530994
+      },
+      "ideal_entropy_terms": {
+        "s_ig_temperature_J_mol_K": -2.225050721531169,
+        "s_ig_pressure_J_mol_K": 0.10944315941601715,
+        "s_ig_mixing_J_mol_K": -0.0
+      },
+      "h_total_J_kg": -41332.487001873116,
+      "s_total_J_kg_K": -134.92294361240602,
+      "direct_equation_comparison": {
+        "reference": {
+          "Cp_ig_J_mol_K": 35.094168797979926,
+          "h_ig_J_mol": -643.0600981880948,
+          "s_ig_temperature_J_mol_K": -2.225050721531169,
+          "s_ig_pressure_J_mol_K": 0.10944315941601715,
+          "s_ig_mixing_J_mol_K": -0.0,
+          "s_ig_J_mol_K": -2.115607562115152,
+          "h_res_J_mol": -20.028724285554027,
+          "s_res_J_mol_K": -0.048934237669919944,
+          "h_total_J_mol": -663.0888224736489,
+          "s_total_J_mol_K": -2.1645417997850718
+        },
+        "library_minus_direct": {
+          "Cp_ig_J_mol_K": 0.0,
+          "h_ig_J_mol": -1.3642420526593924e-12,
+          "s_ig_J_mol_K": -3.5083047578154947e-14,
+          "h_res_J_mol": 1.9184653865522705e-13,
+          "s_res_J_mol_K": -3.191891195797325e-16,
+          "h_total_J_mol": -1.1368683772161603e-12,
+          "s_total_J_mol_K": -3.552713678800501e-14
+        }
+      },
+      "consistency": {
+        "g_res_from_fugacity_J_mol": -6.327137737976083,
+        "g_res_identity_error_J_mol": -7.72715225139109e-14,
+        "finite_difference_step_K": 0.01,
+        "da_mix_dT_finite_difference": -0.0003885157742064549,
+        "dHres_dT_minus_T_dSres_dT_J_mol_K": -1.214750522393615e-10
+      },
+      "component_id": "methane",
+      "pure_EOS_h_res_J_mol": -20.028724285553835,
+      "pure_EOS_s_res_J_mol_K": -0.04893423766992025
+    },
+    {
+      "T_K": 300.0,
+      "P_Pa_abs": 100000.0,
+      "composition": [1.0, 0.0],
+      "phase": "vapor",
+      "Z": 0.9978279389642751,
+      "frozen_M8_Z": null,
+      "mixture_MW_kg_kmol": 16.0428,
+      "mixture_MW_kg_mol": 0.0160428,
+      "pure_parameters": [
+        {
+          "id": "methane",
+          "alpha": 0.8101834074909086,
+          "dalpha_dT_K_inv": -0.0014765136941440559,
+          "a_i_Pa_m6_mol2": 0.2022066134114174,
+          "da_i_dT_Pa_m6_mol2_K": -0.00036851018051958957,
+          "b_i_m3_mol": 2.6802317444263274e-5
+        },
+        {
+          "id": "n_hexane",
+          "alpha": 1.4118862442770883,
+          "dalpha_dT_K_inv": -0.0024764149031830706,
+          "a_i_Pa_m6_mol2": 3.7806876057403356,
+          "da_i_dT_Pa_m6_mol2_K": -0.00663123617011276,
+          "b_i_m3_mol": 0.00010791019597217473
+        }
+      ],
+      "a_mix_Pa_m6_mol2": 0.2022066134114174,
+      "da_mix_dT_Pa_m6_mol2_K": -0.00036851018051958957,
+      "b_mix_m3_mol": 2.6802317444263274e-5,
+      "A": 0.003250008344510294,
+      "B": 0.0010745259465414273,
+      "Cp_ig_J_mol_K": 35.85097338842521,
+      "h_ig_J_mol": 66.25634563443055,
+      "s_ig_J_mol_K": 0.3309811915059556,
+      "h_res_J_mol": -17.970423235038197,
+      "s_res_J_mol_K": -0.041827646230886716,
+      "h_total_J_mol": 48.28592239939235,
+      "s_total_J_mol_K": 0.2891535452750689,
+      "departure_intermediates": {
+        "T_da_minus_a_Pa_m6_mol2": -0.3127596675672943,
+        "PR_log_term": 0.003042559994342789,
+        "ln_Z_minus_B": -0.0032518685803261662
+      },
+      "ideal_entropy_terms": {
+        "s_ig_temperature_J_mol_K": 0.22153803208996198,
+        "s_ig_pressure_J_mol_K": 0.10944315941601715,
+        "s_ig_mixing_J_mol_K": -0.0
+      },
+      "h_total_J_kg": 3009.8188844461283,
+      "s_total_J_kg_K": 18.02388269348673,
+      "direct_equation_comparison": {
+        "reference": {
+          "Cp_ig_J_mol_K": 35.85097338842521,
+          "h_ig_J_mol": 66.2563456344309,
+          "s_ig_temperature_J_mol_K": 0.22153803208996198,
+          "s_ig_pressure_J_mol_K": 0.10944315941601715,
+          "s_ig_mixing_J_mol_K": -0.0,
+          "s_ig_J_mol_K": 0.33098119150597916,
+          "h_res_J_mol": -17.97042323503819,
+          "s_res_J_mol_K": -0.04182764623088725,
+          "h_total_J_mol": 48.28592239939271,
+          "s_total_J_mol_K": 0.2891535452750919
+        },
+        "library_minus_direct": {
+          "Cp_ig_J_mol_K": 0.0,
+          "h_ig_J_mol": -3.552713678800501e-13,
+          "s_ig_J_mol_K": -2.353672812205332e-14,
+          "h_res_J_mol": -7.105427357601002e-15,
+          "s_res_J_mol_K": 5.342948306008566e-16,
+          "h_total_J_mol": -3.623767952376511e-13,
+          "s_total_J_mol_K": -2.298161660974074e-14
+        }
+      },
+      "consistency": {
+        "g_res_from_fugacity_J_mol": -5.422129365772136,
+        "g_res_identity_error_J_mol": -4.618527782440651e-14,
+        "finite_difference_step_K": 0.01,
+        "da_mix_dT_finite_difference": -0.0003685101805969704,
+        "dHres_dT_minus_T_dSres_dT_J_mol_K": -9.943018630664824e-11
+      },
+      "component_id": "methane",
+      "pure_EOS_h_res_J_mol": -17.970423235038197,
+      "pure_EOS_s_res_J_mol_K": -0.04182764623088671
+    },
+    {
+      "T_K": 350.0,
+      "P_Pa_abs": 100000.0,
+      "composition": [1.0, 0.0],
+      "phase": "vapor",
+      "Z": 0.9987411588839309,
+      "frozen_M8_Z": null,
+      "mixture_MW_kg_kmol": 16.0428,
+      "mixture_MW_kg_mol": 0.0160428,
+      "pure_parameters": [
+        {
+          "id": "methane",
+          "alpha": 0.7407561093955177,
+          "dalpha_dT_K_inv": -0.0013071036672720965,
+          "a_i_Pa_m6_mol2": 0.18487885935428255,
+          "da_i_dT_Pa_m6_mol2_K": -0.00032622860884706616,
+          "b_i_m3_mol": 2.6802317444263274e-5
+        },
+        {
+          "id": "n_hexane",
+          "alpha": 1.2953445266579169,
+          "dalpha_dT_K_inv": -0.002196052952317178,
+          "a_i_Pa_m6_mol2": 3.4686172607387875,
+          "da_i_dT_Pa_m6_mol2_K": -0.005880495126309631,
+          "b_i_m3_mol": 0.00010791019597217473
+        }
+      ],
+      "a_mix_Pa_m6_mol2": 0.18487885935428255,
+      "da_mix_dT_Pa_m6_mol2_K": -0.00032622860884706616,
+      "b_mix_m3_mol": 2.6802317444263274e-5,
+      "A": 0.0021831460685909103,
+      "B": 0.000921022239892652,
+      "Cp_ig_J_mol_K": 38.06104849176523,
+      "h_ig_J_mol": 1912.322262758873,
+      "s_ig_J_mol_K": 6.018052994079326,
+      "h_res_J_mol": -13.94350278979391,
+      "s_res_J_mol_K": -0.029358336780416876,
+      "h_total_J_mol": 1898.378759969079,
+      "s_total_J_mol_K": 5.988694657298909,
+      "departure_intermediates": {
+        "T_da_minus_a_Pa_m6_mol2": -0.2990588724507557,
+        "PR_log_term": 0.0026059260910357633,
+        "ln_Z_minus_B": -0.0021822427165031897
+      },
+      "ideal_entropy_terms": {
+        "s_ig_temperature_J_mol_K": 5.908609834663344,
+        "s_ig_pressure_J_mol_K": 0.10944315941601715,
+        "s_ig_mixing_J_mol_K": -0.0
+      },
+      "h_total_J_kg": 118332.13403951174,
+      "s_total_J_kg_K": 373.29485235114254,
+      "direct_equation_comparison": {
+        "reference": {
+          "Cp_ig_J_mol_K": 38.06104849176523,
+          "h_ig_J_mol": 1912.3222627588734,
+          "s_ig_temperature_J_mol_K": 5.908609834663344,
+          "s_ig_pressure_J_mol_K": 0.10944315941601715,
+          "s_ig_mixing_J_mol_K": -0.0,
+          "s_ig_J_mol_K": 6.018052994079361,
+          "h_res_J_mol": -13.94350278979384,
+          "s_res_J_mol_K": -0.029358336780417306,
+          "h_total_J_mol": 1898.3787599690795,
+          "s_total_J_mol_K": 5.988694657298944
+        },
+        "library_minus_direct": {
+          "Cp_ig_J_mol_K": 0.0,
+          "h_ig_J_mol": -4.547473508864641e-13,
+          "s_ig_J_mol_K": -3.4638958368304884e-14,
+          "h_res_J_mol": -7.105427357601002e-14,
+          "s_res_J_mol_K": 4.3021142204224816e-16,
+          "h_total_J_mol": -4.547473508864641e-13,
+          "s_total_J_mol_K": -3.4638958368304884e-14
+        }
+      },
+      "consistency": {
+        "g_res_from_fugacity_J_mol": -3.6680849166477176,
+        "g_res_identity_error_J_mol": -2.864375403532904e-13,
+        "finite_difference_step_K": 0.01,
+        "da_mix_dT_finite_difference": -0.00032622860890035854,
+        "dHres_dT_minus_T_dSres_dT_J_mol_K": -7.717992911437932e-11
+      },
+      "component_id": "methane",
+      "pure_EOS_h_res_J_mol": -13.94350278979391,
+      "pure_EOS_s_res_J_mol_K": -0.029358336780416872
+    },
+    {
+      "T_K": 400.0,
+      "P_Pa_abs": 100000.0,
+      "composition": [1.0, 0.0],
+      "phase": "vapor",
+      "Z": 0.9992765259100684,
+      "frozen_M8_Z": null,
+      "mixture_MW_kg_kmol": 16.0428,
+      "mixture_MW_kg_mol": 0.0160428,
+      "pure_parameters": [
+        {
+          "id": "methane",
+          "alpha": 0.678928787938732,
+          "dalpha_dT_K_inv": -0.0011705461763198712,
+          "a_i_Pa_m6_mol2": 0.16944791720898075,
+          "da_i_dT_Pa_m6_mol2_K": -0.0002921464152028824,
+          "b_i_m3_mol": 2.6802317444263274e-5
+        },
+        {
+          "id": "n_hexane",
+          "alpha": 1.1913802480267277,
+          "dalpha_dT_K_inv": -0.00197005969043278,
+          "a_i_Pa_m6_mol2": 3.1902262350779886,
+          "da_i_dT_Pa_m6_mol2_K": -0.005275340194281346,
+          "b_i_m3_mol": 0.00010791019597217473
+        }
+      ],
+      "a_mix_Pa_m6_mol2": 0.16944791720898075,
+      "da_mix_dT_Pa_m6_mol2_K": -0.0002921464152028824,
+      "b_mix_m3_mol": 2.6802317444263274e-5,
+      "A": 0.0015319616098303872,
+      "B": 0.0008058944599060705,
+      "Cp_ig_J_mol_K": 40.62792316874588,
+      "h_ig_J_mol": 3878.3002951393664,
+      "s_ig_J_mol_K": 11.264634979410218,
+      "h_res_J_mol": -11.014102316312346,
+      "s_res_J_mol_K": -0.021509175395666744,
+      "h_total_J_mol": 3867.286192823054,
+      "s_total_J_mol_K": 11.243125804014552,
+      "departure_intermediates": {
+        "T_da_minus_a_Pa_m6_mol2": -0.2863064832901337,
+        "PR_log_term": 0.002279226882130538,
+        "ln_Z_minus_B": -0.001530539227669084
+      },
+      "ideal_entropy_terms": {
+        "s_ig_temperature_J_mol_K": 11.155191819994226,
+        "s_ig_pressure_J_mol_K": 0.10944315941601715,
+        "s_ig_mixing_J_mol_K": -0.0
+      },
+      "h_total_J_kg": 241060.55007997694,
+      "s_total_J_kg_K": 700.8206674654394,
+      "direct_equation_comparison": {
+        "reference": {
+          "Cp_ig_J_mol_K": 40.62792316874588,
+          "h_ig_J_mol": 3878.3002951393664,
+          "s_ig_temperature_J_mol_K": 11.155191819994226,
+          "s_ig_pressure_J_mol_K": 0.10944315941601715,
+          "s_ig_mixing_J_mol_K": -0.0,
+          "s_ig_J_mol_K": 11.264634979410243,
+          "h_res_J_mol": -11.014102316312574,
+          "s_res_J_mol_K": -0.021509175395666977,
+          "h_total_J_mol": 3867.286192823054,
+          "s_total_J_mol_K": 11.243125804014575
+        },
+        "library_minus_direct": {
+          "Cp_ig_J_mol_K": 0.0,
+          "h_ig_J_mol": 0.0,
+          "s_ig_J_mol_K": -2.4868995751603507e-14,
+          "h_res_J_mol": 2.2737367544323206e-13,
+          "s_res_J_mol_K": 2.3245294578089215e-16,
+          "h_total_J_mol": 0.0,
+          "s_total_J_mol_K": -2.3092638912203256e-14
+        }
+      },
+      "consistency": {
+        "g_res_from_fugacity_J_mol": -2.4104321580457078,
+        "g_res_identity_error_J_mol": 5.995204332975845e-14,
+        "finite_difference_step_K": 0.01,
+        "da_mix_dT_finite_difference": -0.00029214641524277773,
+        "dHres_dT_minus_T_dSres_dT_J_mol_K": -3.6234903966203547e-11
+      },
+      "component_id": "methane",
+      "pure_EOS_h_res_J_mol": -11.014102316312346,
+      "pure_EOS_s_res_J_mol_K": -0.02150917539566674
+    },
+    {
+      "T_K": 280.0,
+      "P_Pa_abs": 1000.0,
+      "composition": [0.0, 1.0],
+      "phase": "vapor",
+      "Z": 0.9993232812903654,
+      "frozen_M8_Z": null,
+      "mixture_MW_kg_kmol": 86.17536,
+      "mixture_MW_kg_mol": 0.08617535999999999,
+      "pure_parameters": [
+        {
+          "id": "methane",
+          "alpha": 0.8405014234199728,
+          "dalpha_dT_K_inv": -0.0015566703206319854,
+          "a_i_Pa_m6_mol2": 0.20977342269149796,
+          "da_i_dT_Pa_m6_mol2_K": -0.0003885157741108037,
+          "b_i_m3_mol": 2.6802317444263274e-5
+        },
+        {
+          "id": "n_hexane",
+          "alpha": 1.4627182012854119,
+          "dalpha_dT_K_inv": -0.002609068610829134,
+          "a_i_Pa_m6_mol2": 3.916803210390407,
+          "da_i_dT_Pa_m6_mol2_K": -0.006986450501568878,
+          "b_i_m3_mol": 0.00010791019597217473
+        }
+      ],
+      "a_mix_Pa_m6_mol2": 3.916803210390407,
+      "da_mix_dT_Pa_m6_mol2_K": -0.006986450501568878,
+      "b_mix_m3_mol": 0.00010791019597217473,
+      "A": 0.0007226821356219398,
+      "B": 4.635219072391266e-5,
+      "Cp_ig_J_mol_K": 136.48090326799297,
+      "h_ig_J_mol": -2536.5145661839597,
+      "s_ig_J_mol_K": 29.623641489630472,
+      "h_res_J_mol": -4.09974258241391,
+      "s_res_J_mol_K": -0.009017002240211234,
+      "h_total_J_mol": -2540.6143087663736,
+      "s_total_J_mol_K": 29.614624487390262,
+      "departure_intermediates": {
+        "T_da_minus_a_Pa_m6_mol2": -5.873009350829693,
+        "PR_log_term": 0.00013118648929353097,
+        "ln_Z_minus_B": -0.000723332442205107
+      },
+      "ideal_entropy_terms": {
+        "s_ig_temperature_J_mol_K": -8.77531703141732,
+        "s_ig_pressure_J_mol_K": 38.3989585210478,
+        "s_ig_mixing_J_mol_K": -0.0
+      },
+      "h_total_J_kg": -29481.911172362656,
+      "s_total_J_kg_K": 343.6553614326678,
+      "direct_equation_comparison": {
+        "reference": {
+          "Cp_ig_J_mol_K": 136.48090326799297,
+          "h_ig_J_mol": -2536.51456618396,
+          "s_ig_temperature_J_mol_K": -8.77531703141732,
+          "s_ig_pressure_J_mol_K": 38.3989585210478,
+          "s_ig_mixing_J_mol_K": -0.0,
+          "s_ig_J_mol_K": 29.623641489630483,
+          "h_res_J_mol": -4.099742582414026,
+          "s_res_J_mol_K": -0.009017002240211073,
+          "h_total_J_mol": -2540.614308766374,
+          "s_total_J_mol_K": 29.614624487390273
+        },
+        "library_minus_direct": {
+          "Cp_ig_J_mol_K": 0.0,
+          "h_ig_J_mol": 4.547473508864641e-13,
+          "s_ig_J_mol_K": -1.0658141036401503e-14,
+          "h_res_J_mol": 1.163513729807164e-13,
+          "s_res_J_mol_K": -1.6132928326584306e-16,
+          "h_total_J_mol": 4.547473508864641e-13,
+          "s_total_J_mol_K": -1.0658141036401503e-14
+        }
+      },
+      "consistency": {
+        "g_res_from_fugacity_J_mol": -1.5749819551567223,
+        "g_res_identity_error_J_mol": 1.957989326228926e-12,
+        "finite_difference_step_K": 0.01,
+        "da_mix_dT_finite_difference": -0.006986450503321251,
+        "dHres_dT_minus_T_dSres_dT_J_mol_K": -2.7183810757946958e-11
+      },
+      "component_id": "n_hexane",
+      "pure_EOS_h_res_J_mol": -4.09974258241391,
+      "pure_EOS_s_res_J_mol_K": -0.009017002240211234
+    },
+    {
+      "T_K": 280.0,
+      "P_Pa_abs": 30000000.0,
+      "composition": [0.0, 1.0],
+      "phase": "liquid",
+      "Z": 1.57591215990662,
+      "frozen_M8_Z": null,
+      "mixture_MW_kg_kmol": 86.17536,
+      "mixture_MW_kg_mol": 0.08617535999999999,
+      "pure_parameters": [
+        {
+          "id": "methane",
+          "alpha": 0.8405014234199728,
+          "dalpha_dT_K_inv": -0.0015566703206319854,
+          "a_i_Pa_m6_mol2": 0.20977342269149796,
+          "da_i_dT_Pa_m6_mol2_K": -0.0003885157741108037,
+          "b_i_m3_mol": 2.6802317444263274e-5
+        },
+        {
+          "id": "n_hexane",
+          "alpha": 1.4627182012854119,
+          "dalpha_dT_K_inv": -0.002609068610829134,
+          "a_i_Pa_m6_mol2": 3.916803210390407,
+          "da_i_dT_Pa_m6_mol2_K": -0.006986450501568878,
+          "b_i_m3_mol": 0.00010791019597217473
+        }
+      ],
+      "a_mix_Pa_m6_mol2": 3.916803210390407,
+      "da_mix_dT_Pa_m6_mol2_K": -0.006986450501568878,
+      "b_mix_m3_mol": 0.00010791019597217473,
+      "A": 21.680464068658193,
+      "B": 1.39056572171738,
+      "Cp_ig_J_mol_K": 136.48090326799297,
+      "h_ig_J_mol": -2536.5145661839597,
+      "s_ig_J_mol_K": -56.089760039607874,
+      "h_res_J_mol": -29370.335269847918,
+      "s_res_J_mol_K": -50.54774794156786,
+      "h_total_J_mol": -31906.849836031877,
+      "s_total_J_mol_K": -106.63750798117573,
+      "departure_intermediates": {
+        "T_da_minus_a_Pa_m6_mol2": -5.873009350829693,
+        "PR_log_term": 1.596033398167524,
+        "ln_Z_minus_B": -1.6855285662453015
+      },
+      "ideal_entropy_terms": {
+        "s_ig_temperature_J_mol_K": -8.77531703141732,
+        "s_ig_pressure_J_mol_K": -47.314443008190544,
+        "s_ig_mixing_J_mol_K": -0.0
+      },
+      "h_total_J_kg": -370254.90622878604,
+      "s_total_J_kg_K": -1237.4477806785576,
+      "direct_equation_comparison": {
+        "reference": {
+          "Cp_ig_J_mol_K": 136.48090326799297,
+          "h_ig_J_mol": -2536.51456618396,
+          "s_ig_temperature_J_mol_K": -8.77531703141732,
+          "s_ig_pressure_J_mol_K": -47.314443008190544,
+          "s_ig_mixing_J_mol_K": -0.0,
+          "s_ig_J_mol_K": -56.08976003960787,
+          "h_res_J_mol": -29370.335269847918,
+          "s_res_J_mol_K": -50.54774794156787,
+          "h_total_J_mol": -31906.849836031877,
+          "s_total_J_mol_K": -106.63750798117573
+        },
+        "library_minus_direct": {
+          "Cp_ig_J_mol_K": 0.0,
+          "h_ig_J_mol": 4.547473508864641e-13,
+          "s_ig_J_mol_K": -7.105427357601002e-15,
+          "h_res_J_mol": 0.0,
+          "s_res_J_mol_K": 7.105427357601002e-15,
+          "h_total_J_mol": 0.0,
+          "s_total_J_mol_K": 0.0
+        }
+      },
+      "consistency": {
+        "g_res_from_fugacity_J_mol": -15216.965846208923,
+        "g_res_identity_error_J_mol": 7.275957614183426e-12,
+        "finite_difference_step_K": 0.01,
+        "da_mix_dT_finite_difference": -0.006986450503321251,
+        "dHres_dT_minus_T_dSres_dT_J_mol_K": -1.8269474821863696e-8
+      },
+      "component_id": "n_hexane",
+      "pure_EOS_h_res_J_mol": -29370.335269847918,
+      "pure_EOS_s_res_J_mol_K": -50.54774794156785
+    },
+    {
+      "T_K": 300.0,
+      "P_Pa_abs": 1000.0,
+      "composition": [0.0, 1.0],
+      "phase": "vapor",
+      "Z": 0.9994353387050369,
+      "frozen_M8_Z": null,
+      "mixture_MW_kg_kmol": 86.17536,
+      "mixture_MW_kg_mol": 0.08617535999999999,
+      "pure_parameters": [
+        {
+          "id": "methane",
+          "alpha": 0.8101834074909086,
+          "dalpha_dT_K_inv": -0.0014765136941440559,
+          "a_i_Pa_m6_mol2": 0.2022066134114174,
+          "da_i_dT_Pa_m6_mol2_K": -0.00036851018051958957,
+          "b_i_m3_mol": 2.6802317444263274e-5
+        },
+        {
+          "id": "n_hexane",
+          "alpha": 1.4118862442770883,
+          "dalpha_dT_K_inv": -0.0024764149031830706,
+          "a_i_Pa_m6_mol2": 3.7806876057403356,
+          "da_i_dT_Pa_m6_mol2_K": -0.00663123617011276,
+          "b_i_m3_mol": 0.00010791019597217473
+        }
+      ],
+      "a_mix_Pa_m6_mol2": 3.7806876057403356,
+      "da_mix_dT_Pa_m6_mol2_K": -0.00663123617011276,
+      "b_mix_m3_mol": 0.00010791019597217473,
+      "A": 0.0006076589711555371,
+      "B": 4.3262044675651816e-5,
+      "Cp_ig_J_mol_K": 143.7176813729099,
+      "h_ig_J_mol": 265.2535028004568,
+      "s_ig_J_mol_K": 39.2858721889055,
+      "h_res_J_mol": -3.7229250647960725,
+      "s_res_J_mol_K": -0.007715994407053336,
+      "h_total_J_mol": 261.5305777356607,
+      "s_total_J_mol_K": 39.27815619449845,
+      "departure_intermediates": {
+        "T_da_minus_a_Pa_m6_mol2": -5.770058456774164,
+        "PR_log_term": 0.00012242737432662044,
+        "ln_Z_minus_B": -0.0006081081999566085
+      },
+      "ideal_entropy_terms": {
+        "s_ig_temperature_J_mol_K": 0.8869136678577276,
+        "s_ig_pressure_J_mol_K": 38.3989585210478,
+        "s_ig_mixing_J_mol_K": -0.0
+      },
+      "h_total_J_kg": 3034.864928161144,
+      "s_total_J_kg_K": 455.79335200338534,
+      "direct_equation_comparison": {
+        "reference": {
+          "Cp_ig_J_mol_K": 143.7176813729099,
+          "h_ig_J_mol": 265.2535028004558,
+          "s_ig_temperature_J_mol_K": 0.8869136678577276,
+          "s_ig_pressure_J_mol_K": 38.3989585210478,
+          "s_ig_mixing_J_mol_K": -0.0,
+          "s_ig_J_mol_K": 39.28587218890553,
+          "h_res_J_mol": -3.7229250647961565,
+          "s_res_J_mol_K": -0.007715994407052449,
+          "h_total_J_mol": 261.5305777356597,
+          "s_total_J_mol_K": 39.27815619449848
+        },
+        "library_minus_direct": {
+          "Cp_ig_J_mol_K": 0.0,
+          "h_ig_J_mol": 9.663381206337363e-13,
+          "s_ig_J_mol_K": -2.842170943040401e-14,
+          "h_res_J_mol": 8.393286066166183e-14,
+          "s_res_J_mol_K": -8.864436962241484e-16,
+          "h_total_J_mol": 1.0231815394945443e-12,
+          "s_total_J_mol_K": -2.842170943040401e-14
+        }
+      },
+      "consistency": {
+        "g_res_from_fugacity_J_mol": -1.408126742681517,
+        "g_res_identity_error_J_mol": 1.4450662888521038e-12,
+        "finite_difference_step_K": 0.01,
+        "da_mix_dT_finite_difference": -0.006631236171505961,
+        "dHres_dT_minus_T_dSres_dT_J_mol_K": -7.85951165260812e-12
+      },
+      "component_id": "n_hexane",
+      "pure_EOS_h_res_J_mol": -3.7229250647960725,
+      "pure_EOS_s_res_J_mol_K": -0.007715994407053335
+    },
+    {
+      "T_K": 300.0,
+      "P_Pa_abs": 30000000.0,
+      "composition": [0.0, 1.0],
+      "phase": "liquid",
+      "Z": 1.4930093418267467,
+      "frozen_M8_Z": null,
+      "mixture_MW_kg_kmol": 86.17536,
+      "mixture_MW_kg_mol": 0.08617535999999999,
+      "pure_parameters": [
+        {
+          "id": "methane",
+          "alpha": 0.8101834074909086,
+          "dalpha_dT_K_inv": -0.0014765136941440559,
+          "a_i_Pa_m6_mol2": 0.2022066134114174,
+          "da_i_dT_Pa_m6_mol2_K": -0.00036851018051958957,
+          "b_i_m3_mol": 2.6802317444263274e-5
+        },
+        {
+          "id": "n_hexane",
+          "alpha": 1.4118862442770883,
+          "dalpha_dT_K_inv": -0.0024764149031830706,
+          "a_i_Pa_m6_mol2": 3.7806876057403356,
+          "da_i_dT_Pa_m6_mol2_K": -0.00663123617011276,
+          "b_i_m3_mol": 0.00010791019597217473
+        }
+      ],
+      "a_mix_Pa_m6_mol2": 3.7806876057403356,
+      "da_mix_dT_Pa_m6_mol2_K": -0.00663123617011276,
+      "b_mix_m3_mol": 0.00010791019597217473,
+      "A": 18.229769134666114,
+      "B": 1.2978613402695545,
+      "Cp_ig_J_mol_K": 143.7176813729099,
+      "h_ig_J_mol": 265.2535028004568,
+      "s_ig_J_mol_K": -46.427529340332846,
+      "h_res_J_mol": -28590.16429239886,
+      "s_res_J_mol_K": -47.85630522889555,
+      "h_total_J_mol": -28324.9107895984,
+      "s_total_J_mol_K": -94.28383456922839,
+      "departure_intermediates": {
+        "T_da_minus_a_Pa_m6_mol2": -5.770058456774164,
+        "PR_log_term": 1.57736934048066,
+        "ln_Z_minus_B": -1.633997025955259
+      },
+      "ideal_entropy_terms": {
+        "s_ig_temperature_J_mol_K": 0.8869136678577276,
+        "s_ig_pressure_J_mol_K": -47.314443008190544,
+        "s_ig_mixing_J_mol_K": -0.0
+      },
+      "h_total_J_kg": -328689.2075600079,
+      "s_total_J_kg_K": -1094.092726380585,
+      "direct_equation_comparison": {
+        "reference": {
+          "Cp_ig_J_mol_K": 143.7176813729099,
+          "h_ig_J_mol": 265.2535028004558,
+          "s_ig_temperature_J_mol_K": 0.8869136678577276,
+          "s_ig_pressure_J_mol_K": -47.314443008190544,
+          "s_ig_mixing_J_mol_K": -0.0,
+          "s_ig_J_mol_K": -46.42752934033282,
+          "h_res_J_mol": -28590.164292398862,
+          "s_res_J_mol_K": -47.85630522889556,
+          "h_total_J_mol": -28324.910789598405,
+          "s_total_J_mol_K": -94.28383456922838
+        },
+        "library_minus_direct": {
+          "Cp_ig_J_mol_K": 0.0,
+          "h_ig_J_mol": 9.663381206337363e-13,
+          "s_ig_J_mol_K": -2.842170943040401e-14,
+          "h_res_J_mol": 3.637978807091713e-12,
+          "s_res_J_mol_K": 7.105427357601002e-15,
+          "h_total_J_mol": 3.637978807091713e-12,
+          "s_total_J_mol_K": -1.4210854715202004e-14
+        }
+      },
+      "consistency": {
+        "g_res_from_fugacity_J_mol": -14233.272723730197,
+        "g_res_identity_error_J_mol": 3.637978807091713e-12,
+        "finite_difference_step_K": 0.01,
+        "da_mix_dT_finite_difference": -0.006631236171505961,
+        "dHres_dT_minus_T_dSres_dT_J_mol_K": -1.5791101759532467e-8
+      },
+      "component_id": "n_hexane",
+      "pure_EOS_h_res_J_mol": -28590.164292398847,
+      "pure_EOS_s_res_J_mol_K": -47.85630522889554
+    },
+    {
+      "T_K": 350.0,
+      "P_Pa_abs": 1000.0,
+      "composition": [0.0, 1.0],
+      "phase": "vapor",
+      "Z": 0.9996273822389576,
+      "frozen_M8_Z": null,
+      "mixture_MW_kg_kmol": 86.17536,
+      "mixture_MW_kg_mol": 0.08617535999999999,
+      "pure_parameters": [
+        {
+          "id": "methane",
+          "alpha": 0.7407561093955177,
+          "dalpha_dT_K_inv": -0.0013071036672720965,
+          "a_i_Pa_m6_mol2": 0.18487885935428255,
+          "da_i_dT_Pa_m6_mol2_K": -0.00032622860884706616,
+          "b_i_m3_mol": 2.6802317444263274e-5
+        },
+        {
+          "id": "n_hexane",
+          "alpha": 1.2953445266579169,
+          "dalpha_dT_K_inv": -0.002196052952317178,
+          "a_i_Pa_m6_mol2": 3.4686172607387875,
+          "da_i_dT_Pa_m6_mol2_K": -0.005880495126309631,
+          "b_i_m3_mol": 0.00010791019597217473
+        }
+      ],
+      "a_mix_Pa_m6_mol2": 3.4686172607387875,
+      "da_mix_dT_Pa_m6_mol2_K": -0.005880495126309631,
+      "b_mix_m3_mol": 0.00010791019597217473,
+      "A": 0.0004095924305611012,
+      "B": 3.708175257913013e-5,
+      "Cp_ig_J_mol_K": 162.21323464622662,
+      "h_ig_J_mol": 7911.85306917593,
+      "s_ig_J_mol_K": 62.823817643748384,
+      "h_res_J_mol": -2.984178552560479,
+      "s_res_J_mol_K": -0.005428553257934368,
+      "h_total_J_mol": 7908.868890623369,
+      "s_total_J_mol_K": 62.81838909049045,
+      "departure_intermediates": {
+        "T_da_minus_a_Pa_m6_mol2": -5.5267905549471585,
+        "PR_log_term": 0.0001049182387712022,
+        "ln_Z_minus_B": -0.00040978346339743305
+      },
+      "ideal_entropy_terms": {
+        "s_ig_temperature_J_mol_K": 24.424859122700614,
+        "s_ig_pressure_J_mol_K": 38.3989585210478,
+        "s_ig_mixing_J_mol_K": -0.0
+      },
+      "h_total_J_kg": 91776.45316043205,
+      "s_total_J_kg_K": 728.9599845070616,
+      "direct_equation_comparison": {
+        "reference": {
+          "Cp_ig_J_mol_K": 162.21323464622662,
+          "h_ig_J_mol": 7911.853069175935,
+          "s_ig_temperature_J_mol_K": 24.424859122700614,
+          "s_ig_pressure_J_mol_K": 38.3989585210478,
+          "s_ig_mixing_J_mol_K": -0.0,
+          "s_ig_J_mol_K": 62.82381764374841,
+          "h_res_J_mol": -2.98417855256068,
+          "s_res_J_mol_K": -0.005428553257935311,
+          "h_total_J_mol": 7908.868890623375,
+          "s_total_J_mol_K": 62.81838909049048
+        },
+        "library_minus_direct": {
+          "Cp_ig_J_mol_K": 0.0,
+          "h_ig_J_mol": -5.4569682106375694e-12,
+          "s_ig_J_mol_K": -2.842170943040401e-14,
+          "h_res_J_mol": 2.007283228522283e-13,
+          "s_res_J_mol_K": 9.428222091933947e-16,
+          "h_total_J_mol": -5.4569682106375694e-12,
+          "s_total_J_mol_K": -2.842170943040401e-14
+        }
+      },
+      "consistency": {
+        "g_res_from_fugacity_J_mol": -1.084184912285469,
+        "g_res_identity_error_J_mol": 2.0188295479783847e-12,
+        "finite_difference_step_K": 0.01,
+        "da_mix_dT_finite_difference": -0.005880495127197349,
+        "dHres_dT_minus_T_dSres_dT_J_mol_K": 2.6024148114256462e-11
+      },
+      "component_id": "n_hexane",
+      "pure_EOS_h_res_J_mol": -2.984178552560479,
+      "pure_EOS_s_res_J_mol_K": -0.0054285532579343675
+    },
+    {
+      "T_K": 350.0,
+      "P_Pa_abs": 30000000.0,
+      "composition": [0.0, 1.0],
+      "phase": "liquid",
+      "Z": 1.3348394092732587,
+      "frozen_M8_Z": null,
+      "mixture_MW_kg_kmol": 86.17536,
+      "mixture_MW_kg_mol": 0.08617535999999999,
+      "pure_parameters": [
+        {
+          "id": "methane",
+          "alpha": 0.7407561093955177,
+          "dalpha_dT_K_inv": -0.0013071036672720965,
+          "a_i_Pa_m6_mol2": 0.18487885935428255,
+          "da_i_dT_Pa_m6_mol2_K": -0.00032622860884706616,
+          "b_i_m3_mol": 2.6802317444263274e-5
+        },
+        {
+          "id": "n_hexane",
+          "alpha": 1.2953445266579169,
+          "dalpha_dT_K_inv": -0.002196052952317178,
+          "a_i_Pa_m6_mol2": 3.4686172607387875,
+          "da_i_dT_Pa_m6_mol2_K": -0.005880495126309631,
+          "b_i_m3_mol": 0.00010791019597217473
+        }
+      ],
+      "a_mix_Pa_m6_mol2": 3.4686172607387875,
+      "da_mix_dT_Pa_m6_mol2_K": -0.005880495126309631,
+      "b_mix_m3_mol": 0.00010791019597217473,
+      "A": 12.287772916833037,
+      "B": 1.1124525773739038,
+      "Cp_ig_J_mol_K": 162.21323464622662,
+      "h_ig_J_mol": 7911.85306917593,
+      "s_ig_J_mol_K": -22.889583885489962,
+      "h_res_J_mol": -26658.765616597782,
+      "s_res_J_mol_K": -41.90108041388933,
+      "h_total_J_mol": -18746.912547421853,
+      "s_total_J_mol_K": -64.7906642993793,
+      "departure_intermediates": {
+        "T_da_minus_a_Pa_m6_mol2": -5.5267905549471585,
+        "PR_log_term": 1.5260373444229904,
+        "ln_Z_minus_B": -1.5033369274442712
+      },
+      "ideal_entropy_terms": {
+        "s_ig_temperature_J_mol_K": 24.424859122700614,
+        "s_ig_pressure_J_mol_K": -47.314443008190544,
+        "s_ig_mixing_J_mol_K": -0.0
+      },
+      "h_total_J_kg": -217543.76828158135,
+      "s_total_J_kg_K": -751.8467494580738,
+      "direct_equation_comparison": {
+        "reference": {
+          "Cp_ig_J_mol_K": 162.21323464622662,
+          "h_ig_J_mol": 7911.853069175935,
+          "s_ig_temperature_J_mol_K": 24.424859122700614,
+          "s_ig_pressure_J_mol_K": -47.314443008190544,
+          "s_ig_mixing_J_mol_K": -0.0,
+          "s_ig_J_mol_K": -22.88958388548993,
+          "h_res_J_mol": -26658.765616597768,
+          "s_res_J_mol_K": -41.901080413889325,
+          "h_total_J_mol": -18746.91254742183,
+          "s_total_J_mol_K": -64.79066429937926
+        },
+        "library_minus_direct": {
+          "Cp_ig_J_mol_K": 0.0,
+          "h_ig_J_mol": -5.4569682106375694e-12,
+          "s_ig_J_mol_K": -3.197442310920451e-14,
+          "h_res_J_mol": -1.4551915228366852e-11,
+          "s_res_J_mol_K": -7.105427357601002e-15,
+          "h_total_J_mol": -2.1827872842550278e-11,
+          "s_total_J_mol_K": -4.263256414560601e-14
+        }
+      },
+      "consistency": {
+        "g_res_from_fugacity_J_mol": -11993.387471736509,
+        "g_res_identity_error_J_mol": -7.275957614183426e-12,
+        "finite_difference_step_K": 0.01,
+        "da_mix_dT_finite_difference": -0.005880495127197349,
+        "dHres_dT_minus_T_dSres_dT_J_mol_K": -1.0661693750080303e-8
+      },
+      "component_id": "n_hexane",
+      "pure_EOS_h_res_J_mol": -26658.765616597753,
+      "pure_EOS_s_res_J_mol_K": -41.9010804138893
+    },
+    {
+      "T_K": 400.0,
+      "P_Pa_abs": 1000.0,
+      "composition": [0.0, 1.0],
+      "phase": "vapor",
+      "Z": 0.99974397560669,
+      "frozen_M8_Z": null,
+      "mixture_MW_kg_kmol": 86.17536,
+      "mixture_MW_kg_mol": 0.08617535999999999,
+      "pure_parameters": [
+        {
+          "id": "methane",
+          "alpha": 0.678928787938732,
+          "dalpha_dT_K_inv": -0.0011705461763198712,
+          "a_i_Pa_m6_mol2": 0.16944791720898075,
+          "da_i_dT_Pa_m6_mol2_K": -0.0002921464152028824,
+          "b_i_m3_mol": 2.6802317444263274e-5
+        },
+        {
+          "id": "n_hexane",
+          "alpha": 1.1913802480267277,
+          "dalpha_dT_K_inv": -0.00197005969043278,
+          "a_i_Pa_m6_mol2": 3.1902262350779886,
+          "da_i_dT_Pa_m6_mol2_K": -0.005275340194281346,
+          "b_i_m3_mol": 0.00010791019597217473
+        }
+      ],
+      "a_mix_Pa_m6_mol2": 3.1902262350779886,
+      "da_mix_dT_Pa_m6_mol2_K": -0.005275340194281346,
+      "b_mix_m3_mol": 0.00010791019597217473,
+      "A": 0.00028842515147505063,
+      "B": 3.244653350673886e-5,
+      "Cp_ig_J_mol_K": 180.84441759100193,
+      "h_ig_J_mol": 16488.788101754348,
+      "s_ig_J_mol_K": 85.70193108433364,
+      "h_res_J_mol": -2.445556144634338,
+      "s_res_J_mol_K": -0.003985375440285397,
+      "h_total_J_mol": 16486.342545609714,
+      "s_total_J_mol_K": 85.69794570889336,
+      "departure_intermediates": {
+        "T_da_minus_a_Pa_m6_mol2": -5.3003623127905275,
+        "PR_log_term": 9.179317846127083e-5,
+        "ln_Z_minus_B": -0.00028851254255800893
+      },
+      "ideal_entropy_terms": {
+        "s_ig_temperature_J_mol_K": 47.30297256328581,
+        "s_ig_pressure_J_mol_K": 38.3989585210478,
+        "s_ig_mixing_J_mol_K": -0.0
+      },
+      "h_total_J_kg": 191311.5598891576,
+      "s_total_J_kg_K": 994.4599675463307,
+      "direct_equation_comparison": {
+        "reference": {
+          "Cp_ig_J_mol_K": 180.84441759100196,
+          "h_ig_J_mol": 16488.788101754355,
+          "s_ig_temperature_J_mol_K": 47.30297256328581,
+          "s_ig_pressure_J_mol_K": 38.3989585210478,
+          "s_ig_mixing_J_mol_K": -0.0,
+          "s_ig_J_mol_K": 85.70193108433361,
+          "h_res_J_mol": -2.4455561446345246,
+          "s_res_J_mol_K": -0.0039853754402856,
+          "h_total_J_mol": 16486.34254560972,
+          "s_total_J_mol_K": 85.69794570889333
+        },
+        "library_minus_direct": {
+          "Cp_ig_J_mol_K": -2.842170943040401e-14,
+          "h_ig_J_mol": -7.275957614183426e-12,
+          "s_ig_J_mol_K": 2.842170943040401e-14,
+          "h_res_J_mol": 1.865174681370263e-13,
+          "s_res_J_mol_K": 2.0296264668928643e-16,
+          "h_total_J_mol": -7.275957614183426e-12,
+          "s_total_J_mol_K": 2.842170943040401e-14
+        }
+      },
+      "consistency": {
+        "g_res_from_fugacity_J_mol": -0.8514059685220058,
+        "g_res_identity_error_J_mol": 1.826427897810845e-12,
+        "finite_difference_step_K": 0.01,
+        "da_mix_dT_finite_difference": -0.005275340194987876,
+        "dHres_dT_minus_T_dSres_dT_J_mol_K": -1.1879386363489175e-11
+      },
+      "component_id": "n_hexane",
+      "pure_EOS_h_res_J_mol": -2.445556144634338,
+      "pure_EOS_s_res_J_mol_K": -0.003985375440285396
+    },
+    {
+      "T_K": 400.0,
+      "P_Pa_abs": 30000000.0,
+      "composition": [0.0, 1.0],
+      "phase": "liquid",
+      "Z": 1.2276088856395146,
+      "frozen_M8_Z": null,
+      "mixture_MW_kg_kmol": 86.17536,
+      "mixture_MW_kg_mol": 0.08617535999999999,
+      "pure_parameters": [
+        {
+          "id": "methane",
+          "alpha": 0.678928787938732,
+          "dalpha_dT_K_inv": -0.0011705461763198712,
+          "a_i_Pa_m6_mol2": 0.16944791720898075,
+          "da_i_dT_Pa_m6_mol2_K": -0.0002921464152028824,
+          "b_i_m3_mol": 2.6802317444263274e-5
+        },
+        {
+          "id": "n_hexane",
+          "alpha": 1.1913802480267277,
+          "dalpha_dT_K_inv": -0.00197005969043278,
+          "a_i_Pa_m6_mol2": 3.1902262350779886,
+          "da_i_dT_Pa_m6_mol2_K": -0.005275340194281346,
+          "b_i_m3_mol": 0.00010791019597217473
+        }
+      ],
+      "a_mix_Pa_m6_mol2": 3.1902262350779886,
+      "da_mix_dT_Pa_m6_mol2_K": -0.005275340194281346,
+      "b_mix_m3_mol": 0.00010791019597217473,
+      "A": 8.652754544251518,
+      "B": 0.973396005202166,
+      "Cp_ig_J_mol_K": 180.84441759100193,
+      "h_ig_J_mol": 16488.788101754348,
+      "s_ig_J_mol_K": -0.011470444904709609,
+      "h_res_J_mol": -24732.247522868704,
+      "s_res_J_mol_K": -36.75624414912336,
+      "h_total_J_mol": -8243.459421114356,
+      "s_total_J_mol_K": -36.76771459402807,
+      "departure_intermediates": {
+        "T_da_minus_a_Pa_m6_mol2": -5.3003623127905275,
+        "PR_log_term": 1.4677718733627914,
+        "ln_Z_minus_B": -1.3695832510252464
+      },
+      "ideal_entropy_terms": {
+        "s_ig_temperature_J_mol_K": 47.30297256328581,
+        "s_ig_pressure_J_mol_K": -47.314443008190544,
+        "s_ig_mixing_J_mol_K": -0.0
+      },
+      "h_total_J_kg": -95659.12368819064,
+      "s_total_J_kg_K": -426.6615723337631,
+      "direct_equation_comparison": {
+        "reference": {
+          "Cp_ig_J_mol_K": 180.84441759100196,
+          "h_ig_J_mol": 16488.788101754355,
+          "s_ig_temperature_J_mol_K": 47.30297256328581,
+          "s_ig_pressure_J_mol_K": -47.314443008190544,
+          "s_ig_mixing_J_mol_K": -0.0,
+          "s_ig_J_mol_K": -0.011470444904730925,
+          "h_res_J_mol": -24732.247522868685,
+          "s_res_J_mol_K": -36.75624414912334,
+          "h_total_J_mol": -8243.45942111433,
+          "s_total_J_mol_K": -36.76771459402807
+        },
+        "library_minus_direct": {
+          "Cp_ig_J_mol_K": -2.842170943040401e-14,
+          "h_ig_J_mol": -7.275957614183426e-12,
+          "s_ig_J_mol_K": 2.1316282072803006e-14,
+          "h_res_J_mol": -1.8189894035458565e-11,
+          "s_res_J_mol_K": -2.1316282072803006e-14,
+          "h_total_J_mol": -2.546585164964199e-11,
+          "s_total_J_mol_K": 0.0
+        }
+      },
+      "consistency": {
+        "g_res_from_fugacity_J_mol": -10029.749863219356,
+        "g_res_identity_error_J_mol": -1.8189894035458565e-12,
+        "finite_difference_step_K": 0.01,
+        "da_mix_dT_finite_difference": -0.005275340194987876,
+        "dHres_dT_minus_T_dSres_dT_J_mol_K": -7.105427357601002e-9
+      },
+      "component_id": "n_hexane",
+      "pure_EOS_h_res_J_mol": -24732.247522868693,
+      "pure_EOS_s_res_J_mol_K": -36.75624414912335
+    }
+  ],
+  "low_pressure_states": [
+    {
+      "T_K": 300.0,
+      "P_Pa_abs": 1000.0,
+      "composition": [0.5, 0.5],
+      "phase": "vapor",
+      "Z": 0.9997966702051944,
+      "frozen_M8_Z": null,
+      "mixture_MW_kg_kmol": 51.10908,
+      "mixture_MW_kg_mol": 0.05110908,
+      "pure_parameters": [
+        {
+          "id": "methane",
+          "alpha": 0.8101834074909086,
+          "dalpha_dT_K_inv": -0.0014765136941440559,
+          "a_i_Pa_m6_mol2": 0.2022066134114174,
+          "da_i_dT_Pa_m6_mol2_K": -0.00036851018051958957,
+          "b_i_m3_mol": 2.6802317444263274e-5
+        },
+        {
+          "id": "n_hexane",
+          "alpha": 1.4118862442770883,
+          "dalpha_dT_K_inv": -0.0024764149031830706,
+          "a_i_Pa_m6_mol2": 3.7806876057403356,
+          "da_i_dT_Pa_m6_mol2_K": -0.00663123617011276,
+          "b_i_m3_mol": 0.00010791019597217473
+        }
+      ],
+      "a_mix_Pa_m6_mol2": 1.43289630014247,
+      "da_mix_dT_Pa_m6_mol2_K": -0.002531693258740157,
+      "b_mix_m3_mol": 6.7356256708219e-5,
+      "A": 0.00023030527309241832,
+      "B": 2.7003652070533046e-5,
+      "Cp_ig_J_mol_K": 89.78432738066756,
+      "h_ig_J_mol": 165.75492421744366,
+      "s_ig_J_mol_K": 44.7163306926656,
+      "h_res_J_mol": -1.3862804890527514,
+      "s_res_J_mol_K": -0.0029304741236806323,
+      "h_total_J_mol": 164.3686437283909,
+      "s_total_J_mol_K": 44.71340021854192,
+      "departure_intermediates": {
+        "T_da_minus_a_Pa_m6_mol2": -2.192404277764517,
+        "PR_log_term": 7.639133180952341e-5,
+        "ln_Z_minus_B": -0.0002303599776985845
+      },
+      "ideal_entropy_terms": {
+        "s_ig_temperature_J_mol_K": 0.5542258499738448,
+        "s_ig_pressure_J_mol_K": 38.3989585210478,
+        "s_ig_mixing_J_mol_K": 5.763146321643979
+      },
+      "h_total_J_kg": 3216.0360493358694,
+      "s_total_J_kg_K": 874.8621618417299,
+      "direct_equation_comparison": {
+        "reference": {
+          "Cp_ig_J_mol_K": 89.78432738066756,
+          "h_ig_J_mol": 165.75492421744335,
+          "s_ig_temperature_J_mol_K": 0.5542258499738448,
+          "s_ig_pressure_J_mol_K": 38.3989585210478,
+          "s_ig_mixing_J_mol_K": 5.763146321643979,
+          "s_ig_J_mol_K": 44.71633069266563,
+          "h_res_J_mol": -1.3862804890527576,
+          "s_res_J_mol_K": -0.0029304741236812447,
+          "h_total_J_mol": 164.3686437283906,
+          "s_total_J_mol_K": 44.71340021854195
+        },
+        "library_minus_direct": {
+          "Cp_ig_J_mol_K": 0.0,
+          "h_ig_J_mol": 3.126388037344441e-13,
+          "s_ig_J_mol_K": -2.842170943040401e-14,
+          "h_res_J_mol": 6.217248937900877e-15,
+          "s_res_J_mol_K": 6.123573870198129e-16,
+          "h_total_J_mol": 3.126388037344441e-13,
+          "s_total_J_mol_K": -2.842170943040401e-14
+        }
+      },
+      "consistency": {
+        "g_res_from_fugacity_J_mol": -0.5071382519476715,
+        "g_res_identity_error_J_mol": -8.901768211444505e-13,
+        "finite_difference_step_K": 0.01,
+        "da_mix_dT_finite_difference": -0.002531693259277823,
+        "dHres_dT_minus_T_dSres_dT_J_mol_K": -8.029427817080048e-12
+      }
+    },
+    {
+      "T_K": 300.0,
+      "P_Pa_abs": 100.0,
+      "composition": [0.5, 0.5],
+      "phase": "vapor",
+      "Z": 0.9999796695562463,
+      "frozen_M8_Z": null,
+      "mixture_MW_kg_kmol": 51.10908,
+      "mixture_MW_kg_mol": 0.05110908,
+      "pure_parameters": [
+        {
+          "id": "methane",
+          "alpha": 0.8101834074909086,
+          "dalpha_dT_K_inv": -0.0014765136941440559,
+          "a_i_Pa_m6_mol2": 0.2022066134114174,
+          "da_i_dT_Pa_m6_mol2_K": -0.00036851018051958957,
+          "b_i_m3_mol": 2.6802317444263274e-5
+        },
+        {
+          "id": "n_hexane",
+          "alpha": 1.4118862442770883,
+          "dalpha_dT_K_inv": -0.0024764149031830706,
+          "a_i_Pa_m6_mol2": 3.7806876057403356,
+          "da_i_dT_Pa_m6_mol2_K": -0.00663123617011276,
+          "b_i_m3_mol": 0.00010791019597217473
+        }
+      ],
+      "a_mix_Pa_m6_mol2": 1.43289630014247,
+      "da_mix_dT_Pa_m6_mol2_K": -0.002531693258740157,
+      "b_mix_m3_mol": 6.7356256708219e-5,
+      "A": 2.3030527309241832e-5,
+      "B": 2.7003652070533043e-6,
+      "Cp_ig_J_mol_K": 89.78432738066756,
+      "h_ig_J_mol": 165.75492421744366,
+      "s_ig_J_mol_K": 63.8610883734815,
+      "h_res_J_mol": -0.13860777257150403,
+      "s_res_J_mol_K": -0.00029299036487566817,
+      "h_total_J_mol": 165.61631644487215,
+      "s_total_J_mol_K": 63.860795383116624,
+      "departure_intermediates": {
+        "T_da_minus_a_Pa_m6_mol2": -2.192404277764517,
+        "PR_log_term": 7.637920855532176e-6,
+        "ln_Z_minus_B": -2.303107417386394e-5
+      },
+      "ideal_entropy_terms": {
+        "s_ig_temperature_J_mol_K": 0.5542258499738448,
+        "s_ig_pressure_J_mol_K": 57.5437162018637,
+        "s_ig_mixing_J_mol_K": 5.763146321643979
+      },
+      "h_total_J_kg": 3240.448007377009,
+      "s_total_J_kg_K": 1249.4999984957003,
+      "direct_equation_comparison": {
+        "reference": {
+          "Cp_ig_J_mol_K": 89.78432738066756,
+          "h_ig_J_mol": 165.75492421744335,
+          "s_ig_temperature_J_mol_K": 0.5542258499738448,
+          "s_ig_pressure_J_mol_K": 57.5437162018637,
+          "s_ig_mixing_J_mol_K": 5.763146321643979,
+          "s_ig_J_mol_K": 63.86108837348153,
+          "h_res_J_mol": -0.13860777257155488,
+          "s_res_J_mol_K": -0.0002929903648753,
+          "h_total_J_mol": 165.61631644487179,
+          "s_total_J_mol_K": 63.86079538311665
+        },
+        "library_minus_direct": {
+          "Cp_ig_J_mol_K": 0.0,
+          "h_ig_J_mol": 3.126388037344441e-13,
+          "s_ig_J_mol_K": -2.842170943040401e-14,
+          "h_res_J_mol": 5.084821452783217e-14,
+          "s_res_J_mol_K": -3.681950577760773e-16,
+          "h_total_J_mol": 3.694822225952521e-13,
+          "s_total_J_mol_K": -2.842170943040401e-14
+        }
+      },
+      "consistency": {
+        "g_res_from_fugacity_J_mol": -0.05071066310856787,
+        "g_res_identity_error_J_mol": -2.3570728702182464e-13,
+        "finite_difference_step_K": 0.01,
+        "da_mix_dT_finite_difference": -0.002531693259277823,
+        "dHres_dT_minus_T_dSres_dT_J_mol_K": -4.585090987441198e-13
+      }
+    },
+    {
+      "T_K": 300.0,
+      "P_Pa_abs": 10.0,
+      "composition": [0.5, 0.5],
+      "phase": "vapor",
+      "Z": 0.9999979669809735,
+      "frozen_M8_Z": null,
+      "mixture_MW_kg_kmol": 51.10908,
+      "mixture_MW_kg_mol": 0.05110908,
+      "pure_parameters": [
+        {
+          "id": "methane",
+          "alpha": 0.8101834074909086,
+          "dalpha_dT_K_inv": -0.0014765136941440559,
+          "a_i_Pa_m6_mol2": 0.2022066134114174,
+          "da_i_dT_Pa_m6_mol2_K": -0.00036851018051958957,
+          "b_i_m3_mol": 2.6802317444263274e-5
+        },
+        {
+          "id": "n_hexane",
+          "alpha": 1.4118862442770883,
+          "dalpha_dT_K_inv": -0.0024764149031830706,
+          "a_i_Pa_m6_mol2": 3.7806876057403356,
+          "da_i_dT_Pa_m6_mol2_K": -0.00663123617011276,
+          "b_i_m3_mol": 0.00010791019597217473
+        }
+      ],
+      "a_mix_Pa_m6_mol2": 1.43289630014247,
+      "da_mix_dT_Pa_m6_mol2_K": -0.002531693258740157,
+      "b_mix_m3_mol": 6.7356256708219e-5,
+      "A": 2.303052730924183e-6,
+      "B": 2.700365207053304e-7,
+      "Cp_ig_J_mol_K": 89.78432738066756,
+      "h_ig_J_mol": 165.75492421744366,
+      "s_ig_J_mol_K": 83.0058460542974,
+      "h_res_J_mol": -0.013860574561476824,
+      "s_res_J_mol_K": -2.9298466217217237e-5,
+      "h_total_J_mol": 165.74106364288218,
+      "s_total_J_mol_K": 83.00581675583118,
+      "departure_intermediates": {
+        "T_da_minus_a_Pa_m6_mol2": -2.192404277764517,
+        "PR_log_term": 7.63779966365799e-7,
+        "ln_Z_minus_B": -2.303058199195759e-6
+      },
+      "ideal_entropy_terms": {
+        "s_ig_temperature_J_mol_K": 0.5542258499738448,
+        "s_ig_pressure_J_mol_K": 76.6884738826796,
+        "s_ig_mixing_J_mol_K": 5.763146321643979
+      },
+      "h_total_J_kg": 3242.888810420422,
+      "s_total_J_kg_K": 1624.0913895501774,
+      "direct_equation_comparison": {
+        "reference": {
+          "Cp_ig_J_mol_K": 89.78432738066756,
+          "h_ig_J_mol": 165.75492421744335,
+          "s_ig_temperature_J_mol_K": 0.5542258499738448,
+          "s_ig_pressure_J_mol_K": 76.6884738826796,
+          "s_ig_mixing_J_mol_K": 5.763146321643979,
+          "s_ig_J_mol_K": 83.00584605429742,
+          "h_res_J_mol": -0.013860574561462896,
+          "s_res_J_mol_K": -2.9298466214382363e-5,
+          "h_total_J_mol": 165.74106364288187,
+          "s_total_J_mol_K": 83.0058167558312
+        },
+        "library_minus_direct": {
+          "Cp_ig_J_mol_K": 0.0,
+          "h_ig_J_mol": 3.126388037344441e-13,
+          "s_ig_J_mol_K": -2.842170943040401e-14,
+          "h_res_J_mol": -1.3928094788617784e-14,
+          "s_res_J_mol_K": -2.8348735847932155e-15,
+          "h_total_J_mol": 3.126388037344441e-13,
+          "s_total_J_mol_K": -2.842170943040401e-14
+        }
+      },
+      "consistency": {
+        "g_res_from_fugacity_J_mol": -0.005071034697950325,
+        "g_res_identity_error_J_mol": 1.6386718371119713e-12,
+        "finite_difference_step_K": 0.01,
+        "da_mix_dT_finite_difference": -0.002531693259277823,
+        "dHres_dT_minus_T_dSres_dT_J_mol_K": 9.777363651781307e-12
+      }
+    },
+    {
+      "T_K": 300.0,
+      "P_Pa_abs": 1.0,
+      "composition": [0.5, 0.5],
+      "phase": "vapor",
+      "Z": 0.9999997966983508,
+      "frozen_M8_Z": null,
+      "mixture_MW_kg_kmol": 51.10908,
+      "mixture_MW_kg_mol": 0.05110908,
+      "pure_parameters": [
+        {
+          "id": "methane",
+          "alpha": 0.8101834074909086,
+          "dalpha_dT_K_inv": -0.0014765136941440559,
+          "a_i_Pa_m6_mol2": 0.2022066134114174,
+          "da_i_dT_Pa_m6_mol2_K": -0.00036851018051958957,
+          "b_i_m3_mol": 2.6802317444263274e-5
+        },
+        {
+          "id": "n_hexane",
+          "alpha": 1.4118862442770883,
+          "dalpha_dT_K_inv": -0.0024764149031830706,
+          "a_i_Pa_m6_mol2": 3.7806876057403356,
+          "da_i_dT_Pa_m6_mol2_K": -0.00663123617011276,
+          "b_i_m3_mol": 0.00010791019597217473
+        }
+      ],
+      "a_mix_Pa_m6_mol2": 1.43289630014247,
+      "da_mix_dT_Pa_m6_mol2_K": -0.002531693258740157,
+      "b_mix_m3_mol": 6.7356256708219e-5,
+      "A": 2.3030527309241832e-7,
+      "B": 2.7003652070533042e-8,
+      "Cp_ig_J_mol_K": 89.78432738066756,
+      "h_ig_J_mol": 165.75492421744366,
+      "s_ig_J_mol_K": 102.15060373511328,
+      "h_res_J_mol": -0.0013860554295206384,
+      "s_res_J_mol_K": -2.929840919462329e-6,
+      "h_total_J_mol": 165.75353816201414,
+      "s_total_J_mol_K": 102.15060080527236,
+      "departure_intermediates": {
+        "T_da_minus_a_Pa_m6_mol2": -2.192404277764517,
+        "PR_log_term": 7.637787544877077e-8,
+        "ln_Z_minus_B": -2.3030532779448397e-7
+      },
+      "ideal_entropy_terms": {
+        "s_ig_temperature_J_mol_K": 0.5542258499738448,
+        "s_ig_pressure_J_mol_K": 95.83323156349549,
+        "s_ig_mixing_J_mol_K": 5.763146321643979
+      },
+      "h_total_J_kg": 3243.1328867984735,
+      "s_total_J_kg_K": 1998.6781371386917,
+      "direct_equation_comparison": {
+        "reference": {
+          "Cp_ig_J_mol_K": 89.78432738066756,
+          "h_ig_J_mol": 165.75492421744335,
+          "s_ig_temperature_J_mol_K": 0.5542258499738448,
+          "s_ig_pressure_J_mol_K": 95.83323156349549,
+          "s_ig_mixing_J_mol_K": 5.763146321643979,
+          "s_ig_J_mol_K": 102.15060373511331,
+          "h_res_J_mol": -0.0013860554292990071,
+          "s_res_J_mol_K": -2.9298409190485437e-6,
+          "h_total_J_mol": 165.75353816201405,
+          "s_total_J_mol_K": 102.15060080527239
+        },
+        "library_minus_direct": {
+          "Cp_ig_J_mol_K": 0.0,
+          "h_ig_J_mol": 3.126388037344441e-13,
+          "s_ig_J_mol_K": -2.842170943040401e-14,
+          "h_res_J_mol": -2.2163130705687983e-13,
+          "s_res_J_mol_K": -4.1378533561261914e-16,
+          "h_total_J_mol": 8.526512829121202e-14,
+          "s_total_J_mol_K": -2.842170943040401e-14
+        }
+      },
+      "consistency": {
+        "g_res_from_fugacity_J_mol": -0.0005071031542878316,
+        "g_res_identity_error_J_mol": 6.058918557844128e-13,
+        "finite_difference_step_K": 0.01,
+        "da_mix_dT_finite_difference": -0.002531693259277823,
+        "dHres_dT_minus_T_dSres_dT_J_mol_K": -1.0371006523457894e-11
+      }
+    },
+    {
+      "T_K": 300.0,
+      "P_Pa_abs": 1000.0,
+      "composition": [1.0, 0.0],
+      "phase": "vapor",
+      "Z": 0.999978245516667,
+      "frozen_M8_Z": null,
+      "mixture_MW_kg_kmol": 16.0428,
+      "mixture_MW_kg_mol": 0.0160428,
+      "pure_parameters": [
+        {
+          "id": "methane",
+          "alpha": 0.8101834074909086,
+          "dalpha_dT_K_inv": -0.0014765136941440559,
+          "a_i_Pa_m6_mol2": 0.2022066134114174,
+          "da_i_dT_Pa_m6_mol2_K": -0.00036851018051958957,
+          "b_i_m3_mol": 2.6802317444263274e-5
+        },
+        {
+          "id": "n_hexane",
+          "alpha": 1.4118862442770883,
+          "dalpha_dT_K_inv": -0.0024764149031830706,
+          "a_i_Pa_m6_mol2": 3.7806876057403356,
+          "da_i_dT_Pa_m6_mol2_K": -0.00663123617011276,
+          "b_i_m3_mol": 0.00010791019597217473
+        }
+      ],
+      "a_mix_Pa_m6_mol2": 0.2022066134114174,
+      "da_mix_dT_Pa_m6_mol2_K": -0.00036851018051958957,
+      "b_mix_m3_mol": 2.6802317444263274e-5,
+      "A": 3.2500083445102936e-5,
+      "B": 1.0745259465414274e-5,
+      "Cp_ig_J_mol_K": 35.85097338842521,
+      "h_ig_J_mol": 66.25634563443055,
+      "s_ig_J_mol_K": 38.62049655313774,
+      "h_res_J_mol": -0.17965223791770768,
+      "s_res_J_mol_K": -0.00041796253844095927,
+      "h_total_J_mol": 66.07669339651284,
+      "s_total_J_mol_K": 38.6200785905993,
+      "departure_intermediates": {
+        "T_da_minus_a_Pa_m6_mol2": -0.3127596675672943,
+        "PR_log_term": 3.0392517934786778e-5,
+        "ln_Z_minus_B": -3.250027092648121e-5
+      },
+      "ideal_entropy_terms": {
+        "s_ig_temperature_J_mol_K": 0.22153803208996198,
+        "s_ig_pressure_J_mol_K": 38.3989585210478,
+        "s_ig_mixing_J_mol_K": -0.0
+      },
+      "h_total_J_kg": 4118.775612518565,
+      "s_total_J_kg_K": 2407.3153433689445,
+      "direct_equation_comparison": {
+        "reference": {
+          "Cp_ig_J_mol_K": 35.85097338842521,
+          "h_ig_J_mol": 66.2563456344309,
+          "s_ig_temperature_J_mol_K": 0.22153803208996198,
+          "s_ig_pressure_J_mol_K": 38.3989585210478,
+          "s_ig_mixing_J_mol_K": -0.0,
+          "s_ig_J_mol_K": 38.62049655313776,
+          "h_res_J_mol": -0.17965223791770146,
+          "s_res_J_mol_K": -0.00041796253844253873,
+          "h_total_J_mol": 66.07669339651319,
+          "s_total_J_mol_K": 38.62007859059932
+        },
+        "library_minus_direct": {
+          "Cp_ig_J_mol_K": 0.0,
+          "h_ig_J_mol": -3.552713678800501e-13,
+          "s_ig_J_mol_K": -2.1316282072803006e-14,
+          "h_res_J_mol": -6.217248937900877e-15,
+          "s_res_J_mol_K": 1.5794657248768829e-15,
+          "h_total_J_mol": -3.552713678800501e-13,
+          "s_total_J_mol_K": -2.1316282072803006e-14
+        }
+      },
+      "consistency": {
+        "g_res_from_fugacity_J_mol": -0.054263476384843426,
+        "g_res_identity_error_J_mol": -5.764694277488047e-13,
+        "finite_difference_step_K": 0.01,
+        "da_mix_dT_finite_difference": -0.0003685101805969704,
+        "dHres_dT_minus_T_dSres_dT_J_mol_K": -1.2528064523287252e-11
+      }
+    },
+    {
+      "T_K": 300.0,
+      "P_Pa_abs": 100.0,
+      "composition": [1.0, 0.0],
+      "phase": "vapor",
+      "Z": 0.9999978245210083,
+      "frozen_M8_Z": null,
+      "mixture_MW_kg_kmol": 16.0428,
+      "mixture_MW_kg_mol": 0.0160428,
+      "pure_parameters": [
+        {
+          "id": "methane",
+          "alpha": 0.8101834074909086,
+          "dalpha_dT_K_inv": -0.0014765136941440559,
+          "a_i_Pa_m6_mol2": 0.2022066134114174,
+          "da_i_dT_Pa_m6_mol2_K": -0.00036851018051958957,
+          "b_i_m3_mol": 2.6802317444263274e-5
+        },
+        {
+          "id": "n_hexane",
+          "alpha": 1.4118862442770883,
+          "dalpha_dT_K_inv": -0.0024764149031830706,
+          "a_i_Pa_m6_mol2": 3.7806876057403356,
+          "da_i_dT_Pa_m6_mol2_K": -0.00663123617011276,
+          "b_i_m3_mol": 0.00010791019597217473
+        }
+      ],
+      "a_mix_Pa_m6_mol2": 0.2022066134114174,
+      "da_mix_dT_Pa_m6_mol2_K": -0.00036851018051958957,
+      "b_mix_m3_mol": 2.6802317444263274e-5,
+      "A": 3.250008344510294e-6,
+      "B": 1.0745259465414274e-6,
+      "Cp_ig_J_mol_K": 35.85097338842521,
+      "h_ig_J_mol": 66.25634563443055,
+      "s_ig_J_mol_K": 57.76525423395364,
+      "h_res_J_mol": -0.017965176024063112,
+      "s_res_J_mol_K": -4.179596716622084e-5,
+      "h_total_J_mol": 66.23838045840648,
+      "s_total_J_mol_K": 57.76521243798648,
+      "departure_intermediates": {
+        "T_da_minus_a_Pa_m6_mol2": -0.3127596675672943,
+        "PR_log_term": 3.0392216794840506e-6,
+        "ln_Z_minus_B": -3.250010219559695e-6
+      },
+      "ideal_entropy_terms": {
+        "s_ig_temperature_J_mol_K": 0.22153803208996198,
+        "s_ig_pressure_J_mol_K": 57.5437162018637,
+        "s_ig_mixing_J_mol_K": -0.0
+      },
+      "h_total_J_kg": 4128.854093949091,
+      "s_total_J_kg_K": 3600.6939211351187,
+      "direct_equation_comparison": {
+        "reference": {
+          "Cp_ig_J_mol_K": 35.85097338842521,
+          "h_ig_J_mol": 66.2563456344309,
+          "s_ig_temperature_J_mol_K": 0.22153803208996198,
+          "s_ig_pressure_J_mol_K": 57.5437162018637,
+          "s_ig_mixing_J_mol_K": -0.0,
+          "s_ig_J_mol_K": 57.76525423395366,
+          "h_res_J_mol": -0.017965176024190562,
+          "s_res_J_mol_K": -4.1795967167169996e-5,
+          "h_total_J_mol": 66.23838045840671,
+          "s_total_J_mol_K": 57.7652124379865
+        },
+        "library_minus_direct": {
+          "Cp_ig_J_mol_K": 0.0,
+          "h_ig_J_mol": -3.552713678800501e-13,
+          "s_ig_J_mol_K": -2.1316282072803006e-14,
+          "h_res_J_mol": 1.2745013378001602e-13,
+          "s_res_J_mol_K": 9.491580156388568e-16,
+          "h_total_J_mol": -2.2737367544323206e-13,
+          "s_total_J_mol_K": -2.1316282072803006e-14
+        }
+      },
+      "consistency": {
+        "g_res_from_fugacity_J_mol": -0.005426385873522627,
+        "g_res_identity_error_J_mol": -6.742341060461676e-13,
+        "finite_difference_step_K": 0.01,
+        "da_mix_dT_finite_difference": -0.0003685101805969704,
+        "dHres_dT_minus_T_dSres_dT_J_mol_K": 3.078802132943509e-12
+      }
+    },
+    {
+      "T_K": 300.0,
+      "P_Pa_abs": 10.0,
+      "composition": [1.0, 0.0],
+      "phase": "vapor",
+      "Z": 0.9999997824517942,
+      "frozen_M8_Z": null,
+      "mixture_MW_kg_kmol": 16.0428,
+      "mixture_MW_kg_mol": 0.0160428,
+      "pure_parameters": [
+        {
+          "id": "methane",
+          "alpha": 0.8101834074909086,
+          "dalpha_dT_K_inv": -0.0014765136941440559,
+          "a_i_Pa_m6_mol2": 0.2022066134114174,
+          "da_i_dT_Pa_m6_mol2_K": -0.00036851018051958957,
+          "b_i_m3_mol": 2.6802317444263274e-5
+        },
+        {
+          "id": "n_hexane",
+          "alpha": 1.4118862442770883,
+          "dalpha_dT_K_inv": -0.0024764149031830706,
+          "a_i_Pa_m6_mol2": 3.7806876057403356,
+          "da_i_dT_Pa_m6_mol2_K": -0.00663123617011276,
+          "b_i_m3_mol": 0.00010791019597217473
+        }
+      ],
+      "a_mix_Pa_m6_mol2": 0.2022066134114174,
+      "da_mix_dT_Pa_m6_mol2_K": -0.00036851018051958957,
+      "b_mix_m3_mol": 2.6802317444263274e-5,
+      "A": 3.250008344510294e-7,
+      "B": 1.0745259465414274e-7,
+      "Cp_ig_J_mol_K": 35.85097338842521,
+      "h_ig_J_mol": 66.25634563443055,
+      "s_ig_J_mol_K": 76.91001191476954,
+      "h_res_J_mol": -0.001796517125058017,
+      "s_res_J_mol_K": -4.1795938493345854e-6,
+      "h_total_J_mol": 66.25454911730549,
+      "s_total_J_mol_K": 76.9100077351757,
+      "departure_intermediates": {
+        "T_da_minus_a_Pa_m6_mol2": -0.3127596675672943,
+        "PR_log_term": 3.039218668046008e-7,
+        "ln_Z_minus_B": -3.250008531957734e-7
+      },
+      "ideal_entropy_terms": {
+        "s_ig_temperature_J_mol_K": 0.22153803208996198,
+        "s_ig_pressure_J_mol_K": 76.6884738826796,
+        "s_ig_mixing_J_mol_K": -0.0
+      },
+      "h_total_J_kg": 4129.861939144382,
+      "s_total_J_kg_K": 4794.051395964277,
+      "direct_equation_comparison": {
+        "reference": {
+          "Cp_ig_J_mol_K": 35.85097338842521,
+          "h_ig_J_mol": 66.2563456344309,
+          "s_ig_temperature_J_mol_K": 0.22153803208996198,
+          "s_ig_pressure_J_mol_K": 76.6884738826796,
+          "s_ig_mixing_J_mol_K": -0.0,
+          "s_ig_J_mol_K": 76.91001191476957,
+          "h_res_J_mol": -0.0017965171247921446,
+          "s_res_J_mol_K": -4.179593850146164e-6,
+          "h_total_J_mol": 66.25454911730611,
+          "s_total_J_mol_K": 76.91000773517572
+        },
+        "library_minus_direct": {
+          "Cp_ig_J_mol_K": 0.0,
+          "h_ig_J_mol": -3.552713678800501e-13,
+          "s_ig_J_mol_K": -2.842170943040401e-14,
+          "h_res_J_mol": -2.6587239354558534e-13,
+          "s_res_J_mol_K": 8.115786891810771e-16,
+          "h_total_J_mol": -6.252776074688882e-13,
+          "s_total_J_mol_K": -2.842170943040401e-14
+        }
+      },
+      "consistency": {
+        "g_res_from_fugacity_J_mol": -0.000542638969832516,
+        "g_res_identity_error_J_mol": -4.2512542965111866e-13,
+        "finite_difference_step_K": 0.01,
+        "da_mix_dT_finite_difference": -0.0003685101805969704,
+        "dHres_dT_minus_T_dSres_dT_J_mol_K": 1.467941521511801e-11
+      }
+    },
+    {
+      "T_K": 300.0,
+      "P_Pa_abs": 1.0,
+      "composition": [1.0, 0.0],
+      "phase": "vapor",
+      "Z": 0.9999999782451763,
+      "frozen_M8_Z": null,
+      "mixture_MW_kg_kmol": 16.0428,
+      "mixture_MW_kg_mol": 0.0160428,
+      "pure_parameters": [
+        {
+          "id": "methane",
+          "alpha": 0.8101834074909086,
+          "dalpha_dT_K_inv": -0.0014765136941440559,
+          "a_i_Pa_m6_mol2": 0.2022066134114174,
+          "da_i_dT_Pa_m6_mol2_K": -0.00036851018051958957,
+          "b_i_m3_mol": 2.6802317444263274e-5
+        },
+        {
+          "id": "n_hexane",
+          "alpha": 1.4118862442770883,
+          "dalpha_dT_K_inv": -0.0024764149031830706,
+          "a_i_Pa_m6_mol2": 3.7806876057403356,
+          "da_i_dT_Pa_m6_mol2_K": -0.00663123617011276,
+          "b_i_m3_mol": 0.00010791019597217473
+        }
+      ],
+      "a_mix_Pa_m6_mol2": 0.2022066134114174,
+      "da_mix_dT_Pa_m6_mol2_K": -0.00036851018051958957,
+      "b_mix_m3_mol": 2.6802317444263274e-5,
+      "A": 3.250008344510294e-8,
+      "B": 1.0745259465414275e-8,
+      "Cp_ig_J_mol_K": 35.85097338842521,
+      "h_ig_J_mol": 66.25634563443055,
+      "s_ig_J_mol_K": 96.05476959558543,
+      "h_res_J_mol": -0.00017965170764000504,
+      "s_res_J_mol_K": -4.179593564598649e-7,
+      "h_total_J_mol": 66.2561659827229,
+      "s_total_J_mol_K": 96.05476917762607,
+      "departure_intermediates": {
+        "T_da_minus_a_Pa_m6_mol2": -0.3127596675672943,
+        "PR_log_term": 3.039218366901819e-8,
+        "ln_Z_minus_B": -3.250008370835906e-8
+      },
+      "ideal_entropy_terms": {
+        "s_ig_temperature_J_mol_K": 0.22153803208996198,
+        "s_ig_pressure_J_mol_K": 95.83323156349549,
+        "s_ig_mixing_J_mol_K": -0.0
+      },
+      "h_total_J_kg": 4129.9627236344595,
+      "s_total_J_kg_K": 5987.406760517246,
+      "direct_equation_comparison": {
+        "reference": {
+          "Cp_ig_J_mol_K": 35.85097338842521,
+          "h_ig_J_mol": 66.2563456344309,
+          "s_ig_temperature_J_mol_K": 0.22153803208996198,
+          "s_ig_pressure_J_mol_K": 95.83323156349549,
+          "s_ig_mixing_J_mol_K": -0.0,
+          "s_ig_J_mol_K": 96.05476959558546,
+          "h_res_J_mol": -0.00017965170789207077,
+          "s_res_J_mol_K": -4.179593569793631e-7,
+          "h_total_J_mol": 66.256165982723,
+          "s_total_J_mol_K": 96.0547691776261
+        },
+        "library_minus_direct": {
+          "Cp_ig_J_mol_K": 0.0,
+          "h_ig_J_mol": -3.552713678800501e-13,
+          "s_ig_J_mol_K": -2.842170943040401e-14,
+          "h_res_J_mol": 2.5206572940028593e-13,
+          "s_res_J_mol_K": 5.19498223803508e-16,
+          "h_total_J_mol": -9.947598300641403e-14,
+          "s_total_J_mol_K": -2.842170943040401e-14
+        }
+      },
+      "consistency": {
+        "g_res_from_fugacity_J_mol": -5.426390073674573e-5,
+        "g_res_identity_error_J_mol": 3.4700141252150957e-14,
+        "finite_difference_step_K": 0.01,
+        "da_mix_dT_finite_difference": -0.0003685101805969704,
+        "dHres_dT_minus_T_dSres_dT_J_mol_K": 1.2946713807956625e-11
+      }
+    },
+    {
+      "T_K": 300.0,
+      "P_Pa_abs": 1000.0,
+      "composition": [0.0, 1.0],
+      "phase": "vapor",
+      "Z": 0.9994353387050369,
+      "frozen_M8_Z": null,
+      "mixture_MW_kg_kmol": 86.17536,
+      "mixture_MW_kg_mol": 0.08617535999999999,
+      "pure_parameters": [
+        {
+          "id": "methane",
+          "alpha": 0.8101834074909086,
+          "dalpha_dT_K_inv": -0.0014765136941440559,
+          "a_i_Pa_m6_mol2": 0.2022066134114174,
+          "da_i_dT_Pa_m6_mol2_K": -0.00036851018051958957,
+          "b_i_m3_mol": 2.6802317444263274e-5
+        },
+        {
+          "id": "n_hexane",
+          "alpha": 1.4118862442770883,
+          "dalpha_dT_K_inv": -0.0024764149031830706,
+          "a_i_Pa_m6_mol2": 3.7806876057403356,
+          "da_i_dT_Pa_m6_mol2_K": -0.00663123617011276,
+          "b_i_m3_mol": 0.00010791019597217473
+        }
+      ],
+      "a_mix_Pa_m6_mol2": 3.7806876057403356,
+      "da_mix_dT_Pa_m6_mol2_K": -0.00663123617011276,
+      "b_mix_m3_mol": 0.00010791019597217473,
+      "A": 0.0006076589711555371,
+      "B": 4.3262044675651816e-5,
+      "Cp_ig_J_mol_K": 143.7176813729099,
+      "h_ig_J_mol": 265.2535028004568,
+      "s_ig_J_mol_K": 39.2858721889055,
+      "h_res_J_mol": -3.7229250647960725,
+      "s_res_J_mol_K": -0.007715994407053336,
+      "h_total_J_mol": 261.5305777356607,
+      "s_total_J_mol_K": 39.27815619449845,
+      "departure_intermediates": {
+        "T_da_minus_a_Pa_m6_mol2": -5.770058456774164,
+        "PR_log_term": 0.00012242737432662044,
+        "ln_Z_minus_B": -0.0006081081999566085
+      },
+      "ideal_entropy_terms": {
+        "s_ig_temperature_J_mol_K": 0.8869136678577276,
+        "s_ig_pressure_J_mol_K": 38.3989585210478,
+        "s_ig_mixing_J_mol_K": -0.0
+      },
+      "h_total_J_kg": 3034.864928161144,
+      "s_total_J_kg_K": 455.79335200338534,
+      "direct_equation_comparison": {
+        "reference": {
+          "Cp_ig_J_mol_K": 143.7176813729099,
+          "h_ig_J_mol": 265.2535028004558,
+          "s_ig_temperature_J_mol_K": 0.8869136678577276,
+          "s_ig_pressure_J_mol_K": 38.3989585210478,
+          "s_ig_mixing_J_mol_K": -0.0,
+          "s_ig_J_mol_K": 39.28587218890553,
+          "h_res_J_mol": -3.7229250647961565,
+          "s_res_J_mol_K": -0.007715994407052449,
+          "h_total_J_mol": 261.5305777356597,
+          "s_total_J_mol_K": 39.27815619449848
+        },
+        "library_minus_direct": {
+          "Cp_ig_J_mol_K": 0.0,
+          "h_ig_J_mol": 9.663381206337363e-13,
+          "s_ig_J_mol_K": -2.842170943040401e-14,
+          "h_res_J_mol": 8.393286066166183e-14,
+          "s_res_J_mol_K": -8.864436962241484e-16,
+          "h_total_J_mol": 1.0231815394945443e-12,
+          "s_total_J_mol_K": -2.842170943040401e-14
+        }
+      },
+      "consistency": {
+        "g_res_from_fugacity_J_mol": -1.408126742681517,
+        "g_res_identity_error_J_mol": 1.4450662888521038e-12,
+        "finite_difference_step_K": 0.01,
+        "da_mix_dT_finite_difference": -0.006631236171505961,
+        "dHres_dT_minus_T_dSres_dT_J_mol_K": -7.85951165260812e-12
+      }
+    },
+    {
+      "T_K": 300.0,
+      "P_Pa_abs": 100.0,
+      "composition": [0.0, 1.0],
+      "phase": "vapor",
+      "Z": 0.9999435576661276,
+      "frozen_M8_Z": null,
+      "mixture_MW_kg_kmol": 86.17536,
+      "mixture_MW_kg_mol": 0.08617535999999999,
+      "pure_parameters": [
+        {
+          "id": "methane",
+          "alpha": 0.8101834074909086,
+          "dalpha_dT_K_inv": -0.0014765136941440559,
+          "a_i_Pa_m6_mol2": 0.2022066134114174,
+          "da_i_dT_Pa_m6_mol2_K": -0.00036851018051958957,
+          "b_i_m3_mol": 2.6802317444263274e-5
+        },
+        {
+          "id": "n_hexane",
+          "alpha": 1.4118862442770883,
+          "dalpha_dT_K_inv": -0.0024764149031830706,
+          "a_i_Pa_m6_mol2": 3.7806876057403356,
+          "da_i_dT_Pa_m6_mol2_K": -0.00663123617011276,
+          "b_i_m3_mol": 0.00010791019597217473
+        }
+      ],
+      "a_mix_Pa_m6_mol2": 3.7806876057403356,
+      "da_mix_dT_Pa_m6_mol2_K": -0.00663123617011276,
+      "b_mix_m3_mol": 0.00010791019597217473,
+      "A": 6.076589711555372e-5,
+      "B": 4.3262044675651814e-6,
+      "Cp_ig_J_mol_K": 143.7176813729099,
+      "h_ig_J_mol": 265.2535028004568,
+      "s_ig_J_mol_K": 58.4306298697214,
+      "h_res_J_mol": -0.37212453208485385,
+      "s_res_J_mol_K": -0.000771138412444482,
+      "h_total_J_mol": 264.8813782683719,
+      "s_total_J_mol_K": 58.429858731308954,
+      "departure_intermediates": {
+        "T_da_minus_a_Pa_m6_mol2": -5.770058456774164,
+        "PR_log_term": 1.2236991808060796e-5,
+        "ln_Z_minus_B": -6.077038482234875e-5
+      },
+      "ideal_entropy_terms": {
+        "s_ig_temperature_J_mol_K": 0.8869136678577276,
+        "s_ig_pressure_J_mol_K": 57.5437162018637,
+        "s_ig_mixing_J_mol_K": -0.0
+      },
+      "h_total_J_kg": 3073.748438862013,
+      "s_total_J_kg_K": 678.0344025404589,
+      "direct_equation_comparison": {
+        "reference": {
+          "Cp_ig_J_mol_K": 143.7176813729099,
+          "h_ig_J_mol": 265.2535028004558,
+          "s_ig_temperature_J_mol_K": 0.8869136678577276,
+          "s_ig_pressure_J_mol_K": 57.5437162018637,
+          "s_ig_mixing_J_mol_K": -0.0,
+          "s_ig_J_mol_K": 58.43062986972143,
+          "h_res_J_mol": -0.3721245320850658,
+          "s_res_J_mol_K": -0.000771138412445679,
+          "h_total_J_mol": 264.8813782683707,
+          "s_total_J_mol_K": 58.42985873130898
+        },
+        "library_minus_direct": {
+          "Cp_ig_J_mol_K": 0.0,
+          "h_ig_J_mol": 9.663381206337363e-13,
+          "s_ig_J_mol_K": -2.842170943040401e-14,
+          "h_res_J_mol": 2.1194157540094238e-13,
+          "s_res_J_mol_K": 1.1970676186412454e-15,
+          "h_total_J_mol": 1.1937117960769683e-12,
+          "s_total_J_mol_K": -2.842170943040401e-14
+        }
+      },
+      "consistency": {
+        "g_res_from_fugacity_J_mol": -0.1407830083521235,
+        "g_res_identity_error_J_mol": 6.142586439494835e-13,
+        "finite_difference_step_K": 0.01,
+        "da_mix_dT_finite_difference": -0.006631236171505961,
+        "dHres_dT_minus_T_dSres_dT_J_mol_K": -5.629177679544739e-14
+      }
+    },
+    {
+      "T_K": 300.0,
+      "P_Pa_abs": 10.0,
+      "composition": [0.0, 1.0],
+      "phase": "vapor",
+      "Z": 0.9999943560043253,
+      "frozen_M8_Z": null,
+      "mixture_MW_kg_kmol": 86.17536,
+      "mixture_MW_kg_mol": 0.08617535999999999,
+      "pure_parameters": [
+        {
+          "id": "methane",
+          "alpha": 0.8101834074909086,
+          "dalpha_dT_K_inv": -0.0014765136941440559,
+          "a_i_Pa_m6_mol2": 0.2022066134114174,
+          "da_i_dT_Pa_m6_mol2_K": -0.00036851018051958957,
+          "b_i_m3_mol": 2.6802317444263274e-5
+        },
+        {
+          "id": "n_hexane",
+          "alpha": 1.4118862442770883,
+          "dalpha_dT_K_inv": -0.0024764149031830706,
+          "a_i_Pa_m6_mol2": 3.7806876057403356,
+          "da_i_dT_Pa_m6_mol2_K": -0.00663123617011276,
+          "b_i_m3_mol": 0.00010791019597217473
+        }
+      ],
+      "a_mix_Pa_m6_mol2": 3.7806876057403356,
+      "da_mix_dT_Pa_m6_mol2_K": -0.00663123617011276,
+      "b_mix_m3_mol": 0.00010791019597217473,
+      "A": 6.0765897115553724e-6,
+      "B": 4.3262044675651815e-7,
+      "Cp_ig_J_mol_K": 143.7176813729099,
+      "h_ig_J_mol": 265.2535028004568,
+      "s_ig_J_mol_K": 77.5753875505373,
+      "h_res_J_mol": -0.037210775180483324,
+      "s_res_J_mol_K": -7.71092360077893e-5,
+      "h_total_J_mol": 265.2162920252763,
+      "s_total_J_mol_K": 77.5753104413013,
+      "departure_intermediates": {
+        "T_da_minus_a_Pa_m6_mol2": -5.770058456774164,
+        "PR_log_term": 1.2236417831825801e-6,
+        "ln_Z_minus_B": -6.0766345842152095e-6
+      },
+      "ideal_entropy_terms": {
+        "s_ig_temperature_J_mol_K": 0.8869136678577276,
+        "s_ig_pressure_J_mol_K": 76.6884738826796,
+        "s_ig_mixing_J_mol_K": -0.0
+      },
+      "h_total_J_kg": 3077.6348601882987,
+      "s_total_J_kg_K": 900.2029169509858,
+      "direct_equation_comparison": {
+        "reference": {
+          "Cp_ig_J_mol_K": 143.7176813729099,
+          "h_ig_J_mol": 265.2535028004558,
+          "s_ig_temperature_J_mol_K": 0.8869136678577276,
+          "s_ig_pressure_J_mol_K": 76.6884738826796,
+          "s_ig_mixing_J_mol_K": -0.0,
+          "s_ig_J_mol_K": 77.57538755053733,
+          "h_res_J_mol": -0.03721077518071004,
+          "s_res_J_mol_K": -7.710923600763962e-5,
+          "h_total_J_mol": 265.2162920252751,
+          "s_total_J_mol_K": 77.57531044130133
+        },
+        "library_minus_direct": {
+          "Cp_ig_J_mol_K": 0.0,
+          "h_ig_J_mol": 9.663381206337363e-13,
+          "s_ig_J_mol_K": -2.842170943040401e-14,
+          "h_res_J_mol": 2.2671448052236087e-13,
+          "s_res_J_mol_K": -1.4968766243877996e-16,
+          "h_total_J_mol": 1.1937117960769683e-12,
+          "s_total_J_mol_K": -2.842170943040401e-14
+        }
+      },
+      "consistency": {
+        "g_res_from_fugacity_J_mol": -0.014078004377222618,
+        "g_res_identity_error_J_mol": -9.239154580287234e-13,
+        "finite_difference_step_K": 0.01,
+        "da_mix_dT_finite_difference": -0.006631236171505961,
+        "dHres_dT_minus_T_dSres_dT_J_mol_K": 2.25967519435627e-12
+      }
+    },
+    {
+      "T_K": 300.0,
+      "P_Pa_abs": 1.0,
+      "composition": [0.0, 1.0],
+      "phase": "vapor",
+      "Z": 0.9999994356028096,
+      "frozen_M8_Z": null,
+      "mixture_MW_kg_kmol": 86.17536,
+      "mixture_MW_kg_mol": 0.08617535999999999,
+      "pure_parameters": [
+        {
+          "id": "methane",
+          "alpha": 0.8101834074909086,
+          "dalpha_dT_K_inv": -0.0014765136941440559,
+          "a_i_Pa_m6_mol2": 0.2022066134114174,
+          "da_i_dT_Pa_m6_mol2_K": -0.00036851018051958957,
+          "b_i_m3_mol": 2.6802317444263274e-5
+        },
+        {
+          "id": "n_hexane",
+          "alpha": 1.4118862442770883,
+          "dalpha_dT_K_inv": -0.0024764149031830706,
+          "a_i_Pa_m6_mol2": 3.7806876057403356,
+          "da_i_dT_Pa_m6_mol2_K": -0.00663123617011276,
+          "b_i_m3_mol": 0.00010791019597217473
+        }
+      ],
+      "a_mix_Pa_m6_mol2": 3.7806876057403356,
+      "da_mix_dT_Pa_m6_mol2_K": -0.00663123617011276,
+      "b_mix_m3_mol": 0.00010791019597217473,
+      "A": 6.076589711555372e-7,
+      "B": 4.326204467565181e-8,
+      "Cp_ig_J_mol_K": 143.7176813729099,
+      "h_ig_J_mol": 265.2535028004568,
+      "s_ig_J_mol_K": 96.72014523135319,
+      "h_res_J_mol": -0.0037210607392808015,
+      "s_res_J_mol_K": -7.710877552583928e-6,
+      "h_total_J_mol": 265.2497817397175,
+      "s_total_J_mol_K": 96.72013752047563,
+      "departure_intermediates": {
+        "T_da_minus_a_Pa_m6_mol2": -5.770058456774164,
+        "PR_log_term": 1.2236360440057005e-7,
+        "ln_Z_minus_B": -6.07659419777217e-7
+      },
+      "ideal_entropy_terms": {
+        "s_ig_temperature_J_mol_K": 0.8869136678577276,
+        "s_ig_pressure_J_mol_K": 95.83323156349549,
+        "s_ig_mixing_J_mol_K": -0.0
+      },
+      "h_total_J_kg": 3078.023483043384,
+      "s_total_J_kg_K": 1122.3641829923965,
+      "direct_equation_comparison": {
+        "reference": {
+          "Cp_ig_J_mol_K": 143.7176813729099,
+          "h_ig_J_mol": 265.2535028004558,
+          "s_ig_temperature_J_mol_K": 0.8869136678577276,
+          "s_ig_pressure_J_mol_K": 95.83323156349549,
+          "s_ig_mixing_J_mol_K": -0.0,
+          "s_ig_J_mol_K": 96.72014523135321,
+          "h_res_J_mol": -0.0037210607391050627,
+          "s_res_J_mol_K": -7.710877552093917e-6,
+          "h_total_J_mol": 265.2497817397167,
+          "s_total_J_mol_K": 96.72013752047566
+        },
+        "library_minus_direct": {
+          "Cp_ig_J_mol_K": 0.0,
+          "h_ig_J_mol": 9.663381206337363e-13,
+          "s_ig_J_mol_K": -2.842170943040401e-14,
+          "h_res_J_mol": -1.757387638190444e-13,
+          "s_res_J_mol_K": -4.900119481184018e-16,
+          "h_total_J_mol": 7.958078640513122e-13,
+          "s_total_J_mol_K": -2.842170943040401e-14
+        }
+      },
+      "consistency": {
+        "g_res_from_fugacity_J_mol": -0.0014077974736359344,
+        "g_res_identity_error_J_mol": 1.3031156015363976e-13,
+        "finite_difference_step_K": 0.01,
+        "da_mix_dT_finite_difference": -0.006631236171505961,
+        "dHres_dT_minus_T_dSres_dT_J_mol_K": 9.714471455447675e-12
+      }
+    }
+  ],
+  "cp_integration_checks": [
+    {
+      "component_id": "methane",
+      "T_K": 280.0,
+      "Cp_ig_J_mol_K": 35.094168797979926,
+      "h_ig_J_mol": -643.0600981880962,
+      "s_ig_temperature_J_mol_K": -2.225050721531204,
+      "direct": [35.094168797979926, -643.0600981880948, -2.225050721531169],
+      "quadrature_h_J_mol": -643.0600981880949,
+      "quadrature_s_J_mol_K": -2.225050721531169
+    },
+    {
+      "component_id": "methane",
+      "T_K": 298.15,
+      "Cp_ig_J_mol_K": 35.777618377872344,
+      "h_ig_J_mol": 0.0,
+      "s_ig_temperature_J_mol_K": 0.0,
+      "direct": [35.777618377872344, 0.0, 0.0],
+      "quadrature_h_J_mol": 0.0,
+      "quadrature_s_J_mol_K": 0.0
+    },
+    {
+      "component_id": "methane",
+      "T_K": 300.0,
+      "Cp_ig_J_mol_K": 35.85097338842521,
+      "h_ig_J_mol": 66.25634563443055,
+      "s_ig_temperature_J_mol_K": 0.2215380320899385,
+      "direct": [35.85097338842521, 66.2563456344309, 0.22153803208996198],
+      "quadrature_h_J_mol": 66.25634563443079,
+      "quadrature_s_J_mol_K": 0.22153803208995862
+    },
+    {
+      "component_id": "methane",
+      "T_K": 350.0,
+      "Cp_ig_J_mol_K": 38.06104849176523,
+      "h_ig_J_mol": 1912.322262758873,
+      "s_ig_temperature_J_mol_K": 5.908609834663309,
+      "direct": [38.06104849176523, 1912.3222627588734, 5.908609834663344],
+      "quadrature_h_J_mol": 1912.3222627588739,
+      "quadrature_s_J_mol_K": 5.908609834663347
+    },
+    {
+      "component_id": "methane",
+      "T_K": 400.0,
+      "Cp_ig_J_mol_K": 40.62792316874588,
+      "h_ig_J_mol": 3878.3002951393664,
+      "s_ig_temperature_J_mol_K": 11.1551918199942,
+      "direct": [40.62792316874588, 3878.3002951393664, 11.155191819994226],
+      "quadrature_h_J_mol": 3878.3002951393664,
+      "quadrature_s_J_mol_K": 11.155191819994224
+    },
+    {
+      "component_id": "n_hexane",
+      "T_K": 280.0,
+      "Cp_ig_J_mol_K": 136.48090326799297,
+      "h_ig_J_mol": -2536.5145661839597,
+      "s_ig_temperature_J_mol_K": -8.77531703141733,
+      "direct": [136.48090326799297, -2536.51456618396, -8.77531703141732],
+      "quadrature_h_J_mol": -2536.5145661839606,
+      "quadrature_s_J_mol_K": -8.77531703141732
+    },
+    {
+      "component_id": "n_hexane",
+      "T_K": 298.15,
+      "Cp_ig_J_mol_K": 143.04302283088788,
+      "h_ig_J_mol": 0.0,
+      "s_ig_temperature_J_mol_K": 0.0,
+      "direct": [143.04302283088788, 0.0, 0.0],
+      "quadrature_h_J_mol": 0.0,
+      "quadrature_s_J_mol_K": 0.0
+    },
+    {
+      "component_id": "n_hexane",
+      "T_K": 300.0,
+      "Cp_ig_J_mol_K": 143.7176813729099,
+      "h_ig_J_mol": 265.2535028004568,
+      "s_ig_temperature_J_mol_K": 0.8869136678576979,
+      "direct": [143.7176813729099, 265.2535028004558, 0.8869136678577276],
+      "quadrature_h_J_mol": 265.2535028004553,
+      "quadrature_s_J_mol_K": 0.8869136678577213
+    },
+    {
+      "component_id": "n_hexane",
+      "T_K": 350.0,
+      "Cp_ig_J_mol_K": 162.21323464622662,
+      "h_ig_J_mol": 7911.85306917593,
+      "s_ig_temperature_J_mol_K": 24.424859122700582,
+      "direct": [162.21323464622662, 7911.853069175935, 24.424859122700614],
+      "quadrature_h_J_mol": 7911.853069175934,
+      "quadrature_s_J_mol_K": 24.424859122700617
+    },
+    {
+      "component_id": "n_hexane",
+      "T_K": 400.0,
+      "Cp_ig_J_mol_K": 180.84441759100193,
+      "h_ig_J_mol": 16488.788101754348,
+      "s_ig_temperature_J_mol_K": 47.302972563285834,
+      "direct": [180.84441759100196, 16488.788101754355, 47.30297256328581],
+      "quadrature_h_J_mol": 16488.78810175435,
+      "quadrature_s_J_mol_K": 47.30297256328582
+    }
+  ]
+}
