@@ -6,7 +6,7 @@ Milestone 8 adds **standalone deterministic thermodynamic solver qualification**
 
 Provider/EOS identity: **`peng_robinson@1.0`**. Solver identity: **`binary_tpd_rr_ss@1.0`**. Stability algorithm identity: **`binary_tpd_grid_golden@1.0`**. Qualified capabilities are PR EOS, phase stability, single-phase PT classification and two-phase PT flash for the stated binary reference domain. This is mathematical agreement with an independent implementation, not experimental fluid-property validation or qualification of arbitrary near-critical/boundary states.
 
-**Human-operated Milestone 8 validation remains pending.** All results below are automated checks performed on 2026-09-28, distinct from a human executing and inspecting the commands.
+**Final human-operated manual validation of Milestone 8 was successfully completed on 2026-09-28**, as reported by the user. The manual execution and inspection of Cases A/B/C are recorded separately below from the automated qualification results.
 
 ## Component and interaction data
 
@@ -258,7 +258,7 @@ M8 implements no PH/PS flash, water-containing VLE, VLLE, third phase, rigorous 
 
 ## Limitations and evidence-based next milestone
 
-The frozen interior cases, neighborhood and pressure scan close against the independent library; fugacity/material/RR acceptance passes, stability agrees with independent numerical TPD evidence, explicit failures are exercised, water is blocked and the provider remains independent of equipment. On that evidence, recommend a separately approved **Milestone 9 — First Process Integration of Qualified PT Flash**, following the pending human inspection. No M9 work is implemented here.
+The frozen interior cases, neighborhood and pressure scan close against the independent library; fugacity/material/RR acceptance passes, stability agrees with independent numerical TPD evidence, explicit failures are exercised, water is blocked and the provider remains independent of equipment. On that evidence, recommend a separately approved **Milestone 9 — First Process Integration of Qualified PT Flash**. Human inspection of Cases A/B/C was completed on 2026-09-28, as recorded below. No M9 work is implemented here.
 
 The binary grid/refinement method is intentionally transparent and bounded. It is not a global proof, general multi-component stability solver, near-critical conditioning study or arbitrary-BIP physical validation. Exact phase boundaries, degenerate roots, pure-fluid coexistence and challenging trace regimes require separate qualification. Unstable states without an admissible Wilson RR bracket fail explicitly; there is no broader fallback promise. These limitations must remain visible when scoping any integration.
 
@@ -272,3 +272,69 @@ MaterialStream → ThermodynamicState → PropertyPackage.flash_PT
 The separator would orchestrate the operation and consume qualified results; PR equations would remain inside the provider. That milestone must define explicit phase-to-stream mapping (qualified hydrocarbon vapor → gas, hydrocarbon liquid → oil), preserve identity/units, define failure handling and qualify process conservation. No phase mapping is implemented now.
 
 **Water-containing three-phase VLLE is not the same next step as methane/n-hexane two-phase VLE integration.** Aqueous/hydrocarbon-liquid/vapor modeling and their outlet mapping require a separate qualification milestone. M8 does not generalize a hydrocarbon binary split to water-bearing process streams.
+
+## Completed human-operated manual validation — 2026-09-28
+
+The user reported that the **final human-operated manual validation of Milestone 8 was successfully completed on 2026-09-28**. The user manually executed the production-versus-independent-reference comparison commands from the repository root and inspected the output for Cases A, B and C. This record is distinct from the automated test coverage above; the coding agent did not rerun the calculations for this documentation update.
+
+### Case A — stable single liquid
+
+Command executed by the user:
+
+```sh
+engine/.venv/bin/python -B benchmarks/peng_robinson/compare_production.py --case A
+```
+
+Manual inspection confirmed provider **`peng_robinson@1.0`**, **`passed: true`** and **32 production-versus-reference comparisons passed**. This is the qualified high-pressure single-liquid benchmark. Production PR parameters, roots, fugacity quantities and stability quantities matched the frozen independent reference within tolerance. Maximum numerical differences were approximately at floating-point precision.
+
+### Case B — vapor + liquid equilibrium
+
+Command executed by the user:
+
+```sh
+engine/.venv/bin/python -B benchmarks/peng_robinson/compare_production.py --case B
+```
+
+Manual inspection confirmed provider **`peng_robinson@1.0`**, **`passed: true`** and **72 production-versus-reference comparisons passed**. This is the qualified vapor-liquid PT-flash benchmark.
+
+Production reproduced the frozen reference for vapor fraction beta, liquid composition x, vapor composition y, liquid and vapor compressibility factors, liquid and vapor fugacity coefficients, equilibrium K-values, material reconstruction, Rachford–Rice and fugacity equilibrium.
+
+Observed approximate maximum absolute errors:
+
+| Quantity                 | Maximum absolute error |
+| ------------------------ | ---------------------: |
+| beta                     |               8.44e-15 |
+| x                        |               3.12e-17 |
+| y                        |               1.86e-14 |
+| Z roots                  |               1.33e-15 |
+| ln(phi)                  |               6.22e-15 |
+| K from x/y               |               1.07e-12 |
+| Material reconstruction  |               2.28e-15 |
+| Log-fugacity equilibrium |               2.45e-13 |
+| Rachford–Rice            |               8.10e-15 |
+
+### Case C — stable single vapor
+
+Command executed by the user:
+
+```sh
+engine/.venv/bin/python -B benchmarks/peng_robinson/compare_production.py --case C
+```
+
+Manual inspection confirmed provider **`peng_robinson@1.0`**, **`passed: true`** and **34 production-versus-reference comparisons passed**. This is the qualified low-pressure single-vapor benchmark. Production PR parameters, roots, fugacity quantities and stability quantities matched the frozen independent reference within tolerance. Numerical differences were approximately at floating-point precision.
+
+### Manual validation scope
+
+The human-operated validation covered all three reference phase regimes: **A — stable single liquid; B — vapor + liquid equilibrium; C — stable single vapor**. It confirms the **standalone production Peng–Robinson/PT-flash implementation against the independently frozen reference**.
+
+It does **not** validate:
+
+- Integration with SEP_1 or any process equipment.
+- Water-containing equilibrium.
+- VLLE.
+- PH flash.
+- PS flash.
+- Rigorous enthalpy or entropy.
+- Near-critical behavior beyond the existing automated qualification.
+
+Those capabilities remain outside Milestone 8. This documentation update changes no source code, tests, contracts, fixtures, frozen benchmark or thermodynamic calculations. No live-provider call was made.
