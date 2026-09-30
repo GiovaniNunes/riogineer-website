@@ -67,10 +67,11 @@ for case in REFERENCE['negative_cases']:
 
 
 class Controls(unittest.TestCase):
-    def test_provider_advertises_only_standalone_ph_extension(self):
+    def test_provider_advertises_standalone_ph_and_ps_extensions(self):
         p=PengRobinsonProvider()
         self.assertIn('flash_PH',p.capabilities)
-        self.assertFalse({'PS_flash','flash_PS','water_PH','process_energy_balance'} & p.capabilities)
+        self.assertIn('flash_PS',p.capabilities)
+        self.assertFalse({'PS_flash','water_PH','process_energy_balance'} & p.capabilities)
         self.assertEqual(SolverSettings().fugacity_tolerance,1e-11)
 
     @classmethod

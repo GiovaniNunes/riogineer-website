@@ -6,6 +6,7 @@ from .pr_eos import MODEL, SUPPORTED, BinaryInteractions, PengRobinsonEOS
 from .pr_flash import PTResult, SolverSettings, flash_pt
 from .pr_stability import stability
 from .pr_ph_flash import PHSpecification, PHSettings, PHResult, flash_ph
+from .pr_ps_flash import PSSpecification, PSSettings, PSResult, flash_ps
 from .pr_caloric import CaloricResult, caloric_pt
 from .thermodynamics import MolecularCompositionProvider, PropertyPackage, ThermodynamicState
 
@@ -29,11 +30,20 @@ class PHPropertyPackage(CaloricPropertyPackage, Protocol):
                  settings: PHSettings = PHSettings()) -> PHResult: ...
 
 
+class PSPropertyPackage(CaloricPropertyPackage, Protocol):
+    def flash_PS(self, specification: PSSpecification, bip: BinaryInteractions,
+                 settings: PSSettings = PSSettings()) -> PSResult: ...
+
+
 @dataclass(frozen=True)
 class PengRobinsonProvider:
     identifier: str = MODEL
-    capabilities: frozenset[str] = frozenset({'pr_eos','phase_stability','single_phase_PT','two_phase_PT_flash','phase_caloric_TP','equilibrium_caloric_PT','flash_PH'})
+    capabilities: frozenset[str] = frozenset({'pr_eos','phase_stability','single_phase_PT','two_phase_PT_flash','phase_caloric_TP','equilibrium_caloric_PT','flash_PH','flash_PS'})
     qualified_components: frozenset[str] = SUPPORTED
+
+    def flash_PS(self, specification: PSSpecification, bip: BinaryInteractions,
+                 settings: PSSettings = PSSettings()) -> PSResult:
+        return flash_ps(specification,bip,self.equilibrium_caloric_PT,settings)
 
     def flash_PH(self, specification: PHSpecification, bip: BinaryInteractions,
                  settings: PHSettings = PHSettings()) -> PHResult:
