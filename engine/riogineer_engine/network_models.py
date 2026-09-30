@@ -76,6 +76,9 @@ def heater(unit, inputs, _evaluate):
 
 
 def compressor(unit, inputs, _evaluate):
+    if unit['model']['id'] == 'rigorous_isentropic_pr':
+        from .compressor_energy import compressor as rigorous_compressor
+        return rigorous_compressor(unit, inputs, _evaluate)
     if set(inputs) != {'inlet'}:
         raise ValueError('Compressor requires exactly one inlet')
     feed = inputs['inlet']

@@ -14,6 +14,7 @@ import {
 } from '@/lib/digital-engineer/workflow';
 import { EquilibriumResults } from './equilibrium-results';
 import { CompressionResults } from './compression-results';
+import { RigorousCompressionResults } from './rigorous-compression-results';
 import { Pfd } from './pfd';
 import { StreamTable } from './stream-table';
 import { SpecificationWorkspace } from './specification';
@@ -419,7 +420,10 @@ export function EngineerWorkspace({
                 <>
                   <p>
                     Status: <strong>{r.balances.energy.status}</strong> within the{' '}
-                    {r.schema_version === '1.7' ? 'PR equilibrium energy' : 'constant-Cp'} model.
+                    {r.schema_version === '1.7' || r.schema_version === '1.8'
+                      ? 'PR equilibrium energy'
+                      : 'constant-Cp'}{' '}
+                    model.
                   </p>
                   <p>
                     {'execution' in r ? 'Calculated network duty: ' : 'Calculated separator duty: '}
@@ -486,6 +490,7 @@ export function EngineerWorkspace({
             (r.schema_version === '1.5' && r.process_result_version === '1.4')) && (
             <CompressionResults results={r} />
           )}
+          {r.schema_version === '1.8' && current && <RigorousCompressionResults results={r} />}
           <h3>Warnings and model limitations</h3>
           <ul aria-label="Warnings and model limitations">
             {[...new Set([...r.warnings.map((w) => w.message), ...r.limitations])].map(

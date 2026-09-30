@@ -300,6 +300,22 @@ export const thermalRequirementsSchema = networkRequirementsSchema
     streams: graphStreams.length(2),
     connections: graphConnections.length(2),
   });
+// M14 is additive: historical compressor and M12 serialization stay unchanged.
+export const rigorousCompressorModel = z.strictObject({
+  id: z.literal('rigorous_isentropic_pr'),
+  version: z.literal('1.0'),
+});
+export const rigorousCompressorInput = z.strictObject({
+  id,
+  type: z.literal('compressor'),
+  model: rigorousCompressorModel,
+  parameters: thermalCommon.extend({ isentropic_efficiency: efficiency }),
+});
+export const rigorousCompressionRequirementsSchema = thermalRequirementsSchema.extend({
+  schema_version: z.literal('1.6'),
+  profile: z.literal('compressor_energy'),
+  equipment: z.array(rigorousCompressorInput).length(1),
+});
 // Interpretation stays on requirementsSchema (1.0); deterministic API accepts both.
 export const engineeringRequirementsSchema = z.union([
   requirementsSchema,
@@ -308,6 +324,7 @@ export const engineeringRequirementsSchema = z.union([
   compressionRequirementsSchema,
   equilibriumRequirementsSchema,
   thermalRequirementsSchema,
+  rigorousCompressionRequirementsSchema,
 ]);
 const graphEquipment = z.discriminatedUnion('type', [
   graphEquipmentInput.options[0]
@@ -398,6 +415,18 @@ const thermalFlowsheetSchema = networkFlowsheetSchema.omit({ caloric_model: true
   streams: z.array(numberedStream).length(2),
   connections: graphConnections.length(2),
 });
+const rigorousCompressionFlowsheetSchema = thermalFlowsheetSchema.extend({
+  schema_version: z.literal('1.7'),
+  profile: z.literal('compressor_energy'),
+  equipment: z
+    .array(
+      rigorousCompressorInput.omit({ parameters: true }).extend({
+        ports: z.array(portSchema).length(2),
+        operating_parameters: rigorousCompressorInput.shape.parameters,
+      }),
+    )
+    .length(1),
+});
 // Legacy 1.0/1.1 readers remain unchanged; graph builds explicitly use 1.2.
 export const flowsheetSchema = z.union([
   legacyFlowsheetSchema,
@@ -406,6 +435,7 @@ export const flowsheetSchema = z.union([
   compressionFlowsheetSchema,
   equilibriumFlowsheetSchema,
   thermalFlowsheetSchema,
+  rigorousCompressionFlowsheetSchema,
   legacyFlowsheetSchema.extend({
     schema_version: z.literal('1.1'),
     streams: z
@@ -772,7 +802,94 @@ const thermalResultsSchema = networkResultsSchema.omit({ model_tolerances: true 
     }),
   }),
 });
+const compressorPhase = thermalPhase.extend({
+  s_ig_J_mol_K: num,
+  s_res_J_mol_K: num,
+  s_J_mol_K: num,
+});
+export const compressorStateSchema = thermalStateSchema.extend({
+  S_eq_J_mol_K: num,
+  phases: z.strictObject({ liquid: compressorPhase.optional(), vapor: compressorPhase.optional() }),
+});
+const compressorInverse = z.strictObject({
+  status: z.literal('success'),
+  pt_profile: z.literal('high_accuracy'),
+  candidate_count: z.literal(1),
+  bracket_K: z.tuple([positive, positive]),
+  final_bracket_K: z.tuple([positive, positive]),
+  root_iterations: z.number().int().nonnegative(),
+  evaluation_count: z.number().int().positive(),
+});
+export const compressorDetailsSchema = thermalDetailsSchema
+  .pick({
+    property_package: true,
+    component_dataset: true,
+    molecular_provider: true,
+    caloric_dataset: true,
+    caloric_reference: true,
+    bip: true,
+    F_mol_s: true,
+    energy_residual_W: true,
+    energy_allowance_W: true,
+  })
+  .extend({
+    inlet: compressorStateSchema,
+    isentropic_outlet: compressorStateSchema,
+    actual_outlet: compressorStateSchema,
+    pressure_ratio: num.gt(1),
+    isentropic_efficiency: efficiency,
+    reconstructed_efficiency: positive,
+    eta_power: positive,
+    efficiency_allowance: positive,
+    H_out_target_J_mol: num,
+    delta_H_is_J_mol: positive,
+    delta_H_actual_J_mol: positive,
+    isentropic_fluid_power_W: positive,
+    fluid_power_W: positive,
+    power_identity_residual_W: num,
+    power_identity_allowance_W: positive,
+    delta_S_actual_J_mol_K: num,
+    ps: compressorInverse.extend({
+      capability: z.literal('flash_PS'),
+      entropy_residual_J_mol_K: num,
+    }),
+    ph: compressorInverse.extend({
+      capability: z.literal('flash_PH'),
+      enthalpy_residual_J_mol: num,
+    }),
+  });
+const rigorousCompressionResultsSchema = thermalResultsSchema.extend({
+  schema_version: z.literal('1.8'),
+  process_result_version: z.literal('1.8'),
+  engine: thermalResultsSchema.shape.engine.extend({ version: z.literal('1.7.0') }),
+  equipment: z
+    .array(
+      z.strictObject({
+        id,
+        type: z.literal('compressor'),
+        model: rigorousCompressorModel,
+        duty_W: z.literal(0),
+        work_W: positive,
+        mass_balance: legacyResultsSchema.shape.balances.shape.mass,
+        energy_residual_W: num,
+        thermodynamics: compressorDetailsSchema,
+      }),
+    )
+    .length(1),
+  balances: thermalResultsSchema.shape.balances.extend({
+    energy: z.strictObject({
+      status: z.literal('passed'),
+      residual_W: num,
+      tolerance_W: positive,
+      duty_W: z.literal(0),
+      fluid_power_W: positive,
+      model: z.literal('rigorous_isentropic_pr'),
+      positive_work: z.literal('work_into_process'),
+    }),
+  }),
+});
 export const resultsSchema = z.union([
+  rigorousCompressionResultsSchema,
   thermalResultsSchema,
   equilibriumResultsSchema,
   molecularSingleResults,
