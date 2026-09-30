@@ -58,6 +58,9 @@ def mixer(_unit, inputs, _evaluate):
 
 
 def heater(unit, inputs, _evaluate):
+    if unit['model']['id'] == 'equilibrium_energy_balance_pr':
+        from .heater_cooler_energy import heater as rigorous_heater
+        return rigorous_heater(unit, inputs, _evaluate)
     feed = inputs['inlet']
     p = unit['operating_parameters']
     cal = p['caloric_model']

@@ -260,6 +260,46 @@ export const equilibriumRequirementsSchema = networkRequirementsSchema
       z.literal('pt_flash'),
     ]),
   });
+// M12 is a separate model/profile; historical constant-Cp documents retain their meaning.
+export const rigorousHeaterModel = z.strictObject({
+  id: z.literal('equilibrium_energy_balance_pr'),
+  version: z.literal('1.0'),
+});
+const thermalBip = bipSchema.extend({ identifier: z.string().min(1) });
+const thermalCommon = z.strictObject({
+  property_package: z.literal('peng_robinson@1.0'),
+  bip: thermalBip,
+  outlet_pressure_Pa_abs: positive,
+});
+export const rigorousHeaterParameters = z.union([
+  thermalCommon.extend({
+    mode: z.literal('specified_outlet_temperature'),
+    outlet_temperature_K: num.min(200).max(500),
+  }),
+  thermalCommon.extend({ mode: z.literal('specified_heat_duty'), duty_W: num }),
+]);
+export const rigorousHeaterInput = z.strictObject({
+  id,
+  type: z.literal('heater'),
+  model: rigorousHeaterModel,
+  parameters: rigorousHeaterParameters,
+});
+export const thermalRequirementsSchema = networkRequirementsSchema
+  .omit({ caloric_model: true })
+  .extend({
+    schema_version: z.literal('1.5'),
+    profile: z.literal('heater_cooler_energy'),
+    provenance: z.strictObject({
+      source: z.string().min(1),
+      basis: z.literal('qualified_equilibrium_energy'),
+    }),
+    components: z.tuple([z.literal('methane'), z.literal('n_hexane')]),
+    feeds: z.array(requirementsSchema.shape.feeds.element).length(1),
+    equipment: z.array(rigorousHeaterInput).length(1),
+    sinks: z.array(z.strictObject({ id })).length(1),
+    streams: graphStreams.length(2),
+    connections: graphConnections.length(2),
+  });
 // Interpretation stays on requirementsSchema (1.0); deterministic API accepts both.
 export const engineeringRequirementsSchema = z.union([
   requirementsSchema,
@@ -267,6 +307,7 @@ export const engineeringRequirementsSchema = z.union([
   sequentialRequirementsSchema,
   compressionRequirementsSchema,
   equilibriumRequirementsSchema,
+  thermalRequirementsSchema,
 ]);
 const graphEquipment = z.discriminatedUnion('type', [
   graphEquipmentInput.options[0]
@@ -341,6 +382,22 @@ const equilibriumFlowsheetSchema = networkFlowsheetSchema.omit({ caloric_model: 
   streams: z.array(numberedStream).length(3),
   connections: graphConnections.length(3),
 });
+const thermalFlowsheetSchema = networkFlowsheetSchema.omit({ caloric_model: true }).extend({
+  schema_version: z.literal('1.6'),
+  profile: z.literal('heater_cooler_energy'),
+  components: thermalRequirementsSchema.shape.components,
+  boundaries: z.array(legacyFlowsheetSchema.shape.boundaries.element).length(2),
+  equipment: z
+    .array(
+      rigorousHeaterInput.omit({ parameters: true }).extend({
+        ports: z.array(portSchema).length(2),
+        operating_parameters: rigorousHeaterParameters,
+      }),
+    )
+    .length(1),
+  streams: z.array(numberedStream).length(2),
+  connections: graphConnections.length(2),
+});
 // Legacy 1.0/1.1 readers remain unchanged; graph builds explicitly use 1.2.
 export const flowsheetSchema = z.union([
   legacyFlowsheetSchema,
@@ -348,6 +405,7 @@ export const flowsheetSchema = z.union([
   sequentialFlowsheetSchema,
   compressionFlowsheetSchema,
   equilibriumFlowsheetSchema,
+  thermalFlowsheetSchema,
   legacyFlowsheetSchema.extend({
     schema_version: z.literal('1.1'),
     streams: z
@@ -639,7 +697,83 @@ export const equilibriumResultsSchema = networkResultsSchema
       energy: unavailableEnergy,
     }),
   });
+const thermalPhase = z.strictObject({
+  composition: fractionMap,
+  Z: positive,
+  h_ig_J_mol: num,
+  h_res_J_mol: num,
+  h_J_mol: num,
+});
+export const thermalStateSchema = z.strictObject({
+  temperature_K: positive,
+  pressure_Pa_abs: positive,
+  z: fractionMap,
+  classification: z.enum(['single_liquid', 'vapor_liquid', 'single_vapor']),
+  beta: num.min(0).max(1),
+  H_eq_J_mol: num,
+  phases: z.strictObject({ liquid: thermalPhase.optional(), vapor: thermalPhase.optional() }),
+  pt_status: z.enum(['success_single_phase', 'success_two_phase']),
+  max_log_fugacity_residual: nonnegative,
+});
+export const thermalDetailsSchema = z.strictObject({
+  mode: z.enum(['specified_outlet_temperature', 'specified_heat_duty']),
+  property_package: z.literal('peng_robinson@1.0'),
+  component_dataset: z.literal('riogineer_components@1.0'),
+  molecular_provider: z.literal('molecular_composition@1.0'),
+  caloric_dataset: z.literal('riogineer_caloric@1.0'),
+  caloric_reference: z.literal('ideal_gas_sensible_298.15K_101325Pa@1.0'),
+  bip: thermalBip,
+  F_mol_s: positive,
+  inlet: thermalStateSchema,
+  outlet: thermalStateSchema,
+  delta_H_J_mol: num,
+  Q_W: num,
+  energy_residual_W: num,
+  energy_allowance_W: positive,
+  H_out_target_J_mol: num.nullable(),
+  ph: z
+    .strictObject({
+      status: z.literal('success'),
+      capability: z.literal('flash_PH'),
+      pt_profile: z.literal('high_accuracy'),
+      root_iterations: z.number().int().nonnegative(),
+      evaluation_count: z.number().int().positive(),
+      enthalpy_residual_J_mol: num,
+    })
+    .nullable(),
+});
+const thermalResultsSchema = networkResultsSchema.omit({ model_tolerances: true }).extend({
+  schema_version: z.literal('1.7'),
+  process_result_version: z.literal('1.7'),
+  engine: networkResultsSchema.shape.engine.extend({ version: z.literal('1.6.0') }),
+  equipment: z
+    .array(
+      z.strictObject({
+        id,
+        type: z.literal('heater'),
+        model: rigorousHeaterModel,
+        duty_W: num,
+        work_W: z.literal(0),
+        mass_balance: legacyResultsSchema.shape.balances.shape.mass,
+        energy_residual_W: num,
+        thermodynamics: thermalDetailsSchema,
+      }),
+    )
+    .length(1),
+  balances: z.strictObject({
+    mass: legacyResultsSchema.shape.balances.shape.mass,
+    energy: z.strictObject({
+      status: z.literal('passed'),
+      residual_W: num,
+      tolerance_W: positive,
+      duty_W: num,
+      model: z.literal('equilibrium_energy_balance_pr'),
+      positive_duty: z.literal('heat_into_process'),
+    }),
+  }),
+});
 export const resultsSchema = z.union([
+  thermalResultsSchema,
   equilibriumResultsSchema,
   molecularSingleResults,
   molecularNetworkResults,

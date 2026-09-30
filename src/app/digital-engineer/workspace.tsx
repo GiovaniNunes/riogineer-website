@@ -418,8 +418,8 @@ export function EngineerWorkspace({
               ) : (
                 <>
                   <p>
-                    Status: <strong>{r.balances.energy.status}</strong> within the constant-Cp
-                    model.
+                    Status: <strong>{r.balances.energy.status}</strong> within the{' '}
+                    {r.schema_version === '1.7' ? 'PR equilibrium energy' : 'constant-Cp'} model.
                   </p>
                   <p>
                     {'execution' in r ? 'Calculated network duty: ' : 'Calculated separator duty: '}
@@ -432,10 +432,12 @@ export function EngineerWorkspace({
                     Residual: {r.balances.energy.residual_W.toExponential(3)} W; tolerance:{' '}
                     {r.balances.energy.tolerance_W.toExponential()} W.
                   </p>
-                  <p>
-                    Enthalpy reference: {r.balances.energy.reference_temperature_K} K. A zero duty
-                    at equal temperatures is calculated by this model.
-                  </p>
+                  {'reference_temperature_K' in r.balances.energy && (
+                    <p>
+                      Enthalpy reference: {r.balances.energy.reference_temperature_K} K. A zero duty
+                      at equal temperatures is calculated by this model.
+                    </p>
+                  )}
                 </>
               )}
             </div>

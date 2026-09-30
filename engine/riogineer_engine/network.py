@@ -26,7 +26,7 @@ def build(requirements):
         links = [c for c in connections if c['stream_id'] == stream['id']]
         source = links[0]['source']['owner_id'] if len(links) == 1 else None
         streams.append(dict(stream, specified_state=deepcopy(feed_by_id.get(source))))
-    f = dict(schema_version={'1.1': '1.2', '1.2': '1.3', '1.3': '1.4', '1.4': '1.5'}[r['schema_version']], kind='flowsheet', case_id=r['case_id'], profile=r['profile'],
+    f = dict(schema_version={'1.1': '1.2', '1.2': '1.3', '1.3': '1.4', '1.4': '1.5', '1.5': '1.6'}[r['schema_version']], kind='flowsheet', case_id=r['case_id'], profile=r['profile'],
              units=r['units'], requirements_sha256=digest(r), components=r['components'],
              boundaries=[dict(id=s['id'], type='source', ports=ports('source')) for s in r['feeds']] +
                         [dict(id=s['id'], type='sink', ports=ports('sink')) for s in r['sinks']],
@@ -37,8 +37,10 @@ def build(requirements):
              validation={'status': 'valid', 'messages': [warning()]}, presentation={'layout': 'wide'})
     if r['profile'] == 'pt_flash_separator':
         f['validation']['messages'] = [equilibrium_warning()]
-    else:
+    elif r['profile'] != 'heater_cooler_energy':
         f['caloric_model'] = r['caloric_model']
+    else:
+        f['validation']['messages'] = []
     # Topology is checked before assigning numbers; a cycle never receives a silent tear.
     validate(f, numbered=False)
     number_streams(f['streams'], f['connections'], list(feed_by_id))
@@ -69,8 +71,9 @@ def validate(f, numbered=True):
     components = set(f['components'])
     if len(components) != len(f['components']): reject('Duplicate component ID')
     equilibrium = f['profile'] == 'pt_flash_separator'
+    thermal = f['profile'] == 'heater_cooler_energy'
     cal = f.get('caloric_model')
-    if not equilibrium and set(cal['cp_J_kg_K']) != components: reject('Caloric component keys must match the component basis')
+    if not equilibrium and not thermal and set(cal['cp_J_kg_K']) != components: reject('Caloric component keys must match the component basis')
     sources = {n['id'] for n in f['boundaries'] if n['type'] == 'source'}
     sinks = {n['id'] for n in f['boundaries'] if n['type'] == 'sink'}
     if not sources or not sinks: reject('At least one explicit source and sink required')
@@ -79,6 +82,9 @@ def validate(f, numbered=True):
             reject('PT separator requires one binary hydrocarbon feed and two product sinks')
         if len(f['equipment']) != 1 or f['equipment'][0]['type'] != 'equilibrium_separator_2phase':
             reject('PT reference supports one equilibrium separator only')
+    if thermal:
+        if components != {'methane', 'n_hexane'} or len(sources) != 1 or len(sinks) != 1 or len(f['equipment']) != 1 or f['equipment'][0]['type'] != 'heater':
+            reject('M12 supports one binary hydrocarbon heater between one source and sink')
     port_map = {}
     for node in nodes:
         expected = {p['id']: p['direction'] for p in ports(node['type'])}
@@ -112,9 +118,14 @@ def validate(f, numbered=True):
         elif state is not None: reject('Only source streams may independently specify state')
     if occupied != set(port_map): reject('Missing required input or output connection')
     for unit in f['equipment']:
-        if unit['model'] != MODELS[unit['type']]['model']: reject('Unsupported equipment model')
+        if thermal:
+            from .heater_cooler_energy import MODEL as thermal_model, parameters
+            if unit['model'] != thermal_model: reject('Unsupported thermal model')
+            try: parameters(unit['operating_parameters'])
+            except ValueError as error: reject(str(error))
+        elif unit['model'] != MODELS[unit['type']]['model']: reject('Unsupported equipment model')
         p = unit['operating_parameters']
-        if unit['type'] == 'heater' and p['caloric_model'] != cal:
+        if unit['type'] == 'heater' and not thermal and p['caloric_model'] != cal:
             reject('All equipment must share the network caloric basis')
         if unit['type'] == 'splitter':
             if abs(sum(p['fractions'].values()) - 1) >= SPLIT_TOLERANCE:
@@ -152,6 +163,9 @@ def mass_balance(inputs, outputs, components):
 
 
 def calculate(f):
+    if f['profile'] == 'heater_cooler_energy':
+        from .thermal_process import calculate as calculate_thermal
+        return calculate_thermal(f)
     from .core import Invalid, reference, EVALUATOR_HASH, implementation_hash, semantic_hash, validate_schema
     order = validate(f)
     equilibrium = f['profile'] == 'pt_flash_separator'
