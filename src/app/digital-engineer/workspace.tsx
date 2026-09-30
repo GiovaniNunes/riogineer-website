@@ -14,6 +14,7 @@ import {
 } from '@/lib/digital-engineer/workflow';
 import { EquilibriumResults } from './equilibrium-results';
 import { CompressionResults } from './compression-results';
+import { TwoStreamHeatExchangerResults } from './two-stream-heat-exchanger-results';
 import { RigorousCompressionResults } from './rigorous-compression-results';
 import { Pfd } from './pfd';
 import { StreamTable } from './stream-table';
@@ -84,15 +85,26 @@ export function EngineerWorkspace({
   }
   const r = state.results;
   let equilibrium = false;
+  let exchanger = false;
   try {
     equilibrium = JSON.parse(state.draft).profile === 'pt_flash_separator';
+    exchanger = JSON.parse(state.draft).profile === 'two_stream_heat_exchanger_energy';
   } catch {
     /* Draft may be incomplete. */
   }
   return (
     <div className={`container ${styles.workspace}`}>
       <aside className={styles.model}>
-        {equilibrium ? (
+        {exchanger ? (
+          <>
+            <strong>Calculation model: Peng–Robinson two-stream heat exchanger</strong>
+            <p>
+              Two separate material paths coupled by heat transfer. One outlet temperature and both
+              outlet pressures are specified; PT and PH determine the terminal states. Single-phase
+              service only. No exchanger sizing or hydraulic pressure-drop calculation.
+            </p>
+          </>
+        ) : equilibrium ? (
           <>
             <strong>Calculation model: Peng–Robinson PT-flash separator</strong>
             <p>
@@ -375,7 +387,9 @@ export function EngineerWorkspace({
                     [
                       r.schema_version === '1.6'
                         ? 'Enthalpy flow (W; unavailable)'
-                        : 'Enthalpy flow (W; assumed Cp)',
+                        : r.schema_version === '1.9'
+                          ? 'Enthalpy flow (W; Peng–Robinson)'
+                          : 'Enthalpy flow (W; assumed Cp)',
                       'enthalpy_flow_W',
                     ],
                   ] as const
@@ -391,27 +405,29 @@ export function EngineerWorkspace({
             </table>
           </div>
           <div className={styles.columns}>
-            <div>
-              <h3>Mass-balance checks</h3>
-              <p>
-                Status: <strong>{r.balances.mass.status}</strong>
-              </p>
-              <ul>
-                {Object.entries(r.balances.mass.component_residual_kg_h).map(([c, v]) => (
-                  <li key={c}>
-                    {c}: residual {v.toExponential(3)} kg/h
-                  </li>
-                ))}
-              </ul>
-              <p>
-                Component tolerance: {r.balances.mass.component_tolerance_kg_h.toExponential()}{' '}
-                kg/h.
-              </p>
-              <p>
-                Total residual: {r.balances.mass.total_residual_kg_h.toExponential(3)} kg/h. Total
-                tolerance: {r.balances.mass.total_tolerance_kg_h.toExponential(2)} kg/h.
-              </p>
-            </div>
+            {r.schema_version !== '1.9' && (
+              <div>
+                <h3>Mass-balance checks</h3>
+                <p>
+                  Status: <strong>{r.balances.mass.status}</strong>
+                </p>
+                <ul>
+                  {Object.entries(r.balances.mass.component_residual_kg_h).map(([c, v]) => (
+                    <li key={c}>
+                      {c}: residual {v.toExponential(3)} kg/h
+                    </li>
+                  ))}
+                </ul>
+                <p>
+                  Component tolerance: {r.balances.mass.component_tolerance_kg_h.toExponential()}{' '}
+                  kg/h.
+                </p>
+                <p>
+                  Total residual: {r.balances.mass.total_residual_kg_h.toExponential(3)} kg/h. Total
+                  tolerance: {r.balances.mass.total_tolerance_kg_h.toExponential(2)} kg/h.
+                </p>
+              </div>
+            )}
             <div>
               <h3>Available energy balance</h3>
               {r.balances.energy.status === 'not_calculated' ? (
@@ -420,7 +436,9 @@ export function EngineerWorkspace({
                 <>
                   <p>
                     Status: <strong>{r.balances.energy.status}</strong> within the{' '}
-                    {r.schema_version === '1.7' || r.schema_version === '1.8'
+                    {r.schema_version === '1.7' ||
+                    r.schema_version === '1.8' ||
+                    r.schema_version === '1.9'
                       ? 'PR equilibrium energy'
                       : 'constant-Cp'}{' '}
                     model.
@@ -446,7 +464,7 @@ export function EngineerWorkspace({
               )}
             </div>
           </div>
-          {'execution' in r && r.schema_version !== '1.6' && (
+          {'execution' in r && r.schema_version !== '1.6' && r.schema_version !== '1.9' && (
             <>
               <h3>Equipment checks</h3>
               <p>Execution order: {r.execution.equipment_order.join(' → ')}</p>
@@ -490,6 +508,7 @@ export function EngineerWorkspace({
             (r.schema_version === '1.5' && r.process_result_version === '1.4')) && (
             <CompressionResults results={r} />
           )}
+          {r.schema_version === '1.9' && current && <TwoStreamHeatExchangerResults results={r} />}
           {r.schema_version === '1.8' && current && <RigorousCompressionResults results={r} />}
           <h3>Warnings and model limitations</h3>
           <ul aria-label="Warnings and model limitations">

@@ -26,7 +26,7 @@ def build(requirements):
         links = [c for c in connections if c['stream_id'] == stream['id']]
         source = links[0]['source']['owner_id'] if len(links) == 1 else None
         streams.append(dict(stream, specified_state=deepcopy(feed_by_id.get(source))))
-    f = dict(schema_version={'1.1': '1.2', '1.2': '1.3', '1.3': '1.4', '1.4': '1.5', '1.5': '1.6', '1.6': '1.7'}[r['schema_version']], kind='flowsheet', case_id=r['case_id'], profile=r['profile'],
+    f = dict(schema_version={'1.1': '1.2', '1.2': '1.3', '1.3': '1.4', '1.4': '1.5', '1.5': '1.6', '1.6': '1.7', '1.7': '1.8'}[r['schema_version']], kind='flowsheet', case_id=r['case_id'], profile=r['profile'],
              units=r['units'], requirements_sha256=digest(r), components=r['components'],
              boundaries=[dict(id=s['id'], type='source', ports=ports('source')) for s in r['feeds']] +
                         [dict(id=s['id'], type='sink', ports=ports('sink')) for s in r['sinks']],
@@ -37,7 +37,7 @@ def build(requirements):
              validation={'status': 'valid', 'messages': [warning()]}, presentation={'layout': 'wide'})
     if r['profile'] == 'pt_flash_separator':
         f['validation']['messages'] = [equilibrium_warning()]
-    elif r['profile'] not in ('heater_cooler_energy', 'compressor_energy'):
+    elif r['profile'] not in ('heater_cooler_energy', 'compressor_energy', 'two_stream_heat_exchanger_energy'):
         f['caloric_model'] = r['caloric_model']
     else:
         f['validation']['messages'] = []
@@ -73,8 +73,9 @@ def validate(f, numbered=True):
     equilibrium = f['profile'] == 'pt_flash_separator'
     thermal = f['profile'] == 'heater_cooler_energy'
     compression = f['profile'] == 'compressor_energy'
+    exchanger = f['profile'] == 'two_stream_heat_exchanger_energy'
     cal = f.get('caloric_model')
-    if not equilibrium and not thermal and not compression and set(cal['cp_J_kg_K']) != components: reject('Caloric component keys must match the component basis')
+    if not equilibrium and not thermal and not compression and not exchanger and set(cal['cp_J_kg_K']) != components: reject('Caloric component keys must match the component basis')
     sources = {n['id'] for n in f['boundaries'] if n['type'] == 'source'}
     sinks = {n['id'] for n in f['boundaries'] if n['type'] == 'sink'}
     if not sources or not sinks: reject('At least one explicit source and sink required')
@@ -89,6 +90,9 @@ def validate(f, numbered=True):
     if compression:
         if components != {'methane', 'n_hexane'} or len(sources) != 1 or len(sinks) != 1 or len(f['equipment']) != 1 or f['equipment'][0]['type'] != 'compressor':
             reject('M14 supports one binary hydrocarbon compressor between one source and sink')
+    if exchanger:
+        if components != {'methane', 'n_hexane'} or len(sources) < 2 or len(sinks) < 2 or any(u['type'] != 'two_stream_heat_exchanger' for u in f['equipment']):
+            reject('M15 requires separate binary hydrocarbon paths and explicit rigorous exchangers')
     port_map = {}
     for node in nodes:
         expected = {p['id']: p['direction'] for p in ports(node['type'])}
@@ -172,6 +176,9 @@ def mass_balance(inputs, outputs, components):
 
 
 def calculate(f):
+    if f['profile'] == 'two_stream_heat_exchanger_energy':
+        from .two_stream_heat_exchanger_process import calculate as calculate_exchanger
+        return calculate_exchanger(f)
     if f['profile'] == 'compressor_energy':
         from .compressor_process import calculate as calculate_compression
         return calculate_compression(f)
@@ -276,3 +283,37 @@ def calculate(f):
     else:
         validate_schema('results', output)
     return output
+
+
+def execute_exchanger_graph(f):
+    """Evaluate each ready four-port unit once; publish neither outlet on failure.
+
+    The local state store is recreated per call. No prior run is an input.
+    Separate material checks precede publication, even for injected evaluators.
+    """
+    from .core import Invalid
+    order = validate(f)
+    states = {s['id']: state_from_rates(deepcopy(s['specified_state']['component_mass_flow_kg_h']),
+        s['specified_state']['temperature_K'], s['specified_state']['pressure_Pa_abs'], None)
+        for s in f['streams'] if s['specified_state'] is not None}
+    records = []
+    for uid in order:
+        unit = next(u for u in f['equipment'] if u['id'] == uid)
+        links = {c['target']['port_id']: c['stream_id'] for c in f['connections'] if c['target']['owner_id'] == uid}
+        links.update({c['source']['port_id']: c['stream_id'] for c in f['connections'] if c['source']['owner_id'] == uid})
+        incoming = {p: deepcopy(states[links[p]]) for p in ('hot_in', 'cold_in')}
+        try:
+            result = equipment_result(MODELS['two_stream_heat_exchanger']['execute'](unit, deepcopy(incoming), None))
+            if set(result.streams) != {'hot_out', 'cold_out'}:
+                raise ValueError('Both exchanger outlets are required atomically')
+            balances = {}
+            for side in ('hot', 'cold'):
+                feed, out = incoming[side+'_in'], result.streams[side+'_out']
+                if feed['component_mass_flow_kg_h'] != out['component_mass_flow_kg_h'] or feed['mass_flow_kg_h'] != out['mass_flow_kg_h'] or feed['component_mass_fractions'] != out['component_mass_fractions']:
+                    raise ValueError(side+': wall-separated material path violated')
+                balances[side] = mass_balance([feed], [out], f['components'])
+        except (ValueError, ArithmeticError) as error:
+            raise Invalid(f'{uid}: {error}', code='CALCULATION_FAILED') from error
+        states.update({links[p]: deepcopy(result.streams[p]) for p in ('hot_out', 'cold_out')})
+        records.append((unit, links, incoming, result, balances))
+    return states, records

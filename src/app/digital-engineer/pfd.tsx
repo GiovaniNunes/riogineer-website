@@ -7,7 +7,8 @@ export function Pfd({ flowsheet }: { flowsheet: Flowsheet }) {
     flowsheet.schema_version === '1.3' ||
     flowsheet.schema_version === '1.4' ||
     flowsheet.schema_version === '1.5' ||
-    flowsheet.schema_version === '1.7'
+    flowsheet.schema_version === '1.7' ||
+    flowsheet.schema_version === '1.8'
   )
     return <NetworkPfd flowsheet={flowsheet} />;
   const nodes = [...flowsheet.boundaries, ...flowsheet.equipment];
@@ -198,6 +199,39 @@ function NetworkPfd({ flowsheet }: { flowsheet: Flowsheet }) {
                   strokeWidth="2"
                 />
               )}
+              {node.type === 'two_stream_heat_exchanger' && (
+                <g
+                  data-symbol="two-stream-heat-exchanger"
+                  aria-label="Two separate material paths coupled by heat transfer"
+                >
+                  {(['hot', 'cold'] as const).map((side) => {
+                    const a = point(node.id, side + '_in'),
+                      b = point(node.id, side + '_out');
+                    return (
+                      <g key={side}>
+                        <path
+                          d={`M ${a.x} ${a.y} H ${b.x}`}
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                        />
+                        <text data-port={side + '_in'} x={a.x + 4} y={a.y - 4} fontSize="9">
+                          {side}_in
+                        </text>
+                        <text
+                          data-port={side + '_out'}
+                          x={b.x - 4}
+                          y={b.y - 4}
+                          textAnchor="end"
+                          fontSize="9"
+                        >
+                          {side}_out
+                        </text>
+                      </g>
+                    );
+                  })}
+                </g>
+              )}
               {node.type === 'heater' && (
                 <path
                   data-symbol="heater"
@@ -209,7 +243,7 @@ function NetworkPfd({ flowsheet }: { flowsheet: Flowsheet }) {
               )}
               <text
                 x={p.x + 80}
-                y={p.y + 37}
+                y={p.y + (node.type === 'two_stream_heat_exchanger' ? 15 : 37)}
                 textAnchor="middle"
                 fontSize="16"
                 fontWeight="bold"
@@ -218,7 +252,12 @@ function NetworkPfd({ flowsheet }: { flowsheet: Flowsheet }) {
               >
                 {node.id}
               </text>
-              <text x={p.x + 80} y={p.y + 60} textAnchor="middle" fontSize="11">
+              <text
+                x={p.x + 80}
+                y={p.y + (node.type === 'two_stream_heat_exchanger' ? 82 : 60)}
+                textAnchor="middle"
+                fontSize="11"
+              >
                 {node.type === 'equilibrium_separator_2phase'
                   ? 'PT equilibrium · 2 phase'
                   : node.type.replaceAll('_', ' ')}

@@ -122,8 +122,16 @@ def equilibrium_separator(unit, inputs, evaluate):
     return separator(unit, inputs, evaluate)
 
 
+def two_stream_heat_exchanger(unit, inputs, _evaluate):
+    from .two_stream_heat_exchanger_energy import exchanger
+    return exchanger(unit, inputs)
+
+
 # Port definitions, capability identity and execution live together, not in parallel registries.
 MODELS = {
+    'two_stream_heat_exchanger': {'model': {'id': 'rigorous_two_stream_pr', 'version': '1.0'},
+        'ports': {'hot_in': 'in', 'hot_out': 'out', 'cold_in': 'in', 'cold_out': 'out'},
+        'execute': two_stream_heat_exchanger},
     'equilibrium_separator_2phase': {'model': {'id': 'pt_flash_separator', 'version': '1.0'},
         'ports': {'inlet': 'in', 'vapor': 'out', 'liquid': 'out'}, 'execute': equilibrium_separator},
     'compressor': {'model': {'id': 'ideal_gas_isentropic_efficiency', 'version': '1.0'},

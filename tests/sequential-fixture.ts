@@ -18,4 +18,10 @@ const data = JSON.parse(
 );
 export const requirements = engineeringRequirementsSchema.parse(data.requirements);
 export const flowsheet = flowsheetSchema.parse(data.flowsheet);
-export const results = resultsSchema.parse(data.results);
+const historicalResults = resultsSchema.parse(data.results);
+if (
+  historicalResults.schema_version !== '1.5' ||
+  historicalResults.process_result_version !== '1.3'
+)
+  throw new Error('Sequential fixture requires the historical molecular sequential result.');
+export const results = historicalResults;

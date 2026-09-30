@@ -18,4 +18,10 @@ const data = JSON.parse(
 );
 export const requirements = engineeringRequirementsSchema.parse(data.requirements);
 export const flowsheet = flowsheetSchema.parse(data.flowsheet);
-export const results = resultsSchema.parse(data.results);
+const historicalResults = resultsSchema.parse(data.results);
+if (
+  historicalResults.schema_version !== '1.5' ||
+  historicalResults.process_result_version !== '1.4'
+)
+  throw new Error('Compression fixture requires the historical molecular compression result.');
+export const results = historicalResults;

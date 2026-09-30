@@ -316,6 +316,62 @@ export const rigorousCompressionRequirementsSchema = thermalRequirementsSchema.e
   profile: z.literal('compressor_energy'),
   equipment: z.array(rigorousCompressorInput).length(1),
 });
+// M15 adds two wall-separated material paths without changing historical branches.
+export const exchangerModel = z.strictObject({
+  id: z.literal('rigorous_two_stream_pr'),
+  version: z.literal('1.0'),
+});
+const exchangerCommon = thermalCommon.omit({ outlet_pressure_Pa_abs: true }).extend({
+  hot_outlet_pressure_Pa_abs: positive,
+  cold_outlet_pressure_Pa_abs: positive,
+});
+export const exchangerParameters = z.discriminatedUnion('mode', [
+  exchangerCommon.extend({
+    mode: z.literal('specified_hot_outlet_temperature'),
+    hot_outlet_temperature_K: num.min(200).max(500),
+  }),
+  exchangerCommon.extend({
+    mode: z.literal('specified_cold_outlet_temperature'),
+    cold_outlet_temperature_K: num.min(200).max(500),
+  }),
+]);
+export const exchangerInput = z.strictObject({
+  id,
+  type: z.literal('two_stream_heat_exchanger'),
+  model: exchangerModel,
+  parameters: exchangerParameters,
+});
+export const exchangerRequirementsSchema = thermalRequirementsSchema.extend({
+  schema_version: z.literal('1.7'),
+  profile: z.literal('two_stream_heat_exchanger_energy'),
+  feeds: z.array(requirementsSchema.shape.feeds.element).min(2).max(50),
+  sinks: z.array(z.strictObject({ id })).min(2).max(100),
+  equipment: z.array(exchangerInput).min(1).max(50),
+  streams: graphStreams.min(4),
+  connections: graphConnections.min(4),
+});
+const exchangerPorts = z.tuple([
+  z.strictObject({
+    id: z.literal('hot_in'),
+    direction: z.literal('in'),
+    kind: z.literal('material'),
+  }),
+  z.strictObject({
+    id: z.literal('hot_out'),
+    direction: z.literal('out'),
+    kind: z.literal('material'),
+  }),
+  z.strictObject({
+    id: z.literal('cold_in'),
+    direction: z.literal('in'),
+    kind: z.literal('material'),
+  }),
+  z.strictObject({
+    id: z.literal('cold_out'),
+    direction: z.literal('out'),
+    kind: z.literal('material'),
+  }),
+]);
 // Interpretation stays on requirementsSchema (1.0); deterministic API accepts both.
 export const engineeringRequirementsSchema = z.union([
   requirementsSchema,
@@ -325,6 +381,7 @@ export const engineeringRequirementsSchema = z.union([
   equilibriumRequirementsSchema,
   thermalRequirementsSchema,
   rigorousCompressionRequirementsSchema,
+  exchangerRequirementsSchema,
 ]);
 const graphEquipment = z.discriminatedUnion('type', [
   graphEquipmentInput.options[0]
@@ -427,6 +484,21 @@ const rigorousCompressionFlowsheetSchema = thermalFlowsheetSchema.extend({
     )
     .length(1),
 });
+export const exchangerFlowsheetSchema = thermalFlowsheetSchema.extend({
+  schema_version: z.literal('1.8'),
+  profile: z.literal('two_stream_heat_exchanger_energy'),
+  boundaries: z.array(legacyFlowsheetSchema.shape.boundaries.element).min(4),
+  equipment: z
+    .array(
+      exchangerInput
+        .omit({ parameters: true })
+        .extend({ ports: exchangerPorts, operating_parameters: exchangerParameters }),
+    )
+    .min(1)
+    .max(50),
+  streams: z.array(numberedStream).min(4).max(200),
+  connections: graphConnections.min(4),
+});
 // Legacy 1.0/1.1 readers remain unchanged; graph builds explicitly use 1.2.
 export const flowsheetSchema = z.union([
   legacyFlowsheetSchema,
@@ -436,6 +508,7 @@ export const flowsheetSchema = z.union([
   equilibriumFlowsheetSchema,
   thermalFlowsheetSchema,
   rigorousCompressionFlowsheetSchema,
+  exchangerFlowsheetSchema,
   legacyFlowsheetSchema.extend({
     schema_version: z.literal('1.1'),
     streams: z
@@ -888,7 +961,74 @@ const rigorousCompressionResultsSchema = thermalResultsSchema.extend({
     }),
   }),
 });
+export const exchangerDetailsSchema = thermalDetailsSchema
+  .pick({
+    property_package: true,
+    component_dataset: true,
+    molecular_provider: true,
+    caloric_dataset: true,
+    caloric_reference: true,
+    bip: true,
+    energy_residual_W: true,
+    energy_allowance_W: true,
+  })
+  .extend({
+    specification_mode: z.enum([
+      'specified_hot_outlet_temperature',
+      'specified_cold_outlet_temperature',
+    ]),
+    hot_molar_flow_mol_s: positive,
+    cold_molar_flow_mol_s: positive,
+    hot_inlet: compressorStateSchema,
+    hot_outlet: compressorStateSchema,
+    cold_inlet: compressorStateSchema,
+    cold_outlet: compressorStateSchema,
+    Q_hot_W: num,
+    Q_cold_W: num,
+    Q_exchanged_W: nonnegative,
+    recovered_outlet_target_enthalpy_J_mol: num,
+    ph: compressorInverse.extend({
+      capability: z.literal('flash_PH'),
+      enthalpy_residual_J_mol: num,
+    }),
+  });
+const exchangerSideBalances = z.strictObject({
+  hot: legacyResultsSchema.shape.balances.shape.mass,
+  cold: legacyResultsSchema.shape.balances.shape.mass,
+});
+export const exchangerResultsSchema = thermalResultsSchema.extend({
+  schema_version: z.literal('1.9'),
+  process_result_version: z.literal('1.9'),
+  engine: thermalResultsSchema.shape.engine.extend({ version: z.literal('1.8.0') }),
+  equipment: z
+    .array(
+      z.strictObject({
+        id,
+        type: z.literal('two_stream_heat_exchanger'),
+        model: exchangerModel,
+        duty_W: z.literal(0),
+        work_W: z.literal(0),
+        material_streams: z.strictObject({ hot_in: id, hot_out: id, cold_in: id, cold_out: id }),
+        material_balances: exchangerSideBalances,
+        energy_residual_W: num,
+        thermodynamics: exchangerDetailsSchema,
+      }),
+    )
+    .min(1),
+  balances: z.strictObject({
+    material_paths: z.record(id, exchangerSideBalances),
+    energy: z.strictObject({
+      status: z.literal('passed'),
+      residual_W: num,
+      tolerance_W: positive,
+      duty_W: z.literal(0),
+      model: z.literal('rigorous_two_stream_pr'),
+      positive_duty: z.literal('heat_into_each_material_path'),
+    }),
+  }),
+});
 export const resultsSchema = z.union([
+  exchangerResultsSchema,
   rigorousCompressionResultsSchema,
   thermalResultsSchema,
   equilibriumResultsSchema,
