@@ -372,6 +372,22 @@ const exchangerPorts = z.tuple([
     kind: z.literal('material'),
   }),
 ]);
+// M16 adds an explicitly isenthalpic one-stream valve; historical models stay unchanged.
+export const rigorousValveModel = z.strictObject({
+  id: z.literal('rigorous_isenthalpic_pr'),
+  version: z.literal('1.0'),
+});
+export const rigorousValveInput = z.strictObject({
+  id,
+  type: z.literal('throttling_valve'),
+  model: rigorousValveModel,
+  parameters: thermalCommon,
+});
+export const valveRequirementsSchema = thermalRequirementsSchema.extend({
+  schema_version: z.literal('1.8'),
+  profile: z.literal('throttling_valve_energy'),
+  equipment: z.array(rigorousValveInput).length(1),
+});
 // Interpretation stays on requirementsSchema (1.0); deterministic API accepts both.
 export const engineeringRequirementsSchema = z.union([
   requirementsSchema,
@@ -382,6 +398,7 @@ export const engineeringRequirementsSchema = z.union([
   thermalRequirementsSchema,
   rigorousCompressionRequirementsSchema,
   exchangerRequirementsSchema,
+  valveRequirementsSchema,
 ]);
 const graphEquipment = z.discriminatedUnion('type', [
   graphEquipmentInput.options[0]
@@ -499,6 +516,29 @@ export const exchangerFlowsheetSchema = thermalFlowsheetSchema.extend({
   streams: z.array(numberedStream).min(4).max(200),
   connections: graphConnections.min(4),
 });
+export const valveFlowsheetSchema = thermalFlowsheetSchema.extend({
+  schema_version: z.literal('1.9'),
+  profile: z.literal('throttling_valve_energy'),
+  equipment: z
+    .array(
+      rigorousValveInput.omit({ parameters: true }).extend({
+        ports: z.tuple([
+          z.strictObject({
+            id: z.literal('inlet'),
+            direction: z.literal('in'),
+            kind: z.literal('material'),
+          }),
+          z.strictObject({
+            id: z.literal('outlet'),
+            direction: z.literal('out'),
+            kind: z.literal('material'),
+          }),
+        ]),
+        operating_parameters: rigorousValveInput.shape.parameters,
+      }),
+    )
+    .length(1),
+});
 // Legacy 1.0/1.1 readers remain unchanged; graph builds explicitly use 1.2.
 export const flowsheetSchema = z.union([
   legacyFlowsheetSchema,
@@ -509,6 +549,7 @@ export const flowsheetSchema = z.union([
   thermalFlowsheetSchema,
   rigorousCompressionFlowsheetSchema,
   exchangerFlowsheetSchema,
+  valveFlowsheetSchema,
   legacyFlowsheetSchema.extend({
     schema_version: z.literal('1.1'),
     streams: z
@@ -1027,7 +1068,84 @@ export const exchangerResultsSchema = thermalResultsSchema.extend({
     }),
   }),
 });
+// Reuse caloric state fields, adding phase consistency only to the new M16 branch.
+const valveLiquidState = compressorStateSchema.extend({
+  classification: z.literal('single_liquid'),
+  beta: z.literal(0),
+  pt_status: z.literal('success_single_phase'),
+  phases: z.strictObject({ liquid: compressorPhase }),
+});
+const valveVaporState = compressorStateSchema.extend({
+  classification: z.literal('single_vapor'),
+  beta: z.literal(1),
+  pt_status: z.literal('success_single_phase'),
+  phases: z.strictObject({ vapor: compressorPhase }),
+});
+const valveTwoPhaseState = compressorStateSchema.extend({
+  classification: z.literal('vapor_liquid'),
+  beta: num.gt(0).lt(1),
+  pt_status: z.literal('success_two_phase'),
+  phases: z.strictObject({ liquid: compressorPhase, vapor: compressorPhase }),
+});
+export const valveDetailsSchema = thermalDetailsSchema
+  .pick({
+    property_package: true,
+    component_dataset: true,
+    molecular_provider: true,
+    caloric_dataset: true,
+    caloric_reference: true,
+    bip: true,
+    F_mol_s: true,
+    energy_residual_W: true,
+    energy_allowance_W: true,
+  })
+  .extend({
+    inlet: z.discriminatedUnion('classification', [valveLiquidState, valveVaporState]),
+    outlet: z.discriminatedUnion('classification', [
+      valveLiquidState,
+      valveVaporState,
+      valveTwoPhaseState,
+    ]),
+    pressure_ratio: positive.lt(1), // P_out / P_in
+    pressure_drop_Pa: positive,
+    H_out_target_J_mol: num,
+    delta_H_J_mol: num,
+    delta_S_J_mol_K: num,
+    enthalpy_residual_J_mol: num,
+    ph: compressorInverse.extend({
+      capability: z.literal('flash_PH'),
+      enthalpy_residual_J_mol: num,
+    }),
+  });
+export const valveResultsSchema = thermalResultsSchema.extend({
+  schema_version: z.literal('1.10'),
+  process_result_version: z.literal('1.10'),
+  engine: thermalResultsSchema.shape.engine.extend({ version: z.literal('1.9.0') }),
+  equipment: z
+    .array(
+      z.strictObject({
+        id,
+        type: z.literal('throttling_valve'),
+        model: rigorousValveModel,
+        material_streams: z.strictObject({ inlet: id, outlet: id }),
+        mass_balance: legacyResultsSchema.shape.balances.shape.mass,
+        energy_residual_W: num,
+        thermodynamics: valveDetailsSchema,
+      }),
+    )
+    .length(1),
+  balances: z.strictObject({
+    mass: legacyResultsSchema.shape.balances.shape.mass,
+    energy: z.strictObject({
+      status: z.literal('passed'),
+      residual_W: num,
+      tolerance_W: positive,
+      model: z.literal('rigorous_isenthalpic_pr'),
+    }),
+  }),
+});
 export const resultsSchema = z.union([
+  valveResultsSchema,
   exchangerResultsSchema,
   rigorousCompressionResultsSchema,
   thermalResultsSchema,

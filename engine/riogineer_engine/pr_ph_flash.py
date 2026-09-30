@@ -121,19 +121,34 @@ def flash_ph(specification, bip, evaluator, settings=PHSettings()):
         # Existing composition, BIP, provider and component/Cp validation policy.
         validate_input(state(low),bip)
         validate_input(state(high),bip)
-        points=[]
+        intervals=[]; interval=[]; scan_failure=None
         for i in range(settings.scan_points):
             T=low+(high-low)*i/(settings.scan_points-1)
-            _,F=evaluate(T,'scan')
-            points.append((T,F))
-        for T,F in points:
-            if F == 0:brackets.append((T,T))
-        for (a,fa),(b,fb) in zip(points,points[1:]):
-            if (fa < 0 < fb) or (fb < 0 < fa):brackets.append((a,b))
-        if not brackets:return result('enthalpy_target_not_bracketed','No exact scan root or adjacent sign change')
+            before=len(trials)
+            try:
+                _,F=evaluate(T,'scan')
+            except ThermodynamicError as error:
+                # Only recorded, controlled PT failures partition the scan.
+                if (error.status != 'pt_evaluation_failure' or len(trials) != before+1 or
+                        trials[-1].status != 'pt_evaluation_failure'):
+                    raise
+                if scan_failure is None:scan_failure=error
+                if interval:intervals.append(interval);interval=[]
+                continue
+            interval.append((T,F))
+        if interval:intervals.append(interval)
+        # Failed points break connectivity; brackets cannot span unavailable regions.
+        for points in intervals:
+            for T,F in points:
+                if F == 0:brackets.append((T,T))
+            for (a,fa),(b,fb) in zip(points,points[1:]):
+                if (fa < 0 < fb) or (fb < 0 < fa):brackets.append((a,b))
+        if not brackets:
+            if scan_failure is not None:return result(scan_failure.status,str(scan_failure))
+            return result('enthalpy_target_not_bracketed','No exact scan root or adjacent sign change')
         if len(brackets)!=1:return result('multiple_ph_roots','Multiple scan candidates; no qualified selection rule')
         selected=brackets[0];lo,hi=selected
-        values=dict(points);flo,fhi=values[lo],values[hi]
+        values=dict(point for points in intervals for point in points);flo,fhi=values[lo],values[hi]
         best=min(((lo,flo),(hi,fhi)),key=lambda q:abs(q[1]))
         # Bisection retains a sign bracket across phase changes; no smoothness assumption.
         converged=lo == hi

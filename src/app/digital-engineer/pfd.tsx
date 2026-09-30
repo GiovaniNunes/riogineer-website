@@ -8,7 +8,8 @@ export function Pfd({ flowsheet }: { flowsheet: Flowsheet }) {
     flowsheet.schema_version === '1.4' ||
     flowsheet.schema_version === '1.5' ||
     flowsheet.schema_version === '1.7' ||
-    flowsheet.schema_version === '1.8'
+    flowsheet.schema_version === '1.8' ||
+    flowsheet.schema_version === '1.9'
   )
     return <NetworkPfd flowsheet={flowsheet} />;
   const nodes = [...flowsheet.boundaries, ...flowsheet.equipment];
@@ -184,6 +185,16 @@ function NetworkPfd({ flowsheet }: { flowsheet: Flowsheet }) {
                 <path
                   data-symbol="equilibrium-separator-2phase"
                   d={`M ${p.x + 16} ${p.y + 73} H ${p.x + 144}`}
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                />
+              )}
+              {node.type === 'throttling_valve' && (
+                <path
+                  data-symbol="throttling-valve"
+                  aria-label="One inlet and one overall outlet"
+                  d={`M ${p.x + 55} ${p.y + 63} L ${p.x + 105} ${p.y + 87} V ${p.y + 63} L ${p.x + 55} ${p.y + 87} Z`}
                   fill="none"
                   stroke="currentColor"
                   strokeWidth="2"

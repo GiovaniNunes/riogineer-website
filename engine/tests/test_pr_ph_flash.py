@@ -144,7 +144,14 @@ class Controls(unittest.TestCase):
         c=CaloricResult('flash_not_converged',failed,message='controlled PT failure')
         with patch.object(PengRobinsonProvider,'equilibrium_caloric_PT',return_value=c) as call:
             r=self.provider.flash_PH(specification(REFERENCE['cases'][0]),BIP)
-        self.empty(r,'pt_evaluation_failure');self.assertEqual(call.call_count,1)
+        self.empty(r,'pt_evaluation_failure')
+        # A controlled failure does not prevent inspection of the remaining scan domain.
+        bounds=r.diagnostics.settings.temperature_bounds_K
+        count=r.diagnostics.settings.scan_points
+        temperatures=[entry.args[0].temperature_K for entry in call.call_args_list]
+        self.assertEqual(temperatures,[bounds[0]+(bounds[1]-bounds[0])*i/(count-1) for i in range(count)])
+        self.assertTrue(all(t.stage=='scan' and t.status=='pt_evaluation_failure' for t in r.diagnostics.trials))
+        self.assertEqual(r.diagnostics.brackets_K,())
         self.assertEqual(r.diagnostics.trials[0].underlying_status,'flash_not_converged')
         self.assertIsNone(r.diagnostics.trials[0].enthalpy_J_mol)
 

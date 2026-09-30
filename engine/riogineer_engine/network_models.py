@@ -127,8 +127,15 @@ def two_stream_heat_exchanger(unit, inputs, _evaluate):
     return exchanger(unit, inputs)
 
 
+def throttling_valve(unit, inputs, _evaluate):
+    from .throttling_valve_energy import valve
+    return valve(unit, inputs)
+
+
 # Port definitions, capability identity and execution live together, not in parallel registries.
 MODELS = {
+    'throttling_valve': {'model': {'id': 'rigorous_isenthalpic_pr', 'version': '1.0'},
+        'ports': {'inlet': 'in', 'outlet': 'out'}, 'execute': throttling_valve},
     'two_stream_heat_exchanger': {'model': {'id': 'rigorous_two_stream_pr', 'version': '1.0'},
         'ports': {'hot_in': 'in', 'hot_out': 'out', 'cold_in': 'in', 'cold_out': 'out'},
         'execute': two_stream_heat_exchanger},

@@ -1,4 +1,6 @@
 'use client';
+
+import { ThrottlingValveResults } from './throttling-valve-results';
 import { useReducer } from 'react';
 import {
   engineeringRequirementsSchema as requirementsSchema,
@@ -387,7 +389,7 @@ export function EngineerWorkspace({
                     [
                       r.schema_version === '1.6'
                         ? 'Enthalpy flow (W; unavailable)'
-                        : r.schema_version === '1.9'
+                        : r.schema_version === '1.9' || r.schema_version === '1.10'
                           ? 'Enthalpy flow (W; Peng–Robinson)'
                           : 'Enthalpy flow (W; assumed Cp)',
                       'enthalpy_flow_W',
@@ -438,18 +440,23 @@ export function EngineerWorkspace({
                     Status: <strong>{r.balances.energy.status}</strong> within the{' '}
                     {r.schema_version === '1.7' ||
                     r.schema_version === '1.8' ||
-                    r.schema_version === '1.9'
+                    r.schema_version === '1.9' ||
+                    r.schema_version === '1.10'
                       ? 'PR equilibrium energy'
                       : 'constant-Cp'}{' '}
                     model.
                   </p>
-                  <p>
-                    {'execution' in r ? 'Calculated network duty: ' : 'Calculated separator duty: '}
-                    <strong>{number(r.balances.energy.duty_W)} W</strong>{' '}
-                    {'execution' in r
-                      ? '(positive into the network).'
-                      : '(positive into the separator).'}
-                  </p>
+                  {r.schema_version !== '1.10' && (
+                    <p>
+                      {'execution' in r
+                        ? 'Calculated network duty: '
+                        : 'Calculated separator duty: '}
+                      <strong>{number(r.balances.energy.duty_W)} W</strong>{' '}
+                      {'execution' in r
+                        ? '(positive into the network).'
+                        : '(positive into the separator).'}
+                    </p>
+                  )}
                   <p>
                     Residual: {r.balances.energy.residual_W.toExponential(3)} W; tolerance:{' '}
                     {r.balances.energy.tolerance_W.toExponential()} W.
@@ -464,45 +471,48 @@ export function EngineerWorkspace({
               )}
             </div>
           </div>
-          {'execution' in r && r.schema_version !== '1.6' && r.schema_version !== '1.9' && (
-            <>
-              <h3>Equipment checks</h3>
-              <p>Execution order: {r.execution.equipment_order.join(' → ')}</p>
-              <div className={styles.tableWrap}>
-                <table aria-label="Equipment balance checks">
-                  <thead>
-                    <tr>
-                      <th>Equipment</th>
-                      <th>Duty (W, positive into process)</th>
-                      <th>Total residual (kg/h)</th>
-                      <th>Component residuals (kg/h)</th>
-                      <th>Constant-Cp energy residual (W)</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {r.equipment.map((e) => (
-                      <tr key={e.id}>
-                        <th scope="row">{e.id}</th>
-                        <td>{number(e.duty_W)}</td>
-                        <td>{number(e.mass_balance.total_residual_kg_h)}</td>
-                        <td>
-                          {Object.entries(e.mass_balance.component_residual_kg_h)
-                            .map(([c, v]) => `${c}: ${number(v)}`)
-                            .join('; ')}
-                        </td>
-                        <td>{number(e.energy_residual_W)}</td>
+          {'execution' in r &&
+            r.schema_version !== '1.6' &&
+            r.schema_version !== '1.9' &&
+            r.schema_version !== '1.10' && (
+              <>
+                <h3>Equipment checks</h3>
+                <p>Execution order: {r.execution.equipment_order.join(' → ')}</p>
+                <div className={styles.tableWrap}>
+                  <table aria-label="Equipment balance checks">
+                    <thead>
+                      <tr>
+                        <th>Equipment</th>
+                        <th>Duty (W, positive into process)</th>
+                        <th>Total residual (kg/h)</th>
+                        <th>Component residuals (kg/h)</th>
+                        <th>Constant-Cp energy residual (W)</th>
                       </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-              <p>
-                Mixing is restricted to equal inlet temperature and pressure. Energy accounting uses
-                only the shared constant-Cp development basis; it is not a general plant
-                thermodynamic solution.
-              </p>
-            </>
-          )}
+                    </thead>
+                    <tbody>
+                      {r.equipment.map((e) => (
+                        <tr key={e.id}>
+                          <th scope="row">{e.id}</th>
+                          <td>{number(e.duty_W)}</td>
+                          <td>{number(e.mass_balance.total_residual_kg_h)}</td>
+                          <td>
+                            {Object.entries(e.mass_balance.component_residual_kg_h)
+                              .map(([c, v]) => `${c}: ${number(v)}`)
+                              .join('; ')}
+                          </td>
+                          <td>{number(e.energy_residual_W)}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+                <p>
+                  Mixing is restricted to equal inlet temperature and pressure. Energy accounting
+                  uses only the shared constant-Cp development basis; it is not a general plant
+                  thermodynamic solution.
+                </p>
+              </>
+            )}
           {r.schema_version === '1.6' && current && <EquilibriumResults results={r} />}
           {(r.schema_version === '1.4' ||
             (r.schema_version === '1.5' && r.process_result_version === '1.4')) && (
@@ -510,6 +520,7 @@ export function EngineerWorkspace({
           )}
           {r.schema_version === '1.9' && current && <TwoStreamHeatExchangerResults results={r} />}
           {r.schema_version === '1.8' && current && <RigorousCompressionResults results={r} />}
+          {r.schema_version === '1.10' && current && <ThrottlingValveResults results={r} />}
           <h3>Warnings and model limitations</h3>
           <ul aria-label="Warnings and model limitations">
             {[...new Set([...r.warnings.map((w) => w.message), ...r.limitations])].map(
