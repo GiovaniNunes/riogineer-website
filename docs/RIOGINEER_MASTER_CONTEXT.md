@@ -1606,6 +1606,85 @@ Detailed implementation history belongs in:
 
 # 61. CURRENT STATE SUMMARY
 
+M18 guarded configurable liquid pump implementation and automated qualification:
+COMPLETE — 2026-10-01 within the two Pre-M18 studies' bounded scope. See
+`MILESTONE_18.md` and `benchmarks/pump_energy/m18/`. Production model
+`rigorous_isentropic_pump_pr@1.0` adds requirements 1.10 / flowsheet 1.11 /
+results-process 1.12, engine 1.11.0, one source -> pump -> sink. Fixed equimolar
+methane/n-hexane, explicit zero kij; Tin 300–350 K, Pin 20–25 MPa absolute,
+Pout=Pin exactly or Pin+10,000 Pa through 30 MPa, eta 0.6–1, flow 5–200 mol/s.
+Existing unchanged high_accuracy PT/calorics, full-domain PS and PH calculate
+fluid power and actual outlet state. Three actual states require 300–370 K /
+20–30 MPa, stable liquid and fresh same-T/z liquid witnesses at 16 MPa. Work
+screening remains an engineering numerical allowance, not certified uncertainty.
+Identity validates inlet/witness only, imposes zero work/duty and publishes null
+isentropic reference/efficiency with not-applicable inverses. M7 molecular table
+properties are populated for both streams; PFD, results and downloads agree.
+Actual callable plus adapter passed 59 cases (43 accepted, 16 controlled rejects),
+10,477 comparisons and 155 integrity/work-policy checks. Final regression evidence
+covers 637 Python tests (full run plus documented affected-scope recovery), 268
+TypeScript tests and 38 browser tests; schema, type, lint, format, build and smoke
+passed. The hash-sensitive compressor class was rerun after source stabilization;
+see the report for exact commands and other development/environment retries.
+Both prerequisite studies, their frozen evidence, thermodynamic foundation and
+incoming next-env.d.ts bytes are preserved. Human acceptance: COMPLETE —
+2026-10-01, America/Sao_Paulo, operator Giovani Nunes. This is user-reported
+acceptance from a user-operated browser session whose screenshots and off-grid
+results.json were reviewed in ChatGPT, not independently operated/observed by
+the closeout agent. Engine 127.0.0.1:8118 and frontend
+http://127.0.0.1:3118/digital-engineer were used. Canonical, equal-pressure identity,
+invalidation before Validate, 1,000 Pa sub-floor rejection, half-flow scaling,
+off-grid operation and download agreement were confirmed. Previous general
+results/balance statuses remained visible as stale; PFD/pump panel were hidden
+and download/generation/calculation disabled. No new accepted result appeared
+on rejection. Exact 10,000 Pa floor remains automated-only evidence.
+Off-grid export run e8084a35-c661-45ba-a827-247baa2032d6, input SHA-256
+d77f0eb947d1f99a25a552fa537fce9add9d5a85fa8cb6bb6ebf5451adaacae3;
+Tout=308.665248379672 K, fluid power=33292.48812016267 W, eta=0.7131999999999931,
+energy residual=-4.3655745685100555e-11 W within 2.2379900405281102e-8 W.
+Mass/energy passed; PS/PH succeeded; density/volumetric properties remained
+unavailable. No claim is made that screenshots/export are stored in this repo.
+See MILESTONE_18.md for all supplied observations and evidence attribution.
+The user authorized normal commit/push of the verified 57-file scope (26 M18,
+31 prerequisite paths); next-env.d.ts is excluded and untouched during closeout.
+Prior cumulative testing and recovery history are retained. Acceptance does not
+expand qualification. Deployment and M19 remain unauthorized.
+No general fluid coverage, global convergence/phase proof, experimental pump
+validation, sizing, head/curves, NPSH, cavitation or electrical model is claimed.
+The Pre-M18 entries below describe their historical study-only completion.
+
+Pre-M18 configurable-scope extension: COMPLETE — 2026-10-01. See
+`PRE_MILESTONE_18_CONFIGURABLE_PUMP_SCOPE_QUALIFICATION.md` and
+`benchmarks/pump_energy/configurable_scope/`. Numerical evidence supports fixed
+equimolar methane/n-hexane, zero kij, inlet 300–350 K / 20–25 MPa, discharge up to
+30 MPa, eta 0.6–1 and continuous flow 5–200 mol/s. Exact equal pressure is a
+separate identity; positive rise requires at least 10,000 Pa plus runtime work
+screening. All three states require 300–370 K / 20–30 MPa, stable liquid and
+fresh same-temperature 16 MPa liquid PT witnesses. The fixed boundary ceiling
+is a conservatively supported engineering policy, not a proven global envelope.
+The extension records 46 candidate entries, eight off-grid holdouts, 149 boundary
+temperatures, 5,522 passing checks and 13 focused tests; numerical artifacts
+reproduce byte-for-byte. Four alternate saturation-inverse branch returns are
+retained and investigated separately. Prior evidence and production solvers are
+unchanged. A guarded configurable pump implementation can be separately scoped;
+no pump, contract or interface is implemented, and M18 is not complete. The
+first-study record below remains historical evidence, not the latest scope limit.
+
+Pre-M18 liquid PS/PH pump-path prerequisite study: COMPLETE FOR A NARROWER
+ENUMERATED SCOPE — 2026-10-01. See
+`PRE_MILESTONE_18_LIQUID_PUMP_PATH_QUALIFICATION.md` and `benchmarks/pump_energy/`.
+Twenty candidates yield 13 accepted production tuples, two controlled PS scan
+failures, three unresolved-small-work cases and two non-liquid inlet rejections;
+1,215 applicable comparison checks and 18 focused tests passed. Independent and
+production artifacts reproduce byte-for-byte. The 8 MPa boundary paths remain
+blocked by two PT holes in the full PS scan; separate PH diagnostics do not rescue
+them. Stability/PIP alone cannot exclude saturation or supercritical service, so
+the proposed admissibility policy is the exact accepted input set, not a continuous
+operating envelope. Production solvers, contracts and UI are unchanged. No pump
+is implemented or registered; M18 is not complete, and no experimental or cavitation
+validation is claimed. Broader inputs or inclusion of the blocked paths need
+separate prerequisite qualification before implementation.
+
 Milestone 17 automated implementation and qualification: COMPLETE — 2026-10-01: `equilibrium_separator_energy_pr@1.0`
 extends the existing M9 separator using M10 calorics and the shared M11/M16 PH
 solver. Requirements 1.9 / flowsheet 1.10 / results 1.11 add explicit separator
@@ -1769,6 +1848,22 @@ Current state:
 
 
 # 62. IMMEDIATE NEXT STEP
+
+Current handoff: M18 numerical qualification and user-reported human acceptance
+are complete within the documented guarded scope. Giovani Nunes authorized
+repository closeout (normal commit/push of implementation and both prerequisites).
+Preserve the unrelated next-env.d.ts bytes outside the commit and leave running
+services untouched. Await a separately scoped next request; no M19 or deployment
+is authorized. Earlier study handoffs below are historical and superseded by the
+M18 implementation and acceptance records above.
+
+Latest follow-up: the configurable Pre-M18 extension supports the guarded ranges
+above. Await a separate production-pump implementation request. Earlier handoff
+records below are retained; no implementation is authorized by study completion.
+
+The separately authorized Pre-M18 benchmark-only study is now complete for the
+restricted cases described above. Await a separate request for pump implementation
+or broader liquid admissibility/PS qualification; no production M18 work has begun.
 
 M17 user-operated engineering checks and completed visual acceptance of the
 corrected general Stream Table are recorded in `MILESTONE_17.md` (2026-10-01,

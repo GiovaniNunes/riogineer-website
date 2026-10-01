@@ -136,7 +136,14 @@ def throttling_valve(unit, inputs, _evaluate):
 
 
 # Port definitions, capability identity and execution live together, not in parallel registries.
+def pump(unit, inputs, evaluate):
+    from .pump_energy import pump as execute
+    return execute(unit, inputs, evaluate)
+
+
 MODELS = {
+    'pump': {'model': {'id': 'rigorous_isentropic_pump_pr', 'version': '1.0'},
+             'ports': {'inlet': 'in', 'outlet': 'out'}, 'execute': pump},
     'throttling_valve': {'model': {'id': 'rigorous_isenthalpic_pr', 'version': '1.0'},
         'ports': {'inlet': 'in', 'outlet': 'out'}, 'execute': throttling_valve},
     'two_stream_heat_exchanger': {'model': {'id': 'rigorous_two_stream_pr', 'version': '1.0'},

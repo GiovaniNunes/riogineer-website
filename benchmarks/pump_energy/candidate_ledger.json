@@ -1,0 +1,419 @@
+{
+  "policy": "Exact tested T/P/z/eta/flow tuples only, including two identity tuples; no interpolation or rectangular envelope",
+  "production_counts": {
+    "accepted": 13,
+    "production_failure": 2,
+    "unresolved_work": 3,
+    "unsupported_phase": 2
+  },
+  "production_sha256": "84c8d031f04a9d1da81cc0b787a4bcf33cf7a278d55e1f3b5ace9852f6f92a40",
+  "reference_counts": {
+    "accepted": 15,
+    "unresolved_work": 3,
+    "unsupported_phase": 2
+  },
+  "reference_sha256": "6c0f7b33d9b4aea4ecd6b3f09bab70b22d46fa711a725bbfeab0cd3e63ad8f07",
+  "rows": [
+    {
+      "admitted_to_proposed_scope": true,
+      "case_id": "CANONICAL",
+      "group": "pressure",
+      "inputs": {
+        "P1": 20000000.0,
+        "P2": 30000000.0,
+        "T1": 300.0,
+        "eta": 0.8,
+        "flow": 100.0,
+        "z": [
+          0.5,
+          0.5
+        ]
+      },
+      "production_status": "accepted",
+      "reason": "Exact tested operating case; stable liquid, resolved work and independent comparison",
+      "reference_status": "accepted",
+      "stage": "complete"
+    },
+    {
+      "admitted_to_proposed_scope": true,
+      "case_id": "P22",
+      "group": "pressure",
+      "inputs": {
+        "P1": 20000000.0,
+        "P2": 22000000.0,
+        "T1": 300.0,
+        "eta": 0.8,
+        "flow": 100.0,
+        "z": [
+          0.5,
+          0.5
+        ]
+      },
+      "production_status": "accepted",
+      "reason": "Exact tested operating case; stable liquid, resolved work and independent comparison",
+      "reference_status": "accepted",
+      "stage": "complete"
+    },
+    {
+      "admitted_to_proposed_scope": true,
+      "case_id": "ETA1",
+      "group": "efficiency",
+      "inputs": {
+        "P1": 20000000.0,
+        "P2": 30000000.0,
+        "T1": 300.0,
+        "eta": 1.0,
+        "flow": 100.0,
+        "z": [
+          0.5,
+          0.5
+        ]
+      },
+      "production_status": "accepted",
+      "reason": "Exact tested operating case; stable liquid, resolved work and independent comparison",
+      "reference_status": "accepted",
+      "stage": "complete"
+    },
+    {
+      "admitted_to_proposed_scope": true,
+      "case_id": "ETA06",
+      "group": "efficiency",
+      "inputs": {
+        "P1": 20000000.0,
+        "P2": 30000000.0,
+        "T1": 300.0,
+        "eta": 0.6,
+        "flow": 100.0,
+        "z": [
+          0.5,
+          0.5
+        ]
+      },
+      "production_status": "accepted",
+      "reason": "Exact tested operating case; stable liquid, resolved work and independent comparison",
+      "reference_status": "accepted",
+      "stage": "complete"
+    },
+    {
+      "admitted_to_proposed_scope": true,
+      "case_id": "HEXANE_P2",
+      "group": "pure",
+      "inputs": {
+        "P1": 1000000.0,
+        "P2": 2000000.0,
+        "T1": 300.0,
+        "eta": 0.8,
+        "flow": 100.0,
+        "z": [
+          0.0,
+          1.0
+        ]
+      },
+      "production_status": "accepted",
+      "reason": "Exact tested operating case; stable liquid, resolved work and independent comparison",
+      "reference_status": "accepted",
+      "stage": "complete"
+    },
+    {
+      "admitted_to_proposed_scope": true,
+      "case_id": "HEXANE_P6",
+      "group": "pure",
+      "inputs": {
+        "P1": 1000000.0,
+        "P2": 6000000.0,
+        "T1": 300.0,
+        "eta": 0.8,
+        "flow": 100.0,
+        "z": [
+          0.0,
+          1.0
+        ]
+      },
+      "production_status": "accepted",
+      "reason": "Exact tested operating case; stable liquid, resolved work and independent comparison",
+      "reference_status": "accepted",
+      "stage": "complete"
+    },
+    {
+      "admitted_to_proposed_scope": true,
+      "case_id": "T350",
+      "group": "temperature",
+      "inputs": {
+        "P1": 20000000.0,
+        "P2": 30000000.0,
+        "T1": 350.0,
+        "eta": 0.8,
+        "flow": 100.0,
+        "z": [
+          0.5,
+          0.5
+        ]
+      },
+      "production_status": "accepted",
+      "reason": "Exact tested operating case; stable liquid, resolved work and independent comparison",
+      "reference_status": "accepted",
+      "stage": "complete"
+    },
+    {
+      "admitted_to_proposed_scope": true,
+      "case_id": "HEXANE_RICH",
+      "group": "composition",
+      "inputs": {
+        "P1": 6000000.0,
+        "P2": 10000000.0,
+        "T1": 300.0,
+        "eta": 0.8,
+        "flow": 100.0,
+        "z": [
+          0.1,
+          0.9
+        ]
+      },
+      "production_status": "accepted",
+      "reason": "Exact tested operating case; stable liquid, resolved work and independent comparison",
+      "reference_status": "accepted",
+      "stage": "complete"
+    },
+    {
+      "admitted_to_proposed_scope": false,
+      "case_id": "BUBBLE_BELOW",
+      "group": "boundary",
+      "inputs": {
+        "P1": 6000000.0,
+        "P2": 8000000.0,
+        "T1": 230.61755435138735,
+        "eta": 0.8,
+        "flow": 100.0,
+        "z": [
+          0.5,
+          0.5
+        ]
+      },
+      "production_status": "production_failure",
+      "reason": "Production PS whole-scan rejection; independent path available",
+      "reference_status": "accepted",
+      "stage": "PS"
+    },
+    {
+      "admitted_to_proposed_scope": false,
+      "case_id": "BUBBLE_MINUS_01",
+      "group": "boundary",
+      "inputs": {
+        "P1": 6000000.0,
+        "P2": 8000000.0,
+        "T1": 231.01755435138736,
+        "eta": 0.8,
+        "flow": 100.0,
+        "z": [
+          0.5,
+          0.5
+        ]
+      },
+      "production_status": "production_failure",
+      "reason": "Production PS whole-scan rejection; independent path available",
+      "reference_status": "accepted",
+      "stage": "PS"
+    },
+    {
+      "admitted_to_proposed_scope": false,
+      "case_id": "BUBBLE_PLUS_01",
+      "group": "boundary",
+      "inputs": {
+        "P1": 6000000.0,
+        "P2": 8000000.0,
+        "T1": 231.21755435138735,
+        "eta": 0.8,
+        "flow": 100.0,
+        "z": [
+          0.5,
+          0.5
+        ]
+      },
+      "production_status": "unsupported_phase",
+      "reason": "Inlet is outside liquid service",
+      "reference_status": "unsupported_phase",
+      "stage": "inlet_PT"
+    },
+    {
+      "admitted_to_proposed_scope": true,
+      "case_id": "FLOW5",
+      "group": "flow",
+      "inputs": {
+        "P1": 20000000.0,
+        "P2": 30000000.0,
+        "T1": 300.0,
+        "eta": 0.8,
+        "flow": 5.0,
+        "z": [
+          0.5,
+          0.5
+        ]
+      },
+      "production_status": "accepted",
+      "reason": "Exact tested operating case; stable liquid, resolved work and independent comparison",
+      "reference_status": "accepted",
+      "stage": "complete"
+    },
+    {
+      "admitted_to_proposed_scope": true,
+      "case_id": "FLOW200",
+      "group": "flow",
+      "inputs": {
+        "P1": 20000000.0,
+        "P2": 30000000.0,
+        "T1": 300.0,
+        "eta": 0.8,
+        "flow": 200.0,
+        "z": [
+          0.5,
+          0.5
+        ]
+      },
+      "production_status": "accepted",
+      "reason": "Exact tested operating case; stable liquid, resolved work and independent comparison",
+      "reference_status": "accepted",
+      "stage": "complete"
+    },
+    {
+      "admitted_to_proposed_scope": true,
+      "case_id": "IDENTITY_BINARY",
+      "group": "identity",
+      "inputs": {
+        "P1": 20000000.0,
+        "P2": 20000000.0,
+        "T1": 300.0,
+        "eta": 0.8,
+        "flow": 100.0,
+        "z": [
+          0.5,
+          0.5
+        ]
+      },
+      "production_status": "accepted",
+      "reason": "Exact tested operating case; stable liquid, resolved work and independent comparison",
+      "reference_status": "accepted",
+      "stage": "complete"
+    },
+    {
+      "admitted_to_proposed_scope": true,
+      "case_id": "IDENTITY_HEXANE",
+      "group": "identity",
+      "inputs": {
+        "P1": 1000000.0,
+        "P2": 1000000.0,
+        "T1": 300.0,
+        "eta": 0.8,
+        "flow": 100.0,
+        "z": [
+          0.0,
+          1.0
+        ]
+      },
+      "production_status": "accepted",
+      "reason": "Exact tested operating case; stable liquid, resolved work and independent comparison",
+      "reference_status": "accepted",
+      "stage": "complete"
+    },
+    {
+      "admitted_to_proposed_scope": false,
+      "case_id": "VAPOR_REJECTION",
+      "group": "service",
+      "inputs": {
+        "P1": 1000.0,
+        "P2": 2000.0,
+        "T1": 300.0,
+        "eta": 0.8,
+        "flow": 100.0,
+        "z": [
+          0.5,
+          0.5
+        ]
+      },
+      "production_status": "unsupported_phase",
+      "reason": "Inlet is outside liquid service",
+      "reference_status": "unsupported_phase",
+      "stage": "inlet_PT"
+    },
+    {
+      "admitted_to_proposed_scope": true,
+      "case_id": "DP_1000.0",
+      "group": "conditioning",
+      "inputs": {
+        "P1": 20000000.0,
+        "P2": 20001000.0,
+        "T1": 300.0,
+        "eta": 0.8,
+        "flow": 100.0,
+        "z": [
+          0.5,
+          0.5
+        ]
+      },
+      "production_status": "accepted",
+      "reason": "Exact tested operating case; stable liquid, resolved work and independent comparison",
+      "reference_status": "accepted",
+      "stage": "complete"
+    },
+    {
+      "admitted_to_proposed_scope": false,
+      "case_id": "DP_10.0",
+      "group": "conditioning",
+      "inputs": {
+        "P1": 20000000.0,
+        "P2": 20000010.0,
+        "T1": 300.0,
+        "eta": 0.8,
+        "flow": 100.0,
+        "z": [
+          0.5,
+          0.5
+        ]
+      },
+      "production_status": "unresolved_work",
+      "reason": "Positive work is insufficiently resolved under fixed error budget",
+      "reference_status": "unresolved_work",
+      "stage": "complete"
+    },
+    {
+      "admitted_to_proposed_scope": false,
+      "case_id": "DP_0.1",
+      "group": "conditioning",
+      "inputs": {
+        "P1": 20000000.0,
+        "P2": 20000000.1,
+        "T1": 300.0,
+        "eta": 0.8,
+        "flow": 100.0,
+        "z": [
+          0.5,
+          0.5
+        ]
+      },
+      "production_status": "unresolved_work",
+      "reason": "Positive work is insufficiently resolved under fixed error budget",
+      "reference_status": "unresolved_work",
+      "stage": "complete"
+    },
+    {
+      "admitted_to_proposed_scope": false,
+      "case_id": "DP_0.001",
+      "group": "conditioning",
+      "inputs": {
+        "P1": 20000000.0,
+        "P2": 20000000.001,
+        "T1": 300.0,
+        "eta": 0.8,
+        "flow": 100.0,
+        "z": [
+          0.5,
+          0.5
+        ]
+      },
+      "production_status": "unresolved_work",
+      "reason": "Positive work is insufficiently resolved under fixed error budget",
+      "reference_status": "unresolved_work",
+      "stage": "complete"
+    }
+  ],
+  "runtime_status": "Benchmark policy proposal only; no production pump"
+}

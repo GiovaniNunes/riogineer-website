@@ -1,0 +1,175 @@
+{
+  "baseline": "81d183d804755bcf6e995b1c126407a4404cf94a",
+  "passed": true,
+  "file_count": 42,
+  "files": {
+    "engine/riogineer_engine/caloric_data.py": {
+      "baseline_sha256": "dbe63e5c55a63af76be497b1a57e912461b8bca97cb29d9b34b89f5998f9c615",
+      "final_sha256": "dbe63e5c55a63af76be497b1a57e912461b8bca97cb29d9b34b89f5998f9c615"
+    },
+    "engine/riogineer_engine/components.py": {
+      "baseline_sha256": "91a9fee707b80fa7b5c67d41a8249aaf729eab0944275ea36fa6baf8667b4d50",
+      "final_sha256": "91a9fee707b80fa7b5c67d41a8249aaf729eab0944275ea36fa6baf8667b4d50"
+    },
+    "engine/riogineer_engine/pr_caloric.py": {
+      "baseline_sha256": "2e776ac70f6b7bc4f268dd27d6e348f8fab8f8f98daf6907fe468110566c1bfa",
+      "final_sha256": "2e776ac70f6b7bc4f268dd27d6e348f8fab8f8f98daf6907fe468110566c1bfa"
+    },
+    "engine/riogineer_engine/pr_eos.py": {
+      "baseline_sha256": "fb20eea36af50c8f7c72be3d7a0b2db2c22458cdd112c246cdeac70049359e22",
+      "final_sha256": "fb20eea36af50c8f7c72be3d7a0b2db2c22458cdd112c246cdeac70049359e22"
+    },
+    "engine/riogineer_engine/pr_flash.py": {
+      "baseline_sha256": "076c499bd139a407d36ebbf7fecf7b2e05a440e0b51ad7bf755318c8e6d3721b",
+      "final_sha256": "076c499bd139a407d36ebbf7fecf7b2e05a440e0b51ad7bf755318c8e6d3721b"
+    },
+    "engine/riogineer_engine/pr_ph_flash.py": {
+      "baseline_sha256": "00c70809f3c67ac0300bbcfc8185d88029008964986502b57a5ecb4343f4b246",
+      "final_sha256": "00c70809f3c67ac0300bbcfc8185d88029008964986502b57a5ecb4343f4b246"
+    },
+    "engine/riogineer_engine/pr_ps_flash.py": {
+      "baseline_sha256": "7fb2456edce130ff99948bf3b5fdb9755a87a83406ce74fb9d81ea5412c45caa",
+      "final_sha256": "7fb2456edce130ff99948bf3b5fdb9755a87a83406ce74fb9d81ea5412c45caa"
+    },
+    "engine/riogineer_engine/pr_stability.py": {
+      "baseline_sha256": "8bd877da79d33163238dae7ce6061beb41f194d940d22cac30c5eadcc94a1a68",
+      "final_sha256": "8bd877da79d33163238dae7ce6061beb41f194d940d22cac30c5eadcc94a1a68"
+    },
+    "engine/riogineer_engine/property_packages.py": {
+      "baseline_sha256": "bed4cc88b4cbebc68ffdaa9a39cbf3918f28b242c0cc95ed767680bf23706bdf",
+      "final_sha256": "bed4cc88b4cbebc68ffdaa9a39cbf3918f28b242c0cc95ed767680bf23706bdf"
+    },
+    "engine/riogineer_engine/thermodynamics.py": {
+      "baseline_sha256": "400c458be031e0c2beb772e89f13be03369c0dd9efed91d8d24dd6ab139bd0c0",
+      "final_sha256": "400c458be031e0c2beb772e89f13be03369c0dd9efed91d8d24dd6ab139bd0c0"
+    },
+    "next-env.d.ts": {
+      "baseline_sha256": "0f70629890b72a0a82e91972cc032c04b658b26c265373cb711cf576bfbf8fcc",
+      "final_sha256": "0f70629890b72a0a82e91972cc032c04b658b26c265373cb711cf576bfbf8fcc"
+    },
+    "benchmarks/pump_energy/compare_production.py": {
+      "baseline_sha256": "2d10d2f14a568986be42093c27d9c164cb8a84091977bd056da9ddbd6268dd92",
+      "final_sha256": "2d10d2f14a568986be42093c27d9c164cb8a84091977bd056da9ddbd6268dd92"
+    },
+    "benchmarks/pump_energy/test_reference.py": {
+      "baseline_sha256": "037f5c839c4125246695371ac991e65b2c4245c661de704644db85c6ee429a89",
+      "final_sha256": "037f5c839c4125246695371ac991e65b2c4245c661de704644db85c6ee429a89"
+    },
+    "benchmarks/pump_energy/requirements.txt": {
+      "baseline_sha256": "25613eb53183680a783a78964ab7fe5b47b532382aa92b06f965a8da6454779c",
+      "final_sha256": "25613eb53183680a783a78964ab7fe5b47b532382aa92b06f965a8da6454779c"
+    },
+    "benchmarks/pump_energy/test_production.py": {
+      "baseline_sha256": "80e42ad83c8435529a03d552b30026f064d883ca7583b1a077e08dbb2e012283",
+      "final_sha256": "80e42ad83c8435529a03d552b30026f064d883ca7583b1a077e08dbb2e012283"
+    },
+    "benchmarks/pump_energy/README.md": {
+      "baseline_sha256": "4c43bf83f1e3cdddf0ca164aa6206d937b88fa24a34313e2389e8abff49d8009",
+      "final_sha256": "4c43bf83f1e3cdddf0ca164aa6206d937b88fa24a34313e2389e8abff49d8009"
+    },
+    "benchmarks/pump_energy/common.py": {
+      "baseline_sha256": "73f2305a81188bdf073755c6f6e125736922d2f23da862e227cc8e9de0e4ffb8",
+      "final_sha256": "73f2305a81188bdf073755c6f6e125736922d2f23da862e227cc8e9de0e4ffb8"
+    },
+    "benchmarks/pump_energy/liquid_pump_path_reference.json": {
+      "baseline_sha256": "6c0f7b33d9b4aea4ecd6b3f09bab70b22d46fa711a725bbfeab0cd3e63ad8f07",
+      "final_sha256": "6c0f7b33d9b4aea4ecd6b3f09bab70b22d46fa711a725bbfeab0cd3e63ad8f07"
+    },
+    "benchmarks/pump_energy/THIRD_PARTY_NOTICES.txt": {
+      "baseline_sha256": "192d39e88854de10dc27347a96636c30bbd665f6ced91710475514fe22fed765",
+      "final_sha256": "192d39e88854de10dc27347a96636c30bbd665f6ced91710475514fe22fed765"
+    },
+    "benchmarks/pump_energy/reference.py": {
+      "baseline_sha256": "d844752c72c6d65f236100dfc13fe7c65611d37d865a5237516095260e1550e1",
+      "final_sha256": "d844752c72c6d65f236100dfc13fe7c65611d37d865a5237516095260e1550e1"
+    },
+    "benchmarks/pump_energy/production_comparison.json": {
+      "baseline_sha256": "84c8d031f04a9d1da81cc0b787a4bcf33cf7a278d55e1f3b5ace9852f6f92a40",
+      "final_sha256": "84c8d031f04a9d1da81cc0b787a4bcf33cf7a278d55e1f3b5ace9852f6f92a40"
+    },
+    "benchmarks/pump_energy/scope.py": {
+      "baseline_sha256": "6a71498142b3a98b52dbdfce55754600208622408b5c5590b73079faece56c70",
+      "final_sha256": "6a71498142b3a98b52dbdfce55754600208622408b5c5590b73079faece56c70"
+    },
+    "benchmarks/pump_energy/candidate_ledger.json": {
+      "baseline_sha256": "85fcd673a023a6c39b44153abd5fc2dd427a6e3428f9e4452300f370db1f183f",
+      "final_sha256": "85fcd673a023a6c39b44153abd5fc2dd427a6e3428f9e4452300f370db1f183f"
+    },
+    "benchmarks/pump_energy/configurable_scope/boundary_refinement.py": {
+      "baseline_sha256": "c58f90a31eb80f190bd6ad0654a79411a71a4a1587b4032df1e0c7927b2414c4",
+      "final_sha256": "c58f90a31eb80f190bd6ad0654a79411a71a4a1587b4032df1e0c7927b2414c4"
+    },
+    "benchmarks/pump_energy/configurable_scope/boundary_equations.py": {
+      "baseline_sha256": "aeb761eba4e13c1dd98408a39005fa7bdcf4d658f38db7043e0b246f4b7f7d63",
+      "final_sha256": "aeb761eba4e13c1dd98408a39005fa7bdcf4d658f38db7043e0b246f4b7f7d63"
+    },
+    "benchmarks/pump_energy/configurable_scope/compare_production.py": {
+      "baseline_sha256": "e62e9892410156e0b636f4d57f0933377ff8a3e33ec0655133d735d8eb009c33",
+      "final_sha256": "e62e9892410156e0b636f4d57f0933377ff8a3e33ec0655133d735d8eb009c33"
+    },
+    "benchmarks/pump_energy/configurable_scope/requirements.txt": {
+      "baseline_sha256": "25613eb53183680a783a78964ab7fe5b47b532382aa92b06f965a8da6454779c",
+      "final_sha256": "25613eb53183680a783a78964ab7fe5b47b532382aa92b06f965a8da6454779c"
+    },
+    "benchmarks/pump_energy/configurable_scope/production.json": {
+      "baseline_sha256": "e9d4452b4bcef8c0d201f4b3eb05429aa6833dab9a36783c455f9ccc35d2d2b9",
+      "final_sha256": "e9d4452b4bcef8c0d201f4b3eb05429aa6833dab9a36783c455f9ccc35d2d2b9"
+    },
+    "benchmarks/pump_energy/configurable_scope/policy.py": {
+      "baseline_sha256": "a95de9febee05b838a42f9d53576e14b41073cff21409993c1ec0f8ae8c51d09",
+      "final_sha256": "a95de9febee05b838a42f9d53576e14b41073cff21409993c1ec0f8ae8c51d09"
+    },
+    "benchmarks/pump_energy/configurable_scope/ledger.py": {
+      "baseline_sha256": "d87da5d529e04a0184ce1f5a7d03e4f6e8f81ed60e91402564972536703e0285",
+      "final_sha256": "d87da5d529e04a0184ce1f5a7d03e4f6e8f81ed60e91402564972536703e0285"
+    },
+    "benchmarks/pump_energy/configurable_scope/test_scope.py": {
+      "baseline_sha256": "f2a1c6ed8baa9ec8265d4e02f5f2e3158825ff634cee27a3bd43df6096962a6d",
+      "final_sha256": "f2a1c6ed8baa9ec8265d4e02f5f2e3158825ff634cee27a3bd43df6096962a6d"
+    },
+    "benchmarks/pump_energy/configurable_scope/runtime.py": {
+      "baseline_sha256": "d850bc3a766682fcd9236e7858ff15367a015795b8093f3611a9d75a1da6e188",
+      "final_sha256": "d850bc3a766682fcd9236e7858ff15367a015795b8093f3611a9d75a1da6e188"
+    },
+    "benchmarks/pump_energy/configurable_scope/reference.json": {
+      "baseline_sha256": "282a43569321acdb3efacdff6e0caa19f7903fa0a1bbde94dd78b4e90ae6c048",
+      "final_sha256": "282a43569321acdb3efacdff6e0caa19f7903fa0a1bbde94dd78b4e90ae6c048"
+    },
+    "benchmarks/pump_energy/configurable_scope/README.md": {
+      "baseline_sha256": "a71de0eccb7a1401b9306beeaea910c32764bfcbdd4a2dd7ab4f920b5fd82683",
+      "final_sha256": "a71de0eccb7a1401b9306beeaea910c32764bfcbdd4a2dd7ab4f920b5fd82683"
+    },
+    "benchmarks/pump_energy/configurable_scope/boundary_equations.json": {
+      "baseline_sha256": "c9d5823231763f3c96c489d5ab5a4cb7145bce3cd50a41be084f0f3afee0ba9d",
+      "final_sha256": "c9d5823231763f3c96c489d5ab5a4cb7145bce3cd50a41be084f0f3afee0ba9d"
+    },
+    "benchmarks/pump_energy/configurable_scope/THIRD_PARTY_NOTICES.txt": {
+      "baseline_sha256": "192d39e88854de10dc27347a96636c30bbd665f6ced91710475514fe22fed765",
+      "final_sha256": "192d39e88854de10dc27347a96636c30bbd665f6ced91710475514fe22fed765"
+    },
+    "benchmarks/pump_energy/configurable_scope/reference.py": {
+      "baseline_sha256": "215573736d6728a9041d1410229eb26ca869c3735cc85b93789f5c2e0288ca16",
+      "final_sha256": "215573736d6728a9041d1410229eb26ca869c3735cc85b93789f5c2e0288ca16"
+    },
+    "benchmarks/pump_energy/configurable_scope/PLAN.md": {
+      "baseline_sha256": "b33a23f9697459c25ed691eade7f4a3600a585aeb3f49e35b05aa87c433461ff",
+      "final_sha256": "b33a23f9697459c25ed691eade7f4a3600a585aeb3f49e35b05aa87c433461ff"
+    },
+    "benchmarks/pump_energy/configurable_scope/boundary_refinement.json": {
+      "baseline_sha256": "6172a20e733cc1b7dea37904cb310b51b9529c31115ebc59f6be29a5d2e2dbf6",
+      "final_sha256": "6172a20e733cc1b7dea37904cb310b51b9529c31115ebc59f6be29a5d2e2dbf6"
+    },
+    "benchmarks/pump_energy/configurable_scope/candidate_ledger.json": {
+      "baseline_sha256": "f38d78e39e68dfe77fc9dc2a65ce46a5a389ae162f7b6ededf50081befaaf0e7",
+      "final_sha256": "f38d78e39e68dfe77fc9dc2a65ce46a5a389ae162f7b6ededf50081befaaf0e7"
+    },
+    "PRE_MILESTONE_18_CONFIGURABLE_PUMP_SCOPE_QUALIFICATION.md": {
+      "baseline_sha256": "9eb014b202c2ac3e78cee63ae19808c6740e42ec7e3599a553036474363e74e7",
+      "final_sha256": "9eb014b202c2ac3e78cee63ae19808c6740e42ec7e3599a553036474363e74e7"
+    },
+    "PRE_MILESTONE_18_LIQUID_PUMP_PATH_QUALIFICATION.md": {
+      "baseline_sha256": "28410c6725950f78884acdd0690385ff5cabaac7b57a23ca42947a7181eb407a",
+      "final_sha256": "28410c6725950f78884acdd0690385ff5cabaac7b57a23ca42947a7181eb407a"
+    }
+  }
+}

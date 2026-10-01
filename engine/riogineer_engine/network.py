@@ -26,7 +26,7 @@ def build(requirements):
         links = [c for c in connections if c['stream_id'] == stream['id']]
         source = links[0]['source']['owner_id'] if len(links) == 1 else None
         streams.append(dict(stream, specified_state=deepcopy(feed_by_id.get(source))))
-    f = dict(schema_version={'1.1': '1.2', '1.2': '1.3', '1.3': '1.4', '1.4': '1.5', '1.5': '1.6', '1.6': '1.7', '1.7': '1.8', '1.8': '1.9', '1.9': '1.10'}[r['schema_version']], kind='flowsheet', case_id=r['case_id'], profile=r['profile'],
+    f = dict(schema_version={'1.1': '1.2', '1.2': '1.3', '1.3': '1.4', '1.4': '1.5', '1.5': '1.6', '1.6': '1.7', '1.7': '1.8', '1.8': '1.9', '1.9': '1.10', '1.10': '1.11'}[r['schema_version']], kind='flowsheet', case_id=r['case_id'], profile=r['profile'],
              units=r['units'], requirements_sha256=digest(r), components=r['components'],
              boundaries=[dict(id=s['id'], type='source', ports=ports('source')) for s in r['feeds']] +
                         [dict(id=s['id'], type='sink', ports=ports('sink')) for s in r['sinks']],
@@ -37,7 +37,7 @@ def build(requirements):
              validation={'status': 'valid', 'messages': [warning()]}, presentation={'layout': 'wide'})
     if r['profile'] == 'pt_flash_separator':
         f['validation']['messages'] = [equilibrium_warning()]
-    elif r['profile'] not in ('heater_cooler_energy', 'compressor_energy', 'two_stream_heat_exchanger_energy', 'throttling_valve_energy', 'separator_energy'):
+    elif r['profile'] not in ('heater_cooler_energy', 'compressor_energy', 'two_stream_heat_exchanger_energy', 'throttling_valve_energy', 'separator_energy', 'pump_energy'):
         f['caloric_model'] = r['caloric_model']
     else:
         f['validation']['messages'] = []
@@ -75,9 +75,10 @@ def validate(f, numbered=True):
     compression = f['profile'] == 'compressor_energy'
     exchanger = f['profile'] == 'two_stream_heat_exchanger_energy'
     separator_energy = f['profile'] == 'separator_energy'
+    pump = f['profile'] == 'pump_energy'
     valve = f['profile'] == 'throttling_valve_energy'
     cal = f.get('caloric_model')
-    if not separator_energy and not valve and not equilibrium and not thermal and not compression and not exchanger and set(cal['cp_J_kg_K']) != components: reject('Caloric component keys must match the component basis')
+    if not pump and not separator_energy and not valve and not equilibrium and not thermal and not compression and not exchanger and set(cal['cp_J_kg_K']) != components: reject('Caloric component keys must match the component basis')
     sources = {n['id'] for n in f['boundaries'] if n['type'] == 'source'}
     sinks = {n['id'] for n in f['boundaries'] if n['type'] == 'sink'}
     if not sources or not sinks: reject('At least one explicit source and sink required')
@@ -92,6 +93,9 @@ def validate(f, numbered=True):
     if compression:
         if components != {'methane', 'n_hexane'} or len(sources) != 1 or len(sinks) != 1 or len(f['equipment']) != 1 or f['equipment'][0]['type'] != 'compressor':
             reject('M14 supports one binary hydrocarbon compressor between one source and sink')
+    if pump:
+        if components != {'methane', 'n_hexane'} or len(sources) != 1 or len(sinks) != 1 or len(f['equipment']) != 1 or f['equipment'][0]['type'] != 'pump':
+            reject('M18 requires one equimolar hydrocarbon source -> pump -> sink')
     if valve:
         if components != {'methane', 'n_hexane'} or len(sources) != 1 or len(sinks) != 1 or len(f['equipment']) != 1 or f['equipment'][0]['type'] != 'throttling_valve':
             reject('M16 supports one binary hydrocarbon valve between one source and sink')
@@ -131,7 +135,18 @@ def validate(f, numbered=True):
         elif state is not None: reject('Only source streams may independently specify state')
     if occupied != set(port_map): reject('Missing required input or output connection')
     for unit in f['equipment']:
-        if separator_energy:
+        if pump:
+            from .pump_energy import MODEL as pump_model, parameters as pump_parameters, inlet_specification
+            if unit['model'] != pump_model: reject('Unsupported pump model')
+            try:
+                pump_parameters(unit['operating_parameters'])
+                link = next(c for c in connections if c['target']['owner_id'] == unit['id'])
+                source = stream_by_id[link['stream_id']]['specified_state']
+                if source is None: reject('Pump requires the actual source inlet')
+                feed = state_from_rates(dict(source['component_mass_flow_kg_h']),source['temperature_K'],source['pressure_Pa_abs'],None)
+                inlet_specification(feed,unit['operating_parameters'])
+            except ValueError as error: reject(str(error))
+        elif separator_energy:
             from .separator_energy import MODEL as separator_model, parameters as separator_parameters
             if unit['model'] != separator_model: reject('Unsupported energy separator model')
             try: separator_parameters(unit['operating_parameters'])
@@ -191,6 +206,9 @@ def mass_balance(inputs, outputs, components):
 
 
 def calculate(f):
+    if f['profile'] == 'pump_energy':
+        from .pump_process import calculate as pump_calculate
+        return pump_calculate(f)
     if f['profile'] == 'separator_energy':
         from .separator_energy_process import calculate as calculate_separator
         return calculate_separator(f)

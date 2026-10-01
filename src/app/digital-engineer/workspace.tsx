@@ -1,5 +1,7 @@
 'use client';
 
+import { PumpResults } from './pump-results';
+import pumpReference from '../../../contracts/examples/milestone-18-pump-requirements.json';
 import { SeparatorEnergyResults } from './separator-energy-results';
 import separatorPtReference from '../../../contracts/examples/milestone-17-pt-requirements.json';
 import separatorPhReference from '../../../contracts/examples/milestone-17-ph-requirements.json';
@@ -89,10 +91,12 @@ export function EngineerWorkspace({
     }
   }
   const r = state.results;
+  let pump = false;
   let separatorEnergy = false;
   let equilibrium = false;
   let exchanger = false;
   try {
+    pump = JSON.parse(state.draft).profile === 'pump_energy';
     separatorEnergy = JSON.parse(state.draft).profile === 'separator_energy';
     equilibrium = JSON.parse(state.draft).profile === 'pt_flash_separator';
     exchanger = JSON.parse(state.draft).profile === 'two_stream_heat_exchanger_energy';
@@ -102,7 +106,18 @@ export function EngineerWorkspace({
   return (
     <div className={`container ${styles.workspace}`}>
       <aside className={styles.model}>
-        {separatorEnergy ? (
+        {pump ? (
+          <>
+            <strong>Calculation model: Guarded Peng–Robinson liquid pump</strong>
+            <p>
+              Fixed equimolar methane/n-hexane with explicit constant zero kij. Inlet 300–350 K and
+              20–25 MPa absolute; discharge equals inlet pressure exactly or rises by at least
+              10,000 Pa, up to 30 MPa. Isentropic efficiency 0.6–1; molar flow 5–200 mol/s. Each
+              accepted state must pass the liquid and numerical guards. No pump sizing or cavitation
+              prediction.
+            </p>
+          </>
+        ) : separatorEnergy ? (
           <>
             <strong>Calculation model: Peng–Robinson energy-qualified two-phase separator</strong>
             <p>
@@ -207,6 +222,14 @@ export function EngineerWorkspace({
             )}
           </div>
           <div className={styles.actions}>
+            <button
+              disabled={state.busy}
+              onClick={() =>
+                dispatch({ type: 'edit', draft: JSON.stringify(pumpReference, null, 2) })
+              }
+            >
+              Load Milestone 18 pump reference
+            </button>
             <button
               disabled={state.busy}
               onClick={() =>
@@ -421,7 +444,8 @@ export function EngineerWorkspace({
                         ? 'Enthalpy flow (W; unavailable)'
                         : r.schema_version === '1.9' ||
                             r.schema_version === '1.10' ||
-                            r.schema_version === '1.11'
+                            r.schema_version === '1.11' ||
+                            r.schema_version === '1.12'
                           ? 'Enthalpy flow (W; Peng–Robinson)'
                           : 'Enthalpy flow (W; assumed Cp)',
                       'enthalpy_flow_W',
@@ -474,20 +498,23 @@ export function EngineerWorkspace({
                     r.schema_version === '1.8' ||
                     r.schema_version === '1.9' ||
                     r.schema_version === '1.10' ||
-                    r.schema_version === '1.11'
+                    r.schema_version === '1.11' ||
+                    r.schema_version === '1.12'
                       ? 'PR equilibrium energy'
                       : 'constant-Cp'}{' '}
                     model.
                   </p>
                   {r.schema_version !== '1.10' && (
                     <p>
-                      {r.schema_version === '1.11'
-                        ? r.equipment[0].thermodynamics.mode === 'adiabatic'
-                          ? 'Imposed separator duty: '
-                          : 'Calculated separator duty: '
-                        : 'execution' in r
-                          ? 'Calculated network duty: '
-                          : 'Calculated separator duty: '}
+                      {r.schema_version === '1.12'
+                        ? 'Imposed pump heat duty: '
+                        : r.schema_version === '1.11'
+                          ? r.equipment[0].thermodynamics.mode === 'adiabatic'
+                            ? 'Imposed separator duty: '
+                            : 'Calculated separator duty: '
+                          : 'execution' in r
+                            ? 'Calculated network duty: '
+                            : 'Calculated separator duty: '}
                       <strong>{number(r.balances.energy.duty_W)} W</strong>{' '}
                       {'execution' in r && r.schema_version !== '1.11'
                         ? '(positive into the network).'
@@ -512,7 +539,8 @@ export function EngineerWorkspace({
             r.schema_version !== '1.6' &&
             r.schema_version !== '1.9' &&
             r.schema_version !== '1.10' &&
-            r.schema_version !== '1.11' && (
+            r.schema_version !== '1.11' &&
+            r.schema_version !== '1.12' && (
               <>
                 <h3>Equipment checks</h3>
                 <p>Execution order: {r.execution.equipment_order.join(' → ')}</p>
@@ -558,6 +586,7 @@ export function EngineerWorkspace({
           )}
           {r.schema_version === '1.9' && current && <TwoStreamHeatExchangerResults results={r} />}
           {r.schema_version === '1.8' && current && <RigorousCompressionResults results={r} />}
+          {r.schema_version === '1.12' && current && <PumpResults results={r} />}
           {r.schema_version === '1.11' && current && <SeparatorEnergyResults results={r} />}
           {r.schema_version === '1.10' && current && <ThrottlingValveResults results={r} />}
           <h3>Warnings and model limitations</h3>

@@ -1,0 +1,2393 @@
+{
+  "fugacity_allowance": 2e-10,
+  "pressure_comparison_allowance_Pa": 1000.0,
+  "purpose": "Check fixed-T bubble pressure by two log-fugacity equalities, with local-branch and stability checks; no metastable pump state accepted",
+  "reference_sha256": "282a43569321acdb3efacdff6e0caa19f7903fa0a1bbde94dd78b4e90ae6c048",
+  "rows": [
+    {
+      "P_bubble_Pa_abs": 11488247.249951297,
+      "T_K": 300.0,
+      "fugacity_residual": [
+        2.220446049250313e-16,
+        -3.552713678800501e-15
+      ],
+      "library_pressure_difference_Pa": -1.30385160446167e-08,
+      "root_reported_success": true,
+      "sides": [
+        "vapor_liquid",
+        "single_liquid"
+      ],
+      "status": "accepted",
+      "y_methane": 0.9784177028105843
+    },
+    {
+      "P_bubble_Pa_abs": 11516737.832225058,
+      "T_K": 300.5,
+      "fugacity_residual": [
+        6.106226635438361e-16,
+        -2.6645352591003757e-15
+      ],
+      "library_pressure_difference_Pa": 1.4901161193847656e-08,
+      "root_reported_success": true,
+      "sides": [
+        "vapor_liquid",
+        "single_liquid"
+      ],
+      "status": "accepted",
+      "y_methane": 0.9781228426319999
+    },
+    {
+      "P_bubble_Pa_abs": 11545042.49890883,
+      "T_K": 301.0,
+      "fugacity_residual": [
+        6.38378239159465e-16,
+        -4.440892098500626e-16
+      ],
+      "library_pressure_difference_Pa": -1.4901161193847656e-08,
+      "root_reported_success": true,
+      "sides": [
+        "vapor_liquid",
+        "single_liquid"
+      ],
+      "status": "accepted",
+      "y_methane": 0.9778253048409187
+    },
+    {
+      "P_bubble_Pa_abs": 11573161.20153813,
+      "T_K": 301.5,
+      "fugacity_residual": [
+        1.2212453270876722e-15,
+        0.0
+      ],
+      "library_pressure_difference_Pa": -2.2351741790771484e-08,
+      "root_reported_success": true,
+      "sides": [
+        "vapor_liquid",
+        "single_liquid"
+      ],
+      "status": "accepted",
+      "y_methane": 0.9775250740738658
+    },
+    {
+      "P_bubble_Pa_abs": 11601093.897227032,
+      "T_K": 302.0,
+      "fugacity_residual": [
+        -6.38378239159465e-16,
+        1.7763568394002505e-15
+      ],
+      "library_pressure_difference_Pa": 2.2351741790771484e-08,
+      "root_reported_success": true,
+      "sides": [
+        "vapor_liquid",
+        "single_liquid"
+      ],
+      "status": "accepted",
+      "y_methane": 0.977222134842127
+    },
+    {
+      "P_bubble_Pa_abs": 11628840.54851981,
+      "T_K": 302.5,
+      "fugacity_residual": [
+        -6.106226635438361e-16,
+        -4.440892098500626e-16
+      ],
+      "library_pressure_difference_Pa": 1.862645149230957e-09,
+      "root_reported_success": true,
+      "sides": [
+        "vapor_liquid",
+        "single_liquid"
+      ],
+      "status": "accepted",
+      "y_methane": 0.9769164715304374
+    },
+    {
+      "P_bubble_Pa_abs": 11656401.123245329,
+      "T_K": 303.0,
+      "fugacity_residual": [
+        9.71445146547012e-16,
+        -3.1086244689504383e-15
+      ],
+      "library_pressure_difference_Pa": -3.3527612686157227e-08,
+      "root_reported_success": true,
+      "sides": [
+        "vapor_liquid",
+        "single_liquid"
+      ],
+      "status": "accepted",
+      "y_methane": 0.9766080683956609
+    },
+    {
+      "P_bubble_Pa_abs": 11683775.594373697,
+      "T_K": 303.5,
+      "fugacity_residual": [
+        -5.828670879282072e-16,
+        -1.3322676295501878e-15
+      ],
+      "library_pressure_difference_Pa": 3.3527612686157227e-08,
+      "root_reported_success": true,
+      "sides": [
+        "vapor_liquid",
+        "single_liquid"
+      ],
+      "status": "accepted",
+      "y_methane": 0.9762969095654626
+    },
+    {
+      "P_bubble_Pa_abs": 11710963.939874955,
+      "T_K": 304.0,
+      "fugacity_residual": [
+        3.0531133177191805e-16,
+        2.220446049250313e-15
+      ],
+      "library_pressure_difference_Pa": -1.1175870895385742e-08,
+      "root_reported_success": true,
+      "sides": [
+        "vapor_liquid",
+        "single_liquid"
+      ],
+      "status": "accepted",
+      "y_methane": 0.9759829790369731
+    },
+    {
+      "P_bubble_Pa_abs": 11737966.142581126,
+      "T_K": 304.5,
+      "fugacity_residual": [
+        -9.43689570931383e-16,
+        4.884981308350689e-15
+      ],
+      "library_pressure_difference_Pa": 9.313225746154785e-09,
+      "root_reported_success": true,
+      "sides": [
+        "vapor_liquid",
+        "single_liquid"
+      ],
+      "status": "accepted",
+      "y_methane": 0.9756662606754379
+    },
+    {
+      "P_bubble_Pa_abs": 11764782.190049274,
+      "T_K": 305.0,
+      "fugacity_residual": [
+        -3.885780586188048e-16,
+        1.7763568394002505e-15
+      ],
+      "library_pressure_difference_Pa": -2.2351741790771484e-08,
+      "root_reported_success": true,
+      "sides": [
+        "vapor_liquid",
+        "single_liquid"
+      ],
+      "status": "accepted",
+      "y_methane": 0.9753467382128668
+    },
+    {
+      "P_bubble_Pa_abs": 11791412.074428048,
+      "T_K": 305.5,
+      "fugacity_residual": [
+        -8.049116928532385e-16,
+        2.220446049250313e-15
+      ],
+      "library_pressure_difference_Pa": 2.421438694000244e-08,
+      "root_reported_success": true,
+      "sides": [
+        "vapor_liquid",
+        "single_liquid"
+      ],
+      "status": "accepted",
+      "y_methane": 0.975024395246663
+    },
+    {
+      "P_bubble_Pa_abs": 11817855.79232529,
+      "T_K": 306.0,
+      "fugacity_residual": [
+        8.326672684688674e-17,
+        -3.552713678800501e-15
+      ],
+      "library_pressure_difference_Pa": 1.30385160446167e-08,
+      "root_reported_success": true,
+      "sides": [
+        "vapor_liquid",
+        "single_liquid"
+      ],
+      "status": "accepted",
+      "y_methane": 0.9746992152382491
+    },
+    {
+      "P_bubble_Pa_abs": 11844113.34467893,
+      "T_K": 306.5,
+      "fugacity_residual": [
+        8.604228440844963e-16,
+        -8.881784197001252e-16
+      ],
+      "library_pressure_difference_Pa": -3.5390257835388184e-08,
+      "root_reported_success": true,
+      "sides": [
+        "vapor_liquid",
+        "single_liquid"
+      ],
+      "status": "accepted",
+      "y_methane": 0.9743711815116787
+    },
+    {
+      "P_bubble_Pa_abs": 11870184.736629048,
+      "T_K": 307.0,
+      "fugacity_residual": [
+        9.71445146547012e-16,
+        -2.6645352591003757e-15
+      ],
+      "library_pressure_difference_Pa": -7.450580596923828e-09,
+      "root_reported_success": true,
+      "sides": [
+        "vapor_liquid",
+        "single_liquid"
+      ],
+      "status": "accepted",
+      "y_methane": 0.9740402772522372
+    },
+    {
+      "P_bubble_Pa_abs": 11896069.977392422,
+      "T_K": 307.5,
+      "fugacity_residual": [
+        -8.049116928532385e-16,
+        4.440892098500626e-16
+      ],
+      "library_pressure_difference_Pa": 2.2351741790771484e-08,
+      "root_reported_success": true,
+      "sides": [
+        "vapor_liquid",
+        "single_liquid"
+      ],
+      "status": "accepted",
+      "y_methane": 0.973706485505033
+    },
+    {
+      "P_bubble_Pa_abs": 11921769.080139061,
+      "T_K": 308.0,
+      "fugacity_residual": [
+        -4.718447854656915e-16,
+        4.440892098500626e-16
+      ],
+      "library_pressure_difference_Pa": -3.91155481338501e-08,
+      "root_reported_success": true,
+      "sides": [
+        "vapor_liquid",
+        "single_liquid"
+      ],
+      "status": "accepted",
+      "y_methane": 0.973369789173575
+    },
+    {
+      "P_bubble_Pa_abs": 11947282.061870977,
+      "T_K": 308.5,
+      "fugacity_residual": [
+        -1.1657341758564144e-15,
+        -1.7763568394002505e-15
+      ],
+      "library_pressure_difference_Pa": -5.587935447692871e-09,
+      "root_reported_success": true,
+      "sides": [
+        "vapor_liquid",
+        "single_liquid"
+      ],
+      "status": "accepted",
+      "y_methane": 0.9730301710183364
+    },
+    {
+      "P_bubble_Pa_abs": 11972608.943302063,
+      "T_K": 309.0,
+      "fugacity_residual": [
+        5.551115123125783e-16,
+        1.3322676295501878e-15
+      ],
+      "library_pressure_difference_Pa": 1.30385160446167e-08,
+      "root_reported_success": true,
+      "sides": [
+        "vapor_liquid",
+        "single_liquid"
+      ],
+      "status": "accepted",
+      "y_methane": 0.9726876136553125
+    },
+    {
+      "P_bubble_Pa_abs": 11997749.74874092,
+      "T_K": 309.5,
+      "fugacity_residual": [
+        -6.106226635438361e-16,
+        -8.881784197001252e-16
+      ],
+      "library_pressure_difference_Pa": 1.30385160446167e-08,
+      "root_reported_success": true,
+      "sides": [
+        "vapor_liquid",
+        "single_liquid"
+      ],
+      "status": "accepted",
+      "y_methane": 0.9723420995545556
+    },
+    {
+      "P_bubble_Pa_abs": 12022704.505974669,
+      "T_K": 310.0,
+      "fugacity_residual": [
+        -4.996003610813204e-16,
+        -8.881784197001252e-16
+      ],
+      "library_pressure_difference_Pa": 5.587935447692871e-09,
+      "root_reported_success": true,
+      "sides": [
+        "vapor_liquid",
+        "single_liquid"
+      ],
+      "status": "accepted",
+      "y_methane": 0.9719936110387059
+    },
+    {
+      "P_bubble_Pa_abs": 12047473.246155145,
+      "T_K": 310.5,
+      "fugacity_residual": [
+        -3.608224830031759e-16,
+        1.7763568394002505e-15
+      ],
+      "library_pressure_difference_Pa": 1.1175870895385742e-08,
+      "root_reported_success": true,
+      "sides": [
+        "vapor_liquid",
+        "single_liquid"
+      ],
+      "status": "accepted",
+      "y_methane": 0.9716421302815029
+    },
+    {
+      "P_bubble_Pa_abs": 12072056.003686352,
+      "T_K": 311.0,
+      "fugacity_residual": [
+        1.6653345369377348e-16,
+        0.0
+      ],
+      "library_pressure_difference_Pa": 2.9802322387695312e-08,
+      "root_reported_success": true,
+      "sides": [
+        "vapor_liquid",
+        "single_liquid"
+      ],
+      "status": "accepted",
+      "y_methane": 0.9712876393062853
+    },
+    {
+      "P_bubble_Pa_abs": 12096452.81611419,
+      "T_K": 311.5,
+      "fugacity_residual": [
+        -7.216449660063518e-16,
+        -2.6645352591003757e-15
+      ],
+      "library_pressure_difference_Pa": 2.9802322387695312e-08,
+      "root_reported_success": true,
+      "sides": [
+        "vapor_liquid",
+        "single_liquid"
+      ],
+      "status": "accepted",
+      "y_methane": 0.9709301199844755
+    },
+    {
+      "P_bubble_Pa_abs": 12120663.724017316,
+      "T_K": 312.0,
+      "fugacity_residual": [
+        3.885780586188048e-16,
+        0.0
+      ],
+      "library_pressure_difference_Pa": -1.4901161193847656e-08,
+      "root_reported_success": true,
+      "sides": [
+        "vapor_liquid",
+        "single_liquid"
+      ],
+      "status": "accepted",
+      "y_methane": 0.9705695540340512
+    },
+    {
+      "P_bubble_Pa_abs": 12144688.770900091,
+      "T_K": 312.5,
+      "fugacity_residual": [
+        5.828670879282072e-16,
+        4.440892098500626e-16
+      ],
+      "library_pressure_difference_Pa": 1.6763806343078613e-08,
+      "root_reported_success": true,
+      "sides": [
+        "vapor_liquid",
+        "single_liquid"
+      ],
+      "status": "accepted",
+      "y_methane": 0.9702059230179979
+    },
+    {
+      "P_bubble_Pa_abs": 12168528.003086774,
+      "T_K": 313.0,
+      "fugacity_residual": [
+        3.0531133177191805e-16,
+        4.440892098500626e-16
+      ],
+      "library_pressure_difference_Pa": -1.862645149230957e-09,
+      "root_reported_success": true,
+      "sides": [
+        "vapor_liquid",
+        "single_liquid"
+      ],
+      "status": "accepted",
+      "y_methane": 0.9698392083427521
+    },
+    {
+      "P_bubble_Pa_abs": 12192181.469617577,
+      "T_K": 313.5,
+      "fugacity_residual": [
+        5.551115123125783e-17,
+        1.3322676295501878e-15
+      ],
+      "library_pressure_difference_Pa": 2.7939677238464355e-08,
+      "root_reported_success": true,
+      "sides": [
+        "vapor_liquid",
+        "single_liquid"
+      ],
+      "status": "accepted",
+      "y_methane": 0.9694693912566225
+    },
+    {
+      "P_bubble_Pa_abs": 12215649.222145986,
+      "T_K": 314.0,
+      "fugacity_residual": [
+        -2.220446049250313e-16,
+        8.881784197001252e-16
+      ],
+      "library_pressure_difference_Pa": -5.587935447692871e-09,
+      "root_reported_success": true,
+      "sides": [
+        "vapor_liquid",
+        "single_liquid"
+      ],
+      "status": "accepted",
+      "y_methane": 0.9690964528481988
+    },
+    {
+      "P_bubble_Pa_abs": 12238931.314837882,
+      "T_K": 314.5,
+      "fugacity_residual": [
+        8.604228440844963e-16,
+        -1.3322676295501878e-15
+      ],
+      "library_pressure_difference_Pa": 9.313225746154785e-09,
+      "root_reported_success": true,
+      "sides": [
+        "vapor_liquid",
+        "single_liquid"
+      ],
+      "status": "accepted",
+      "y_methane": 0.9687203740447424
+    },
+    {
+      "P_bubble_Pa_abs": 12262027.804271754,
+      "T_K": 315.0,
+      "fugacity_residual": [
+        -5.551115123125783e-16,
+        4.440892098500626e-16
+      ],
+      "library_pressure_difference_Pa": 3.166496753692627e-08,
+      "root_reported_success": true,
+      "sides": [
+        "vapor_liquid",
+        "single_liquid"
+      ],
+      "status": "accepted",
+      "y_methane": 0.968341135610563
+    },
+    {
+      "P_bubble_Pa_abs": 12284938.749340573,
+      "T_K": 315.5,
+      "fugacity_residual": [
+        6.38378239159465e-16,
+        -2.220446049250313e-15
+      ],
+      "library_pressure_difference_Pa": 5.587935447692871e-09,
+      "root_reported_success": true,
+      "sides": [
+        "vapor_liquid",
+        "single_liquid"
+      ],
+      "status": "accepted",
+      "y_methane": 0.9679587181453718
+    },
+    {
+      "P_bubble_Pa_abs": 12307664.211155036,
+      "T_K": 316.0,
+      "fugacity_residual": [
+        -5.828670879282072e-16,
+        -1.3322676295501878e-15
+      ],
+      "library_pressure_difference_Pa": 1.6763806343078613e-08,
+      "root_reported_success": true,
+      "sides": [
+        "vapor_liquid",
+        "single_liquid"
+      ],
+      "status": "accepted",
+      "y_methane": 0.9675731020826253
+    },
+    {
+      "P_bubble_Pa_abs": 12330204.252948062,
+      "T_K": 316.5,
+      "fugacity_residual": [
+        -6.938893903907228e-16,
+        -1.3322676295501878e-15
+      ],
+      "library_pressure_difference_Pa": 1.6763806343078613e-08,
+      "root_reported_success": true,
+      "sides": [
+        "vapor_liquid",
+        "single_liquid"
+      ],
+      "status": "accepted",
+      "y_methane": 0.9671842676878427
+    },
+    {
+      "P_bubble_Pa_abs": 12352558.93998057,
+      "T_K": 317.0,
+      "fugacity_residual": [
+        -1.1657341758564144e-15,
+        0.0
+      ],
+      "library_pressure_difference_Pa": 2.2351741790771484e-08,
+      "root_reported_success": true,
+      "sides": [
+        "vapor_liquid",
+        "single_liquid"
+      ],
+      "status": "accepted",
+      "y_methane": 0.9667921950569129
+    },
+    {
+      "P_bubble_Pa_abs": 12374728.339448698,
+      "T_K": 317.5,
+      "fugacity_residual": [
+        1.0824674490095276e-15,
+        4.440892098500626e-16
+      ],
+      "library_pressure_difference_Pa": -3.725290298461914e-08,
+      "root_reported_success": true,
+      "sides": [
+        "vapor_liquid",
+        "single_liquid"
+      ],
+      "status": "accepted",
+      "y_methane": 0.9663968641143759
+    },
+    {
+      "P_bubble_Pa_abs": 12396712.520392405,
+      "T_K": 318.0,
+      "fugacity_residual": [
+        -3.3306690738754696e-16,
+        1.3322676295501878e-15
+      ],
+      "library_pressure_difference_Pa": 1.1175870895385742e-08,
+      "root_reported_success": true,
+      "sides": [
+        "vapor_liquid",
+        "single_liquid"
+      ],
+      "status": "accepted",
+      "y_methane": 0.9659982546116891
+    },
+    {
+      "P_bubble_Pa_abs": 12418511.55360445,
+      "T_K": 318.5,
+      "fugacity_residual": [
+        3.608224830031759e-16,
+        -8.881784197001252e-16
+      ],
+      "library_pressure_difference_Pa": 5.587935447692871e-09,
+      "root_reported_success": true,
+      "sides": [
+        "vapor_liquid",
+        "single_liquid"
+      ],
+      "status": "accepted",
+      "y_methane": 0.9655963461254738
+    },
+    {
+      "P_bubble_Pa_abs": 12440125.511541886,
+      "T_K": 319.0,
+      "fugacity_residual": [
+        3.608224830031759e-16,
+        -3.552713678800501e-15
+      ],
+      "library_pressure_difference_Pa": -4.284083843231201e-08,
+      "root_reported_success": true,
+      "sides": [
+        "vapor_liquid",
+        "single_liquid"
+      ],
+      "status": "accepted",
+      "y_methane": 0.96519111805574
+    },
+    {
+      "P_bubble_Pa_abs": 12461554.46823752,
+      "T_K": 319.5,
+      "fugacity_residual": [
+        9.43689570931383e-16,
+        -2.6645352591003757e-15
+      ],
+      "library_pressure_difference_Pa": -1.4901161193847656e-08,
+      "root_reported_success": true,
+      "sides": [
+        "vapor_liquid",
+        "single_liquid"
+      ],
+      "status": "accepted",
+      "y_methane": 0.9647825496240917
+    },
+    {
+      "P_bubble_Pa_abs": 12482798.499213109,
+      "T_K": 320.0,
+      "fugacity_residual": [
+        -1.6653345369377348e-16,
+        -8.881784197001252e-16
+      ],
+      "library_pressure_difference_Pa": 0.0,
+      "root_reported_success": true,
+      "sides": [
+        "vapor_liquid",
+        "single_liquid"
+      ],
+      "status": "accepted",
+      "y_methane": 0.964370619871913
+    },
+    {
+      "P_bubble_Pa_abs": 12503857.681393597,
+      "T_K": 320.5,
+      "fugacity_residual": [
+        -2.0539125955565396e-15,
+        -8.881784197001252e-16
+      ],
+      "library_pressure_difference_Pa": 3.166496753692627e-08,
+      "root_reported_success": true,
+      "sides": [
+        "vapor_liquid",
+        "single_liquid"
+      ],
+      "status": "accepted",
+      "y_methane": 0.9639553076585292
+    },
+    {
+      "P_bubble_Pa_abs": 12524732.093021967,
+      "T_K": 321.0,
+      "fugacity_residual": [
+        -1.4432899320127035e-15,
+        2.6645352591003757e-15
+      ],
+      "library_pressure_difference_Pa": 3.5390257835388184e-08,
+      "root_reported_success": true,
+      "sides": [
+        "vapor_liquid",
+        "single_liquid"
+      ],
+      "status": "accepted",
+      "y_methane": 0.9635365916593531
+    },
+    {
+      "P_bubble_Pa_abs": 12545421.81357592,
+      "T_K": 321.5,
+      "fugacity_residual": [
+        0.0,
+        -1.7763568394002505e-15
+      ],
+      "library_pressure_difference_Pa": 1.1175870895385742e-08,
+      "root_reported_success": true,
+      "sides": [
+        "vapor_liquid",
+        "single_liquid"
+      ],
+      "status": "accepted",
+      "y_methane": 0.9631144503640008
+    },
+    {
+      "P_bubble_Pa_abs": 12565926.923684824,
+      "T_K": 322.0,
+      "fugacity_residual": [
+        8.326672684688674e-16,
+        1.7763568394002505e-15
+      ],
+      "library_pressure_difference_Pa": -1.862645149230957e-09,
+      "root_reported_success": true,
+      "sides": [
+        "vapor_liquid",
+        "single_liquid"
+      ],
+      "status": "accepted",
+      "y_methane": 0.9626888620743923
+    },
+    {
+      "P_bubble_Pa_abs": 12586247.505048053,
+      "T_K": 322.5,
+      "fugacity_residual": [
+        0.0,
+        4.440892098500626e-16
+      ],
+      "library_pressure_difference_Pa": 2.0489096641540527e-08,
+      "root_reported_success": true,
+      "sides": [
+        "vapor_liquid",
+        "single_liquid"
+      ],
+      "status": "accepted",
+      "y_methane": 0.9622598049028248
+    },
+    {
+      "P_bubble_Pa_abs": 12606383.640353817,
+      "T_K": 323.0,
+      "fugacity_residual": [
+        5.551115123125783e-17,
+        0.0
+      ],
+      "library_pressure_difference_Pa": -1.4901161193847656e-08,
+      "root_reported_success": true,
+      "sides": [
+        "vapor_liquid",
+        "single_liquid"
+      ],
+      "status": "accepted",
+      "y_methane": 0.9618272567700276
+    },
+    {
+      "P_bubble_Pa_abs": 12626335.413199656,
+      "T_K": 323.5,
+      "fugacity_residual": [
+        2.7755575615628914e-17,
+        8.881784197001252e-16
+      ],
+      "library_pressure_difference_Pa": 5.587935447692871e-09,
+      "root_reported_success": true,
+      "sides": [
+        "vapor_liquid",
+        "single_liquid"
+      ],
+      "status": "accepted",
+      "y_methane": 0.9613911954031858
+    },
+    {
+      "P_bubble_Pa_abs": 12646102.908012988,
+      "T_K": 324.0,
+      "fugacity_residual": [
+        -8.326672684688674e-16,
+        -1.7763568394002505e-15
+      ],
+      "library_pressure_difference_Pa": 2.421438694000244e-08,
+      "root_reported_success": true,
+      "sides": [
+        "vapor_liquid",
+        "single_liquid"
+      ],
+      "status": "accepted",
+      "y_methane": 0.9609515983339492
+    },
+    {
+      "P_bubble_Pa_abs": 12665686.209973026,
+      "T_K": 324.5,
+      "fugacity_residual": [
+        4.996003610813204e-16,
+        -8.881784197001252e-16
+      ],
+      "library_pressure_difference_Pa": 3.725290298461914e-09,
+      "root_reported_success": true,
+      "sides": [
+        "vapor_liquid",
+        "single_liquid"
+      ],
+      "status": "accepted",
+      "y_methane": 0.9605084428964085
+    },
+    {
+      "P_bubble_Pa_abs": 12685085.40493355,
+      "T_K": 325.0,
+      "fugacity_residual": [
+        6.938893903907228e-16,
+        -2.6645352591003757e-15
+      ],
+      "library_pressure_difference_Pa": -1.862645149230957e-08,
+      "root_reported_success": true,
+      "sides": [
+        "vapor_liquid",
+        "single_liquid"
+      ],
+      "status": "accepted",
+      "y_methane": 0.9600617062250518
+    },
+    {
+      "P_bubble_Pa_abs": 12704300.57934615,
+      "T_K": 325.5,
+      "fugacity_residual": [
+        -6.38378239159465e-16,
+        2.220446049250313e-15
+      ],
+      "library_pressure_difference_Pa": 7.450580596923828e-09,
+      "root_reported_success": true,
+      "sides": [
+        "vapor_liquid",
+        "single_liquid"
+      ],
+      "status": "accepted",
+      "y_methane": 0.9596113652526927
+    },
+    {
+      "P_bubble_Pa_abs": 12723331.820184419,
+      "T_K": 326.0,
+      "fugacity_residual": [
+        3.608224830031759e-16,
+        0.0
+      ],
+      "library_pressure_difference_Pa": 1.4901161193847656e-08,
+      "root_reported_success": true,
+      "sides": [
+        "vapor_liquid",
+        "single_liquid"
+      ],
+      "status": "accepted",
+      "y_methane": 0.9591573967083742
+    },
+    {
+      "P_bubble_Pa_abs": 12742179.214868901,
+      "T_K": 326.5,
+      "fugacity_residual": [
+        -8.881784197001252e-16,
+        -4.440892098500626e-16
+      ],
+      "library_pressure_difference_Pa": 9.313225746154785e-09,
+      "root_reported_success": true,
+      "sides": [
+        "vapor_liquid",
+        "single_liquid"
+      ],
+      "status": "accepted",
+      "y_methane": 0.9586997771152466
+    },
+    {
+      "P_bubble_Pa_abs": 12760842.851192871,
+      "T_K": 327.0,
+      "fugacity_residual": [
+        -5.551115123125783e-17,
+        0.0
+      ],
+      "library_pressure_difference_Pa": 5.587935447692871e-09,
+      "root_reported_success": true,
+      "sides": [
+        "vapor_liquid",
+        "single_liquid"
+      ],
+      "status": "accepted",
+      "y_methane": 0.9582384827884158
+    },
+    {
+      "P_bubble_Pa_abs": 12779322.817248607,
+      "T_K": 327.5,
+      "fugacity_residual": [
+        3.3306690738754696e-16,
+        -8.881784197001252e-16
+      ],
+      "library_pressure_difference_Pa": 3.725290298461914e-09,
+      "root_reported_success": true,
+      "sides": [
+        "vapor_liquid",
+        "single_liquid"
+      ],
+      "status": "accepted",
+      "y_methane": 0.9577734898327672
+    },
+    {
+      "P_bubble_Pa_abs": 12797619.201354459,
+      "T_K": 328.0,
+      "fugacity_residual": [
+        -5.273559366969494e-16,
+        -8.881784197001252e-16
+      ],
+      "library_pressure_difference_Pa": 3.166496753692627e-08,
+      "root_reported_success": true,
+      "sides": [
+        "vapor_liquid",
+        "single_liquid"
+      ],
+      "status": "accepted",
+      "y_methane": 0.9573047741407602
+    },
+    {
+      "P_bubble_Pa_abs": 12815732.091982443,
+      "T_K": 328.5,
+      "fugacity_residual": [
+        -7.771561172376096e-16,
+        0.0
+      ],
+      "library_pressure_difference_Pa": -7.450580596923828e-09,
+      "root_reported_success": true,
+      "sides": [
+        "vapor_liquid",
+        "single_liquid"
+      ],
+      "status": "accepted",
+      "y_methane": 0.9568323113901951
+    },
+    {
+      "P_bubble_Pa_abs": 12833661.577686751,
+      "T_K": 329.0,
+      "fugacity_residual": [
+        5.551115123125783e-17,
+        -8.881784197001252e-16
+      ],
+      "library_pressure_difference_Pa": -5.587935447692871e-09,
+      "root_reported_success": true,
+      "sides": [
+        "vapor_liquid",
+        "single_liquid"
+      ],
+      "status": "accepted",
+      "y_methane": 0.9563560770419501
+    },
+    {
+      "P_bubble_Pa_abs": 12851407.747032328,
+      "T_K": 329.5,
+      "fugacity_residual": [
+        -8.881784197001252e-16,
+        1.7763568394002505e-15
+      ],
+      "library_pressure_difference_Pa": 1.4901161193847656e-08,
+      "root_reported_success": true,
+      "sides": [
+        "vapor_liquid",
+        "single_liquid"
+      ],
+      "status": "accepted",
+      "y_methane": 0.9558760463376913
+    },
+    {
+      "P_bubble_Pa_abs": 12868970.688524704,
+      "T_K": 330.0,
+      "fugacity_residual": [
+        3.608224830031759e-16,
+        8.881784197001252e-16
+      ],
+      "library_pressure_difference_Pa": -1.1175870895385742e-08,
+      "root_reported_success": true,
+      "sides": [
+        "vapor_liquid",
+        "single_liquid"
+      ],
+      "status": "accepted",
+      "y_methane": 0.9553921942975486
+    },
+    {
+      "P_bubble_Pa_abs": 12886350.490539799,
+      "T_K": 330.5,
+      "fugacity_residual": [
+        2.7755575615628914e-16,
+        -8.881784197001252e-16
+      ],
+      "library_pressure_difference_Pa": 3.166496753692627e-08,
+      "root_reported_success": true,
+      "sides": [
+        "vapor_liquid",
+        "single_liquid"
+      ],
+      "status": "accepted",
+      "y_methane": 0.954904495717765
+    },
+    {
+      "P_bubble_Pa_abs": 12903547.241254412,
+      "T_K": 331.0,
+      "fugacity_residual": [
+        3.608224830031759e-16,
+        8.881784197001252e-16
+      ],
+      "library_pressure_difference_Pa": 7.450580596923828e-09,
+      "root_reported_success": true,
+      "sides": [
+        "vapor_liquid",
+        "single_liquid"
+      ],
+      "status": "accepted",
+      "y_methane": 0.9544129251683154
+    },
+    {
+      "P_bubble_Pa_abs": 12920561.028577467,
+      "T_K": 331.5,
+      "fugacity_residual": [
+        -8.326672684688674e-16,
+        2.220446049250313e-15
+      ],
+      "library_pressure_difference_Pa": 1.4901161193847656e-08,
+      "root_reported_success": true,
+      "sides": [
+        "vapor_liquid",
+        "single_liquid"
+      ],
+      "status": "accepted",
+      "y_methane": 0.9539174569904876
+    },
+    {
+      "P_bubble_Pa_abs": 12937391.94008133,
+      "T_K": 332.0,
+      "fugacity_residual": [
+        3.0531133177191805e-16,
+        -3.1086244689504383e-15
+      ],
+      "library_pressure_difference_Pa": 1.6763806343078613e-08,
+      "root_reported_success": true,
+      "sides": [
+        "vapor_liquid",
+        "single_liquid"
+      ],
+      "status": "accepted",
+      "y_methane": 0.9534180652944387
+    },
+    {
+      "P_bubble_Pa_abs": 12954040.062933952,
+      "T_K": 332.5,
+      "fugacity_residual": [
+        6.106226635438361e-16,
+        1.3322676295501878e-15
+      ],
+      "library_pressure_difference_Pa": -1.30385160446167e-08,
+      "root_reported_success": true,
+      "sides": [
+        "vapor_liquid",
+        "single_liquid"
+      ],
+      "status": "accepted",
+      "y_methane": 0.9529147239567166
+    },
+    {
+      "P_bubble_Pa_abs": 12970505.483831102,
+      "T_K": 333.0,
+      "fugacity_residual": [
+        -3.3306690738754696e-16,
+        0.0
+      ],
+      "library_pressure_difference_Pa": -1.4901161193847656e-08,
+      "root_reported_success": true,
+      "sides": [
+        "vapor_liquid",
+        "single_liquid"
+      ],
+      "status": "accepted",
+      "y_methane": 0.9524074066177426
+    },
+    {
+      "P_bubble_Pa_abs": 12986788.288929312,
+      "T_K": 333.5,
+      "fugacity_residual": [
+        4.163336342344337e-16,
+        -1.3322676295501878e-15
+      ],
+      "library_pressure_difference_Pa": 1.1175870895385742e-08,
+      "root_reported_success": true,
+      "sides": [
+        "vapor_liquid",
+        "single_liquid"
+      ],
+      "status": "accepted",
+      "y_methane": 0.9518960866792693
+    },
+    {
+      "P_bubble_Pa_abs": 13002888.563778907,
+      "T_K": 334.0,
+      "fugacity_residual": [
+        1.1102230246251565e-16,
+        -3.1086244689504383e-15
+      ],
+      "library_pressure_difference_Pa": 3.725290298461914e-08,
+      "root_reported_success": true,
+      "sides": [
+        "vapor_liquid",
+        "single_liquid"
+      ],
+      "status": "accepted",
+      "y_methane": 0.9513807373017974
+    },
+    {
+      "P_bubble_Pa_abs": 13018806.393257696,
+      "T_K": 334.5,
+      "fugacity_residual": [
+        -8.326672684688674e-16,
+        0.0
+      ],
+      "library_pressure_difference_Pa": 7.450580596923828e-09,
+      "root_reported_success": true,
+      "sides": [
+        "vapor_liquid",
+        "single_liquid"
+      ],
+      "status": "accepted",
+      "y_methane": 0.9508613314019589
+    },
+    {
+      "P_bubble_Pa_abs": 13034541.861504698,
+      "T_K": 335.0,
+      "fugacity_residual": [
+        -9.992007221626409e-16,
+        -1.7763568394002505e-15
+      ],
+      "library_pressure_difference_Pa": 2.421438694000244e-08,
+      "root_reported_success": true,
+      "sides": [
+        "vapor_liquid",
+        "single_liquid"
+      ],
+      "status": "accepted",
+      "y_methane": 0.9503378416498658
+    },
+    {
+      "P_bubble_Pa_abs": 13050095.051854443,
+      "T_K": 335.5,
+      "fugacity_residual": [
+        1.1657341758564144e-15,
+        4.440892098500626e-16
+      ],
+      "library_pressure_difference_Pa": -2.421438694000244e-08,
+      "root_reported_success": true,
+      "sides": [
+        "vapor_liquid",
+        "single_liquid"
+      ],
+      "status": "accepted",
+      "y_methane": 0.94981024046642
+    },
+    {
+      "P_bubble_Pa_abs": 13065466.046771482,
+      "T_K": 336.0,
+      "fugacity_residual": [
+        -6.661338147750939e-16,
+        4.440892098500626e-16
+      ],
+      "library_pressure_difference_Pa": 3.725290298461914e-08,
+      "root_reported_success": true,
+      "sides": [
+        "vapor_liquid",
+        "single_liquid"
+      ],
+      "status": "accepted",
+      "y_methane": 0.9492785000205896
+    },
+    {
+      "P_bubble_Pa_abs": 13080654.927784864,
+      "T_K": 336.5,
+      "fugacity_residual": [
+        -5.551115123125783e-17,
+        4.440892098500626e-16
+      ],
+      "library_pressure_difference_Pa": -1.4901161193847656e-08,
+      "root_reported_success": true,
+      "sides": [
+        "vapor_liquid",
+        "single_liquid"
+      ],
+      "status": "accepted",
+      "y_methane": 0.9487425922266434
+    },
+    {
+      "P_bubble_Pa_abs": 13095661.775423529,
+      "T_K": 337.0,
+      "fugacity_residual": [
+        3.885780586188048e-16,
+        4.440892098500626e-16
+      ],
+      "library_pressure_difference_Pa": -9.313225746154785e-09,
+      "root_reported_success": true,
+      "sides": [
+        "vapor_liquid",
+        "single_liquid"
+      ],
+      "status": "accepted",
+      "y_methane": 0.9482024887413498
+    },
+    {
+      "P_bubble_Pa_abs": 13110486.669151155,
+      "T_K": 337.5,
+      "fugacity_residual": [
+        -1.1102230246251565e-16,
+        8.881784197001252e-16
+      ],
+      "library_pressure_difference_Pa": 0.0,
+      "root_reported_success": true,
+      "sides": [
+        "vapor_liquid",
+        "single_liquid"
+      ],
+      "status": "accepted",
+      "y_methane": 0.9476581609611343
+    },
+    {
+      "P_bubble_Pa_abs": 13125129.687301787,
+      "T_K": 338.0,
+      "fugacity_residual": [
+        -7.216449660063518e-16,
+        1.3322676295501878e-15
+      ],
+      "library_pressure_difference_Pa": 4.284083843231201e-08,
+      "root_reported_success": true,
+      "sides": [
+        "vapor_liquid",
+        "single_liquid"
+      ],
+      "status": "accepted",
+      "y_methane": 0.9471095800192001
+    },
+    {
+      "P_bubble_Pa_abs": 13139590.90701518,
+      "T_K": 338.5,
+      "fugacity_residual": [
+        1.1102230246251565e-16,
+        8.881784197001252e-16
+      ],
+      "library_pressure_difference_Pa": 1.4901161193847656e-08,
+      "root_reported_success": true,
+      "sides": [
+        "vapor_liquid",
+        "single_liquid"
+      ],
+      "status": "accepted",
+      "y_methane": 0.9465567167826053
+    },
+    {
+      "P_bubble_Pa_abs": 13153870.404172823,
+      "T_K": 339.0,
+      "fugacity_residual": [
+        1.1102230246251565e-16,
+        -4.440892098500626e-16
+      ],
+      "library_pressure_difference_Pa": 1.4901161193847656e-08,
+      "root_reported_success": true,
+      "sides": [
+        "vapor_liquid",
+        "single_liquid"
+      ],
+      "status": "accepted",
+      "y_methane": 0.9459995418492996
+    },
+    {
+      "P_bubble_Pa_abs": 13167968.253333753,
+      "T_K": 339.5,
+      "fugacity_residual": [
+        -9.43689570931383e-16,
+        2.220446049250313e-15
+      ],
+      "library_pressure_difference_Pa": 3.725290298461914e-08,
+      "root_reported_success": true,
+      "sides": [
+        "vapor_liquid",
+        "single_liquid"
+      ],
+      "status": "accepted",
+      "y_methane": 0.9454380255451167
+    },
+    {
+      "P_bubble_Pa_abs": 13181884.527670119,
+      "T_K": 340.0,
+      "fugacity_residual": [
+        7.216449660063518e-16,
+        4.440892098500626e-16
+      ],
+      "library_pressure_difference_Pa": -3.3527612686157227e-08,
+      "root_reported_success": true,
+      "sides": [
+        "vapor_liquid",
+        "single_liquid"
+      ],
+      "status": "accepted",
+      "y_methane": 0.9448721379207307
+    },
+    {
+      "P_bubble_Pa_abs": 13195619.298903922,
+      "T_K": 340.5,
+      "fugacity_residual": [
+        6.106226635438361e-16,
+        8.881784197001252e-16
+      ],
+      "library_pressure_difference_Pa": -2.0489096641540527e-08,
+      "root_reported_success": true,
+      "sides": [
+        "vapor_liquid",
+        "single_liquid"
+      ],
+      "status": "accepted",
+      "y_methane": 0.9443018487485589
+    },
+    {
+      "P_bubble_Pa_abs": 13209172.637242597,
+      "T_K": 341.0,
+      "fugacity_residual": [
+        -4.996003610813204e-16,
+        0.0
+      ],
+      "library_pressure_difference_Pa": 2.7939677238464355e-08,
+      "root_reported_success": true,
+      "sides": [
+        "vapor_liquid",
+        "single_liquid"
+      ],
+      "status": "accepted",
+      "y_methane": 0.9437271275196281
+    },
+    {
+      "P_bubble_Pa_abs": 13222544.61131523,
+      "T_K": 341.5,
+      "fugacity_residual": [
+        3.0531133177191805e-16,
+        -1.3322676295501878e-15
+      ],
+      "library_pressure_difference_Pa": 9.313225746154785e-09,
+      "root_reported_success": true,
+      "sides": [
+        "vapor_liquid",
+        "single_liquid"
+      ],
+      "status": "accepted",
+      "y_methane": 0.9431479434403915
+    },
+    {
+      "P_bubble_Pa_abs": 13235735.288109085,
+      "T_K": 342.0,
+      "fugacity_residual": [
+        -8.604228440844963e-16,
+        -8.881784197001252e-16
+      ],
+      "library_pressure_difference_Pa": 1.6763806343078613e-08,
+      "root_reported_success": true,
+      "sides": [
+        "vapor_liquid",
+        "single_liquid"
+      ],
+      "status": "accepted",
+      "y_methane": 0.9425642654294999
+    },
+    {
+      "P_bubble_Pa_abs": 13248744.732905405,
+      "T_K": 342.5,
+      "fugacity_residual": [
+        -2.498001805406602e-16,
+        -1.3322676295501878e-15
+      ],
+      "library_pressure_difference_Pa": 1.4901161193847656e-08,
+      "root_reported_success": true,
+      "sides": [
+        "vapor_liquid",
+        "single_liquid"
+      ],
+      "status": "accepted",
+      "y_methane": 0.9419760621145253
+    },
+    {
+      "P_bubble_Pa_abs": 13261573.009215638,
+      "T_K": 343.0,
+      "fugacity_residual": [
+        -6.106226635438361e-16,
+        1.3322676295501878e-15
+      ],
+      "library_pressure_difference_Pa": -1.1175870895385742e-08,
+      "root_reported_success": true,
+      "sides": [
+        "vapor_liquid",
+        "single_liquid"
+      ],
+      "status": "accepted",
+      "y_methane": 0.9413833018286408
+    },
+    {
+      "P_bubble_Pa_abs": 13274220.178717703,
+      "T_K": 343.5,
+      "fugacity_residual": [
+        1.2490009027033011e-15,
+        4.440892098500626e-16
+      ],
+      "library_pressure_difference_Pa": -4.0978193283081055e-08,
+      "root_reported_success": true,
+      "sides": [
+        "vapor_liquid",
+        "single_liquid"
+      ],
+      "status": "accepted",
+      "y_methane": 0.9407859526072408
+    },
+    {
+      "P_bubble_Pa_abs": 13286686.301191932,
+      "T_K": 344.0,
+      "fugacity_residual": [
+        0.0,
+        0.0
+      ],
+      "library_pressure_difference_Pa": 0.0,
+      "root_reported_success": true,
+      "sides": [
+        "vapor_liquid",
+        "single_liquid"
+      ],
+      "status": "accepted",
+      "y_methane": 0.9401839821845263
+    },
+    {
+      "P_bubble_Pa_abs": 13298971.434456654,
+      "T_K": 344.5,
+      "fugacity_residual": [
+        2.220446049250313e-16,
+        -2.220446049250313e-16
+      ],
+      "library_pressure_difference_Pa": -1.4901161193847656e-08,
+      "root_reported_success": true,
+      "sides": [
+        "vapor_liquid",
+        "single_liquid"
+      ],
+      "status": "accepted",
+      "y_methane": 0.9395773579900276
+    },
+    {
+      "P_bubble_Pa_abs": 13311075.634304544,
+      "T_K": 345.0,
+      "fugacity_residual": [
+        7.216449660063518e-16,
+        -1.3322676295501878e-15
+      ],
+      "library_pressure_difference_Pa": -3.725290298461914e-09,
+      "root_reported_success": true,
+      "sides": [
+        "vapor_liquid",
+        "single_liquid"
+      ],
+      "status": "accepted",
+      "y_methane": 0.9389660471450781
+    },
+    {
+      "P_bubble_Pa_abs": 13322998.954437897,
+      "T_K": 345.5,
+      "fugacity_residual": [
+        2.7755575615628914e-17,
+        -4.440892098500626e-16
+      ],
+      "library_pressure_difference_Pa": -5.587935447692871e-09,
+      "root_reported_success": true,
+      "sides": [
+        "vapor_liquid",
+        "single_liquid"
+      ],
+      "status": "accepted",
+      "y_methane": 0.938350016459239
+    },
+    {
+      "P_bubble_Pa_abs": 13334741.446404189,
+      "T_K": 346.0,
+      "fugacity_residual": [
+        -2.7755575615628914e-17,
+        8.881784197001252e-16
+      ],
+      "library_pressure_difference_Pa": -9.313225746154785e-09,
+      "root_reported_success": true,
+      "sides": [
+        "vapor_liquid",
+        "single_liquid"
+      ],
+      "status": "accepted",
+      "y_methane": 0.9377292324266647
+    },
+    {
+      "P_bubble_Pa_abs": 13346303.159531534,
+      "T_K": 346.5,
+      "fugacity_residual": [
+        -2.498001805406602e-16,
+        3.1086244689504383e-15
+      ],
+      "library_pressure_difference_Pa": 0.0,
+      "root_reported_success": true,
+      "sides": [
+        "vapor_liquid",
+        "single_liquid"
+      ],
+      "status": "accepted",
+      "y_methane": 0.937103661222417
+    },
+    {
+      "P_bubble_Pa_abs": 13357684.140863428,
+      "T_K": 347.0,
+      "fugacity_residual": [
+        -4.440892098500626e-16,
+        8.881784197001252e-16
+      ],
+      "library_pressure_difference_Pa": -1.30385160446167e-08,
+      "root_reported_success": true,
+      "sides": [
+        "vapor_liquid",
+        "single_liquid"
+      ],
+      "status": "accepted",
+      "y_methane": 0.9364732686987219
+    },
+    {
+      "P_bubble_Pa_abs": 13368884.435093906,
+      "T_K": 347.5,
+      "fugacity_residual": [
+        4.996003610813204e-16,
+        -8.881784197001252e-16
+      ],
+      "library_pressure_difference_Pa": -2.7939677238464355e-08,
+      "root_reported_success": true,
+      "sides": [
+        "vapor_liquid",
+        "single_liquid"
+      ],
+      "status": "accepted",
+      "y_methane": 0.9358380203811721
+    },
+    {
+      "P_bubble_Pa_abs": 13379904.08450192,
+      "T_K": 348.0,
+      "fugacity_residual": [
+        9.020562075079397e-16,
+        -8.881784197001252e-16
+      ],
+      "library_pressure_difference_Pa": -3.725290298461914e-08,
+      "root_reported_success": true,
+      "sides": [
+        "vapor_liquid",
+        "single_liquid"
+      ],
+      "status": "accepted",
+      "y_methane": 0.9351978814648655
+    },
+    {
+      "P_bubble_Pa_abs": 13390743.128885785,
+      "T_K": 348.5,
+      "fugacity_residual": [
+        -2.3592239273284576e-16,
+        -6.661338147750939e-16
+      ],
+      "library_pressure_difference_Pa": 5.587935447692871e-09,
+      "root_reported_success": true,
+      "sides": [
+        "vapor_liquid",
+        "single_liquid"
+      ],
+      "status": "accepted",
+      "y_methane": 0.9345528168104873
+    },
+    {
+      "P_bubble_Pa_abs": 13401401.605496764,
+      "T_K": 349.0,
+      "fugacity_residual": [
+        -6.522560269672795e-16,
+        4.440892098500626e-16
+      ],
+      "library_pressure_difference_Pa": 5.587935447692871e-08,
+      "root_reported_success": true,
+      "sides": [
+        "vapor_liquid",
+        "single_liquid"
+      ],
+      "status": "accepted",
+      "y_methane": 0.9339027909403372
+    },
+    {
+      "P_bubble_Pa_abs": 13411879.54897314,
+      "T_K": 349.5,
+      "fugacity_residual": [
+        -4.579669976578771e-16,
+        -4.440892098500626e-16
+      ],
+      "library_pressure_difference_Pa": -3.725290298461914e-09,
+      "root_reported_success": true,
+      "sides": [
+        "vapor_liquid",
+        "single_liquid"
+      ],
+      "status": "accepted",
+      "y_methane": 0.9332477680342842
+    },
+    {
+      "P_bubble_Pa_abs": 13422176.991273383,
+      "T_K": 350.0,
+      "fugacity_residual": [
+        -1.249000902703301e-16,
+        6.661338147750939e-16
+      ],
+      "library_pressure_difference_Pa": 2.0489096641540527e-08,
+      "root_reported_success": true,
+      "sides": [
+        "vapor_liquid",
+        "single_liquid"
+      ],
+      "status": "accepted",
+      "y_methane": 0.9325877119256628
+    },
+    {
+      "P_bubble_Pa_abs": 13432293.961608673,
+      "T_K": 350.5,
+      "fugacity_residual": [
+        2.3592239273284576e-16,
+        -1.3322676295501878e-15
+      ],
+      "library_pressure_difference_Pa": -2.9802322387695312e-08,
+      "root_reported_success": true,
+      "sides": [
+        "vapor_liquid",
+        "single_liquid"
+      ],
+      "status": "accepted",
+      "y_methane": 0.9319225860971138
+    },
+    {
+      "P_bubble_Pa_abs": 13442230.486375723,
+      "T_K": 351.0,
+      "fugacity_residual": [
+        2.7755575615628914e-17,
+        -2.220446049250313e-16
+      ],
+      "library_pressure_difference_Pa": -1.30385160446167e-08,
+      "root_reported_success": true,
+      "sides": [
+        "vapor_liquid",
+        "single_liquid"
+      ],
+      "status": "accepted",
+      "y_methane": 0.9312523536763438
+    },
+    {
+      "P_bubble_Pa_abs": 13451986.589088649,
+      "T_K": 351.5,
+      "fugacity_residual": [
+        -1.1102230246251565e-16,
+        -6.661338147750939e-16
+      ],
+      "library_pressure_difference_Pa": -3.725290298461914e-09,
+      "root_reported_success": true,
+      "sides": [
+        "vapor_liquid",
+        "single_liquid"
+      ],
+      "status": "accepted",
+      "y_methane": 0.9305769774318287
+    },
+    {
+      "P_bubble_Pa_abs": 13461562.290310467,
+      "T_K": 352.0,
+      "fugacity_residual": [
+        -4.163336342344337e-17,
+        8.881784197001252e-16
+      ],
+      "library_pressure_difference_Pa": 3.5390257835388184e-08,
+      "root_reported_success": true,
+      "sides": [
+        "vapor_liquid",
+        "single_liquid"
+      ],
+      "status": "accepted",
+      "y_methane": 0.9298964197684454
+    },
+    {
+      "P_bubble_Pa_abs": 13470957.607584042,
+      "T_K": 352.5,
+      "fugacity_residual": [
+        -5.273559366969494e-16,
+        -1.1102230246251565e-15
+      ],
+      "library_pressure_difference_Pa": 3.725290298461914e-08,
+      "root_reported_success": true,
+      "sides": [
+        "vapor_liquid",
+        "single_liquid"
+      ],
+      "status": "accepted",
+      "y_methane": 0.9292106427230372
+    },
+    {
+      "P_bubble_Pa_abs": 13480172.55536286,
+      "T_K": 353.0,
+      "fugacity_residual": [
+        -2.636779683484747e-16,
+        -4.440892098500626e-16
+      ],
+      "library_pressure_difference_Pa": 0.0,
+      "root_reported_success": true,
+      "sides": [
+        "vapor_liquid",
+        "single_liquid"
+      ],
+      "status": "accepted",
+      "y_methane": 0.9285196079598997
+    },
+    {
+      "P_bubble_Pa_abs": 13489207.144940646,
+      "T_K": 353.5,
+      "fugacity_residual": [
+        -3.0531133177191805e-16,
+        0.0
+      ],
+      "library_pressure_difference_Pa": 7.450580596923828e-09,
+      "root_reported_success": true,
+      "sides": [
+        "vapor_liquid",
+        "single_liquid"
+      ],
+      "status": "accepted",
+      "y_methane": 0.9278232767662058
+    },
+    {
+      "P_bubble_Pa_abs": 13498061.384381043,
+      "T_K": 354.0,
+      "fugacity_residual": [
+        3.3306690738754696e-16,
+        4.440892098500626e-16
+      ],
+      "library_pressure_difference_Pa": -1.4901161193847656e-08,
+      "root_reported_success": true,
+      "sides": [
+        "vapor_liquid",
+        "single_liquid"
+      ],
+      "status": "accepted",
+      "y_methane": 0.9271216100473451
+    },
+    {
+      "P_bubble_Pa_abs": 13506735.278446125,
+      "T_K": 354.5,
+      "fugacity_residual": [
+        8.326672684688674e-17,
+        8.881784197001252e-16
+      ],
+      "library_pressure_difference_Pa": 7.450580596923828e-09,
+      "root_reported_success": true,
+      "sides": [
+        "vapor_liquid",
+        "single_liquid"
+      ],
+      "status": "accepted",
+      "y_methane": 0.9264145683221966
+    },
+    {
+      "P_bubble_Pa_abs": 13515228.828524586,
+      "T_K": 355.0,
+      "fugacity_residual": [
+        -5.828670879282072e-16,
+        1.3322676295501878e-15
+      ],
+      "library_pressure_difference_Pa": 3.166496753692627e-08,
+      "root_reported_success": true,
+      "sides": [
+        "vapor_liquid",
+        "single_liquid"
+      ],
+      "status": "accepted",
+      "y_methane": 0.9257021117183205
+    },
+    {
+      "P_bubble_Pa_abs": 13523542.032559078,
+      "T_K": 355.5,
+      "fugacity_residual": [
+        -8.604228440844963e-16,
+        -2.220446049250313e-16
+      ],
+      "library_pressure_difference_Pa": 3.725290298461914e-08,
+      "root_reported_success": true,
+      "sides": [
+        "vapor_liquid",
+        "single_liquid"
+      ],
+      "status": "accepted",
+      "y_methane": 0.9249841999670722
+    },
+    {
+      "P_bubble_Pa_abs": 13531674.88497323,
+      "T_K": 356.0,
+      "fugacity_residual": [
+        6.661338147750939e-16,
+        1.1102230246251565e-15
+      ],
+      "library_pressure_difference_Pa": -1.862645149230957e-08,
+      "root_reported_success": true,
+      "sides": [
+        "vapor_liquid",
+        "single_liquid"
+      ],
+      "status": "accepted",
+      "y_methane": 0.9242607923986284
+    },
+    {
+      "P_bubble_Pa_abs": 13539627.376597473,
+      "T_K": 356.5,
+      "fugacity_residual": [
+        -8.465450562766819e-16,
+        -6.661338147750939e-16
+      ],
+      "library_pressure_difference_Pa": 2.9802322387695312e-08,
+      "root_reported_success": true,
+      "sides": [
+        "vapor_liquid",
+        "single_liquid"
+      ],
+      "status": "accepted",
+      "y_methane": 0.923531847936946
+    },
+    {
+      "P_bubble_Pa_abs": 13547399.494594019,
+      "T_K": 357.0,
+      "fugacity_residual": [
+        6.522560269672795e-16,
+        -1.9984014443252818e-15
+      ],
+      "library_pressure_difference_Pa": -5.587935447692871e-09,
+      "root_reported_success": true,
+      "sides": [
+        "vapor_liquid",
+        "single_liquid"
+      ],
+      "status": "accepted",
+      "y_methane": 0.9227973250946259
+    },
+    {
+      "P_bubble_Pa_abs": 13554991.222381733,
+      "T_K": 357.5,
+      "fugacity_residual": [
+        5.689893001203927e-16,
+        -1.3322676295501878e-15
+      ],
+      "library_pressure_difference_Pa": -2.421438694000244e-08,
+      "root_reported_success": true,
+      "sides": [
+        "vapor_liquid",
+        "single_liquid"
+      ],
+      "status": "accepted",
+      "y_methane": 0.9220571819676908
+    },
+    {
+      "P_bubble_Pa_abs": 13562402.539559506,
+      "T_K": 358.0,
+      "fugacity_residual": [
+        8.326672684688674e-17,
+        0.0
+      ],
+      "library_pressure_difference_Pa": 9.313225746154785e-09,
+      "root_reported_success": true,
+      "sides": [
+        "vapor_liquid",
+        "single_liquid"
+      ],
+      "status": "accepted",
+      "y_methane": 0.9213113762302813
+    },
+    {
+      "P_bubble_Pa_abs": 13569633.421829036,
+      "T_K": 358.5,
+      "fugacity_residual": [
+        9.43689570931383e-16,
+        -8.881784197001252e-16
+      ],
+      "library_pressure_difference_Pa": -1.862645149230957e-08,
+      "root_reported_success": true,
+      "sides": [
+        "vapor_liquid",
+        "single_liquid"
+      ],
+      "status": "accepted",
+      "y_methane": 0.9205598651292557
+    },
+    {
+      "P_bubble_Pa_abs": 13576683.840916669,
+      "T_K": 359.0,
+      "fugacity_residual": [
+        4.163336342344337e-17,
+        0.0
+      ],
+      "library_pressure_difference_Pa": 3.166496753692627e-08,
+      "root_reported_success": true,
+      "sides": [
+        "vapor_liquid",
+        "single_liquid"
+      ],
+      "status": "accepted",
+      "y_methane": 0.919802605478706
+    },
+    {
+      "P_bubble_Pa_abs": 13583553.764494164,
+      "T_K": 359.5,
+      "fugacity_residual": [
+        4.3021142204224816e-16,
+        -6.661338147750939e-16
+      ],
+      "library_pressure_difference_Pa": -3.725290298461914e-09,
+      "root_reported_success": true,
+      "sides": [
+        "vapor_liquid",
+        "single_liquid"
+      ],
+      "status": "accepted",
+      "y_methane": 0.9190395536543742
+    },
+    {
+      "P_bubble_Pa_abs": 13590243.156099064,
+      "T_K": 360.0,
+      "fugacity_residual": [
+        1.0130785099704553e-15,
+        -4.440892098500626e-16
+      ],
+      "library_pressure_difference_Pa": -7.450580596923828e-09,
+      "root_reported_success": true,
+      "sides": [
+        "vapor_liquid",
+        "single_liquid"
+      ],
+      "status": "accepted",
+      "y_methane": 0.9182706655879732
+    },
+    {
+      "P_bubble_Pa_abs": 13596751.975053038,
+      "T_K": 360.5,
+      "fugacity_residual": [
+        -5.967448757360216e-16,
+        -4.440892098500626e-16
+      ],
+      "library_pressure_difference_Pa": 5.587935447692871e-09,
+      "root_reported_success": true,
+      "sides": [
+        "vapor_liquid",
+        "single_liquid"
+      ],
+      "status": "accepted",
+      "y_methane": 0.9174958967614165
+    },
+    {
+      "P_bubble_Pa_abs": 13603080.176380211,
+      "T_K": 361.0,
+      "fugacity_residual": [
+        -4.163336342344337e-16,
+        -1.5543122344752192e-15
+      ],
+      "library_pressure_difference_Pa": -1.30385160446167e-08,
+      "root_reported_success": true,
+      "sides": [
+        "vapor_liquid",
+        "single_liquid"
+      ],
+      "status": "accepted",
+      "y_methane": 0.916715202200936
+    },
+    {
+      "P_bubble_Pa_abs": 13609227.71072372,
+      "T_K": 361.5,
+      "fugacity_residual": [
+        2.220446049250313e-16,
+        0.0
+      ],
+      "library_pressure_difference_Pa": -3.166496753692627e-08,
+      "root_reported_success": true,
+      "sides": [
+        "vapor_liquid",
+        "single_liquid"
+      ],
+      "status": "accepted",
+      "y_methane": 0.9159285364711126
+    },
+    {
+      "P_bubble_Pa_abs": 13615194.52426166,
+      "T_K": 362.0,
+      "fugacity_residual": [
+        -5.134781488891349e-16,
+        0.0
+      ],
+      "library_pressure_difference_Pa": 3.5390257835388184e-08,
+      "root_reported_success": true,
+      "sides": [
+        "vapor_liquid",
+        "single_liquid"
+      ],
+      "status": "accepted",
+      "y_methane": 0.9151358536687859
+    },
+    {
+      "P_bubble_Pa_abs": 13620980.55862129,
+      "T_K": 362.5,
+      "fugacity_residual": [
+        -5.689893001203927e-16,
+        0.0
+      ],
+      "library_pressure_difference_Pa": -1.1175870895385742e-08,
+      "root_reported_success": true,
+      "sides": [
+        "vapor_liquid",
+        "single_liquid"
+      ],
+      "status": "accepted",
+      "y_methane": 0.9143371074168739
+    },
+    {
+      "P_bubble_Pa_abs": 13626585.750792598,
+      "T_K": 363.0,
+      "fugacity_residual": [
+        -1.887379141862766e-15,
+        8.881784197001252e-16
+      ],
+      "library_pressure_difference_Pa": 4.470348358154297e-08,
+      "root_reported_success": true,
+      "sides": [
+        "vapor_liquid",
+        "single_liquid"
+      ],
+      "status": "accepted",
+      "y_methane": 0.9135322508580698
+    },
+    {
+      "P_bubble_Pa_abs": 13632010.033040104,
+      "T_K": 363.5,
+      "fugacity_residual": [
+        -7.216449660063518e-16,
+        -1.9984014443252818e-15
+      ],
+      "library_pressure_difference_Pa": 2.60770320892334e-08,
+      "root_reported_success": true,
+      "sides": [
+        "vapor_liquid",
+        "single_liquid"
+      ],
+      "status": "accepted",
+      "y_methane": 0.9127212366484359
+    },
+    {
+      "P_bubble_Pa_abs": 13637253.332814142,
+      "T_K": 364.0,
+      "fugacity_residual": [
+        -5.273559366969494e-16,
+        0.0
+      ],
+      "library_pressure_difference_Pa": 1.6763806343078613e-08,
+      "root_reported_success": true,
+      "sides": [
+        "vapor_liquid",
+        "single_liquid"
+      ],
+      "status": "accepted",
+      "y_methane": 0.911904016950872
+    },
+    {
+      "P_bubble_Pa_abs": 13642315.572659682,
+      "T_K": 364.5,
+      "fugacity_residual": [
+        -5.551115123125783e-17,
+        -4.440892098500626e-16
+      ],
+      "library_pressure_difference_Pa": -2.0489096641540527e-08,
+      "root_reported_success": true,
+      "sides": [
+        "vapor_liquid",
+        "single_liquid"
+      ],
+      "status": "accepted",
+      "y_methane": 0.9110805434284849
+    },
+    {
+      "P_bubble_Pa_abs": 13647196.670125023,
+      "T_K": 365.0,
+      "fugacity_residual": [
+        1.8041124150158794e-16,
+        -4.440892098500626e-16
+      ],
+      "library_pressure_difference_Pa": -2.2351741790771484e-08,
+      "root_reported_success": true,
+      "sides": [
+        "vapor_liquid",
+        "single_liquid"
+      ],
+      "status": "accepted",
+      "y_methane": 0.9102507672378185
+    },
+    {
+      "P_bubble_Pa_abs": 13651896.537668005,
+      "T_K": 365.5,
+      "fugacity_residual": [
+        5.689893001203927e-16,
+        -1.5543122344752192e-15
+      ],
+      "library_pressure_difference_Pa": -1.1175870895385742e-08,
+      "root_reported_success": true,
+      "sides": [
+        "vapor_liquid",
+        "single_liquid"
+      ],
+      "status": "accepted",
+      "y_methane": 0.9094146390219726
+    },
+    {
+      "P_bubble_Pa_abs": 13656415.082561336,
+      "T_K": 366.0,
+      "fugacity_residual": [
+        2.914335439641036e-16,
+        2.220446049250313e-16
+      ],
+      "library_pressure_difference_Pa": 1.1175870895385742e-08,
+      "root_reported_success": true,
+      "sides": [
+        "vapor_liquid",
+        "single_liquid"
+      ],
+      "status": "accepted",
+      "y_methane": 0.9085721089035986
+    },
+    {
+      "P_bubble_Pa_abs": 13660752.206796372,
+      "T_K": 366.5,
+      "fugacity_residual": [
+        8.604228440844963e-16,
+        -1.3322676295501878e-15
+      ],
+      "library_pressure_difference_Pa": -3.91155481338501e-08,
+      "root_reported_success": true,
+      "sides": [
+        "vapor_liquid",
+        "single_liquid"
+      ],
+      "status": "accepted",
+      "y_methane": 0.9077231264777533
+    },
+    {
+      "P_bubble_Pa_abs": 13664907.806985158,
+      "T_K": 367.0,
+      "fugacity_residual": [
+        -1.5265566588595902e-16,
+        0.0
+      ],
+      "library_pressure_difference_Pa": -2.0489096641540527e-08,
+      "root_reported_success": true,
+      "sides": [
+        "vapor_liquid",
+        "single_liquid"
+      ],
+      "status": "accepted",
+      "y_methane": 0.9068676408046354
+    },
+    {
+      "P_bubble_Pa_abs": 13668881.77426078,
+      "T_K": 367.5,
+      "fugacity_residual": [
+        8.187894806610529e-16,
+        4.440892098500626e-16
+      ],
+      "library_pressure_difference_Pa": -5.4016709327697754e-08,
+      "root_reported_success": true,
+      "sides": [
+        "vapor_liquid",
+        "single_liquid"
+      ],
+      "status": "accepted",
+      "y_methane": 0.9060056004021795
+    },
+    {
+      "P_bubble_Pa_abs": 13672673.9941764,
+      "T_K": 368.0,
+      "fugacity_residual": [
+        4.996003610813204e-16,
+        -8.881784197001252e-16
+      ],
+      "library_pressure_difference_Pa": 1.862645149230957e-08,
+      "root_reported_success": true,
+      "sides": [
+        "vapor_liquid",
+        "single_liquid"
+      ],
+      "status": "accepted",
+      "y_methane": 0.9051369532385143
+    },
+    {
+      "P_bubble_Pa_abs": 13676284.346602099,
+      "T_K": 368.5,
+      "fugacity_residual": [
+        4.163336342344337e-16,
+        2.220446049250313e-16
+      ],
+      "library_pressure_difference_Pa": -2.2351741790771484e-08,
+      "root_reported_success": true,
+      "sides": [
+        "vapor_liquid",
+        "single_liquid"
+      ],
+      "status": "accepted",
+      "y_methane": 0.904261646724281
+    },
+    {
+      "P_bubble_Pa_abs": 13679712.705620395,
+      "T_K": 369.0,
+      "fugacity_residual": [
+        -2.636779683484747e-16,
+        6.661338147750939e-16
+      ],
+      "library_pressure_difference_Pa": -9.313225746154785e-09,
+      "root_reported_success": true,
+      "sides": [
+        "vapor_liquid",
+        "single_liquid"
+      ],
+      "status": "accepted",
+      "y_methane": 0.9033796277048014
+    },
+    {
+      "P_bubble_Pa_abs": 13682958.939419562,
+      "T_K": 369.5,
+      "fugacity_residual": [
+        -2.636779683484747e-16,
+        6.661338147750939e-16
+      ],
+      "library_pressure_difference_Pa": 5.4016709327697754e-08,
+      "root_reported_success": true,
+      "sides": [
+        "vapor_liquid",
+        "single_liquid"
+      ],
+      "status": "accepted",
+      "y_methane": 0.9024908424521022
+    },
+    {
+      "P_bubble_Pa_abs": 13686022.910185205,
+      "T_K": 370.0,
+      "fugacity_residual": [
+        -4.85722573273506e-16,
+        1.1102230246251565e-15
+      ],
+      "library_pressure_difference_Pa": 2.0489096641540527e-08,
+      "root_reported_success": true,
+      "sides": [
+        "vapor_liquid",
+        "single_liquid"
+      ],
+      "status": "accepted",
+      "y_methane": 0.9015952366567912
+    },
+    {
+      "P_bubble_Pa_abs": 11552765.52169793,
+      "T_K": 301.137,
+      "fugacity_residual": [
+        -8.326672684688674e-16,
+        -2.220446049250313e-15
+      ],
+      "library_pressure_difference_Pa": 2.2351741790771484e-08,
+      "root_reported_success": true,
+      "sides": [
+        "vapor_liquid",
+        "single_liquid"
+      ],
+      "status": "accepted",
+      "y_methane": 0.977743310111444
+    },
+    {
+      "P_bubble_Pa_abs": 11891889.203458244,
+      "T_K": 307.419,
+      "fugacity_residual": [
+        -8.326672684688674e-16,
+        1.7763568394002505e-15
+      ],
+      "library_pressure_difference_Pa": 2.2351741790771484e-08,
+      "root_reported_success": true,
+      "sides": [
+        "vapor_liquid",
+        "single_liquid"
+      ],
+      "status": "accepted",
+      "y_methane": 0.9737607564742387
+    },
+    {
+      "P_bubble_Pa_abs": 12209237.526384518,
+      "T_K": 313.863,
+      "fugacity_residual": [
+        -1.6653345369377348e-16,
+        -4.440892098500626e-16
+      ],
+      "library_pressure_difference_Pa": 1.4901161193847656e-08,
+      "root_reported_success": true,
+      "sides": [
+        "vapor_liquid",
+        "single_liquid"
+      ],
+      "status": "accepted",
+      "y_methane": 0.9691989495135229
+    },
+    {
+      "P_bubble_Pa_abs": 12595573.317103622,
+      "T_K": 322.731,
+      "fugacity_residual": [
+        7.216449660063518e-16,
+        -1.7763568394002505e-15
+      ],
+      "library_pressure_difference_Pa": -2.7939677238464355e-08,
+      "root_reported_success": true,
+      "sides": [
+        "vapor_liquid",
+        "single_liquid"
+      ],
+      "status": "accepted",
+      "y_methane": 0.9620604028595712
+    },
+    {
+      "P_bubble_Pa_abs": 12835551.355986342,
+      "T_K": 329.053,
+      "fugacity_residual": [
+        -4.440892098500626e-16,
+        2.6645352591003757e-15
+      ],
+      "library_pressure_difference_Pa": 4.284083843231201e-08,
+      "root_reported_success": true,
+      "sides": [
+        "vapor_liquid",
+        "single_liquid"
+      ],
+      "status": "accepted",
+      "y_methane": 0.9563053741007511
+    },
+    {
+      "P_bubble_Pa_abs": 13227234.83738791,
+      "T_K": 341.677,
+      "fugacity_residual": [
+        8.604228440844963e-16,
+        -1.7763568394002505e-15
+      ],
+      "library_pressure_difference_Pa": -5.587935447692871e-09,
+      "root_reported_success": true,
+      "sides": [
+        "vapor_liquid",
+        "single_liquid"
+      ],
+      "status": "accepted",
+      "y_methane": 0.9429418368824714
+    },
+    {
+      "P_bubble_Pa_abs": 13503477.747368213,
+      "T_K": 354.311,
+      "fugacity_residual": [
+        -1.5265566588595902e-16,
+        -2.220446049250313e-16
+      ],
+      "library_pressure_difference_Pa": -1.862645149230957e-09,
+      "root_reported_success": true,
+      "sides": [
+        "vapor_liquid",
+        "single_liquid"
+      ],
+      "status": "accepted",
+      "y_methane": 0.926682464494947
+    },
+    {
+      "P_bubble_Pa_abs": 13679357.926669816,
+      "T_K": 368.947,
+      "fugacity_residual": [
+        7.355227538141662e-16,
+        0.0
+      ],
+      "library_pressure_difference_Pa": -1.30385160446167e-08,
+      "root_reported_success": true,
+      "sides": [
+        "vapor_liquid",
+        "single_liquid"
+      ],
+      "status": "accepted",
+      "y_methane": 0.903473441375218
+    }
+  ],
+  "source_sha256": "aeb761eba4e13c1dd98408a39005fa7bdcf4d658f38db7043e0b246f4b7f7d63"
+}

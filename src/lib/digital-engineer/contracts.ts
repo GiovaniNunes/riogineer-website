@@ -423,6 +423,25 @@ export const separatorEnergyRequirementsSchema = equilibriumRequirementsSchema.e
     z.literal('energy_balance'),
   ]),
 });
+// M18 guarded liquid service is a distinct, additive branch.
+export const pumpModel = z.strictObject({
+  id: z.literal('rigorous_isentropic_pump_pr'),
+  version: z.literal('1.0'),
+});
+export const pumpInput = z.strictObject({
+  id,
+  type: z.literal('pump'),
+  model: pumpModel,
+  parameters: thermalCommon.extend({
+    outlet_pressure_Pa_abs: num.min(20e6).max(30e6),
+    isentropic_efficiency: num.min(0.6).max(1),
+  }),
+});
+export const pumpRequirementsSchema = thermalRequirementsSchema.extend({
+  schema_version: z.literal('1.10'),
+  profile: z.literal('pump_energy'),
+  equipment: z.array(pumpInput).length(1),
+});
 // Interpretation stays on requirementsSchema (1.0); deterministic API accepts both.
 export const engineeringRequirementsSchema = z.union([
   requirementsSchema,
@@ -435,6 +454,7 @@ export const engineeringRequirementsSchema = z.union([
   exchangerRequirementsSchema,
   valveRequirementsSchema,
   separatorEnergyRequirementsSchema,
+  pumpRequirementsSchema,
 ]);
 const graphEquipment = z.discriminatedUnion('type', [
   graphEquipmentInput.options[0]
@@ -603,6 +623,18 @@ export const separatorEnergyFlowsheetSchema = equilibriumFlowsheetSchema.extend(
     )
     .length(1),
 });
+export const pumpFlowsheetSchema = thermalFlowsheetSchema.extend({
+  schema_version: z.literal('1.11'),
+  profile: z.literal('pump_energy'),
+  equipment: z
+    .array(
+      pumpInput.omit({ parameters: true }).extend({
+        ports: valveFlowsheetSchema.shape.equipment.element.shape.ports,
+        operating_parameters: pumpInput.shape.parameters,
+      }),
+    )
+    .length(1),
+});
 // Legacy 1.0/1.1 readers remain unchanged; graph builds explicitly use 1.2.
 export const flowsheetSchema = z.union([
   legacyFlowsheetSchema,
@@ -615,6 +647,7 @@ export const flowsheetSchema = z.union([
   exchangerFlowsheetSchema,
   valveFlowsheetSchema,
   separatorEnergyFlowsheetSchema,
+  pumpFlowsheetSchema,
   legacyFlowsheetSchema.extend({
     schema_version: z.literal('1.1'),
     streams: z
@@ -1291,7 +1324,144 @@ export const separatorEnergyResultsSchema = thermalResultsSchema.extend({
     }),
   }),
 });
+const pumpStability = z.strictObject({
+  stable: z.literal(true),
+  classification: z.string(),
+  converged: z.literal(true),
+  iterations: z.number().int().nonnegative(),
+  minimum_tpd_RT: num,
+  phase_identification_parameter: num.gt(1),
+  provider: z.literal('peng_robinson@1.0'),
+  algorithm: z.string(),
+  trials: z.array(
+    z.strictObject({
+      composition: z.array(num),
+      root_kind: z.string(),
+      tpd_RT: num,
+      iterations: z.number().int().nonnegative(),
+      interval_width: num,
+      converged: z.boolean(),
+    }),
+  ),
+});
+const pumpState = compressorStateSchema.extend({
+  temperature_K: num.min(300).max(370),
+  pressure_Pa_abs: num.min(20e6).max(30e6),
+  classification: z.literal('single_liquid'),
+  beta: z.literal(0),
+  pt_status: z.literal('success_single_phase'),
+  phases: z.strictObject({ liquid: compressorPhase }),
+  pt_profile: z.literal('high_accuracy'),
+  stability: pumpStability,
+});
+const pumpWitness = pumpState.extend({ pressure_Pa_abs: z.literal(16e6) });
+const pumpInverse = compressorInverse.extend({
+  capability: z.enum(['PS', 'PH']),
+  scan_count: z.union([z.literal(64), z.literal(128)]),
+  fresh_final_count: z.literal(1),
+  temperature_bounds_K: z.tuple([z.literal(200), z.literal(500)]),
+  residual: num,
+  failure_count: z.number().int().nonnegative(),
+});
+const pumpCommonDetails = compressorDetailsSchema
+  .pick({
+    property_package: true,
+    component_dataset: true,
+    molecular_provider: true,
+    caloric_dataset: true,
+    caloric_reference: true,
+    bip: true,
+    F_mol_s: true,
+    energy_residual_W: true,
+    energy_allowance_W: true,
+  })
+  .extend({
+    guard_status: z.literal('accepted'),
+    inlet: pumpState,
+    actual_outlet: pumpState,
+    outlet_pressure_Pa_abs: num.min(20e6).max(30e6),
+    isentropic_efficiency: num.min(0.6).max(1),
+    H_out_target_J_mol: num,
+    delta_H_actual_J_mol: nonnegative,
+    delta_H_is_J_mol: nonnegative,
+    target_fluid_power_W: nonnegative,
+    fluid_power_W: nonnegative,
+    delta_S_actual_J_mol_K: num,
+    power_identity_residual_W: num,
+    power_identity_allowance_W: positive,
+  });
+export const pumpDetailsSchema = z.discriminatedUnion('mode', [
+  pumpCommonDetails.extend({
+    mode: z.literal('identity'),
+    isentropic_outlet: z.null(),
+    reconstructed_efficiency: z.null(),
+    delta_H_actual_J_mol: z.literal(0),
+    delta_H_is_J_mol: z.literal(0),
+    target_fluid_power_W: z.literal(0),
+    fluid_power_W: z.literal(0),
+    work_screening_allowance_J_mol: z.null(),
+    work_screening_ratio: z.null(),
+    witnesses: z.strictObject({ inlet: pumpWitness }),
+    ps: z.strictObject({ status: z.literal('not_applicable') }),
+    ph: z.strictObject({ status: z.literal('not_applicable') }),
+  }),
+  pumpCommonDetails.extend({
+    mode: z.literal('pressure_rise'),
+    isentropic_outlet: pumpState,
+    reconstructed_efficiency: positive,
+    delta_H_actual_J_mol: positive,
+    delta_H_is_J_mol: positive,
+    target_fluid_power_W: positive,
+    fluid_power_W: positive,
+    work_screening_allowance_J_mol: positive,
+    work_screening_ratio: positive.max(1e-4),
+    witnesses: z.strictObject({ inlet: pumpWitness, isentropic: pumpWitness, outlet: pumpWitness }),
+    ps: pumpInverse.extend({
+      capability: z.literal('PS'),
+      scan_count: z.literal(64),
+      failure_count: z.literal(0),
+      residual: num.min(-1e-8).max(1e-8),
+    }),
+    ph: pumpInverse.extend({
+      capability: z.literal('PH'),
+      scan_count: z.literal(128),
+      residual: num.min(-1e-6).max(1e-6),
+    }),
+  }),
+]);
+export const pumpResultsSchema = thermalResultsSchema.extend({
+  schema_version: z.literal('1.12'),
+  process_result_version: z.literal('1.12'),
+  engine: thermalResultsSchema.shape.engine.extend({ version: z.literal('1.11.0') }),
+  equipment: z
+    .array(
+      z.strictObject({
+        id,
+        type: z.literal('pump'),
+        model: pumpModel,
+        material_streams: z.strictObject({ inlet: id, outlet: id }),
+        duty_W: z.literal(0),
+        work_W: nonnegative,
+        mass_balance: legacyResultsSchema.shape.balances.shape.mass,
+        energy_residual_W: num,
+        thermodynamics: pumpDetailsSchema,
+      }),
+    )
+    .length(1),
+  balances: thermalResultsSchema.shape.balances.extend({
+    energy: z.strictObject({
+      status: z.literal('passed'),
+      residual_W: num,
+      tolerance_W: positive,
+      duty_W: z.literal(0),
+      fluid_power_W: nonnegative,
+      model: z.literal('rigorous_isentropic_pump_pr'),
+      positive_work: z.literal('work_into_process'),
+    }),
+  }),
+});
 export const resultsSchema = z.union([
+  pumpResultsSchema,
   separatorEnergyResultsSchema,
   valveResultsSchema,
   exchangerResultsSchema,

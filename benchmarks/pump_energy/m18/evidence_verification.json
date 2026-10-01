@@ -1,0 +1,782 @@
+{
+  "check_count": 155,
+  "passed": true,
+  "checks": [
+    {
+      "field": "production:engine/riogineer_engine/__init__.py",
+      "passed": true
+    },
+    {
+      "field": "production:engine/riogineer_engine/caloric_data.py",
+      "passed": true
+    },
+    {
+      "field": "production:engine/riogineer_engine/components.py",
+      "passed": true
+    },
+    {
+      "field": "production:engine/riogineer_engine/compressor_energy.py",
+      "passed": true
+    },
+    {
+      "field": "production:engine/riogineer_engine/compressor_process.py",
+      "passed": true
+    },
+    {
+      "field": "production:engine/riogineer_engine/core.py",
+      "passed": true
+    },
+    {
+      "field": "production:engine/riogineer_engine/equilibrium_separator.py",
+      "passed": true
+    },
+    {
+      "field": "production:engine/riogineer_engine/heater_cooler_energy.py",
+      "passed": true
+    },
+    {
+      "field": "production:engine/riogineer_engine/milestone17.py",
+      "passed": true
+    },
+    {
+      "field": "production:engine/riogineer_engine/milestone18.py",
+      "passed": true
+    },
+    {
+      "field": "production:engine/riogineer_engine/milestone9.py",
+      "passed": true
+    },
+    {
+      "field": "production:engine/riogineer_engine/network.py",
+      "passed": true
+    },
+    {
+      "field": "production:engine/riogineer_engine/network_models.py",
+      "passed": true
+    },
+    {
+      "field": "production:engine/riogineer_engine/pr_caloric.py",
+      "passed": true
+    },
+    {
+      "field": "production:engine/riogineer_engine/pr_eos.py",
+      "passed": true
+    },
+    {
+      "field": "production:engine/riogineer_engine/pr_flash.py",
+      "passed": true
+    },
+    {
+      "field": "production:engine/riogineer_engine/pr_ph_flash.py",
+      "passed": true
+    },
+    {
+      "field": "production:engine/riogineer_engine/pr_ps_flash.py",
+      "passed": true
+    },
+    {
+      "field": "production:engine/riogineer_engine/pr_stability.py",
+      "passed": true
+    },
+    {
+      "field": "production:engine/riogineer_engine/property_packages.py",
+      "passed": true
+    },
+    {
+      "field": "production:engine/riogineer_engine/pump_energy.py",
+      "passed": true
+    },
+    {
+      "field": "production:engine/riogineer_engine/pump_process.py",
+      "passed": true
+    },
+    {
+      "field": "production:engine/riogineer_engine/rachford_rice.py",
+      "passed": true
+    },
+    {
+      "field": "production:engine/riogineer_engine/separator_energy.py",
+      "passed": true
+    },
+    {
+      "field": "production:engine/riogineer_engine/separator_energy_process.py",
+      "passed": true
+    },
+    {
+      "field": "production:engine/riogineer_engine/server.py",
+      "passed": true
+    },
+    {
+      "field": "production:engine/riogineer_engine/streams.py",
+      "passed": true
+    },
+    {
+      "field": "production:engine/riogineer_engine/thermal_process.py",
+      "passed": true
+    },
+    {
+      "field": "production:engine/riogineer_engine/thermodynamics.py",
+      "passed": true
+    },
+    {
+      "field": "production:engine/riogineer_engine/throttling_valve_energy.py",
+      "passed": true
+    },
+    {
+      "field": "production:engine/riogineer_engine/throttling_valve_process.py",
+      "passed": true
+    },
+    {
+      "field": "production:engine/riogineer_engine/two_stream_heat_exchanger_energy.py",
+      "passed": true
+    },
+    {
+      "field": "production:engine/riogineer_engine/two_stream_heat_exchanger_process.py",
+      "passed": true
+    },
+    {
+      "field": "reference:benchmarks/pump_energy/configurable_scope/reference.json",
+      "passed": true
+    },
+    {
+      "field": "reference:benchmarks/pump_energy/liquid_pump_path_reference.json",
+      "passed": true
+    },
+    {
+      "field": "preserved:engine/riogineer_engine/caloric_data.py",
+      "passed": true
+    },
+    {
+      "field": "preserved:engine/riogineer_engine/components.py",
+      "passed": true
+    },
+    {
+      "field": "preserved:engine/riogineer_engine/pr_caloric.py",
+      "passed": true
+    },
+    {
+      "field": "preserved:engine/riogineer_engine/pr_eos.py",
+      "passed": true
+    },
+    {
+      "field": "preserved:engine/riogineer_engine/pr_flash.py",
+      "passed": true
+    },
+    {
+      "field": "preserved:engine/riogineer_engine/pr_ph_flash.py",
+      "passed": true
+    },
+    {
+      "field": "preserved:engine/riogineer_engine/pr_ps_flash.py",
+      "passed": true
+    },
+    {
+      "field": "preserved:engine/riogineer_engine/pr_stability.py",
+      "passed": true
+    },
+    {
+      "field": "preserved:engine/riogineer_engine/property_packages.py",
+      "passed": true
+    },
+    {
+      "field": "preserved:engine/riogineer_engine/thermodynamics.py",
+      "passed": true
+    },
+    {
+      "field": "preserved:next-env.d.ts",
+      "passed": true
+    },
+    {
+      "field": "preserved:benchmarks/pump_energy/compare_production.py",
+      "passed": true
+    },
+    {
+      "field": "preserved:benchmarks/pump_energy/test_reference.py",
+      "passed": true
+    },
+    {
+      "field": "preserved:benchmarks/pump_energy/requirements.txt",
+      "passed": true
+    },
+    {
+      "field": "preserved:benchmarks/pump_energy/test_production.py",
+      "passed": true
+    },
+    {
+      "field": "preserved:benchmarks/pump_energy/README.md",
+      "passed": true
+    },
+    {
+      "field": "preserved:benchmarks/pump_energy/common.py",
+      "passed": true
+    },
+    {
+      "field": "preserved:benchmarks/pump_energy/liquid_pump_path_reference.json",
+      "passed": true
+    },
+    {
+      "field": "preserved:benchmarks/pump_energy/THIRD_PARTY_NOTICES.txt",
+      "passed": true
+    },
+    {
+      "field": "preserved:benchmarks/pump_energy/reference.py",
+      "passed": true
+    },
+    {
+      "field": "preserved:benchmarks/pump_energy/production_comparison.json",
+      "passed": true
+    },
+    {
+      "field": "preserved:benchmarks/pump_energy/scope.py",
+      "passed": true
+    },
+    {
+      "field": "preserved:benchmarks/pump_energy/candidate_ledger.json",
+      "passed": true
+    },
+    {
+      "field": "preserved:benchmarks/pump_energy/configurable_scope/boundary_refinement.py",
+      "passed": true
+    },
+    {
+      "field": "preserved:benchmarks/pump_energy/configurable_scope/boundary_equations.py",
+      "passed": true
+    },
+    {
+      "field": "preserved:benchmarks/pump_energy/configurable_scope/compare_production.py",
+      "passed": true
+    },
+    {
+      "field": "preserved:benchmarks/pump_energy/configurable_scope/requirements.txt",
+      "passed": true
+    },
+    {
+      "field": "preserved:benchmarks/pump_energy/configurable_scope/production.json",
+      "passed": true
+    },
+    {
+      "field": "preserved:benchmarks/pump_energy/configurable_scope/policy.py",
+      "passed": true
+    },
+    {
+      "field": "preserved:benchmarks/pump_energy/configurable_scope/ledger.py",
+      "passed": true
+    },
+    {
+      "field": "preserved:benchmarks/pump_energy/configurable_scope/test_scope.py",
+      "passed": true
+    },
+    {
+      "field": "preserved:benchmarks/pump_energy/configurable_scope/runtime.py",
+      "passed": true
+    },
+    {
+      "field": "preserved:benchmarks/pump_energy/configurable_scope/reference.json",
+      "passed": true
+    },
+    {
+      "field": "preserved:benchmarks/pump_energy/configurable_scope/README.md",
+      "passed": true
+    },
+    {
+      "field": "preserved:benchmarks/pump_energy/configurable_scope/boundary_equations.json",
+      "passed": true
+    },
+    {
+      "field": "preserved:benchmarks/pump_energy/configurable_scope/THIRD_PARTY_NOTICES.txt",
+      "passed": true
+    },
+    {
+      "field": "preserved:benchmarks/pump_energy/configurable_scope/reference.py",
+      "passed": true
+    },
+    {
+      "field": "preserved:benchmarks/pump_energy/configurable_scope/PLAN.md",
+      "passed": true
+    },
+    {
+      "field": "preserved:benchmarks/pump_energy/configurable_scope/boundary_refinement.json",
+      "passed": true
+    },
+    {
+      "field": "preserved:benchmarks/pump_energy/configurable_scope/candidate_ledger.json",
+      "passed": true
+    },
+    {
+      "field": "preserved:PRE_MILESTONE_18_CONFIGURABLE_PUMP_SCOPE_QUALIFICATION.md",
+      "passed": true
+    },
+    {
+      "field": "preserved:PRE_MILESTONE_18_LIQUID_PUMP_PATH_QUALIFICATION.md",
+      "passed": true
+    },
+    {
+      "field": "CORNER_300.0_20000000.0_0.6_floor:work_screening_allowance_J_mol",
+      "actual": 1.3392990764190997e-05,
+      "expected": 1.3392990764190997e-05,
+      "passed": true
+    },
+    {
+      "field": "CORNER_300.0_20000000.0_0.6_floor:work_screening_ratio",
+      "actual": 8.96684071288379e-06,
+      "expected": 8.96684071288379e-06,
+      "passed": true
+    },
+    {
+      "field": "CORNER_300.0_20000000.0_0.6_max:work_screening_allowance_J_mol",
+      "actual": 1.3363521207089446e-05,
+      "expected": 1.3363521207089446e-05,
+      "passed": true
+    },
+    {
+      "field": "CORNER_300.0_20000000.0_0.6_max:work_screening_ratio",
+      "actual": 9.060189634441925e-09,
+      "expected": 9.060189634441925e-09,
+      "passed": true
+    },
+    {
+      "field": "CORNER_300.0_20000000.0_1.0_floor:work_screening_allowance_J_mol",
+      "actual": 9.36968809326409e-06,
+      "expected": 9.36968809326409e-06,
+      "passed": true
+    },
+    {
+      "field": "CORNER_300.0_20000000.0_1.0_floor:work_screening_ratio",
+      "actual": 1.045528243585772e-05,
+      "expected": 1.045528243585772e-05,
+      "passed": true
+    },
+    {
+      "field": "CORNER_300.0_20000000.0_1.0_max:work_screening_allowance_J_mol",
+      "actual": 9.35200635900316e-06,
+      "expected": 9.35200635900316e-06,
+      "passed": true
+    },
+    {
+      "field": "CORNER_300.0_20000000.0_1.0_max:work_screening_ratio",
+      "actual": 1.0567443236208536e-08,
+      "expected": 1.0567443236208536e-08,
+      "passed": true
+    },
+    {
+      "field": "CORNER_300.0_25000000.0_0.6_floor:work_screening_allowance_J_mol",
+      "actual": 1.3381962838076307e-05,
+      "expected": 1.3381962838076307e-05,
+      "passed": true
+    },
+    {
+      "field": "CORNER_300.0_25000000.0_0.6_floor:work_screening_ratio",
+      "actual": 9.105512541250308e-06,
+      "expected": 9.105512541250308e-06,
+      "passed": true
+    },
+    {
+      "field": "CORNER_300.0_25000000.0_0.6_max:work_screening_allowance_J_mol",
+      "actual": 1.336737863252985e-05,
+      "expected": 1.336737863252985e-05,
+      "passed": true
+    },
+    {
+      "field": "CORNER_300.0_25000000.0_0.6_max:work_screening_ratio",
+      "actual": 1.829443787845553e-08,
+      "expected": 1.829443787845553e-08,
+      "passed": true
+    },
+    {
+      "field": "CORNER_300.0_25000000.0_1.0_floor:work_screening_allowance_J_mol",
+      "actual": 9.361417811117302e-06,
+      "expected": 9.361417811117302e-06,
+      "passed": true
+    },
+    {
+      "field": "CORNER_300.0_25000000.0_1.0_floor:work_screening_ratio",
+      "actual": 1.0616343345978386e-05,
+      "expected": 1.0616343345978386e-05,
+      "passed": true
+    },
+    {
+      "field": "CORNER_300.0_25000000.0_1.0_max:work_screening_allowance_J_mol",
+      "actual": 9.352667287789428e-06,
+      "expected": 9.352667287789428e-06,
+      "passed": true
+    },
+    {
+      "field": "CORNER_300.0_25000000.0_1.0_max:work_screening_ratio",
+      "actual": 2.1333251566859003e-08,
+      "expected": 2.1333251566859003e-08,
+      "passed": true
+    },
+    {
+      "field": "CORNER_350.0_20000000.0_0.6_floor:work_screening_allowance_J_mol",
+      "actual": 1.3047536073091993e-05,
+      "expected": 1.3047536073091993e-05,
+      "passed": true
+    },
+    {
+      "field": "CORNER_350.0_20000000.0_0.6_floor:work_screening_ratio",
+      "actual": 7.841111526795015e-06,
+      "expected": 7.841111526795015e-06,
+      "passed": true
+    },
+    {
+      "field": "CORNER_350.0_20000000.0_0.6_max:work_screening_allowance_J_mol",
+      "actual": 1.3015022570857904e-05,
+      "expected": 1.3015022570857904e-05,
+      "passed": true
+    },
+    {
+      "field": "CORNER_350.0_20000000.0_0.6_max:work_screening_ratio",
+      "actual": 7.997732342462814e-09,
+      "expected": 7.997732342462814e-09,
+      "passed": true
+    },
+    {
+      "field": "CORNER_350.0_20000000.0_1.0_floor:work_screening_allowance_J_mol",
+      "actual": 9.110620587535842e-06,
+      "expected": 9.110620587535842e-06,
+      "passed": true
+    },
+    {
+      "field": "CORNER_350.0_20000000.0_1.0_floor:work_screening_ratio",
+      "actual": 9.125272350818296e-06,
+      "expected": 9.125272350818296e-06,
+      "passed": true
+    },
+    {
+      "field": "CORNER_350.0_20000000.0_1.0_max:work_screening_allowance_J_mol",
+      "actual": 9.09111248619539e-06,
+      "expected": 9.09111248619539e-06,
+      "passed": true
+    },
+    {
+      "field": "CORNER_350.0_20000000.0_1.0_max:work_screening_ratio",
+      "actual": 9.310815503644107e-09,
+      "expected": 9.310815503644107e-09,
+      "passed": true
+    },
+    {
+      "field": "CORNER_350.0_25000000.0_0.6_floor:work_screening_allowance_J_mol",
+      "actual": 1.3042243727182118e-05,
+      "expected": 1.3042243727182118e-05,
+      "passed": true
+    },
+    {
+      "field": "CORNER_350.0_25000000.0_0.6_floor:work_screening_ratio",
+      "actual": 8.07034367951176e-06,
+      "expected": 8.07034367951176e-06,
+      "passed": true
+    },
+    {
+      "field": "CORNER_350.0_25000000.0_0.6_max:work_screening_allowance_J_mol",
+      "actual": 1.3026270593545772e-05,
+      "expected": 1.3026270593545772e-05,
+      "passed": true
+    },
+    {
+      "field": "CORNER_350.0_25000000.0_0.6_max:work_screening_ratio",
+      "actual": 1.627728865823753e-08,
+      "expected": 1.627728865823753e-08,
+      "passed": true
+    },
+    {
+      "field": "CORNER_350.0_25000000.0_1.0_floor:work_screening_allowance_J_mol",
+      "actual": 9.106651536791211e-06,
+      "expected": 9.106651536791211e-06,
+      "passed": true
+    },
+    {
+      "field": "CORNER_350.0_25000000.0_1.0_floor:work_screening_ratio",
+      "actual": 9.391764332195933e-06,
+      "expected": 9.391764332195933e-06,
+      "passed": true
+    },
+    {
+      "field": "CORNER_350.0_25000000.0_1.0_max:work_screening_allowance_J_mol",
+      "actual": 9.097067656609403e-06,
+      "expected": 9.097067656609403e-06,
+      "passed": true
+    },
+    {
+      "field": "CORNER_350.0_25000000.0_1.0_max:work_screening_ratio",
+      "actual": 1.8945764909811642e-08,
+      "expected": 1.8945764909811642e-08,
+      "passed": true
+    },
+    {
+      "field": "INTERIOR_0:work_screening_allowance_J_mol",
+      "actual": 1.072438599185018e-05,
+      "expected": 1.072438599185018e-05,
+      "passed": true
+    },
+    {
+      "field": "INTERIOR_0:work_screening_ratio",
+      "actual": 2.4703426711436045e-08,
+      "expected": 2.4703426711436045e-08,
+      "passed": true
+    },
+    {
+      "field": "INTERIOR_1:work_screening_allowance_J_mol",
+      "actual": 1.1887975201527812e-05,
+      "expected": 1.1887975201527812e-05,
+      "passed": true
+    },
+    {
+      "field": "INTERIOR_1:work_screening_ratio",
+      "actual": 3.049591516938626e-08,
+      "expected": 3.049591516938626e-08,
+      "passed": true
+    },
+    {
+      "field": "INTERIOR_2:work_screening_allowance_J_mol",
+      "actual": 9.81111924367579e-06,
+      "expected": 9.81111924367579e-06,
+      "passed": true
+    },
+    {
+      "field": "INTERIOR_2:work_screening_ratio",
+      "actual": 2.6727892641276046e-08,
+      "expected": 2.6727892641276046e-08,
+      "passed": true
+    },
+    {
+      "field": "INTERIOR_3:work_screening_allowance_J_mol",
+      "actual": 1.3374186152637805e-05,
+      "expected": 1.3374186152637805e-05,
+      "passed": true
+    },
+    {
+      "field": "INTERIOR_3:work_screening_ratio",
+      "actual": 2.1643394294254558e-08,
+      "expected": 2.1643394294254558e-08,
+      "passed": true
+    },
+    {
+      "field": "INTERIOR_4:work_screening_allowance_J_mol",
+      "actual": 9.102949190053781e-06,
+      "expected": 9.102949190053781e-06,
+      "passed": true
+    },
+    {
+      "field": "INTERIOR_4:work_screening_ratio",
+      "actual": 2.5700261592395893e-08,
+      "expected": 2.5700261592395893e-08,
+      "passed": true
+    },
+    {
+      "field": "INTERIOR_5:work_screening_allowance_J_mol",
+      "actual": 1.2426134334355142e-05,
+      "expected": 1.2426134334355142e-05,
+      "passed": true
+    },
+    {
+      "field": "INTERIOR_5:work_screening_ratio",
+      "actual": 1.8239187867337974e-08,
+      "expected": 1.8239187867337974e-08,
+      "passed": true
+    },
+    {
+      "field": "HOLDOUT_0:work_screening_allowance_J_mol",
+      "actual": 1.1742400471029746e-05,
+      "expected": 1.1742400471029746e-05,
+      "passed": true
+    },
+    {
+      "field": "HOLDOUT_0:work_screening_ratio",
+      "actual": 3.5270420248098815e-08,
+      "expected": 3.5270420248098815e-08,
+      "passed": true
+    },
+    {
+      "field": "HOLDOUT_1:work_screening_allowance_J_mol",
+      "actual": 9.33663228366978e-06,
+      "expected": 9.33663228366978e-06,
+      "passed": true
+    },
+    {
+      "field": "HOLDOUT_1:work_screening_ratio",
+      "actual": 1.3894324385470888e-08,
+      "expected": 1.3894324385470888e-08,
+      "passed": true
+    },
+    {
+      "field": "HOLDOUT_2:work_screening_allowance_J_mol",
+      "actual": 1.0595396847293272e-05,
+      "expected": 1.0595396847293272e-05,
+      "passed": true
+    },
+    {
+      "field": "HOLDOUT_2:work_screening_ratio",
+      "actual": 1.5594089332663007e-08,
+      "expected": 1.5594089332663007e-08,
+      "passed": true
+    },
+    {
+      "field": "HOLDOUT_3:work_screening_allowance_J_mol",
+      "actual": 1.2312967204964957e-05,
+      "expected": 1.2312967204964957e-05,
+      "passed": true
+    },
+    {
+      "field": "HOLDOUT_3:work_screening_ratio",
+      "actual": 8.006317718224241e-08,
+      "expected": 8.006317718224241e-08,
+      "passed": true
+    },
+    {
+      "field": "HOLDOUT_4:work_screening_allowance_J_mol",
+      "actual": 9.970426832772028e-06,
+      "expected": 9.970426832772028e-06,
+      "passed": true
+    },
+    {
+      "field": "HOLDOUT_4:work_screening_ratio",
+      "actual": 1.4465418057566932e-08,
+      "expected": 1.4465418057566932e-08,
+      "passed": true
+    },
+    {
+      "field": "HOLDOUT_5:work_screening_allowance_J_mol",
+      "actual": 1.0995615959514338e-05,
+      "expected": 1.0995615959514338e-05,
+      "passed": true
+    },
+    {
+      "field": "HOLDOUT_5:work_screening_ratio",
+      "actual": 3.524440391523444e-08,
+      "expected": 3.524440391523444e-08,
+      "passed": true
+    },
+    {
+      "field": "HOLDOUT_6:work_screening_allowance_J_mol",
+      "actual": 1.3069433955198014e-05,
+      "expected": 1.3069433955198014e-05,
+      "passed": true
+    },
+    {
+      "field": "HOLDOUT_6:work_screening_ratio",
+      "actual": 3.080461633874173e-08,
+      "expected": 3.080461633874173e-08,
+      "passed": true
+    },
+    {
+      "field": "HOLDOUT_7:work_screening_allowance_J_mol",
+      "actual": 1.0071353341515474e-05,
+      "expected": 1.0071353341515474e-05,
+      "passed": true
+    },
+    {
+      "field": "HOLDOUT_7:work_screening_ratio",
+      "actual": 1.2913164840799686e-07,
+      "expected": 1.2913164840799686e-07,
+      "passed": true
+    },
+    {
+      "field": "CONDITION_0_10000.0:work_screening_allowance_J_mol",
+      "actual": 9.36968809326409e-06,
+      "expected": 9.36968809326409e-06,
+      "passed": true
+    },
+    {
+      "field": "CONDITION_0_10000.0:work_screening_ratio",
+      "actual": 1.045528243585772e-05,
+      "expected": 1.045528243585772e-05,
+      "passed": true
+    },
+    {
+      "field": "CONDITION_1_10000.0:work_screening_allowance_J_mol",
+      "actual": 1.3381962838076307e-05,
+      "expected": 1.3381962838076307e-05,
+      "passed": true
+    },
+    {
+      "field": "CONDITION_1_10000.0:work_screening_ratio",
+      "actual": 9.105512541250308e-06,
+      "expected": 9.105512541250308e-06,
+      "passed": true
+    },
+    {
+      "field": "CONDITION_2_10000.0:work_screening_allowance_J_mol",
+      "actual": 1.3047536073091993e-05,
+      "expected": 1.3047536073091993e-05,
+      "passed": true
+    },
+    {
+      "field": "CONDITION_2_10000.0:work_screening_ratio",
+      "actual": 7.841111526795015e-06,
+      "expected": 7.841111526795015e-06,
+      "passed": true
+    },
+    {
+      "field": "CONDITION_3_10000.0:work_screening_allowance_J_mol",
+      "actual": 9.106651536791211e-06,
+      "expected": 9.106651536791211e-06,
+      "passed": true
+    },
+    {
+      "field": "CONDITION_3_10000.0:work_screening_ratio",
+      "actual": 9.391764332195933e-06,
+      "expected": 9.391764332195933e-06,
+      "passed": true
+    },
+    {
+      "field": "CANONICAL:work_screening_allowance_J_mol",
+      "actual": 1.0856324427035516e-05,
+      "expected": 1.0856324427035516e-05,
+      "passed": true
+    },
+    {
+      "field": "CANONICAL:work_screening_ratio",
+      "actual": 9.813816435325462e-09,
+      "expected": 9.813816435325462e-09,
+      "passed": true
+    },
+    {
+      "field": "FLOW_5.0:work_screening_allowance_J_mol",
+      "actual": 1.0856324427035516e-05,
+      "expected": 1.0856324427035516e-05,
+      "passed": true
+    },
+    {
+      "field": "FLOW_5.0:work_screening_ratio",
+      "actual": 9.813816435325462e-09,
+      "expected": 9.813816435325462e-09,
+      "passed": true
+    },
+    {
+      "field": "FLOW_17.3:work_screening_allowance_J_mol",
+      "actual": 1.0856324427035516e-05,
+      "expected": 1.0856324427035516e-05,
+      "passed": true
+    },
+    {
+      "field": "FLOW_17.3:work_screening_ratio",
+      "actual": 9.813816435325462e-09,
+      "expected": 9.813816435325462e-09,
+      "passed": true
+    },
+    {
+      "field": "FLOW_50.0:work_screening_allowance_J_mol",
+      "actual": 1.0856324427035516e-05,
+      "expected": 1.0856324427035516e-05,
+      "passed": true
+    },
+    {
+      "field": "FLOW_50.0:work_screening_ratio",
+      "actual": 9.813816435325462e-09,
+      "expected": 9.813816435325462e-09,
+      "passed": true
+    },
+    {
+      "field": "FLOW_200.0:work_screening_allowance_J_mol",
+      "actual": 1.0856324427035516e-05,
+      "expected": 1.0856324427035516e-05,
+      "passed": true
+    },
+    {
+      "field": "FLOW_200.0:work_screening_ratio",
+      "actual": 9.813816435325462e-09,
+      "expected": 9.813816435325462e-09,
+      "passed": true
+    }
+  ]
+}

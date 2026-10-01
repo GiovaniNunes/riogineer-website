@@ -1,0 +1,1973 @@
+{
+  "artifact_sha256": {
+    "boundary_equations.json": "c9d5823231763f3c96c489d5ab5a4cb7145bce3cd50a41be084f0f3afee0ba9d",
+    "boundary_refinement.json": "6172a20e733cc1b7dea37904cb310b51b9529c31115ebc59f6be29a5d2e2dbf6",
+    "production.json": "e9d4452b4bcef8c0d201f4b3eb05429aa6833dab9a36783c455f9ccc35d2d2b9",
+    "reference.json": "282a43569321acdb3efacdff6e0caa19f7903fa0a1bbde94dd78b4e90ae6c048"
+  },
+  "boundary_alternate_returns": [
+    {
+      "T_K": 361.5,
+      "classification": "unrestricted saturation inverse selected another branch; retained, not used by runtime",
+      "returned_T_K": 394.4034116525257
+    },
+    {
+      "T_K": 362.0,
+      "classification": "unrestricted saturation inverse selected another branch; retained, not used by runtime",
+      "returned_T_K": 393.9192594409718
+    },
+    {
+      "T_K": 362.5,
+      "classification": "unrestricted saturation inverse selected another branch; retained, not used by runtime",
+      "returned_T_K": 393.43459163734957
+    },
+    {
+      "T_K": 363.0,
+      "classification": "unrestricted saturation inverse selected another branch; retained, not used by runtime",
+      "returned_T_K": 392.94941127307976
+    }
+  ],
+  "rows": [
+    {
+      "case_id": "CORNER_300.0_20000000.0_0.6_floor",
+      "compared_fields_pass": true,
+      "flow_pass": true,
+      "group": "corner",
+      "independent_evidence_origin": "extension:CORNER_300.0_20000000.0_0.6_floor",
+      "independent_status": "accepted",
+      "inputs": {
+        "P1": 20000000.0,
+        "P2": 20010000.0,
+        "T1": 300.0,
+        "eta": 0.6,
+        "flow": 100.0,
+        "z": [
+          0.5,
+          0.5
+        ]
+      },
+      "production_evidence_origin": "extension:CORNER_300.0_20000000.0_0.6_floor",
+      "production_policy": {
+        "W_recovered_W": 149.36131010945246,
+        "W_target_W": 149.36131011127145,
+        "accepted": true,
+        "reason": "resolved",
+        "work": {
+          "budget_J_mol": 1.3392990764190997e-05,
+          "ps_capacity_J_mol": 6.166666666666667e-06,
+          "ratio": 8.96684071288379e-06,
+          "reconstructed_eta": 0.6000000000077942,
+          "status": "resolved"
+        }
+      },
+      "production_status": "accepted",
+      "reference_policy": {
+        "accepted": true,
+        "reason": "resolved",
+        "work": {
+          "budget_J_mol": 1.3392990764190997e-05,
+          "ps_capacity_J_mol": 6.166666666666667e-06,
+          "ratio": 8.96684071277459e-06,
+          "reconstructed_eta": 0.6000000000029229,
+          "status": "resolved"
+        }
+      }
+    },
+    {
+      "case_id": "CORNER_300.0_20000000.0_0.6_max",
+      "compared_fields_pass": true,
+      "flow_pass": true,
+      "group": "corner",
+      "independent_evidence_origin": "prior:ETA06",
+      "independent_status": "accepted",
+      "inputs": {
+        "P1": 20000000.0,
+        "P2": 30000000.0,
+        "T1": 300.0,
+        "eta": 0.6,
+        "flow": 100.0,
+        "z": [
+          0.5,
+          0.5
+        ]
+      },
+      "production_evidence_origin": "prior:ETA06",
+      "production_policy": {
+        "W_recovered_W": 147497.14681786118,
+        "W_target_W": 147497.14681786246,
+        "accepted": true,
+        "reason": "resolved",
+        "work": {
+          "budget_J_mol": 1.3363521207089446e-05,
+          "ps_capacity_J_mol": 6.166666666666667e-06,
+          "ratio": 9.060189634441925e-09,
+          "reconstructed_eta": 0.6000000000000054,
+          "status": "resolved"
+        }
+      },
+      "production_status": "accepted",
+      "reference_policy": {
+        "accepted": true,
+        "reason": "resolved",
+        "work": {
+          "budget_J_mol": 1.3363521207089446e-05,
+          "ps_capacity_J_mol": 6.166666666666667e-06,
+          "ratio": 9.060189634441836e-09,
+          "reconstructed_eta": 0.5999999999999983,
+          "status": "resolved"
+        }
+      }
+    },
+    {
+      "case_id": "CORNER_300.0_20000000.0_1.0_floor",
+      "compared_fields_pass": true,
+      "flow_pass": true,
+      "group": "corner",
+      "independent_evidence_origin": "extension:CORNER_300.0_20000000.0_1.0_floor",
+      "independent_status": "accepted",
+      "inputs": {
+        "P1": 20000000.0,
+        "P2": 20010000.0,
+        "T1": 300.0,
+        "eta": 1.0,
+        "flow": 100.0,
+        "z": [
+          0.5,
+          0.5
+        ]
+      },
+      "production_evidence_origin": "extension:CORNER_300.0_20000000.0_1.0_floor",
+      "production_policy": {
+        "W_recovered_W": 89.61678606719943,
+        "W_target_W": 89.61678606683563,
+        "accepted": true,
+        "reason": "resolved",
+        "work": {
+          "budget_J_mol": 9.36968809326409e-06,
+          "ps_capacity_J_mol": 3.7e-06,
+          "ratio": 1.045528243585772e-05,
+          "reconstructed_eta": 0.9999999999959405,
+          "status": "resolved"
+        }
+      },
+      "production_status": "accepted",
+      "reference_policy": {
+        "accepted": true,
+        "reason": "resolved",
+        "work": {
+          "budget_J_mol": 9.36968809326409e-06,
+          "ps_capacity_J_mol": 3.7e-06,
+          "ratio": 1.045528243585772e-05,
+          "reconstructed_eta": 1.0,
+          "status": "resolved"
+        }
+      }
+    },
+    {
+      "case_id": "CORNER_300.0_20000000.0_1.0_max",
+      "compared_fields_pass": true,
+      "flow_pass": true,
+      "group": "corner",
+      "independent_evidence_origin": "prior:ETA1",
+      "independent_status": "accepted",
+      "inputs": {
+        "P1": 20000000.0,
+        "P2": 30000000.0,
+        "T1": 300.0,
+        "eta": 1.0,
+        "flow": 100.0,
+        "z": [
+          0.5,
+          0.5
+        ]
+      },
+      "production_evidence_origin": "prior:ETA1",
+      "production_policy": {
+        "W_recovered_W": 88498.28809072023,
+        "W_target_W": 88498.28809071751,
+        "accepted": true,
+        "reason": "resolved",
+        "work": {
+          "budget_J_mol": 9.35200635900316e-06,
+          "ps_capacity_J_mol": 3.7e-06,
+          "ratio": 1.0567443236208536e-08,
+          "reconstructed_eta": 0.9999999999999691,
+          "status": "resolved"
+        }
+      },
+      "production_status": "accepted",
+      "reference_policy": {
+        "accepted": true,
+        "reason": "resolved",
+        "work": {
+          "budget_J_mol": 9.35200635900316e-06,
+          "ps_capacity_J_mol": 3.7e-06,
+          "ratio": 1.0567443236208885e-08,
+          "reconstructed_eta": 1.0,
+          "status": "resolved"
+        }
+      }
+    },
+    {
+      "case_id": "IDENTITY_300.0_20000000.0",
+      "compared_fields_pass": true,
+      "flow_pass": true,
+      "group": "identity",
+      "independent_evidence_origin": "prior:IDENTITY_BINARY",
+      "independent_status": "accepted",
+      "inputs": {
+        "P1": 20000000.0,
+        "P2": 20000000.0,
+        "T1": 300.0,
+        "eta": 0.8,
+        "flow": 100.0,
+        "z": [
+          0.5,
+          0.5
+        ]
+      },
+      "production_evidence_origin": "prior:IDENTITY_BINARY",
+      "production_policy": {
+        "W_recovered_W": 0.0,
+        "W_target_W": 0.0,
+        "accepted": true,
+        "reason": "identity",
+        "work": {
+          "budget_J_mol": 0.0,
+          "ratio": null,
+          "reconstructed_eta": null,
+          "status": "identity"
+        }
+      },
+      "production_status": "accepted",
+      "reference_policy": {
+        "accepted": true,
+        "reason": "identity",
+        "work": {
+          "budget_J_mol": 0.0,
+          "ratio": null,
+          "reconstructed_eta": null,
+          "status": "identity"
+        }
+      }
+    },
+    {
+      "case_id": "CORNER_300.0_25000000.0_0.6_floor",
+      "compared_fields_pass": true,
+      "flow_pass": true,
+      "group": "corner",
+      "independent_evidence_origin": "extension:CORNER_300.0_25000000.0_0.6_floor",
+      "independent_status": "accepted",
+      "inputs": {
+        "P1": 25000000.0,
+        "P2": 25010000.0,
+        "T1": 300.0,
+        "eta": 0.6,
+        "flow": 100.0,
+        "z": [
+          0.5,
+          0.5
+        ]
+      },
+      "production_evidence_origin": "extension:CORNER_300.0_25000000.0_0.6_floor",
+      "production_policy": {
+        "W_recovered_W": 146.9655088327272,
+        "W_target_W": 146.96550883491,
+        "accepted": true,
+        "reason": "resolved",
+        "work": {
+          "budget_J_mol": 1.3381962838076307e-05,
+          "ps_capacity_J_mol": 6.166666666666667e-06,
+          "ratio": 9.105512541250308e-06,
+          "reconstructed_eta": 0.6000000000089114,
+          "status": "resolved"
+        }
+      },
+      "production_status": "accepted",
+      "reference_policy": {
+        "accepted": true,
+        "reason": "resolved",
+        "work": {
+          "budget_J_mol": 1.3381962838076307e-05,
+          "ps_capacity_J_mol": 6.166666666666667e-06,
+          "ratio": 9.105512541250308e-06,
+          "reconstructed_eta": 0.5999999999990099,
+          "status": "resolved"
+        }
+      }
+    },
+    {
+      "case_id": "CORNER_300.0_25000000.0_0.6_max",
+      "compared_fields_pass": true,
+      "flow_pass": true,
+      "group": "corner",
+      "independent_evidence_origin": "extension:CORNER_300.0_25000000.0_0.6_max",
+      "independent_status": "accepted",
+      "inputs": {
+        "P1": 25000000.0,
+        "P2": 30000000.0,
+        "T1": 300.0,
+        "eta": 0.6,
+        "flow": 100.0,
+        "z": [
+          0.5,
+          0.5
+        ]
+      },
+      "production_evidence_origin": "extension:CORNER_300.0_25000000.0_0.6_max",
+      "production_policy": {
+        "W_recovered_W": 73067.99324111489,
+        "W_target_W": 73067.99324111671,
+        "accepted": true,
+        "reason": "resolved",
+        "work": {
+          "budget_J_mol": 1.336737863252985e-05,
+          "ps_capacity_J_mol": 6.166666666666667e-06,
+          "ratio": 1.829443787845553e-08,
+          "reconstructed_eta": 0.600000000000015,
+          "status": "resolved"
+        }
+      },
+      "production_status": "accepted",
+      "reference_policy": {
+        "accepted": true,
+        "reason": "resolved",
+        "work": {
+          "budget_J_mol": 1.336737863252985e-05,
+          "ps_capacity_J_mol": 6.166666666666667e-06,
+          "ratio": 1.8294437878454755e-08,
+          "reconstructed_eta": 0.5999999999999995,
+          "status": "resolved"
+        }
+      }
+    },
+    {
+      "case_id": "CORNER_300.0_25000000.0_1.0_floor",
+      "compared_fields_pass": true,
+      "flow_pass": true,
+      "group": "corner",
+      "independent_evidence_origin": "extension:CORNER_300.0_25000000.0_1.0_floor",
+      "independent_status": "accepted",
+      "inputs": {
+        "P1": 25000000.0,
+        "P2": 25010000.0,
+        "T1": 300.0,
+        "eta": 1.0,
+        "flow": 100.0,
+        "z": [
+          0.5,
+          0.5
+        ]
+      },
+      "production_evidence_origin": "extension:CORNER_300.0_25000000.0_1.0_floor",
+      "production_policy": {
+        "W_recovered_W": 88.17930530349258,
+        "W_target_W": 88.179305300946,
+        "accepted": true,
+        "reason": "resolved",
+        "work": {
+          "budget_J_mol": 9.361417811117302e-06,
+          "ps_capacity_J_mol": 3.7e-06,
+          "ratio": 1.0616343345978386e-05,
+          "reconstructed_eta": 0.9999999999711203,
+          "status": "resolved"
+        }
+      },
+      "production_status": "accepted",
+      "reference_policy": {
+        "accepted": true,
+        "reason": "resolved",
+        "work": {
+          "budget_J_mol": 9.361417811117302e-06,
+          "ps_capacity_J_mol": 3.7e-06,
+          "ratio": 1.0616343346547779e-05,
+          "reconstructed_eta": 1.0000000000082514,
+          "status": "resolved"
+        }
+      }
+    },
+    {
+      "case_id": "CORNER_300.0_25000000.0_1.0_max",
+      "compared_fields_pass": true,
+      "flow_pass": true,
+      "group": "corner",
+      "independent_evidence_origin": "extension:CORNER_300.0_25000000.0_1.0_max",
+      "independent_status": "accepted",
+      "inputs": {
+        "P1": 25000000.0,
+        "P2": 30000000.0,
+        "T1": 300.0,
+        "eta": 1.0,
+        "flow": 100.0,
+        "z": [
+          0.5,
+          0.5
+        ]
+      },
+      "production_evidence_origin": "extension:CORNER_300.0_25000000.0_1.0_max",
+      "production_policy": {
+        "W_recovered_W": 43840.79594466839,
+        "W_target_W": 43840.795944670026,
+        "accepted": true,
+        "reason": "resolved",
+        "work": {
+          "budget_J_mol": 9.352667287789428e-06,
+          "ps_capacity_J_mol": 3.7e-06,
+          "ratio": 2.1333251566859003e-08,
+          "reconstructed_eta": 1.0000000000000373,
+          "status": "resolved"
+        }
+      },
+      "production_status": "accepted",
+      "reference_policy": {
+        "accepted": true,
+        "reason": "resolved",
+        "work": {
+          "budget_J_mol": 9.352667287789428e-06,
+          "ps_capacity_J_mol": 3.7e-06,
+          "ratio": 2.1333251566857587e-08,
+          "reconstructed_eta": 0.9999999999999876,
+          "status": "resolved"
+        }
+      }
+    },
+    {
+      "case_id": "IDENTITY_300.0_25000000.0",
+      "compared_fields_pass": true,
+      "flow_pass": true,
+      "group": "identity",
+      "independent_evidence_origin": "extension:IDENTITY_300.0_25000000.0",
+      "independent_status": "accepted",
+      "inputs": {
+        "P1": 25000000.0,
+        "P2": 25000000.0,
+        "T1": 300.0,
+        "eta": 0.8,
+        "flow": 100.0,
+        "z": [
+          0.5,
+          0.5
+        ]
+      },
+      "production_evidence_origin": "extension:IDENTITY_300.0_25000000.0",
+      "production_policy": {
+        "W_recovered_W": 0.0,
+        "W_target_W": 0.0,
+        "accepted": true,
+        "reason": "identity",
+        "work": {
+          "budget_J_mol": 0.0,
+          "ratio": null,
+          "reconstructed_eta": null,
+          "status": "identity"
+        }
+      },
+      "production_status": "accepted",
+      "reference_policy": {
+        "accepted": true,
+        "reason": "identity",
+        "work": {
+          "budget_J_mol": 0.0,
+          "ratio": null,
+          "reconstructed_eta": null,
+          "status": "identity"
+        }
+      }
+    },
+    {
+      "case_id": "CORNER_350.0_20000000.0_0.6_floor",
+      "compared_fields_pass": true,
+      "flow_pass": true,
+      "group": "corner",
+      "independent_evidence_origin": "extension:CORNER_350.0_20000000.0_0.6_floor",
+      "independent_status": "accepted",
+      "inputs": {
+        "P1": 20000000.0,
+        "P2": 20010000.0,
+        "T1": 350.0,
+        "eta": 0.6,
+        "flow": 100.0,
+        "z": [
+          0.5,
+          0.5
+        ]
+      },
+      "production_evidence_origin": "extension:CORNER_350.0_20000000.0_0.6_floor",
+      "production_policy": {
+        "W_recovered_W": 166.3990625373117,
+        "W_target_W": 166.3990625371298,
+        "accepted": true,
+        "reason": "resolved",
+        "work": {
+          "budget_J_mol": 1.3047536073091993e-05,
+          "ps_capacity_J_mol": 6.166666666666667e-06,
+          "ratio": 7.841111526795015e-06,
+          "reconstructed_eta": 0.5999999999995628,
+          "status": "resolved"
+        }
+      },
+      "production_status": "accepted",
+      "reference_policy": {
+        "accepted": true,
+        "reason": "resolved",
+        "work": {
+          "budget_J_mol": 1.3047536073091991e-05,
+          "ps_capacity_J_mol": 6.166666666666667e-06,
+          "ratio": 7.841111526709298e-06,
+          "reconstructed_eta": 0.5999999999984696,
+          "status": "resolved"
+        }
+      }
+    },
+    {
+      "case_id": "CORNER_350.0_20000000.0_0.6_max",
+      "compared_fields_pass": true,
+      "flow_pass": true,
+      "group": "corner",
+      "independent_evidence_origin": "extension:CORNER_350.0_20000000.0_0.6_max",
+      "independent_status": "accepted",
+      "inputs": {
+        "P1": 20000000.0,
+        "P2": 30000000.0,
+        "T1": 350.0,
+        "eta": 0.6,
+        "flow": 100.0,
+        "z": [
+          0.5,
+          0.5
+        ]
+      },
+      "production_evidence_origin": "extension:CORNER_350.0_20000000.0_0.6_max",
+      "production_policy": {
+        "W_recovered_W": 162733.91023298574,
+        "W_target_W": 162733.9102329843,
+        "accepted": true,
+        "reason": "resolved",
+        "work": {
+          "budget_J_mol": 1.3015022570857904e-05,
+          "ps_capacity_J_mol": 6.166666666666667e-06,
+          "ratio": 7.997732342462814e-09,
+          "reconstructed_eta": 0.5999999999999946,
+          "status": "resolved"
+        }
+      },
+      "production_status": "accepted",
+      "reference_policy": {
+        "accepted": true,
+        "reason": "resolved",
+        "work": {
+          "budget_J_mol": 1.3015022570857904e-05,
+          "ps_capacity_J_mol": 6.166666666666667e-06,
+          "ratio": 7.997732342462843e-09,
+          "reconstructed_eta": 0.6,
+          "status": "resolved"
+        }
+      }
+    },
+    {
+      "case_id": "CORNER_350.0_20000000.0_1.0_floor",
+      "compared_fields_pass": true,
+      "flow_pass": true,
+      "group": "corner",
+      "independent_evidence_origin": "extension:CORNER_350.0_20000000.0_1.0_floor",
+      "independent_status": "accepted",
+      "inputs": {
+        "P1": 20000000.0,
+        "P2": 20010000.0,
+        "T1": 350.0,
+        "eta": 1.0,
+        "flow": 100.0,
+        "z": [
+          0.5,
+          0.5
+        ]
+      },
+      "production_evidence_origin": "extension:CORNER_350.0_20000000.0_1.0_floor",
+      "production_policy": {
+        "W_recovered_W": 99.83943752340565,
+        "W_target_W": 99.83943752231426,
+        "accepted": true,
+        "reason": "resolved",
+        "work": {
+          "budget_J_mol": 9.110620587535842e-06,
+          "ps_capacity_J_mol": 3.7e-06,
+          "ratio": 9.125272350818296e-06,
+          "reconstructed_eta": 0.9999999999890685,
+          "status": "resolved"
+        }
+      },
+      "production_status": "accepted",
+      "reference_policy": {
+        "accepted": true,
+        "reason": "resolved",
+        "work": {
+          "budget_J_mol": 9.110620587535842e-06,
+          "ps_capacity_J_mol": 3.7e-06,
+          "ratio": 9.125272350834922e-06,
+          "reconstructed_eta": 1.0,
+          "status": "resolved"
+        }
+      }
+    },
+    {
+      "case_id": "CORNER_350.0_20000000.0_1.0_max",
+      "compared_fields_pass": true,
+      "flow_pass": true,
+      "group": "corner",
+      "independent_evidence_origin": "extension:CORNER_350.0_20000000.0_1.0_max",
+      "independent_status": "accepted",
+      "inputs": {
+        "P1": 20000000.0,
+        "P2": 30000000.0,
+        "T1": 350.0,
+        "eta": 1.0,
+        "flow": 100.0,
+        "z": [
+          0.5,
+          0.5
+        ]
+      },
+      "production_evidence_origin": "extension:CORNER_350.0_20000000.0_1.0_max",
+      "production_policy": {
+        "W_recovered_W": 97640.34613979056,
+        "W_target_W": 97640.34613979056,
+        "accepted": true,
+        "reason": "resolved",
+        "work": {
+          "budget_J_mol": 9.09111248619539e-06,
+          "ps_capacity_J_mol": 3.7e-06,
+          "ratio": 9.310815503644107e-09,
+          "reconstructed_eta": 1.0,
+          "status": "resolved"
+        }
+      },
+      "production_status": "accepted",
+      "reference_policy": {
+        "accepted": true,
+        "reason": "resolved",
+        "work": {
+          "budget_J_mol": 9.09111248619539e-06,
+          "ps_capacity_J_mol": 3.7e-06,
+          "ratio": 9.31081550364416e-09,
+          "reconstructed_eta": 1.000000000000011,
+          "status": "resolved"
+        }
+      }
+    },
+    {
+      "case_id": "IDENTITY_350.0_20000000.0",
+      "compared_fields_pass": true,
+      "flow_pass": true,
+      "group": "identity",
+      "independent_evidence_origin": "extension:IDENTITY_350.0_20000000.0",
+      "independent_status": "accepted",
+      "inputs": {
+        "P1": 20000000.0,
+        "P2": 20000000.0,
+        "T1": 350.0,
+        "eta": 0.8,
+        "flow": 100.0,
+        "z": [
+          0.5,
+          0.5
+        ]
+      },
+      "production_evidence_origin": "extension:IDENTITY_350.0_20000000.0",
+      "production_policy": {
+        "W_recovered_W": 0.0,
+        "W_target_W": 0.0,
+        "accepted": true,
+        "reason": "identity",
+        "work": {
+          "budget_J_mol": 0.0,
+          "ratio": null,
+          "reconstructed_eta": null,
+          "status": "identity"
+        }
+      },
+      "production_status": "accepted",
+      "reference_policy": {
+        "accepted": true,
+        "reason": "identity",
+        "work": {
+          "budget_J_mol": 0.0,
+          "ratio": null,
+          "reconstructed_eta": null,
+          "status": "identity"
+        }
+      }
+    },
+    {
+      "case_id": "CORNER_350.0_25000000.0_0.6_floor",
+      "compared_fields_pass": true,
+      "flow_pass": true,
+      "group": "corner",
+      "independent_evidence_origin": "extension:CORNER_350.0_25000000.0_0.6_floor",
+      "independent_status": "accepted",
+      "inputs": {
+        "P1": 25000000.0,
+        "P2": 25010000.0,
+        "T1": 350.0,
+        "eta": 0.6,
+        "flow": 100.0,
+        "z": [
+          0.5,
+          0.5
+        ]
+      },
+      "production_evidence_origin": "extension:CORNER_350.0_25000000.0_0.6_floor",
+      "production_policy": {
+        "W_recovered_W": 161.60704234061996,
+        "W_target_W": 161.60704234243894,
+        "accepted": true,
+        "reason": "resolved",
+        "work": {
+          "budget_J_mol": 1.3042243727182118e-05,
+          "ps_capacity_J_mol": 6.166666666666667e-06,
+          "ratio": 8.07034367951176e-06,
+          "reconstructed_eta": 0.6000000000067534,
+          "status": "resolved"
+        }
+      },
+      "production_status": "accepted",
+      "reference_policy": {
+        "accepted": true,
+        "reason": "resolved",
+        "work": {
+          "budget_J_mol": 1.3042243727182122e-05,
+          "ps_capacity_J_mol": 6.166666666666667e-06,
+          "ratio": 8.070343679284671e-06,
+          "reconstructed_eta": 0.6000000000011255,
+          "status": "resolved"
+        }
+      }
+    },
+    {
+      "case_id": "CORNER_350.0_25000000.0_0.6_max",
+      "compared_fields_pass": true,
+      "flow_pass": true,
+      "group": "corner",
+      "independent_evidence_origin": "extension:CORNER_350.0_25000000.0_0.6_max",
+      "independent_status": "accepted",
+      "inputs": {
+        "P1": 25000000.0,
+        "P2": 30000000.0,
+        "T1": 350.0,
+        "eta": 0.6,
+        "flow": 100.0,
+        "z": [
+          0.5,
+          0.5
+        ]
+      },
+      "production_evidence_origin": "extension:CORNER_350.0_25000000.0_0.6_max",
+      "production_policy": {
+        "W_recovered_W": 80027.2752240804,
+        "W_target_W": 80027.27522407804,
+        "accepted": true,
+        "reason": "resolved",
+        "work": {
+          "budget_J_mol": 1.3026270593545772e-05,
+          "ps_capacity_J_mol": 6.166666666666667e-06,
+          "ratio": 1.627728865823753e-08,
+          "reconstructed_eta": 0.5999999999999823,
+          "status": "resolved"
+        }
+      },
+      "production_status": "accepted",
+      "reference_policy": {
+        "accepted": true,
+        "reason": "resolved",
+        "work": {
+          "budget_J_mol": 1.3026270593545773e-05,
+          "ps_capacity_J_mol": 6.166666666666667e-06,
+          "ratio": 1.6277288658237678e-08,
+          "reconstructed_eta": 0.5999999999999945,
+          "status": "resolved"
+        }
+      }
+    },
+    {
+      "case_id": "CORNER_350.0_25000000.0_1.0_floor",
+      "compared_fields_pass": true,
+      "flow_pass": true,
+      "group": "corner",
+      "independent_evidence_origin": "extension:CORNER_350.0_25000000.0_1.0_floor",
+      "independent_status": "accepted",
+      "inputs": {
+        "P1": 25000000.0,
+        "P2": 25010000.0,
+        "T1": 350.0,
+        "eta": 1.0,
+        "flow": 100.0,
+        "z": [
+          0.5,
+          0.5
+        ]
+      },
+      "production_evidence_origin": "extension:CORNER_350.0_25000000.0_1.0_floor",
+      "production_policy": {
+        "W_recovered_W": 96.96422540728236,
+        "W_target_W": 96.96422540546337,
+        "accepted": true,
+        "reason": "resolved",
+        "work": {
+          "budget_J_mol": 9.106651536791211e-06,
+          "ps_capacity_J_mol": 3.7e-06,
+          "ratio": 9.391764332195933e-06,
+          "reconstructed_eta": 0.9999999999812406,
+          "status": "resolved"
+        }
+      },
+      "production_status": "accepted",
+      "reference_policy": {
+        "accepted": true,
+        "reason": "resolved",
+        "work": {
+          "budget_J_mol": 9.106651536791211e-06,
+          "ps_capacity_J_mol": 3.7e-06,
+          "ratio": 9.391764332195933e-06,
+          "reconstructed_eta": 1.0,
+          "status": "resolved"
+        }
+      }
+    },
+    {
+      "case_id": "CORNER_350.0_25000000.0_1.0_max",
+      "compared_fields_pass": true,
+      "flow_pass": true,
+      "group": "corner",
+      "independent_evidence_origin": "extension:CORNER_350.0_25000000.0_1.0_max",
+      "independent_status": "accepted",
+      "inputs": {
+        "P1": 25000000.0,
+        "P2": 30000000.0,
+        "T1": 350.0,
+        "eta": 1.0,
+        "flow": 100.0,
+        "z": [
+          0.5,
+          0.5
+        ]
+      },
+      "production_evidence_origin": "extension:CORNER_350.0_25000000.0_1.0_max",
+      "production_policy": {
+        "W_recovered_W": 48016.36513444864,
+        "W_target_W": 48016.36513444682,
+        "accepted": true,
+        "reason": "resolved",
+        "work": {
+          "budget_J_mol": 9.097067656609403e-06,
+          "ps_capacity_J_mol": 3.7e-06,
+          "ratio": 1.8945764909811642e-08,
+          "reconstructed_eta": 0.9999999999999621,
+          "status": "resolved"
+        }
+      },
+      "production_status": "accepted",
+      "reference_policy": {
+        "accepted": true,
+        "reason": "resolved",
+        "work": {
+          "budget_J_mol": 9.097067656609403e-06,
+          "ps_capacity_J_mol": 3.7e-06,
+          "ratio": 1.8945764909811642e-08,
+          "reconstructed_eta": 0.9999999999999735,
+          "status": "resolved"
+        }
+      }
+    },
+    {
+      "case_id": "IDENTITY_350.0_25000000.0",
+      "compared_fields_pass": true,
+      "flow_pass": true,
+      "group": "identity",
+      "independent_evidence_origin": "extension:IDENTITY_350.0_25000000.0",
+      "independent_status": "accepted",
+      "inputs": {
+        "P1": 25000000.0,
+        "P2": 25000000.0,
+        "T1": 350.0,
+        "eta": 0.8,
+        "flow": 100.0,
+        "z": [
+          0.5,
+          0.5
+        ]
+      },
+      "production_evidence_origin": "extension:IDENTITY_350.0_25000000.0",
+      "production_policy": {
+        "W_recovered_W": 0.0,
+        "W_target_W": 0.0,
+        "accepted": true,
+        "reason": "identity",
+        "work": {
+          "budget_J_mol": 0.0,
+          "ratio": null,
+          "reconstructed_eta": null,
+          "status": "identity"
+        }
+      },
+      "production_status": "accepted",
+      "reference_policy": {
+        "accepted": true,
+        "reason": "identity",
+        "work": {
+          "budget_J_mol": 0.0,
+          "ratio": null,
+          "reconstructed_eta": null,
+          "status": "identity"
+        }
+      }
+    },
+    {
+      "case_id": "INTERIOR_0",
+      "compared_fields_pass": true,
+      "flow_pass": true,
+      "group": "development",
+      "independent_evidence_origin": "extension:INTERIOR_0",
+      "independent_status": "accepted",
+      "inputs": {
+        "P1": 22500000.0,
+        "P2": 26250000.0,
+        "T1": 325.0,
+        "eta": 0.8,
+        "flow": 100.0,
+        "z": [
+          0.5,
+          0.5
+        ]
+      },
+      "production_evidence_origin": "extension:INTERIOR_0",
+      "production_policy": {
+        "W_recovered_W": 43412.54400502057,
+        "W_target_W": 43412.5440050213,
+        "accepted": true,
+        "reason": "resolved",
+        "work": {
+          "budget_J_mol": 1.072438599185018e-05,
+          "ps_capacity_J_mol": 4.625e-06,
+          "ratio": 2.4703426711436045e-08,
+          "reconstructed_eta": 0.8000000000000143,
+          "status": "resolved"
+        }
+      },
+      "production_status": "accepted",
+      "reference_policy": {
+        "accepted": true,
+        "reason": "resolved",
+        "work": {
+          "budget_J_mol": 1.0724385991850181e-05,
+          "ps_capacity_J_mol": 4.625e-06,
+          "ratio": 2.4703426711434394e-08,
+          "reconstructed_eta": 0.7999999999999942,
+          "status": "resolved"
+        }
+      }
+    },
+    {
+      "case_id": "INTERIOR_1",
+      "compared_fields_pass": true,
+      "flow_pass": true,
+      "group": "development",
+      "independent_evidence_origin": "extension:INTERIOR_1",
+      "independent_status": "accepted",
+      "inputs": {
+        "P1": 20000000.0,
+        "P2": 23000000.0,
+        "T1": 310.0,
+        "eta": 0.7,
+        "flow": 100.0,
+        "z": [
+          0.5,
+          0.5
+        ]
+      },
+      "production_evidence_origin": "extension:INTERIOR_1",
+      "production_policy": {
+        "W_recovered_W": 38982.188714446966,
+        "W_target_W": 38982.18871444642,
+        "accepted": true,
+        "reason": "resolved",
+        "work": {
+          "budget_J_mol": 1.1887975201527812e-05,
+          "ps_capacity_J_mol": 5.285714285714286e-06,
+          "ratio": 3.049591516938626e-08,
+          "reconstructed_eta": 0.6999999999999916,
+          "status": "resolved"
+        }
+      },
+      "production_status": "accepted",
+      "reference_policy": {
+        "accepted": true,
+        "reason": "resolved",
+        "work": {
+          "budget_J_mol": 1.1887975201527812e-05,
+          "ps_capacity_J_mol": 5.285714285714286e-06,
+          "ratio": 3.049591516938683e-08,
+          "reconstructed_eta": 0.6999999999999953,
+          "status": "resolved"
+        }
+      }
+    },
+    {
+      "case_id": "INTERIOR_2",
+      "compared_fields_pass": true,
+      "flow_pass": true,
+      "group": "development",
+      "independent_evidence_origin": "extension:INTERIOR_2",
+      "independent_status": "accepted",
+      "inputs": {
+        "P1": 25000000.0,
+        "P2": 28500000.0,
+        "T1": 340.0,
+        "eta": 0.9,
+        "flow": 100.0,
+        "z": [
+          0.5,
+          0.5
+        ]
+      },
+      "production_evidence_origin": "extension:INTERIOR_2",
+      "production_policy": {
+        "W_recovered_W": 36707.4178849567,
+        "W_target_W": 36707.41788495452,
+        "accepted": true,
+        "reason": "resolved",
+        "work": {
+          "budget_J_mol": 9.81111924367579e-06,
+          "ps_capacity_J_mol": 4.111111111111111e-06,
+          "ratio": 2.6727892641276046e-08,
+          "reconstructed_eta": 0.899999999999947,
+          "status": "resolved"
+        }
+      },
+      "production_status": "accepted",
+      "reference_policy": {
+        "accepted": true,
+        "reason": "resolved",
+        "work": {
+          "budget_J_mol": 9.81111924367579e-06,
+          "ps_capacity_J_mol": 4.111111111111111e-06,
+          "ratio": 2.6727892641276844e-08,
+          "reconstructed_eta": 0.8999999999999787,
+          "status": "resolved"
+        }
+      }
+    },
+    {
+      "case_id": "INTERIOR_3",
+      "compared_fields_pass": true,
+      "flow_pass": true,
+      "group": "development",
+      "independent_evidence_origin": "extension:INTERIOR_3",
+      "independent_status": "accepted",
+      "inputs": {
+        "P1": 23000000.0,
+        "P2": 27200000.0,
+        "T1": 300.0,
+        "eta": 0.6,
+        "flow": 100.0,
+        "z": [
+          0.5,
+          0.5
+        ]
+      },
+      "production_evidence_origin": "extension:INTERIOR_3",
+      "production_policy": {
+        "W_recovered_W": 61793.38587472903,
+        "W_target_W": 61793.38587472612,
+        "accepted": true,
+        "reason": "resolved",
+        "work": {
+          "budget_J_mol": 1.3374186152637805e-05,
+          "ps_capacity_J_mol": 6.166666666666667e-06,
+          "ratio": 2.1643394294254558e-08,
+          "reconstructed_eta": 0.5999999999999723,
+          "status": "resolved"
+        }
+      },
+      "production_status": "accepted",
+      "reference_policy": {
+        "accepted": true,
+        "reason": "resolved",
+        "work": {
+          "budget_J_mol": 1.3374186152637807e-05,
+          "ps_capacity_J_mol": 6.166666666666667e-06,
+          "ratio": 2.1643394294255964e-08,
+          "reconstructed_eta": 0.5999999999999994,
+          "status": "resolved"
+        }
+      }
+    },
+    {
+      "case_id": "INTERIOR_4",
+      "compared_fields_pass": true,
+      "flow_pass": true,
+      "group": "development",
+      "independent_evidence_origin": "extension:INTERIOR_4",
+      "independent_status": "accepted",
+      "inputs": {
+        "P1": 21000000.0,
+        "P2": 24600000.0,
+        "T1": 350.0,
+        "eta": 1.0,
+        "flow": 100.0,
+        "z": [
+          0.5,
+          0.5
+        ]
+      },
+      "production_evidence_origin": "extension:INTERIOR_4",
+      "production_policy": {
+        "W_recovered_W": 35419.675232983354,
+        "W_target_W": 35419.675232980444,
+        "accepted": true,
+        "reason": "resolved",
+        "work": {
+          "budget_J_mol": 9.102949190053781e-06,
+          "ps_capacity_J_mol": 3.7e-06,
+          "ratio": 2.5700261592395893e-08,
+          "reconstructed_eta": 0.9999999999999178,
+          "status": "resolved"
+        }
+      },
+      "production_status": "accepted",
+      "reference_policy": {
+        "accepted": true,
+        "reason": "resolved",
+        "work": {
+          "budget_J_mol": 9.102949190053781e-06,
+          "ps_capacity_J_mol": 3.7e-06,
+          "ratio": 2.570026159239708e-08,
+          "reconstructed_eta": 1.0,
+          "status": "resolved"
+        }
+      }
+    },
+    {
+      "case_id": "INTERIOR_5",
+      "compared_fields_pass": true,
+      "flow_pass": true,
+      "group": "development",
+      "independent_evidence_origin": "extension:INTERIOR_5",
+      "independent_status": "accepted",
+      "inputs": {
+        "P1": 24000000.0,
+        "P2": 28800000.0,
+        "T1": 327.0,
+        "eta": 0.65,
+        "flow": 100.0,
+        "z": [
+          0.5,
+          0.5
+        ]
+      },
+      "production_evidence_origin": "extension:INTERIOR_5",
+      "production_policy": {
+        "W_recovered_W": 68128.76990322239,
+        "W_target_W": 68128.76990322347,
+        "accepted": true,
+        "reason": "resolved",
+        "work": {
+          "budget_J_mol": 1.2426134334355142e-05,
+          "ps_capacity_J_mol": 5.692307692307692e-06,
+          "ratio": 1.8239187867337974e-08,
+          "reconstructed_eta": 0.6500000000000108,
+          "status": "resolved"
+        }
+      },
+      "production_status": "accepted",
+      "reference_policy": {
+        "accepted": true,
+        "reason": "resolved",
+        "work": {
+          "budget_J_mol": 1.2426134334355144e-05,
+          "ps_capacity_J_mol": 5.692307692307692e-06,
+          "ratio": 1.8239187867337345e-08,
+          "reconstructed_eta": 0.6499999999999909,
+          "status": "resolved"
+        }
+      }
+    },
+    {
+      "case_id": "HOLDOUT_0",
+      "compared_fields_pass": true,
+      "flow_pass": true,
+      "group": "holdout",
+      "independent_evidence_origin": "extension:HOLDOUT_0",
+      "independent_status": "accepted",
+      "inputs": {
+        "P1": 23655000.0,
+        "P2": 26313555.0,
+        "T1": 306.85,
+        "eta": 0.7132,
+        "flow": 100.0,
+        "z": [
+          0.5,
+          0.5
+        ]
+      },
+      "production_evidence_origin": "extension:HOLDOUT_0",
+      "production_policy": {
+        "W_recovered_W": 33292.48812016267,
+        "W_target_W": 33292.48812016231,
+        "accepted": true,
+        "reason": "resolved",
+        "work": {
+          "budget_J_mol": 1.1742400471029746e-05,
+          "ps_capacity_J_mol": 5.187885586090859e-06,
+          "ratio": 3.5270420248098815e-08,
+          "reconstructed_eta": 0.7131999999999931,
+          "status": "resolved"
+        }
+      },
+      "production_status": "accepted",
+      "reference_policy": {
+        "accepted": true,
+        "reason": "resolved",
+        "work": {
+          "budget_J_mol": 1.1742400471029746e-05,
+          "ps_capacity_J_mol": 5.187885586090859e-06,
+          "ratio": 3.527042024809592e-08,
+          "reconstructed_eta": 0.713199999999962,
+          "status": "resolved"
+        }
+      }
+    },
+    {
+      "case_id": "HOLDOUT_1",
+      "compared_fields_pass": true,
+      "flow_pass": true,
+      "group": "holdout",
+      "independent_evidence_origin": "extension:HOLDOUT_1",
+      "independent_status": "accepted",
+      "inputs": {
+        "P1": 21345000.0,
+        "P2": 28104555.0,
+        "T1": 343.15,
+        "eta": 0.9668,
+        "flow": 100.0,
+        "z": [
+          0.5,
+          0.5
+        ]
+      },
+      "production_evidence_origin": "extension:HOLDOUT_1",
+      "production_policy": {
+        "W_recovered_W": 67197.45433202188,
+        "W_target_W": 67197.4543320206,
+        "accepted": true,
+        "reason": "resolved",
+        "work": {
+          "budget_J_mol": 9.33663228366978e-06,
+          "ps_capacity_J_mol": 3.827058336781134e-06,
+          "ratio": 1.3894324385470888e-08,
+          "reconstructed_eta": 0.9667999999999805,
+          "status": "resolved"
+        }
+      },
+      "production_status": "accepted",
+      "reference_policy": {
+        "accepted": true,
+        "reason": "resolved",
+        "work": {
+          "budget_J_mol": 9.33663228366978e-06,
+          "ps_capacity_J_mol": 3.827058336781134e-06,
+          "ratio": 1.3894324385471414e-08,
+          "reconstructed_eta": 0.9668000000000118,
+          "status": "resolved"
+        }
+      }
+    },
+    {
+      "case_id": "HOLDOUT_2",
+      "compared_fields_pass": true,
+      "flow_pass": true,
+      "group": "holdout",
+      "independent_evidence_origin": "extension:HOLDOUT_2",
+      "independent_status": "accepted",
+      "inputs": {
+        "P1": 20565000.0,
+        "P2": 26575095.0,
+        "T1": 320.95,
+        "eta": 0.8164,
+        "flow": 100.0,
+        "z": [
+          0.5,
+          0.5
+        ]
+      },
+      "production_evidence_origin": "extension:HOLDOUT_2",
+      "production_policy": {
+        "W_recovered_W": 67944.95415067559,
+        "W_target_W": 67944.95415067468,
+        "accepted": true,
+        "reason": "resolved",
+        "work": {
+          "budget_J_mol": 1.0595396847293272e-05,
+          "ps_capacity_J_mol": 4.532092111709946e-06,
+          "ratio": 1.5594089332663007e-08,
+          "reconstructed_eta": 0.8163999999999899,
+          "status": "resolved"
+        }
+      },
+      "production_status": "accepted",
+      "reference_policy": {
+        "accepted": true,
+        "reason": "resolved",
+        "work": {
+          "budget_J_mol": 1.0595396847293272e-05,
+          "ps_capacity_J_mol": 4.532092111709946e-06,
+          "ratio": 1.559408933266338e-08,
+          "reconstructed_eta": 0.8164000000000016,
+          "status": "resolved"
+        }
+      }
+    },
+    {
+      "case_id": "HOLDOUT_3",
+      "compared_fields_pass": true,
+      "flow_pass": true,
+      "group": "holdout",
+      "independent_evidence_origin": "extension:HOLDOUT_3",
+      "independent_status": "accepted",
+      "inputs": {
+        "P1": 24435000.0,
+        "P2": 25509045.0,
+        "T1": 333.85,
+        "eta": 0.6556,
+        "flow": 100.0,
+        "z": [
+          0.5,
+          0.5
+        ]
+      },
+      "production_evidence_origin": "extension:HOLDOUT_3",
+      "production_policy": {
+        "W_recovered_W": 15379.06393214671,
+        "W_target_W": 15379.06393214871,
+        "accepted": true,
+        "reason": "resolved",
+        "work": {
+          "budget_J_mol": 1.2312967204964957e-05,
+          "ps_capacity_J_mol": 5.643685173886517e-06,
+          "ratio": 8.006317718224241e-08,
+          "reconstructed_eta": 0.6556000000000873,
+          "status": "resolved"
+        }
+      },
+      "production_status": "accepted",
+      "reference_policy": {
+        "accepted": true,
+        "reason": "resolved",
+        "work": {
+          "budget_J_mol": 1.2312967204964957e-05,
+          "ps_capacity_J_mol": 5.643685173886517e-06,
+          "ratio": 8.006317718222821e-08,
+          "reconstructed_eta": 0.6555999999999356,
+          "status": "resolved"
+        }
+      }
+    },
+    {
+      "case_id": "HOLDOUT_4",
+      "compared_fields_pass": true,
+      "flow_pass": true,
+      "group": "holdout",
+      "independent_evidence_origin": "extension:HOLDOUT_4",
+      "independent_status": "accepted",
+      "inputs": {
+        "P1": 22285000.0,
+        "P2": 29328795.0,
+        "T1": 302.65,
+        "eta": 0.9052,
+        "flow": 100.0,
+        "z": [
+          0.5,
+          0.5
+        ]
+      },
+      "production_evidence_origin": "extension:HOLDOUT_4",
+      "production_policy": {
+        "W_recovered_W": 68925.95010454225,
+        "W_target_W": 68925.9501045417,
+        "accepted": true,
+        "reason": "resolved",
+        "work": {
+          "budget_J_mol": 9.970426832772028e-06,
+          "ps_capacity_J_mol": 4.087494476358816e-06,
+          "ratio": 1.4465418057566932e-08,
+          "reconstructed_eta": 0.9051999999999935,
+          "status": "resolved"
+        }
+      },
+      "production_status": "accepted",
+      "reference_policy": {
+        "accepted": true,
+        "reason": "resolved",
+        "work": {
+          "budget_J_mol": 9.970426832772028e-06,
+          "ps_capacity_J_mol": 4.087494476358816e-06,
+          "ratio": 1.4465418057567314e-08,
+          "reconstructed_eta": 0.9052000000000094,
+          "status": "resolved"
+        }
+      }
+    },
+    {
+      "case_id": "HOLDOUT_5",
+      "compared_fields_pass": true,
+      "flow_pass": true,
+      "group": "holdout",
+      "independent_evidence_origin": "extension:HOLDOUT_5",
+      "independent_status": "accepted",
+      "inputs": {
+        "P1": 22965000.0,
+        "P2": 25406145.0,
+        "T1": 347.35,
+        "eta": 0.7588,
+        "flow": 100.0,
+        "z": [
+          0.5,
+          0.5
+        ]
+      },
+      "production_evidence_origin": "extension:HOLDOUT_5",
+      "production_policy": {
+        "W_recovered_W": 31198.189607517998,
+        "W_target_W": 31198.189607521817,
+        "accepted": true,
+        "reason": "resolved",
+        "work": {
+          "budget_J_mol": 1.0995615959514338e-05,
+          "ps_capacity_J_mol": 4.876120189773326e-06,
+          "ratio": 3.524440391523444e-08,
+          "reconstructed_eta": 0.7588000000000923,
+          "status": "resolved"
+        }
+      },
+      "production_status": "accepted",
+      "reference_policy": {
+        "accepted": true,
+        "reason": "resolved",
+        "work": {
+          "budget_J_mol": 1.0995615959514338e-05,
+          "ps_capacity_J_mol": 4.876120189773326e-06,
+          "ratio": 3.524440391523362e-08,
+          "reconstructed_eta": 0.758800000000028,
+          "status": "resolved"
+        }
+      }
+    },
+    {
+      "case_id": "HOLDOUT_6",
+      "compared_fields_pass": true,
+      "flow_pass": true,
+      "group": "holdout",
+      "independent_evidence_origin": "extension:HOLDOUT_6",
+      "independent_status": "accepted",
+      "inputs": {
+        "P1": 24835000.0,
+        "P2": 27711905.0,
+        "T1": 315.55,
+        "eta": 0.6123999999999999,
+        "flow": 100.0,
+        "z": [
+          0.5,
+          0.5
+        ]
+      },
+      "production_evidence_origin": "extension:HOLDOUT_6",
+      "production_policy": {
+        "W_recovered_W": 42426.86814041281,
+        "W_target_W": 42426.86814041099,
+        "accepted": true,
+        "reason": "resolved",
+        "work": {
+          "budget_J_mol": 1.3069433955198014e-05,
+          "ps_capacity_J_mol": 6.04180274330503e-06,
+          "ratio": 3.080461633874173e-08,
+          "reconstructed_eta": 0.6123999999999735,
+          "status": "resolved"
+        }
+      },
+      "production_status": "accepted",
+      "reference_policy": {
+        "accepted": true,
+        "reason": "resolved",
+        "work": {
+          "budget_J_mol": 1.3069433955198014e-05,
+          "ps_capacity_J_mol": 6.04180274330503e-06,
+          "ratio": 3.080461633874384e-08,
+          "reconstructed_eta": 0.6124000000000069,
+          "status": "resolved"
+        }
+      }
+    },
+    {
+      "case_id": "HOLDOUT_7",
+      "compared_fields_pass": true,
+      "flow_pass": true,
+      "group": "holdout",
+      "independent_evidence_origin": "extension:HOLDOUT_7",
+      "independent_status": "accepted",
+      "inputs": {
+        "P1": 20185000.0,
+        "P2": 20881865.0,
+        "T1": 339.45,
+        "eta": 0.8675999999999999,
+        "flow": 100.0,
+        "z": [
+          0.5,
+          0.5
+        ]
+      },
+      "production_evidence_origin": "extension:HOLDOUT_7",
+      "production_policy": {
+        "W_recovered_W": 7799.291239351805,
+        "W_target_W": 7799.29123935126,
+        "accepted": true,
+        "reason": "resolved",
+        "work": {
+          "budget_J_mol": 1.0071353341515474e-05,
+          "ps_capacity_J_mol": 4.2646380820654685e-06,
+          "ratio": 1.2913164840799686e-07,
+          "reconstructed_eta": 0.8675999999999339,
+          "status": "resolved"
+        }
+      },
+      "production_status": "accepted",
+      "reference_policy": {
+        "accepted": true,
+        "reason": "resolved",
+        "work": {
+          "budget_J_mol": 1.0071353341515474e-05,
+          "ps_capacity_J_mol": 4.2646380820654685e-06,
+          "ratio": 1.2913164840803e-07,
+          "reconstructed_eta": 0.8676000000001098,
+          "status": "resolved"
+        }
+      }
+    },
+    {
+      "case_id": "CONDITION_0_10.0",
+      "compared_fields_pass": true,
+      "flow_pass": true,
+      "group": "conditioning",
+      "independent_evidence_origin": "extension:CONDITION_0_10.0",
+      "independent_status": "unresolved_work",
+      "inputs": {
+        "P1": 20000000.0,
+        "P2": 20000010.0,
+        "T1": 300.0,
+        "eta": 1.0,
+        "flow": 100.0,
+        "z": [
+          0.5,
+          0.5
+        ]
+      },
+      "production_evidence_origin": "extension:CONDITION_0_10.0",
+      "production_policy": {
+        "accepted": false,
+        "reason": "positive_rise_below_floor"
+      },
+      "production_status": "unresolved_work",
+      "reference_policy": {
+        "accepted": false,
+        "reason": "positive_rise_below_floor"
+      }
+    },
+    {
+      "case_id": "CONDITION_0_1000.0",
+      "compared_fields_pass": true,
+      "flow_pass": true,
+      "group": "conditioning",
+      "independent_evidence_origin": "extension:CONDITION_0_1000.0",
+      "independent_status": "accepted",
+      "inputs": {
+        "P1": 20000000.0,
+        "P2": 20001000.0,
+        "T1": 300.0,
+        "eta": 1.0,
+        "flow": 100.0,
+        "z": [
+          0.5,
+          0.5
+        ]
+      },
+      "production_evidence_origin": "extension:CONDITION_0_1000.0",
+      "production_policy": {
+        "accepted": false,
+        "reason": "positive_rise_below_floor"
+      },
+      "production_status": "accepted",
+      "reference_policy": {
+        "accepted": false,
+        "reason": "positive_rise_below_floor"
+      }
+    },
+    {
+      "case_id": "CONDITION_0_10000.0",
+      "compared_fields_pass": true,
+      "flow_pass": true,
+      "group": "conditioning",
+      "independent_evidence_origin": "extension:CORNER_300.0_20000000.0_1.0_floor",
+      "independent_status": "accepted",
+      "inputs": {
+        "P1": 20000000.0,
+        "P2": 20010000.0,
+        "T1": 300.0,
+        "eta": 1.0,
+        "flow": 100.0,
+        "z": [
+          0.5,
+          0.5
+        ]
+      },
+      "production_evidence_origin": "extension:CORNER_300.0_20000000.0_1.0_floor",
+      "production_policy": {
+        "W_recovered_W": 89.61678606719943,
+        "W_target_W": 89.61678606683563,
+        "accepted": true,
+        "reason": "resolved",
+        "work": {
+          "budget_J_mol": 9.36968809326409e-06,
+          "ps_capacity_J_mol": 3.7e-06,
+          "ratio": 1.045528243585772e-05,
+          "reconstructed_eta": 0.9999999999959405,
+          "status": "resolved"
+        }
+      },
+      "production_status": "accepted",
+      "reference_policy": {
+        "accepted": true,
+        "reason": "resolved",
+        "work": {
+          "budget_J_mol": 9.36968809326409e-06,
+          "ps_capacity_J_mol": 3.7e-06,
+          "ratio": 1.045528243585772e-05,
+          "reconstructed_eta": 1.0,
+          "status": "resolved"
+        }
+      }
+    },
+    {
+      "case_id": "CONDITION_1_10.0",
+      "compared_fields_pass": true,
+      "flow_pass": true,
+      "group": "conditioning",
+      "independent_evidence_origin": "extension:CONDITION_1_10.0",
+      "independent_status": "unresolved_work",
+      "inputs": {
+        "P1": 25000000.0,
+        "P2": 25000010.0,
+        "T1": 300.0,
+        "eta": 0.6,
+        "flow": 100.0,
+        "z": [
+          0.5,
+          0.5
+        ]
+      },
+      "production_evidence_origin": "extension:CONDITION_1_10.0",
+      "production_policy": {
+        "accepted": false,
+        "reason": "positive_rise_below_floor"
+      },
+      "production_status": "unresolved_work",
+      "reference_policy": {
+        "accepted": false,
+        "reason": "positive_rise_below_floor"
+      }
+    },
+    {
+      "case_id": "CONDITION_1_1000.0",
+      "compared_fields_pass": true,
+      "flow_pass": true,
+      "group": "conditioning",
+      "independent_evidence_origin": "extension:CONDITION_1_1000.0",
+      "independent_status": "accepted",
+      "inputs": {
+        "P1": 25000000.0,
+        "P2": 25001000.0,
+        "T1": 300.0,
+        "eta": 0.6,
+        "flow": 100.0,
+        "z": [
+          0.5,
+          0.5
+        ]
+      },
+      "production_evidence_origin": "extension:CONDITION_1_1000.0",
+      "production_policy": {
+        "accepted": false,
+        "reason": "positive_rise_below_floor"
+      },
+      "production_status": "accepted",
+      "reference_policy": {
+        "accepted": false,
+        "reason": "positive_rise_below_floor"
+      }
+    },
+    {
+      "case_id": "CONDITION_1_10000.0",
+      "compared_fields_pass": true,
+      "flow_pass": true,
+      "group": "conditioning",
+      "independent_evidence_origin": "extension:CORNER_300.0_25000000.0_0.6_floor",
+      "independent_status": "accepted",
+      "inputs": {
+        "P1": 25000000.0,
+        "P2": 25010000.0,
+        "T1": 300.0,
+        "eta": 0.6,
+        "flow": 100.0,
+        "z": [
+          0.5,
+          0.5
+        ]
+      },
+      "production_evidence_origin": "extension:CORNER_300.0_25000000.0_0.6_floor",
+      "production_policy": {
+        "W_recovered_W": 146.9655088327272,
+        "W_target_W": 146.96550883491,
+        "accepted": true,
+        "reason": "resolved",
+        "work": {
+          "budget_J_mol": 1.3381962838076307e-05,
+          "ps_capacity_J_mol": 6.166666666666667e-06,
+          "ratio": 9.105512541250308e-06,
+          "reconstructed_eta": 0.6000000000089114,
+          "status": "resolved"
+        }
+      },
+      "production_status": "accepted",
+      "reference_policy": {
+        "accepted": true,
+        "reason": "resolved",
+        "work": {
+          "budget_J_mol": 1.3381962838076307e-05,
+          "ps_capacity_J_mol": 6.166666666666667e-06,
+          "ratio": 9.105512541250308e-06,
+          "reconstructed_eta": 0.5999999999990099,
+          "status": "resolved"
+        }
+      }
+    },
+    {
+      "case_id": "CONDITION_2_10.0",
+      "compared_fields_pass": true,
+      "flow_pass": true,
+      "group": "conditioning",
+      "independent_evidence_origin": "extension:CONDITION_2_10.0",
+      "independent_status": "unresolved_work",
+      "inputs": {
+        "P1": 20000000.0,
+        "P2": 20000010.0,
+        "T1": 350.0,
+        "eta": 0.6,
+        "flow": 100.0,
+        "z": [
+          0.5,
+          0.5
+        ]
+      },
+      "production_evidence_origin": "extension:CONDITION_2_10.0",
+      "production_policy": {
+        "accepted": false,
+        "reason": "positive_rise_below_floor"
+      },
+      "production_status": "unresolved_work",
+      "reference_policy": {
+        "accepted": false,
+        "reason": "positive_rise_below_floor"
+      }
+    },
+    {
+      "case_id": "CONDITION_2_1000.0",
+      "compared_fields_pass": true,
+      "flow_pass": true,
+      "group": "conditioning",
+      "independent_evidence_origin": "extension:CONDITION_2_1000.0",
+      "independent_status": "accepted",
+      "inputs": {
+        "P1": 20000000.0,
+        "P2": 20001000.0,
+        "T1": 350.0,
+        "eta": 0.6,
+        "flow": 100.0,
+        "z": [
+          0.5,
+          0.5
+        ]
+      },
+      "production_evidence_origin": "extension:CONDITION_2_1000.0",
+      "production_policy": {
+        "accepted": false,
+        "reason": "positive_rise_below_floor"
+      },
+      "production_status": "accepted",
+      "reference_policy": {
+        "accepted": false,
+        "reason": "positive_rise_below_floor"
+      }
+    },
+    {
+      "case_id": "CONDITION_2_10000.0",
+      "compared_fields_pass": true,
+      "flow_pass": true,
+      "group": "conditioning",
+      "independent_evidence_origin": "extension:CORNER_350.0_20000000.0_0.6_floor",
+      "independent_status": "accepted",
+      "inputs": {
+        "P1": 20000000.0,
+        "P2": 20010000.0,
+        "T1": 350.0,
+        "eta": 0.6,
+        "flow": 100.0,
+        "z": [
+          0.5,
+          0.5
+        ]
+      },
+      "production_evidence_origin": "extension:CORNER_350.0_20000000.0_0.6_floor",
+      "production_policy": {
+        "W_recovered_W": 166.3990625373117,
+        "W_target_W": 166.3990625371298,
+        "accepted": true,
+        "reason": "resolved",
+        "work": {
+          "budget_J_mol": 1.3047536073091993e-05,
+          "ps_capacity_J_mol": 6.166666666666667e-06,
+          "ratio": 7.841111526795015e-06,
+          "reconstructed_eta": 0.5999999999995628,
+          "status": "resolved"
+        }
+      },
+      "production_status": "accepted",
+      "reference_policy": {
+        "accepted": true,
+        "reason": "resolved",
+        "work": {
+          "budget_J_mol": 1.3047536073091991e-05,
+          "ps_capacity_J_mol": 6.166666666666667e-06,
+          "ratio": 7.841111526709298e-06,
+          "reconstructed_eta": 0.5999999999984696,
+          "status": "resolved"
+        }
+      }
+    },
+    {
+      "case_id": "CONDITION_3_10.0",
+      "compared_fields_pass": true,
+      "flow_pass": true,
+      "group": "conditioning",
+      "independent_evidence_origin": "extension:CONDITION_3_10.0",
+      "independent_status": "unresolved_work",
+      "inputs": {
+        "P1": 25000000.0,
+        "P2": 25000010.0,
+        "T1": 350.0,
+        "eta": 1.0,
+        "flow": 100.0,
+        "z": [
+          0.5,
+          0.5
+        ]
+      },
+      "production_evidence_origin": "extension:CONDITION_3_10.0",
+      "production_policy": {
+        "accepted": false,
+        "reason": "positive_rise_below_floor"
+      },
+      "production_status": "unresolved_work",
+      "reference_policy": {
+        "accepted": false,
+        "reason": "positive_rise_below_floor"
+      }
+    },
+    {
+      "case_id": "CONDITION_3_1000.0",
+      "compared_fields_pass": true,
+      "flow_pass": true,
+      "group": "conditioning",
+      "independent_evidence_origin": "extension:CONDITION_3_1000.0",
+      "independent_status": "accepted",
+      "inputs": {
+        "P1": 25000000.0,
+        "P2": 25001000.0,
+        "T1": 350.0,
+        "eta": 1.0,
+        "flow": 100.0,
+        "z": [
+          0.5,
+          0.5
+        ]
+      },
+      "production_evidence_origin": "extension:CONDITION_3_1000.0",
+      "production_policy": {
+        "accepted": false,
+        "reason": "positive_rise_below_floor"
+      },
+      "production_status": "accepted",
+      "reference_policy": {
+        "accepted": false,
+        "reason": "positive_rise_below_floor"
+      }
+    },
+    {
+      "case_id": "CONDITION_3_10000.0",
+      "compared_fields_pass": true,
+      "flow_pass": true,
+      "group": "conditioning",
+      "independent_evidence_origin": "extension:CORNER_350.0_25000000.0_1.0_floor",
+      "independent_status": "accepted",
+      "inputs": {
+        "P1": 25000000.0,
+        "P2": 25010000.0,
+        "T1": 350.0,
+        "eta": 1.0,
+        "flow": 100.0,
+        "z": [
+          0.5,
+          0.5
+        ]
+      },
+      "production_evidence_origin": "extension:CORNER_350.0_25000000.0_1.0_floor",
+      "production_policy": {
+        "W_recovered_W": 96.96422540728236,
+        "W_target_W": 96.96422540546337,
+        "accepted": true,
+        "reason": "resolved",
+        "work": {
+          "budget_J_mol": 9.106651536791211e-06,
+          "ps_capacity_J_mol": 3.7e-06,
+          "ratio": 9.391764332195933e-06,
+          "reconstructed_eta": 0.9999999999812406,
+          "status": "resolved"
+        }
+      },
+      "production_status": "accepted",
+      "reference_policy": {
+        "accepted": true,
+        "reason": "resolved",
+        "work": {
+          "budget_J_mol": 9.106651536791211e-06,
+          "ps_capacity_J_mol": 3.7e-06,
+          "ratio": 9.391764332195933e-06,
+          "reconstructed_eta": 1.0,
+          "status": "resolved"
+        }
+      }
+    }
+  ],
+  "runtime_counts": {
+    "identity": 4,
+    "positive_rise_below_floor": 8,
+    "resolved": 34
+  },
+  "runtime_source_sha256": "d850bc3a766682fcd9236e7858ff15367a015795b8093f3611a9d75a1da6e188",
+  "statement": "Configurable bounds and diagnostic policy; runtime reads no reference table or allowlist"
+}

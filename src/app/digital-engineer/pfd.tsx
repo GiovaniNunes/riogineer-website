@@ -10,7 +10,8 @@ export function Pfd({ flowsheet }: { flowsheet: Flowsheet }) {
     flowsheet.schema_version === '1.7' ||
     flowsheet.schema_version === '1.8' ||
     flowsheet.schema_version === '1.9' ||
-    flowsheet.schema_version === '1.10'
+    flowsheet.schema_version === '1.10' ||
+    flowsheet.schema_version === '1.11'
   )
     return <NetworkPfd flowsheet={flowsheet} />;
   const nodes = [...flowsheet.boundaries, ...flowsheet.equipment];
@@ -210,6 +211,24 @@ function NetworkPfd({ flowsheet }: { flowsheet: Flowsheet }) {
                   stroke="currentColor"
                   strokeWidth="2"
                 />
+              )}
+              {node.type === 'pump' && (
+                <g data-symbol="pump" aria-label="Liquid pump, one inlet and one outlet">
+                  <circle
+                    cx={p.x + 80}
+                    cy={p.y + 74}
+                    r="12"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  />
+                  <path
+                    d={`M ${p.x + 73} ${p.y + 66} L ${p.x + 90} ${p.y + 74} L ${p.x + 73} ${p.y + 82} Z`}
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  />
+                </g>
               )}
               {node.type === 'compressor' && (
                 <path
