@@ -1654,7 +1654,8 @@ infrastructure: kmol/h = mol/s × 3.6, molecular mass in kg/kmol. Absent vapor r
 zero extensive flows and unavailable intensive properties; density/volumetric
 quantities remain unavailable. The legend now explains both unavailable cases.
 No solver, numerical tolerance, contract version or qualified scope changed.
-Human review of this subsequent correction is not claimed.
+Human review of this subsequent correction was not yet reported at the
+implementation closeout; completed visual acceptance is recorded below.
 
 New correction checks: 29 focused Python tests (12 M17, seven M9, ten M7), all 265
 TypeScript tests, three focused M17 browser workflows, the final full 37-browser
@@ -1669,6 +1670,35 @@ follow-up files and final gates are detailed in `MILESTONE_17.md`. Commit and no
 push were explicitly authorized; actual identity/outcome belong to Git history
 and the closeout report. No deployment or M18 work is included. Earlier entries
 below are historical status records, not current capability exclusions.
+
+Visual acceptance of the corrected molecular table: **COMPLETE — 2026-10-01,
+America/Sao_Paulo**, for the three cases below. Giovani Nunes reported manually
+executing the corrected interface. Screenshots were supplied to and reviewed in
+the ChatGPT design conversation. This is user-operated evidence with screenshot
+review in ChatGPT, not manual execution or direct screenshot inspection by this
+Codex session. No screenshots are claimed to be stored in the repository.
+
+All three cases displayed current results and passing mass/energy checks:
+
+- **PT reference:** feed 360 kmol/h and molecular mass 51.10908 kg/kmol;
+  liquid 32.85692419 kmol/h; vapor 327.14307581 kmol/h. Molecular masses and mole
+  fractions populated consistently. Calculated duty: +1832535.619763 W.
+- **Adiabatic PH at 1000000 Pa:** calculated temperature approximately
+  291.74213866 K; liquid 187.40076793 kmol/h; vapor 172.59923207 kmol/h.
+  Molecular masses and mole fractions populated consistently. Imposed duty: 0 W.
+- **Equal-pressure adiabatic PH at 30000000 Pa** (separator pressure equals inlet
+  pressure): calculated temperature approximately 300 K; liquid 18399.2688 kg/h
+  and 360 kmol/h; liquid molecular mass 51.10908 kg/kmol; liquid mole fractions
+  methane 0.5 and n-hexane 0.5. Absent vapor had zero mass, molar, component and
+  enthalpy flows. Vapor molecular mass, mass/mole fractions and specific enthalpy
+  displayed unavailable (—). Imposed duty: 0 W.
+
+The subsequent molecular-table correction is now visually accepted for these
+three cases; no discrepancies were reported in the supplied screenshots. This
+acceptance does not broaden the documented qualification scope or supersede the
+prior distinction between stale results retained as “not current” and cleared
+results. Prior automated evidence remains unchanged. This documentation-only
+registration did not rerun numerical or browser regression suites.
 
 Milestone 16 automated acceptance: COMPLETE — 2026-09-30. Human-operated M16 validation: COMPLETE — 2026-09-30, separately reported by the reviewer after executing and inspecting canonical, pressure, flow, phase, negative and summary --verify. All reviewed modes passed, including PRESSURE_FLASH_ONSET, flow invariance, phase/service-scope behavior and all 38 negatives; the final summary confirmed 17 positives, 38 negatives, 572 numerical comparisons and eight byte-identical call-order checks. The five separate thermodynamic studies remain outside primary equipment-service qualification. The separately authorized `rigorous_isenthalpic_pr@1.0` valve uses requirements 1.8 / flowsheet 1.9 / results 1.10, actual inlet material flow/composition, high_accuracy PT/M10 → H target = H inlet → shared PH/M11 → fresh final acceptance, and one overall material outlet including qualified VL states. Against unchanged Pre-M16 evidence, 17 primary cases, 38 negatives, 572 primary comparisons, five separate studies (130 comparisons), eight byte-identical call-order checks and fresh production-artifact reproduction passed. The general PH correction partitions the unchanged 128-point 200–500 K scan at controlled PT failures, discovers candidates only inside valid intervals and rejects global ambiguity; it enables PRESSURE_FLASH_ONSET without hard-coded intervals or PT/EOS/tolerance changes. Only the separately authorized M11 early-abort implementation assertion changed; PH numerical evidence remains unchanged. All 609 Python, 260 TypeScript and 34 browser tests, schema parity, lint/types/format, build and smoke passed. Scope remains the frozen methane/n_hexane, explicit-zero-kij, tested pressure matrix with single-liquid/single-vapor inlet and qualified L/V/VL outlet; VL inlet, unsupported coexistence gaps and root-relevant property holes remain rejected. No sizing, Cv/Kv, flow prediction, shaft power, heat-duty/efficiency model, hydraulic/network pressure solution, non-equilibrium flashing or automatic separation is added. No M17 work has begun. See `MILESTONE_16.md` for the complete limitations, authorization history, protected-file inventory, numerical tables and tested review commands. Earlier milestone statements below describing M16 as unimplemented retain their historical meaning.
 
@@ -1740,8 +1770,9 @@ Current state:
 
 # 62. IMMEDIATE NEXT STEP
 
-M17 user-operated engineering checks are recorded in `MILESTONE_17.md`; a separate
-human review of its subsequently corrected general Stream Table is not yet reported.
+M17 user-operated engineering checks and completed visual acceptance of the
+corrected general Stream Table are recorded in `MILESTONE_17.md` (2026-10-01,
+America/Sao_Paulo), limited to the three reviewed cases.
 Use that document for reproduction and closeout evidence. Await a separately scoped
 next request; no M18 implementation is authorized by this closeout. Preserve
 historical M1–M16 accepted workflows and independent references. Live specification interpretation remains on its existing

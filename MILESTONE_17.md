@@ -4,8 +4,9 @@ Automated implementation and qualification: **COMPLETE — 2026-10-01**.
 Independent qualification, production integration, compatibility and completion
 checks passed. User-operated PT, PH, equal-pressure and invalidation checks were
 reported on 2026-10-01; their record is separate below. The subsequent general-table
-correction has automated verification, not a claimed human review. M17 commit/push
-is explicitly authorized for closeout; no deployment is authorized.
+correction is now visually accepted for the three recorded cases, as reported by
+Giovani Nunes on 2026-10-01 (America/Sao_Paulo); see the separate acceptance record
+below. No deployment is authorized.
 
 ## Baseline and relationship to existing capabilities
 
@@ -214,7 +215,8 @@ checks performed by the coding agent; no local screenshot files are claimed.
 These observations verify the reported manual engineering results and invalidation
 behavior. They also exposed the general Engineering Stream Table defect: molar
 flow, molecular mass and molar fractions displayed `—` despite available values in
-the dedicated panel. Human review of the subsequent correction is **not claimed**.
+the dedicated panel. Human review of the subsequent correction was not yet
+reported at that stage; completed visual acceptance is recorded separately below.
 
 New automated reproduction distinguishes one detail from the user report above:
 a same-case pressure edit retains raw results marked `not current`, shows
@@ -268,6 +270,37 @@ Unchanged artifact SHA-256 values:
 
 - Independent reference: `f6dfea8e4dad2729cef6ee33096a3f8c9fe76abfe8059e0dd8f18a6258242122`.
 - Production comparison: `840b6295dc63c3e8e4c9eedf1cd0e2f91d8e9b13da5d61387bc6a2c463d24665`.
+
+## Completed visual acceptance of the corrected interface
+
+Visual acceptance of the corrected molecular table: **COMPLETE — 2026-10-01,
+America/Sao_Paulo**, for the three cases below. Giovani Nunes reported manually
+executing the corrected interface. Screenshots were supplied to and reviewed in
+the ChatGPT design conversation. This is user-operated evidence with screenshot
+review in ChatGPT, not manual execution or direct screenshot inspection by this
+Codex session. No screenshots are claimed to be stored in the repository.
+
+All three cases displayed current results and passing mass/energy checks:
+
+- **PT reference:** feed 360 kmol/h and molecular mass 51.10908 kg/kmol;
+  liquid 32.85692419 kmol/h; vapor 327.14307581 kmol/h. Molecular masses and mole
+  fractions populated consistently. Calculated duty: +1832535.619763 W.
+- **Adiabatic PH at 1000000 Pa:** calculated temperature approximately
+  291.74213866 K; liquid 187.40076793 kmol/h; vapor 172.59923207 kmol/h.
+  Molecular masses and mole fractions populated consistently. Imposed duty: 0 W.
+- **Equal-pressure adiabatic PH at 30000000 Pa** (separator pressure equals inlet
+  pressure): calculated temperature approximately 300 K; liquid 18399.2688 kg/h
+  and 360 kmol/h; liquid molecular mass 51.10908 kg/kmol; liquid mole fractions
+  methane 0.5 and n-hexane 0.5. Absent vapor had zero mass, molar, component and
+  enthalpy flows. Vapor molecular mass, mass/mole fractions and specific enthalpy
+  displayed unavailable (—). Imposed duty: 0 W.
+
+The subsequent molecular-table correction is now visually accepted for these
+three cases; no discrepancies were reported in the supplied screenshots. This
+acceptance does not broaden the documented qualification scope or supersede the
+prior distinction between stale results retained as “not current” and cleared
+results. Prior automated evidence remains unchanged. This documentation-only
+registration did not rerun numerical or browser regression suites.
 
 ## Scope and remaining work
 
