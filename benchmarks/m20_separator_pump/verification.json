@@ -1,0 +1,263 @@
+{
+  "status": "automated_verification_passed_with_documented_exceptions",
+  "human_acceptance": "pending",
+  "baseline": {
+    "branch": "main",
+    "head": "2ca429d2e947c1c50219bfe65cd0d87f2a7cc7f0",
+    "live_remote": "2ca429d2e947c1c50219bfe65cd0d87f2a7cc7f0"
+  },
+  "runtime_matrix": {
+    "cases": 30,
+    "comparisons": 1680,
+    "failures": 0
+  },
+  "focused_python": 11,
+  "compatibility_python": 46,
+  "typescript": {
+    "tests": 273,
+    "files": 26
+  },
+  "browser": {
+    "tests": 40,
+    "final_full_suite": "passed"
+  },
+  "python": {
+    "discovered": 669,
+    "executed": 668,
+    "seconds": 723.171,
+    "passed": true,
+    "historical_snapshot_excluded": "test_variable_pump_evidence.EvidenceTests.test_equipment_comparison_and_source_capture"
+  },
+  "gates": {
+    "schema_parity": "passed",
+    "types": "passed",
+    "lint": "passed",
+    "implementation_formatting": "passed",
+    "repository_formatting": "only preserved preexisting tsconfig.json warning",
+    "build": "passed outside sandbox after stalled compile was stopped",
+    "smoke": "passed after correcting SITE_URL on isolated server; 17 pages and 17 PNG cards",
+    "diff_check": "passed"
+  },
+  "preservation": {
+    "protected_file_count": 67,
+    "sha256": {
+      "PRE_MILESTONE_20_LOW_PRESSURE_SEPARATOR_PUMP_QUALIFICATION.md": "335a06842b7f3710deb23f8127b41259b44b8877aae728f5e66272e8101eaac0",
+      "PRE_MILESTONE_20_SEPARATOR_LIQUID_CONTRACT_QUALIFICATION.md": "4cdc17dcb6260899b7c64aab23fd1329216632f08bbe1c2d894de7e3ad3bda91",
+      "benchmarks/low_pressure_separator_pump/PLAN.md": "844da35f26dc683fb3eca9994e42a65e1a1ffd3306eefd4ed67b86cb44af9e02",
+      "benchmarks/low_pressure_separator_pump/README.md": "6a494b3aa8516e09c616ec94c372142b0708415e1acc98ff4433dc9cef620f94",
+      "benchmarks/low_pressure_separator_pump/candidate_ledger.json": "2c4ed458054ea1c675db6a9bad71df570498a3f617bd8cc86886c5b82cb7cc58",
+      "benchmarks/low_pressure_separator_pump/common.py": "4d117bc5badd11b49fe04e60cc359c8e6d73b50e9724f768296d85192366b60c",
+      "benchmarks/low_pressure_separator_pump/compare.py": "ea0f043386986a08c586275aa8418c108ecaa796ddec50af1c8fccde125cc43b",
+      "benchmarks/low_pressure_separator_pump/phase_contract/PLAN.md": "a5a1ec7918be6a47c6bb747a7023f72fd278693b25415f611a46ce2dd320a6e1",
+      "benchmarks/low_pressure_separator_pump/phase_contract/README.md": "5620d3603e42c344637207fa57707aa206fb83061d83c0d1493fd12a43b43ad9",
+      "benchmarks/low_pressure_separator_pump/phase_contract/adapter.py": "c999820add3ee01aa580a126b90affcc15a7a93a7fc747647affdf5b4e937a0e",
+      "benchmarks/low_pressure_separator_pump/phase_contract/baseline.json": "ca417a94872c8e4b0ca91addfdc398bfdc123222a87076b547f8acab8eff4915",
+      "benchmarks/low_pressure_separator_pump/phase_contract/candidate_ledger.json": "d616934cb7bdf53eab3d616be11011abaabb66ee9d74e53ababba89f0f79787d",
+      "benchmarks/low_pressure_separator_pump/phase_contract/capture_sources.py": "524e96dbed6f684cda12886875aadb3528fbdcc3638079acbadf90fdac27bd6b",
+      "benchmarks/low_pressure_separator_pump/phase_contract/common.py": "245b04d5143690b69b7664d7851675370fff40cab739d6de47359584f5f31cc4",
+      "benchmarks/low_pressure_separator_pump/phase_contract/compare.py": "7637a4b7f2d31a43b4104f6acf523bef642c79f83b37c0c468ba68ca10912b20",
+      "benchmarks/low_pressure_separator_pump/phase_contract/negatives.py": "79f4a5f31b9e3981f9801f56251e26ffec0bb3ab96da86003e73d4015af8f838",
+      "benchmarks/low_pressure_separator_pump/phase_contract/preservation.json": "68eaff1c2bed863117c8a72ae5b530626de62b1ef2d3d59e1651d4ab1907ca57",
+      "benchmarks/low_pressure_separator_pump/phase_contract/production.json": "ecb5a0b2ea83bd740cb1f7dd9cffdf18a0abf9e3bb275cb315ebe626bf9ff070",
+      "benchmarks/low_pressure_separator_pump/phase_contract/pump.py": "0b09bdf6315ada7ad04ec5e4f416b0ccc6167d5035e38339f20af43378f06fad",
+      "benchmarks/low_pressure_separator_pump/phase_contract/reference.json": "c0c1492808e0bbe6fce1cc60e5d9de878b90a7efb79eb9877194f0fa0db9b161",
+      "benchmarks/low_pressure_separator_pump/phase_contract/reference.py": "5a2c691a168c0b78000396763b339ca0381fd99673fbc0bccd24dbcac915b0c3",
+      "benchmarks/low_pressure_separator_pump/phase_contract/sources.json": "711e821235fc75744274e8ca8fda36fb532c485ea736be1c94a8e8eb27cd8e2a",
+      "benchmarks/low_pressure_separator_pump/phase_contract/test_contract.py": "8010e5ef8f474163ff86cc5e85251b8d94f44dffcc0e96dae78aeb8897e820b1",
+      "benchmarks/low_pressure_separator_pump/phase_contract/verify.py": "ef6c61e17cc9846b9b4fd7f4799f185b7daef08412d855acd7bcd0c9fee8feb2",
+      "benchmarks/low_pressure_separator_pump/preservation.json": "4f58ee14bfe939533c86cb1006f2fdf3c24b94d40612de60f251ff13433dc213",
+      "benchmarks/low_pressure_separator_pump/production.json": "28410bb61af23f5cce56bc187c477e26df324a103296150621c43c09420a02ea",
+      "benchmarks/low_pressure_separator_pump/reference.json": "f8561da75590265a6060f69edfa3b8c0895670178cbd12bcacbd6b819d6d1858",
+      "benchmarks/low_pressure_separator_pump/reference.py": "115d5c32d736a2f842fb1dc84ad79b092c888a60121c56ed0143abc93387cb70",
+      "benchmarks/low_pressure_separator_pump/test_study.py": "df96793e6d06393dc32ead7913fafd0204e4c28fabb603d6410f58a2f0d7b3eb",
+      "benchmarks/low_pressure_separator_pump/verify.py": "029a67d7458198d791068cc067c0d418fcd73761575f55b72c7bbfa696ba899a",
+      "engine/riogineer_engine/CALORIC_DATA_NOTICE.txt": "d23c65061cdc4b6677f8a0a9a6f84823c74591b03d2586b5545bea3d94ed3cd4",
+      "engine/riogineer_engine/__init__.py": "cc7927576c117dbc92d5a1a0a0d411ad6eb9e229d268b3baadddc4cfbcffbd8b",
+      "engine/riogineer_engine/caloric_data.py": "dbe63e5c55a63af76be497b1a57e912461b8bca97cb29d9b34b89f5998f9c615",
+      "engine/riogineer_engine/components.py": "91a9fee707b80fa7b5c67d41a8249aaf729eab0944275ea36fa6baf8667b4d50",
+      "engine/riogineer_engine/compressor_energy.py": "425c3fe70f32ae4ceb590aba787d0f2d3a22549de8596ab78cefcb0e296140ad",
+      "engine/riogineer_engine/compressor_process.py": "ca1572ef12e94ebc292cbdd47619c6f384cb231ce834b78ab6b749c464d0f3eb",
+      "engine/riogineer_engine/equilibrium_separator.py": "355845a2ca9322278f16291c141c53976d1398d816824dd0bcc2e3423ce78380",
+      "engine/riogineer_engine/heater_cooler_energy.py": "6973a1cd63ded5be5f37e8620211122551951378103567dcaebe076b3d04a3d1",
+      "engine/riogineer_engine/milestone17.py": "eefa1762ddfb64a3ce2537adfde0a4d7b97b785d25354ff1ed5f86f94bb92d1e",
+      "engine/riogineer_engine/milestone18.py": "310a000f77195145bfb114f5fdd76a0ba37a850a63d3e3c0266ef56821588fd0",
+      "engine/riogineer_engine/milestone19.py": "16bd1779c59461c835a4f2bc202b40c4eea9d71db1c49df401261970b01cb5c8",
+      "engine/riogineer_engine/milestone9.py": "77d2847142a75857485dcba7af5274415ba106c6b6d2eeb6254d6666c801fce3",
+      "engine/riogineer_engine/network_models.py": "18363f2016da5b72933a6e4b76c8b850b9f93703feceb4381589f389f02e9742",
+      "engine/riogineer_engine/pr_caloric.py": "2e776ac70f6b7bc4f268dd27d6e348f8fab8f8f98daf6907fe468110566c1bfa",
+      "engine/riogineer_engine/pr_eos.py": "fb20eea36af50c8f7c72be3d7a0b2db2c22458cdd112c246cdeac70049359e22",
+      "engine/riogineer_engine/pr_flash.py": "076c499bd139a407d36ebbf7fecf7b2e05a440e0b51ad7bf755318c8e6d3721b",
+      "engine/riogineer_engine/pr_ph_flash.py": "00c70809f3c67ac0300bbcfc8185d88029008964986502b57a5ecb4343f4b246",
+      "engine/riogineer_engine/pr_ps_flash.py": "7fb2456edce130ff99948bf3b5fdb9755a87a83406ce74fb9d81ea5412c45caa",
+      "engine/riogineer_engine/pr_stability.py": "8bd877da79d33163238dae7ce6061beb41f194d940d22cac30c5eadcc94a1a68",
+      "engine/riogineer_engine/property_packages.py": "bed4cc88b4cbebc68ffdaa9a39cbf3918f28b242c0cc95ed767680bf23706bdf",
+      "engine/riogineer_engine/pump_energy.py": "7f9c59270901af6b20152b075dfed9499aa0f925823db9e7b7b6b6eb9e00374a",
+      "engine/riogineer_engine/pump_process.py": "2f918b9d461533ebb3e0748dd7cfd231c5637e9b411a2d5fc2ea8dcdde3b9b52",
+      "engine/riogineer_engine/rachford_rice.py": "d88f66b14df65425c71b42bb3fc2cdab9b157441da5e0075648a9881a0af8e70",
+      "engine/riogineer_engine/separator_energy.py": "b79ee772c97a0636d3824033445eae6b7d039355d358a1b4c2963d42bc0a96f3",
+      "engine/riogineer_engine/separator_energy_process.py": "2298430c0e4b5fdb8a1020e8eef59d9c0a2c4f0e17d91d0d2019a1b0806a8f6b",
+      "engine/riogineer_engine/server.py": "83936132c279f0642f8cb0bd8d409efb646995e052aa782efc5084705cc39c3f",
+      "engine/riogineer_engine/streams.py": "5a732f6b3693ad7f3b97f50b330b49dc941ceaa1d33a899411f623909789c723",
+      "engine/riogineer_engine/thermal_process.py": "6c19919b69364edb0e32fad57d95e1804a9f6250cc3c09d054a1d09b04058069",
+      "engine/riogineer_engine/thermodynamics.py": "400c458be031e0c2beb772e89f13be03369c0dd9efed91d8d24dd6ab139bd0c0",
+      "engine/riogineer_engine/throttling_valve_energy.py": "602b1430b57ed0c0fd8c3d680c284adac7bb2579805ede1fe24bc60d720c24b0",
+      "engine/riogineer_engine/throttling_valve_process.py": "41a4dd7895787b92081901b0318873a4af90a3c125944299600b914f2b69e8a9",
+      "engine/riogineer_engine/two_stream_heat_exchanger_energy.py": "d02efde1c1768266623243d7ec21924a32532822cbace93f25b1e6a99e54a561",
+      "engine/riogineer_engine/two_stream_heat_exchanger_process.py": "ec5a51c4d7648b8cabb6eda15e149e8035393470c7c3d2f8bc7bddc5cbea1abe",
+      "engine/riogineer_engine/variable_pump_energy.py": "a73834ec8f0d3ec29ede6f540d145c79930840deda7e414402cd3708672366ad",
+      "engine/riogineer_engine/variable_pump_process.py": "6b7b1a9cb3df18a073514ed04643cc2b6f4ca6db87c73a009692c9a0ba5e242f",
+      "next-env.d.ts": "1f2e4a6d7f55de2de72375901050f2af22ed89992a781fce74d6e6a4d3fc94f0",
+      "tsconfig.json": "e2a28ab5d02bb5b555a28523be8786d9dc3a400fe125f14602261e24a6288126"
+    },
+    "master_prefix_bytes": 85324,
+    "master_prefix_sha256": "5910158f05237e5cb56cc8b0d745fbcba88a86ed4c04e1bdc867f6f411779189",
+    "passed": true
+  },
+  "git": {
+    "branch": "main",
+    "head": "2ca429d2e947c1c50219bfe65cd0d87f2a7cc7f0",
+    "index_empty": true,
+    "commit_push_deploy": false,
+    "status_porcelain": [
+      " M contracts/v1/flowsheet.schema.json",
+      " M contracts/v1/requirements.schema.json",
+      " M contracts/v1/results.schema.json",
+      " M contracts/v1/validation.schema.json",
+      " M docs/RIOGINEER_MASTER_CONTEXT.md",
+      " M engine/riogineer_engine/core.py",
+      " M engine/riogineer_engine/network.py",
+      " M next-env.d.ts",
+      " M src/app/digital-engineer/pfd.tsx",
+      " M src/app/digital-engineer/workspace.tsx",
+      " M src/lib/digital-engineer/contracts.ts",
+      " M tsconfig.json",
+      "?? MILESTONE_20.md",
+      "?? PRE_MILESTONE_20_LOW_PRESSURE_SEPARATOR_PUMP_QUALIFICATION.md",
+      "?? PRE_MILESTONE_20_SEPARATOR_LIQUID_CONTRACT_QUALIFICATION.md",
+      "?? benchmarks/low_pressure_separator_pump/PLAN.md",
+      "?? benchmarks/low_pressure_separator_pump/README.md",
+      "?? benchmarks/low_pressure_separator_pump/candidate_ledger.json",
+      "?? benchmarks/low_pressure_separator_pump/common.py",
+      "?? benchmarks/low_pressure_separator_pump/compare.py",
+      "?? benchmarks/low_pressure_separator_pump/phase_contract/PLAN.md",
+      "?? benchmarks/low_pressure_separator_pump/phase_contract/README.md",
+      "?? benchmarks/low_pressure_separator_pump/phase_contract/adapter.py",
+      "?? benchmarks/low_pressure_separator_pump/phase_contract/baseline.json",
+      "?? benchmarks/low_pressure_separator_pump/phase_contract/candidate_ledger.json",
+      "?? benchmarks/low_pressure_separator_pump/phase_contract/capture_sources.py",
+      "?? benchmarks/low_pressure_separator_pump/phase_contract/common.py",
+      "?? benchmarks/low_pressure_separator_pump/phase_contract/compare.py",
+      "?? benchmarks/low_pressure_separator_pump/phase_contract/negatives.py",
+      "?? benchmarks/low_pressure_separator_pump/phase_contract/preservation.json",
+      "?? benchmarks/low_pressure_separator_pump/phase_contract/production.json",
+      "?? benchmarks/low_pressure_separator_pump/phase_contract/pump.py",
+      "?? benchmarks/low_pressure_separator_pump/phase_contract/reference.json",
+      "?? benchmarks/low_pressure_separator_pump/phase_contract/reference.py",
+      "?? benchmarks/low_pressure_separator_pump/phase_contract/sources.json",
+      "?? benchmarks/low_pressure_separator_pump/phase_contract/test_contract.py",
+      "?? benchmarks/low_pressure_separator_pump/phase_contract/verify.py",
+      "?? benchmarks/low_pressure_separator_pump/preservation.json",
+      "?? benchmarks/low_pressure_separator_pump/production.json",
+      "?? benchmarks/low_pressure_separator_pump/reference.json",
+      "?? benchmarks/low_pressure_separator_pump/reference.py",
+      "?? benchmarks/low_pressure_separator_pump/test_study.py",
+      "?? benchmarks/low_pressure_separator_pump/verify.py",
+      "?? benchmarks/m20_separator_pump/README.md",
+      "?? benchmarks/m20_separator_pump/baseline.json",
+      "?? benchmarks/m20_separator_pump/implementation.json",
+      "?? benchmarks/m20_separator_pump/regression.py",
+      "?? benchmarks/m20_separator_pump/verification.json",
+      "?? benchmarks/m20_separator_pump/verify.py",
+      "?? contracts/examples/milestone-20-alternate-requirements.json",
+      "?? contracts/examples/milestone-20-identity-requirements.json",
+      "?? contracts/examples/milestone-20-reference-requirements.json",
+      "?? contracts/examples/milestone-20-scaled-requirements.json",
+      "?? contracts/examples/milestone-20-unsupported-requirements.json",
+      "?? engine/riogineer_engine/milestone20.py",
+      "?? engine/riogineer_engine/separator_liquid_pump.py",
+      "?? engine/riogineer_engine/separator_liquid_state.py",
+      "?? engine/riogineer_engine/separator_pump_cases.json",
+      "?? engine/riogineer_engine/separator_pump_process.py",
+      "?? engine/riogineer_engine/separator_pump_scope.py",
+      "?? engine/tests/test_separator_pump_integration.py",
+      "?? src/app/digital-engineer/separator-pump-results.tsx",
+      "?? tests/e2e/separator-pump.spec.ts",
+      "?? tests/separator-pump.test.ts"
+    ]
+  },
+  "logs": {
+    "m20-matrix.log": {
+      "path": "/tmp/m20-matrix.log",
+      "sha256": "ca783ea1f6536764d7131c287a740b600f139036f738fd2c53344f7770e01fd3"
+    },
+    "m20-focused-python.log": {
+      "path": "/tmp/m20-focused-python.log",
+      "sha256": "e28dbbae6e28bf379ea1ad81b94175e32ef5d04fa72bc5f7581021f20ca813ca"
+    },
+    "m20-compatibility.log": {
+      "path": "/tmp/m20-compatibility.log",
+      "sha256": "ae6e601f214fbb455b7fc8280ae6db2e62690ea93de86c65b5049f32fd05a0fd"
+    },
+    "m20-focused-ts.log": {
+      "path": "/tmp/m20-focused-ts.log",
+      "sha256": "d3fc09ad47fa038829d9a9d96161c23dfd91b75e70245fece291e334bab71c18"
+    },
+    "m20-vitest.log": {
+      "path": "/tmp/m20-vitest.log",
+      "sha256": "5736ac807e73b363050b67f717110b90f49efaede31c37ae2ef7442ccf2e40f3"
+    },
+    "m20-python-regression.log": {
+      "path": "/tmp/m20-python-regression.log",
+      "sha256": "85b4fab4e2f3b8bcd8e6836c3548adbb74cf6550c86c111f3f3bd2c5d35b50bd"
+    },
+    "m20-browser-focused.log": {
+      "path": "/tmp/m20-browser-focused.log",
+      "sha256": "3b015477acf4a00dfabc41d37a936808311b017e4af33c2c1a2975268a86f0f2"
+    },
+    "m20-browser-regression.log": {
+      "path": "/tmp/m20-browser-regression.log",
+      "sha256": "348ae6bd896302118215a86fc256d804f4714176136247de0fb3c53d29d94b77"
+    },
+    "m20-typecheck-final.log": {
+      "path": "/tmp/m20-typecheck-final.log",
+      "sha256": "96d0a722bcfb23f260df61af41cfca356ab44393cc772e6f9dad5e16d97846da"
+    },
+    "m20-lint-final.log": {
+      "path": "/tmp/m20-lint-final.log",
+      "sha256": "d465a930e08935808fd0a3cff16d860f92d015c8bde52b0fbd0a2fe4f60630d2"
+    },
+    "m20-schema.log": {
+      "path": "/tmp/m20-schema.log",
+      "sha256": "ac93fc97afa5f49d20b9945b78701276054cc2c78d2c777b55e35f8f2d64e38a"
+    },
+    "m20-format.log": {
+      "path": "/tmp/m20-format.log",
+      "sha256": "9becd36f3df8cf97ca55010778d3b3b1e006c93f675422f9d2becb7bdaecd469"
+    },
+    "m20-build.log": {
+      "path": "/tmp/m20-build.log",
+      "sha256": "3c2abd4452702d23eff7fa06b736919149c6135a0b34c6d5f43ef9818476a0af"
+    },
+    "m20-build-retry.log": {
+      "path": "/tmp/m20-build-retry.log",
+      "sha256": "7c058acf2b2d561c8f24838e479061af6411cc4727d7179df8095fcac61bb812"
+    },
+    "m20-smoke.log": {
+      "path": "/tmp/m20-smoke.log",
+      "sha256": "6730969a6f2ad4d85712c45cc930fc4e9ee99ab2af17b0012b50298776b8f196"
+    },
+    "m20-smoke-retry.log": {
+      "path": "/tmp/m20-smoke-retry.log",
+      "sha256": "825bd5232a4e0965b9546db4dedf9fc079ea84cefea372a302401a8517c92e08"
+    }
+  },
+  "retries": [
+    "Initial canonical diagnostic tuples normalized to JSON arrays before contract validation.",
+    "Initial all30 sweep stopped at PH_HEXANE_RICH exact evaluated-composition equality; association now checks exact retained specification and qualified 1e-12 evaluated composition tolerance; final full sweep passed.",
+    "Focused Python attempted before matrix artifact existed; final focused run passed after complete matrix.",
+    "Initial local browser socket bind required permitted sandbox retry.",
+    "Focused browser exposed missing PFD version routing, then case-switch assertion mismatch; final focused and full runs passed.",
+    "Sandboxed build stalled; only owned validation build stopped; permitted retry passed.",
+    "Initial smoke received contact-origin 403; corrected isolated SITE_URL, then passed."
+  ]
+}

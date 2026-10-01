@@ -1974,3 +1974,156 @@ are distinct from the unchanged historical 658 cumulative Python / 271 TypeScrip
 39 browser record, including its separately successful HTTP retry. No full suites
 are rerun solely for closeout. User services remain running. Handoff: accepted M19
 only; await a separate task, with no deployment, M20 or scope expansion.
+
+## Pre-M20 low-pressure separator-liquid pump study — 2026-10-01
+
+Study only; M20 is not implemented. The 24 actual historical M17 outputs contain
+19 liquids (15 saturated, four compressed) and five absent liquid outlets.
+Unchanged PT reproduces their phase calorics, including methane fractions below
+0.01. The 41-entry study records 30 accepted numerical tuples, nine rejections
+and two unresolved 8 MPa PS paths with retained high-temperature scan holes;
+2,337 applicable independent comparisons pass. This supports specific tuples,
+not a configurable production domain. Literal streams still fail M19's
+independent-caloric-input contract and its scalar scope. Saturated phase/provenance
+semantics, local admissibility, inverse limitations and mixed-network integration
+remain future dependencies; no NPSH/cavitation or experimental validation is implied.
+See `PRE_MILESTONE_20_LOW_PRESSURE_SEPARATOR_PUMP_QUALIFICATION.md` and
+`benchmarks/low_pressure_separator_pump/` for inventory, fixed tolerances, complete
+ledger, independent provenance and reproduction. Production/historical evidence
+and both unrelated local files remain unchanged; no stage, commit, push or deploy.
+
+## Pre-M20 separator-liquid contract/local guards — 2026-10-01
+
+Study-only continuation reaches decision A for future implementation restricted
+to the 30 explicitly qualified tuples; M20 is not implemented. A proposed additive
+state context distinguishes upstream-derived Hdot from independent caloric inputs,
+resolves actual source calculation/port identity and preserves source material/energy
+values. Fresh production PT/common-tangent/fugacity evidence admits verified
+saturated liquid; same-T/z lower-pressure liquid witnesses screen compressed states.
+No reference-library runtime dependency or new shared boundary solver is required
+for these exact cases. This is not a configurable domain or cavitation approval.
+Twelve captured separator results, 72 new independent witnesses/probes, eight fresh
+pump/identity paths and 2,543 comparisons support the study; 27 contract negatives
+reject as expected. Both known 8 MPa PS failures remain unresolved and excluded.
+See `PRE_MILESTONE_20_SEPARATOR_LIQUID_CONTRACT_QUALIFICATION.md` and
+`benchmarks/low_pressure_separator_pump/phase_contract/`. Future implementation
+still needs source-freshness resolution, additive schemas/adapters and mixed-network
+integration under separate authorization. All first-study/historical evidence and
+both unrelated modified files remain preserved; no stage, commit, push or deploy.
+
+## M20 — qualified separator-to-pump integration (2026-10-01; human acceptance pending)
+
+Production implementation adds `separator_pump_energy`: existing M17 rigorous separator
+→ verified actual liquid → `separator_liquid_pump_pr@1.0` → liquid product, with a separate
+vapor sink. Requirements/flowsheet/results versions are 1.12/1.13/1.14; branch engine 1.13.0.
+The production input-only specification admits exactly the 30 accepted phase-contract
+study tuples, including only the explicit 1,000 Pa exception. Known 8 MPa PS failures
+remain excluded and unresolved. No arbitrary low-pressure envelope, interpolation,
+new feed thermodynamic qualification, hydraulics, NPSH or cavitation prediction.
+
+Runtime source resolution comes from the validated graph and private current execution,
+not editable provenance assertions or historic UUIDs. Upstream Hdot is preserved and
+verified. Versioned phase/source/basis contexts distinguish independent PT and derived
+material; pump outlets identify the pump and retain separator lineage. Identity preserves
+material fields exactly, returns zero work/null reconstructed efficiency, and skips PS/PH.
+Shared thermodynamic solvers and M17–M19 model/contract behavior remain unchanged.
+
+Fresh runtime evidence: `benchmarks/m20_separator_pump/implementation.json`; exact source
+mapping and 1,680 comparisons across 30 tuples pass against frozen independent evidence.
+The inverse association keeps exact received specifications and uses the qualified
+composition tolerance for the unchanged PR evaluator's normalization roundoff. The
+qualified local phase policy, full inverse scans, 500 K work-budget term and atomic
+failure behavior remain mandatory; endpoint checks do not prove a continuous liquid path.
+
+See `MILESTONE_20.md` for scope, verification, exact implementation/prerequisite inventories,
+CLI/browser demonstrations and the pending human-acceptance checklist. The two prerequisite
+studies and their frozen artifacts are preserved byte-for-byte, including their historical
+qualification status. The original context prefix and unrelated `next-env.d.ts` and
+`tsconfig.json` modifications are preserved. Everything remains unstaged; no commit, push
+or deployment. Browser automation does not constitute human acceptance.
+
+## M20 — user-reported browser checks and energy-label correction (2026-10-01)
+
+Giovani Nunes reported the following browser checks on 2026-10-01,
+America/Sao_Paulo. These are user observations, separate from automated evidence;
+the assistant did not operate the user's browser or assert repository screenshots.
+
+- Canonical: four-stream topology inspected; pump 1 → 2 MPa, outlet approximately
+  292.169147283 K, fluid power approximately 8068.185157497 W; balances passed.
+  Exported JSON was reviewed in the accompanying ChatGPT discussion and matched the
+  display, preserving component flows, upstream enthalpy and consistent run/source lineage.
+- Identity: inlet/outlet 1 MPa and approximately 291.742138657 K; zero fluid power;
+  flow/composition/enthalpy preserved, reconstructed efficiency unavailable for equal-pressure
+  identity, balances passed.
+- Alternative PT: pump 0.3 → 1.3 MPa, liquid flow approximately 2813.610577 kg/h,
+  temperature 350 → 350.57142487 K, fluid power approximately 1585.58354265 W,
+  separator heat duty approximately 1832535.61976255 W; balances passed. The remaining
+  defect was the general summary incorrectly attributing process heat to imposed pump duty.
+- SCALED17.3: pump liquid flow 17.3 mol/s = 62.28 kmol/h (not total process-feed flow),
+  fluid power approximately 2681.34745204 W; canonical-consistent pressure, temperature,
+  composition, flow-scaled extensive quantities; balances passed and results current.
+- Unsupported: explicit `unsupported_qualified_tuple` rejection identifying 30 qualified
+  combinations and known 8 MPa exclusions; no PFD generated, calculation disabled.
+- Stale: canonical feed-temperature edit displayed “Engineering results — STALE,” a warning
+  that retained results belonged to a previous calculation, and disabled Download results.
+  Historical values remained visible with the warning; they were not cleared.
+
+The presentation-only correction separates M20 process-total heat duty from total power
+transferred to the fluid, using the corresponding process result fields and explicit
+positive-into-process signs. Separator specification labels use its mode: PT calculated,
+adiabatic imposed zero. Zero/unavailable semantics and historical equipment workflows
+remain intact. No numerical output, contract, solver, scope or frozen evidence changed.
+Six focused frontend tests passed (including rendered general summaries for PT, PH and
+identity); types, changed-file lint/formatting and diff checks passed. Previous full-suite
+history and the historical M19 test exclusion are preserved, not rerun or reclassified.
+Current unrelated Next/TS configuration bytes are preserved; no services were started or
+stopped. See the new section in `MILESTONE_20.md` for exact observations, commands, files,
+hashes and the short visual-review checklist. Everything remains unstaged; no commit,
+push, deployment or M21. Final M20 closeout remains pending the user's visual review of
+this correction; the corrected UI has not yet received human acceptance.
+
+## M20 — final human acceptance and closeout (2026-10-01)
+
+**Current status: M20 accepted and complete within its documented scope.**
+Reviewer: **Giovani Nunes**; date: **2026-10-01**;
+timezone: **America/Sao_Paulo**. Evidence: user-operated browser checks, screenshots
+and an exported JSON reviewed in the accompanying ChatGPT discussion. The assistant
+did not perform these manual checks and asserts no repository paths for uploads or
+screenshots. Earlier pending statements above are preserved as historical context;
+this entry supersedes their status.
+
+All previously recorded canonical, identity, alternative PT, scaled-flow,
+unsupported-combination, stale-warning/disabled-download and exported-JSON
+agreement/provenance observations remain valid. The user has now also visually
+confirmed the corrected general and detailed energy labels:
+
+- Alternative PT (`PT_VL_HEATING_DP1000000.0`): total process heat duty
+  **1832535.619763 W**, separately displayed power transferred to the fluid
+  **1585.583543 W**; detailed label **“Separator heat duty — calculated”**;
+  mass and energy checks remain passed.
+- Canonical PH (`PH_FLASH_DP1000000.0`): total process heat duty **0 W**,
+  separately displayed power transferred to the fluid **8068.185157 W**;
+  detailed label **“Separator heat duty — imposed zero”**; mass and energy checks
+  remain passed.
+
+The heat-duty attribution defect is corrected and visually reviewed by the user.
+Acceptance remains limited to exactly **30 qualified methane/n-hexane combinations
+with explicit zero kij**, existing local phase checks and numerical guards. No
+continuous envelope/interpolation, NPSH, cavitation safety, hydraulic sizing or
+electrical-power qualification. Known 8 MPa PS failures remain unresolved and
+excluded; broader separator-to-pump operation is outside this completed scope.
+
+The final reviewed inventory is **63 unique paths**: 33 M20 implementation paths,
+including the summary regression test and final acceptance documentation, plus 30
+prerequisite-study paths. The shared master-context path is counted once. Current
+`next-env.d.ts` and `tsconfig.json` bytes are preserved and excluded. Historical
+verification, its explicit hash-assertion exclusion, and the subsequent six frontend
+tests remain recorded without claiming new full-suite runs. Closeout uses read-only
+evidence/source integrity, inventory, schema, changed-document formatting and
+working-tree/staged-diff checks; no frozen evidence or solver changes.
+
+The user authorized the M20/prerequisite commit and normal push to `origin/main`:
+`Complete Milestone 20 separator-to-pump integration and record human acceptance`.
+No deployment, M21 work, expanded qualification or service shutdown. See
+`MILESTONE_20.md` for the exact inventory, final acceptance details and fresh-conversation
+handoff. Broader operation and the known 8 MPa failures require separate future work.

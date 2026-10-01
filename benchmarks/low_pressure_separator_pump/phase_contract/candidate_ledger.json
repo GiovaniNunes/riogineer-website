@@ -1,0 +1,2326 @@
+{
+  "cases": [
+    {
+      "case_id": "PT_VL_HEATING_DP0.0",
+      "group": "prior_tuple_local_qualification",
+      "source": "PT_VL_HEATING",
+      "status": "accepted"
+    },
+    {
+      "case_id": "PT_VL_HEATING_DP10000.0",
+      "group": "prior_tuple_local_qualification",
+      "source": "PT_VL_HEATING",
+      "status": "accepted"
+    },
+    {
+      "case_id": "PT_VL_HEATING_DP1000000.0",
+      "group": "prior_tuple_local_qualification",
+      "source": "PT_VL_HEATING",
+      "status": "accepted"
+    },
+    {
+      "case_id": "PT_VL_INLET_EQUAL_DP0.0",
+      "group": "prior_tuple_local_qualification",
+      "source": "PT_VL_INLET_EQUAL",
+      "status": "accepted"
+    },
+    {
+      "case_id": "PT_VL_INLET_EQUAL_DP10000.0",
+      "group": "prior_tuple_local_qualification",
+      "source": "PT_VL_INLET_EQUAL",
+      "status": "accepted"
+    },
+    {
+      "case_id": "PT_VL_INLET_EQUAL_DP1000000.0",
+      "group": "prior_tuple_local_qualification",
+      "source": "PT_VL_INLET_EQUAL",
+      "status": "accepted"
+    },
+    {
+      "case_id": "PT_VAPOR_INLET_COOLING_DP0.0",
+      "group": "prior_tuple_local_qualification",
+      "source": "PT_VAPOR_INLET_COOLING",
+      "status": "accepted"
+    },
+    {
+      "case_id": "PT_VAPOR_INLET_COOLING_DP10000.0",
+      "group": "prior_tuple_local_qualification",
+      "source": "PT_VAPOR_INLET_COOLING",
+      "status": "accepted"
+    },
+    {
+      "case_id": "PT_VAPOR_INLET_COOLING_DP1000000.0",
+      "group": "prior_tuple_local_qualification",
+      "source": "PT_VAPOR_INLET_COOLING",
+      "status": "accepted"
+    },
+    {
+      "case_id": "PH_FLASH_DP0.0",
+      "group": "prior_tuple_local_qualification",
+      "source": "PH_FLASH",
+      "status": "accepted"
+    },
+    {
+      "case_id": "PH_FLASH_DP10000.0",
+      "group": "prior_tuple_local_qualification",
+      "source": "PH_FLASH",
+      "status": "accepted"
+    },
+    {
+      "case_id": "PH_FLASH_DP1000000.0",
+      "group": "prior_tuple_local_qualification",
+      "source": "PH_FLASH",
+      "status": "accepted"
+    },
+    {
+      "case_id": "PH_HEXANE_RICH_DP0.0",
+      "group": "prior_tuple_local_qualification",
+      "source": "PH_HEXANE_RICH",
+      "status": "accepted"
+    },
+    {
+      "case_id": "PH_HEXANE_RICH_DP10000.0",
+      "group": "prior_tuple_local_qualification",
+      "source": "PH_HEXANE_RICH",
+      "status": "accepted"
+    },
+    {
+      "case_id": "PH_HEXANE_RICH_DP1000000.0",
+      "group": "prior_tuple_local_qualification",
+      "source": "PH_HEXANE_RICH",
+      "status": "accepted"
+    },
+    {
+      "case_id": "PT_BUBBLE_BELOW_DP0.0",
+      "group": "prior_tuple_local_qualification",
+      "source": "PT_BUBBLE_BELOW",
+      "status": "accepted"
+    },
+    {
+      "case_id": "PT_BUBBLE_BELOW_DP10000.0",
+      "group": "prior_tuple_local_qualification",
+      "source": "PT_BUBBLE_BELOW",
+      "status": "accepted"
+    },
+    {
+      "case_id": "PT_BUBBLE_BELOW_DP1000000.0",
+      "group": "prior_tuple_local_qualification",
+      "source": "PT_BUBBLE_BELOW",
+      "status": "accepted"
+    },
+    {
+      "case_id": "PT_BUBBLE_ABOVE_DP0.0",
+      "group": "prior_tuple_local_qualification",
+      "source": "PT_BUBBLE_ABOVE",
+      "status": "accepted"
+    },
+    {
+      "case_id": "PT_BUBBLE_ABOVE_DP10000.0",
+      "group": "prior_tuple_local_qualification",
+      "source": "PT_BUBBLE_ABOVE",
+      "status": "accepted"
+    },
+    {
+      "case_id": "PT_BUBBLE_ABOVE_DP1000000.0",
+      "group": "prior_tuple_local_qualification",
+      "source": "PT_BUBBLE_ABOVE",
+      "status": "accepted"
+    },
+    {
+      "case_id": "PT_DEW_BELOW_DP0.0",
+      "group": "prior_tuple_local_qualification",
+      "source": "PT_DEW_BELOW",
+      "status": "accepted"
+    },
+    {
+      "case_id": "PT_DEW_BELOW_DP10000.0",
+      "group": "prior_tuple_local_qualification",
+      "source": "PT_DEW_BELOW",
+      "status": "accepted"
+    },
+    {
+      "case_id": "PT_DEW_BELOW_DP1000000.0",
+      "group": "prior_tuple_local_qualification",
+      "source": "PT_DEW_BELOW",
+      "status": "accepted"
+    },
+    {
+      "case_id": "ETA0.6",
+      "group": "prior_tuple_local_qualification",
+      "source": "PH_FLASH",
+      "status": "accepted"
+    },
+    {
+      "case_id": "ETA1.0",
+      "group": "prior_tuple_local_qualification",
+      "source": "PH_FLASH",
+      "status": "accepted"
+    },
+    {
+      "case_id": "SMALL1000.0",
+      "group": "prior_tuple_local_qualification",
+      "source": "PH_FLASH",
+      "status": "accepted"
+    },
+    {
+      "case_id": "SCALED5.0",
+      "group": "prior_tuple_local_qualification",
+      "source": "SCALED5.0",
+      "status": "accepted"
+    },
+    {
+      "case_id": "SCALED17.3",
+      "group": "prior_tuple_local_qualification",
+      "source": "SCALED17.3",
+      "status": "accepted"
+    },
+    {
+      "case_id": "SCALED200.0",
+      "group": "prior_tuple_local_qualification",
+      "source": "SCALED200.0",
+      "status": "accepted"
+    },
+    {
+      "case_id": "a847d7ff8d40646c3eb748e17b00916fc5c53e8345f9e68fdbe547e14f9891d8",
+      "group": "witness",
+      "status": "rejected"
+    },
+    {
+      "case_id": "071e12b5b7b9960f0e2a2a419ba21c2aacb0ed6a6c0c8bc8974b87e9bcd56f13",
+      "group": "witness",
+      "status": "compressed_witness"
+    },
+    {
+      "case_id": "8a5a915c05e43e85eba3ffcc03b4652bfc2bee152f2270eed1d3b62ba219bbaa",
+      "group": "witness",
+      "status": "compressed_witness"
+    },
+    {
+      "case_id": "f33164dcfbdaa60057dc5042f9e8e927af7e38cc1d38b166cac03c761e4d2d04",
+      "group": "witness",
+      "status": "compressed_witness"
+    },
+    {
+      "case_id": "d570e0ef8dd557f0ec67f63320a6143708336e9c50a1916129590a1d0a50c245",
+      "group": "witness",
+      "status": "compressed_witness"
+    },
+    {
+      "case_id": "5e9b720ab1f03f2484a3cd345bcd124626d8a50af83acfe033805c051d13a07d",
+      "group": "witness",
+      "status": "rejected"
+    },
+    {
+      "case_id": "4a485903c6652e10a8e0de839af80f30e0a6acc732c12550a0a632470e936b47",
+      "group": "witness",
+      "status": "compressed_witness"
+    },
+    {
+      "case_id": "0e71007a66a689dbce7a4b7298d791f8218b21f0a2ac2a29b5c3b7577b134a2a",
+      "group": "witness",
+      "status": "compressed_witness"
+    },
+    {
+      "case_id": "4a65c84db006762cc56ba4b6774ba7d10825da3d15cdf731eb77cca5fc0e4f69",
+      "group": "witness",
+      "status": "compressed_witness"
+    },
+    {
+      "case_id": "ef0d9b4d4e70dd0f60fe8cf2d52cc5fc805be6bdab819a75ae20ceaea32d1780",
+      "group": "witness",
+      "status": "compressed_witness"
+    },
+    {
+      "case_id": "4726fe83f2d83655138f6e88aefc9475930554cdcc9dad6fb879db2c1ce00481",
+      "group": "witness",
+      "status": "rejected"
+    },
+    {
+      "case_id": "e9a98ead5b4c099f2a51207ff4788f2845fe464bf8b09cbf2d87aabb4bf80c31",
+      "group": "witness",
+      "status": "compressed_witness"
+    },
+    {
+      "case_id": "6475b1c2fdb1467cff147ad7ada548ef7bb5aa435039148ac3feecd0b39d1c47",
+      "group": "witness",
+      "status": "compressed_witness"
+    },
+    {
+      "case_id": "7161ac6528b97b82778df368b448bedd444526825d4913a09ded14bc422fa6b0",
+      "group": "witness",
+      "status": "compressed_witness"
+    },
+    {
+      "case_id": "844cbe4876c7023ac2d9589b0a687c341b6d0801b06660fd8f4f8a7c4d8ac274",
+      "group": "witness",
+      "status": "compressed_witness"
+    },
+    {
+      "case_id": "bb6b6c9b7f3add4f0419668780695f64517e68e7509d90078861a1458821c3ac",
+      "group": "witness",
+      "status": "rejected"
+    },
+    {
+      "case_id": "4f4e5b3a092ec3026ccfa100b6848fec2d8672c2128c28f032bec7b4a1375b5a",
+      "group": "witness",
+      "status": "compressed_witness"
+    },
+    {
+      "case_id": "509be801c7019a7ee1db9a31c0dd12111cd1dbda3d1c8825dd9c0ec8814c12ad",
+      "group": "witness",
+      "status": "compressed_witness"
+    },
+    {
+      "case_id": "9f0652b79931fef93356dfe0e0f0d2d7e13b3676f7b5d8af460d51f195db0cd1",
+      "group": "witness",
+      "status": "compressed_witness"
+    },
+    {
+      "case_id": "d3d0f5e8781572cdc06009a2026ec1203aaa5fc781e6cf548d4e6d6a889ea5ba",
+      "group": "witness",
+      "status": "compressed_witness"
+    },
+    {
+      "case_id": "bd5cd695664ddb5e91c4eaab96ac6a42925d59923b93897ec703cd70e1a5d2d2",
+      "group": "witness",
+      "status": "rejected"
+    },
+    {
+      "case_id": "ef30ffcfc8424da01f51767475563b1550e5c6f43beafd3f54cc4446ac7370b5",
+      "group": "witness",
+      "status": "compressed_witness"
+    },
+    {
+      "case_id": "235a76ebbac4221fdcc48064715e6e99801ee79a21dd032d6518523cb7dfd63b",
+      "group": "witness",
+      "status": "compressed_witness"
+    },
+    {
+      "case_id": "e6cb9a180290b179eda4b001d8e6399b07248846a715b40a4ec06ad1ee44e0bd",
+      "group": "witness",
+      "status": "compressed_witness"
+    },
+    {
+      "case_id": "3348e382c36a15274dca003263ede045a858b72ff530001b003c211251356cf4",
+      "group": "witness",
+      "status": "compressed_witness"
+    },
+    {
+      "case_id": "7efbfca204a34074b22d4542bcf8918514e366472d3a3c1e0072a1193cf2de52",
+      "group": "witness",
+      "status": "compressed_witness"
+    },
+    {
+      "case_id": "7501e9744b956fb4e164dab5a294c49a66edb6db491fb83c67384307727ced58",
+      "group": "witness",
+      "status": "compressed_witness"
+    },
+    {
+      "case_id": "cdf4e6927d81c614a04d05a8db4ee480e3a4a85b77bd6cdbab2728c2f07c443c",
+      "group": "witness",
+      "status": "compressed_witness"
+    },
+    {
+      "case_id": "0512fd01a770735bf66eb6274ed6428caa0285c739c7de73d95ca3fa51970f54",
+      "group": "witness",
+      "status": "compressed_witness"
+    },
+    {
+      "case_id": "715debff3e27e6877e427242ba72e1715951c6938877a71ec9f87aa0e00884a4",
+      "group": "witness",
+      "status": "compressed_witness"
+    },
+    {
+      "case_id": "cca039a2dc689b87c85471c50185be67dab21b567e705b7df2f3f0cd1c5e7479",
+      "group": "witness",
+      "status": "rejected"
+    },
+    {
+      "case_id": "1529c9a5cdccf21e4b145f6c104336a5ab1fec8d41370c6809c356b2fe978ced",
+      "group": "witness",
+      "status": "compressed_witness"
+    },
+    {
+      "case_id": "0556902c0113ea53dad4f65f9ffe69c5703b1e5621b06acb045be58596d215e3",
+      "group": "witness",
+      "status": "compressed_witness"
+    },
+    {
+      "case_id": "9bfecbfb401cbc5498861d9edfb68432aab0968e39fbd47b04b0135d322f5183",
+      "group": "witness",
+      "status": "compressed_witness"
+    },
+    {
+      "case_id": "92107ef47128fe6103ac79c213dd4313f363b9ae71cdd37b040d219eda1abaf0",
+      "group": "witness",
+      "status": "compressed_witness"
+    },
+    {
+      "case_id": "af3ee9a45f501fa016c446d37b195be24e9b7a892da494fa5fa5e23cecba4334",
+      "group": "witness",
+      "status": "rejected"
+    },
+    {
+      "case_id": "87e0695f3ede34e97a8e0edc0d28cf10562662e8e62984605b78f83f1077391b",
+      "group": "witness",
+      "status": "compressed_witness"
+    },
+    {
+      "case_id": "4336615ee91d5738305311ba97d7c6ac0e996e079673c4cb00efd28bee2f8714",
+      "group": "witness",
+      "status": "compressed_witness"
+    },
+    {
+      "case_id": "8249168db196614b8fefaf1ea118470b0de1fae7aa9a45bc260386e1e2fc834c",
+      "group": "witness",
+      "status": "compressed_witness"
+    },
+    {
+      "case_id": "c57635d6b15e596255a843cd388eefd7791159c370511acbc076aea9a0b7fe28",
+      "group": "witness",
+      "status": "compressed_witness"
+    },
+    {
+      "case_id": "d6fb7791554abef608dbeb3323fb3b00a1546445234829be4113e641322d7d99",
+      "group": "witness",
+      "status": "compressed_witness"
+    },
+    {
+      "case_id": "f010ec56347d712ef4be042662b0061e6267b1f1dd6e931ddba3f9b27bb19f1b",
+      "group": "witness",
+      "status": "compressed_witness"
+    },
+    {
+      "case_id": "5dc49da83b9a0779fed5bfb785df50e1911361395c7e7ec579b01dd9e04d1390",
+      "group": "witness",
+      "status": "compressed_witness"
+    },
+    {
+      "case_id": "56e045fd992bed4d2430e17a1a7320dd90afd184dada09be610aeacfbf78abad",
+      "group": "witness",
+      "status": "compressed_witness"
+    },
+    {
+      "case_id": "PT_VL_HEATING_P-0.001",
+      "group": "boundary",
+      "status": "rejected"
+    },
+    {
+      "case_id": "PT_VL_HEATING_P-1e-06",
+      "group": "boundary",
+      "status": "rejected"
+    },
+    {
+      "case_id": "PT_VL_HEATING_P0.0",
+      "group": "boundary",
+      "status": "unresolved"
+    },
+    {
+      "case_id": "PT_VL_HEATING_P1e-06",
+      "group": "boundary",
+      "status": "unresolved"
+    },
+    {
+      "case_id": "PT_VL_HEATING_P0.001",
+      "group": "boundary",
+      "status": "compressed_witness"
+    },
+    {
+      "case_id": "PT_VL_HEATING_T-0.01",
+      "group": "boundary",
+      "status": "compressed_witness"
+    },
+    {
+      "case_id": "PT_VL_HEATING_T0.01",
+      "group": "boundary",
+      "status": "rejected"
+    },
+    {
+      "case_id": "PH_FLASH_P-0.001",
+      "group": "boundary",
+      "status": "rejected"
+    },
+    {
+      "case_id": "PH_FLASH_P-1e-06",
+      "group": "boundary",
+      "status": "rejected"
+    },
+    {
+      "case_id": "PH_FLASH_P0.0",
+      "group": "boundary",
+      "status": "unresolved"
+    },
+    {
+      "case_id": "PH_FLASH_P1e-06",
+      "group": "boundary",
+      "status": "unresolved"
+    },
+    {
+      "case_id": "PH_FLASH_P0.001",
+      "group": "boundary",
+      "status": "compressed_witness"
+    },
+    {
+      "case_id": "PH_FLASH_T-0.01",
+      "group": "boundary",
+      "status": "unresolved"
+    },
+    {
+      "case_id": "PH_FLASH_T0.01",
+      "group": "boundary",
+      "status": "rejected"
+    },
+    {
+      "case_id": "PT_BUBBLE_BELOW_P-0.001",
+      "group": "boundary",
+      "status": "rejected"
+    },
+    {
+      "case_id": "PT_BUBBLE_BELOW_P-1e-06",
+      "group": "boundary",
+      "status": "rejected"
+    },
+    {
+      "case_id": "PT_BUBBLE_BELOW_P0.0",
+      "group": "boundary",
+      "status": "unresolved"
+    },
+    {
+      "case_id": "PT_BUBBLE_BELOW_P1e-06",
+      "group": "boundary",
+      "status": "unresolved"
+    },
+    {
+      "case_id": "PT_BUBBLE_BELOW_P0.001",
+      "group": "boundary",
+      "status": "compressed_witness"
+    },
+    {
+      "case_id": "PT_BUBBLE_BELOW_T-0.01",
+      "group": "boundary",
+      "status": "compressed_witness"
+    },
+    {
+      "case_id": "PT_BUBBLE_BELOW_T0.01",
+      "group": "boundary",
+      "status": "rejected"
+    },
+    {
+      "case_id": "PT_DEW_BELOW_P-0.001",
+      "group": "boundary",
+      "status": "rejected"
+    },
+    {
+      "case_id": "PT_DEW_BELOW_P-1e-06",
+      "group": "boundary",
+      "status": "rejected"
+    },
+    {
+      "case_id": "PT_DEW_BELOW_P0.0",
+      "group": "boundary",
+      "status": "unresolved"
+    },
+    {
+      "case_id": "PT_DEW_BELOW_P1e-06",
+      "group": "boundary",
+      "status": "unresolved"
+    },
+    {
+      "case_id": "PT_DEW_BELOW_P0.001",
+      "group": "boundary",
+      "status": "compressed_witness"
+    },
+    {
+      "case_id": "PT_DEW_BELOW_T-0.01",
+      "group": "boundary",
+      "status": "rejected"
+    },
+    {
+      "case_id": "PT_DEW_BELOW_T0.01",
+      "group": "boundary",
+      "status": "unresolved"
+    },
+    {
+      "case_id": "missing_context",
+      "group": "contract_negative",
+      "reason": "state_context",
+      "status": "missing_evidence"
+    },
+    {
+      "case_id": "missing_run",
+      "group": "contract_negative",
+      "reason": "run_id",
+      "status": "missing_evidence"
+    },
+    {
+      "case_id": "missing_parent",
+      "group": "contract_negative",
+      "reason": "missing_'outlet'",
+      "status": "missing_evidence"
+    },
+    {
+      "case_id": "missing_H",
+      "group": "contract_negative",
+      "reason": "upstream_enthalpy",
+      "status": "missing_evidence"
+    },
+    {
+      "case_id": "stale_current_run",
+      "group": "contract_negative",
+      "reason": "stale_run_id",
+      "status": "contradictory_evidence"
+    },
+    {
+      "case_id": "mismatched_input",
+      "group": "contract_negative",
+      "reason": "stale_input_sha256",
+      "status": "contradictory_evidence"
+    },
+    {
+      "case_id": "wrong_port",
+      "group": "contract_negative",
+      "reason": "source_port",
+      "status": "contradictory_evidence"
+    },
+    {
+      "case_id": "wrong_stream",
+      "group": "contract_negative",
+      "reason": "source_port",
+      "status": "contradictory_evidence"
+    },
+    {
+      "case_id": "wrong_phase",
+      "group": "contract_negative",
+      "reason": "phase_identity",
+      "status": "contradictory_evidence"
+    },
+    {
+      "case_id": "independent_H_spec",
+      "group": "contract_negative",
+      "reason": "independent_specification_kind",
+      "status": "contradictory_evidence"
+    },
+    {
+      "case_id": "independent_PT_spec",
+      "group": "contract_negative",
+      "reason": "independent_specification_kind",
+      "status": "contradictory_evidence"
+    },
+    {
+      "case_id": "T_changed",
+      "group": "contract_negative",
+      "reason": "source_temperature_K",
+      "status": "contradictory_evidence"
+    },
+    {
+      "case_id": "P_changed",
+      "group": "contract_negative",
+      "reason": "source_pressure_Pa_abs",
+      "status": "contradictory_evidence"
+    },
+    {
+      "case_id": "rate_changed",
+      "group": "contract_negative",
+      "reason": "source_component_methane",
+      "status": "contradictory_evidence"
+    },
+    {
+      "case_id": "total_changed",
+      "group": "contract_negative",
+      "reason": "source_mass_flow_kg_h",
+      "status": "contradictory_evidence"
+    },
+    {
+      "case_id": "composition_changed",
+      "group": "contract_negative",
+      "reason": "property_composition",
+      "status": "contradictory_evidence"
+    },
+    {
+      "case_id": "molar_flow_changed",
+      "group": "contract_negative",
+      "reason": "property_molar_flow",
+      "status": "contradictory_evidence"
+    },
+    {
+      "case_id": "H_changed",
+      "group": "contract_negative",
+      "reason": "enthalpy_flow",
+      "status": "contradictory_evidence"
+    },
+    {
+      "case_id": "units_changed",
+      "group": "contract_negative",
+      "reason": "property_molar_flow",
+      "status": "contradictory_evidence"
+    },
+    {
+      "case_id": "extra_conflicting_units",
+      "group": "contract_negative",
+      "reason": "unexpected_stream_fields",
+      "status": "contradictory_evidence"
+    },
+    {
+      "case_id": "extra_independent_entropy",
+      "group": "contract_negative",
+      "reason": "unexpected_stream_fields",
+      "status": "contradictory_evidence"
+    },
+    {
+      "case_id": "source_units_changed",
+      "group": "contract_negative",
+      "reason": "units_pressure",
+      "status": "contradictory_evidence"
+    },
+    {
+      "case_id": "reference_changed",
+      "group": "contract_negative",
+      "reason": "thermodynamic_provenance",
+      "status": "contradictory_evidence"
+    },
+    {
+      "case_id": "kij_changed",
+      "group": "contract_negative",
+      "reason": "thermodynamic_provenance",
+      "status": "contradictory_evidence"
+    },
+    {
+      "case_id": "package_changed",
+      "group": "contract_negative",
+      "reason": "thermodynamic_provenance",
+      "status": "contradictory_evidence"
+    },
+    {
+      "case_id": "component_dataset_changed",
+      "group": "contract_negative",
+      "reason": "thermodynamic_provenance",
+      "status": "contradictory_evidence"
+    },
+    {
+      "case_id": "coherent_forged_upstream_H",
+      "group": "contract_negative",
+      "reason": "fresh_caloric",
+      "status": "contradictory_evidence"
+    },
+    {
+      "case_id": "PT_BUBBLE_BELOW_8MPA",
+      "diagnostics": {
+        "PS": {
+          "brackets_K": [
+            [
+              228.57142857142858,
+              233.33333333333334
+            ]
+          ],
+          "candidate_count": 1,
+          "failures": [
+            {
+              "classification": null,
+              "entropy_J_mol_K": null,
+              "message": "",
+              "residual_J_mol_K": null,
+              "stage": "scan",
+              "status": "pt_evaluation_failure",
+              "temperature_K": 461.9047619047619,
+              "underlying_status": "flash_not_converged"
+            },
+            {
+              "classification": null,
+              "entropy_J_mol_K": null,
+              "message": "",
+              "residual_J_mol_K": null,
+              "stage": "scan",
+              "status": "pt_evaluation_failure",
+              "temperature_K": 466.6666666666667,
+              "underlying_status": "flash_not_converged"
+            }
+          ],
+          "final_bracket_K": null,
+          "final_entropy_span_J_mol_K": null,
+          "fresh_final_count": 0,
+          "gap_detected": false,
+          "near_exact_scan_temperatures_K": [],
+          "pt_settings": {
+            "flash_max_iterations": 100,
+            "fugacity_tolerance": 1e-12,
+            "material_tolerance": 1e-10,
+            "profile": "high_accuracy",
+            "rr_max_iterations": 200,
+            "stability_max_iterations": 100
+          },
+          "reason": "Complete scan contains property holes; no interval bridged: flash_not_converged: ",
+          "residual": null,
+          "root_iterations": 0,
+          "scan_count": 64,
+          "selected_bracket_K": null,
+          "settings": {
+            "entropy_tolerance_J_mol_K": 1e-08,
+            "max_iterations": 100,
+            "scan_points": 64,
+            "temperature_bounds_K": [
+              200.0,
+              500.0
+            ],
+            "temperature_tolerance_K": 1e-10
+          },
+          "status": "property_evaluation_failed",
+          "trials": [
+            {
+              "classification": "single_liquid",
+              "entropy_J_mol_K": -114.49625280552019,
+              "message": "",
+              "residual_J_mol_K": -15.619460324344175,
+              "stage": "scan",
+              "status": "success",
+              "temperature_K": 200.0,
+              "underlying_status": ""
+            },
+            {
+              "classification": "single_liquid",
+              "entropy_J_mol_K": -112.05444290396542,
+              "message": "",
+              "residual_J_mol_K": -13.177650422789412,
+              "stage": "scan",
+              "status": "success",
+              "temperature_K": 204.76190476190476,
+              "underlying_status": ""
+            },
+            {
+              "classification": "single_liquid",
+              "entropy_J_mol_K": -109.64804578110666,
+              "message": "",
+              "residual_J_mol_K": -10.771253299930649,
+              "stage": "scan",
+              "status": "success",
+              "temperature_K": 209.52380952380952,
+              "underlying_status": ""
+            },
+            {
+              "classification": "single_liquid",
+              "entropy_J_mol_K": -107.27470292588168,
+              "message": "",
+              "residual_J_mol_K": -8.397910444705673,
+              "stage": "scan",
+              "status": "success",
+              "temperature_K": 214.28571428571428,
+              "underlying_status": ""
+            },
+            {
+              "classification": "single_liquid",
+              "entropy_J_mol_K": -104.93221257086671,
+              "message": "",
+              "residual_J_mol_K": -6.055420089690699,
+              "stage": "scan",
+              "status": "success",
+              "temperature_K": 219.04761904761904,
+              "underlying_status": ""
+            },
+            {
+              "classification": "single_liquid",
+              "entropy_J_mol_K": -102.61851395017766,
+              "message": "",
+              "residual_J_mol_K": -3.7417214690016465,
+              "stage": "scan",
+              "status": "success",
+              "temperature_K": 223.8095238095238,
+              "underlying_status": ""
+            },
+            {
+              "classification": "single_liquid",
+              "entropy_J_mol_K": -100.331673142905,
+              "message": "",
+              "residual_J_mol_K": -1.4548806617289927,
+              "stage": "scan",
+              "status": "success",
+              "temperature_K": 228.57142857142858,
+              "underlying_status": ""
+            },
+            {
+              "classification": "single_liquid",
+              "entropy_J_mol_K": -98.06987028062417,
+              "message": "",
+              "residual_J_mol_K": 0.8069222005518384,
+              "stage": "scan",
+              "status": "success",
+              "temperature_K": 233.33333333333334,
+              "underlying_status": ""
+            },
+            {
+              "classification": "single_liquid",
+              "entropy_J_mol_K": -95.83138792743347,
+              "message": "",
+              "residual_J_mol_K": 3.045404553742543,
+              "stage": "scan",
+              "status": "success",
+              "temperature_K": 238.0952380952381,
+              "underlying_status": ""
+            },
+            {
+              "classification": "single_liquid",
+              "entropy_J_mol_K": -93.61460046561001,
+              "message": "",
+              "residual_J_mol_K": 5.262192015566001,
+              "stage": "scan",
+              "status": "success",
+              "temperature_K": 242.85714285714286,
+              "underlying_status": ""
+            },
+            {
+              "classification": "single_liquid",
+              "entropy_J_mol_K": -91.41796434022287,
+              "message": "",
+              "residual_J_mol_K": 7.458828140953145,
+              "stage": "scan",
+              "status": "success",
+              "temperature_K": 247.61904761904762,
+              "underlying_status": ""
+            },
+            {
+              "classification": "single_liquid",
+              "entropy_J_mol_K": -89.24000903260145,
+              "message": "",
+              "residual_J_mol_K": 9.636783448574562,
+              "stage": "scan",
+              "status": "success",
+              "temperature_K": 252.38095238095238,
+              "underlying_status": ""
+            },
+            {
+              "classification": "vapor_liquid",
+              "entropy_J_mol_K": -86.68624900036184,
+              "message": "",
+              "residual_J_mol_K": 12.19054348081417,
+              "stage": "scan",
+              "status": "success",
+              "temperature_K": 257.14285714285717,
+              "underlying_status": ""
+            },
+            {
+              "classification": "vapor_liquid",
+              "entropy_J_mol_K": -84.19012353642724,
+              "message": "",
+              "residual_J_mol_K": 14.686668944748774,
+              "stage": "scan",
+              "status": "success",
+              "temperature_K": 261.9047619047619,
+              "underlying_status": ""
+            },
+            {
+              "classification": "vapor_liquid",
+              "entropy_J_mol_K": -81.7760216117805,
+              "message": "",
+              "residual_J_mol_K": 17.100770869395518,
+              "stage": "scan",
+              "status": "success",
+              "temperature_K": 266.6666666666667,
+              "underlying_status": ""
+            },
+            {
+              "classification": "vapor_liquid",
+              "entropy_J_mol_K": -79.4320490735272,
+              "message": "",
+              "residual_J_mol_K": 19.444743407648815,
+              "stage": "scan",
+              "status": "success",
+              "temperature_K": 271.42857142857144,
+              "underlying_status": ""
+            },
+            {
+              "classification": "vapor_liquid",
+              "entropy_J_mol_K": -77.14840636794588,
+              "message": "",
+              "residual_J_mol_K": 21.72838611323013,
+              "stage": "scan",
+              "status": "success",
+              "temperature_K": 276.1904761904762,
+              "underlying_status": ""
+            },
+            {
+              "classification": "vapor_liquid",
+              "entropy_J_mol_K": -74.91693093572185,
+              "message": "",
+              "residual_J_mol_K": 23.95986154545416,
+              "stage": "scan",
+              "status": "success",
+              "temperature_K": 280.95238095238096,
+              "underlying_status": ""
+            },
+            {
+              "classification": "vapor_liquid",
+              "entropy_J_mol_K": -72.73074980258768,
+              "message": "",
+              "residual_J_mol_K": 26.14604267858833,
+              "stage": "scan",
+              "status": "success",
+              "temperature_K": 285.7142857142857,
+              "underlying_status": ""
+            },
+            {
+              "classification": "vapor_liquid",
+              "entropy_J_mol_K": -70.58401459049665,
+              "message": "",
+              "residual_J_mol_K": 28.29277789067936,
+              "stage": "scan",
+              "status": "success",
+              "temperature_K": 290.4761904761905,
+              "underlying_status": ""
+            },
+            {
+              "classification": "vapor_liquid",
+              "entropy_J_mol_K": -68.47169790638904,
+              "message": "",
+              "residual_J_mol_K": 30.405094574786972,
+              "stage": "scan",
+              "status": "success",
+              "temperature_K": 295.23809523809524,
+              "underlying_status": ""
+            },
+            {
+              "classification": "vapor_liquid",
+              "entropy_J_mol_K": -66.3894355303637,
+              "message": "",
+              "residual_J_mol_K": 32.48735695081231,
+              "stage": "scan",
+              "status": "success",
+              "temperature_K": 300.0,
+              "underlying_status": ""
+            },
+            {
+              "classification": "vapor_liquid",
+              "entropy_J_mol_K": -64.33340295370606,
+              "message": "",
+              "residual_J_mol_K": 34.543389527469955,
+              "stage": "scan",
+              "status": "success",
+              "temperature_K": 304.76190476190476,
+              "underlying_status": ""
+            },
+            {
+              "classification": "vapor_liquid",
+              "entropy_J_mol_K": -62.30021784760926,
+              "message": "",
+              "residual_J_mol_K": 36.57657463356675,
+              "stage": "scan",
+              "status": "success",
+              "temperature_K": 309.5238095238095,
+              "underlying_status": ""
+            },
+            {
+              "classification": "vapor_liquid",
+              "entropy_J_mol_K": -60.28686224371632,
+              "message": "",
+              "residual_J_mol_K": 38.58993023745969,
+              "stage": "scan",
+              "status": "success",
+              "temperature_K": 314.2857142857143,
+              "underlying_status": ""
+            },
+            {
+              "classification": "vapor_liquid",
+              "entropy_J_mol_K": -58.29061980203224,
+              "message": "",
+              "residual_J_mol_K": 40.58617267914377,
+              "stage": "scan",
+              "status": "success",
+              "temperature_K": 319.04761904761904,
+              "underlying_status": ""
+            },
+            {
+              "classification": "vapor_liquid",
+              "entropy_J_mol_K": -56.30902470010676,
+              "message": "",
+              "residual_J_mol_K": 42.56776778106925,
+              "stage": "scan",
+              "status": "success",
+              "temperature_K": 323.8095238095238,
+              "underlying_status": ""
+            },
+            {
+              "classification": "vapor_liquid",
+              "entropy_J_mol_K": -54.33981952306441,
+              "message": "",
+              "residual_J_mol_K": 44.5369729581116,
+              "stage": "scan",
+              "status": "success",
+              "temperature_K": 328.57142857142856,
+              "underlying_status": ""
+            },
+            {
+              "classification": "vapor_liquid",
+              "entropy_J_mol_K": -52.380920155142384,
+              "message": "",
+              "residual_J_mol_K": 46.49587232603363,
+              "stage": "scan",
+              "status": "success",
+              "temperature_K": 333.33333333333337,
+              "underlying_status": ""
+            },
+            {
+              "classification": "vapor_liquid",
+              "entropy_J_mol_K": -50.430386132342676,
+              "message": "",
+              "residual_J_mol_K": 48.446406348833335,
+              "stage": "scan",
+              "status": "success",
+              "temperature_K": 338.0952380952381,
+              "underlying_status": ""
+            },
+            {
+              "classification": "vapor_liquid",
+              "entropy_J_mol_K": -48.48639525690725,
+              "message": "",
+              "residual_J_mol_K": 50.39039722426876,
+              "stage": "scan",
+              "status": "success",
+              "temperature_K": 342.8571428571429,
+              "underlying_status": ""
+            },
+            {
+              "classification": "vapor_liquid",
+              "entropy_J_mol_K": -46.54722152898351,
+              "message": "",
+              "residual_J_mol_K": 52.3295709521925,
+              "stage": "scan",
+              "status": "success",
+              "temperature_K": 347.6190476190476,
+              "underlying_status": ""
+            },
+            {
+              "classification": "vapor_liquid",
+              "entropy_J_mol_K": -44.6112156415917,
+              "message": "",
+              "residual_J_mol_K": 54.26557683958431,
+              "stage": "scan",
+              "status": "success",
+              "temperature_K": 352.3809523809524,
+              "underlying_status": ""
+            },
+            {
+              "classification": "vapor_liquid",
+              "entropy_J_mol_K": -42.676787427700816,
+              "message": "",
+              "residual_J_mol_K": 56.200005053475195,
+              "stage": "scan",
+              "status": "success",
+              "temperature_K": 357.1428571428571,
+              "underlying_status": ""
+            },
+            {
+              "classification": "vapor_liquid",
+              "entropy_J_mol_K": -40.74238975466441,
+              "message": "",
+              "residual_J_mol_K": 58.1344027265116,
+              "stage": "scan",
+              "status": "success",
+              "temperature_K": 361.9047619047619,
+              "underlying_status": ""
+            },
+            {
+              "classification": "vapor_liquid",
+              "entropy_J_mol_K": -38.80650343951843,
+              "message": "",
+              "residual_J_mol_K": 60.07028904165758,
+              "stage": "scan",
+              "status": "success",
+              "temperature_K": 366.66666666666663,
+              "underlying_status": ""
+            },
+            {
+              "classification": "vapor_liquid",
+              "entropy_J_mol_K": -36.867622814746596,
+              "message": "",
+              "residual_J_mol_K": 62.009169666429415,
+              "stage": "scan",
+              "status": "success",
+              "temperature_K": 371.42857142857144,
+              "underlying_status": ""
+            },
+            {
+              "classification": "vapor_liquid",
+              "entropy_J_mol_K": -34.92424161226985,
+              "message": "",
+              "residual_J_mol_K": 63.95255086890616,
+              "stage": "scan",
+              "status": "success",
+              "temperature_K": 376.1904761904762,
+              "underlying_status": ""
+            },
+            {
+              "classification": "vapor_liquid",
+              "entropy_J_mol_K": -32.97483885641793,
+              "message": "",
+              "residual_J_mol_K": 65.90195362475808,
+              "stage": "scan",
+              "status": "success",
+              "temperature_K": 380.95238095238096,
+              "underlying_status": ""
+            },
+            {
+              "classification": "vapor_liquid",
+              "entropy_J_mol_K": -31.017864466377077,
+              "message": "",
+              "residual_J_mol_K": 67.85892801479893,
+              "stage": "scan",
+              "status": "success",
+              "temperature_K": 385.7142857142857,
+              "underlying_status": ""
+            },
+            {
+              "classification": "vapor_liquid",
+              "entropy_J_mol_K": -29.051724265997933,
+              "message": "",
+              "residual_J_mol_K": 69.82506821517808,
+              "stage": "scan",
+              "status": "success",
+              "temperature_K": 390.4761904761905,
+              "underlying_status": ""
+            },
+            {
+              "classification": "vapor_liquid",
+              "entropy_J_mol_K": -27.074764084119003,
+              "message": "",
+              "residual_J_mol_K": 71.802028397057,
+              "stage": "scan",
+              "status": "success",
+              "temperature_K": 395.23809523809524,
+              "underlying_status": ""
+            },
+            {
+              "classification": "vapor_liquid",
+              "entropy_J_mol_K": -25.085252601160114,
+              "message": "",
+              "residual_J_mol_K": 73.7915398800159,
+              "stage": "scan",
+              "status": "success",
+              "temperature_K": 400.0,
+              "underlying_status": ""
+            },
+            {
+              "classification": "vapor_liquid",
+              "entropy_J_mol_K": -23.081362556357504,
+              "message": "",
+              "residual_J_mol_K": 75.7954299248185,
+              "stage": "scan",
+              "status": "success",
+              "temperature_K": 404.76190476190476,
+              "underlying_status": ""
+            },
+            {
+              "classification": "vapor_liquid",
+              "entropy_J_mol_K": -21.06114987260264,
+              "message": "",
+              "residual_J_mol_K": 77.81564260857337,
+              "stage": "scan",
+              "status": "success",
+              "temperature_K": 409.5238095238095,
+              "underlying_status": ""
+            },
+            {
+              "classification": "vapor_liquid",
+              "entropy_J_mol_K": -19.022530179001194,
+              "message": "",
+              "residual_J_mol_K": 79.85426230217482,
+              "stage": "scan",
+              "status": "success",
+              "temperature_K": 414.2857142857143,
+              "underlying_status": ""
+            },
+            {
+              "classification": "vapor_liquid",
+              "entropy_J_mol_K": -16.963252110812828,
+              "message": "",
+              "residual_J_mol_K": 81.91354037036318,
+              "stage": "scan",
+              "status": "success",
+              "temperature_K": 419.04761904761904,
+              "underlying_status": ""
+            },
+            {
+              "classification": "vapor_liquid",
+              "entropy_J_mol_K": -14.88086663595957,
+              "message": "",
+              "residual_J_mol_K": 83.99592584521645,
+              "stage": "scan",
+              "status": "success",
+              "temperature_K": 423.8095238095238,
+              "underlying_status": ""
+            },
+            {
+              "classification": "vapor_liquid",
+              "entropy_J_mol_K": -12.772691488577916,
+              "message": "",
+              "residual_J_mol_K": 86.10410099259809,
+              "stage": "scan",
+              "status": "success",
+              "temperature_K": 428.57142857142856,
+              "underlying_status": ""
+            },
+            {
+              "classification": "vapor_liquid",
+              "entropy_J_mol_K": -10.635769571597326,
+              "message": "",
+              "residual_J_mol_K": 88.24102290957869,
+              "stage": "scan",
+              "status": "success",
+              "temperature_K": 433.33333333333337,
+              "underlying_status": ""
+            },
+            {
+              "classification": "vapor_liquid",
+              "entropy_J_mol_K": -8.466819906600596,
+              "message": "",
+              "residual_J_mol_K": 90.40997257457542,
+              "stage": "scan",
+              "status": "success",
+              "temperature_K": 438.0952380952381,
+              "underlying_status": ""
+            },
+            {
+              "classification": "vapor_liquid",
+              "entropy_J_mol_K": -6.262179338755978,
+              "message": "",
+              "residual_J_mol_K": 92.61461314242004,
+              "stage": "scan",
+              "status": "success",
+              "temperature_K": 442.8571428571429,
+              "underlying_status": ""
+            },
+            {
+              "classification": "vapor_liquid",
+              "entropy_J_mol_K": -4.017732717570395,
+              "message": "",
+              "residual_J_mol_K": 94.85905976360561,
+              "stage": "scan",
+              "status": "success",
+              "temperature_K": 447.6190476190476,
+              "underlying_status": ""
+            },
+            {
+              "classification": "vapor_liquid",
+              "entropy_J_mol_K": -1.7288286298748743,
+              "message": "",
+              "residual_J_mol_K": 97.14796385130114,
+              "stage": "scan",
+              "status": "success",
+              "temperature_K": 452.3809523809524,
+              "underlying_status": ""
+            },
+            {
+              "classification": "vapor_liquid",
+              "entropy_J_mol_K": 0.6098230994557936,
+              "message": "",
+              "residual_J_mol_K": 99.4866155806318,
+              "stage": "scan",
+              "status": "success",
+              "temperature_K": 457.14285714285717,
+              "underlying_status": ""
+            },
+            {
+              "classification": null,
+              "entropy_J_mol_K": null,
+              "message": "",
+              "residual_J_mol_K": null,
+              "stage": "scan",
+              "status": "pt_evaluation_failure",
+              "temperature_K": 461.9047619047619,
+              "underlying_status": "flash_not_converged"
+            },
+            {
+              "classification": null,
+              "entropy_J_mol_K": null,
+              "message": "",
+              "residual_J_mol_K": null,
+              "stage": "scan",
+              "status": "pt_evaluation_failure",
+              "temperature_K": 466.6666666666667,
+              "underlying_status": "flash_not_converged"
+            },
+            {
+              "classification": "single_vapor",
+              "entropy_J_mol_K": 7.719100551765408,
+              "message": "",
+              "residual_J_mol_K": 106.59589303294142,
+              "stage": "scan",
+              "status": "success",
+              "temperature_K": 471.42857142857144,
+              "underlying_status": ""
+            },
+            {
+              "classification": "single_vapor",
+              "entropy_J_mol_K": 9.431732966950051,
+              "message": "",
+              "residual_J_mol_K": 108.30852544812606,
+              "stage": "scan",
+              "status": "success",
+              "temperature_K": 476.1904761904762,
+              "underlying_status": ""
+            },
+            {
+              "classification": "single_vapor",
+              "entropy_J_mol_K": 11.107424065481469,
+              "message": "",
+              "residual_J_mol_K": 109.98421654665748,
+              "stage": "scan",
+              "status": "success",
+              "temperature_K": 480.95238095238096,
+              "underlying_status": ""
+            },
+            {
+              "classification": "single_vapor",
+              "entropy_J_mol_K": 12.749883026804362,
+              "message": "",
+              "residual_J_mol_K": 111.62667550798037,
+              "stage": "scan",
+              "status": "success",
+              "temperature_K": 485.7142857142857,
+              "underlying_status": ""
+            },
+            {
+              "classification": "single_vapor",
+              "entropy_J_mol_K": 14.362369327568734,
+              "message": "",
+              "residual_J_mol_K": 113.23916180874474,
+              "stage": "scan",
+              "status": "success",
+              "temperature_K": 490.4761904761905,
+              "underlying_status": ""
+            },
+            {
+              "classification": "single_vapor",
+              "entropy_J_mol_K": 15.947733934388523,
+              "message": "",
+              "residual_J_mol_K": 114.82452641556453,
+              "stage": "scan",
+              "status": "success",
+              "temperature_K": 495.23809523809524,
+              "underlying_status": ""
+            },
+            {
+              "classification": "single_vapor",
+              "entropy_J_mol_K": 17.50846614259872,
+              "message": "",
+              "residual_J_mol_K": 116.38525862377473,
+              "stage": "scan",
+              "status": "success",
+              "temperature_K": 500.0,
+              "underlying_status": ""
+            }
+          ]
+        }
+      },
+      "evidence": "reused immutable first study, not rerun",
+      "status": "unresolved"
+    },
+    {
+      "case_id": "PT_BUBBLE_ABOVE_8MPA",
+      "diagnostics": {
+        "PS": {
+          "brackets_K": [
+            [
+              228.57142857142858,
+              233.33333333333334
+            ]
+          ],
+          "candidate_count": 1,
+          "failures": [
+            {
+              "classification": null,
+              "entropy_J_mol_K": null,
+              "message": "",
+              "residual_J_mol_K": null,
+              "stage": "scan",
+              "status": "pt_evaluation_failure",
+              "temperature_K": 461.9047619047619,
+              "underlying_status": "flash_not_converged"
+            },
+            {
+              "classification": null,
+              "entropy_J_mol_K": null,
+              "message": "",
+              "residual_J_mol_K": null,
+              "stage": "scan",
+              "status": "pt_evaluation_failure",
+              "temperature_K": 466.6666666666667,
+              "underlying_status": "flash_not_converged"
+            }
+          ],
+          "final_bracket_K": null,
+          "final_entropy_span_J_mol_K": null,
+          "fresh_final_count": 0,
+          "gap_detected": false,
+          "near_exact_scan_temperatures_K": [],
+          "pt_settings": {
+            "flash_max_iterations": 100,
+            "fugacity_tolerance": 1e-12,
+            "material_tolerance": 1e-10,
+            "profile": "high_accuracy",
+            "rr_max_iterations": 200,
+            "stability_max_iterations": 100
+          },
+          "reason": "Complete scan contains property holes; no interval bridged: flash_not_converged: ",
+          "residual": null,
+          "root_iterations": 0,
+          "scan_count": 64,
+          "selected_bracket_K": null,
+          "settings": {
+            "entropy_tolerance_J_mol_K": 1e-08,
+            "max_iterations": 100,
+            "scan_points": 64,
+            "temperature_bounds_K": [
+              200.0,
+              500.0
+            ],
+            "temperature_tolerance_K": 1e-10
+          },
+          "status": "property_evaluation_failed",
+          "trials": [
+            {
+              "classification": "single_liquid",
+              "entropy_J_mol_K": -114.51972765743587,
+              "message": "",
+              "residual_J_mol_K": -15.671110094639985,
+              "stage": "scan",
+              "status": "success",
+              "temperature_K": 200.0,
+              "underlying_status": ""
+            },
+            {
+              "classification": "single_liquid",
+              "entropy_J_mol_K": -112.07726795461801,
+              "message": "",
+              "residual_J_mol_K": -13.228650391822129,
+              "stage": "scan",
+              "status": "success",
+              "temperature_K": 204.76190476190476,
+              "underlying_status": ""
+            },
+            {
+              "classification": "single_liquid",
+              "entropy_J_mol_K": -109.67023291682686,
+              "message": "",
+              "residual_J_mol_K": -10.821615354030982,
+              "stage": "scan",
+              "status": "success",
+              "temperature_K": 209.52380952380952,
+              "underlying_status": ""
+            },
+            {
+              "classification": "single_liquid",
+              "entropy_J_mol_K": -107.29626365467803,
+              "message": "",
+              "residual_J_mol_K": -8.447646091882149,
+              "stage": "scan",
+              "status": "success",
+              "temperature_K": 214.28571428571428,
+              "underlying_status": ""
+            },
+            {
+              "classification": "single_liquid",
+              "entropy_J_mol_K": -104.95315808027534,
+              "message": "",
+              "residual_J_mol_K": -6.104540517479464,
+              "stage": "scan",
+              "status": "success",
+              "temperature_K": 219.04761904761904,
+              "underlying_status": ""
+            },
+            {
+              "classification": "single_liquid",
+              "entropy_J_mol_K": -102.63885516255505,
+              "message": "",
+              "residual_J_mol_K": -3.790237599759166,
+              "stage": "scan",
+              "status": "success",
+              "temperature_K": 223.8095238095238,
+              "underlying_status": ""
+            },
+            {
+              "classification": "single_liquid",
+              "entropy_J_mol_K": -100.35142076880652,
+              "message": "",
+              "residual_J_mol_K": -1.5028032060106398,
+              "stage": "scan",
+              "status": "success",
+              "temperature_K": 228.57142857142858,
+              "underlying_status": ""
+            },
+            {
+              "classification": "single_liquid",
+              "entropy_J_mol_K": -98.08903487088014,
+              "message": "",
+              "residual_J_mol_K": 0.7595826919157389,
+              "stage": "scan",
+              "status": "success",
+              "temperature_K": 233.33333333333334,
+              "underlying_status": ""
+            },
+            {
+              "classification": "single_liquid",
+              "entropy_J_mol_K": -95.84997992451505,
+              "message": "",
+              "residual_J_mol_K": 2.998637638280826,
+              "stage": "scan",
+              "status": "success",
+              "temperature_K": 238.0952380952381,
+              "underlying_status": ""
+            },
+            {
+              "classification": "single_liquid",
+              "entropy_J_mol_K": -93.63263025487336,
+              "message": "",
+              "residual_J_mol_K": 5.215987307922518,
+              "stage": "scan",
+              "status": "success",
+              "temperature_K": 242.85714285714286,
+              "underlying_status": ""
+            },
+            {
+              "classification": "single_liquid",
+              "entropy_J_mol_K": -91.4354423016249,
+              "message": "",
+              "residual_J_mol_K": 7.413175261170977,
+              "stage": "scan",
+              "status": "success",
+              "temperature_K": 247.61904761904762,
+              "underlying_status": ""
+            },
+            {
+              "classification": "single_liquid",
+              "entropy_J_mol_K": -89.2569455935008,
+              "message": "",
+              "residual_J_mol_K": 9.591671969295078,
+              "stage": "scan",
+              "status": "success",
+              "temperature_K": 252.38095238095238,
+              "underlying_status": ""
+            },
+            {
+              "classification": "vapor_liquid",
+              "entropy_J_mol_K": -86.70937427157678,
+              "message": "",
+              "residual_J_mol_K": 12.139243291219103,
+              "stage": "scan",
+              "status": "success",
+              "temperature_K": 257.14285714285717,
+              "underlying_status": ""
+            },
+            {
+              "classification": "vapor_liquid",
+              "entropy_J_mol_K": -84.21239220023097,
+              "message": "",
+              "residual_J_mol_K": 14.636225362564915,
+              "stage": "scan",
+              "status": "success",
+              "temperature_K": 261.9047619047619,
+              "underlying_status": ""
+            },
+            {
+              "classification": "vapor_liquid",
+              "entropy_J_mol_K": -81.79745971653361,
+              "message": "",
+              "residual_J_mol_K": 17.05115784626227,
+              "stage": "scan",
+              "status": "success",
+              "temperature_K": 266.6666666666667,
+              "underlying_status": ""
+            },
+            {
+              "classification": "vapor_liquid",
+              "entropy_J_mol_K": -79.45267967077687,
+              "message": "",
+              "residual_J_mol_K": 19.395937892019006,
+              "stage": "scan",
+              "status": "success",
+              "temperature_K": 271.42857142857144,
+              "underlying_status": ""
+            },
+            {
+              "classification": "vapor_liquid",
+              "entropy_J_mol_K": -77.16825002841418,
+              "message": "",
+              "residual_J_mol_K": 21.680367534381702,
+              "stage": "scan",
+              "status": "success",
+              "temperature_K": 276.1904761904762,
+              "underlying_status": ""
+            },
+            {
+              "classification": "vapor_liquid",
+              "entropy_J_mol_K": -74.93600618560573,
+              "message": "",
+              "residual_J_mol_K": 23.912611377190146,
+              "stage": "scan",
+              "status": "success",
+              "temperature_K": 280.95238095238096,
+              "underlying_status": ""
+            },
+            {
+              "classification": "vapor_liquid",
+              "entropy_J_mol_K": -72.74907348711466,
+              "message": "",
+              "residual_J_mol_K": 26.099544075681223,
+              "stage": "scan",
+              "status": "success",
+              "temperature_K": 285.7142857142857,
+              "underlying_status": ""
+            },
+            {
+              "classification": "vapor_liquid",
+              "entropy_J_mol_K": -70.60160217528255,
+              "message": "",
+              "residual_J_mol_K": 28.24701538751333,
+              "stage": "scan",
+              "status": "success",
+              "temperature_K": 290.4761904761905,
+              "underlying_status": ""
+            },
+            {
+              "classification": "vapor_liquid",
+              "entropy_J_mol_K": -68.48856372722355,
+              "message": "",
+              "residual_J_mol_K": 30.36005383557233,
+              "stage": "scan",
+              "status": "success",
+              "temperature_K": 295.23809523809524,
+              "underlying_status": ""
+            },
+            {
+              "classification": "vapor_liquid",
+              "entropy_J_mol_K": -66.40559300085124,
+              "message": "",
+              "residual_J_mol_K": 32.44302456194464,
+              "stage": "scan",
+              "status": "success",
+              "temperature_K": 300.0,
+              "underlying_status": ""
+            },
+            {
+              "classification": "vapor_liquid",
+              "entropy_J_mol_K": -64.34886473871781,
+              "message": "",
+              "residual_J_mol_K": 34.49975282407807,
+              "stage": "scan",
+              "status": "success",
+              "temperature_K": 304.76190476190476,
+              "underlying_status": ""
+            },
+            {
+              "classification": "vapor_liquid",
+              "entropy_J_mol_K": -62.31499600909861,
+              "message": "",
+              "residual_J_mol_K": 36.53362155369727,
+              "stage": "scan",
+              "status": "success",
+              "temperature_K": 309.5238095238095,
+              "underlying_status": ""
+            },
+            {
+              "classification": "vapor_liquid",
+              "entropy_J_mol_K": -60.300968364218846,
+              "message": "",
+              "residual_J_mol_K": 38.547649198577034,
+              "stage": "scan",
+              "status": "success",
+              "temperature_K": 314.2857142857143,
+              "underlying_status": ""
+            },
+            {
+              "classification": "vapor_liquid",
+              "entropy_J_mol_K": -58.30406509018413,
+              "message": "",
+              "residual_J_mol_K": 40.54455247261175,
+              "stage": "scan",
+              "status": "success",
+              "temperature_K": 319.04761904761904,
+              "underlying_status": ""
+            },
+            {
+              "classification": "vapor_liquid",
+              "entropy_J_mol_K": -56.321820081692856,
+              "message": "",
+              "residual_J_mol_K": 42.526797481103024,
+              "stage": "scan",
+              "status": "success",
+              "temperature_K": 323.8095238095238,
+              "underlying_status": ""
+            },
+            {
+              "classification": "vapor_liquid",
+              "entropy_J_mol_K": -54.35197572047378,
+              "message": "",
+              "residual_J_mol_K": 44.4966418423221,
+              "stage": "scan",
+              "status": "success",
+              "temperature_K": 328.57142857142856,
+              "underlying_status": ""
+            },
+            {
+              "classification": "vapor_liquid",
+              "entropy_J_mol_K": -52.392447757593025,
+              "message": "",
+              "residual_J_mol_K": 46.456169805202855,
+              "stage": "scan",
+              "status": "success",
+              "temperature_K": 333.33333333333337,
+              "underlying_status": ""
+            },
+            {
+              "classification": "vapor_liquid",
+              "entropy_J_mol_K": -50.441295658844,
+              "message": "",
+              "residual_J_mol_K": 48.40732190395188,
+              "stage": "scan",
+              "status": "success",
+              "temperature_K": 338.0952380952381,
+              "underlying_status": ""
+            },
+            {
+              "classification": "vapor_liquid",
+              "entropy_J_mol_K": -48.496697213610396,
+              "message": "",
+              "residual_J_mol_K": 50.351920349185484,
+              "stage": "scan",
+              "status": "success",
+              "temperature_K": 342.8571428571429,
+              "underlying_status": ""
+            },
+            {
+              "classification": "vapor_liquid",
+              "entropy_J_mol_K": -46.556926462333244,
+              "message": "",
+              "residual_J_mol_K": 52.291691100462636,
+              "stage": "scan",
+              "status": "success",
+              "temperature_K": 347.6190476190476,
+              "underlying_status": ""
+            },
+            {
+              "classification": "vapor_liquid",
+              "entropy_J_mol_K": -44.62033418850486,
+              "message": "",
+              "residual_J_mol_K": 54.22828337429102,
+              "stage": "scan",
+              "status": "success",
+              "temperature_K": 352.3809523809524,
+              "underlying_status": ""
+            },
+            {
+              "classification": "vapor_liquid",
+              "entropy_J_mol_K": -42.68533036385407,
+              "message": "",
+              "residual_J_mol_K": 56.16328719894181,
+              "stage": "scan",
+              "status": "success",
+              "temperature_K": 357.1428571428571,
+              "underlying_status": ""
+            },
+            {
+              "classification": "vapor_liquid",
+              "entropy_J_mol_K": -40.75036804187553,
+              "message": "",
+              "residual_J_mol_K": 58.09824952092035,
+              "stage": "scan",
+              "status": "success",
+              "temperature_K": 361.9047619047619,
+              "underlying_status": ""
+            },
+            {
+              "classification": "vapor_liquid",
+              "entropy_J_mol_K": -38.8139282731347,
+              "message": "",
+              "residual_J_mol_K": 60.03468928966118,
+              "stage": "scan",
+              "status": "success",
+              "temperature_K": 366.66666666666663,
+              "underlying_status": ""
+            },
+            {
+              "classification": "vapor_liquid",
+              "entropy_J_mol_K": -36.874505671911784,
+              "message": "",
+              "residual_J_mol_K": 61.974111890884096,
+              "stage": "scan",
+              "status": "success",
+              "temperature_K": 371.42857142857144,
+              "underlying_status": ""
+            },
+            {
+              "classification": "vapor_liquid",
+              "entropy_J_mol_K": -34.930594301927435,
+              "message": "",
+              "residual_J_mol_K": 63.918023260868445,
+              "stage": "scan",
+              "status": "success",
+              "temperature_K": 376.1904761904762,
+              "underlying_status": ""
+            },
+            {
+              "classification": "vapor_liquid",
+              "entropy_J_mol_K": -32.98067357191871,
+              "message": "",
+              "residual_J_mol_K": 65.86794399087717,
+              "stage": "scan",
+              "status": "success",
+              "temperature_K": 380.95238095238096,
+              "underlying_status": ""
+            },
+            {
+              "classification": "vapor_liquid",
+              "entropy_J_mol_K": -31.02319384159356,
+              "message": "",
+              "residual_J_mol_K": 67.82542372120233,
+              "stage": "scan",
+              "status": "success",
+              "temperature_K": 385.7142857142857,
+              "underlying_status": ""
+            },
+            {
+              "classification": "vapor_liquid",
+              "entropy_J_mol_K": -29.056561435911032,
+              "message": "",
+              "residual_J_mol_K": 69.79205612688484,
+              "stage": "scan",
+              "status": "success",
+              "temperature_K": 390.4761904761905,
+              "underlying_status": ""
+            },
+            {
+              "classification": "vapor_liquid",
+              "entropy_J_mol_K": -27.079122750925023,
+              "message": "",
+              "residual_J_mol_K": 71.76949481187086,
+              "stage": "scan",
+              "status": "success",
+              "temperature_K": 395.23809523809524,
+              "underlying_status": ""
+            },
+            {
+              "classification": "vapor_liquid",
+              "entropy_J_mol_K": -25.089147107078205,
+              "message": "",
+              "residual_J_mol_K": 73.75947045571768,
+              "stage": "scan",
+              "status": "success",
+              "temperature_K": 400.0,
+              "underlying_status": ""
+            },
+            {
+              "classification": "vapor_liquid",
+              "entropy_J_mol_K": -23.084807964465874,
+              "message": "",
+              "residual_J_mol_K": 75.76380959833,
+              "stage": "scan",
+              "status": "success",
+              "temperature_K": 404.76190476190476,
+              "underlying_status": ""
+            },
+            {
+              "classification": "vapor_liquid",
+              "entropy_J_mol_K": -21.064162057237912,
+              "message": "",
+              "residual_J_mol_K": 77.78445550555797,
+              "stage": "scan",
+              "status": "success",
+              "temperature_K": 409.5238095238095,
+              "underlying_status": ""
+            },
+            {
+              "classification": "vapor_liquid",
+              "entropy_J_mol_K": -19.025125927508512,
+              "message": "",
+              "residual_J_mol_K": 79.82349163528737,
+              "stage": "scan",
+              "status": "success",
+              "temperature_K": 414.2857142857143,
+              "underlying_status": ""
+            },
+            {
+              "classification": "vapor_liquid",
+              "entropy_J_mol_K": -16.96544923875843,
+              "message": "",
+              "residual_J_mol_K": 81.88316832403746,
+              "stage": "scan",
+              "status": "success",
+              "temperature_K": 419.04761904761904,
+              "underlying_status": ""
+            },
+            {
+              "classification": "vapor_liquid",
+              "entropy_J_mol_K": -14.882684118313694,
+              "message": "",
+              "residual_J_mol_K": 83.96593344448219,
+              "stage": "scan",
+              "status": "success",
+              "temperature_K": 423.8095238095238,
+              "underlying_status": ""
+            },
+            {
+              "classification": "vapor_liquid",
+              "entropy_J_mol_K": -12.774149609882983,
+              "message": "",
+              "residual_J_mol_K": 86.0744679529129,
+              "stage": "scan",
+              "status": "success",
+              "temperature_K": 428.57142857142856,
+              "underlying_status": ""
+            },
+            {
+              "classification": "vapor_liquid",
+              "entropy_J_mol_K": -10.636890098772499,
+              "message": "",
+              "residual_J_mol_K": 88.21172746402338,
+              "stage": "scan",
+              "status": "success",
+              "temperature_K": 433.33333333333337,
+              "underlying_status": ""
+            },
+            {
+              "classification": "vapor_liquid",
+              "entropy_J_mol_K": -8.467626288834246,
+              "message": "",
+              "residual_J_mol_K": 90.38099127396163,
+              "stage": "scan",
+              "status": "success",
+              "temperature_K": 438.0952380952381,
+              "underlying_status": ""
+            },
+            {
+              "classification": "vapor_liquid",
+              "entropy_J_mol_K": -6.262696939954362,
+              "message": "",
+              "residual_J_mol_K": 92.58592062284151,
+              "stage": "scan",
+              "status": "success",
+              "temperature_K": 442.8571428571429,
+              "underlying_status": ""
+            },
+            {
+              "classification": "vapor_liquid",
+              "entropy_J_mol_K": -4.017989088145219,
+              "message": "",
+              "residual_J_mol_K": 94.83062847465067,
+              "stage": "scan",
+              "status": "success",
+              "temperature_K": 447.6190476190476,
+              "underlying_status": ""
+            },
+            {
+              "classification": "vapor_liquid",
+              "entropy_J_mol_K": -1.728853826315686,
+              "message": "",
+              "residual_J_mol_K": 97.1197637364802,
+              "stage": "scan",
+              "status": "success",
+              "temperature_K": 452.3809523809524,
+              "underlying_status": ""
+            },
+            {
+              "classification": "vapor_liquid",
+              "entropy_J_mol_K": 0.609996136589254,
+              "message": "",
+              "residual_J_mol_K": 99.45861369938514,
+              "stage": "scan",
+              "status": "success",
+              "temperature_K": 457.14285714285717,
+              "underlying_status": ""
+            },
+            {
+              "classification": null,
+              "entropy_J_mol_K": null,
+              "message": "",
+              "residual_J_mol_K": null,
+              "stage": "scan",
+              "status": "pt_evaluation_failure",
+              "temperature_K": 461.9047619047619,
+              "underlying_status": "flash_not_converged"
+            },
+            {
+              "classification": null,
+              "entropy_J_mol_K": null,
+              "message": "",
+              "residual_J_mol_K": null,
+              "stage": "scan",
+              "status": "pt_evaluation_failure",
+              "temperature_K": 466.6666666666667,
+              "underlying_status": "flash_not_converged"
+            },
+            {
+              "classification": "single_vapor",
+              "entropy_J_mol_K": 7.7247886262558865,
+              "message": "",
+              "residual_J_mol_K": 106.57340618905177,
+              "stage": "scan",
+              "status": "success",
+              "temperature_K": 471.42857142857144,
+              "underlying_status": ""
+            },
+            {
+              "classification": "single_vapor",
+              "entropy_J_mol_K": 9.43867677625629,
+              "message": "",
+              "residual_J_mol_K": 108.28729433905217,
+              "stage": "scan",
+              "status": "success",
+              "temperature_K": 476.1904761904762,
+              "underlying_status": ""
+            },
+            {
+              "classification": "single_vapor",
+              "entropy_J_mol_K": 11.11554578257632,
+              "message": "",
+              "residual_J_mol_K": 109.9641633453722,
+              "stage": "scan",
+              "status": "success",
+              "temperature_K": 480.95238095238096,
+              "underlying_status": ""
+            },
+            {
+              "classification": "single_vapor",
+              "entropy_J_mol_K": 12.759112761409318,
+              "message": "",
+              "residual_J_mol_K": 111.60773032420519,
+              "stage": "scan",
+              "status": "success",
+              "temperature_K": 485.7142857142857,
+              "underlying_status": ""
+            },
+            {
+              "classification": "single_vapor",
+              "entropy_J_mol_K": 14.372644887959071,
+              "message": "",
+              "residual_J_mol_K": 113.22126245075495,
+              "stage": "scan",
+              "status": "success",
+              "temperature_K": 490.4761904761905,
+              "underlying_status": ""
+            },
+            {
+              "classification": "single_vapor",
+              "entropy_J_mol_K": 15.959000238159994,
+              "message": "",
+              "residual_J_mol_K": 114.80761780095588,
+              "stage": "scan",
+              "status": "success",
+              "temperature_K": 495.23809523809524,
+              "underlying_status": ""
+            },
+            {
+              "classification": "single_vapor",
+              "entropy_J_mol_K": 17.52067449127805,
+              "message": "",
+              "residual_J_mol_K": 116.36929205407392,
+              "stage": "scan",
+              "status": "success",
+              "temperature_K": 500.0,
+              "underlying_status": ""
+            }
+          ]
+        }
+      },
+      "evidence": "reused immutable first study, not rerun",
+      "status": "unresolved"
+    }
+  ],
+  "comparisons": 2543,
+  "decision": "A: sufficient for future production restricted to the explicit qualified tuples; no implementation",
+  "proposed_production_allowlist": [
+    {
+      "P2": 300000.0,
+      "case_id": "PT_VL_HEATING_DP0.0",
+      "eta": 0.8,
+      "source_input_sha256": "6fda653767771b268d108204de061f0acf374526019eeaf346f07af14f93eb86"
+    },
+    {
+      "P2": 310000.0,
+      "case_id": "PT_VL_HEATING_DP10000.0",
+      "eta": 0.8,
+      "source_input_sha256": "6fda653767771b268d108204de061f0acf374526019eeaf346f07af14f93eb86"
+    },
+    {
+      "P2": 1300000.0,
+      "case_id": "PT_VL_HEATING_DP1000000.0",
+      "eta": 0.8,
+      "source_input_sha256": "6fda653767771b268d108204de061f0acf374526019eeaf346f07af14f93eb86"
+    },
+    {
+      "P2": 300000.0,
+      "case_id": "PT_VL_INLET_EQUAL_DP0.0",
+      "eta": 0.8,
+      "source_input_sha256": "0b6cb78a2a97663dd330206733529b5e977e321441924d4c71c7833ad81d5e62"
+    },
+    {
+      "P2": 310000.0,
+      "case_id": "PT_VL_INLET_EQUAL_DP10000.0",
+      "eta": 0.8,
+      "source_input_sha256": "0b6cb78a2a97663dd330206733529b5e977e321441924d4c71c7833ad81d5e62"
+    },
+    {
+      "P2": 1300000.0,
+      "case_id": "PT_VL_INLET_EQUAL_DP1000000.0",
+      "eta": 0.8,
+      "source_input_sha256": "0b6cb78a2a97663dd330206733529b5e977e321441924d4c71c7833ad81d5e62"
+    },
+    {
+      "P2": 1000000.0,
+      "case_id": "PT_VAPOR_INLET_COOLING_DP0.0",
+      "eta": 0.8,
+      "source_input_sha256": "93376f34346d855309885dc3b77b5ce533111b6882af1c38fed57ae221ab4ac5"
+    },
+    {
+      "P2": 1010000.0,
+      "case_id": "PT_VAPOR_INLET_COOLING_DP10000.0",
+      "eta": 0.8,
+      "source_input_sha256": "93376f34346d855309885dc3b77b5ce533111b6882af1c38fed57ae221ab4ac5"
+    },
+    {
+      "P2": 2000000.0,
+      "case_id": "PT_VAPOR_INLET_COOLING_DP1000000.0",
+      "eta": 0.8,
+      "source_input_sha256": "93376f34346d855309885dc3b77b5ce533111b6882af1c38fed57ae221ab4ac5"
+    },
+    {
+      "P2": 1000000.0,
+      "case_id": "PH_FLASH_DP0.0",
+      "eta": 0.8,
+      "source_input_sha256": "c556cda255932ea90ebb44790bffaf8030c32fd819db1b3bc9f33574e6a69ade"
+    },
+    {
+      "P2": 1010000.0,
+      "case_id": "PH_FLASH_DP10000.0",
+      "eta": 0.8,
+      "source_input_sha256": "c556cda255932ea90ebb44790bffaf8030c32fd819db1b3bc9f33574e6a69ade"
+    },
+    {
+      "P2": 2000000.0,
+      "case_id": "PH_FLASH_DP1000000.0",
+      "eta": 0.8,
+      "source_input_sha256": "c556cda255932ea90ebb44790bffaf8030c32fd819db1b3bc9f33574e6a69ade"
+    },
+    {
+      "P2": 100000.0,
+      "case_id": "PH_HEXANE_RICH_DP0.0",
+      "eta": 0.8,
+      "source_input_sha256": "fa3ec6d0b12a1b68aa6c740c7ce78f413fc25c0f93615dc00dd7a967842f5ab2"
+    },
+    {
+      "P2": 110000.0,
+      "case_id": "PH_HEXANE_RICH_DP10000.0",
+      "eta": 0.8,
+      "source_input_sha256": "fa3ec6d0b12a1b68aa6c740c7ce78f413fc25c0f93615dc00dd7a967842f5ab2"
+    },
+    {
+      "P2": 1100000.0,
+      "case_id": "PH_HEXANE_RICH_DP1000000.0",
+      "eta": 0.8,
+      "source_input_sha256": "fa3ec6d0b12a1b68aa6c740c7ce78f413fc25c0f93615dc00dd7a967842f5ab2"
+    },
+    {
+      "P2": 6000000.0,
+      "case_id": "PT_BUBBLE_BELOW_DP0.0",
+      "eta": 0.8,
+      "source_input_sha256": "6680600df219546b7436181bbeeffc4667850254ea619d3db136656f10b4e13d"
+    },
+    {
+      "P2": 6010000.0,
+      "case_id": "PT_BUBBLE_BELOW_DP10000.0",
+      "eta": 0.8,
+      "source_input_sha256": "6680600df219546b7436181bbeeffc4667850254ea619d3db136656f10b4e13d"
+    },
+    {
+      "P2": 7000000.0,
+      "case_id": "PT_BUBBLE_BELOW_DP1000000.0",
+      "eta": 0.8,
+      "source_input_sha256": "6680600df219546b7436181bbeeffc4667850254ea619d3db136656f10b4e13d"
+    },
+    {
+      "P2": 6000000.0,
+      "case_id": "PT_BUBBLE_ABOVE_DP0.0",
+      "eta": 0.8,
+      "source_input_sha256": "20b7af59cd76f77431bf26e72205eb99be29b13cf05f934e34a26a6117b80fc9"
+    },
+    {
+      "P2": 6010000.0,
+      "case_id": "PT_BUBBLE_ABOVE_DP10000.0",
+      "eta": 0.8,
+      "source_input_sha256": "20b7af59cd76f77431bf26e72205eb99be29b13cf05f934e34a26a6117b80fc9"
+    },
+    {
+      "P2": 7000000.0,
+      "case_id": "PT_BUBBLE_ABOVE_DP1000000.0",
+      "eta": 0.8,
+      "source_input_sha256": "20b7af59cd76f77431bf26e72205eb99be29b13cf05f934e34a26a6117b80fc9"
+    },
+    {
+      "P2": 6000000.0,
+      "case_id": "PT_DEW_BELOW_DP0.0",
+      "eta": 0.8,
+      "source_input_sha256": "1e06cbb4be253e9a32acea699d5353f520f3925535c8a9fc8dfd3c806a3c6b81"
+    },
+    {
+      "P2": 6010000.0,
+      "case_id": "PT_DEW_BELOW_DP10000.0",
+      "eta": 0.8,
+      "source_input_sha256": "1e06cbb4be253e9a32acea699d5353f520f3925535c8a9fc8dfd3c806a3c6b81"
+    },
+    {
+      "P2": 7000000.0,
+      "case_id": "PT_DEW_BELOW_DP1000000.0",
+      "eta": 0.8,
+      "source_input_sha256": "1e06cbb4be253e9a32acea699d5353f520f3925535c8a9fc8dfd3c806a3c6b81"
+    },
+    {
+      "P2": 2000000.0,
+      "case_id": "ETA0.6",
+      "eta": 0.6,
+      "source_input_sha256": "c556cda255932ea90ebb44790bffaf8030c32fd819db1b3bc9f33574e6a69ade"
+    },
+    {
+      "P2": 2000000.0,
+      "case_id": "ETA1.0",
+      "eta": 1.0,
+      "source_input_sha256": "c556cda255932ea90ebb44790bffaf8030c32fd819db1b3bc9f33574e6a69ade"
+    },
+    {
+      "P2": 1001000.0,
+      "case_id": "SMALL1000.0",
+      "eta": 0.8,
+      "source_input_sha256": "c556cda255932ea90ebb44790bffaf8030c32fd819db1b3bc9f33574e6a69ade"
+    },
+    {
+      "P2": 2000000.0,
+      "case_id": "SCALED5.0",
+      "eta": 0.8,
+      "source_input_sha256": "1e85bc1a48007894eec8d4dde3515dce5e593d72e7d3e064847ad82013933861"
+    },
+    {
+      "P2": 2000000.0,
+      "case_id": "SCALED17.3",
+      "eta": 0.8,
+      "source_input_sha256": "fdb3084126c5fbd3ac62c34fa4de812c3a17ef7739b6e560a8c1f65a35403b9d"
+    },
+    {
+      "P2": 2000000.0,
+      "case_id": "SCALED200.0",
+      "eta": 0.8,
+      "source_input_sha256": "27ed0f282ad34342ee281c6c3a6331cf8afcf1a5a4607e5b28b8738dae6fba2f"
+    }
+  ],
+  "sha256": {
+    "PLAN.md": "a5a1ec7918be6a47c6bb747a7023f72fd278693b25415f611a46ce2dd320a6e1",
+    "README.md": "5620d3603e42c344637207fa57707aa206fb83061d83c0d1493fd12a43b43ad9",
+    "adapter.py": "c999820add3ee01aa580a126b90affcc15a7a93a7fc747647affdf5b4e937a0e",
+    "baseline.json": "ca417a94872c8e4b0ca91addfdc398bfdc123222a87076b547f8acab8eff4915",
+    "capture_sources.py": "524e96dbed6f684cda12886875aadb3528fbdcc3638079acbadf90fdac27bd6b",
+    "common.py": "245b04d5143690b69b7664d7851675370fff40cab739d6de47359584f5f31cc4",
+    "compare.py": "7637a4b7f2d31a43b4104f6acf523bef642c79f83b37c0c468ba68ca10912b20",
+    "negatives.py": "79f4a5f31b9e3981f9801f56251e26ffec0bb3ab96da86003e73d4015af8f838",
+    "preservation.json": "68eaff1c2bed863117c8a72ae5b530626de62b1ef2d3d59e1651d4ab1907ca57",
+    "production.json": "ecb5a0b2ea83bd740cb1f7dd9cffdf18a0abf9e3bb275cb315ebe626bf9ff070",
+    "pump.py": "0b09bdf6315ada7ad04ec5e4f416b0ccc6167d5035e38339f20af43378f06fad",
+    "reference.json": "c0c1492808e0bbe6fce1cc60e5d9de878b90a7efb79eb9877194f0fa0db9b161",
+    "reference.py": "5a2c691a168c0b78000396763b339ca0381fd99673fbc0bccd24dbcac915b0c3",
+    "sources.json": "711e821235fc75744274e8ca8fda36fb532c485ea736be1c94a8e8eb27cd8e2a",
+    "test_contract.py": "8010e5ef8f474163ff86cc5e85251b8d94f44dffcc0e96dae78aeb8897e820b1",
+    "verify.py": "ef6c61e17cc9846b9b4fd7f4799f185b7daef08412d855acd7bcd0c9fee8feb2"
+  }
+}

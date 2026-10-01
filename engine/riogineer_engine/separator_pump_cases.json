@@ -1,0 +1,530 @@
+[
+  {
+    "isentropic_efficiency": 0.8,
+    "outlet_pressure_Pa_abs": 300000.0,
+    "qualification_id": "PT_VL_HEATING_DP0.0",
+    "recipe": {
+      "feed": {
+        "component_mass_flow_kg_h": {
+          "methane": 2887.704,
+          "n_hexane": 15511.5648
+        },
+        "pressure_Pa_abs": 30000000.0,
+        "temperature_K": 300.0
+      },
+      "mode": "specified_temperature",
+      "separator_pressure_Pa_abs": 300000.0,
+      "separator_temperature_K": 350.0
+    }
+  },
+  {
+    "isentropic_efficiency": 0.8,
+    "outlet_pressure_Pa_abs": 310000.0,
+    "qualification_id": "PT_VL_HEATING_DP10000.0",
+    "recipe": {
+      "feed": {
+        "component_mass_flow_kg_h": {
+          "methane": 2887.704,
+          "n_hexane": 15511.5648
+        },
+        "pressure_Pa_abs": 30000000.0,
+        "temperature_K": 300.0
+      },
+      "mode": "specified_temperature",
+      "separator_pressure_Pa_abs": 300000.0,
+      "separator_temperature_K": 350.0
+    }
+  },
+  {
+    "isentropic_efficiency": 0.8,
+    "outlet_pressure_Pa_abs": 1300000.0,
+    "qualification_id": "PT_VL_HEATING_DP1000000.0",
+    "recipe": {
+      "feed": {
+        "component_mass_flow_kg_h": {
+          "methane": 2887.704,
+          "n_hexane": 15511.5648
+        },
+        "pressure_Pa_abs": 30000000.0,
+        "temperature_K": 300.0
+      },
+      "mode": "specified_temperature",
+      "separator_pressure_Pa_abs": 300000.0,
+      "separator_temperature_K": 350.0
+    }
+  },
+  {
+    "isentropic_efficiency": 0.8,
+    "outlet_pressure_Pa_abs": 300000.0,
+    "qualification_id": "PT_VL_INLET_EQUAL_DP0.0",
+    "recipe": {
+      "feed": {
+        "component_mass_flow_kg_h": {
+          "methane": 2887.704,
+          "n_hexane": 15511.5648
+        },
+        "pressure_Pa_abs": 300000.0,
+        "temperature_K": 300.0
+      },
+      "mode": "specified_temperature",
+      "separator_pressure_Pa_abs": 300000.0,
+      "separator_temperature_K": 300.0
+    }
+  },
+  {
+    "isentropic_efficiency": 0.8,
+    "outlet_pressure_Pa_abs": 310000.0,
+    "qualification_id": "PT_VL_INLET_EQUAL_DP10000.0",
+    "recipe": {
+      "feed": {
+        "component_mass_flow_kg_h": {
+          "methane": 2887.704,
+          "n_hexane": 15511.5648
+        },
+        "pressure_Pa_abs": 300000.0,
+        "temperature_K": 300.0
+      },
+      "mode": "specified_temperature",
+      "separator_pressure_Pa_abs": 300000.0,
+      "separator_temperature_K": 300.0
+    }
+  },
+  {
+    "isentropic_efficiency": 0.8,
+    "outlet_pressure_Pa_abs": 1300000.0,
+    "qualification_id": "PT_VL_INLET_EQUAL_DP1000000.0",
+    "recipe": {
+      "feed": {
+        "component_mass_flow_kg_h": {
+          "methane": 2887.704,
+          "n_hexane": 15511.5648
+        },
+        "pressure_Pa_abs": 300000.0,
+        "temperature_K": 300.0
+      },
+      "mode": "specified_temperature",
+      "separator_pressure_Pa_abs": 300000.0,
+      "separator_temperature_K": 300.0
+    }
+  },
+  {
+    "isentropic_efficiency": 0.8,
+    "outlet_pressure_Pa_abs": 1000000.0,
+    "qualification_id": "PT_VAPOR_INLET_COOLING_DP0.0",
+    "recipe": {
+      "feed": {
+        "component_mass_flow_kg_h": {
+          "methane": 5197.8672,
+          "n_hexane": 3102.31296
+        },
+        "pressure_Pa_abs": 6000000.0,
+        "temperature_K": 400.0
+      },
+      "mode": "specified_temperature",
+      "separator_pressure_Pa_abs": 1000000.0,
+      "separator_temperature_K": 280.0
+    }
+  },
+  {
+    "isentropic_efficiency": 0.8,
+    "outlet_pressure_Pa_abs": 1010000.0,
+    "qualification_id": "PT_VAPOR_INLET_COOLING_DP10000.0",
+    "recipe": {
+      "feed": {
+        "component_mass_flow_kg_h": {
+          "methane": 5197.8672,
+          "n_hexane": 3102.31296
+        },
+        "pressure_Pa_abs": 6000000.0,
+        "temperature_K": 400.0
+      },
+      "mode": "specified_temperature",
+      "separator_pressure_Pa_abs": 1000000.0,
+      "separator_temperature_K": 280.0
+    }
+  },
+  {
+    "isentropic_efficiency": 0.8,
+    "outlet_pressure_Pa_abs": 2000000.0,
+    "qualification_id": "PT_VAPOR_INLET_COOLING_DP1000000.0",
+    "recipe": {
+      "feed": {
+        "component_mass_flow_kg_h": {
+          "methane": 5197.8672,
+          "n_hexane": 3102.31296
+        },
+        "pressure_Pa_abs": 6000000.0,
+        "temperature_K": 400.0
+      },
+      "mode": "specified_temperature",
+      "separator_pressure_Pa_abs": 1000000.0,
+      "separator_temperature_K": 280.0
+    }
+  },
+  {
+    "isentropic_efficiency": 0.8,
+    "outlet_pressure_Pa_abs": 1000000.0,
+    "qualification_id": "PH_FLASH_DP0.0",
+    "recipe": {
+      "feed": {
+        "component_mass_flow_kg_h": {
+          "methane": 2887.704,
+          "n_hexane": 15511.5648
+        },
+        "pressure_Pa_abs": 30000000.0,
+        "temperature_K": 300.0
+      },
+      "mode": "adiabatic",
+      "separator_pressure_Pa_abs": 1000000.0
+    }
+  },
+  {
+    "isentropic_efficiency": 0.8,
+    "outlet_pressure_Pa_abs": 1010000.0,
+    "qualification_id": "PH_FLASH_DP10000.0",
+    "recipe": {
+      "feed": {
+        "component_mass_flow_kg_h": {
+          "methane": 2887.704,
+          "n_hexane": 15511.5648
+        },
+        "pressure_Pa_abs": 30000000.0,
+        "temperature_K": 300.0
+      },
+      "mode": "adiabatic",
+      "separator_pressure_Pa_abs": 1000000.0
+    }
+  },
+  {
+    "isentropic_efficiency": 0.8,
+    "outlet_pressure_Pa_abs": 2000000.0,
+    "qualification_id": "PH_FLASH_DP1000000.0",
+    "recipe": {
+      "feed": {
+        "component_mass_flow_kg_h": {
+          "methane": 2887.704,
+          "n_hexane": 15511.5648
+        },
+        "pressure_Pa_abs": 30000000.0,
+        "temperature_K": 300.0
+      },
+      "mode": "adiabatic",
+      "separator_pressure_Pa_abs": 1000000.0
+    }
+  },
+  {
+    "isentropic_efficiency": 0.8,
+    "outlet_pressure_Pa_abs": 100000.0,
+    "qualification_id": "PH_HEXANE_RICH_DP0.0",
+    "recipe": {
+      "feed": {
+        "component_mass_flow_kg_h": {
+          "methane": 577.5408,
+          "n_hexane": 27920.81664
+        },
+        "pressure_Pa_abs": 6000000.0,
+        "temperature_K": 300.0
+      },
+      "mode": "adiabatic",
+      "separator_pressure_Pa_abs": 100000.0
+    }
+  },
+  {
+    "isentropic_efficiency": 0.8,
+    "outlet_pressure_Pa_abs": 110000.0,
+    "qualification_id": "PH_HEXANE_RICH_DP10000.0",
+    "recipe": {
+      "feed": {
+        "component_mass_flow_kg_h": {
+          "methane": 577.5408,
+          "n_hexane": 27920.81664
+        },
+        "pressure_Pa_abs": 6000000.0,
+        "temperature_K": 300.0
+      },
+      "mode": "adiabatic",
+      "separator_pressure_Pa_abs": 100000.0
+    }
+  },
+  {
+    "isentropic_efficiency": 0.8,
+    "outlet_pressure_Pa_abs": 1100000.0,
+    "qualification_id": "PH_HEXANE_RICH_DP1000000.0",
+    "recipe": {
+      "feed": {
+        "component_mass_flow_kg_h": {
+          "methane": 577.5408,
+          "n_hexane": 27920.81664
+        },
+        "pressure_Pa_abs": 6000000.0,
+        "temperature_K": 300.0
+      },
+      "mode": "adiabatic",
+      "separator_pressure_Pa_abs": 100000.0
+    }
+  },
+  {
+    "isentropic_efficiency": 0.8,
+    "outlet_pressure_Pa_abs": 6000000.0,
+    "qualification_id": "PT_BUBBLE_BELOW_DP0.0",
+    "recipe": {
+      "feed": {
+        "component_mass_flow_kg_h": {
+          "methane": 2887.704,
+          "n_hexane": 15511.5648
+        },
+        "pressure_Pa_abs": 7000000.0,
+        "temperature_K": 230.60146798619095
+      },
+      "mode": "specified_temperature",
+      "separator_pressure_Pa_abs": 6000000.0,
+      "separator_temperature_K": 231.06755435138734
+    }
+  },
+  {
+    "isentropic_efficiency": 0.8,
+    "outlet_pressure_Pa_abs": 6010000.0,
+    "qualification_id": "PT_BUBBLE_BELOW_DP10000.0",
+    "recipe": {
+      "feed": {
+        "component_mass_flow_kg_h": {
+          "methane": 2887.704,
+          "n_hexane": 15511.5648
+        },
+        "pressure_Pa_abs": 7000000.0,
+        "temperature_K": 230.60146798619095
+      },
+      "mode": "specified_temperature",
+      "separator_pressure_Pa_abs": 6000000.0,
+      "separator_temperature_K": 231.06755435138734
+    }
+  },
+  {
+    "isentropic_efficiency": 0.8,
+    "outlet_pressure_Pa_abs": 7000000.0,
+    "qualification_id": "PT_BUBBLE_BELOW_DP1000000.0",
+    "recipe": {
+      "feed": {
+        "component_mass_flow_kg_h": {
+          "methane": 2887.704,
+          "n_hexane": 15511.5648
+        },
+        "pressure_Pa_abs": 7000000.0,
+        "temperature_K": 230.60146798619095
+      },
+      "mode": "specified_temperature",
+      "separator_pressure_Pa_abs": 6000000.0,
+      "separator_temperature_K": 231.06755435138734
+    }
+  },
+  {
+    "isentropic_efficiency": 0.8,
+    "outlet_pressure_Pa_abs": 6000000.0,
+    "qualification_id": "PT_BUBBLE_ABOVE_DP0.0",
+    "recipe": {
+      "feed": {
+        "component_mass_flow_kg_h": {
+          "methane": 2887.704,
+          "n_hexane": 15511.5648
+        },
+        "pressure_Pa_abs": 7000000.0,
+        "temperature_K": 230.7220225690974
+      },
+      "mode": "specified_temperature",
+      "separator_pressure_Pa_abs": 6000000.0,
+      "separator_temperature_K": 231.16755435138973
+    }
+  },
+  {
+    "isentropic_efficiency": 0.8,
+    "outlet_pressure_Pa_abs": 6010000.0,
+    "qualification_id": "PT_BUBBLE_ABOVE_DP10000.0",
+    "recipe": {
+      "feed": {
+        "component_mass_flow_kg_h": {
+          "methane": 2887.704,
+          "n_hexane": 15511.5648
+        },
+        "pressure_Pa_abs": 7000000.0,
+        "temperature_K": 230.7220225690974
+      },
+      "mode": "specified_temperature",
+      "separator_pressure_Pa_abs": 6000000.0,
+      "separator_temperature_K": 231.16755435138973
+    }
+  },
+  {
+    "isentropic_efficiency": 0.8,
+    "outlet_pressure_Pa_abs": 7000000.0,
+    "qualification_id": "PT_BUBBLE_ABOVE_DP1000000.0",
+    "recipe": {
+      "feed": {
+        "component_mass_flow_kg_h": {
+          "methane": 2887.704,
+          "n_hexane": 15511.5648
+        },
+        "pressure_Pa_abs": 7000000.0,
+        "temperature_K": 230.7220225690974
+      },
+      "mode": "specified_temperature",
+      "separator_pressure_Pa_abs": 6000000.0,
+      "separator_temperature_K": 231.16755435138973
+    }
+  },
+  {
+    "isentropic_efficiency": 0.8,
+    "outlet_pressure_Pa_abs": 6000000.0,
+    "qualification_id": "PT_DEW_BELOW_DP0.0",
+    "recipe": {
+      "feed": {
+        "component_mass_flow_kg_h": {
+          "methane": 2887.704,
+          "n_hexane": 15511.5648
+        },
+        "pressure_Pa_abs": 7000000.0,
+        "temperature_K": 473.5245275694783
+      },
+      "mode": "specified_temperature",
+      "separator_pressure_Pa_abs": 6000000.0,
+      "separator_temperature_K": 468.2158895316327
+    }
+  },
+  {
+    "isentropic_efficiency": 0.8,
+    "outlet_pressure_Pa_abs": 6010000.0,
+    "qualification_id": "PT_DEW_BELOW_DP10000.0",
+    "recipe": {
+      "feed": {
+        "component_mass_flow_kg_h": {
+          "methane": 2887.704,
+          "n_hexane": 15511.5648
+        },
+        "pressure_Pa_abs": 7000000.0,
+        "temperature_K": 473.5245275694783
+      },
+      "mode": "specified_temperature",
+      "separator_pressure_Pa_abs": 6000000.0,
+      "separator_temperature_K": 468.2158895316327
+    }
+  },
+  {
+    "isentropic_efficiency": 0.8,
+    "outlet_pressure_Pa_abs": 7000000.0,
+    "qualification_id": "PT_DEW_BELOW_DP1000000.0",
+    "recipe": {
+      "feed": {
+        "component_mass_flow_kg_h": {
+          "methane": 2887.704,
+          "n_hexane": 15511.5648
+        },
+        "pressure_Pa_abs": 7000000.0,
+        "temperature_K": 473.5245275694783
+      },
+      "mode": "specified_temperature",
+      "separator_pressure_Pa_abs": 6000000.0,
+      "separator_temperature_K": 468.2158895316327
+    }
+  },
+  {
+    "isentropic_efficiency": 0.6,
+    "outlet_pressure_Pa_abs": 2000000.0,
+    "qualification_id": "ETA0.6",
+    "recipe": {
+      "feed": {
+        "component_mass_flow_kg_h": {
+          "methane": 2887.704,
+          "n_hexane": 15511.5648
+        },
+        "pressure_Pa_abs": 30000000.0,
+        "temperature_K": 300.0
+      },
+      "mode": "adiabatic",
+      "separator_pressure_Pa_abs": 1000000.0
+    }
+  },
+  {
+    "isentropic_efficiency": 1.0,
+    "outlet_pressure_Pa_abs": 2000000.0,
+    "qualification_id": "ETA1.0",
+    "recipe": {
+      "feed": {
+        "component_mass_flow_kg_h": {
+          "methane": 2887.704,
+          "n_hexane": 15511.5648
+        },
+        "pressure_Pa_abs": 30000000.0,
+        "temperature_K": 300.0
+      },
+      "mode": "adiabatic",
+      "separator_pressure_Pa_abs": 1000000.0
+    }
+  },
+  {
+    "isentropic_efficiency": 0.8,
+    "outlet_pressure_Pa_abs": 1001000.0,
+    "qualification_id": "SMALL1000.0",
+    "recipe": {
+      "feed": {
+        "component_mass_flow_kg_h": {
+          "methane": 2887.704,
+          "n_hexane": 15511.5648
+        },
+        "pressure_Pa_abs": 30000000.0,
+        "temperature_K": 300.0
+      },
+      "mode": "adiabatic",
+      "separator_pressure_Pa_abs": 1000000.0
+    }
+  },
+  {
+    "isentropic_efficiency": 0.8,
+    "outlet_pressure_Pa_abs": 2000000.0,
+    "qualification_id": "SCALED5.0",
+    "recipe": {
+      "feed": {
+        "component_mass_flow_kg_h": {
+          "methane": 277.36637673958796,
+          "n_hexane": 1489.8987313579687
+        },
+        "pressure_Pa_abs": 30000000.0,
+        "temperature_K": 300.0
+      },
+      "mode": "adiabatic",
+      "separator_pressure_Pa_abs": 1000000.0
+    }
+  },
+  {
+    "isentropic_efficiency": 0.8,
+    "outlet_pressure_Pa_abs": 2000000.0,
+    "qualification_id": "SCALED17.3",
+    "recipe": {
+      "feed": {
+        "component_mass_flow_kg_h": {
+          "methane": 959.6876635189743,
+          "n_hexane": 5155.049610498571
+        },
+        "pressure_Pa_abs": 30000000.0,
+        "temperature_K": 300.0
+      },
+      "mode": "adiabatic",
+      "separator_pressure_Pa_abs": 1000000.0
+    }
+  },
+  {
+    "isentropic_efficiency": 0.8,
+    "outlet_pressure_Pa_abs": 2000000.0,
+    "qualification_id": "SCALED200.0",
+    "recipe": {
+      "feed": {
+        "component_mass_flow_kg_h": {
+          "methane": 11094.65506958352,
+          "n_hexane": 59595.949254318744
+        },
+        "pressure_Pa_abs": 30000000.0,
+        "temperature_K": 300.0
+      },
+      "mode": "adiabatic",
+      "separator_pressure_Pa_abs": 1000000.0
+    }
+  }
+]

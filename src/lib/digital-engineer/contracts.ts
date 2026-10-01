@@ -460,6 +460,23 @@ export const variablePumpRequirementsSchema = thermalRequirementsSchema.extend({
   profile: z.literal('variable_pump_energy'),
   equipment: z.array(variablePumpInput).length(1),
 });
+export const separatorPumpModel = z.strictObject({
+  id: z.literal('separator_liquid_pump_pr'),
+  version: z.literal('1.0'),
+});
+const separatorPumpInput = z.strictObject({
+  id,
+  type: z.literal('pump'),
+  model: separatorPumpModel,
+  parameters: thermalCommon.extend({ isentropic_efficiency: num.min(0.6).max(1) }),
+});
+export const separatorPumpRequirementsSchema = separatorEnergyRequirementsSchema.extend({
+  schema_version: z.literal('1.12'),
+  profile: z.literal('separator_pump_energy'),
+  equipment: z.array(z.union([separatorEnergyInput, separatorPumpInput])).length(2),
+  streams: graphStreams.length(4),
+  connections: graphConnections.length(4),
+});
 // Interpretation stays on requirementsSchema (1.0); deterministic API accepts both.
 export const engineeringRequirementsSchema = z.union([
   requirementsSchema,
@@ -474,6 +491,7 @@ export const engineeringRequirementsSchema = z.union([
   separatorEnergyRequirementsSchema,
   pumpRequirementsSchema,
   variablePumpRequirementsSchema,
+  separatorPumpRequirementsSchema,
 ]);
 const graphEquipment = z.discriminatedUnion('type', [
   graphEquipmentInput.options[0]
@@ -666,6 +684,23 @@ export const variablePumpFlowsheetSchema = thermalFlowsheetSchema.extend({
     )
     .length(1),
 });
+export const separatorPumpFlowsheetSchema = separatorEnergyFlowsheetSchema.extend({
+  schema_version: z.literal('1.13'),
+  profile: z.literal('separator_pump_energy'),
+  equipment: z
+    .array(
+      z.union([
+        separatorEnergyFlowsheetSchema.shape.equipment.element,
+        separatorPumpInput.omit({ parameters: true }).extend({
+          ports: valveFlowsheetSchema.shape.equipment.element.shape.ports,
+          operating_parameters: separatorPumpInput.shape.parameters,
+        }),
+      ]),
+    )
+    .length(2),
+  streams: z.array(separatorEnergyFlowsheetSchema.shape.streams.element).length(4),
+  connections: graphConnections.length(4),
+});
 // Legacy 1.0/1.1 readers remain unchanged; graph builds explicitly use 1.2.
 export const flowsheetSchema = z.union([
   legacyFlowsheetSchema,
@@ -680,6 +715,7 @@ export const flowsheetSchema = z.union([
   separatorEnergyFlowsheetSchema,
   pumpFlowsheetSchema,
   variablePumpFlowsheetSchema,
+  separatorPumpFlowsheetSchema,
   legacyFlowsheetSchema.extend({
     schema_version: z.literal('1.1'),
     streams: z
@@ -1523,7 +1559,86 @@ export const variablePumpResultsSchema = thermalResultsSchema.extend({
     }),
   }),
 });
+const materialProducer = z.strictObject({
+  run_id: z.string().uuid(),
+  input_sha256: hash,
+  requirements_sha256: hash,
+  equipment_id: id,
+  port_id: id,
+  stream_id: id,
+});
+export const derivedStateContextSchema = z.strictObject({
+  specification_kind: z.literal('upstream_derived'),
+  phase: z.enum(['liquid', 'vapor']),
+  saturation: z.enum(['source_vle', 'unknown', 'compressed_witness']),
+  source: materialProducer,
+  lineage: z.array(materialProducer).optional(),
+  thermodynamics: z.strictObject({
+    property_package: z.literal('peng_robinson@1.0'),
+    component_dataset: z.string(),
+    caloric_dataset: z.string(),
+    caloric_reference: z.string(),
+    bip: z.record(z.string(), z.json()),
+  }),
+});
+export const separatorPumpResultsSchema = thermalResultsSchema.extend({
+  schema_version: z.literal('1.14'),
+  process_result_version: z.literal('1.14'),
+  engine: thermalResultsSchema.shape.engine.extend({ version: z.literal('1.13.0') }),
+  streams: z.record(
+    id,
+    stateSchema.extend({
+      properties: streamPropertiesSchema,
+      state_context: z
+        .union([
+          derivedStateContextSchema,
+          z.strictObject({ specification_kind: z.enum(['independent_PT', 'independent_caloric']) }),
+        ])
+        .optional(),
+    }),
+  ),
+  equipment: z
+    .array(
+      z.union([
+        separatorEnergyResultsSchema.shape.equipment.element,
+        z.strictObject({
+          id,
+          type: z.literal('pump'),
+          model: separatorPumpModel,
+          material_streams: z.strictObject({ inlet: id, outlet: id }),
+          duty_W: z.literal(0),
+          work_W: nonnegative,
+          mass_balance: legacyResultsSchema.shape.balances.shape.mass,
+          energy_residual_W: num,
+          thermodynamics: z.strictObject({
+            qualification_id: z.string(),
+            source_spec_sha256: hash,
+            identity: z.boolean(),
+            isentropic_efficiency: num.min(0.6).max(1),
+            reconstructed_efficiency: num.nullable(),
+            energy_allowance_W: positive,
+            diagnostics: z.record(z.string(), z.json()),
+          }),
+        }),
+      ]),
+    )
+    .length(2),
+  balances: z.strictObject({
+    mass: legacyResultsSchema.shape.balances.shape.mass,
+    energy: z.strictObject({
+      status: z.literal('passed'),
+      residual_W: num,
+      tolerance_W: positive,
+      duty_W: num,
+      fluid_power_W: nonnegative,
+      model: z.literal('separator_pump_energy'),
+      positive_duty: z.literal('heat_into_process'),
+      positive_work: z.literal('work_into_process'),
+    }),
+  }),
+});
 export const resultsSchema = z.union([
+  separatorPumpResultsSchema,
   pumpResultsSchema,
   variablePumpResultsSchema,
   separatorEnergyResultsSchema,

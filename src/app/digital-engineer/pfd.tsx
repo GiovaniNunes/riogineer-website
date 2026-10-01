@@ -12,7 +12,8 @@ export function Pfd({ flowsheet }: { flowsheet: Flowsheet }) {
     flowsheet.schema_version === '1.9' ||
     flowsheet.schema_version === '1.10' ||
     flowsheet.schema_version === '1.11' ||
-    flowsheet.schema_version === '1.12'
+    flowsheet.schema_version === '1.12' ||
+    flowsheet.schema_version === '1.13'
   )
     return <NetworkPfd flowsheet={flowsheet} />;
   const nodes = [...flowsheet.boundaries, ...flowsheet.equipment];
@@ -164,7 +165,8 @@ function NetworkPfd({ flowsheet }: { flowsheet: Flowsheet }) {
                 fontSize="13"
                 textLength={
                   flowsheet.profile === 'pt_flash_separator' ||
-                  flowsheet.profile === 'separator_energy'
+                  flowsheet.profile === 'separator_energy' ||
+                  flowsheet.profile === 'separator_pump_energy'
                     ? b.x - a.x - 16
                     : undefined
                 }
