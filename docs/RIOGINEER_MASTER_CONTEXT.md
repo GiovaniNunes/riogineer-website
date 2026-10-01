@@ -1606,6 +1606,70 @@ Detailed implementation history belongs in:
 
 # 61. CURRENT STATE SUMMARY
 
+Milestone 17 automated implementation and qualification: COMPLETE — 2026-10-01: `equilibrium_separator_energy_pr@1.0`
+extends the existing M9 separator using M10 calorics and the shared M11/M16 PH
+solver. Requirements 1.9 / flowsheet 1.10 / results 1.11 add explicit separator
+pressure with specified-temperature PT (calculated duty) and adiabatic PH (zero
+duty, calculated temperature). Actual PT-defined positive-flow inlet and separate
+vapor/liquid material outlets are conserved; absent-phase intensive properties are
+unavailable and enthalpy-flow contributions are zero. Independent Pre-M17 evidence
+establishes 24 cases, L/V/VL inlet/outlet service within the frozen methane/n_hexane
+zero-kij matrix, and 969 production comparisons. M9 material-only null-energy
+semantics and development models remain intact. No water, three-phase model, pump,
+separate KO solver, sizing, hydraulics, recycles or mixed rigorous network is added.
+See `MILESTONE_17.md` and `PRE_MILESTONE_17_TWO_PHASE_SEPARATOR_ENERGY_QUALIFICATION.md`
+for equations, provenance, tolerances, reproduction and completion checks.
+Original implementation evidence (2026-10-01): all 620 Python, 265 TypeScript and 36 browser tests passed, along with six
+independent tests, byte-identical reference/production-evidence verification,
+schema parity, lint/types/format, final build and smoke.
+
+User-operated M17 checks were reported on 2026-10-01, with screenshots reviewed in
+the accompanying ChatGPT discussion (not agent-performed manual testing; no local
+screenshot files claimed). PT: 300,000 Pa absolute, specified 350 K, feed
+18,399.2688 kg/h, vapor approximately 15,585.658223 kg/h, liquid approximately
+2,813.610577 kg/h, calculated Q approximately +1,832,535.619763 W, balances passed.
+PH: 1,000,000 Pa absolute, calculated T approximately 291.74213866 K, vapor
+approximately 3,001.467851 kg/h, liquid approximately 15,397.800949 kg/h, imposed
+Q=0 W, balances passed and results current. Changing only separator pressure to
+30,000,000 Pa and recalculating gave approximately 300 K, liquid 18,399.2688 kg/h,
+vapor 0 kg/h, Q=0 W and passing balances; the dedicated panel retained zero absent
+vapor material/molar/enthalpy flows and unavailable composition/specific enthalpy.
+Editing pressure back to 1,000,000 Pa without recalculating removed result panels,
+set results (not current)/flowsheet JSON to null, disabled PFD/calculation and
+showed Requirements await validation. These reported manual checks are complete.
+
+The new browser reproduction differs in one reported UI detail: a same-case edit
+retains raw results labelled not current and a generic STALE section, with the
+Previous results are stale warning; the dedicated panel disappears, flowsheet
+clears and buttons disable. This is the unchanged workflow reducer behavior;
+case-identity changes clear results. The manual observation remains recorded as
+reported, with its JSON/status difference unresolved, not silently equated to the
+new automated reproduction. No stale-result workflow change was made.
+
+The same session exposed missing general-table molecular properties. M17's
+serializer had filled all stream properties as unavailable while its dedicated
+panel used separate thermodynamics fields. The correction populates existing
+molar-flow, molecular-mass and molar-composition fields using unchanged M7 qualified
+infrastructure: kmol/h = mol/s × 3.6, molecular mass in kg/kmol. Absent vapor retains
+zero extensive flows and unavailable intensive properties; density/volumetric
+quantities remain unavailable. The legend now explains both unavailable cases.
+No solver, numerical tolerance, contract version or qualified scope changed.
+Human review of this subsequent correction is not claimed.
+
+New correction checks: 29 focused Python tests (12 M17, seven M9, ten M7), all 265
+TypeScript tests, three focused M17 browser workflows, the final full 37-browser
+suite and 24-case/969-comparison frozen production verification passed. Schema
+parity, lint/types/format, diff checks, final production build and smoke passed.
+Before/after PT, PH and equal-pressure engineering outputs matched exactly apart
+from intended property enrichment and run/code fingerprints. Frozen artifact hashes
+are unchanged (recorded in `MILESTONE_17.md`). The original 620-test full numerical
+suite and six independent tests remain dated evidence, not newly rerun tests.
+The updated complete inventory is 31 files (13 tracked modifications, 18 new);
+follow-up files and final gates are detailed in `MILESTONE_17.md`. Commit and normal
+push were explicitly authorized; actual identity/outcome belong to Git history
+and the closeout report. No deployment or M18 work is included. Earlier entries
+below are historical status records, not current capability exclusions.
+
 Milestone 16 automated acceptance: COMPLETE — 2026-09-30. Human-operated M16 validation: COMPLETE — 2026-09-30, separately reported by the reviewer after executing and inspecting canonical, pressure, flow, phase, negative and summary --verify. All reviewed modes passed, including PRESSURE_FLASH_ONSET, flow invariance, phase/service-scope behavior and all 38 negatives; the final summary confirmed 17 positives, 38 negatives, 572 numerical comparisons and eight byte-identical call-order checks. The five separate thermodynamic studies remain outside primary equipment-service qualification. The separately authorized `rigorous_isenthalpic_pr@1.0` valve uses requirements 1.8 / flowsheet 1.9 / results 1.10, actual inlet material flow/composition, high_accuracy PT/M10 → H target = H inlet → shared PH/M11 → fresh final acceptance, and one overall material outlet including qualified VL states. Against unchanged Pre-M16 evidence, 17 primary cases, 38 negatives, 572 primary comparisons, five separate studies (130 comparisons), eight byte-identical call-order checks and fresh production-artifact reproduction passed. The general PH correction partitions the unchanged 128-point 200–500 K scan at controlled PT failures, discovers candidates only inside valid intervals and rejects global ambiguity; it enables PRESSURE_FLASH_ONSET without hard-coded intervals or PT/EOS/tolerance changes. Only the separately authorized M11 early-abort implementation assertion changed; PH numerical evidence remains unchanged. All 609 Python, 260 TypeScript and 34 browser tests, schema parity, lint/types/format, build and smoke passed. Scope remains the frozen methane/n_hexane, explicit-zero-kij, tested pressure matrix with single-liquid/single-vapor inlet and qualified L/V/VL outlet; VL inlet, unsupported coexistence gaps and root-relevant property holes remain rejected. No sizing, Cv/Kv, flow prediction, shaft power, heat-duty/efficiency model, hydraulic/network pressure solution, non-equilibrium flashing or automatic separation is added. No M17 work has begun. See `MILESTONE_16.md` for the complete limitations, authorization history, protected-file inventory, numerical tables and tested review commands. Earlier milestone statements below describing M16 as unimplemented retain their historical meaning.
 
 Independent Pre-M16 automated qualification: COMPLETE. Human-operated Pre-M16 validation: COMPLETE — 2026-09-30, separately reported by the reviewer after inspecting canonical, pressure, flow, phase, negative and summary; all reviewed modes passed. Production M16: NOT IMPLEMENTED. The independent `independent_throttling_valve@1.0` Peng–Robinson reference qualifies isenthalpic methane/n_hexane throttling with explicit zero kij within the frozen pressure/case matrix and 200–500 K domain: 17 primary cases, five separate studies, 38 negatives, 1,633 numerical checks and 12 byte-identical call-order checks. Automated evidence remains 54 independent tests, nine fresh-process verifications, 571 read-only production PT/PH comparisons and 532 unique historical production tests. Initial recommended service is single-liquid/single-vapor inlet with qualified liquid/vapor/VL outlet; VL inlets and boundary perturbations remain separate studies. `PRESSURE_FLASH_ONSET` is qualified only on the explicit 280–350 K interval; the independent property hole remains unavailable, without bridging or interpolation. Frozen SHA-256: `ef0141ec3b72740175553381f2e0431290a0fa8eb937bd03ad0259a9aa2dbead`. No water/general-mixture/nonzero-BIP, VLLE/three-phase, non-equilibrium flashing, kinetic/potential correction, heat transfer, shaft work, valve efficiency, sizing, cavitation/erosion/noise or automatic phase separation is qualified. Future production requires a separately authorized additive contract branch; no production valve, contract or topology change is implemented. See `PRE_MILESTONE_16_THROTTLING_VALVE_QUALIFICATION.md` for the separate automated/human records, investigation, full limitations and tested commands.
@@ -1676,21 +1740,20 @@ Current state:
 
 # 62. IMMEDIATE NEXT STEP
 
-Human-operated M9 browser validation was completed on 2026-09-29 using: Engineering data / Advanced → Load Milestone 9 reference → Validate requirements → Generate PFD → Run engineering calculation. The review confirmed phase/process consistency, balances, identity and unavailable energy semantics (see the manual record). M10 now qualifies property-layer caloric evaluation separately from process integration. Review `MILESTONE_10.md` before separately scoping PH infrastructure; do not automatically implement PH/PS, process energy integration or water/VLLE. See `MILESTONE_9.md` for the unchanged process acceptance.
-Preserve all four independent deterministic references: the Milestone 3/3.1 Bia
-single separator, the Milestone 4 acyclic separator → 60/40 splitter →
-equal-condition mixer network, the Milestone 5 separator → heater → separator, and Milestone 6 with its parallel gas compressor. Review numbered internal streams, balances and
-PFD/Stream Table consistency with engineering users. See MILESTONE_4.md for
-contracts, exact results, model tolerances and validation.
+M17 user-operated engineering checks are recorded in `MILESTONE_17.md`; a separate
+human review of its subsequently corrected general Stream Table is not yet reported.
+Use that document for reproduction and closeout evidence. Await a separately scoped
+next request; no M18 implementation is authorized by this closeout. Preserve
+historical M1–M16 accepted workflows and independent references. Live specification interpretation remains on its existing
+reviewed development-model scope; M17 adds deterministic Advanced demonstrations,
+not broader natural-language topology interpretation.
 
-The live specification → review/approval workflow remains scoped to a single
-separator. Milestone 4 is an explicit deterministic Advanced reference and does
-not broaden LLM interpretation, evidence anchoring or topology normalization.
-
-Do not proceed automatically to recycle convergence, additional equipment or
-full Flowsheet 03 migration. A future dedicated milestone may qualify one
-analytically testable recycle. Topology and stable stream identity come first;
-rigorous EOS-based thermodynamics requires separate qualification and scope.
+Future knockout service can reuse the two-phase thermodynamic core with explicit
+service qualification. Future three-phase work may treat oil/water as mutually
+immiscible, without mutual solubility or a full VLLE requirement, but still needs
+qualified water caloric/phase assumptions. Water is excluded from current PR.
+Mixed rigorous networks, pump qualification and recycles require separate scope;
+none is implied by M17 or by the legacy Flowsheet 03 experiments.
 
 
 # 63. END OF MASTER CONTEXT

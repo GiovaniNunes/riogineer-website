@@ -1,5 +1,8 @@
 'use client';
 
+import { SeparatorEnergyResults } from './separator-energy-results';
+import separatorPtReference from '../../../contracts/examples/milestone-17-pt-requirements.json';
+import separatorPhReference from '../../../contracts/examples/milestone-17-ph-requirements.json';
 import { ThrottlingValveResults } from './throttling-valve-results';
 import { useReducer } from 'react';
 import {
@@ -86,9 +89,11 @@ export function EngineerWorkspace({
     }
   }
   const r = state.results;
+  let separatorEnergy = false;
   let equilibrium = false;
   let exchanger = false;
   try {
+    separatorEnergy = JSON.parse(state.draft).profile === 'separator_energy';
     equilibrium = JSON.parse(state.draft).profile === 'pt_flash_separator';
     exchanger = JSON.parse(state.draft).profile === 'two_stream_heat_exchanger_energy';
   } catch {
@@ -97,7 +102,16 @@ export function EngineerWorkspace({
   return (
     <div className={`container ${styles.workspace}`}>
       <aside className={styles.model}>
-        {exchanger ? (
+        {separatorEnergy ? (
+          <>
+            <strong>Calculation model: Peng–Robinson energy-qualified two-phase separator</strong>
+            <p>
+              PT mode calculates heat duty at specified vessel pressure and temperature. Adiabatic
+              PH imposes zero duty and calculates temperature at specified pressure. Both modes
+              publish separate vapor and liquid material outlets.
+            </p>
+          </>
+        ) : exchanger ? (
           <>
             <strong>Calculation model: Peng–Robinson two-stream heat exchanger</strong>
             <p>
@@ -193,6 +207,22 @@ export function EngineerWorkspace({
             )}
           </div>
           <div className={styles.actions}>
+            <button
+              disabled={state.busy}
+              onClick={() =>
+                dispatch({ type: 'edit', draft: JSON.stringify(separatorPtReference, null, 2) })
+              }
+            >
+              Load Milestone 17 PT reference
+            </button>
+            <button
+              disabled={state.busy}
+              onClick={() =>
+                dispatch({ type: 'edit', draft: JSON.stringify(separatorPhReference, null, 2) })
+              }
+            >
+              Load Milestone 17 adiabatic PH reference
+            </button>
             <button
               disabled={state.busy || state.validated}
               onClick={() => void operate('validate-requirements')}
@@ -389,7 +419,9 @@ export function EngineerWorkspace({
                     [
                       r.schema_version === '1.6'
                         ? 'Enthalpy flow (W; unavailable)'
-                        : r.schema_version === '1.9' || r.schema_version === '1.10'
+                        : r.schema_version === '1.9' ||
+                            r.schema_version === '1.10' ||
+                            r.schema_version === '1.11'
                           ? 'Enthalpy flow (W; Peng–Robinson)'
                           : 'Enthalpy flow (W; assumed Cp)',
                       'enthalpy_flow_W',
@@ -441,18 +473,23 @@ export function EngineerWorkspace({
                     {r.schema_version === '1.7' ||
                     r.schema_version === '1.8' ||
                     r.schema_version === '1.9' ||
-                    r.schema_version === '1.10'
+                    r.schema_version === '1.10' ||
+                    r.schema_version === '1.11'
                       ? 'PR equilibrium energy'
                       : 'constant-Cp'}{' '}
                     model.
                   </p>
                   {r.schema_version !== '1.10' && (
                     <p>
-                      {'execution' in r
-                        ? 'Calculated network duty: '
-                        : 'Calculated separator duty: '}
+                      {r.schema_version === '1.11'
+                        ? r.equipment[0].thermodynamics.mode === 'adiabatic'
+                          ? 'Imposed separator duty: '
+                          : 'Calculated separator duty: '
+                        : 'execution' in r
+                          ? 'Calculated network duty: '
+                          : 'Calculated separator duty: '}
                       <strong>{number(r.balances.energy.duty_W)} W</strong>{' '}
-                      {'execution' in r
+                      {'execution' in r && r.schema_version !== '1.11'
                         ? '(positive into the network).'
                         : '(positive into the separator).'}
                     </p>
@@ -474,7 +511,8 @@ export function EngineerWorkspace({
           {'execution' in r &&
             r.schema_version !== '1.6' &&
             r.schema_version !== '1.9' &&
-            r.schema_version !== '1.10' && (
+            r.schema_version !== '1.10' &&
+            r.schema_version !== '1.11' && (
               <>
                 <h3>Equipment checks</h3>
                 <p>Execution order: {r.execution.equipment_order.join(' → ')}</p>
@@ -520,6 +558,7 @@ export function EngineerWorkspace({
           )}
           {r.schema_version === '1.9' && current && <TwoStreamHeatExchangerResults results={r} />}
           {r.schema_version === '1.8' && current && <RigorousCompressionResults results={r} />}
+          {r.schema_version === '1.11' && current && <SeparatorEnergyResults results={r} />}
           {r.schema_version === '1.10' && current && <ThrottlingValveResults results={r} />}
           <h3>Warnings and model limitations</h3>
           <ul aria-label="Warnings and model limitations">

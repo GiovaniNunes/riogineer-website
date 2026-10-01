@@ -6,6 +6,3209 @@
       "properties": {
         "schema_version": {
           "type": "string",
+          "const": "1.11"
+        },
+        "kind": {
+          "type": "string",
+          "const": "results"
+        },
+        "case_id": {
+          "type": "string",
+          "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,79}$"
+        },
+        "run_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "input_sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "requirements_sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "engine": {
+          "type": "object",
+          "properties": {
+            "version": {
+              "type": "string",
+              "const": "1.10.0"
+            },
+            "implementation_sha256": {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            "evaluator_sha256": {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            "model": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "const": "acyclic_component_conservation"
+                },
+                "version": {
+                  "type": "string",
+                  "const": "1.0"
+                }
+              },
+              "required": [
+                "id",
+                "version"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "version",
+            "implementation_sha256",
+            "evaluator_sha256",
+            "model"
+          ],
+          "additionalProperties": false
+        },
+        "status": {
+          "type": "string",
+          "const": "completed"
+        },
+        "units": {
+          "type": "object",
+          "properties": {
+            "temperature": {
+              "type": "string",
+              "const": "K"
+            },
+            "pressure": {
+              "type": "string",
+              "const": "Pa_abs"
+            },
+            "component_mass_flow": {
+              "type": "string",
+              "const": "kg/h"
+            },
+            "heat_capacity": {
+              "type": "string",
+              "const": "J/(kg K)"
+            },
+            "duty": {
+              "type": "string",
+              "const": "W"
+            },
+            "recovery": {
+              "type": "string",
+              "const": "mass_fraction"
+            }
+          },
+          "required": [
+            "temperature",
+            "pressure",
+            "component_mass_flow",
+            "heat_capacity",
+            "duty",
+            "recovery"
+          ],
+          "additionalProperties": false
+        },
+        "streams": {
+          "type": "object",
+          "propertyNames": {
+            "type": "string",
+            "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,79}$"
+          },
+          "additionalProperties": {
+            "type": "object",
+            "properties": {
+              "component_mass_flow_kg_h": {
+                "type": "object",
+                "propertyNames": {
+                  "type": "string",
+                  "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,79}$"
+                },
+                "additionalProperties": {
+                  "type": "number",
+                  "minimum": 0
+                }
+              },
+              "mass_flow_kg_h": {
+                "type": "number",
+                "minimum": 0
+              },
+              "component_mass_fractions": {
+                "anyOf": [
+                  {
+                    "type": "object",
+                    "propertyNames": {
+                      "type": "string",
+                      "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,79}$"
+                    },
+                    "additionalProperties": {
+                      "type": "number",
+                      "minimum": 0,
+                      "maximum": 1
+                    }
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "temperature_K": {
+                "type": "number",
+                "exclusiveMinimum": 0
+              },
+              "pressure_Pa_abs": {
+                "type": "number",
+                "exclusiveMinimum": 0
+              },
+              "enthalpy_flow_W": {
+                "type": "number"
+              },
+              "properties": {
+                "type": "object",
+                "properties": {
+                  "molar_flow": {
+                    "anyOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "value": {
+                            "type": "number",
+                            "minimum": 0
+                          },
+                          "status": {
+                            "type": "string",
+                            "const": "calculated"
+                          },
+                          "unit": {
+                            "type": "string",
+                            "const": "kmol/h"
+                          }
+                        },
+                        "required": [
+                          "value",
+                          "status",
+                          "unit"
+                        ],
+                        "additionalProperties": false
+                      },
+                      {
+                        "type": "object",
+                        "properties": {
+                          "value": {
+                            "type": "null"
+                          },
+                          "status": {
+                            "type": "string",
+                            "const": "not_calculated"
+                          },
+                          "unit": {
+                            "type": "string",
+                            "const": "kmol/h"
+                          }
+                        },
+                        "required": [
+                          "value",
+                          "status",
+                          "unit"
+                        ],
+                        "additionalProperties": false
+                      }
+                    ]
+                  },
+                  "molecular_mass": {
+                    "anyOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "value": {
+                            "type": "number",
+                            "minimum": 0
+                          },
+                          "status": {
+                            "type": "string",
+                            "const": "calculated"
+                          },
+                          "unit": {
+                            "type": "string",
+                            "const": "kg/kmol"
+                          }
+                        },
+                        "required": [
+                          "value",
+                          "status",
+                          "unit"
+                        ],
+                        "additionalProperties": false
+                      },
+                      {
+                        "type": "object",
+                        "properties": {
+                          "value": {
+                            "type": "null"
+                          },
+                          "status": {
+                            "type": "string",
+                            "const": "not_calculated"
+                          },
+                          "unit": {
+                            "type": "string",
+                            "const": "kg/kmol"
+                          }
+                        },
+                        "required": [
+                          "value",
+                          "status",
+                          "unit"
+                        ],
+                        "additionalProperties": false
+                      }
+                    ]
+                  },
+                  "density": {
+                    "anyOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "value": {
+                            "type": "number",
+                            "minimum": 0
+                          },
+                          "status": {
+                            "type": "string",
+                            "const": "calculated"
+                          },
+                          "unit": {
+                            "type": "string",
+                            "const": "kg/m3"
+                          }
+                        },
+                        "required": [
+                          "value",
+                          "status",
+                          "unit"
+                        ],
+                        "additionalProperties": false
+                      },
+                      {
+                        "type": "object",
+                        "properties": {
+                          "value": {
+                            "type": "null"
+                          },
+                          "status": {
+                            "type": "string",
+                            "const": "not_calculated"
+                          },
+                          "unit": {
+                            "type": "string",
+                            "const": "kg/m3"
+                          }
+                        },
+                        "required": [
+                          "value",
+                          "status",
+                          "unit"
+                        ],
+                        "additionalProperties": false
+                      }
+                    ]
+                  },
+                  "gas_volumetric_flow": {
+                    "anyOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "value": {
+                            "type": "number",
+                            "minimum": 0
+                          },
+                          "status": {
+                            "type": "string",
+                            "const": "calculated"
+                          },
+                          "unit": {
+                            "type": "string",
+                            "const": "m3/h"
+                          }
+                        },
+                        "required": [
+                          "value",
+                          "status",
+                          "unit"
+                        ],
+                        "additionalProperties": false
+                      },
+                      {
+                        "type": "object",
+                        "properties": {
+                          "value": {
+                            "type": "null"
+                          },
+                          "status": {
+                            "type": "string",
+                            "const": "not_calculated"
+                          },
+                          "unit": {
+                            "type": "string",
+                            "const": "m3/h"
+                          }
+                        },
+                        "required": [
+                          "value",
+                          "status",
+                          "unit"
+                        ],
+                        "additionalProperties": false
+                      }
+                    ]
+                  },
+                  "oil_volumetric_flow": {
+                    "anyOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "value": {
+                            "type": "number",
+                            "minimum": 0
+                          },
+                          "status": {
+                            "type": "string",
+                            "const": "calculated"
+                          },
+                          "unit": {
+                            "type": "string",
+                            "const": "m3/h"
+                          }
+                        },
+                        "required": [
+                          "value",
+                          "status",
+                          "unit"
+                        ],
+                        "additionalProperties": false
+                      },
+                      {
+                        "type": "object",
+                        "properties": {
+                          "value": {
+                            "type": "null"
+                          },
+                          "status": {
+                            "type": "string",
+                            "const": "not_calculated"
+                          },
+                          "unit": {
+                            "type": "string",
+                            "const": "m3/h"
+                          }
+                        },
+                        "required": [
+                          "value",
+                          "status",
+                          "unit"
+                        ],
+                        "additionalProperties": false
+                      }
+                    ]
+                  },
+                  "water_volumetric_flow": {
+                    "anyOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "value": {
+                            "type": "number",
+                            "minimum": 0
+                          },
+                          "status": {
+                            "type": "string",
+                            "const": "calculated"
+                          },
+                          "unit": {
+                            "type": "string",
+                            "const": "m3/h"
+                          }
+                        },
+                        "required": [
+                          "value",
+                          "status",
+                          "unit"
+                        ],
+                        "additionalProperties": false
+                      },
+                      {
+                        "type": "object",
+                        "properties": {
+                          "value": {
+                            "type": "null"
+                          },
+                          "status": {
+                            "type": "string",
+                            "const": "not_calculated"
+                          },
+                          "unit": {
+                            "type": "string",
+                            "const": "m3/h"
+                          }
+                        },
+                        "required": [
+                          "value",
+                          "status",
+                          "unit"
+                        ],
+                        "additionalProperties": false
+                      }
+                    ]
+                  },
+                  "molar_composition": {
+                    "anyOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "value": {
+                            "type": "object",
+                            "propertyNames": {
+                              "type": "string",
+                              "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,79}$"
+                            },
+                            "additionalProperties": {
+                              "type": "number",
+                              "minimum": 0,
+                              "maximum": 1
+                            }
+                          },
+                          "status": {
+                            "type": "string",
+                            "const": "calculated"
+                          },
+                          "unit": {
+                            "type": "string",
+                            "const": "mol/mol"
+                          }
+                        },
+                        "required": [
+                          "value",
+                          "status",
+                          "unit"
+                        ],
+                        "additionalProperties": false
+                      },
+                      {
+                        "type": "object",
+                        "properties": {
+                          "value": {
+                            "type": "null"
+                          },
+                          "status": {
+                            "type": "string",
+                            "const": "not_calculated"
+                          },
+                          "unit": {
+                            "type": "string",
+                            "const": "mol/mol"
+                          }
+                        },
+                        "required": [
+                          "value",
+                          "status",
+                          "unit"
+                        ],
+                        "additionalProperties": false
+                      }
+                    ]
+                  }
+                },
+                "required": [
+                  "molar_flow",
+                  "molecular_mass",
+                  "density",
+                  "gas_volumetric_flow",
+                  "oil_volumetric_flow",
+                  "water_volumetric_flow",
+                  "molar_composition"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "component_mass_flow_kg_h",
+              "mass_flow_kg_h",
+              "component_mass_fractions",
+              "temperature_K",
+              "pressure_Pa_abs",
+              "enthalpy_flow_W",
+              "properties"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "equipment": {
+          "minItems": 1,
+          "maxItems": 1,
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,79}$"
+              },
+              "type": {
+                "type": "string",
+                "const": "equilibrium_separator_2phase"
+              },
+              "model": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "const": "equilibrium_separator_energy_pr"
+                  },
+                  "version": {
+                    "type": "string",
+                    "const": "1.0"
+                  }
+                },
+                "required": [
+                  "id",
+                  "version"
+                ],
+                "additionalProperties": false
+              },
+              "material_streams": {
+                "type": "object",
+                "properties": {
+                  "inlet": {
+                    "type": "string",
+                    "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,79}$"
+                  },
+                  "vapor": {
+                    "type": "string",
+                    "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,79}$"
+                  },
+                  "liquid": {
+                    "type": "string",
+                    "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,79}$"
+                  }
+                },
+                "required": [
+                  "inlet",
+                  "vapor",
+                  "liquid"
+                ],
+                "additionalProperties": false
+              },
+              "mass_balance": {
+                "type": "object",
+                "properties": {
+                  "status": {
+                    "type": "string",
+                    "enum": [
+                      "passed",
+                      "failed"
+                    ]
+                  },
+                  "component_residual_kg_h": {
+                    "type": "object",
+                    "propertyNames": {
+                      "type": "string",
+                      "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,79}$"
+                    },
+                    "additionalProperties": {
+                      "type": "number"
+                    }
+                  },
+                  "total_residual_kg_h": {
+                    "type": "number"
+                  },
+                  "component_tolerance_kg_h": {
+                    "type": "number",
+                    "exclusiveMinimum": 0
+                  },
+                  "total_tolerance_kg_h": {
+                    "type": "number",
+                    "exclusiveMinimum": 0
+                  }
+                },
+                "required": [
+                  "status",
+                  "component_residual_kg_h",
+                  "total_residual_kg_h",
+                  "component_tolerance_kg_h",
+                  "total_tolerance_kg_h"
+                ],
+                "additionalProperties": false
+              },
+              "duty_W": {
+                "type": "number"
+              },
+              "work_W": {
+                "type": "number",
+                "const": 0
+              },
+              "energy_residual_W": {
+                "type": "number"
+              },
+              "thermodynamics": {
+                "oneOf": [
+                  {
+                    "type": "object",
+                    "properties": {
+                      "property_package": {
+                        "type": "string",
+                        "const": "peng_robinson@1.0"
+                      },
+                      "component_dataset": {
+                        "type": "string",
+                        "const": "riogineer_components@1.0"
+                      },
+                      "molecular_provider": {
+                        "type": "string",
+                        "const": "molecular_composition@1.0"
+                      },
+                      "caloric_dataset": {
+                        "type": "string",
+                        "const": "riogineer_caloric@1.0"
+                      },
+                      "caloric_reference": {
+                        "type": "string",
+                        "const": "ideal_gas_sensible_298.15K_101325Pa@1.0"
+                      },
+                      "bip": {
+                        "type": "object",
+                        "properties": {
+                          "identifier": {
+                            "type": "string",
+                            "minLength": 1
+                          },
+                          "component_ids": {
+                            "type": "array",
+                            "prefixItems": [
+                              {
+                                "type": "string",
+                                "const": "methane"
+                              },
+                              {
+                                "type": "string",
+                                "const": "n_hexane"
+                              }
+                            ],
+                            "items": false,
+                            "minItems": 2,
+                            "maxItems": 2
+                          },
+                          "values": {
+                            "type": "array",
+                            "prefixItems": [
+                              {
+                                "type": "array",
+                                "prefixItems": [
+                                  {
+                                    "type": "number",
+                                    "const": 0
+                                  },
+                                  {
+                                    "type": "number",
+                                    "const": 0
+                                  }
+                                ],
+                                "items": false,
+                                "minItems": 2,
+                                "maxItems": 2
+                              },
+                              {
+                                "type": "array",
+                                "prefixItems": [
+                                  {
+                                    "type": "number",
+                                    "const": 0
+                                  },
+                                  {
+                                    "type": "number",
+                                    "const": 0
+                                  }
+                                ],
+                                "items": false,
+                                "minItems": 2,
+                                "maxItems": 2
+                              }
+                            ],
+                            "items": false,
+                            "minItems": 2,
+                            "maxItems": 2
+                          },
+                          "source": {
+                            "type": "string",
+                            "minLength": 1
+                          },
+                          "model": {
+                            "type": "string",
+                            "const": "peng_robinson@1.0"
+                          }
+                        },
+                        "required": [
+                          "identifier",
+                          "component_ids",
+                          "values",
+                          "source",
+                          "model"
+                        ],
+                        "additionalProperties": false
+                      },
+                      "F_mol_s": {
+                        "type": "number",
+                        "exclusiveMinimum": 0
+                      },
+                      "energy_residual_W": {
+                        "type": "number"
+                      },
+                      "energy_allowance_W": {
+                        "type": "number",
+                        "exclusiveMinimum": 0
+                      },
+                      "inlet": {
+                        "oneOf": [
+                          {
+                            "type": "object",
+                            "properties": {
+                              "temperature_K": {
+                                "type": "number",
+                                "exclusiveMinimum": 0
+                              },
+                              "pressure_Pa_abs": {
+                                "type": "number",
+                                "exclusiveMinimum": 0
+                              },
+                              "z": {
+                                "type": "object",
+                                "propertyNames": {
+                                  "type": "string",
+                                  "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,79}$"
+                                },
+                                "additionalProperties": {
+                                  "type": "number",
+                                  "minimum": 0,
+                                  "maximum": 1
+                                }
+                              },
+                              "classification": {
+                                "type": "string",
+                                "const": "single_liquid"
+                              },
+                              "beta": {
+                                "type": "number",
+                                "const": 0
+                              },
+                              "H_eq_J_mol": {
+                                "type": "number"
+                              },
+                              "phases": {
+                                "type": "object",
+                                "properties": {
+                                  "liquid": {
+                                    "type": "object",
+                                    "properties": {
+                                      "composition": {
+                                        "type": "object",
+                                        "propertyNames": {
+                                          "type": "string",
+                                          "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,79}$"
+                                        },
+                                        "additionalProperties": {
+                                          "type": "number",
+                                          "minimum": 0,
+                                          "maximum": 1
+                                        }
+                                      },
+                                      "Z": {
+                                        "type": "number",
+                                        "exclusiveMinimum": 0
+                                      },
+                                      "h_ig_J_mol": {
+                                        "type": "number"
+                                      },
+                                      "h_res_J_mol": {
+                                        "type": "number"
+                                      },
+                                      "h_J_mol": {
+                                        "type": "number"
+                                      },
+                                      "s_ig_J_mol_K": {
+                                        "type": "number"
+                                      },
+                                      "s_res_J_mol_K": {
+                                        "type": "number"
+                                      },
+                                      "s_J_mol_K": {
+                                        "type": "number"
+                                      }
+                                    },
+                                    "required": [
+                                      "composition",
+                                      "Z",
+                                      "h_ig_J_mol",
+                                      "h_res_J_mol",
+                                      "h_J_mol",
+                                      "s_ig_J_mol_K",
+                                      "s_res_J_mol_K",
+                                      "s_J_mol_K"
+                                    ],
+                                    "additionalProperties": false
+                                  }
+                                },
+                                "required": [
+                                  "liquid"
+                                ],
+                                "additionalProperties": false
+                              },
+                              "pt_status": {
+                                "type": "string",
+                                "const": "success_single_phase"
+                              },
+                              "max_log_fugacity_residual": {
+                                "type": "number",
+                                "minimum": 0
+                              },
+                              "S_eq_J_mol_K": {
+                                "type": "number"
+                              }
+                            },
+                            "required": [
+                              "temperature_K",
+                              "pressure_Pa_abs",
+                              "z",
+                              "classification",
+                              "beta",
+                              "H_eq_J_mol",
+                              "phases",
+                              "pt_status",
+                              "max_log_fugacity_residual",
+                              "S_eq_J_mol_K"
+                            ],
+                            "additionalProperties": false
+                          },
+                          {
+                            "type": "object",
+                            "properties": {
+                              "temperature_K": {
+                                "type": "number",
+                                "exclusiveMinimum": 0
+                              },
+                              "pressure_Pa_abs": {
+                                "type": "number",
+                                "exclusiveMinimum": 0
+                              },
+                              "z": {
+                                "type": "object",
+                                "propertyNames": {
+                                  "type": "string",
+                                  "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,79}$"
+                                },
+                                "additionalProperties": {
+                                  "type": "number",
+                                  "minimum": 0,
+                                  "maximum": 1
+                                }
+                              },
+                              "classification": {
+                                "type": "string",
+                                "const": "single_vapor"
+                              },
+                              "beta": {
+                                "type": "number",
+                                "const": 1
+                              },
+                              "H_eq_J_mol": {
+                                "type": "number"
+                              },
+                              "phases": {
+                                "type": "object",
+                                "properties": {
+                                  "vapor": {
+                                    "type": "object",
+                                    "properties": {
+                                      "composition": {
+                                        "type": "object",
+                                        "propertyNames": {
+                                          "type": "string",
+                                          "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,79}$"
+                                        },
+                                        "additionalProperties": {
+                                          "type": "number",
+                                          "minimum": 0,
+                                          "maximum": 1
+                                        }
+                                      },
+                                      "Z": {
+                                        "type": "number",
+                                        "exclusiveMinimum": 0
+                                      },
+                                      "h_ig_J_mol": {
+                                        "type": "number"
+                                      },
+                                      "h_res_J_mol": {
+                                        "type": "number"
+                                      },
+                                      "h_J_mol": {
+                                        "type": "number"
+                                      },
+                                      "s_ig_J_mol_K": {
+                                        "type": "number"
+                                      },
+                                      "s_res_J_mol_K": {
+                                        "type": "number"
+                                      },
+                                      "s_J_mol_K": {
+                                        "type": "number"
+                                      }
+                                    },
+                                    "required": [
+                                      "composition",
+                                      "Z",
+                                      "h_ig_J_mol",
+                                      "h_res_J_mol",
+                                      "h_J_mol",
+                                      "s_ig_J_mol_K",
+                                      "s_res_J_mol_K",
+                                      "s_J_mol_K"
+                                    ],
+                                    "additionalProperties": false
+                                  }
+                                },
+                                "required": [
+                                  "vapor"
+                                ],
+                                "additionalProperties": false
+                              },
+                              "pt_status": {
+                                "type": "string",
+                                "const": "success_single_phase"
+                              },
+                              "max_log_fugacity_residual": {
+                                "type": "number",
+                                "minimum": 0
+                              },
+                              "S_eq_J_mol_K": {
+                                "type": "number"
+                              }
+                            },
+                            "required": [
+                              "temperature_K",
+                              "pressure_Pa_abs",
+                              "z",
+                              "classification",
+                              "beta",
+                              "H_eq_J_mol",
+                              "phases",
+                              "pt_status",
+                              "max_log_fugacity_residual",
+                              "S_eq_J_mol_K"
+                            ],
+                            "additionalProperties": false
+                          },
+                          {
+                            "type": "object",
+                            "properties": {
+                              "temperature_K": {
+                                "type": "number",
+                                "exclusiveMinimum": 0
+                              },
+                              "pressure_Pa_abs": {
+                                "type": "number",
+                                "exclusiveMinimum": 0
+                              },
+                              "z": {
+                                "type": "object",
+                                "propertyNames": {
+                                  "type": "string",
+                                  "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,79}$"
+                                },
+                                "additionalProperties": {
+                                  "type": "number",
+                                  "minimum": 0,
+                                  "maximum": 1
+                                }
+                              },
+                              "classification": {
+                                "type": "string",
+                                "const": "vapor_liquid"
+                              },
+                              "beta": {
+                                "type": "number",
+                                "exclusiveMinimum": 0,
+                                "exclusiveMaximum": 1
+                              },
+                              "H_eq_J_mol": {
+                                "type": "number"
+                              },
+                              "phases": {
+                                "type": "object",
+                                "properties": {
+                                  "liquid": {
+                                    "type": "object",
+                                    "properties": {
+                                      "composition": {
+                                        "type": "object",
+                                        "propertyNames": {
+                                          "type": "string",
+                                          "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,79}$"
+                                        },
+                                        "additionalProperties": {
+                                          "type": "number",
+                                          "minimum": 0,
+                                          "maximum": 1
+                                        }
+                                      },
+                                      "Z": {
+                                        "type": "number",
+                                        "exclusiveMinimum": 0
+                                      },
+                                      "h_ig_J_mol": {
+                                        "type": "number"
+                                      },
+                                      "h_res_J_mol": {
+                                        "type": "number"
+                                      },
+                                      "h_J_mol": {
+                                        "type": "number"
+                                      },
+                                      "s_ig_J_mol_K": {
+                                        "type": "number"
+                                      },
+                                      "s_res_J_mol_K": {
+                                        "type": "number"
+                                      },
+                                      "s_J_mol_K": {
+                                        "type": "number"
+                                      }
+                                    },
+                                    "required": [
+                                      "composition",
+                                      "Z",
+                                      "h_ig_J_mol",
+                                      "h_res_J_mol",
+                                      "h_J_mol",
+                                      "s_ig_J_mol_K",
+                                      "s_res_J_mol_K",
+                                      "s_J_mol_K"
+                                    ],
+                                    "additionalProperties": false
+                                  },
+                                  "vapor": {
+                                    "type": "object",
+                                    "properties": {
+                                      "composition": {
+                                        "type": "object",
+                                        "propertyNames": {
+                                          "type": "string",
+                                          "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,79}$"
+                                        },
+                                        "additionalProperties": {
+                                          "type": "number",
+                                          "minimum": 0,
+                                          "maximum": 1
+                                        }
+                                      },
+                                      "Z": {
+                                        "type": "number",
+                                        "exclusiveMinimum": 0
+                                      },
+                                      "h_ig_J_mol": {
+                                        "type": "number"
+                                      },
+                                      "h_res_J_mol": {
+                                        "type": "number"
+                                      },
+                                      "h_J_mol": {
+                                        "type": "number"
+                                      },
+                                      "s_ig_J_mol_K": {
+                                        "type": "number"
+                                      },
+                                      "s_res_J_mol_K": {
+                                        "type": "number"
+                                      },
+                                      "s_J_mol_K": {
+                                        "type": "number"
+                                      }
+                                    },
+                                    "required": [
+                                      "composition",
+                                      "Z",
+                                      "h_ig_J_mol",
+                                      "h_res_J_mol",
+                                      "h_J_mol",
+                                      "s_ig_J_mol_K",
+                                      "s_res_J_mol_K",
+                                      "s_J_mol_K"
+                                    ],
+                                    "additionalProperties": false
+                                  }
+                                },
+                                "required": [
+                                  "liquid",
+                                  "vapor"
+                                ],
+                                "additionalProperties": false
+                              },
+                              "pt_status": {
+                                "type": "string",
+                                "const": "success_two_phase"
+                              },
+                              "max_log_fugacity_residual": {
+                                "type": "number",
+                                "minimum": 0
+                              },
+                              "S_eq_J_mol_K": {
+                                "type": "number"
+                              }
+                            },
+                            "required": [
+                              "temperature_K",
+                              "pressure_Pa_abs",
+                              "z",
+                              "classification",
+                              "beta",
+                              "H_eq_J_mol",
+                              "phases",
+                              "pt_status",
+                              "max_log_fugacity_residual",
+                              "S_eq_J_mol_K"
+                            ],
+                            "additionalProperties": false
+                          }
+                        ]
+                      },
+                      "outlet": {
+                        "oneOf": [
+                          {
+                            "type": "object",
+                            "properties": {
+                              "temperature_K": {
+                                "type": "number",
+                                "exclusiveMinimum": 0
+                              },
+                              "pressure_Pa_abs": {
+                                "type": "number",
+                                "exclusiveMinimum": 0
+                              },
+                              "z": {
+                                "type": "object",
+                                "propertyNames": {
+                                  "type": "string",
+                                  "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,79}$"
+                                },
+                                "additionalProperties": {
+                                  "type": "number",
+                                  "minimum": 0,
+                                  "maximum": 1
+                                }
+                              },
+                              "classification": {
+                                "type": "string",
+                                "const": "single_liquid"
+                              },
+                              "beta": {
+                                "type": "number",
+                                "const": 0
+                              },
+                              "H_eq_J_mol": {
+                                "type": "number"
+                              },
+                              "phases": {
+                                "type": "object",
+                                "properties": {
+                                  "liquid": {
+                                    "type": "object",
+                                    "properties": {
+                                      "composition": {
+                                        "type": "object",
+                                        "propertyNames": {
+                                          "type": "string",
+                                          "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,79}$"
+                                        },
+                                        "additionalProperties": {
+                                          "type": "number",
+                                          "minimum": 0,
+                                          "maximum": 1
+                                        }
+                                      },
+                                      "Z": {
+                                        "type": "number",
+                                        "exclusiveMinimum": 0
+                                      },
+                                      "h_ig_J_mol": {
+                                        "type": "number"
+                                      },
+                                      "h_res_J_mol": {
+                                        "type": "number"
+                                      },
+                                      "h_J_mol": {
+                                        "type": "number"
+                                      },
+                                      "s_ig_J_mol_K": {
+                                        "type": "number"
+                                      },
+                                      "s_res_J_mol_K": {
+                                        "type": "number"
+                                      },
+                                      "s_J_mol_K": {
+                                        "type": "number"
+                                      }
+                                    },
+                                    "required": [
+                                      "composition",
+                                      "Z",
+                                      "h_ig_J_mol",
+                                      "h_res_J_mol",
+                                      "h_J_mol",
+                                      "s_ig_J_mol_K",
+                                      "s_res_J_mol_K",
+                                      "s_J_mol_K"
+                                    ],
+                                    "additionalProperties": false
+                                  }
+                                },
+                                "required": [
+                                  "liquid"
+                                ],
+                                "additionalProperties": false
+                              },
+                              "pt_status": {
+                                "type": "string",
+                                "const": "success_single_phase"
+                              },
+                              "max_log_fugacity_residual": {
+                                "type": "number",
+                                "minimum": 0
+                              },
+                              "S_eq_J_mol_K": {
+                                "type": "number"
+                              }
+                            },
+                            "required": [
+                              "temperature_K",
+                              "pressure_Pa_abs",
+                              "z",
+                              "classification",
+                              "beta",
+                              "H_eq_J_mol",
+                              "phases",
+                              "pt_status",
+                              "max_log_fugacity_residual",
+                              "S_eq_J_mol_K"
+                            ],
+                            "additionalProperties": false
+                          },
+                          {
+                            "type": "object",
+                            "properties": {
+                              "temperature_K": {
+                                "type": "number",
+                                "exclusiveMinimum": 0
+                              },
+                              "pressure_Pa_abs": {
+                                "type": "number",
+                                "exclusiveMinimum": 0
+                              },
+                              "z": {
+                                "type": "object",
+                                "propertyNames": {
+                                  "type": "string",
+                                  "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,79}$"
+                                },
+                                "additionalProperties": {
+                                  "type": "number",
+                                  "minimum": 0,
+                                  "maximum": 1
+                                }
+                              },
+                              "classification": {
+                                "type": "string",
+                                "const": "single_vapor"
+                              },
+                              "beta": {
+                                "type": "number",
+                                "const": 1
+                              },
+                              "H_eq_J_mol": {
+                                "type": "number"
+                              },
+                              "phases": {
+                                "type": "object",
+                                "properties": {
+                                  "vapor": {
+                                    "type": "object",
+                                    "properties": {
+                                      "composition": {
+                                        "type": "object",
+                                        "propertyNames": {
+                                          "type": "string",
+                                          "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,79}$"
+                                        },
+                                        "additionalProperties": {
+                                          "type": "number",
+                                          "minimum": 0,
+                                          "maximum": 1
+                                        }
+                                      },
+                                      "Z": {
+                                        "type": "number",
+                                        "exclusiveMinimum": 0
+                                      },
+                                      "h_ig_J_mol": {
+                                        "type": "number"
+                                      },
+                                      "h_res_J_mol": {
+                                        "type": "number"
+                                      },
+                                      "h_J_mol": {
+                                        "type": "number"
+                                      },
+                                      "s_ig_J_mol_K": {
+                                        "type": "number"
+                                      },
+                                      "s_res_J_mol_K": {
+                                        "type": "number"
+                                      },
+                                      "s_J_mol_K": {
+                                        "type": "number"
+                                      }
+                                    },
+                                    "required": [
+                                      "composition",
+                                      "Z",
+                                      "h_ig_J_mol",
+                                      "h_res_J_mol",
+                                      "h_J_mol",
+                                      "s_ig_J_mol_K",
+                                      "s_res_J_mol_K",
+                                      "s_J_mol_K"
+                                    ],
+                                    "additionalProperties": false
+                                  }
+                                },
+                                "required": [
+                                  "vapor"
+                                ],
+                                "additionalProperties": false
+                              },
+                              "pt_status": {
+                                "type": "string",
+                                "const": "success_single_phase"
+                              },
+                              "max_log_fugacity_residual": {
+                                "type": "number",
+                                "minimum": 0
+                              },
+                              "S_eq_J_mol_K": {
+                                "type": "number"
+                              }
+                            },
+                            "required": [
+                              "temperature_K",
+                              "pressure_Pa_abs",
+                              "z",
+                              "classification",
+                              "beta",
+                              "H_eq_J_mol",
+                              "phases",
+                              "pt_status",
+                              "max_log_fugacity_residual",
+                              "S_eq_J_mol_K"
+                            ],
+                            "additionalProperties": false
+                          },
+                          {
+                            "type": "object",
+                            "properties": {
+                              "temperature_K": {
+                                "type": "number",
+                                "exclusiveMinimum": 0
+                              },
+                              "pressure_Pa_abs": {
+                                "type": "number",
+                                "exclusiveMinimum": 0
+                              },
+                              "z": {
+                                "type": "object",
+                                "propertyNames": {
+                                  "type": "string",
+                                  "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,79}$"
+                                },
+                                "additionalProperties": {
+                                  "type": "number",
+                                  "minimum": 0,
+                                  "maximum": 1
+                                }
+                              },
+                              "classification": {
+                                "type": "string",
+                                "const": "vapor_liquid"
+                              },
+                              "beta": {
+                                "type": "number",
+                                "exclusiveMinimum": 0,
+                                "exclusiveMaximum": 1
+                              },
+                              "H_eq_J_mol": {
+                                "type": "number"
+                              },
+                              "phases": {
+                                "type": "object",
+                                "properties": {
+                                  "liquid": {
+                                    "type": "object",
+                                    "properties": {
+                                      "composition": {
+                                        "type": "object",
+                                        "propertyNames": {
+                                          "type": "string",
+                                          "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,79}$"
+                                        },
+                                        "additionalProperties": {
+                                          "type": "number",
+                                          "minimum": 0,
+                                          "maximum": 1
+                                        }
+                                      },
+                                      "Z": {
+                                        "type": "number",
+                                        "exclusiveMinimum": 0
+                                      },
+                                      "h_ig_J_mol": {
+                                        "type": "number"
+                                      },
+                                      "h_res_J_mol": {
+                                        "type": "number"
+                                      },
+                                      "h_J_mol": {
+                                        "type": "number"
+                                      },
+                                      "s_ig_J_mol_K": {
+                                        "type": "number"
+                                      },
+                                      "s_res_J_mol_K": {
+                                        "type": "number"
+                                      },
+                                      "s_J_mol_K": {
+                                        "type": "number"
+                                      }
+                                    },
+                                    "required": [
+                                      "composition",
+                                      "Z",
+                                      "h_ig_J_mol",
+                                      "h_res_J_mol",
+                                      "h_J_mol",
+                                      "s_ig_J_mol_K",
+                                      "s_res_J_mol_K",
+                                      "s_J_mol_K"
+                                    ],
+                                    "additionalProperties": false
+                                  },
+                                  "vapor": {
+                                    "type": "object",
+                                    "properties": {
+                                      "composition": {
+                                        "type": "object",
+                                        "propertyNames": {
+                                          "type": "string",
+                                          "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,79}$"
+                                        },
+                                        "additionalProperties": {
+                                          "type": "number",
+                                          "minimum": 0,
+                                          "maximum": 1
+                                        }
+                                      },
+                                      "Z": {
+                                        "type": "number",
+                                        "exclusiveMinimum": 0
+                                      },
+                                      "h_ig_J_mol": {
+                                        "type": "number"
+                                      },
+                                      "h_res_J_mol": {
+                                        "type": "number"
+                                      },
+                                      "h_J_mol": {
+                                        "type": "number"
+                                      },
+                                      "s_ig_J_mol_K": {
+                                        "type": "number"
+                                      },
+                                      "s_res_J_mol_K": {
+                                        "type": "number"
+                                      },
+                                      "s_J_mol_K": {
+                                        "type": "number"
+                                      }
+                                    },
+                                    "required": [
+                                      "composition",
+                                      "Z",
+                                      "h_ig_J_mol",
+                                      "h_res_J_mol",
+                                      "h_J_mol",
+                                      "s_ig_J_mol_K",
+                                      "s_res_J_mol_K",
+                                      "s_J_mol_K"
+                                    ],
+                                    "additionalProperties": false
+                                  }
+                                },
+                                "required": [
+                                  "liquid",
+                                  "vapor"
+                                ],
+                                "additionalProperties": false
+                              },
+                              "pt_status": {
+                                "type": "string",
+                                "const": "success_two_phase"
+                              },
+                              "max_log_fugacity_residual": {
+                                "type": "number",
+                                "minimum": 0
+                              },
+                              "S_eq_J_mol_K": {
+                                "type": "number"
+                              }
+                            },
+                            "required": [
+                              "temperature_K",
+                              "pressure_Pa_abs",
+                              "z",
+                              "classification",
+                              "beta",
+                              "H_eq_J_mol",
+                              "phases",
+                              "pt_status",
+                              "max_log_fugacity_residual",
+                              "S_eq_J_mol_K"
+                            ],
+                            "additionalProperties": false
+                          }
+                        ]
+                      },
+                      "phases": {
+                        "type": "object",
+                        "properties": {
+                          "vapor": {
+                            "anyOf": [
+                              {
+                                "type": "object",
+                                "properties": {
+                                  "molar_flow_mol_s": {
+                                    "type": "number",
+                                    "exclusiveMinimum": 0
+                                  },
+                                  "composition": {
+                                    "type": "object",
+                                    "propertyNames": {
+                                      "type": "string",
+                                      "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,79}$"
+                                    },
+                                    "additionalProperties": {
+                                      "type": "number",
+                                      "minimum": 0,
+                                      "maximum": 1
+                                    }
+                                  },
+                                  "h_J_mol": {
+                                    "type": "number"
+                                  },
+                                  "enthalpy_flow_W": {
+                                    "type": "number"
+                                  }
+                                },
+                                "required": [
+                                  "molar_flow_mol_s",
+                                  "composition",
+                                  "h_J_mol",
+                                  "enthalpy_flow_W"
+                                ],
+                                "additionalProperties": false
+                              },
+                              {
+                                "type": "object",
+                                "properties": {
+                                  "molar_flow_mol_s": {
+                                    "type": "number",
+                                    "const": 0
+                                  },
+                                  "composition": {
+                                    "type": "null"
+                                  },
+                                  "h_J_mol": {
+                                    "type": "null"
+                                  },
+                                  "enthalpy_flow_W": {
+                                    "type": "number",
+                                    "const": 0
+                                  }
+                                },
+                                "required": [
+                                  "molar_flow_mol_s",
+                                  "composition",
+                                  "h_J_mol",
+                                  "enthalpy_flow_W"
+                                ],
+                                "additionalProperties": false
+                              }
+                            ]
+                          },
+                          "liquid": {
+                            "anyOf": [
+                              {
+                                "type": "object",
+                                "properties": {
+                                  "molar_flow_mol_s": {
+                                    "type": "number",
+                                    "exclusiveMinimum": 0
+                                  },
+                                  "composition": {
+                                    "type": "object",
+                                    "propertyNames": {
+                                      "type": "string",
+                                      "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,79}$"
+                                    },
+                                    "additionalProperties": {
+                                      "type": "number",
+                                      "minimum": 0,
+                                      "maximum": 1
+                                    }
+                                  },
+                                  "h_J_mol": {
+                                    "type": "number"
+                                  },
+                                  "enthalpy_flow_W": {
+                                    "type": "number"
+                                  }
+                                },
+                                "required": [
+                                  "molar_flow_mol_s",
+                                  "composition",
+                                  "h_J_mol",
+                                  "enthalpy_flow_W"
+                                ],
+                                "additionalProperties": false
+                              },
+                              {
+                                "type": "object",
+                                "properties": {
+                                  "molar_flow_mol_s": {
+                                    "type": "number",
+                                    "const": 0
+                                  },
+                                  "composition": {
+                                    "type": "null"
+                                  },
+                                  "h_J_mol": {
+                                    "type": "null"
+                                  },
+                                  "enthalpy_flow_W": {
+                                    "type": "number",
+                                    "const": 0
+                                  }
+                                },
+                                "required": [
+                                  "molar_flow_mol_s",
+                                  "composition",
+                                  "h_J_mol",
+                                  "enthalpy_flow_W"
+                                ],
+                                "additionalProperties": false
+                              }
+                            ]
+                          }
+                        },
+                        "required": [
+                          "vapor",
+                          "liquid"
+                        ],
+                        "additionalProperties": false
+                      },
+                      "inlet_enthalpy_flow_W": {
+                        "type": "number"
+                      },
+                      "component_molar_residual_kmol_h": {
+                        "type": "object",
+                        "propertyNames": {
+                          "type": "string",
+                          "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,79}$"
+                        },
+                        "additionalProperties": {
+                          "type": "number"
+                        }
+                      },
+                      "zero_duty_tolerance_W": {
+                        "type": "number",
+                        "exclusiveMinimum": 0
+                      },
+                      "mode": {
+                        "type": "string",
+                        "const": "specified_temperature"
+                      },
+                      "duty_W": {
+                        "type": "number"
+                      },
+                      "ph": {
+                        "type": "null"
+                      }
+                    },
+                    "required": [
+                      "property_package",
+                      "component_dataset",
+                      "molecular_provider",
+                      "caloric_dataset",
+                      "caloric_reference",
+                      "bip",
+                      "F_mol_s",
+                      "energy_residual_W",
+                      "energy_allowance_W",
+                      "inlet",
+                      "outlet",
+                      "phases",
+                      "inlet_enthalpy_flow_W",
+                      "component_molar_residual_kmol_h",
+                      "zero_duty_tolerance_W",
+                      "mode",
+                      "duty_W",
+                      "ph"
+                    ],
+                    "additionalProperties": false
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "property_package": {
+                        "type": "string",
+                        "const": "peng_robinson@1.0"
+                      },
+                      "component_dataset": {
+                        "type": "string",
+                        "const": "riogineer_components@1.0"
+                      },
+                      "molecular_provider": {
+                        "type": "string",
+                        "const": "molecular_composition@1.0"
+                      },
+                      "caloric_dataset": {
+                        "type": "string",
+                        "const": "riogineer_caloric@1.0"
+                      },
+                      "caloric_reference": {
+                        "type": "string",
+                        "const": "ideal_gas_sensible_298.15K_101325Pa@1.0"
+                      },
+                      "bip": {
+                        "type": "object",
+                        "properties": {
+                          "identifier": {
+                            "type": "string",
+                            "minLength": 1
+                          },
+                          "component_ids": {
+                            "type": "array",
+                            "prefixItems": [
+                              {
+                                "type": "string",
+                                "const": "methane"
+                              },
+                              {
+                                "type": "string",
+                                "const": "n_hexane"
+                              }
+                            ],
+                            "items": false,
+                            "minItems": 2,
+                            "maxItems": 2
+                          },
+                          "values": {
+                            "type": "array",
+                            "prefixItems": [
+                              {
+                                "type": "array",
+                                "prefixItems": [
+                                  {
+                                    "type": "number",
+                                    "const": 0
+                                  },
+                                  {
+                                    "type": "number",
+                                    "const": 0
+                                  }
+                                ],
+                                "items": false,
+                                "minItems": 2,
+                                "maxItems": 2
+                              },
+                              {
+                                "type": "array",
+                                "prefixItems": [
+                                  {
+                                    "type": "number",
+                                    "const": 0
+                                  },
+                                  {
+                                    "type": "number",
+                                    "const": 0
+                                  }
+                                ],
+                                "items": false,
+                                "minItems": 2,
+                                "maxItems": 2
+                              }
+                            ],
+                            "items": false,
+                            "minItems": 2,
+                            "maxItems": 2
+                          },
+                          "source": {
+                            "type": "string",
+                            "minLength": 1
+                          },
+                          "model": {
+                            "type": "string",
+                            "const": "peng_robinson@1.0"
+                          }
+                        },
+                        "required": [
+                          "identifier",
+                          "component_ids",
+                          "values",
+                          "source",
+                          "model"
+                        ],
+                        "additionalProperties": false
+                      },
+                      "F_mol_s": {
+                        "type": "number",
+                        "exclusiveMinimum": 0
+                      },
+                      "energy_residual_W": {
+                        "type": "number"
+                      },
+                      "energy_allowance_W": {
+                        "type": "number",
+                        "exclusiveMinimum": 0
+                      },
+                      "inlet": {
+                        "oneOf": [
+                          {
+                            "type": "object",
+                            "properties": {
+                              "temperature_K": {
+                                "type": "number",
+                                "exclusiveMinimum": 0
+                              },
+                              "pressure_Pa_abs": {
+                                "type": "number",
+                                "exclusiveMinimum": 0
+                              },
+                              "z": {
+                                "type": "object",
+                                "propertyNames": {
+                                  "type": "string",
+                                  "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,79}$"
+                                },
+                                "additionalProperties": {
+                                  "type": "number",
+                                  "minimum": 0,
+                                  "maximum": 1
+                                }
+                              },
+                              "classification": {
+                                "type": "string",
+                                "const": "single_liquid"
+                              },
+                              "beta": {
+                                "type": "number",
+                                "const": 0
+                              },
+                              "H_eq_J_mol": {
+                                "type": "number"
+                              },
+                              "phases": {
+                                "type": "object",
+                                "properties": {
+                                  "liquid": {
+                                    "type": "object",
+                                    "properties": {
+                                      "composition": {
+                                        "type": "object",
+                                        "propertyNames": {
+                                          "type": "string",
+                                          "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,79}$"
+                                        },
+                                        "additionalProperties": {
+                                          "type": "number",
+                                          "minimum": 0,
+                                          "maximum": 1
+                                        }
+                                      },
+                                      "Z": {
+                                        "type": "number",
+                                        "exclusiveMinimum": 0
+                                      },
+                                      "h_ig_J_mol": {
+                                        "type": "number"
+                                      },
+                                      "h_res_J_mol": {
+                                        "type": "number"
+                                      },
+                                      "h_J_mol": {
+                                        "type": "number"
+                                      },
+                                      "s_ig_J_mol_K": {
+                                        "type": "number"
+                                      },
+                                      "s_res_J_mol_K": {
+                                        "type": "number"
+                                      },
+                                      "s_J_mol_K": {
+                                        "type": "number"
+                                      }
+                                    },
+                                    "required": [
+                                      "composition",
+                                      "Z",
+                                      "h_ig_J_mol",
+                                      "h_res_J_mol",
+                                      "h_J_mol",
+                                      "s_ig_J_mol_K",
+                                      "s_res_J_mol_K",
+                                      "s_J_mol_K"
+                                    ],
+                                    "additionalProperties": false
+                                  }
+                                },
+                                "required": [
+                                  "liquid"
+                                ],
+                                "additionalProperties": false
+                              },
+                              "pt_status": {
+                                "type": "string",
+                                "const": "success_single_phase"
+                              },
+                              "max_log_fugacity_residual": {
+                                "type": "number",
+                                "minimum": 0
+                              },
+                              "S_eq_J_mol_K": {
+                                "type": "number"
+                              }
+                            },
+                            "required": [
+                              "temperature_K",
+                              "pressure_Pa_abs",
+                              "z",
+                              "classification",
+                              "beta",
+                              "H_eq_J_mol",
+                              "phases",
+                              "pt_status",
+                              "max_log_fugacity_residual",
+                              "S_eq_J_mol_K"
+                            ],
+                            "additionalProperties": false
+                          },
+                          {
+                            "type": "object",
+                            "properties": {
+                              "temperature_K": {
+                                "type": "number",
+                                "exclusiveMinimum": 0
+                              },
+                              "pressure_Pa_abs": {
+                                "type": "number",
+                                "exclusiveMinimum": 0
+                              },
+                              "z": {
+                                "type": "object",
+                                "propertyNames": {
+                                  "type": "string",
+                                  "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,79}$"
+                                },
+                                "additionalProperties": {
+                                  "type": "number",
+                                  "minimum": 0,
+                                  "maximum": 1
+                                }
+                              },
+                              "classification": {
+                                "type": "string",
+                                "const": "single_vapor"
+                              },
+                              "beta": {
+                                "type": "number",
+                                "const": 1
+                              },
+                              "H_eq_J_mol": {
+                                "type": "number"
+                              },
+                              "phases": {
+                                "type": "object",
+                                "properties": {
+                                  "vapor": {
+                                    "type": "object",
+                                    "properties": {
+                                      "composition": {
+                                        "type": "object",
+                                        "propertyNames": {
+                                          "type": "string",
+                                          "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,79}$"
+                                        },
+                                        "additionalProperties": {
+                                          "type": "number",
+                                          "minimum": 0,
+                                          "maximum": 1
+                                        }
+                                      },
+                                      "Z": {
+                                        "type": "number",
+                                        "exclusiveMinimum": 0
+                                      },
+                                      "h_ig_J_mol": {
+                                        "type": "number"
+                                      },
+                                      "h_res_J_mol": {
+                                        "type": "number"
+                                      },
+                                      "h_J_mol": {
+                                        "type": "number"
+                                      },
+                                      "s_ig_J_mol_K": {
+                                        "type": "number"
+                                      },
+                                      "s_res_J_mol_K": {
+                                        "type": "number"
+                                      },
+                                      "s_J_mol_K": {
+                                        "type": "number"
+                                      }
+                                    },
+                                    "required": [
+                                      "composition",
+                                      "Z",
+                                      "h_ig_J_mol",
+                                      "h_res_J_mol",
+                                      "h_J_mol",
+                                      "s_ig_J_mol_K",
+                                      "s_res_J_mol_K",
+                                      "s_J_mol_K"
+                                    ],
+                                    "additionalProperties": false
+                                  }
+                                },
+                                "required": [
+                                  "vapor"
+                                ],
+                                "additionalProperties": false
+                              },
+                              "pt_status": {
+                                "type": "string",
+                                "const": "success_single_phase"
+                              },
+                              "max_log_fugacity_residual": {
+                                "type": "number",
+                                "minimum": 0
+                              },
+                              "S_eq_J_mol_K": {
+                                "type": "number"
+                              }
+                            },
+                            "required": [
+                              "temperature_K",
+                              "pressure_Pa_abs",
+                              "z",
+                              "classification",
+                              "beta",
+                              "H_eq_J_mol",
+                              "phases",
+                              "pt_status",
+                              "max_log_fugacity_residual",
+                              "S_eq_J_mol_K"
+                            ],
+                            "additionalProperties": false
+                          },
+                          {
+                            "type": "object",
+                            "properties": {
+                              "temperature_K": {
+                                "type": "number",
+                                "exclusiveMinimum": 0
+                              },
+                              "pressure_Pa_abs": {
+                                "type": "number",
+                                "exclusiveMinimum": 0
+                              },
+                              "z": {
+                                "type": "object",
+                                "propertyNames": {
+                                  "type": "string",
+                                  "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,79}$"
+                                },
+                                "additionalProperties": {
+                                  "type": "number",
+                                  "minimum": 0,
+                                  "maximum": 1
+                                }
+                              },
+                              "classification": {
+                                "type": "string",
+                                "const": "vapor_liquid"
+                              },
+                              "beta": {
+                                "type": "number",
+                                "exclusiveMinimum": 0,
+                                "exclusiveMaximum": 1
+                              },
+                              "H_eq_J_mol": {
+                                "type": "number"
+                              },
+                              "phases": {
+                                "type": "object",
+                                "properties": {
+                                  "liquid": {
+                                    "type": "object",
+                                    "properties": {
+                                      "composition": {
+                                        "type": "object",
+                                        "propertyNames": {
+                                          "type": "string",
+                                          "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,79}$"
+                                        },
+                                        "additionalProperties": {
+                                          "type": "number",
+                                          "minimum": 0,
+                                          "maximum": 1
+                                        }
+                                      },
+                                      "Z": {
+                                        "type": "number",
+                                        "exclusiveMinimum": 0
+                                      },
+                                      "h_ig_J_mol": {
+                                        "type": "number"
+                                      },
+                                      "h_res_J_mol": {
+                                        "type": "number"
+                                      },
+                                      "h_J_mol": {
+                                        "type": "number"
+                                      },
+                                      "s_ig_J_mol_K": {
+                                        "type": "number"
+                                      },
+                                      "s_res_J_mol_K": {
+                                        "type": "number"
+                                      },
+                                      "s_J_mol_K": {
+                                        "type": "number"
+                                      }
+                                    },
+                                    "required": [
+                                      "composition",
+                                      "Z",
+                                      "h_ig_J_mol",
+                                      "h_res_J_mol",
+                                      "h_J_mol",
+                                      "s_ig_J_mol_K",
+                                      "s_res_J_mol_K",
+                                      "s_J_mol_K"
+                                    ],
+                                    "additionalProperties": false
+                                  },
+                                  "vapor": {
+                                    "type": "object",
+                                    "properties": {
+                                      "composition": {
+                                        "type": "object",
+                                        "propertyNames": {
+                                          "type": "string",
+                                          "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,79}$"
+                                        },
+                                        "additionalProperties": {
+                                          "type": "number",
+                                          "minimum": 0,
+                                          "maximum": 1
+                                        }
+                                      },
+                                      "Z": {
+                                        "type": "number",
+                                        "exclusiveMinimum": 0
+                                      },
+                                      "h_ig_J_mol": {
+                                        "type": "number"
+                                      },
+                                      "h_res_J_mol": {
+                                        "type": "number"
+                                      },
+                                      "h_J_mol": {
+                                        "type": "number"
+                                      },
+                                      "s_ig_J_mol_K": {
+                                        "type": "number"
+                                      },
+                                      "s_res_J_mol_K": {
+                                        "type": "number"
+                                      },
+                                      "s_J_mol_K": {
+                                        "type": "number"
+                                      }
+                                    },
+                                    "required": [
+                                      "composition",
+                                      "Z",
+                                      "h_ig_J_mol",
+                                      "h_res_J_mol",
+                                      "h_J_mol",
+                                      "s_ig_J_mol_K",
+                                      "s_res_J_mol_K",
+                                      "s_J_mol_K"
+                                    ],
+                                    "additionalProperties": false
+                                  }
+                                },
+                                "required": [
+                                  "liquid",
+                                  "vapor"
+                                ],
+                                "additionalProperties": false
+                              },
+                              "pt_status": {
+                                "type": "string",
+                                "const": "success_two_phase"
+                              },
+                              "max_log_fugacity_residual": {
+                                "type": "number",
+                                "minimum": 0
+                              },
+                              "S_eq_J_mol_K": {
+                                "type": "number"
+                              }
+                            },
+                            "required": [
+                              "temperature_K",
+                              "pressure_Pa_abs",
+                              "z",
+                              "classification",
+                              "beta",
+                              "H_eq_J_mol",
+                              "phases",
+                              "pt_status",
+                              "max_log_fugacity_residual",
+                              "S_eq_J_mol_K"
+                            ],
+                            "additionalProperties": false
+                          }
+                        ]
+                      },
+                      "outlet": {
+                        "oneOf": [
+                          {
+                            "type": "object",
+                            "properties": {
+                              "temperature_K": {
+                                "type": "number",
+                                "exclusiveMinimum": 0
+                              },
+                              "pressure_Pa_abs": {
+                                "type": "number",
+                                "exclusiveMinimum": 0
+                              },
+                              "z": {
+                                "type": "object",
+                                "propertyNames": {
+                                  "type": "string",
+                                  "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,79}$"
+                                },
+                                "additionalProperties": {
+                                  "type": "number",
+                                  "minimum": 0,
+                                  "maximum": 1
+                                }
+                              },
+                              "classification": {
+                                "type": "string",
+                                "const": "single_liquid"
+                              },
+                              "beta": {
+                                "type": "number",
+                                "const": 0
+                              },
+                              "H_eq_J_mol": {
+                                "type": "number"
+                              },
+                              "phases": {
+                                "type": "object",
+                                "properties": {
+                                  "liquid": {
+                                    "type": "object",
+                                    "properties": {
+                                      "composition": {
+                                        "type": "object",
+                                        "propertyNames": {
+                                          "type": "string",
+                                          "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,79}$"
+                                        },
+                                        "additionalProperties": {
+                                          "type": "number",
+                                          "minimum": 0,
+                                          "maximum": 1
+                                        }
+                                      },
+                                      "Z": {
+                                        "type": "number",
+                                        "exclusiveMinimum": 0
+                                      },
+                                      "h_ig_J_mol": {
+                                        "type": "number"
+                                      },
+                                      "h_res_J_mol": {
+                                        "type": "number"
+                                      },
+                                      "h_J_mol": {
+                                        "type": "number"
+                                      },
+                                      "s_ig_J_mol_K": {
+                                        "type": "number"
+                                      },
+                                      "s_res_J_mol_K": {
+                                        "type": "number"
+                                      },
+                                      "s_J_mol_K": {
+                                        "type": "number"
+                                      }
+                                    },
+                                    "required": [
+                                      "composition",
+                                      "Z",
+                                      "h_ig_J_mol",
+                                      "h_res_J_mol",
+                                      "h_J_mol",
+                                      "s_ig_J_mol_K",
+                                      "s_res_J_mol_K",
+                                      "s_J_mol_K"
+                                    ],
+                                    "additionalProperties": false
+                                  }
+                                },
+                                "required": [
+                                  "liquid"
+                                ],
+                                "additionalProperties": false
+                              },
+                              "pt_status": {
+                                "type": "string",
+                                "const": "success_single_phase"
+                              },
+                              "max_log_fugacity_residual": {
+                                "type": "number",
+                                "minimum": 0
+                              },
+                              "S_eq_J_mol_K": {
+                                "type": "number"
+                              }
+                            },
+                            "required": [
+                              "temperature_K",
+                              "pressure_Pa_abs",
+                              "z",
+                              "classification",
+                              "beta",
+                              "H_eq_J_mol",
+                              "phases",
+                              "pt_status",
+                              "max_log_fugacity_residual",
+                              "S_eq_J_mol_K"
+                            ],
+                            "additionalProperties": false
+                          },
+                          {
+                            "type": "object",
+                            "properties": {
+                              "temperature_K": {
+                                "type": "number",
+                                "exclusiveMinimum": 0
+                              },
+                              "pressure_Pa_abs": {
+                                "type": "number",
+                                "exclusiveMinimum": 0
+                              },
+                              "z": {
+                                "type": "object",
+                                "propertyNames": {
+                                  "type": "string",
+                                  "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,79}$"
+                                },
+                                "additionalProperties": {
+                                  "type": "number",
+                                  "minimum": 0,
+                                  "maximum": 1
+                                }
+                              },
+                              "classification": {
+                                "type": "string",
+                                "const": "single_vapor"
+                              },
+                              "beta": {
+                                "type": "number",
+                                "const": 1
+                              },
+                              "H_eq_J_mol": {
+                                "type": "number"
+                              },
+                              "phases": {
+                                "type": "object",
+                                "properties": {
+                                  "vapor": {
+                                    "type": "object",
+                                    "properties": {
+                                      "composition": {
+                                        "type": "object",
+                                        "propertyNames": {
+                                          "type": "string",
+                                          "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,79}$"
+                                        },
+                                        "additionalProperties": {
+                                          "type": "number",
+                                          "minimum": 0,
+                                          "maximum": 1
+                                        }
+                                      },
+                                      "Z": {
+                                        "type": "number",
+                                        "exclusiveMinimum": 0
+                                      },
+                                      "h_ig_J_mol": {
+                                        "type": "number"
+                                      },
+                                      "h_res_J_mol": {
+                                        "type": "number"
+                                      },
+                                      "h_J_mol": {
+                                        "type": "number"
+                                      },
+                                      "s_ig_J_mol_K": {
+                                        "type": "number"
+                                      },
+                                      "s_res_J_mol_K": {
+                                        "type": "number"
+                                      },
+                                      "s_J_mol_K": {
+                                        "type": "number"
+                                      }
+                                    },
+                                    "required": [
+                                      "composition",
+                                      "Z",
+                                      "h_ig_J_mol",
+                                      "h_res_J_mol",
+                                      "h_J_mol",
+                                      "s_ig_J_mol_K",
+                                      "s_res_J_mol_K",
+                                      "s_J_mol_K"
+                                    ],
+                                    "additionalProperties": false
+                                  }
+                                },
+                                "required": [
+                                  "vapor"
+                                ],
+                                "additionalProperties": false
+                              },
+                              "pt_status": {
+                                "type": "string",
+                                "const": "success_single_phase"
+                              },
+                              "max_log_fugacity_residual": {
+                                "type": "number",
+                                "minimum": 0
+                              },
+                              "S_eq_J_mol_K": {
+                                "type": "number"
+                              }
+                            },
+                            "required": [
+                              "temperature_K",
+                              "pressure_Pa_abs",
+                              "z",
+                              "classification",
+                              "beta",
+                              "H_eq_J_mol",
+                              "phases",
+                              "pt_status",
+                              "max_log_fugacity_residual",
+                              "S_eq_J_mol_K"
+                            ],
+                            "additionalProperties": false
+                          },
+                          {
+                            "type": "object",
+                            "properties": {
+                              "temperature_K": {
+                                "type": "number",
+                                "exclusiveMinimum": 0
+                              },
+                              "pressure_Pa_abs": {
+                                "type": "number",
+                                "exclusiveMinimum": 0
+                              },
+                              "z": {
+                                "type": "object",
+                                "propertyNames": {
+                                  "type": "string",
+                                  "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,79}$"
+                                },
+                                "additionalProperties": {
+                                  "type": "number",
+                                  "minimum": 0,
+                                  "maximum": 1
+                                }
+                              },
+                              "classification": {
+                                "type": "string",
+                                "const": "vapor_liquid"
+                              },
+                              "beta": {
+                                "type": "number",
+                                "exclusiveMinimum": 0,
+                                "exclusiveMaximum": 1
+                              },
+                              "H_eq_J_mol": {
+                                "type": "number"
+                              },
+                              "phases": {
+                                "type": "object",
+                                "properties": {
+                                  "liquid": {
+                                    "type": "object",
+                                    "properties": {
+                                      "composition": {
+                                        "type": "object",
+                                        "propertyNames": {
+                                          "type": "string",
+                                          "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,79}$"
+                                        },
+                                        "additionalProperties": {
+                                          "type": "number",
+                                          "minimum": 0,
+                                          "maximum": 1
+                                        }
+                                      },
+                                      "Z": {
+                                        "type": "number",
+                                        "exclusiveMinimum": 0
+                                      },
+                                      "h_ig_J_mol": {
+                                        "type": "number"
+                                      },
+                                      "h_res_J_mol": {
+                                        "type": "number"
+                                      },
+                                      "h_J_mol": {
+                                        "type": "number"
+                                      },
+                                      "s_ig_J_mol_K": {
+                                        "type": "number"
+                                      },
+                                      "s_res_J_mol_K": {
+                                        "type": "number"
+                                      },
+                                      "s_J_mol_K": {
+                                        "type": "number"
+                                      }
+                                    },
+                                    "required": [
+                                      "composition",
+                                      "Z",
+                                      "h_ig_J_mol",
+                                      "h_res_J_mol",
+                                      "h_J_mol",
+                                      "s_ig_J_mol_K",
+                                      "s_res_J_mol_K",
+                                      "s_J_mol_K"
+                                    ],
+                                    "additionalProperties": false
+                                  },
+                                  "vapor": {
+                                    "type": "object",
+                                    "properties": {
+                                      "composition": {
+                                        "type": "object",
+                                        "propertyNames": {
+                                          "type": "string",
+                                          "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,79}$"
+                                        },
+                                        "additionalProperties": {
+                                          "type": "number",
+                                          "minimum": 0,
+                                          "maximum": 1
+                                        }
+                                      },
+                                      "Z": {
+                                        "type": "number",
+                                        "exclusiveMinimum": 0
+                                      },
+                                      "h_ig_J_mol": {
+                                        "type": "number"
+                                      },
+                                      "h_res_J_mol": {
+                                        "type": "number"
+                                      },
+                                      "h_J_mol": {
+                                        "type": "number"
+                                      },
+                                      "s_ig_J_mol_K": {
+                                        "type": "number"
+                                      },
+                                      "s_res_J_mol_K": {
+                                        "type": "number"
+                                      },
+                                      "s_J_mol_K": {
+                                        "type": "number"
+                                      }
+                                    },
+                                    "required": [
+                                      "composition",
+                                      "Z",
+                                      "h_ig_J_mol",
+                                      "h_res_J_mol",
+                                      "h_J_mol",
+                                      "s_ig_J_mol_K",
+                                      "s_res_J_mol_K",
+                                      "s_J_mol_K"
+                                    ],
+                                    "additionalProperties": false
+                                  }
+                                },
+                                "required": [
+                                  "liquid",
+                                  "vapor"
+                                ],
+                                "additionalProperties": false
+                              },
+                              "pt_status": {
+                                "type": "string",
+                                "const": "success_two_phase"
+                              },
+                              "max_log_fugacity_residual": {
+                                "type": "number",
+                                "minimum": 0
+                              },
+                              "S_eq_J_mol_K": {
+                                "type": "number"
+                              }
+                            },
+                            "required": [
+                              "temperature_K",
+                              "pressure_Pa_abs",
+                              "z",
+                              "classification",
+                              "beta",
+                              "H_eq_J_mol",
+                              "phases",
+                              "pt_status",
+                              "max_log_fugacity_residual",
+                              "S_eq_J_mol_K"
+                            ],
+                            "additionalProperties": false
+                          }
+                        ]
+                      },
+                      "phases": {
+                        "type": "object",
+                        "properties": {
+                          "vapor": {
+                            "anyOf": [
+                              {
+                                "type": "object",
+                                "properties": {
+                                  "molar_flow_mol_s": {
+                                    "type": "number",
+                                    "exclusiveMinimum": 0
+                                  },
+                                  "composition": {
+                                    "type": "object",
+                                    "propertyNames": {
+                                      "type": "string",
+                                      "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,79}$"
+                                    },
+                                    "additionalProperties": {
+                                      "type": "number",
+                                      "minimum": 0,
+                                      "maximum": 1
+                                    }
+                                  },
+                                  "h_J_mol": {
+                                    "type": "number"
+                                  },
+                                  "enthalpy_flow_W": {
+                                    "type": "number"
+                                  }
+                                },
+                                "required": [
+                                  "molar_flow_mol_s",
+                                  "composition",
+                                  "h_J_mol",
+                                  "enthalpy_flow_W"
+                                ],
+                                "additionalProperties": false
+                              },
+                              {
+                                "type": "object",
+                                "properties": {
+                                  "molar_flow_mol_s": {
+                                    "type": "number",
+                                    "const": 0
+                                  },
+                                  "composition": {
+                                    "type": "null"
+                                  },
+                                  "h_J_mol": {
+                                    "type": "null"
+                                  },
+                                  "enthalpy_flow_W": {
+                                    "type": "number",
+                                    "const": 0
+                                  }
+                                },
+                                "required": [
+                                  "molar_flow_mol_s",
+                                  "composition",
+                                  "h_J_mol",
+                                  "enthalpy_flow_W"
+                                ],
+                                "additionalProperties": false
+                              }
+                            ]
+                          },
+                          "liquid": {
+                            "anyOf": [
+                              {
+                                "type": "object",
+                                "properties": {
+                                  "molar_flow_mol_s": {
+                                    "type": "number",
+                                    "exclusiveMinimum": 0
+                                  },
+                                  "composition": {
+                                    "type": "object",
+                                    "propertyNames": {
+                                      "type": "string",
+                                      "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,79}$"
+                                    },
+                                    "additionalProperties": {
+                                      "type": "number",
+                                      "minimum": 0,
+                                      "maximum": 1
+                                    }
+                                  },
+                                  "h_J_mol": {
+                                    "type": "number"
+                                  },
+                                  "enthalpy_flow_W": {
+                                    "type": "number"
+                                  }
+                                },
+                                "required": [
+                                  "molar_flow_mol_s",
+                                  "composition",
+                                  "h_J_mol",
+                                  "enthalpy_flow_W"
+                                ],
+                                "additionalProperties": false
+                              },
+                              {
+                                "type": "object",
+                                "properties": {
+                                  "molar_flow_mol_s": {
+                                    "type": "number",
+                                    "const": 0
+                                  },
+                                  "composition": {
+                                    "type": "null"
+                                  },
+                                  "h_J_mol": {
+                                    "type": "null"
+                                  },
+                                  "enthalpy_flow_W": {
+                                    "type": "number",
+                                    "const": 0
+                                  }
+                                },
+                                "required": [
+                                  "molar_flow_mol_s",
+                                  "composition",
+                                  "h_J_mol",
+                                  "enthalpy_flow_W"
+                                ],
+                                "additionalProperties": false
+                              }
+                            ]
+                          }
+                        },
+                        "required": [
+                          "vapor",
+                          "liquid"
+                        ],
+                        "additionalProperties": false
+                      },
+                      "inlet_enthalpy_flow_W": {
+                        "type": "number"
+                      },
+                      "component_molar_residual_kmol_h": {
+                        "type": "object",
+                        "propertyNames": {
+                          "type": "string",
+                          "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,79}$"
+                        },
+                        "additionalProperties": {
+                          "type": "number"
+                        }
+                      },
+                      "zero_duty_tolerance_W": {
+                        "type": "number",
+                        "exclusiveMinimum": 0
+                      },
+                      "mode": {
+                        "type": "string",
+                        "const": "adiabatic"
+                      },
+                      "duty_W": {
+                        "type": "number",
+                        "const": 0
+                      },
+                      "ph": {
+                        "type": "object",
+                        "properties": {
+                          "status": {
+                            "type": "string",
+                            "const": "success"
+                          },
+                          "pt_profile": {
+                            "type": "string",
+                            "const": "high_accuracy"
+                          },
+                          "candidate_count": {
+                            "type": "number",
+                            "const": 1
+                          },
+                          "bracket_K": {
+                            "type": "array",
+                            "prefixItems": [
+                              {
+                                "type": "number",
+                                "exclusiveMinimum": 0
+                              },
+                              {
+                                "type": "number",
+                                "exclusiveMinimum": 0
+                              }
+                            ],
+                            "items": false,
+                            "minItems": 2,
+                            "maxItems": 2
+                          },
+                          "final_bracket_K": {
+                            "type": "array",
+                            "prefixItems": [
+                              {
+                                "type": "number",
+                                "exclusiveMinimum": 0
+                              },
+                              {
+                                "type": "number",
+                                "exclusiveMinimum": 0
+                              }
+                            ],
+                            "items": false,
+                            "minItems": 2,
+                            "maxItems": 2
+                          },
+                          "root_iterations": {
+                            "type": "integer",
+                            "minimum": 0,
+                            "maximum": 9007199254740991
+                          },
+                          "evaluation_count": {
+                            "type": "integer",
+                            "exclusiveMinimum": 0,
+                            "maximum": 9007199254740991
+                          },
+                          "capability": {
+                            "type": "string",
+                            "const": "flash_PH"
+                          },
+                          "enthalpy_residual_J_mol": {
+                            "type": "number"
+                          }
+                        },
+                        "required": [
+                          "status",
+                          "pt_profile",
+                          "candidate_count",
+                          "bracket_K",
+                          "final_bracket_K",
+                          "root_iterations",
+                          "evaluation_count",
+                          "capability",
+                          "enthalpy_residual_J_mol"
+                        ],
+                        "additionalProperties": false
+                      }
+                    },
+                    "required": [
+                      "property_package",
+                      "component_dataset",
+                      "molecular_provider",
+                      "caloric_dataset",
+                      "caloric_reference",
+                      "bip",
+                      "F_mol_s",
+                      "energy_residual_W",
+                      "energy_allowance_W",
+                      "inlet",
+                      "outlet",
+                      "phases",
+                      "inlet_enthalpy_flow_W",
+                      "component_molar_residual_kmol_h",
+                      "zero_duty_tolerance_W",
+                      "mode",
+                      "duty_W",
+                      "ph"
+                    ],
+                    "additionalProperties": false
+                  }
+                ]
+              }
+            },
+            "required": [
+              "id",
+              "type",
+              "model",
+              "material_streams",
+              "mass_balance",
+              "duty_W",
+              "work_W",
+              "energy_residual_W",
+              "thermodynamics"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "balances": {
+          "type": "object",
+          "properties": {
+            "mass": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "enum": [
+                    "passed",
+                    "failed"
+                  ]
+                },
+                "component_residual_kg_h": {
+                  "type": "object",
+                  "propertyNames": {
+                    "type": "string",
+                    "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,79}$"
+                  },
+                  "additionalProperties": {
+                    "type": "number"
+                  }
+                },
+                "total_residual_kg_h": {
+                  "type": "number"
+                },
+                "component_tolerance_kg_h": {
+                  "type": "number",
+                  "exclusiveMinimum": 0
+                },
+                "total_tolerance_kg_h": {
+                  "type": "number",
+                  "exclusiveMinimum": 0
+                }
+              },
+              "required": [
+                "status",
+                "component_residual_kg_h",
+                "total_residual_kg_h",
+                "component_tolerance_kg_h",
+                "total_tolerance_kg_h"
+              ],
+              "additionalProperties": false
+            },
+            "energy": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "const": "passed"
+                },
+                "residual_W": {
+                  "type": "number"
+                },
+                "tolerance_W": {
+                  "type": "number",
+                  "exclusiveMinimum": 0
+                },
+                "duty_W": {
+                  "type": "number"
+                },
+                "model": {
+                  "type": "string",
+                  "const": "equilibrium_separator_energy_pr"
+                },
+                "positive_duty": {
+                  "type": "string",
+                  "const": "heat_into_equipment"
+                }
+              },
+              "required": [
+                "status",
+                "residual_W",
+                "tolerance_W",
+                "duty_W",
+                "model",
+                "positive_duty"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "mass",
+            "energy"
+          ],
+          "additionalProperties": false
+        },
+        "warnings": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "code": {
+                "type": "string"
+              },
+              "path": {
+                "type": "string"
+              },
+              "severity": {
+                "type": "string",
+                "enum": [
+                  "error",
+                  "warning"
+                ]
+              },
+              "message": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "code",
+              "path",
+              "severity",
+              "message"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "limitations": {
+          "minItems": 1,
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "unavailable": {
+          "minItems": 1,
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "calculation": {
+                "type": "string"
+              },
+              "status": {
+                "type": "string",
+                "const": "not calculated"
+              },
+              "reason": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "calculation",
+              "status",
+              "reason"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "execution": {
+          "type": "object",
+          "properties": {
+            "method": {
+              "type": "string",
+              "const": "topological"
+            },
+            "equipment_order": {
+              "minItems": 1,
+              "type": "array",
+              "items": {
+                "type": "string",
+                "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,79}$"
+              }
+            }
+          },
+          "required": [
+            "method",
+            "equipment_order"
+          ],
+          "additionalProperties": false
+        },
+        "process_result_version": {
+          "type": "string",
+          "const": "1.11"
+        }
+      },
+      "required": [
+        "schema_version",
+        "kind",
+        "case_id",
+        "run_id",
+        "input_sha256",
+        "requirements_sha256",
+        "engine",
+        "status",
+        "units",
+        "streams",
+        "equipment",
+        "balances",
+        "warnings",
+        "limitations",
+        "unavailable",
+        "execution",
+        "process_result_version"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "schema_version": {
+          "type": "string",
           "const": "1.10"
         },
         "kind": {

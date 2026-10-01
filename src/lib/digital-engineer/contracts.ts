@@ -388,6 +388,41 @@ export const valveRequirementsSchema = thermalRequirementsSchema.extend({
   profile: z.literal('throttling_valve_energy'),
   equipment: z.array(rigorousValveInput).length(1),
 });
+// M17 is additive; M9 retains its PT-only and null-energy contract.
+export const separatorEnergyModel = z.strictObject({
+  id: z.literal('equilibrium_separator_energy_pr'),
+  version: z.literal('1.0'),
+});
+const separatorCommon = z.strictObject({
+  separator_pressure_Pa_abs: positive,
+  property_package: z.literal('peng_robinson@1.0'),
+  bip: bipSchema,
+});
+export const separatorEnergyParameters = z.discriminatedUnion('mode', [
+  separatorCommon.extend({
+    mode: z.literal('specified_temperature'),
+    separator_temperature_K: num.min(200).max(500),
+  }),
+  separatorCommon.extend({ mode: z.literal('adiabatic') }),
+]);
+const separatorEnergyInput = z.strictObject({
+  id,
+  type: z.literal('equilibrium_separator_2phase'),
+  model: separatorEnergyModel,
+  parameters: separatorEnergyParameters,
+});
+export const separatorEnergyRequirementsSchema = equilibriumRequirementsSchema.extend({
+  schema_version: z.literal('1.9'),
+  profile: z.literal('separator_energy'),
+  provenance: thermalRequirementsSchema.shape.provenance,
+  components: thermalRequirementsSchema.shape.components,
+  equipment: z.array(separatorEnergyInput).length(1),
+  required_outputs: z.tuple([
+    z.literal('streams'),
+    z.literal('mass_balance'),
+    z.literal('energy_balance'),
+  ]),
+});
 // Interpretation stays on requirementsSchema (1.0); deterministic API accepts both.
 export const engineeringRequirementsSchema = z.union([
   requirementsSchema,
@@ -399,6 +434,7 @@ export const engineeringRequirementsSchema = z.union([
   rigorousCompressionRequirementsSchema,
   exchangerRequirementsSchema,
   valveRequirementsSchema,
+  separatorEnergyRequirementsSchema,
 ]);
 const graphEquipment = z.discriminatedUnion('type', [
   graphEquipmentInput.options[0]
@@ -539,6 +575,34 @@ export const valveFlowsheetSchema = thermalFlowsheetSchema.extend({
     )
     .length(1),
 });
+export const separatorEnergyFlowsheetSchema = equilibriumFlowsheetSchema.extend({
+  schema_version: z.literal('1.10'),
+  profile: z.literal('separator_energy'),
+  equipment: z
+    .array(
+      separatorEnergyInput.omit({ parameters: true }).extend({
+        ports: z.tuple([
+          z.strictObject({
+            id: z.literal('inlet'),
+            direction: z.literal('in'),
+            kind: z.literal('material'),
+          }),
+          z.strictObject({
+            id: z.literal('vapor'),
+            direction: z.literal('out'),
+            kind: z.literal('material'),
+          }),
+          z.strictObject({
+            id: z.literal('liquid'),
+            direction: z.literal('out'),
+            kind: z.literal('material'),
+          }),
+        ]),
+        operating_parameters: separatorEnergyParameters,
+      }),
+    )
+    .length(1),
+});
 // Legacy 1.0/1.1 readers remain unchanged; graph builds explicitly use 1.2.
 export const flowsheetSchema = z.union([
   legacyFlowsheetSchema,
@@ -550,6 +614,7 @@ export const flowsheetSchema = z.union([
   rigorousCompressionFlowsheetSchema,
   exchangerFlowsheetSchema,
   valveFlowsheetSchema,
+  separatorEnergyFlowsheetSchema,
   legacyFlowsheetSchema.extend({
     schema_version: z.literal('1.1'),
     streams: z
@@ -1144,7 +1209,90 @@ export const valveResultsSchema = thermalResultsSchema.extend({
     }),
   }),
 });
+const separatorState = z.discriminatedUnion('classification', [
+  valveLiquidState,
+  valveVaporState,
+  valveTwoPhaseState,
+]);
+const separatorPhaseFlow = z.union([
+  z.strictObject({
+    molar_flow_mol_s: positive,
+    composition: fractionMap,
+    h_J_mol: num,
+    enthalpy_flow_W: num,
+  }),
+  z.strictObject({
+    molar_flow_mol_s: z.literal(0),
+    composition: z.null(),
+    h_J_mol: z.null(),
+    enthalpy_flow_W: z.literal(0),
+  }),
+]);
+const separatorDetailsCommon = valveDetailsSchema
+  .pick({
+    property_package: true,
+    component_dataset: true,
+    molecular_provider: true,
+    caloric_dataset: true,
+    caloric_reference: true,
+    bip: true,
+    F_mol_s: true,
+    energy_residual_W: true,
+    energy_allowance_W: true,
+  })
+  .extend({
+    inlet: separatorState,
+    outlet: separatorState,
+    phases: z.strictObject({ vapor: separatorPhaseFlow, liquid: separatorPhaseFlow }),
+    inlet_enthalpy_flow_W: num,
+    component_molar_residual_kmol_h: signedMap,
+    zero_duty_tolerance_W: positive,
+  });
+export const separatorEnergyDetailsSchema = z.discriminatedUnion('mode', [
+  separatorDetailsCommon.extend({
+    mode: z.literal('specified_temperature'),
+    duty_W: num,
+    ph: z.null(),
+  }),
+  separatorDetailsCommon.extend({
+    mode: z.literal('adiabatic'),
+    duty_W: z.literal(0),
+    ph: valveDetailsSchema.shape.ph,
+  }),
+]);
+export const separatorEnergyResultsSchema = thermalResultsSchema.extend({
+  schema_version: z.literal('1.11'),
+  process_result_version: z.literal('1.11'),
+  engine: thermalResultsSchema.shape.engine.extend({ version: z.literal('1.10.0') }),
+  equipment: z
+    .array(
+      z.strictObject({
+        id,
+        type: z.literal('equilibrium_separator_2phase'),
+        model: separatorEnergyModel,
+        material_streams: z.strictObject({ inlet: id, vapor: id, liquid: id }),
+        mass_balance: legacyResultsSchema.shape.balances.shape.mass,
+        duty_W: num,
+        work_W: z.literal(0),
+        energy_residual_W: num,
+        thermodynamics: separatorEnergyDetailsSchema,
+      }),
+    )
+    .length(1),
+  balances: z.strictObject({
+    mass: legacyResultsSchema.shape.balances.shape.mass,
+    energy: z.strictObject({
+      status: z.literal('passed'),
+      residual_W: num,
+      tolerance_W: positive,
+      duty_W: num,
+      model: z.literal('equilibrium_separator_energy_pr'),
+      positive_duty: z.literal('heat_into_equipment'),
+    }),
+  }),
+});
 export const resultsSchema = z.union([
+  separatorEnergyResultsSchema,
   valveResultsSchema,
   exchangerResultsSchema,
   rigorousCompressionResultsSchema,

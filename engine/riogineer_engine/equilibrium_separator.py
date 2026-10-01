@@ -32,19 +32,7 @@ def separator(unit, inputs, _evaluate):
         raise ValueError(f"{p['property_package']}: PT flash {result.status}; {detailed_failure(result)}")
     if not isfinite(result.beta) or not 0 <= result.beta <= 1:
         raise ValueError('Invalid PT phase fraction')
-    outputs = {}
-    for name in ('vapor', 'liquid'):
-        phase = phases.get(name)
-        if phase is None:
-            rates = {i: 0.0 for i in c.component_ids}
-        elif len(phases) == 1:
-            # Preserve the complete inventory exactly; absent phase has zero flow, no composition.
-            rates = dict(c.component_mass_flow_kg_h)
-        else:
-            fraction = result.beta if name == 'vapor' else 1-result.beta
-            rates = {i: c.molar_flow_kmol_h * fraction * q * molecular.provenance.molecular_weights_kg_kmol[i]
-                     for i, q in zip(c.component_ids, phase.composition)}
-        outputs[name] = state_from_rates(rates, state.temperature_K, state.pressure_Pa_abs, None)
+    outputs = phase_outlets(molecular, result)
     # Independently reconstruct both outlet compositions through M7, including zero semantics.
     reconstructed = {name: MolecularCompositionProvider().enrich(out).composition for name, out in outputs.items()}
     molar = {i: c.component_molar_flow_kmol_h[i] - sum(out.component_molar_flow_kmol_h[i] for out in reconstructed.values())
@@ -92,3 +80,24 @@ def detailed_failure(result):
     d = result.diagnostics
     return (f'{d.message}; iterations={d.iterations}; fugacity_residual={d.fugacity_residual}; '
             f'RR_residual={d.rr_residual}; material_residual={d.material_residual}')
+
+
+def phase_outlets(molecular, result):
+    """Shared inventory mapping only; the caller owns caloric/energy semantics."""
+    c = molecular.composition
+    state = result.overall_state
+    phases = {phase.identifier: phase for phase in result.phases}
+    outputs = {}
+    for name in ('vapor', 'liquid'):
+        phase = phases.get(name)
+        if phase is None:
+            rates = {i: 0.0 for i in c.component_ids}
+        elif len(phases) == 1:
+            # Preserve the complete inventory exactly; absent phase has zero flow, no composition.
+            rates = dict(c.component_mass_flow_kg_h)
+        else:
+            fraction = result.beta if name == 'vapor' else 1-result.beta
+            rates = {i: c.molar_flow_kmol_h * fraction * q * molecular.provenance.molecular_weights_kg_kmol[i]
+                     for i, q in zip(c.component_ids, phase.composition)}
+        outputs[name] = state_from_rates(rates, state.temperature_K, state.pressure_Pa_abs, None)
+    return outputs

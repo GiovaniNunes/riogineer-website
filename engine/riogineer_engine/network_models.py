@@ -118,6 +118,9 @@ def compressor(unit, inputs, _evaluate):
 
 
 def equilibrium_separator(unit, inputs, evaluate):
+    if unit['model']['id'] == 'equilibrium_separator_energy_pr':
+        from .separator_energy import separator as energy_separator
+        return energy_separator(unit, inputs, evaluate)
     from .equilibrium_separator import separator
     return separator(unit, inputs, evaluate)
 

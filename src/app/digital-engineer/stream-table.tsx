@@ -51,7 +51,7 @@ export function StreamTable({
                       data-stream-id={column.stream.id}
                       title={
                         value === null
-                          ? 'Not calculated by the active engineering model'
+                          ? 'Not calculated by the active model or undefined for an absent phase'
                           : String(value)
                       }
                     >
@@ -69,7 +69,8 @@ export function StreamTable({
         </table>
       </div>
       <p>
-        — = not calculated by the active engineering model. Zero is a specified or calculated value.
+        — = not calculated by the active model or undefined for an absent phase. Zero is a specified
+        or calculated value.
       </p>
       {flowsheet.schema_version === '1.0' && (
         <p>Regenerate the PFD to assign engineering stream numbers.</p>

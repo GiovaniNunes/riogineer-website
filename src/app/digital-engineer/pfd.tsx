@@ -9,7 +9,8 @@ export function Pfd({ flowsheet }: { flowsheet: Flowsheet }) {
     flowsheet.schema_version === '1.5' ||
     flowsheet.schema_version === '1.7' ||
     flowsheet.schema_version === '1.8' ||
-    flowsheet.schema_version === '1.9'
+    flowsheet.schema_version === '1.9' ||
+    flowsheet.schema_version === '1.10'
   )
     return <NetworkPfd flowsheet={flowsheet} />;
   const nodes = [...flowsheet.boundaries, ...flowsheet.equipment];
@@ -117,7 +118,12 @@ function NetworkPfd({ flowsheet }: { flowsheet: Flowsheet }) {
     >
       <svg
         viewBox={`0 0 ${width} ${height}`}
-        style={{ minWidth: flowsheet.profile === 'pt_flash_separator' ? 860 : 1100 }}
+        style={{
+          minWidth:
+            flowsheet.profile === 'pt_flash_separator' || flowsheet.profile === 'separator_energy'
+              ? 860
+              : 1100,
+        }}
         role="img"
         aria-labelledby="network-pfd-title"
       >
@@ -154,7 +160,12 @@ function NetworkPfd({ flowsheet }: { flowsheet: Flowsheet }) {
                 y={b.y - 10}
                 textAnchor="end"
                 fontSize="13"
-                textLength={flowsheet.profile === 'pt_flash_separator' ? b.x - a.x - 16 : undefined}
+                textLength={
+                  flowsheet.profile === 'pt_flash_separator' ||
+                  flowsheet.profile === 'separator_energy'
+                    ? b.x - a.x - 16
+                    : undefined
+                }
                 lengthAdjust="spacingAndGlyphs"
               >
                 {streamLabel(stream)}
@@ -270,7 +281,11 @@ function NetworkPfd({ flowsheet }: { flowsheet: Flowsheet }) {
                 fontSize="11"
               >
                 {node.type === 'equilibrium_separator_2phase'
-                  ? 'PT equilibrium · 2 phase'
+                  ? 'mode' in node.operating_parameters
+                    ? node.operating_parameters.mode === 'adiabatic'
+                      ? 'PH energy · 2 phase'
+                      : 'PT energy · 2 phase'
+                    : 'PT equilibrium · 2 phase'
                   : node.type.replaceAll('_', ' ')}
               </text>
             </g>
