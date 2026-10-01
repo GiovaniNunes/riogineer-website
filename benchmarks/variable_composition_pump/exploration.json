@@ -1,0 +1,302 @@
+[
+  {
+    "z_methane": 0.0,
+    "T_K": 300.0,
+    "error": "UnboundLocalError: local variable 'sln' referenced before assignment"
+  },
+  {
+    "z_methane": 0.0,
+    "T_K": 335.0,
+    "error": "UnboundLocalError: local variable 'sln' referenced before assignment"
+  },
+  {
+    "z_methane": 0.0,
+    "T_K": 370.0,
+    "bubble_P": 226192.08431666312,
+    "composition_gap": 0.0,
+    "Z_gap": 0.9126411673818577,
+    "witness": "single_liquid",
+    "actual": "single_liquid"
+  },
+  {
+    "z_methane": 0.01,
+    "T_K": 300.0,
+    "bubble_P": 199536.34930279225,
+    "composition_gap": 0.874577310499924,
+    "Z_gap": 0.9801429255480159,
+    "witness": "single_liquid",
+    "actual": "single_liquid"
+  },
+  {
+    "z_methane": 0.01,
+    "T_K": 335.0,
+    "bubble_P": 291054.1129071221,
+    "composition_gap": 0.6971372762406364,
+    "Z_gap": 0.9631399735996707,
+    "witness": "single_liquid",
+    "actual": "single_liquid"
+  },
+  {
+    "z_methane": 0.01,
+    "T_K": 370.0,
+    "bubble_P": 456759.61064152967,
+    "composition_gap": 0.46722957346647653,
+    "Z_gap": 0.9223209258470457,
+    "witness": "single_liquid",
+    "actual": "single_liquid"
+  },
+  {
+    "z_methane": 0.05,
+    "T_K": 300.0,
+    "bubble_P": 926230.6340401347,
+    "composition_gap": 0.9211075213326975,
+    "Z_gap": 0.9281587233790534,
+    "witness": "single_liquid",
+    "actual": "single_liquid"
+  },
+  {
+    "z_methane": 0.05,
+    "T_K": 335.0,
+    "bubble_P": 1148568.3747426928,
+    "composition_gap": 0.8646198024248364,
+    "Z_gap": 0.9133476996565029,
+    "witness": "single_liquid",
+    "actual": "single_liquid"
+  },
+  {
+    "z_methane": 0.05,
+    "T_K": 370.0,
+    "bubble_P": 1395564.4841079216,
+    "composition_gap": 0.7540511377479496,
+    "Z_gap": 0.883687178087743,
+    "witness": "single_liquid",
+    "actual": "single_liquid"
+  },
+  {
+    "z_methane": 0.1,
+    "T_K": 300.0,
+    "bubble_P": 1874335.6516752355,
+    "composition_gap": 0.8826243958147318,
+    "Z_gap": 0.8625343940876989,
+    "witness": "single_liquid",
+    "actual": "single_liquid"
+  },
+  {
+    "z_methane": 0.1,
+    "T_K": 335.0,
+    "bubble_P": 2262136.4054718055,
+    "composition_gap": 0.8482592277509031,
+    "Z_gap": 0.8465660591952,
+    "witness": "single_liquid",
+    "actual": "single_liquid"
+  },
+  {
+    "z_methane": 0.1,
+    "T_K": 370.0,
+    "bubble_P": 2606960.5679437923,
+    "composition_gap": 0.777254303725832,
+    "Z_gap": 0.8196549579698686,
+    "witness": "single_liquid",
+    "actual": "single_liquid"
+  },
+  {
+    "z_methane": 0.25,
+    "T_K": 300.0,
+    "bubble_P": 5019295.44093763,
+    "composition_gap": 0.7374486919480508,
+    "Z_gap": 0.6668980365743803,
+    "witness": "single_liquid",
+    "actual": "single_liquid"
+  },
+  {
+    "z_methane": 0.25,
+    "T_K": 335.0,
+    "bubble_P": 5904333.9242248265,
+    "composition_gap": 0.714685331471097,
+    "Z_gap": 0.6486561057106851,
+    "witness": "single_liquid",
+    "actual": "single_liquid"
+  },
+  {
+    "z_methane": 0.25,
+    "T_K": 370.0,
+    "bubble_P": 6498743.2592496965,
+    "composition_gap": 0.6691221955907777,
+    "Z_gap": 0.6244212663036544,
+    "witness": "single_liquid",
+    "actual": "single_liquid"
+  },
+  {
+    "z_methane": 0.5,
+    "T_K": 300.0,
+    "bubble_P": 11488247.24995131,
+    "composition_gap": 0.47841770281048823,
+    "Z_gap": 0.35538627528374334,
+    "witness": "single_liquid",
+    "actual": "single_liquid"
+  },
+  {
+    "z_methane": 0.5,
+    "T_K": 335.0,
+    "bubble_P": 13034541.861504672,
+    "composition_gap": 0.4503378416498548,
+    "Z_gap": 0.34125261426135495,
+    "witness": "single_liquid",
+    "actual": "single_liquid"
+  },
+  {
+    "z_methane": 0.5,
+    "T_K": 370.0,
+    "bubble_P": 13686022.910185184,
+    "composition_gap": 0.40159522152807203,
+    "Z_gap": 0.318917520378306,
+    "witness": "single_liquid",
+    "actual": "single_liquid"
+  },
+  {
+    "z_methane": 0.55,
+    "T_K": 300.0,
+    "bubble_P": 12981159.605110738,
+    "composition_gap": 0.4238401896097562,
+    "Z_gap": 0.29795654402874316,
+    "witness": "single_liquid",
+    "actual": "single_liquid"
+  },
+  {
+    "z_methane": 0.55,
+    "T_K": 335.0,
+    "bubble_P": 14583968.417350272,
+    "composition_gap": 0.3929144080454007,
+    "Z_gap": 0.2849000445561348,
+    "witness": "single_liquid",
+    "actual": "single_liquid"
+  },
+  {
+    "z_methane": 0.55,
+    "T_K": 370.0,
+    "bubble_P": 15135460.174570272,
+    "composition_gap": 0.3406986572538516,
+    "Z_gap": 0.26162014918003373,
+    "witness": "single_liquid",
+    "actual": "single_liquid"
+  },
+  {
+    "z_methane": 0.6,
+    "T_K": 300.0,
+    "bubble_P": 14525856.71162749,
+    "composition_gap": 0.36761440404039913,
+    "Z_gap": 0.24313415194641297,
+    "witness": "single_liquid",
+    "actual": "single_liquid"
+  },
+  {
+    "z_methane": 0.6,
+    "T_K": 335.0,
+    "bubble_P": 16135726.174670948,
+    "composition_gap": 0.3331327375154748,
+    "Z_gap": 0.23063708115048964,
+    "witness": "vapor_liquid",
+    "actual": "single_liquid"
+  },
+  {
+    "z_methane": 0.6,
+    "T_K": 370.0,
+    "bubble_P": 16522623.199431304,
+    "composition_gap": 0.27632635898991176,
+    "Z_gap": 0.20530669611589114,
+    "witness": "vapor_liquid",
+    "actual": "single_liquid"
+  },
+  {
+    "z_methane": 0.65,
+    "T_K": 300.0,
+    "bubble_P": 16097994.384566968,
+    "composition_gap": 0.3091171804891406,
+    "Z_gap": 0.1913258274883043,
+    "witness": "vapor_liquid",
+    "actual": "single_liquid"
+  },
+  {
+    "z_methane": 0.65,
+    "T_K": 335.0,
+    "bubble_P": 17648255.622621007,
+    "composition_gap": 0.27019720480149567,
+    "Z_gap": 0.1784380852049141,
+    "witness": "vapor_liquid",
+    "actual": "single_liquid"
+  },
+  {
+    "z_methane": 0.65,
+    "T_K": 370.0,
+    "bubble_P": 17785175.05442234,
+    "composition_gap": 0.20735167202433702,
+    "Z_gap": 0.14938700747585731,
+    "witness": "vapor_liquid",
+    "actual": "single_liquid"
+  },
+  {
+    "z_methane": 0.75,
+    "T_K": 300.0,
+    "bubble_P": 19106588.89277027,
+    "composition_gap": 0.18100947483501062,
+    "Z_gap": 0.0974454060642741,
+    "witness": "vapor_liquid",
+    "actual": "single_liquid"
+  },
+  {
+    "z_methane": 0.75,
+    "T_K": 335.0,
+    "bubble_P": 20232474.151480872,
+    "composition_gap": 0.12911429621830206,
+    "Z_gap": 0.07824371790080864,
+    "witness": "vapor_liquid",
+    "actual": "vapor_liquid"
+  },
+  {
+    "z_methane": 0.75,
+    "T_K": 370.0,
+    "bubble_P": 19473385.539596744,
+    "composition_gap": 0.04691378897804932,
+    "Z_gap": 0.03239356301343932,
+    "witness": "vapor_liquid",
+    "actual": "single_liquid"
+  },
+  {
+    "z_methane": 0.9,
+    "T_K": 300.0,
+    "bubble_P": 13814912.007429814,
+    "composition_gap": 0.3935402451166111,
+    "Z_gap": 0.26782878793474035,
+    "witness": "vapor_liquid",
+    "actual": "vapor_liquid"
+  },
+  {
+    "z_methane": 0.9,
+    "T_K": 335.0,
+    "error": "UnboundLocalError: local variable 'sln' referenced before assignment"
+  },
+  {
+    "z_methane": 0.9,
+    "T_K": 370.0,
+    "bubble_P": 3661917.915570829,
+    "composition_gap": 0.75783196041599,
+    "Z_gap": 0.764413307941111,
+    "witness": "single_liquid",
+    "actual": "single_liquid"
+  },
+  {
+    "z_methane": 1.0,
+    "T_K": 300.0,
+    "error": "UnboundLocalError: local variable 'sln' referenced before assignment"
+  },
+  {
+    "z_methane": 1.0,
+    "T_K": 335.0,
+    "error": "UnboundLocalError: local variable 'sln' referenced before assignment"
+  },
+  {
+    "z_methane": 1.0,
+    "T_K": 370.0,
+    "error": "UnboundLocalError: local variable 'sln' referenced before assignment"
+  }
+]

@@ -5,13 +5,19 @@ const number = (v: number) =>
 export function PumpResults({
   results,
 }: {
-  results: Extract<Results, { schema_version: '1.12' }>;
+  results: Extract<Results, { schema_version: '1.12' | '1.13' }>;
 }) {
   const e = results.equipment[0];
   const d = e.thermodynamics;
   return (
     <section aria-label="Liquid pump results">
       <h3>Guarded liquid pump — {e.id}</h3>
+      <p>
+        Model {e.model.id}@{e.model.version}.{' '}
+        {results.schema_version === '1.13'
+          ? 'Qualified methane mole fraction 0.01–0.55; n-hexane balance.'
+          : 'Fixed equimolar composition.'}
+      </p>
       <dl>
         <dt>Specified discharge pressure (Pa absolute)</dt>
         <dd>{number(d.outlet_pressure_Pa_abs)}</dd>

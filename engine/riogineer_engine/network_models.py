@@ -137,7 +137,10 @@ def throttling_valve(unit, inputs, _evaluate):
 
 # Port definitions, capability identity and execution live together, not in parallel registries.
 def pump(unit, inputs, evaluate):
-    from .pump_energy import pump as execute
+    if unit['model'].get('version') == '2.0':
+        from .variable_pump_energy import pump as execute
+    else:
+        from .pump_energy import pump as execute
     return execute(unit, inputs, evaluate)
 
 

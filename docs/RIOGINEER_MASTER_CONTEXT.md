@@ -1849,7 +1849,13 @@ Current state:
 
 # 62. IMMEDIATE NEXT STEP
 
-Current handoff: M18 numerical qualification and user-reported human acceptance
+Current handoff (2026-10-01): M19 is user-accepted by Giovani Nunes within the
+documented guarded scope; see the dated M19 acceptance/closeout entry below.
+The 37 verified M19 paths are authorized for normal commit/push. Preserve the
+current next-env.d.ts and tsconfig.json bytes outside the commit and leave user
+services untouched. Await a separately scoped next request; no M20 or deployment.
+
+Historical M18 handoff: M18 numerical qualification and user-reported human acceptance
 are complete within the documented guarded scope. Giovani Nunes authorized
 repository closeout (normal commit/push of implementation and both prerequisites).
 Preserve the unrelated next-env.d.ts bytes outside the commit and leave running
@@ -1892,3 +1898,79 @@ investigate the discrepancy rather than silently assuming either is correct.
 
 Engineering truth must ultimately be established through explicit models,
 validated data, reproducible calculations and documented engineering review.
+
+# M19 — variable-composition liquid pump (human-accepted 2026-10-01)
+
+M19 extends the pump through `rigorous_isentropic_pump_pr@2.0` and a separate
+`variable_pump_energy` profile. Requirements 1.11, flowsheet 1.12, results/process
+1.13, branch engine 1.12.0. M18 model 1.0 retains fixed equimolar semantics and its
+frozen files/evidence. New scope: methane mole fraction 0.01–0.55 with n-hexane
+balance, explicit constant zero kij, mass-rate-derived composition. M18 inlet
+300–350 K / 20–25 MPa, eta 0.6–1, F 5–200 mol/s, exact identity or ≥10000 Pa rise
+through 30 MPa remain unchanged. Reached states 300–370 K and fresh 16 MPa witnesses
+were independently requalified across composition; all runtime numerical and
+liquid-service guards remain mandatory. Shared thermodynamic solvers are unchanged.
+
+Independent evidence: 53 accepted / 11 rejected pump cases, 824 boundary checks,
+13,607 actual callable/adapter comparisons passed; reference reproduced byte-for-byte.
+Finite sampling and engineering witness reserve are not a global proof or
+experimental validation. All 24 historical M17 separator cases fail direct-entry
+requirements or have no liquid. One additional high-pressure full-liquid case is
+compatible; representative low-pressure fractionated products still require new
+pressure/state/saturation-margin qualification. Production mixed networks remain
+out of scope. At implementation handoff, no commit/push/deployment had occurred
+and human acceptance was pending; the dated acceptance entry below supersedes
+that status.
+
+See [MILESTONE_19.md](../MILESTONE_19.md) for verification, versions, startup/manual
+acceptance and exact inventory; see
+[qualification](../PRE_MILESTONE_19_VARIABLE_COMPOSITION_PUMP_QUALIFICATION.md)
+for independent methodology, phase/work evidence and separator gaps.
+
+## M19 human acceptance and closeout — 2026-10-01, America/Sao_Paulo
+
+Giovani Nunes reports acceptance based on browser operation, screenshots and the
+exported canonical JSON reviewed in the accompanying ChatGPT conversation. These
+are user-reported observations, not new automated tests or checks personally
+performed by the closeout agent. The screenshots/export are not included in this
+commit. The precise record is in the dated acceptance section of MILESTONE_19.md.
+
+Reported M19 canonical values: model 2.0, z=0.25/0.75, 300 K and 20 MPa inlet,
+30 MPa discharge, eta 0.8, 360 kmol/h (100 mol/s), 24,711.1992 kg/h and
+68.64222 kg/kmol. Outlet ≈304.097803733 K; fluid power ≈132,548.174119273 W;
+heat duty 0 W. Mass/energy passed, results current, exported JSON agreed and
+identified results 1.13 / engine 1.12.0. Density and phase volumetric flows were
+unavailable. Feed edits left previous results visible with STALE/previous-calculation
+warnings and disabled download; they did not clear all historical results.
+
+Methane/hexane rates 3465.2448/12409.25184 kg/h (z methane 0.60) were rejected with
+`composition_scope` and qualified interval 0.01–0.55; historical results remained
+stale and download disabled. Restoring M19 and setting Pout=Pin=20 MPa yielded
+300 K, zero work/duty, unchanged flow/composition/enthalpy flow, zero mass/energy
+residuals and passed checks; results current/download enabled. Ideal reference
+and reconstructed efficiency were unavailable for identity/zero work. Setting
+Pout=20.001 MPa (1000 Pa rise) returned `positive_rise_below_floor`, disabled PFD,
+calculation and download, and retained historical results marked STALE.
+
+Historical M18 model 1.0 remained equimolar: outlet ≈305.581525034 K, fluid power
+≈110,622.860113396 W, reconstructed eta 0.8, passed checks and current results.
+With that M18 model retained, methane/hexane rates 1443.852/23267.3472 kg/h gave
+`composition_scope; Fixed equimolar methane/n_hexane required`; PFD/calculation/
+download were disabled and previous results stale. M18 semantics remain intact.
+Unreported reproduction-checklist items are not marked manually observed.
+
+All existing composition, zero-kij, temperature, pressure, efficiency, flow,
+phase/witness, inverse, residual and work limits remain. Finite sampling does not
+guarantee convergence at every intermediate input; numerical agreement is not
+experimental validation. Low-pressure fractionated separator-product integration
+remains unresolved. No mixed networks, sizing, NPSH, cavitation or electrical
+power capability is added.
+
+Closeout authorizes exactly 37 verified M19 paths for commit and normal push.
+The additional local tsconfig.json generated type includes/formatting and the
+pre-existing next-env.d.ts modification are both preserved outside the commit.
+Lightweight inventory, integrity, schema-parity, formatting and whitespace checks
+are distinct from the unchanged historical 658 cumulative Python / 271 TypeScript /
+39 browser record, including its separately successful HTTP retry. No full suites
+are rerun solely for closeout. User services remain running. Handoff: accepted M19
+only; await a separate task, with no deployment, M20 or scope expansion.

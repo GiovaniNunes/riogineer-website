@@ -75,3 +75,13 @@ semantics. Single-separator builds/results remain 1.1. The new independent case
 is `examples/milestone-4-requirements.json`. See `MILESTONE_4.md` for all model
 limits, exact results, versioning and validation. No recycle or property package
 is enabled by these graph contracts.
+
+## M19 variable-composition liquid pump
+
+Additive requirements 1.11 (`variable_pump_energy`), flowsheet 1.12 and results /
+process result 1.13 use `rigorous_isentropic_pump_pr@2.0` and branch engine 1.12.0.
+The canonical fixture is `examples/milestone-19-pump-requirements.json` and matches
+`riogineer_engine.milestone19`. Composition derives from component mass rates;
+semantic engine validation admits methane mole fraction 0.01–0.55, hexane balance,
+subject to operating/phase/numerical guards. M18 contracts and model 1.0 remain
+fixed equimolar. See `MILESTONE_19.md` for the complete qualified envelope.

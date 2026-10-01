@@ -11,7 +11,8 @@ export function Pfd({ flowsheet }: { flowsheet: Flowsheet }) {
     flowsheet.schema_version === '1.8' ||
     flowsheet.schema_version === '1.9' ||
     flowsheet.schema_version === '1.10' ||
-    flowsheet.schema_version === '1.11'
+    flowsheet.schema_version === '1.11' ||
+    flowsheet.schema_version === '1.12'
   )
     return <NetworkPfd flowsheet={flowsheet} />;
   const nodes = [...flowsheet.boundaries, ...flowsheet.equipment];

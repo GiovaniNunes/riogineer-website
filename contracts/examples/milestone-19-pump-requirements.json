@@ -1,0 +1,99 @@
+{
+  "schema_version": "1.11",
+  "kind": "requirements",
+  "case_id": "MILESTONE_19_LIQUID_PUMP",
+  "profile": "variable_pump_energy",
+  "units": {
+    "temperature": "K",
+    "pressure": "Pa_abs",
+    "component_mass_flow": "kg/h",
+    "heat_capacity": "J/(kg K)",
+    "duty": "W",
+    "recovery": "mass_fraction"
+  },
+  "provenance": {
+    "source": "M19 guarded liquid pump deterministic reference; explicit constant zero kij.",
+    "basis": "qualified_equilibrium_energy"
+  },
+  "components": ["methane", "n_hexane"],
+  "feeds": [
+    {
+      "id": "HYDROCARBON_FEED",
+      "state": {
+        "temperature_K": 300.0,
+        "pressure_Pa_abs": 20000000.0,
+        "component_mass_flow_kg_h": {
+          "methane": 1443.852,
+          "n_hexane": 23267.3472
+        }
+      }
+    }
+  ],
+  "equipment": [
+    {
+      "id": "PUMP_1",
+      "type": "pump",
+      "model": {
+        "id": "rigorous_isentropic_pump_pr",
+        "version": "2.0"
+      },
+      "parameters": {
+        "property_package": "peng_robinson@1.0",
+        "bip": {
+          "identifier": "m9_methane_nhexane_zero_kij@1.0",
+          "component_ids": ["methane", "n_hexane"],
+          "values": [
+            [0, 0],
+            [0, 0]
+          ],
+          "model": "peng_robinson@1.0",
+          "source": "Explicit zero kij mathematical benchmark from pre_m8_methane_nhexane_canonical_pr@1.0; not calibrated physical BIPs."
+        },
+        "outlet_pressure_Pa_abs": 30000000.0,
+        "isentropic_efficiency": 0.8
+      }
+    }
+  ],
+  "sinks": [
+    {
+      "id": "PRODUCT_SINK"
+    }
+  ],
+  "streams": [
+    {
+      "id": "HYDROCARBON_FEED",
+      "service": "HYDROCARBON_FEED"
+    },
+    {
+      "id": "PUMP_PRODUCT",
+      "service": "PUMP_PRODUCT"
+    }
+  ],
+  "connections": [
+    {
+      "id": "C_FEED",
+      "stream_id": "HYDROCARBON_FEED",
+      "source": {
+        "owner_id": "HYDROCARBON_FEED",
+        "port_id": "outlet"
+      },
+      "target": {
+        "owner_id": "PUMP_1",
+        "port_id": "inlet"
+      }
+    },
+    {
+      "id": "C_PRODUCT",
+      "stream_id": "PUMP_PRODUCT",
+      "source": {
+        "owner_id": "PUMP_1",
+        "port_id": "outlet"
+      },
+      "target": {
+        "owner_id": "PRODUCT_SINK",
+        "port_id": "inlet"
+      }
+    }
+  ],
+  "required_outputs": ["streams", "mass_balance", "energy_balance"]
+}
