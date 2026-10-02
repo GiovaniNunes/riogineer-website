@@ -1,0 +1,15 @@
+
+> riogineer-website@0.1.0 pretypecheck
+> npm run content:generate
+
+
+> riogineer-website@0.1.0 content:generate
+> node scripts/generate-content.mjs
+
+Discovered 8 MDX documents.
+
+> riogineer-website@0.1.0 typecheck
+> next typegen && tsc --noEmit
+
+Generating route types...
+✓ Types generated successfully

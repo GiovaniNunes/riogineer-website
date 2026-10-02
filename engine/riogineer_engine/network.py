@@ -26,7 +26,7 @@ def build(requirements):
         links = [c for c in connections if c['stream_id'] == stream['id']]
         source = links[0]['source']['owner_id'] if len(links) == 1 else None
         streams.append(dict(stream, specified_state=deepcopy(feed_by_id.get(source))))
-    f = dict(schema_version={'1.1': '1.2', '1.2': '1.3', '1.3': '1.4', '1.4': '1.5', '1.5': '1.6', '1.6': '1.7', '1.7': '1.8', '1.8': '1.9', '1.9': '1.10', '1.10': '1.11', '1.11': '1.12', '1.12': '1.13'}[r['schema_version']], kind='flowsheet', case_id=r['case_id'], profile=r['profile'],
+    f = dict(schema_version={'1.1': '1.2', '1.2': '1.3', '1.3': '1.4', '1.4': '1.5', '1.5': '1.6', '1.6': '1.7', '1.7': '1.8', '1.8': '1.9', '1.9': '1.10', '1.10': '1.11', '1.11': '1.12', '1.12': '1.13', '1.13': '1.14'}[r['schema_version']], kind='flowsheet', case_id=r['case_id'], profile=r['profile'],
              units=r['units'], requirements_sha256=digest(r), components=r['components'],
              boundaries=[dict(id=s['id'], type='source', ports=ports('source')) for s in r['feeds']] +
                         [dict(id=s['id'], type='sink', ports=ports('sink')) for s in r['sinks']],

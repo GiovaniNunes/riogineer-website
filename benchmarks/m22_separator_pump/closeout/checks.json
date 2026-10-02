@@ -1,0 +1,43 @@
+{
+  "date": "2026-10-02",
+  "timezone": "America/Sao_Paulo",
+  "classification": "Focused closeout checks; no regression suites rerun",
+  "passed": [
+    "Original 70 paths retained in reviewed 90-path inventory",
+    "Actual tree matches reviewed inventory plus protected configurations before closeout",
+    "89 manual-review manifest hashes match before documentation updates",
+    "88 of 90 reviewed files unchanged; only two acceptance documents edited",
+    "Master context pre-closeout prefix preserved",
+    "Current source and archived M21 provenance: python3 -B benchmarks/m22_separator_pump/integrity.py",
+    "Historical artifact/configuration preservation: same integrity procedure",
+    "Historical contract branches and shared definitions: python3 -B benchmarks/m22_separator_pump/contracts.py",
+    "Generated schema parity: npm run contracts:check",
+    "Prettier check: entire MILESTONE_22.md and exact appended master-context block",
+    "Working-tree whitespace: git diff --check",
+    "Both configuration files match baseline hashes and preserved byte copies"
+  ],
+  "transaction_gates": "Exact staged paths/hashes, staged whitespace, normal commit/push and final remote identity are verified in the closeout execution and final response.",
+  "protected_configuration": {
+    "next-env.d.ts": "0f70629890b72a0a82e91972cc032c04b658b26c265373cb711cf576bfbf8fcc",
+    "tsconfig.json": "e2a28ab5d02bb5b555a28523be8786d9dc3a400fe125f14602261e24a6288126"
+  },
+  "staged_whitespace": {
+    "full_check_exit_code": 2,
+    "diagnostics": "benchmarks/m22_separator_pump/logs/browser-focused.log:11: trailing whitespace.\n+\u001b[2m[WebServer] \u001b[22m Detected additional lockfiles: \nbenchmarks/m22_separator_pump/logs/browser-full.log:11: trailing whitespace.\n+\u001b[2m[WebServer] \u001b[22m Detected additional lockfiles: \nbenchmarks/m22_separator_pump/logs/build.log:20: trailing whitespace.\n+ Detected additional lockfiles: \nbenchmarks/m22_separator_pump/logs/build.log:32: space before tab in indent.\n+  \t- include was updated to add '.next/m22-build/types/**/*.ts'\nbenchmarks/m22_separator_pump/logs/build.log:33: space before tab in indent.\n+  \t- include was updated to add '.next/m22-build/dev/types/**/*.ts'\nbenchmarks/m22_separator_pump/logs/build.log:38: trailing whitespace.\n+  Generating static pages using 7 workers (10/41) \nbenchmarks/m22_separator_pump/logs/build.log:39: trailing whitespace.\n+  Generating static pages using 7 workers (20/41) \nbenchmarks/m22_separator_pump/logs/build.log:40: trailing whitespace.\n+  Generating static pages using 7 workers (30/41) \nbenchmarks/m22_separator_pump/logs/build.log:82: new blank line at EOF.\nbenchmarks/m22_separator_pump/logs/contracts.log:4: new blank line at EOF.\nbenchmarks/m22_separator_pump/logs/frontend-focused-final.log:9: new blank line at EOF.\nbenchmarks/m22_separator_pump/logs/frontend-focused.log:9: new blank line at EOF.\nbenchmarks/m22_separator_pump/logs/frontend-full.log:13: new blank line at EOF.\nbenchmarks/m22_separator_pump/logs/lint.log:4: new blank line at EOF.\nbenchmarks/m22_separator_pump/manual_review/frontend-final.log:9: new blank line at EOF.\nbenchmarks/m22_separator_pump/manual_review/frontend.log:53: new blank line at EOF.\n",
+    "classification": "Historical raw tool-log whitespace, identical to reviewed baseline; preserved rather than rewriting frozen evidence.",
+    "unchanged_evidence_paths": [
+      "benchmarks/m22_separator_pump/logs/browser-focused.log",
+      "benchmarks/m22_separator_pump/logs/browser-full.log",
+      "benchmarks/m22_separator_pump/logs/build.log",
+      "benchmarks/m22_separator_pump/logs/contracts.log",
+      "benchmarks/m22_separator_pump/logs/frontend-focused-final.log",
+      "benchmarks/m22_separator_pump/logs/frontend-focused.log",
+      "benchmarks/m22_separator_pump/logs/frontend-full.log",
+      "benchmarks/m22_separator_pump/logs/lint.log",
+      "benchmarks/m22_separator_pump/manual_review/frontend-final.log",
+      "benchmarks/m22_separator_pump/manual_review/frontend.log"
+    ],
+    "all_other_staged_paths": "passed explicit path check; no whitespace defects",
+    "warning_count": 16
+  }
+}

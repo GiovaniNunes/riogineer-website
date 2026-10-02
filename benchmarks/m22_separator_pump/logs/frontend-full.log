@@ -1,0 +1,13 @@
+
+> riogineer-website@0.1.0 test
+> vitest run
+
+
+ RUN  v5.0.2 /Users/giovaninunes/Folders/RioGineer/riogineer-website
+
+
+ Test Files  28 passed (28)
+      Tests  280 passed (280)
+   Start at  08:20:48
+   Duration  14.53s (tests 70%, import 27%, transform 3%)
+

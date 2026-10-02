@@ -1,0 +1,9 @@
+
+ RUN  v5.0.2 /Users/giovaninunes/Folders/RioGineer/riogineer-website
+
+
+ Test Files  3 passed (3)
+      Tests  13 passed (13)
+   Start at  09:08:15
+   Duration  526ms (transform 49%, import 32%, tests 18%, worker 1%)
+

@@ -1,6 +1,9 @@
 'use client';
 
+import { formatEngineeringNumber } from '@/lib/digital-engineer/number-format';
 import { SeparatorPumpResults } from './separator-pump-results';
+import m22below from '../../../contracts/examples/milestone-22-below-requirements.json';
+import m22above from '../../../contracts/examples/milestone-22-above-requirements.json';
 import m20reference from '../../../contracts/examples/milestone-20-reference-requirements.json';
 import m20identity from '../../../contracts/examples/milestone-20-identity-requirements.json';
 import m20alternate from '../../../contracts/examples/milestone-20-alternate-requirements.json';
@@ -45,8 +48,7 @@ function download(name: string, value: unknown) {
   a.click();
   URL.revokeObjectURL(url);
 }
-const number = (value: number | null) =>
-  value === null ? '—' : new Intl.NumberFormat('en-US', { maximumFractionDigits: 6 }).format(value);
+const number = formatEngineeringNumber;
 export function EngineerWorkspace({
   referenceText,
   networkReferenceText,
@@ -244,6 +246,20 @@ export function EngineerWorkspace({
             )}
           </div>
           <div className={styles.actions}>
+            {Object.entries({
+              'below-boundary PT200 reference': m22below,
+              'above-boundary PT200 reference': m22above,
+            }).map(([label, reference]) => (
+              <button
+                key={label}
+                disabled={state.busy}
+                onClick={() =>
+                  dispatch({ type: 'edit', draft: JSON.stringify(reference, null, 2) })
+                }
+              >
+                Load Milestone 22 {label}
+              </button>
+            ))}
             {Object.entries({
               reference: m20reference,
               identity: m20identity,
@@ -494,7 +510,8 @@ export function EngineerWorkspace({
                             r.schema_version === '1.11' ||
                             r.schema_version === '1.12' ||
                             r.schema_version === '1.13' ||
-                            r.schema_version === '1.14'
+                            r.schema_version === '1.14' ||
+                            r.schema_version === '1.15'
                           ? 'Enthalpy flow (W; Peng–Robinson)'
                           : 'Enthalpy flow (W; assumed Cp)',
                       'enthalpy_flow_W',
@@ -550,12 +567,13 @@ export function EngineerWorkspace({
                     r.schema_version === '1.11' ||
                     r.schema_version === '1.12' ||
                     r.schema_version === '1.13' ||
-                    r.schema_version === '1.14'
+                    r.schema_version === '1.14' ||
+                    r.schema_version === '1.15'
                       ? 'PR equilibrium energy'
                       : 'constant-Cp'}{' '}
                     model.
                   </p>
-                  {r.schema_version === '1.14' ? (
+                  {r.schema_version === '1.14' || r.schema_version === '1.15' ? (
                     <>
                       <p>
                         Total process heat duty:{' '}
@@ -608,7 +626,8 @@ export function EngineerWorkspace({
             r.schema_version !== '1.11' &&
             r.schema_version !== '1.12' &&
             r.schema_version !== '1.13' &&
-            r.schema_version !== '1.14' && (
+            r.schema_version !== '1.14' &&
+            r.schema_version !== '1.15' && (
               <>
                 <h3>Equipment checks</h3>
                 <p>Execution order: {r.execution.equipment_order.join(' → ')}</p>
@@ -654,7 +673,9 @@ export function EngineerWorkspace({
           )}
           {r.schema_version === '1.9' && current && <TwoStreamHeatExchangerResults results={r} />}
           {r.schema_version === '1.8' && current && <RigorousCompressionResults results={r} />}
-          {r.schema_version === '1.14' && current && <SeparatorPumpResults results={r} />}
+          {(r.schema_version === '1.14' || r.schema_version === '1.15') && current && (
+            <SeparatorPumpResults results={r} />
+          )}
           {(r.schema_version === '1.12' || r.schema_version === '1.13') && current && (
             <PumpResults results={r} />
           )}
@@ -675,7 +696,10 @@ export function EngineerWorkspace({
                 <strong>
                   {u.calculation}: {u.status}.
                 </strong>{' '}
-                {u.reason}
+                {r.schema_version === '1.15' &&
+                u.reason === 'M20 qualifies material and fluid-energy integration only.'
+                  ? 'This model qualifies material and fluid-energy integration only.'
+                  : u.reason}
               </li>
             ))}
           </ul>

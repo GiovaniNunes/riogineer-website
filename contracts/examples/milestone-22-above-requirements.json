@@ -1,0 +1,159 @@
+{
+  "schema_version": "1.13",
+  "kind": "requirements",
+  "case_id": "MILESTONE_22_PT_BUBBLE_ABOVE",
+  "profile": "separator_pump_energy",
+  "units": {
+    "temperature": "K",
+    "pressure": "Pa_abs",
+    "component_mass_flow": "kg/h",
+    "heat_capacity": "J/(kg K)",
+    "duty": "W",
+    "recovery": "mass_fraction"
+  },
+  "provenance": {
+    "source": "M22 finite cold-source reference; explicit PT200 pump selection.",
+    "basis": "qualified_equilibrium_energy"
+  },
+  "components": ["methane", "n_hexane"],
+  "feeds": [
+    {
+      "id": "HYDROCARBON_FEED",
+      "state": {
+        "temperature_K": 230.7220225690974,
+        "pressure_Pa_abs": 7000000.0,
+        "component_mass_flow_kg_h": {
+          "methane": 2887.704,
+          "n_hexane": 15511.5648
+        }
+      }
+    }
+  ],
+  "equipment": [
+    {
+      "id": "SEP_PR_1",
+      "type": "equilibrium_separator_2phase",
+      "model": {
+        "id": "equilibrium_separator_energy_pr",
+        "version": "1.0"
+      },
+      "parameters": {
+        "property_package": "peng_robinson@1.0",
+        "bip": {
+          "identifier": "m9_methane_nhexane_zero_kij@1.0",
+          "component_ids": ["methane", "n_hexane"],
+          "values": [
+            [0, 0],
+            [0, 0]
+          ],
+          "model": "peng_robinson@1.0",
+          "source": "Explicit zero kij mathematical benchmark from pre_m8_methane_nhexane_canonical_pr@1.0; not calibrated physical BIPs."
+        },
+        "mode": "specified_temperature",
+        "separator_pressure_Pa_abs": 6000000.0,
+        "separator_temperature_K": 231.16755435138973
+      }
+    },
+    {
+      "id": "PUMP_1",
+      "type": "pump",
+      "model": {
+        "id": "separator_liquid_pump_pr",
+        "version": "2.0"
+      },
+      "parameters": {
+        "property_package": "peng_robinson@1.0",
+        "bip": {
+          "identifier": "m9_methane_nhexane_zero_kij@1.0",
+          "component_ids": ["methane", "n_hexane"],
+          "values": [
+            [0, 0],
+            [0, 0]
+          ],
+          "model": "peng_robinson@1.0",
+          "source": "Explicit zero kij mathematical benchmark from pre_m8_methane_nhexane_canonical_pr@1.0; not calibrated physical BIPs."
+        },
+        "outlet_pressure_Pa_abs": 8000000.0,
+        "isentropic_efficiency": 0.8,
+        "numerical_profile": "pr_high_accuracy_pt200@1"
+      }
+    }
+  ],
+  "sinks": [
+    {
+      "id": "VAPOR_PRODUCT_SINK"
+    },
+    {
+      "id": "LIQUID_PRODUCT_SINK"
+    }
+  ],
+  "streams": [
+    {
+      "id": "HYDROCARBON_FEED",
+      "service": "HYDROCARBON_FEED"
+    },
+    {
+      "id": "VAPOR_PRODUCT",
+      "service": "VAPOR_PRODUCT"
+    },
+    {
+      "id": "LIQUID_PRODUCT",
+      "service": "LIQUID_PRODUCT"
+    },
+    {
+      "id": "PUMP_PRODUCT",
+      "service": "PUMP_PRODUCT"
+    }
+  ],
+  "connections": [
+    {
+      "id": "C_HYDROCARBON_FEED",
+      "stream_id": "HYDROCARBON_FEED",
+      "source": {
+        "owner_id": "HYDROCARBON_FEED",
+        "port_id": "outlet"
+      },
+      "target": {
+        "owner_id": "SEP_PR_1",
+        "port_id": "inlet"
+      }
+    },
+    {
+      "id": "C_VAPOR_PRODUCT",
+      "stream_id": "VAPOR_PRODUCT",
+      "source": {
+        "owner_id": "SEP_PR_1",
+        "port_id": "vapor"
+      },
+      "target": {
+        "owner_id": "VAPOR_PRODUCT_SINK",
+        "port_id": "inlet"
+      }
+    },
+    {
+      "id": "C_LIQUID_PRODUCT",
+      "stream_id": "LIQUID_PRODUCT",
+      "source": {
+        "owner_id": "SEP_PR_1",
+        "port_id": "liquid"
+      },
+      "target": {
+        "owner_id": "PUMP_1",
+        "port_id": "inlet"
+      }
+    },
+    {
+      "id": "PUMP_TO_PRODUCT",
+      "stream_id": "PUMP_PRODUCT",
+      "source": {
+        "owner_id": "PUMP_1",
+        "port_id": "outlet"
+      },
+      "target": {
+        "owner_id": "LIQUID_PRODUCT_SINK",
+        "port_id": "inlet"
+      }
+    }
+  ],
+  "required_outputs": ["streams", "mass_balance", "energy_balance"]
+}

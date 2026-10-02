@@ -1,0 +1,5 @@
+
+> riogineer-website@0.1.0 smoke
+> node scripts/smoke.mjs
+
+Passed: 17 pages, 17 PNG social cards, internal links, 404s, preview indexing, and disabled contact delivery.

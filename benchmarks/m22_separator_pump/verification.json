@@ -1,0 +1,132 @@
+{
+  "baseline": {
+    "branch": "main",
+    "head": "253b91472a5007e7bd4749a6751c4efbc5066e14",
+    "index": "",
+    "task_start": " M next-env.d.ts\n M tsconfig.json\n"
+  },
+  "independent_integration": {
+    "preliminary_checks": 207,
+    "complete_application_checks": 221,
+    "complete_cases": 2,
+    "failures": 0,
+    "counts_overlap": true
+  },
+  "historical": {
+    "cases": 30,
+    "independent_checks": 1680,
+    "exact_numeric_payloads": 30,
+    "identity_exclusions": [
+      "run_id",
+      "input_sha256",
+      "implementation_sha256"
+    ]
+  },
+  "python_full": {
+    "tests": 693,
+    "seconds": 871.395,
+    "passed": true,
+    "log": "logs/python-full.log"
+  },
+  "python_focused": {
+    "tests": 9,
+    "seconds": 15.958,
+    "passed": true,
+    "log": "logs/focused-final.log"
+  },
+  "compatibility_focused": {
+    "tests": 29,
+    "seconds": 168.339,
+    "passed": true,
+    "log": "logs/compatibility-focused.log"
+  },
+  "frontend": {
+    "focused_tests": 7,
+    "full_tests": 280,
+    "full_files": 28,
+    "full_runs": 1
+  },
+  "browser": {
+    "focused_tests": 2,
+    "full_tests": 42,
+    "full_runs": 1
+  },
+  "gates": {
+    "contracts": "passed",
+    "types": "passed in isolated copy",
+    "lint": "passed",
+    "production_build": "passed in isolated copy",
+    "smoke": "passed: 17 pages and 17 PNG cards plus links/404/index/contact checks",
+    "format": "exit 1: only pre-existing protected tsconfig.json",
+    "diff_check": "passed"
+  },
+  "intermediate_results": [
+    {
+      "command": "unittest test_m22_separator_pump -v",
+      "tests": 9,
+      "failures": 1,
+      "reason": "Inherited composition mutation set 0.5, unchanged for below source; changed new test to a genuine 0.4 mutation; historical helper unchanged.",
+      "log": "logs/focused-initial.log"
+    },
+    {
+      "command": "vitest run tests/m22-separator-pump.test.tsx",
+      "exit_code": 1,
+      "reason": "No tests discovered: repository includes .test.ts only. Renamed test and used createElement.",
+      "log": "logs/frontend-focused.log"
+    }
+  ],
+  "counting": "Focused, full and separate artifact runs overlap; counts are not summed as unique tests. One ordinary full Python run; no exclusions. No repeated full M21 numerical qualification.",
+  "commands": [
+    "PYTHONPATH=engine engine/.venv/bin/python -B benchmarks/m22_separator_pump/verify.py --preliminary --output benchmarks/m22_separator_pump/preliminary.json",
+    "PYTHONPATH=engine engine/.venv/bin/python -B benchmarks/m22_separator_pump/verify.py --output benchmarks/m22_separator_pump/integration.json",
+    "PYTHONPATH=engine engine/.venv/bin/python -B benchmarks/m22_separator_pump/historical.py --output benchmarks/m22_separator_pump/historical.json",
+    "PYTHONPATH=engine:engine/tests engine/.venv/bin/python -B -m unittest test_m22_separator_pump -v",
+    "PYTHONPATH=engine:engine/tests engine/.venv/bin/python -B -m unittest test_separator_pump_integration test_variable_pump_evidence test_pt200_profile test_m21_review -v",
+    "PYTHONPATH=engine:engine/tests engine/.venv/bin/python -B -m unittest discover -s engine/tests -v",
+    "npm run contracts:check",
+    "npm test",
+    "npm run lint",
+    "npm run format:check",
+    "git diff --check",
+    "isolated copy: npm run typecheck",
+    "isolated copy: npx playwright test tests/e2e/m22-separator-pump.spec.ts",
+    "isolated copy: npx playwright test",
+    "isolated copy: RIOGINEER_E2E_DIST_DIR=.next/m22-build NEXT_TELEMETRY_DISABLED=1 npm run build",
+    "isolated copy: SITE_URL=http://127.0.0.1:3123 RIOGINEER_LLM_PROVIDER='' RIOGINEER_E2E_DIST_DIR=.next/m22-build NEXT_TELEMETRY_DISABLED=1 npm run start -- --port 3123",
+    "isolated copy: SMOKE_URL=http://127.0.0.1:3123 npm run smoke",
+    "engine/.venv/bin/python -B benchmarks/m22_separator_pump/contracts.py",
+    "engine/.venv/bin/python -B benchmarks/m22_separator_pump/integrity.py"
+  ],
+  "cli": {
+    "below_exit": 0,
+    "above_exit": 0,
+    "unsupported_efficiency_081_exit": 1
+  },
+  "service_availability": {
+    "ports": [
+      3122,
+      8122,
+      3123
+    ],
+    "listeners": "",
+    "task_services_stopped": true
+  },
+  "unchanged_shared_physics": true,
+  "automatic_fallback": false,
+  "observed_m21_peak_iterations": 199,
+  "configuration_sha256": {
+    "next-env.d.ts": "0f70629890b72a0a82e91972cc032c04b658b26c265373cb711cf576bfbf8fcc",
+    "tsconfig.json": "e2a28ab5d02bb5b555a28523be8786d9dc3a400fe125f14602261e24a6288126"
+  },
+  "human_acceptance": false,
+  "commit": false,
+  "push": false,
+  "deployment": false,
+  "user_service_shutdown": false,
+  "limitations": [
+    "Finite two-case addition; no continuous envelope/interpolation/flow or efficiency scaling.",
+    "No hydraulic/NPSH/cavitation qualification.",
+    "Historical missing next-env snapshot remains unavailable; task-start bytes preserved.",
+    "Pre-existing tsconfig formatting remains unchanged."
+  ]
+}

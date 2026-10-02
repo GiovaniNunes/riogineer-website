@@ -69,7 +69,7 @@ def calculate(f):
             else:
                 inlet, evidence = context.resolve(pump, liquid_link)
                 p = pump['operating_parameters']
-                answer = run(inlet, evidence, current, p['outlet_pressure_Pa_abs'], p['isentropic_efficiency'])
+                answer = run(inlet, evidence, current, p['outlet_pressure_Pa_abs'], p['isentropic_efficiency'],numerical_profile=p.get('numerical_profile'))
                 states[liquid_link['stream_id']] = inlet
                 outlet = answer['outlet']
                 outlet['state_context'] = deepcopy(inlet['state_context'])
@@ -90,6 +90,8 @@ def calculate(f):
         raise Invalid(f'M20 incomplete process: {error}', path='/equipment', code='M20_'+error.category.upper()) from error
     except (SeparatorFailure, PumpFailure) as error:
         raise Invalid(f'M20 incomplete process: {error}', path='/equipment', code='M20_CALCULATION_FAILED') from error
+    selected=p.get('numerical_profile')
+    if selected is not None:equipment[1]['thermodynamics']['numerical_profile']=selected
     feed['state_context'] = dict(specification_kind='independent_PT')
     vapor, product = states[vapor_link['stream_id']], states[product_link['stream_id']]
     vapor['state_context'] = deepcopy(states[liquid_link['stream_id']]['state_context'])
@@ -100,18 +102,18 @@ def calculate(f):
     tolerance = equipment[0]['thermodynamics']['energy_allowance_W'] + allowance + ROUND * max(1, abs(feed['enthalpy_flow_W']), abs(product['enthalpy_flow_W']), abs(vapor['enthalpy_flow_W']))
     if abs(residual) > tolerance: raise Invalid('M20 overall energy balance failed', code='M20_CALCULATION_FAILED')
     balance = mass_balance([feed], [vapor, product], f['components'])
-    output = dict(schema_version='1.14', process_result_version='1.14', kind='results', case_id=f['case_id'], **current,
-        engine=dict(version='1.13.0', implementation_sha256=implementation_hash(), evaluator_sha256=EVALUATOR_HASH, model=MODEL),
+    output = dict(schema_version='1.15' if selected else '1.14', process_result_version='1.15' if selected else '1.14', kind='results', case_id=f['case_id'], **current,
+        engine=dict(version='1.14.0' if selected else '1.13.0', implementation_sha256=implementation_hash(), evaluator_sha256=EVALUATOR_HASH, model=MODEL),
         status='completed', units=f['units'], streams=states, equipment=equipment,
         execution=dict(method='topological', equipment_order=order), balances=dict(mass=balance,
             energy=dict(status='passed', residual_W=residual, tolerance_W=tolerance, duty_W=duty, fluid_power_W=power,
                 model='separator_pump_energy', positive_duty='heat_into_process', positive_work='work_into_process')),
         warnings=[], limitations=[
-            'Only 30 listed qualified source/pressure/efficiency tuples; no operating envelope or interpolation.',
+            ('Only two listed cold-source recipes at 8 MPa, efficiency 0.8 and explicit PT200; no operating envelope or interpolation.' if selected else 'Only 30 listed qualified source/pressure/efficiency tuples; no operating envelope or interpolation.'),
             'Methane/n_hexane, explicit zero kij; existing PR caloric and full inverse routines.',
             'Local sampled phase evidence and endpoint checks do not prove continuous-path admissibility.',
             'No bubble-pressure measurement, cavitation or NPSH prediction, hydraulic sizing or electrical power.',
-            'Known 8 MPa PS failures remain excluded and unresolved.'],
+            ('PT200 is explicit, pump-scoped and bounded at 200 iterations; no automatic fallback.' if selected else 'Known 8 MPa PS failures remain excluded and unresolved.')],
         unavailable=[dict(calculation='Hydraulic sizing and cavitation', status='not calculated', reason='M20 qualifies material and fluid-energy integration only.')])
     output = json.loads(json.dumps(output, allow_nan=False))
     validate_schema('results', output)

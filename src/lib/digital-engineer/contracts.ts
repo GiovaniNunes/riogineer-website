@@ -477,6 +477,17 @@ export const separatorPumpRequirementsSchema = separatorEnergyRequirementsSchema
   streams: graphStreams.length(4),
   connections: graphConnections.length(4),
 });
+// M22: explicit equipment-scoped selection; historical 1.12 inputs stay closed.
+export const pt200Profile = z.literal('pr_high_accuracy_pt200@1');
+export const separatorPumpPt200Model = separatorPumpModel.extend({ version: z.literal('2.0') });
+const separatorPumpPt200Input = separatorPumpInput.extend({
+  model: separatorPumpPt200Model,
+  parameters: separatorPumpInput.shape.parameters.extend({ numerical_profile: pt200Profile }),
+});
+export const separatorPumpPt200RequirementsSchema = separatorPumpRequirementsSchema.extend({
+  schema_version: z.literal('1.13'),
+  equipment: z.array(z.union([separatorEnergyInput, separatorPumpPt200Input])).length(2),
+});
 // Interpretation stays on requirementsSchema (1.0); deterministic API accepts both.
 export const engineeringRequirementsSchema = z.union([
   requirementsSchema,
@@ -492,6 +503,7 @@ export const engineeringRequirementsSchema = z.union([
   pumpRequirementsSchema,
   variablePumpRequirementsSchema,
   separatorPumpRequirementsSchema,
+  separatorPumpPt200RequirementsSchema,
 ]);
 const graphEquipment = z.discriminatedUnion('type', [
   graphEquipmentInput.options[0]
@@ -701,6 +713,20 @@ export const separatorPumpFlowsheetSchema = separatorEnergyFlowsheetSchema.exten
   streams: z.array(separatorEnergyFlowsheetSchema.shape.streams.element).length(4),
   connections: graphConnections.length(4),
 });
+export const separatorPumpPt200FlowsheetSchema = separatorPumpFlowsheetSchema.extend({
+  schema_version: z.literal('1.14'),
+  equipment: z
+    .array(
+      z.union([
+        separatorEnergyFlowsheetSchema.shape.equipment.element,
+        separatorPumpPt200Input.omit({ parameters: true }).extend({
+          ports: valveFlowsheetSchema.shape.equipment.element.shape.ports,
+          operating_parameters: separatorPumpPt200Input.shape.parameters,
+        }),
+      ]),
+    )
+    .length(2),
+});
 // Legacy 1.0/1.1 readers remain unchanged; graph builds explicitly use 1.2.
 export const flowsheetSchema = z.union([
   legacyFlowsheetSchema,
@@ -716,6 +742,7 @@ export const flowsheetSchema = z.union([
   pumpFlowsheetSchema,
   variablePumpFlowsheetSchema,
   separatorPumpFlowsheetSchema,
+  separatorPumpPt200FlowsheetSchema,
   legacyFlowsheetSchema.extend({
     schema_version: z.literal('1.1'),
     streams: z
@@ -1637,8 +1664,30 @@ export const separatorPumpResultsSchema = thermalResultsSchema.extend({
     }),
   }),
 });
+export const separatorPumpPt200ResultsSchema = separatorPumpResultsSchema.extend({
+  schema_version: z.literal('1.15'),
+  process_result_version: z.literal('1.15'),
+  engine: separatorPumpResultsSchema.shape.engine.extend({ version: z.literal('1.14.0') }),
+  equipment: z
+    .array(
+      z.union([
+        separatorEnergyResultsSchema.shape.equipment.element,
+        separatorPumpResultsSchema.shape.equipment.element.options[1].extend({
+          model: separatorPumpPt200Model,
+          thermodynamics:
+            separatorPumpResultsSchema.shape.equipment.element.options[1].shape.thermodynamics.extend(
+              {
+                numerical_profile: pt200Profile,
+              },
+            ),
+        }),
+      ]),
+    )
+    .length(2),
+});
 export const resultsSchema = z.union([
   separatorPumpResultsSchema,
+  separatorPumpPt200ResultsSchema,
   pumpResultsSchema,
   variablePumpResultsSchema,
   separatorEnergyResultsSchema,

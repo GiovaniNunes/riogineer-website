@@ -1,0 +1,4 @@
+
+> riogineer-website@0.1.0 contracts:check
+> node --experimental-strip-types scripts/generate-engine-contracts.mjs --check
+

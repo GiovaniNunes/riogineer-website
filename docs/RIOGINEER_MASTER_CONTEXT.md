@@ -2275,3 +2275,380 @@ Documentation closeout, exact inventory staging, a new commit and normal push to
 verified origin/main are authorized. See MILESTONE_21.md and
 benchmarks/m21_pt200/closeout/inventory.json. Earlier pending-acceptance entries are
 preserved as history. No deployment, M22 work or running-service changes are included.
+
+## M22 — explicit PT200 separator-to-pump integration (2026-10-02; acceptance pending)
+
+Adds only PT_BUBBLE_BELOW and PT_BUBBLE_ABOVE actual source recipes at 8 MPa
+absolute pump discharge and efficiency 0.8, explicitly selecting
+`pr_high_accuracy_pt200@1`. Exact input-only recipes are in
+`engine/riogineer_engine/separator_pump_pt200_cases.json`; the unchanged historical
+list still admits its original 30 combinations with historical defaults. There is
+no interpolation, arbitrary flow/efficiency scaling or combination of sampled inputs.
+The below source is compressed liquid; the above source supplies phase-specific
+liquid from a verified two-phase separator, not an independent bulk liquid feed.
+
+Additive requirements/flowsheet/results branches are 1.13/1.14/1.15, branch engine
+1.14.0, pump `separator_liquid_pump_pr@2.0`. Existing 1.12/1.13/1.14 and pump@1.0
+semantics remain unchanged. Pump parameters require the exact numerical_profile;
+omitted, unknown, conflicting and historical-selection 8 MPa requests reject.
+Selection persists in flowsheets/results and participates in calculation identity.
+The separator remains `equilibrium_separator_energy_pr@1.0` with historical
+high_accuracy100 settings. Pump PT200 settings and source/local historical settings
+are recorded separately with compatibility checks; no whole-network switch occurs.
+
+Actual source rates, phase composition and authoritative Hdot propagate through the
+private execution registry. Existing source/local guards, M21 exact inverse-profile
+guards, full PS/PH scans, fresh endpoints, work/entropy and equipment/process balances
+remain active. Production calculates targets from actual streams; no independent
+endpoint is injected. Solvers, equations, tolerances and property data are unchanged.
+Controlled failures return errors without successful process outlets or automatic
+fallback. No named PT400. The accepted M21 peak remains 199 iterations under the
+200 cap; this finite integration does not establish universal convergence, a
+continuous operating envelope, hydraulic sizing, NPSH or cavitation qualification.
+
+New evidence is additive under `benchmarks/m22_separator_pump/`: predeclared plan,
+207 preliminary source-plus-pump checks and 221 final complete-application checks,
+all passing against frozen independent physical evidence and retained guards.
+Fresh M20 regression passes 1,680 checks across all 30 workflows and exact complete
+numerical/result-payload equality after excluding run/input/implementation identities.
+All old schema branches and shared definitions remain structurally identical.
+Current M22 source/preservation manifests are separate from archived M21 identity;
+three maintained test files now invoke the M22 adapter. Historical evidence, accepted
+M21 records, master prefix and both task-start configuration files are preserved.
+
+Two browser reference loaders explain the boundary reference and explicit pump PT200.
+Existing PFD/results/table components retain separate heat duty/fluid power, PT/PH
+separator duty attribution, molecular consistency, stale warnings and export agreement.
+Manual acceptance remains pending. See `MILESTONE_22.md` for exact CLI/startup commands,
+the six-step acceptance checklist and exact inventory; the integration report and
+verification.json record individual runs and intermediate test-harness corrections.
+No stage, commit, push, deployment or user-service shutdown is authorized/performed.
+
+### M22 CLI and pending browser acceptance
+
+From the repository root:
+
+```sh
+PYTHONPATH=engine engine/.venv/bin/python -B -m riogineer_engine.milestone22 --case PT_BUBBLE_BELOW --calculate
+PYTHONPATH=engine engine/.venv/bin/python -B -m riogineer_engine.milestone22 --case PT_BUBBLE_ABOVE --calculate
+PYTHONPATH=engine engine/.venv/bin/python -B -m riogineer_engine.milestone22 --unsupported --calculate
+```
+
+The third command must reject efficiency 0.81 and exit 1. For manual browser work,
+check service availability with `lsof -nP -iTCP -sTCP:LISTEN`; reuse existing matching
+services. If 8122/3122 are free, start these in separate terminals, both from the
+isolated `.local/m22-validation` directory (preserves original Next/TS files):
+
+```sh
+PYTHONPATH=engine engine/.venv/bin/python -B -m riogineer_engine.server --port 8122
+RIOGINEER_ENGINE_URL=http://127.0.0.1:8122 npm run dev -- --port 3122
+```
+
+At `http://127.0.0.1:3122/digital-engineer`, expand Engineering data / Advanced:
+
+1. Load the M22 below-boundary PT200 reference; validate, generate PFD and calculate.
+   Confirm compressed-source semantics and explicit pump PT200/historical separator.
+2. Repeat for the above-boundary reference; confirm liquid extracted from a two-phase
+   separator, with actual liquid flow rather than total source-feed flow.
+3. Compare below/above actual T approximately 232.0029774476092 / 232.1032000731769 K
+   and fluid power 20567.978871054584 / 20564.527568835445 W. Compare isentropic T
+   231.62864734074992 / 231.7288906905257 K in JSON diagnostics. All balances pass.
+4. Change efficiency to 0.81 and validate: unsupported tuple, no current successful
+   result panel and no enabled result export/calculation.
+5. Recalculate a reference, then edit an input or its profile to `unknown`: immediately
+   stale with disabled download; the unknown profile also rejects validation.
+6. Recalculate a restored reference; compare all four stream-table columns against
+   exported JSON, including component/total/molar rates, molar fractions, T/P, source
+   Hdot/lineage, separate process duty/fluid power and explicit profile.
+
+These remain human review steps, not claimed acceptance. Exact changed-file inventory
+is recorded below and in `benchmarks/m22_separator_pump/inventory.json`.
+
+
+### M22 final automated verification — 2026-10-02
+
+One ordinary full Python run passes **693 tests in 871.395 seconds**, with zero
+failures/errors and no exclusions. Separate focused runs pass nine M22 methods and
+29 historical/M21 compatibility methods; these overlap with the full run. Full
+frontend: 280 tests in 28 files; full browser: 42 tests in one run; focused frontend
+seven, focused browser two. Schema parity, old-branch structural identity, types,
+lint, isolated production build and smoke (17 pages/17 cards plus links/404/indexing/
+contact checks) pass. Formatting reports only the pre-existing protected tsconfig.
+Original focused harness corrections and separate run counts remain in verification.json.
+No cumulative unique-test count or repeated full M21 qualification is claimed.
+
+Both CLI references complete; efficiency 0.81 rejects with exit 1. Final remote main
+still equals 253b91472a5007e7bd4749a6751c4efbc5066e14; index empty. At final service
+inspection ports 3122/8122/3123 are free; test-owned services have stopped and user
+services are untouched. Use the startup instructions above only if matching services
+are not already running. Original Next/TS bytes, master prefix and all frozen evidence
+are preserved. Human acceptance, staging, commit/push and deployment remain pending.
+
+## Exact M22 file inventory
+
+70 task-owned paths; all unstaged. The two pre-existing configuration edits
+are excluded and byte-preserved.
+
+- `MILESTONE_22.md`
+- `benchmarks/m22_separator_pump/PLAN.md`
+- `benchmarks/m22_separator_pump/README.md`
+- `benchmarks/m22_separator_pump/baseline.json`
+- `benchmarks/m22_separator_pump/contract_compatibility.json`
+- `benchmarks/m22_separator_pump/contracts.py`
+- `benchmarks/m22_separator_pump/final_status.txt`
+- `benchmarks/m22_separator_pump/finalize.py`
+- `benchmarks/m22_separator_pump/historical.json`
+- `benchmarks/m22_separator_pump/historical.py`
+- `benchmarks/m22_separator_pump/integration.json`
+- `benchmarks/m22_separator_pump/integrity.py`
+- `benchmarks/m22_separator_pump/inventory.json`
+- `benchmarks/m22_separator_pump/logs/browser-focused.log`
+- `benchmarks/m22_separator_pump/logs/browser-full.log`
+- `benchmarks/m22_separator_pump/logs/build.log`
+- `benchmarks/m22_separator_pump/logs/cli-above.json`
+- `benchmarks/m22_separator_pump/logs/cli-below.json`
+- `benchmarks/m22_separator_pump/logs/cli-unsupported.log`
+- `benchmarks/m22_separator_pump/logs/compatibility-focused.log`
+- `benchmarks/m22_separator_pump/logs/contract-compatibility.log`
+- `benchmarks/m22_separator_pump/logs/contracts.log`
+- `benchmarks/m22_separator_pump/logs/diff-check.log`
+- `benchmarks/m22_separator_pump/logs/focused-final.log`
+- `benchmarks/m22_separator_pump/logs/focused-initial.log`
+- `benchmarks/m22_separator_pump/logs/format.log`
+- `benchmarks/m22_separator_pump/logs/frontend-focused-final.log`
+- `benchmarks/m22_separator_pump/logs/frontend-focused.log`
+- `benchmarks/m22_separator_pump/logs/frontend-full.log`
+- `benchmarks/m22_separator_pump/logs/historical.log`
+- `benchmarks/m22_separator_pump/logs/initial-types.log`
+- `benchmarks/m22_separator_pump/logs/integration.log`
+- `benchmarks/m22_separator_pump/logs/integrity.log`
+- `benchmarks/m22_separator_pump/logs/lint.log`
+- `benchmarks/m22_separator_pump/logs/preliminary.log`
+- `benchmarks/m22_separator_pump/logs/python-full.log`
+- `benchmarks/m22_separator_pump/logs/smoke.log`
+- `benchmarks/m22_separator_pump/logs/typecheck-final.log`
+- `benchmarks/m22_separator_pump/logs/typecheck.log`
+- `benchmarks/m22_separator_pump/manifest.json`
+- `benchmarks/m22_separator_pump/preliminary.json`
+- `benchmarks/m22_separator_pump/screenshots/above-pfd.png`
+- `benchmarks/m22_separator_pump/screenshots/below-pfd.png`
+- `benchmarks/m22_separator_pump/source_manifest.json`
+- `benchmarks/m22_separator_pump/verification.json`
+- `benchmarks/m22_separator_pump/verify.py`
+- `contracts/examples/milestone-22-above-requirements.json`
+- `contracts/examples/milestone-22-below-requirements.json`
+- `contracts/v1/flowsheet.schema.json`
+- `contracts/v1/requirements.schema.json`
+- `contracts/v1/results.schema.json`
+- `contracts/v1/validation.schema.json`
+- `docs/RIOGINEER_MASTER_CONTEXT.md`
+- `engine/riogineer_engine/core.py`
+- `engine/riogineer_engine/milestone22.py`
+- `engine/riogineer_engine/network.py`
+- `engine/riogineer_engine/separator_liquid_pump.py`
+- `engine/riogineer_engine/separator_pump_process.py`
+- `engine/riogineer_engine/separator_pump_pt200_cases.json`
+- `engine/riogineer_engine/separator_pump_scope.py`
+- `engine/tests/test_m22_separator_pump.py`
+- `engine/tests/test_pt200_profile.py`
+- `engine/tests/test_separator_pump_integration.py`
+- `engine/tests/test_variable_pump_evidence.py`
+- `src/app/digital-engineer/pfd.tsx`
+- `src/app/digital-engineer/separator-pump-results.tsx`
+- `src/app/digital-engineer/workspace.tsx`
+- `src/lib/digital-engineer/contracts.ts`
+- `tests/e2e/m22-separator-pump.spec.ts`
+- `tests/m22-separator-pump.test.ts`
+
+## M22 manual review and targeted presentation corrections — 2026-10-02
+
+**Corrections implemented; final user acceptance remains pending.** Giovani Nunes
+exercised both references on 2026-10-02, America/Sao_Paulo. The following are
+user-session observations and a reported external ChatGPT review of downloaded
+JSON, not a claim that the assistant inspected unavailable attachments.
+
+- Below boundary: outlet approximately 232.00297745 K; fluid power 20567.97887105 W;
+  efficiency 0.8; zero vapor flow with unavailable composition; passing mass/energy
+  checks and current results. Pump PT200 and historical separator settings were
+  displayed separately. The inlet summary read “liquid; evidence: unknown”.
+- Above boundary: outlet approximately 232.10320007 K; fluid power 20564.52756884 W;
+  liquid approximately 18395.9051504 kg/h and vapor 3.3636496 kg/h; passing balances,
+  current results and source_vle evidence.
+- Changing efficiency 0.8 → 0.81 marked retained results STALE with an explicit
+  warning, disabled PFD/calculation/download and rejected validation with
+  `M22 unsupported_qualified_tuple`. Old values remained visibly stale.
+- The user downloaded the above JSON. External review reported agreement with
+  displayed values, schema 1.15, completed status, explicit `pr_high_accuracy_pt200@1`,
+  separately recorded historical source/local settings, liquid saturation source_vle,
+  pumped outlet compressed_witness, preserved separator lineage and calculated
+  separator duty **−2.0256265997886658e-7 W**.
+
+### Root cause and correction
+
+`separator_liquid_state.representation` intentionally sets source saturation metadata
+`source_vle` for a VL parent and `unknown` otherwise. The private execution registry
+resolves that real separator liquid without changing metadata. `verify` separately
+performs the actual local admission check; its accepted return contains
+`inlet.local.status = compressed_witness` below the boundary and
+`saturated_source_liquid` above it. The pump serializes those diagnostics under
+`equipment[pump].thermodynamics.diagnostics.inlet.local`. Thus the below source has
+verified compressed-liquid evidence; “unknown” was never a missing admissibility
+check. The frontend incorrectly used the saturation metadata as its generic
+“evidence” label.
+
+The panel now reports **Source saturation metadata** and **Local phase evidence**
+separately. It reads the accepted inlet diagnostics and reports the lower-pressure
+compressed witness or verified parent coexistence. Missing, unrecognized or
+unaccepted diagnostics report unavailable evidence. Reference names no longer carry
+an inferred phase-success description. No source context, lineage, numerical setting,
+guard, serialization, solver or admission change was needed.
+
+A shared display formatter suppresses the string `-0` only after Intl rounds at
+the requested precision. The summary keeps six decimals and displays **0 W**; the
+8-decimal detail retains **−0.0000002 W** for the above calculated duty. Resolved
+nonzero signs and scientific residuals remain. PT duty is still calculated, never
+reclassified as imposed adiabatic duty. Raw numbers and downloads are unchanged.
+
+For M22's visible Unavailable calculations list only, the old exact M20 sentence is
+presented as **“This model qualifies material and fluid-energy integration only.”**
+Historical M20 rendering and the raw legacy JSON reason remain unchanged. The visible
+wording is a presentation paraphrase; numerical/export agreement is exact and no
+serialized value is rewritten. Hydraulic/NPSH/cavitation/electrical exclusions remain.
+
+### Targeted verification and preservation
+
+Both cases were freshly reproduced locally: **221 checks passed**. Complete result
+payloads equal the original M22 payloads exactly after excluding only fresh run UUIDs;
+implementation/input hashes, temperatures, flows, enthalpies, power, balances, settings,
+phase evidence and lineage associations remain unchanged. Fresh evidence is additive
+under `benchmarks/m22_separator_pump/manual_review/`; original M22 artifacts/logs and
+all earlier frozen evidence remain byte-identical.
+
+- Focused frontend: **13 passed across three files** (six new defect tests, existing
+  M22 contract/freshness coverage and four historical M20 rendering checks).
+- Targeted browser: **2 passed** against existing services on 3122/8122, with
+  Playwright service management disabled. Checks cover phase labels, calculated
+  near-zero duty, neutral limitation text, all stream columns/export equality,
+  stale input/profile edits and unsupported efficiency.
+- `tsc --noEmit`, affected-file ESLint/Prettier and diff checks pass.
+- The initial frontend run had two assertion failures because a whole-page search
+  included the deliberately unchanged raw JSON viewer. Assertions now target the
+  Unavailable calculations section; original failure log is retained. No product or
+  numerical expectation was altered to resolve that test-scope error.
+
+Commands: `PYTHONPATH=engine engine/.venv/bin/python -B benchmarks/m22_separator_pump/verify.py --output benchmarks/m22_separator_pump/manual_review/reproduced.json`;
+`npx vitest run tests/m22-manual-review.test.ts tests/m22-separator-pump.test.ts tests/separator-pump-summary.test.ts`;
+`npx tsc --noEmit`; affected-path `npx eslint` and `npx prettier --check`;
+`git diff --check`. In `.local/m22-validation`,
+`npx playwright test --config playwright.manual-review.config.ts tests/e2e/m22-separator-pump.spec.ts`
+uses a temporary local config with `webServer: []`, preserving running services.
+
+The earlier full **693 Python / 280 frontend / 42 browser** results remain prior
+recorded evidence and were **not rerun**. No lengthy full suite, qualification matrix
+or build was repeated for these presentation-only corrections. Qualification stays
+at the two exact PT200 cases plus 30 historical tuples; no automatic fallback or
+scope expansion. The M21 observed 199/200 iteration peak remains prior evidence.
+
+### Review the corrected screens
+
+Corrected application and test files are in the main checkout and synchronized to
+`.local/m22-validation`. Existing backend/frontend listeners remain on 8122/3122.
+**Refresh the browser; no backend restart is needed.** No running service was stopped
+or replaced. Reload/recalculate both references if the page no longer holds results.
+
+Confirm below-source metadata is still unknown/unspecified while local evidence says
+verified compressed liquid; above-source metadata is source_vle with verified parent
+coexistence. Confirm summary 0 W, calculated PT detail retaining its small negative
+value, neutral Unavailable calculations wording, and unchanged results/downloads.
+The raw JSON reason retains its legacy wording by design. Recheck the 0.81 rejection
+and stale warning if desired. Final acceptance of these corrected screens remains
+pending; no acceptance, commit, push or deployment is claimed.
+
+The initial 70-path inventory/manifest above is retained as the initial implementation
+record. The current combined inventory, exact correction delta, current hashes and
+final Git status are in `benchmarks/m22_separator_pump/manual_review/inventory.json`,
+`manifest.json` and `final_status.txt`. Original engine/schema source manifest remains
+valid because no backend source changed. Task-start configuration bytes are preserved.
+
+## M22 acceptance and closeout — 2026-10-02
+
+**Current status: accepted by Giovani Nunes on 2026-10-02, America/Sao_Paulo.**
+This entry supersedes earlier pending-acceptance and pending-correction-review
+statements, which remain historical records. Evidence classification: user-reported
+browser acceptance, supported by screenshots and an exported above-boundary results
+JSON reviewed in the design conversation. These are the user's observations; Codex
+did not perform the human review.
+
+The user accepted both corrected references and the following behavior:
+
+- **PT_BUBBLE_BELOW:** current results and expected separator-to-pump stream mapping;
+  discharge 8 MPa absolute, efficiency 0.8, pump outlet approximately 232.00297745 K,
+  fluid power approximately 20567.97887105 W. The absent vapor outlet retains
+  appropriate unavailable-property semantics; material and energy balances pass.
+- **PT_BUBBLE_ABOVE:** current results with separate liquid and small vapor outlets;
+  discharge 8 MPa absolute, efficiency 0.8, pump outlet approximately 232.10320007 K,
+  fluid power approximately 20564.52756884 W. Material and energy balances pass.
+  Downloaded results JSON agrees with displayed values, phase/source context, and
+  separate separator and pump numerical settings.
+- **Unsupported edit:** changing efficiency from 0.8 to 0.81 invalidates the results,
+  explicitly marks previous results stale, and rejects the unsupported tuple.
+  Calculation, PFD, and export availability reflect the invalid state. Retained
+  historical displays do not represent current acceptance.
+- **Corrected presentation, both references:** source-saturation metadata and
+  verified local phase evidence are separate. Below-boundary shows verified
+  compressed-liquid evidence from the lower-pressure witness with unspecified
+  source-saturation metadata. Above-boundary shows verified saturated source-liquid
+  evidence from parent equilibrium coexistence with `source_vle` metadata. Summary
+  heat duty displays 0 W without negative zero; above-boundary detailed duty retains
+  approximately -0.0000002 W, labeled calculated. The corrected M22 limitation reads
+  “This model qualifies material and fluid-energy integration only.” No misleading
+  M20 reference remains in that visible limitation; the historical raw JSON reason
+  remains unchanged, as documented in the correction record.
+
+Acceptance is finite: only the exact documented `PT_BUBBLE_BELOW` and
+`PT_BUBBLE_ABOVE` source recipes, 8 MPa absolute discharge, efficiency 0.8, explicit
+pump profile `pr_high_accuracy_pt200@1`, and methane/n-hexane with explicit zero
+`kij`. Historical separator numerical settings and historical M20 admission with
+its 30 workflows remain preserved. There is no automatic fallback/profile selection,
+interpolation or continuous operating-envelope qualification, hydraulic sizing,
+NPSH, or cavitation qualification. The previously observed 199/200 iteration peak
+remains a limitation.
+
+Closeout changes only acceptance documentation and adds closeout bookkeeping.
+Solvers, contracts, model scope, numerical outputs, and frozen evidence are unchanged
+from the reviewed implementation. The original 70-file inventory and subsequent
+90-file combined manual-review inventory remain historical snapshots. The exact
+commit inventory is **94 files**: those 90 paths plus four closeout records in
+`benchmarks/m22_separator_pump/closeout/` (`baseline.json`, `inventory.json`,
+`checks.json`, and `manifest.json`). The closeout manifest records current hashes,
+excluding itself; the baseline retains all 90 pre-closeout hashes, allowing the two
+updated documents to be distinguished from frozen implementation/evidence files.
+
+Focused closeout verification passed: inventory reconciliation; reviewed evidence
+hashes; current engine/schema provenance and archived M21 source identity;
+historical artifact and configuration preservation; historical schema branch/shared
+definition preservation; generated schema parity; edited-document formatting; and
+working-tree whitespace. Explicit staging, staged whitespace, inventory/hash review,
+and a normal push are required transaction gates. The final commit and remote
+identity are reported in the closeout response, rather than embedded recursively
+in the commit itself. `next-env.d.ts` and `tsconfig.json` remain excluded and retain
+their task-start bytes. No deployment or service restart/shutdown is authorized.
+
+Earlier automated results retain their original scope and caveats: the implementation
+record contains 693 Python, 280 frontend, and 42 browser tests; the later correction
+record separately contains 13 final focused frontend tests, two browser workflows,
+and 221 numerical comparisons across two cases. Those runs were not repeated or
+combined into a new full-suite pass during closeout. Historical intermediate failures
+and the documented pre-existing configuration-formatting condition remain recorded.
+
+Next conversation: M22 is accepted only within the finite scope above. Use this
+entry and the closeout inventory alongside the earlier qualification evidence;
+any broader admission, numerical strategy, or hydraulic claims require separate
+work. This closeout does not start M23.
+
+Staged whitespace review found 16 warnings in 10 frozen raw tool logs (trailing
+spaces, terminal output indentation, and blank lines at EOF). The full
+`git diff --cached --check` returned 2; this is recorded, not a clean full check.
+Every affected log matches its reviewed pre-closeout hash. An explicit check of
+all other staged paths passed. The logs remain unchanged under the requirement to
+preserve frozen evidence; exact diagnostics and paths are in `closeout/checks.json`.

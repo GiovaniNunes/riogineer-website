@@ -1,0 +1,2508 @@
+{
+  "schema_version": "1.15",
+  "process_result_version": "1.15",
+  "kind": "results",
+  "case_id": "MILESTONE_22_PT_BUBBLE_BELOW",
+  "run_id": "be31e1ba-fe0d-4ff8-a9b9-5eeb0da53b14",
+  "input_sha256": "4d78a5dccdab0422c5672a4b9727ff39522447f3cc63a71ee200c7052271cf95",
+  "requirements_sha256": "0e5ba049a40260da191a4f9aa934b4069c580a57ea591f8c822cc096ca6958e9",
+  "engine": {
+    "version": "1.14.0",
+    "implementation_sha256": "83bf8dc15c01882987e9ea2b992415b9648a8e8ea89328610df7259812fcc15f",
+    "evaluator_sha256": "5f572bd718fccacc8aeef7f9f809af1d0db4dc9816301ffed6dca467ecb4ac17",
+    "model": {
+      "id": "acyclic_component_conservation",
+      "version": "1.0"
+    }
+  },
+  "status": "completed",
+  "units": {
+    "temperature": "K",
+    "pressure": "Pa_abs",
+    "component_mass_flow": "kg/h",
+    "heat_capacity": "J/(kg K)",
+    "duty": "W",
+    "recovery": "mass_fraction"
+  },
+  "streams": {
+    "HYDROCARBON_FEED": {
+      "component_mass_flow_kg_h": {
+        "methane": 2887.704,
+        "n_hexane": 15511.5648
+      },
+      "mass_flow_kg_h": 18399.2688,
+      "component_mass_fractions": {
+        "methane": 0.15694667170686696,
+        "n_hexane": 0.843053328293133
+      },
+      "temperature_K": 230.60146798619095,
+      "pressure_Pa_abs": 7000000.0,
+      "enthalpy_flow_W": -2540375.0361407287,
+      "properties": {
+        "molar_flow": {
+          "value": 360.0,
+          "status": "calculated",
+          "unit": "kmol/h"
+        },
+        "molecular_mass": {
+          "value": 51.109080000000006,
+          "status": "calculated",
+          "unit": "kg/kmol"
+        },
+        "density": {
+          "value": null,
+          "status": "not_calculated",
+          "unit": "kg/m3"
+        },
+        "gas_volumetric_flow": {
+          "value": null,
+          "status": "not_calculated",
+          "unit": "m3/h"
+        },
+        "oil_volumetric_flow": {
+          "value": null,
+          "status": "not_calculated",
+          "unit": "m3/h"
+        },
+        "water_volumetric_flow": {
+          "value": null,
+          "status": "not_calculated",
+          "unit": "m3/h"
+        },
+        "molar_composition": {
+          "value": {
+            "methane": 0.5,
+            "n_hexane": 0.5
+          },
+          "status": "calculated",
+          "unit": "mol/mol"
+        }
+      },
+      "state_context": {
+        "specification_kind": "independent_PT"
+      }
+    },
+    "LIQUID_PRODUCT": {
+      "component_mass_flow_kg_h": {
+        "methane": 2887.704,
+        "n_hexane": 15511.5648
+      },
+      "mass_flow_kg_h": 18399.2688,
+      "component_mass_fractions": {
+        "methane": 0.15694667170686696,
+        "n_hexane": 0.843053328293133
+      },
+      "temperature_K": 231.06755435138734,
+      "pressure_Pa_abs": 6000000.0,
+      "enthalpy_flow_W": -2540375.0361407287,
+      "properties": {
+        "molar_flow": {
+          "value": 360.0,
+          "status": "calculated",
+          "unit": "kmol/h"
+        },
+        "molecular_mass": {
+          "value": 51.109080000000006,
+          "status": "calculated",
+          "unit": "kg/kmol"
+        },
+        "density": {
+          "value": null,
+          "status": "not_calculated",
+          "unit": "kg/m3"
+        },
+        "gas_volumetric_flow": {
+          "value": null,
+          "status": "not_calculated",
+          "unit": "m3/h"
+        },
+        "oil_volumetric_flow": {
+          "value": null,
+          "status": "not_calculated",
+          "unit": "m3/h"
+        },
+        "water_volumetric_flow": {
+          "value": null,
+          "status": "not_calculated",
+          "unit": "m3/h"
+        },
+        "molar_composition": {
+          "value": {
+            "methane": 0.5,
+            "n_hexane": 0.5
+          },
+          "status": "calculated",
+          "unit": "mol/mol"
+        }
+      },
+      "state_context": {
+        "specification_kind": "upstream_derived",
+        "phase": "liquid",
+        "saturation": "unknown",
+        "source": {
+          "run_id": "be31e1ba-fe0d-4ff8-a9b9-5eeb0da53b14",
+          "input_sha256": "4d78a5dccdab0422c5672a4b9727ff39522447f3cc63a71ee200c7052271cf95",
+          "requirements_sha256": "0e5ba049a40260da191a4f9aa934b4069c580a57ea591f8c822cc096ca6958e9",
+          "equipment_id": "SEP_PR_1",
+          "port_id": "liquid",
+          "stream_id": "LIQUID_PRODUCT"
+        },
+        "thermodynamics": {
+          "property_package": "peng_robinson@1.0",
+          "component_dataset": "riogineer_components@1.0",
+          "caloric_dataset": "riogineer_caloric@1.0",
+          "caloric_reference": "ideal_gas_sensible_298.15K_101325Pa@1.0",
+          "bip": {
+            "identifier": "m9_methane_nhexane_zero_kij@1.0",
+            "component_ids": [
+              "methane",
+              "n_hexane"
+            ],
+            "values": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ],
+            "model": "peng_robinson@1.0",
+            "source": "Explicit zero kij mathematical benchmark from pre_m8_methane_nhexane_canonical_pr@1.0; not calibrated physical BIPs."
+          }
+        }
+      }
+    },
+    "VAPOR_PRODUCT": {
+      "component_mass_flow_kg_h": {
+        "methane": 0.0,
+        "n_hexane": 0.0
+      },
+      "mass_flow_kg_h": 0.0,
+      "component_mass_fractions": null,
+      "temperature_K": 231.06755435138734,
+      "pressure_Pa_abs": 6000000.0,
+      "enthalpy_flow_W": 0.0,
+      "properties": {
+        "molar_flow": {
+          "value": 0.0,
+          "status": "calculated",
+          "unit": "kmol/h"
+        },
+        "molecular_mass": {
+          "value": null,
+          "status": "not_calculated",
+          "unit": "kg/kmol"
+        },
+        "density": {
+          "value": null,
+          "status": "not_calculated",
+          "unit": "kg/m3"
+        },
+        "gas_volumetric_flow": {
+          "value": null,
+          "status": "not_calculated",
+          "unit": "m3/h"
+        },
+        "oil_volumetric_flow": {
+          "value": null,
+          "status": "not_calculated",
+          "unit": "m3/h"
+        },
+        "water_volumetric_flow": {
+          "value": null,
+          "status": "not_calculated",
+          "unit": "m3/h"
+        },
+        "molar_composition": {
+          "value": null,
+          "status": "not_calculated",
+          "unit": "mol/mol"
+        }
+      },
+      "state_context": {
+        "specification_kind": "upstream_derived",
+        "phase": "vapor",
+        "saturation": "unknown",
+        "source": {
+          "run_id": "be31e1ba-fe0d-4ff8-a9b9-5eeb0da53b14",
+          "input_sha256": "4d78a5dccdab0422c5672a4b9727ff39522447f3cc63a71ee200c7052271cf95",
+          "requirements_sha256": "0e5ba049a40260da191a4f9aa934b4069c580a57ea591f8c822cc096ca6958e9",
+          "equipment_id": "SEP_PR_1",
+          "port_id": "vapor",
+          "stream_id": "VAPOR_PRODUCT"
+        },
+        "thermodynamics": {
+          "property_package": "peng_robinson@1.0",
+          "component_dataset": "riogineer_components@1.0",
+          "caloric_dataset": "riogineer_caloric@1.0",
+          "caloric_reference": "ideal_gas_sensible_298.15K_101325Pa@1.0",
+          "bip": {
+            "identifier": "m9_methane_nhexane_zero_kij@1.0",
+            "component_ids": [
+              "methane",
+              "n_hexane"
+            ],
+            "values": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ],
+            "model": "peng_robinson@1.0",
+            "source": "Explicit zero kij mathematical benchmark from pre_m8_methane_nhexane_canonical_pr@1.0; not calibrated physical BIPs."
+          }
+        }
+      }
+    },
+    "PUMP_PRODUCT": {
+      "component_mass_flow_kg_h": {
+        "methane": 2887.704,
+        "n_hexane": 15511.5648
+      },
+      "mass_flow_kg_h": 18399.2688,
+      "component_mass_fractions": {
+        "methane": 0.15694667170686696,
+        "n_hexane": 0.843053328293133
+      },
+      "temperature_K": 232.0029774476092,
+      "pressure_Pa_abs": 8000000.0,
+      "enthalpy_flow_W": -2519807.0572696743,
+      "properties": {
+        "molar_flow": {
+          "value": 360.0,
+          "status": "calculated",
+          "unit": "kmol/h"
+        },
+        "molecular_mass": {
+          "value": 51.109080000000006,
+          "status": "calculated",
+          "unit": "kg/kmol"
+        },
+        "density": {
+          "value": null,
+          "status": "not_calculated",
+          "unit": "kg/m3"
+        },
+        "gas_volumetric_flow": {
+          "value": null,
+          "status": "not_calculated",
+          "unit": "m3/h"
+        },
+        "oil_volumetric_flow": {
+          "value": null,
+          "status": "not_calculated",
+          "unit": "m3/h"
+        },
+        "water_volumetric_flow": {
+          "value": null,
+          "status": "not_calculated",
+          "unit": "m3/h"
+        },
+        "molar_composition": {
+          "value": {
+            "methane": 0.5,
+            "n_hexane": 0.5
+          },
+          "status": "calculated",
+          "unit": "mol/mol"
+        }
+      },
+      "state_context": {
+        "specification_kind": "upstream_derived",
+        "phase": "liquid",
+        "saturation": "compressed_witness",
+        "source": {
+          "run_id": "be31e1ba-fe0d-4ff8-a9b9-5eeb0da53b14",
+          "input_sha256": "4d78a5dccdab0422c5672a4b9727ff39522447f3cc63a71ee200c7052271cf95",
+          "requirements_sha256": "0e5ba049a40260da191a4f9aa934b4069c580a57ea591f8c822cc096ca6958e9",
+          "equipment_id": "PUMP_1",
+          "port_id": "outlet",
+          "stream_id": "PUMP_PRODUCT"
+        },
+        "thermodynamics": {
+          "property_package": "peng_robinson@1.0",
+          "component_dataset": "riogineer_components@1.0",
+          "caloric_dataset": "riogineer_caloric@1.0",
+          "caloric_reference": "ideal_gas_sensible_298.15K_101325Pa@1.0",
+          "bip": {
+            "identifier": "m9_methane_nhexane_zero_kij@1.0",
+            "component_ids": [
+              "methane",
+              "n_hexane"
+            ],
+            "values": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ],
+            "model": "peng_robinson@1.0",
+            "source": "Explicit zero kij mathematical benchmark from pre_m8_methane_nhexane_canonical_pr@1.0; not calibrated physical BIPs."
+          }
+        },
+        "lineage": [
+          {
+            "run_id": "be31e1ba-fe0d-4ff8-a9b9-5eeb0da53b14",
+            "input_sha256": "4d78a5dccdab0422c5672a4b9727ff39522447f3cc63a71ee200c7052271cf95",
+            "requirements_sha256": "0e5ba049a40260da191a4f9aa934b4069c580a57ea591f8c822cc096ca6958e9",
+            "equipment_id": "SEP_PR_1",
+            "port_id": "liquid",
+            "stream_id": "LIQUID_PRODUCT"
+          }
+        ]
+      }
+    }
+  },
+  "equipment": [
+    {
+      "id": "SEP_PR_1",
+      "type": "equilibrium_separator_2phase",
+      "model": {
+        "id": "equilibrium_separator_energy_pr",
+        "version": "1.0"
+      },
+      "material_streams": {
+        "inlet": "HYDROCARBON_FEED",
+        "liquid": "LIQUID_PRODUCT",
+        "vapor": "VAPOR_PRODUCT"
+      },
+      "duty_W": 0.0,
+      "work_W": 0.0,
+      "thermodynamics": {
+        "mode": "specified_temperature",
+        "property_package": "peng_robinson@1.0",
+        "component_dataset": "riogineer_components@1.0",
+        "molecular_provider": "molecular_composition@1.0",
+        "caloric_dataset": "riogineer_caloric@1.0",
+        "caloric_reference": "ideal_gas_sensible_298.15K_101325Pa@1.0",
+        "bip": {
+          "identifier": "m9_methane_nhexane_zero_kij@1.0",
+          "component_ids": [
+            "methane",
+            "n_hexane"
+          ],
+          "values": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ]
+          ],
+          "model": "peng_robinson@1.0",
+          "source": "Explicit zero kij mathematical benchmark from pre_m8_methane_nhexane_canonical_pr@1.0; not calibrated physical BIPs."
+        },
+        "F_mol_s": 100.0,
+        "inlet": {
+          "temperature_K": 230.60146798619095,
+          "pressure_Pa_abs": 7000000.0,
+          "z": {
+            "methane": 0.5,
+            "n_hexane": 0.5
+          },
+          "classification": "single_liquid",
+          "beta": 0.0,
+          "H_eq_J_mol": -25403.75036140729,
+          "phases": {
+            "liquid": {
+              "composition": {
+                "methane": 0.5,
+                "n_hexane": 0.5
+              },
+              "Z": 0.30000233328018705,
+              "h_ig_J_mol": -5593.820013924727,
+              "h_res_J_mol": -19809.93034748256,
+              "h_J_mol": -25403.75036140729,
+              "s_ig_J_mol_K": -50.65513386240635,
+              "s_res_J_mol_K": -48.5781370031909,
+              "s_J_mol_K": -99.23327086559726
+            }
+          },
+          "pt_status": "success_single_phase",
+          "max_log_fugacity_residual": 0.0,
+          "S_eq_J_mol_K": -99.23327086559726
+        },
+        "outlet": {
+          "temperature_K": 231.06755435138734,
+          "pressure_Pa_abs": 6000000.0,
+          "z": {
+            "methane": 0.5,
+            "n_hexane": 0.5
+          },
+          "classification": "single_liquid",
+          "beta": 0.0,
+          "H_eq_J_mol": -25403.75036140729,
+          "phases": {
+            "liquid": {
+              "composition": {
+                "methane": 0.5,
+                "n_hexane": 0.5
+              },
+              "Z": 0.2573539914926344,
+              "h_ig_J_mol": -5558.155932854853,
+              "h_res_J_mol": -19845.594428552435,
+              "h_J_mol": -25403.75036140729,
+              "s_ig_J_mol_K": -49.21895312732362,
+              "s_res_J_mol_K": -49.65783935385238,
+              "s_J_mol_K": -98.87679248117601
+            }
+          },
+          "pt_status": "success_single_phase",
+          "max_log_fugacity_residual": 0.0,
+          "S_eq_J_mol_K": -98.87679248117601
+        },
+        "ph": null,
+        "phases": {
+          "vapor": {
+            "molar_flow_mol_s": 0.0,
+            "composition": null,
+            "h_J_mol": null,
+            "enthalpy_flow_W": 0.0
+          },
+          "liquid": {
+            "molar_flow_mol_s": 100.0,
+            "composition": {
+              "methane": 0.5,
+              "n_hexane": 0.5
+            },
+            "h_J_mol": -25403.75036140729,
+            "enthalpy_flow_W": -2540375.0361407287
+          }
+        },
+        "inlet_enthalpy_flow_W": -2540375.0361407287,
+        "duty_W": 0.0,
+        "energy_residual_W": 0.0,
+        "energy_allowance_W": 0.00010003610090056071,
+        "component_molar_residual_kmol_h": {
+          "methane": 0.0,
+          "n_hexane": 0.0
+        },
+        "zero_duty_tolerance_W": 0.00010003610090056071
+      },
+      "energy_residual_W": 0.0,
+      "mass_balance": {
+        "status": "passed",
+        "component_residual_kg_h": {
+          "methane": 0.0,
+          "n_hexane": 0.0
+        },
+        "total_residual_kg_h": 0.0,
+        "component_tolerance_kg_h": 1e-08,
+        "total_tolerance_kg_h": 2e-08
+      }
+    },
+    {
+      "id": "PUMP_1",
+      "type": "pump",
+      "model": {
+        "id": "separator_liquid_pump_pr",
+        "version": "2.0"
+      },
+      "material_streams": {
+        "inlet": "LIQUID_PRODUCT",
+        "outlet": "PUMP_PRODUCT"
+      },
+      "duty_W": 0.0,
+      "work_W": 20567.978871054584,
+      "energy_residual_W": -1.0186340659856796e-10,
+      "mass_balance": {
+        "status": "passed",
+        "component_residual_kg_h": {
+          "methane": 0.0,
+          "n_hexane": 0.0
+        },
+        "total_residual_kg_h": 0.0,
+        "component_tolerance_kg_h": 1e-08,
+        "total_tolerance_kg_h": 2e-08
+      },
+      "thermodynamics": {
+        "qualification_id": "PT_BUBBLE_BELOW_8MPA_PT200",
+        "source_spec_sha256": "8601b9774f4a0e4236be30461432d29eb67c058262234e93a3b7d6910ef923a9",
+        "identity": false,
+        "isentropic_efficiency": 0.8,
+        "reconstructed_efficiency": 0.7999999999999965,
+        "energy_allowance_W": 0.00012547595216252873,
+        "diagnostics": {
+          "status": "accepted",
+          "identity": false,
+          "inlet": {
+            "status": "accepted",
+            "stream": {
+              "component_mass_flow_kg_h": {
+                "methane": 2887.704,
+                "n_hexane": 15511.5648
+              },
+              "mass_flow_kg_h": 18399.2688,
+              "component_mass_fractions": {
+                "methane": 0.15694667170686696,
+                "n_hexane": 0.843053328293133
+              },
+              "temperature_K": 231.06755435138734,
+              "pressure_Pa_abs": 6000000.0,
+              "enthalpy_flow_W": -2540375.0361407287,
+              "properties": {
+                "molar_flow": {
+                  "value": 360.0,
+                  "status": "calculated",
+                  "unit": "kmol/h"
+                },
+                "molecular_mass": {
+                  "value": 51.109080000000006,
+                  "status": "calculated",
+                  "unit": "kg/kmol"
+                },
+                "density": {
+                  "value": null,
+                  "status": "not_calculated",
+                  "unit": "kg/m3"
+                },
+                "gas_volumetric_flow": {
+                  "value": null,
+                  "status": "not_calculated",
+                  "unit": "m3/h"
+                },
+                "oil_volumetric_flow": {
+                  "value": null,
+                  "status": "not_calculated",
+                  "unit": "m3/h"
+                },
+                "water_volumetric_flow": {
+                  "value": null,
+                  "status": "not_calculated",
+                  "unit": "m3/h"
+                },
+                "molar_composition": {
+                  "value": {
+                    "methane": 0.5,
+                    "n_hexane": 0.5
+                  },
+                  "status": "calculated",
+                  "unit": "mol/mol"
+                }
+              },
+              "state_context": {
+                "specification_kind": "upstream_derived",
+                "phase": "liquid",
+                "saturation": "unknown",
+                "source": {
+                  "run_id": "be31e1ba-fe0d-4ff8-a9b9-5eeb0da53b14",
+                  "input_sha256": "4d78a5dccdab0422c5672a4b9727ff39522447f3cc63a71ee200c7052271cf95",
+                  "requirements_sha256": "0e5ba049a40260da191a4f9aa934b4069c580a57ea591f8c822cc096ca6958e9",
+                  "equipment_id": "SEP_PR_1",
+                  "port_id": "liquid",
+                  "stream_id": "LIQUID_PRODUCT"
+                },
+                "thermodynamics": {
+                  "property_package": "peng_robinson@1.0",
+                  "component_dataset": "riogineer_components@1.0",
+                  "caloric_dataset": "riogineer_caloric@1.0",
+                  "caloric_reference": "ideal_gas_sensible_298.15K_101325Pa@1.0",
+                  "bip": {
+                    "identifier": "m9_methane_nhexane_zero_kij@1.0",
+                    "component_ids": [
+                      "methane",
+                      "n_hexane"
+                    ],
+                    "values": [
+                      [
+                        0,
+                        0
+                      ],
+                      [
+                        0,
+                        0
+                      ]
+                    ],
+                    "model": "peng_robinson@1.0",
+                    "source": "Explicit zero kij mathematical benchmark from pre_m8_methane_nhexane_canonical_pr@1.0; not calibrated physical BIPs."
+                  }
+                }
+              }
+            },
+            "F_mol_s": 100.0,
+            "z": [
+              0.5,
+              0.5
+            ],
+            "fresh": {
+              "T_K": 231.06755435138734,
+              "P_Pa_abs": 6000000.0,
+              "z": [
+                0.5,
+                0.5
+              ],
+              "classification": "single_liquid",
+              "beta": 0.0,
+              "H_eq_J_mol": -25403.75036140729,
+              "S_eq_J_mol_K": -98.87679248117601,
+              "stability": {
+                "stable": true,
+                "classification": "single_liquid",
+                "converged": true,
+                "iterations": 94,
+                "minimum_tpd_RT": 0.0,
+                "trials": [
+                  {
+                    "composition": [
+                      0.0,
+                      1.0
+                    ],
+                    "root_kind": "single_root",
+                    "tpd_RT": 0.6198363785851608,
+                    "iterations": 0,
+                    "interval_width": 0.0,
+                    "converged": true
+                  },
+                  {
+                    "composition": [
+                      0.5,
+                      0.5
+                    ],
+                    "root_kind": "single_root",
+                    "tpd_RT": 0.0,
+                    "iterations": 0,
+                    "interval_width": 0.0,
+                    "converged": true
+                  },
+                  {
+                    "composition": [
+                      1.0,
+                      0.0
+                    ],
+                    "root_kind": "single_root",
+                    "tpd_RT": 0.001491350525752333,
+                    "iterations": 0,
+                    "interval_width": 0.0,
+                    "converged": true
+                  },
+                  {
+                    "composition": [
+                      0.4999999555303459,
+                      0.5000000444696542
+                    ],
+                    "root_kind": "single_root",
+                    "tpd_RT": 6.317723086131675e-16,
+                    "iterations": 48,
+                    "interval_width": 7.267519919196275e-13,
+                    "converged": true
+                  },
+                  {
+                    "composition": [
+                      0.9989299714425641,
+                      0.0010700285574358759
+                    ],
+                    "root_kind": "single_root",
+                    "tpd_RT": 0.00043148331941621573,
+                    "iterations": 46,
+                    "interval_width": 9.270362255620057e-13,
+                    "converged": true
+                  }
+                ],
+                "phase_identification_parameter": 10.243474569506564,
+                "provider": "peng_robinson@1.0",
+                "algorithm": "binary_tpd_grid_golden@1.0"
+              },
+              "phases": {
+                "liquid": {
+                  "composition": [
+                    0.5,
+                    0.5
+                  ],
+                  "Z": 0.2573539914926344,
+                  "h_J_mol": -25403.75036140729,
+                  "s_J_mol_K": -98.87679248117601
+                }
+              }
+            },
+            "local": {
+              "status": "compressed_witness",
+              "witness": {
+                "T_K": 231.06755435138734,
+                "P_Pa_abs": 5999400.0,
+                "z": [
+                  0.5,
+                  0.5
+                ],
+                "classification": "single_liquid",
+                "beta": 0.0,
+                "H_eq_J_mol": -25403.780952299072,
+                "S_eq_J_mol_K": -98.87671089441304,
+                "stability": {
+                  "stable": true,
+                  "classification": "single_liquid",
+                  "converged": true,
+                  "iterations": 94,
+                  "minimum_tpd_RT": -3.647249662849904e-15,
+                  "trials": [
+                    {
+                      "composition": [
+                        0.0,
+                        1.0
+                      ],
+                      "root_kind": "single_root",
+                      "tpd_RT": 0.619835573771045,
+                      "iterations": 0,
+                      "interval_width": 0.0,
+                      "converged": true
+                    },
+                    {
+                      "composition": [
+                        0.5,
+                        0.5
+                      ],
+                      "root_kind": "single_root",
+                      "tpd_RT": 0.0,
+                      "iterations": 0,
+                      "interval_width": 0.0,
+                      "converged": true
+                    },
+                    {
+                      "composition": [
+                        1.0,
+                        0.0
+                      ],
+                      "root_kind": "single_root",
+                      "tpd_RT": 0.0014361223188726346,
+                      "iterations": 0,
+                      "interval_width": 0.0,
+                      "converged": true
+                    },
+                    {
+                      "composition": [
+                        0.4999999733182075,
+                        0.5000000266817926
+                      ],
+                      "root_kind": "single_root",
+                      "tpd_RT": -3.647249662849904e-15,
+                      "iterations": 48,
+                      "interval_width": 7.267519919196275e-13,
+                      "converged": true
+                    },
+                    {
+                      "composition": [
+                        0.9989303408351219,
+                        0.0010696591648781117
+                      ],
+                      "root_kind": "single_root",
+                      "tpd_RT": 0.00037661522072191065,
+                      "iterations": 46,
+                      "interval_width": 9.269252032595432e-13,
+                      "converged": true
+                    }
+                  ],
+                  "phase_identification_parameter": 10.243463390787333,
+                  "provider": "peng_robinson@1.0",
+                  "algorithm": "binary_tpd_grid_golden@1.0"
+                },
+                "phases": {
+                  "liquid": {
+                    "composition": [
+                      0.5,
+                      0.5
+                    ],
+                    "Z": 0.2573285816725878,
+                    "h_J_mol": -25403.780952299072,
+                    "s_J_mol_K": -98.87671089441304
+                  }
+                }
+              },
+              "sampled_pressure_decrement_Pa": 600.0,
+              "quantified_bubble_margin_Pa": null,
+              "cavitation_safe": null
+            },
+            "source_identity": {
+              "run_id": "be31e1ba-fe0d-4ff8-a9b9-5eeb0da53b14",
+              "input_sha256": "4d78a5dccdab0422c5672a4b9727ff39522447f3cc63a71ee200c7052271cf95",
+              "requirements_sha256": "0e5ba049a40260da191a4f9aa934b4069c580a57ea591f8c822cc096ca6958e9"
+            },
+            "upstream_enthalpy_flow_W": -2540375.0361407287,
+            "enthalpy_allowance_W": 0.000125439851261968
+          },
+          "isentropic": {
+            "T_K": 231.62864734074992,
+            "P_Pa_abs": 8000000.0,
+            "z": [
+              0.5,
+              0.5
+            ],
+            "classification": "single_liquid",
+            "beta": 0.0,
+            "H_eq_J_mol": -25239.206530438852,
+            "S_eq_J_mol_K": -98.87679248119088,
+            "stability": {
+              "stable": true,
+              "classification": "single_liquid",
+              "converged": true,
+              "iterations": 96,
+              "minimum_tpd_RT": -1.7592516335518123e-15,
+              "trials": [
+                {
+                  "composition": [
+                    0.0,
+                    1.0
+                  ],
+                  "root_kind": "single_root",
+                  "tpd_RT": 0.6221566632619542,
+                  "iterations": 0,
+                  "interval_width": 0.0,
+                  "converged": true
+                },
+                {
+                  "composition": [
+                    0.5,
+                    0.5
+                  ],
+                  "root_kind": "single_root",
+                  "tpd_RT": 0.0,
+                  "iterations": 0,
+                  "interval_width": 0.0,
+                  "converged": true
+                },
+                {
+                  "composition": [
+                    1.0,
+                    0.0
+                  ],
+                  "root_kind": "single_root",
+                  "tpd_RT": 0.13744230675342106,
+                  "iterations": 0,
+                  "interval_width": 0.0,
+                  "converged": true
+                },
+                {
+                  "composition": [
+                    0.49999999110579163,
+                    0.5000000088942084
+                  ],
+                  "root_kind": "single_root",
+                  "tpd_RT": -1.7592516335518123e-15,
+                  "iterations": 48,
+                  "interval_width": 7.268075030708587e-13,
+                  "converged": true
+                },
+                {
+                  "composition": [
+                    0.9963529950372471,
+                    0.003647004962752942
+                  ],
+                  "root_kind": "single_root",
+                  "tpd_RT": 0.13400047674182572,
+                  "iterations": 48,
+                  "interval_width": 6.337153024560394e-13,
+                  "converged": true
+                }
+              ],
+              "phase_identification_parameter": 10.253940347573621,
+              "provider": "peng_robinson@1.0",
+              "algorithm": "binary_tpd_grid_golden@1.0"
+            },
+            "phases": {
+              "liquid": {
+                "composition": [
+                  0.5,
+                  0.5
+                ],
+                "Z": 0.34121139975098297,
+                "h_J_mol": -25239.206530438852,
+                "s_J_mol_K": -98.87679248119088
+              }
+            }
+          },
+          "actual": {
+            "T_K": 232.0029774476092,
+            "P_Pa_abs": 8000000.0,
+            "z": [
+              0.5,
+              0.5
+            ],
+            "classification": "single_liquid",
+            "beta": 0.0,
+            "H_eq_J_mol": -25198.070572696743,
+            "S_eq_J_mol_K": -98.69934141814845,
+            "stability": {
+              "stable": true,
+              "classification": "single_liquid",
+              "converged": true,
+              "iterations": 96,
+              "minimum_tpd_RT": -1.7559476070059377e-15,
+              "trials": [
+                {
+                  "composition": [
+                    0.0,
+                    1.0
+                  ],
+                  "root_kind": "single_root",
+                  "tpd_RT": 0.6219832399290279,
+                  "iterations": 0,
+                  "interval_width": 0.0,
+                  "converged": true
+                },
+                {
+                  "composition": [
+                    0.5,
+                    0.5
+                  ],
+                  "root_kind": "single_root",
+                  "tpd_RT": 0.0,
+                  "iterations": 0,
+                  "interval_width": 0.0,
+                  "converged": true
+                },
+                {
+                  "composition": [
+                    1.0,
+                    0.0
+                  ],
+                  "root_kind": "single_root",
+                  "tpd_RT": 0.1348833405581792,
+                  "iterations": 0,
+                  "interval_width": 0.0,
+                  "converged": true
+                },
+                {
+                  "composition": [
+                    0.5000000183728874,
+                    0.49999998162711257
+                  ],
+                  "root_kind": "single_root",
+                  "tpd_RT": -1.7559476070059377e-15,
+                  "iterations": 48,
+                  "interval_width": 7.267519919196275e-13,
+                  "converged": true
+                },
+                {
+                  "composition": [
+                    0.9963715019713963,
+                    0.003628498028603655
+                  ],
+                  "root_kind": "single_root",
+                  "tpd_RT": 0.13145481929042152,
+                  "iterations": 48,
+                  "interval_width": 6.337153024560394e-13,
+                  "converged": true
+                }
+              ],
+              "phase_identification_parameter": 10.23478174483623,
+              "provider": "peng_robinson@1.0",
+              "algorithm": "binary_tpd_grid_golden@1.0"
+            },
+            "phases": {
+              "liquid": {
+                "composition": [
+                  0.5,
+                  0.5
+                ],
+                "Z": 0.3408645255578398,
+                "h_J_mol": -25198.070572696743,
+                "s_J_mol_K": -98.69934141814845
+              }
+            }
+          },
+          "local_isentropic": {
+            "status": "compressed_witness",
+            "witness": {
+              "T_K": 231.62864734074992,
+              "P_Pa_abs": 7999200.0,
+              "z": [
+                0.5,
+                0.5
+              ],
+              "classification": "single_liquid",
+              "beta": 0.0,
+              "H_eq_J_mol": -25239.247971611007,
+              "S_eq_J_mol_K": -98.87668769413912,
+              "stability": {
+                "stable": true,
+                "classification": "single_liquid",
+                "converged": true,
+                "iterations": 96,
+                "minimum_tpd_RT": -2.174676359247631e-15,
+                "trials": [
+                  {
+                    "composition": [
+                      0.0,
+                      1.0
+                    ],
+                    "root_kind": "single_root",
+                    "tpd_RT": 0.622155663143511,
+                    "iterations": 0,
+                    "interval_width": 0.0,
+                    "converged": true
+                  },
+                  {
+                    "composition": [
+                      0.5,
+                      0.5
+                    ],
+                    "root_kind": "single_root",
+                    "tpd_RT": 0.0,
+                    "iterations": 0,
+                    "interval_width": 0.0,
+                    "converged": true
+                  },
+                  {
+                    "composition": [
+                      1.0,
+                      0.0
+                    ],
+                    "root_kind": "single_root",
+                    "tpd_RT": 0.13740020375354267,
+                    "iterations": 0,
+                    "interval_width": 0.0,
+                    "converged": true
+                  },
+                  {
+                    "composition": [
+                      0.4999999697528106,
+                      0.5000000302471894
+                    ],
+                    "root_kind": "single_root",
+                    "tpd_RT": -2.174676359247631e-15,
+                    "iterations": 48,
+                    "interval_width": 7.267519919196275e-13,
+                    "converged": true
+                  },
+                  {
+                    "composition": [
+                      0.9963549009284868,
+                      0.0036450990715132248
+                    ],
+                    "root_kind": "single_root",
+                    "tpd_RT": 0.13396002954327035,
+                    "iterations": 48,
+                    "interval_width": 6.337153024560394e-13,
+                    "converged": true
+                  }
+                ],
+                "phase_identification_parameter": 10.253923997662323,
+                "provider": "peng_robinson@1.0",
+                "algorithm": "binary_tpd_grid_golden@1.0"
+              },
+              "phases": {
+                "liquid": {
+                  "composition": [
+                    0.5,
+                    0.5
+                  ],
+                  "Z": 0.34117782722060375,
+                  "h_J_mol": -25239.247971611007,
+                  "s_J_mol_K": -98.87668769413912
+                }
+              }
+            },
+            "sampled_pressure_decrement_Pa": 800.0,
+            "quantified_bubble_margin_Pa": null,
+            "cavitation_safe": null
+          },
+          "local_actual": {
+            "status": "compressed_witness",
+            "witness": {
+              "T_K": 232.0029774476092,
+              "P_Pa_abs": 7999200.0,
+              "z": [
+                0.5,
+                0.5
+              ],
+              "classification": "single_liquid",
+              "beta": 0.0,
+              "H_eq_J_mol": -25198.11193814723,
+              "S_eq_J_mol_K": -98.69923630445109,
+              "stability": {
+                "stable": true,
+                "classification": "single_liquid",
+                "converged": true,
+                "iterations": 96,
+                "minimum_tpd_RT": -1.2132248779892396e-16,
+                "trials": [
+                  {
+                    "composition": [
+                      0.0,
+                      1.0
+                    ],
+                    "root_kind": "single_root",
+                    "tpd_RT": 0.6219822343596864,
+                    "iterations": 0,
+                    "interval_width": 0.0,
+                    "converged": true
+                  },
+                  {
+                    "composition": [
+                      0.5,
+                      0.5
+                    ],
+                    "root_kind": "single_root",
+                    "tpd_RT": 0.0,
+                    "iterations": 0,
+                    "interval_width": 0.0,
+                    "converged": true
+                  },
+                  {
+                    "composition": [
+                      1.0,
+                      0.0
+                    ],
+                    "root_kind": "single_root",
+                    "tpd_RT": 0.13484098119274712,
+                    "iterations": 0,
+                    "interval_width": 0.0,
+                    "converged": true
+                  },
+                  {
+                    "composition": [
+                      0.49999996629481985,
+                      0.5000000337051802
+                    ],
+                    "root_kind": "single_root",
+                    "tpd_RT": -1.2132248779892396e-16,
+                    "iterations": 48,
+                    "interval_width": 7.267519919196275e-13,
+                    "converged": true
+                  },
+                  {
+                    "composition": [
+                      0.9963733774833311,
+                      0.003626622516668898
+                    ],
+                    "root_kind": "single_root",
+                    "tpd_RT": 0.13141409258817377,
+                    "iterations": 48,
+                    "interval_width": 6.337153024560394e-13,
+                    "converged": true
+                  }
+                ],
+                "phase_identification_parameter": 10.234765487729929,
+                "provider": "peng_robinson@1.0",
+                "algorithm": "binary_tpd_grid_golden@1.0"
+              },
+              "phases": {
+                "liquid": {
+                  "composition": [
+                    0.5,
+                    0.5
+                  ],
+                  "Z": 0.34083099019354834,
+                  "h_J_mol": -25198.11193814723,
+                  "s_J_mol_K": -98.69923630445109
+                }
+              }
+            },
+            "sampled_pressure_decrement_Pa": 800.0,
+            "quantified_bubble_margin_Pa": null,
+            "cavitation_safe": null
+          },
+          "PS": {
+            "status": "success",
+            "capability": "PS",
+            "pt_profile": "high_accuracy",
+            "candidate_count": 1,
+            "scan_count": 64,
+            "fresh_final_count": 1,
+            "temperature_bounds_K": [
+              200.0,
+              500.0
+            ],
+            "bracket_K": [
+              228.57142857142858,
+              233.33333333333334
+            ],
+            "final_bracket_K": [
+              231.62864734074992,
+              231.6286473408192
+            ],
+            "root_iterations": 36,
+            "evaluation_count": 101,
+            "residual": -1.4864554032101296e-11,
+            "failure_count": 0,
+            "numerical_profile": "pr_high_accuracy_pt200@1",
+            "pt_settings": {
+              "flash_max_iterations": 200,
+              "stability_max_iterations": 100,
+              "rr_max_iterations": 200,
+              "fugacity_tolerance": 1e-12,
+              "material_tolerance": 1e-10,
+              "profile": "high_accuracy",
+              "numerical_profile": "pr_high_accuracy_pt200@1"
+            }
+          },
+          "PH": {
+            "status": "success",
+            "capability": "PH",
+            "pt_profile": "high_accuracy",
+            "candidate_count": 1,
+            "scan_count": 128,
+            "fresh_final_count": 1,
+            "temperature_bounds_K": [
+              200.0,
+              500.0
+            ],
+            "bracket_K": [
+              230.70866141732284,
+              233.07086614173227
+            ],
+            "final_bracket_K": [
+              232.0029774476092,
+              232.0029774476092
+            ],
+            "root_iterations": 42,
+            "evaluation_count": 171,
+            "residual": 0.0,
+            "failure_count": 0,
+            "numerical_profile": "pr_high_accuracy_pt200@1",
+            "pt_settings": {
+              "flash_max_iterations": 200,
+              "stability_max_iterations": 100,
+              "rr_max_iterations": 200,
+              "fugacity_tolerance": 1e-12,
+              "material_tolerance": 1e-10,
+              "profile": "high_accuracy",
+              "numerical_profile": "pr_high_accuracy_pt200@1"
+            }
+          },
+          "fluid_power_W": 20567.978871054584,
+          "reconstructed_efficiency": 0.7999999999999965,
+          "energy_residual_W": -1.0186340659856796e-10,
+          "energy_allowance_W": 0.00012547595216252873,
+          "target_H_J_mol": -25198.070572696743,
+          "work_allowance_J_mol": 1.2889506431746128e-05,
+          "work_ratio": 6.266783193698042e-08,
+          "entropy_generation_J_mol_K": 0.17745106302756142,
+          "numerics": {
+            "numerical_profile": "pr_high_accuracy_pt200@1",
+            "pump_settings": {
+              "flash_max_iterations": 200,
+              "stability_max_iterations": 100,
+              "rr_max_iterations": 200,
+              "fugacity_tolerance": 1e-12,
+              "material_tolerance": 1e-10,
+              "profile": "high_accuracy",
+              "numerical_profile": "pr_high_accuracy_pt200@1"
+            },
+            "source_and_local_settings": {
+              "flash_max_iterations": 100,
+              "stability_max_iterations": 100,
+              "rr_max_iterations": 200,
+              "fugacity_tolerance": 1e-12,
+              "material_tolerance": 1e-10,
+              "profile": "high_accuracy"
+            },
+            "fallback": null,
+            "endpoints": {
+              "inlet": {
+                "selected": {
+                  "T_K": 231.06755435138734,
+                  "P_Pa_abs": 6000000.0,
+                  "z": [
+                    0.5,
+                    0.5
+                  ],
+                  "classification": "single_liquid",
+                  "beta": 0.0,
+                  "H_eq_J_mol": -25403.75036140729,
+                  "S_eq_J_mol_K": -98.87679248117601,
+                  "stability": {
+                    "stable": true,
+                    "classification": "single_liquid",
+                    "converged": true,
+                    "iterations": 94,
+                    "minimum_tpd_RT": 0.0,
+                    "trials": [
+                      {
+                        "composition": [
+                          0.0,
+                          1.0
+                        ],
+                        "root_kind": "single_root",
+                        "tpd_RT": 0.6198363785851608,
+                        "iterations": 0,
+                        "interval_width": 0.0,
+                        "converged": true
+                      },
+                      {
+                        "composition": [
+                          0.5,
+                          0.5
+                        ],
+                        "root_kind": "single_root",
+                        "tpd_RT": 0.0,
+                        "iterations": 0,
+                        "interval_width": 0.0,
+                        "converged": true
+                      },
+                      {
+                        "composition": [
+                          1.0,
+                          0.0
+                        ],
+                        "root_kind": "single_root",
+                        "tpd_RT": 0.001491350525752333,
+                        "iterations": 0,
+                        "interval_width": 0.0,
+                        "converged": true
+                      },
+                      {
+                        "composition": [
+                          0.4999999555303459,
+                          0.5000000444696542
+                        ],
+                        "root_kind": "single_root",
+                        "tpd_RT": 6.317723086131675e-16,
+                        "iterations": 48,
+                        "interval_width": 7.267519919196275e-13,
+                        "converged": true
+                      },
+                      {
+                        "composition": [
+                          0.9989299714425641,
+                          0.0010700285574358759
+                        ],
+                        "root_kind": "single_root",
+                        "tpd_RT": 0.00043148331941621573,
+                        "iterations": 46,
+                        "interval_width": 9.270362255620057e-13,
+                        "converged": true
+                      }
+                    ],
+                    "phase_identification_parameter": 10.243474569506564,
+                    "provider": "peng_robinson@1.0",
+                    "algorithm": "binary_tpd_grid_golden@1.0"
+                  },
+                  "phases": {
+                    "liquid": {
+                      "composition": [
+                        0.5,
+                        0.5
+                      ],
+                      "Z": 0.2573539914926344,
+                      "h_J_mol": -25403.75036140729,
+                      "s_J_mol_K": -98.87679248117601
+                    }
+                  }
+                },
+                "selected_settings": {
+                  "flash_max_iterations": 200,
+                  "stability_max_iterations": 100,
+                  "rr_max_iterations": 200,
+                  "fugacity_tolerance": 1e-12,
+                  "material_tolerance": 1e-10,
+                  "profile": "high_accuracy",
+                  "numerical_profile": "pr_high_accuracy_pt200@1"
+                },
+                "selected_witness": {
+                  "T_K": 231.06755435138734,
+                  "P_Pa_abs": 5999400.0,
+                  "z": [
+                    0.5,
+                    0.5
+                  ],
+                  "classification": "single_liquid",
+                  "beta": 0.0,
+                  "H_eq_J_mol": -25403.780952299072,
+                  "S_eq_J_mol_K": -98.87671089441304,
+                  "stability": {
+                    "stable": true,
+                    "classification": "single_liquid",
+                    "converged": true,
+                    "iterations": 94,
+                    "minimum_tpd_RT": -3.647249662849904e-15,
+                    "trials": [
+                      {
+                        "composition": [
+                          0.0,
+                          1.0
+                        ],
+                        "root_kind": "single_root",
+                        "tpd_RT": 0.619835573771045,
+                        "iterations": 0,
+                        "interval_width": 0.0,
+                        "converged": true
+                      },
+                      {
+                        "composition": [
+                          0.5,
+                          0.5
+                        ],
+                        "root_kind": "single_root",
+                        "tpd_RT": 0.0,
+                        "iterations": 0,
+                        "interval_width": 0.0,
+                        "converged": true
+                      },
+                      {
+                        "composition": [
+                          1.0,
+                          0.0
+                        ],
+                        "root_kind": "single_root",
+                        "tpd_RT": 0.0014361223188726346,
+                        "iterations": 0,
+                        "interval_width": 0.0,
+                        "converged": true
+                      },
+                      {
+                        "composition": [
+                          0.4999999733182075,
+                          0.5000000266817926
+                        ],
+                        "root_kind": "single_root",
+                        "tpd_RT": -3.647249662849904e-15,
+                        "iterations": 48,
+                        "interval_width": 7.267519919196275e-13,
+                        "converged": true
+                      },
+                      {
+                        "composition": [
+                          0.9989303408351219,
+                          0.0010696591648781117
+                        ],
+                        "root_kind": "single_root",
+                        "tpd_RT": 0.00037661522072191065,
+                        "iterations": 46,
+                        "interval_width": 9.269252032595432e-13,
+                        "converged": true
+                      }
+                    ],
+                    "phase_identification_parameter": 10.243463390787333,
+                    "provider": "peng_robinson@1.0",
+                    "algorithm": "binary_tpd_grid_golden@1.0"
+                  },
+                  "phases": {
+                    "liquid": {
+                      "composition": [
+                        0.5,
+                        0.5
+                      ],
+                      "Z": 0.2573285816725878,
+                      "h_J_mol": -25403.780952299072,
+                      "s_J_mol_K": -98.87671089441304
+                    }
+                  }
+                },
+                "legacy_fresh": {
+                  "T_K": 231.06755435138734,
+                  "P_Pa_abs": 6000000.0,
+                  "z": [
+                    0.5,
+                    0.5
+                  ],
+                  "classification": "single_liquid",
+                  "beta": 0.0,
+                  "H_eq_J_mol": -25403.75036140729,
+                  "S_eq_J_mol_K": -98.87679248117601,
+                  "stability": {
+                    "stable": true,
+                    "classification": "single_liquid",
+                    "converged": true,
+                    "iterations": 94,
+                    "minimum_tpd_RT": 0.0,
+                    "trials": [
+                      {
+                        "composition": [
+                          0.0,
+                          1.0
+                        ],
+                        "root_kind": "single_root",
+                        "tpd_RT": 0.6198363785851608,
+                        "iterations": 0,
+                        "interval_width": 0.0,
+                        "converged": true
+                      },
+                      {
+                        "composition": [
+                          0.5,
+                          0.5
+                        ],
+                        "root_kind": "single_root",
+                        "tpd_RT": 0.0,
+                        "iterations": 0,
+                        "interval_width": 0.0,
+                        "converged": true
+                      },
+                      {
+                        "composition": [
+                          1.0,
+                          0.0
+                        ],
+                        "root_kind": "single_root",
+                        "tpd_RT": 0.001491350525752333,
+                        "iterations": 0,
+                        "interval_width": 0.0,
+                        "converged": true
+                      },
+                      {
+                        "composition": [
+                          0.4999999555303459,
+                          0.5000000444696542
+                        ],
+                        "root_kind": "single_root",
+                        "tpd_RT": 6.317723086131675e-16,
+                        "iterations": 48,
+                        "interval_width": 7.267519919196275e-13,
+                        "converged": true
+                      },
+                      {
+                        "composition": [
+                          0.9989299714425641,
+                          0.0010700285574358759
+                        ],
+                        "root_kind": "single_root",
+                        "tpd_RT": 0.00043148331941621573,
+                        "iterations": 46,
+                        "interval_width": 9.270362255620057e-13,
+                        "converged": true
+                      }
+                    ],
+                    "phase_identification_parameter": 10.243474569506564,
+                    "provider": "peng_robinson@1.0",
+                    "algorithm": "binary_tpd_grid_golden@1.0"
+                  },
+                  "phases": {
+                    "liquid": {
+                      "composition": [
+                        0.5,
+                        0.5
+                      ],
+                      "Z": 0.2573539914926344,
+                      "h_J_mol": -25403.75036140729,
+                      "s_J_mol_K": -98.87679248117601
+                    }
+                  }
+                },
+                "legacy_local": {
+                  "status": "compressed_witness",
+                  "witness": {
+                    "T_K": 231.06755435138734,
+                    "P_Pa_abs": 5999400.0,
+                    "z": [
+                      0.5,
+                      0.5
+                    ],
+                    "classification": "single_liquid",
+                    "beta": 0.0,
+                    "H_eq_J_mol": -25403.780952299072,
+                    "S_eq_J_mol_K": -98.87671089441304,
+                    "stability": {
+                      "stable": true,
+                      "classification": "single_liquid",
+                      "converged": true,
+                      "iterations": 94,
+                      "minimum_tpd_RT": -3.647249662849904e-15,
+                      "trials": [
+                        {
+                          "composition": [
+                            0.0,
+                            1.0
+                          ],
+                          "root_kind": "single_root",
+                          "tpd_RT": 0.619835573771045,
+                          "iterations": 0,
+                          "interval_width": 0.0,
+                          "converged": true
+                        },
+                        {
+                          "composition": [
+                            0.5,
+                            0.5
+                          ],
+                          "root_kind": "single_root",
+                          "tpd_RT": 0.0,
+                          "iterations": 0,
+                          "interval_width": 0.0,
+                          "converged": true
+                        },
+                        {
+                          "composition": [
+                            1.0,
+                            0.0
+                          ],
+                          "root_kind": "single_root",
+                          "tpd_RT": 0.0014361223188726346,
+                          "iterations": 0,
+                          "interval_width": 0.0,
+                          "converged": true
+                        },
+                        {
+                          "composition": [
+                            0.4999999733182075,
+                            0.5000000266817926
+                          ],
+                          "root_kind": "single_root",
+                          "tpd_RT": -3.647249662849904e-15,
+                          "iterations": 48,
+                          "interval_width": 7.267519919196275e-13,
+                          "converged": true
+                        },
+                        {
+                          "composition": [
+                            0.9989303408351219,
+                            0.0010696591648781117
+                          ],
+                          "root_kind": "single_root",
+                          "tpd_RT": 0.00037661522072191065,
+                          "iterations": 46,
+                          "interval_width": 9.269252032595432e-13,
+                          "converged": true
+                        }
+                      ],
+                      "phase_identification_parameter": 10.243463390787333,
+                      "provider": "peng_robinson@1.0",
+                      "algorithm": "binary_tpd_grid_golden@1.0"
+                    },
+                    "phases": {
+                      "liquid": {
+                        "composition": [
+                          0.5,
+                          0.5
+                        ],
+                        "Z": 0.2573285816725878,
+                        "h_J_mol": -25403.780952299072,
+                        "s_J_mol_K": -98.87671089441304
+                      }
+                    }
+                  },
+                  "sampled_pressure_decrement_Pa": 600.0,
+                  "quantified_bubble_margin_Pa": null,
+                  "cavitation_safe": null
+                },
+                "legacy_settings": {
+                  "flash_max_iterations": 100,
+                  "stability_max_iterations": 100,
+                  "rr_max_iterations": 200,
+                  "fugacity_tolerance": 1e-12,
+                  "material_tolerance": 1e-10,
+                  "profile": "high_accuracy"
+                }
+              },
+              "isentropic": {
+                "selected": {
+                  "T_K": 231.62864734074992,
+                  "P_Pa_abs": 8000000.0,
+                  "z": [
+                    0.5,
+                    0.5
+                  ],
+                  "classification": "single_liquid",
+                  "beta": 0.0,
+                  "H_eq_J_mol": -25239.206530438852,
+                  "S_eq_J_mol_K": -98.87679248119088,
+                  "stability": {
+                    "stable": true,
+                    "classification": "single_liquid",
+                    "converged": true,
+                    "iterations": 96,
+                    "minimum_tpd_RT": -1.7592516335518123e-15,
+                    "trials": [
+                      {
+                        "composition": [
+                          0.0,
+                          1.0
+                        ],
+                        "root_kind": "single_root",
+                        "tpd_RT": 0.6221566632619542,
+                        "iterations": 0,
+                        "interval_width": 0.0,
+                        "converged": true
+                      },
+                      {
+                        "composition": [
+                          0.5,
+                          0.5
+                        ],
+                        "root_kind": "single_root",
+                        "tpd_RT": 0.0,
+                        "iterations": 0,
+                        "interval_width": 0.0,
+                        "converged": true
+                      },
+                      {
+                        "composition": [
+                          1.0,
+                          0.0
+                        ],
+                        "root_kind": "single_root",
+                        "tpd_RT": 0.13744230675342106,
+                        "iterations": 0,
+                        "interval_width": 0.0,
+                        "converged": true
+                      },
+                      {
+                        "composition": [
+                          0.49999999110579163,
+                          0.5000000088942084
+                        ],
+                        "root_kind": "single_root",
+                        "tpd_RT": -1.7592516335518123e-15,
+                        "iterations": 48,
+                        "interval_width": 7.268075030708587e-13,
+                        "converged": true
+                      },
+                      {
+                        "composition": [
+                          0.9963529950372471,
+                          0.003647004962752942
+                        ],
+                        "root_kind": "single_root",
+                        "tpd_RT": 0.13400047674182572,
+                        "iterations": 48,
+                        "interval_width": 6.337153024560394e-13,
+                        "converged": true
+                      }
+                    ],
+                    "phase_identification_parameter": 10.253940347573621,
+                    "provider": "peng_robinson@1.0",
+                    "algorithm": "binary_tpd_grid_golden@1.0"
+                  },
+                  "phases": {
+                    "liquid": {
+                      "composition": [
+                        0.5,
+                        0.5
+                      ],
+                      "Z": 0.34121139975098297,
+                      "h_J_mol": -25239.206530438852,
+                      "s_J_mol_K": -98.87679248119088
+                    }
+                  }
+                },
+                "selected_settings": {
+                  "flash_max_iterations": 200,
+                  "stability_max_iterations": 100,
+                  "rr_max_iterations": 200,
+                  "fugacity_tolerance": 1e-12,
+                  "material_tolerance": 1e-10,
+                  "profile": "high_accuracy",
+                  "numerical_profile": "pr_high_accuracy_pt200@1"
+                },
+                "selected_witness": {
+                  "T_K": 231.62864734074992,
+                  "P_Pa_abs": 7999200.0,
+                  "z": [
+                    0.5,
+                    0.5
+                  ],
+                  "classification": "single_liquid",
+                  "beta": 0.0,
+                  "H_eq_J_mol": -25239.247971611007,
+                  "S_eq_J_mol_K": -98.87668769413912,
+                  "stability": {
+                    "stable": true,
+                    "classification": "single_liquid",
+                    "converged": true,
+                    "iterations": 96,
+                    "minimum_tpd_RT": -2.174676359247631e-15,
+                    "trials": [
+                      {
+                        "composition": [
+                          0.0,
+                          1.0
+                        ],
+                        "root_kind": "single_root",
+                        "tpd_RT": 0.622155663143511,
+                        "iterations": 0,
+                        "interval_width": 0.0,
+                        "converged": true
+                      },
+                      {
+                        "composition": [
+                          0.5,
+                          0.5
+                        ],
+                        "root_kind": "single_root",
+                        "tpd_RT": 0.0,
+                        "iterations": 0,
+                        "interval_width": 0.0,
+                        "converged": true
+                      },
+                      {
+                        "composition": [
+                          1.0,
+                          0.0
+                        ],
+                        "root_kind": "single_root",
+                        "tpd_RT": 0.13740020375354267,
+                        "iterations": 0,
+                        "interval_width": 0.0,
+                        "converged": true
+                      },
+                      {
+                        "composition": [
+                          0.4999999697528106,
+                          0.5000000302471894
+                        ],
+                        "root_kind": "single_root",
+                        "tpd_RT": -2.174676359247631e-15,
+                        "iterations": 48,
+                        "interval_width": 7.267519919196275e-13,
+                        "converged": true
+                      },
+                      {
+                        "composition": [
+                          0.9963549009284868,
+                          0.0036450990715132248
+                        ],
+                        "root_kind": "single_root",
+                        "tpd_RT": 0.13396002954327035,
+                        "iterations": 48,
+                        "interval_width": 6.337153024560394e-13,
+                        "converged": true
+                      }
+                    ],
+                    "phase_identification_parameter": 10.253923997662323,
+                    "provider": "peng_robinson@1.0",
+                    "algorithm": "binary_tpd_grid_golden@1.0"
+                  },
+                  "phases": {
+                    "liquid": {
+                      "composition": [
+                        0.5,
+                        0.5
+                      ],
+                      "Z": 0.34117782722060375,
+                      "h_J_mol": -25239.247971611007,
+                      "s_J_mol_K": -98.87668769413912
+                    }
+                  }
+                },
+                "legacy_fresh": {
+                  "T_K": 231.62864734074992,
+                  "P_Pa_abs": 8000000.0,
+                  "z": [
+                    0.5,
+                    0.5
+                  ],
+                  "classification": "single_liquid",
+                  "beta": 0.0,
+                  "H_eq_J_mol": -25239.206530438852,
+                  "S_eq_J_mol_K": -98.87679248119088,
+                  "stability": {
+                    "stable": true,
+                    "classification": "single_liquid",
+                    "converged": true,
+                    "iterations": 96,
+                    "minimum_tpd_RT": -1.7592516335518123e-15,
+                    "trials": [
+                      {
+                        "composition": [
+                          0.0,
+                          1.0
+                        ],
+                        "root_kind": "single_root",
+                        "tpd_RT": 0.6221566632619542,
+                        "iterations": 0,
+                        "interval_width": 0.0,
+                        "converged": true
+                      },
+                      {
+                        "composition": [
+                          0.5,
+                          0.5
+                        ],
+                        "root_kind": "single_root",
+                        "tpd_RT": 0.0,
+                        "iterations": 0,
+                        "interval_width": 0.0,
+                        "converged": true
+                      },
+                      {
+                        "composition": [
+                          1.0,
+                          0.0
+                        ],
+                        "root_kind": "single_root",
+                        "tpd_RT": 0.13744230675342106,
+                        "iterations": 0,
+                        "interval_width": 0.0,
+                        "converged": true
+                      },
+                      {
+                        "composition": [
+                          0.49999999110579163,
+                          0.5000000088942084
+                        ],
+                        "root_kind": "single_root",
+                        "tpd_RT": -1.7592516335518123e-15,
+                        "iterations": 48,
+                        "interval_width": 7.268075030708587e-13,
+                        "converged": true
+                      },
+                      {
+                        "composition": [
+                          0.9963529950372471,
+                          0.003647004962752942
+                        ],
+                        "root_kind": "single_root",
+                        "tpd_RT": 0.13400047674182572,
+                        "iterations": 48,
+                        "interval_width": 6.337153024560394e-13,
+                        "converged": true
+                      }
+                    ],
+                    "phase_identification_parameter": 10.253940347573621,
+                    "provider": "peng_robinson@1.0",
+                    "algorithm": "binary_tpd_grid_golden@1.0"
+                  },
+                  "phases": {
+                    "liquid": {
+                      "composition": [
+                        0.5,
+                        0.5
+                      ],
+                      "Z": 0.34121139975098297,
+                      "h_J_mol": -25239.206530438852,
+                      "s_J_mol_K": -98.87679248119088
+                    }
+                  }
+                },
+                "legacy_local": {
+                  "status": "compressed_witness",
+                  "witness": {
+                    "T_K": 231.62864734074992,
+                    "P_Pa_abs": 7999200.0,
+                    "z": [
+                      0.5,
+                      0.5
+                    ],
+                    "classification": "single_liquid",
+                    "beta": 0.0,
+                    "H_eq_J_mol": -25239.247971611007,
+                    "S_eq_J_mol_K": -98.87668769413912,
+                    "stability": {
+                      "stable": true,
+                      "classification": "single_liquid",
+                      "converged": true,
+                      "iterations": 96,
+                      "minimum_tpd_RT": -2.174676359247631e-15,
+                      "trials": [
+                        {
+                          "composition": [
+                            0.0,
+                            1.0
+                          ],
+                          "root_kind": "single_root",
+                          "tpd_RT": 0.622155663143511,
+                          "iterations": 0,
+                          "interval_width": 0.0,
+                          "converged": true
+                        },
+                        {
+                          "composition": [
+                            0.5,
+                            0.5
+                          ],
+                          "root_kind": "single_root",
+                          "tpd_RT": 0.0,
+                          "iterations": 0,
+                          "interval_width": 0.0,
+                          "converged": true
+                        },
+                        {
+                          "composition": [
+                            1.0,
+                            0.0
+                          ],
+                          "root_kind": "single_root",
+                          "tpd_RT": 0.13740020375354267,
+                          "iterations": 0,
+                          "interval_width": 0.0,
+                          "converged": true
+                        },
+                        {
+                          "composition": [
+                            0.4999999697528106,
+                            0.5000000302471894
+                          ],
+                          "root_kind": "single_root",
+                          "tpd_RT": -2.174676359247631e-15,
+                          "iterations": 48,
+                          "interval_width": 7.267519919196275e-13,
+                          "converged": true
+                        },
+                        {
+                          "composition": [
+                            0.9963549009284868,
+                            0.0036450990715132248
+                          ],
+                          "root_kind": "single_root",
+                          "tpd_RT": 0.13396002954327035,
+                          "iterations": 48,
+                          "interval_width": 6.337153024560394e-13,
+                          "converged": true
+                        }
+                      ],
+                      "phase_identification_parameter": 10.253923997662323,
+                      "provider": "peng_robinson@1.0",
+                      "algorithm": "binary_tpd_grid_golden@1.0"
+                    },
+                    "phases": {
+                      "liquid": {
+                        "composition": [
+                          0.5,
+                          0.5
+                        ],
+                        "Z": 0.34117782722060375,
+                        "h_J_mol": -25239.247971611007,
+                        "s_J_mol_K": -98.87668769413912
+                      }
+                    }
+                  },
+                  "sampled_pressure_decrement_Pa": 800.0,
+                  "quantified_bubble_margin_Pa": null,
+                  "cavitation_safe": null
+                },
+                "legacy_settings": {
+                  "flash_max_iterations": 100,
+                  "stability_max_iterations": 100,
+                  "rr_max_iterations": 200,
+                  "fugacity_tolerance": 1e-12,
+                  "material_tolerance": 1e-10,
+                  "profile": "high_accuracy"
+                }
+              },
+              "actual": {
+                "selected": {
+                  "T_K": 232.0029774476092,
+                  "P_Pa_abs": 8000000.0,
+                  "z": [
+                    0.5,
+                    0.5
+                  ],
+                  "classification": "single_liquid",
+                  "beta": 0.0,
+                  "H_eq_J_mol": -25198.070572696743,
+                  "S_eq_J_mol_K": -98.69934141814845,
+                  "stability": {
+                    "stable": true,
+                    "classification": "single_liquid",
+                    "converged": true,
+                    "iterations": 96,
+                    "minimum_tpd_RT": -1.7559476070059377e-15,
+                    "trials": [
+                      {
+                        "composition": [
+                          0.0,
+                          1.0
+                        ],
+                        "root_kind": "single_root",
+                        "tpd_RT": 0.6219832399290279,
+                        "iterations": 0,
+                        "interval_width": 0.0,
+                        "converged": true
+                      },
+                      {
+                        "composition": [
+                          0.5,
+                          0.5
+                        ],
+                        "root_kind": "single_root",
+                        "tpd_RT": 0.0,
+                        "iterations": 0,
+                        "interval_width": 0.0,
+                        "converged": true
+                      },
+                      {
+                        "composition": [
+                          1.0,
+                          0.0
+                        ],
+                        "root_kind": "single_root",
+                        "tpd_RT": 0.1348833405581792,
+                        "iterations": 0,
+                        "interval_width": 0.0,
+                        "converged": true
+                      },
+                      {
+                        "composition": [
+                          0.5000000183728874,
+                          0.49999998162711257
+                        ],
+                        "root_kind": "single_root",
+                        "tpd_RT": -1.7559476070059377e-15,
+                        "iterations": 48,
+                        "interval_width": 7.267519919196275e-13,
+                        "converged": true
+                      },
+                      {
+                        "composition": [
+                          0.9963715019713963,
+                          0.003628498028603655
+                        ],
+                        "root_kind": "single_root",
+                        "tpd_RT": 0.13145481929042152,
+                        "iterations": 48,
+                        "interval_width": 6.337153024560394e-13,
+                        "converged": true
+                      }
+                    ],
+                    "phase_identification_parameter": 10.23478174483623,
+                    "provider": "peng_robinson@1.0",
+                    "algorithm": "binary_tpd_grid_golden@1.0"
+                  },
+                  "phases": {
+                    "liquid": {
+                      "composition": [
+                        0.5,
+                        0.5
+                      ],
+                      "Z": 0.3408645255578398,
+                      "h_J_mol": -25198.070572696743,
+                      "s_J_mol_K": -98.69934141814845
+                    }
+                  }
+                },
+                "selected_settings": {
+                  "flash_max_iterations": 200,
+                  "stability_max_iterations": 100,
+                  "rr_max_iterations": 200,
+                  "fugacity_tolerance": 1e-12,
+                  "material_tolerance": 1e-10,
+                  "profile": "high_accuracy",
+                  "numerical_profile": "pr_high_accuracy_pt200@1"
+                },
+                "selected_witness": {
+                  "T_K": 232.0029774476092,
+                  "P_Pa_abs": 7999200.0,
+                  "z": [
+                    0.5,
+                    0.5
+                  ],
+                  "classification": "single_liquid",
+                  "beta": 0.0,
+                  "H_eq_J_mol": -25198.11193814723,
+                  "S_eq_J_mol_K": -98.69923630445109,
+                  "stability": {
+                    "stable": true,
+                    "classification": "single_liquid",
+                    "converged": true,
+                    "iterations": 96,
+                    "minimum_tpd_RT": -1.2132248779892396e-16,
+                    "trials": [
+                      {
+                        "composition": [
+                          0.0,
+                          1.0
+                        ],
+                        "root_kind": "single_root",
+                        "tpd_RT": 0.6219822343596864,
+                        "iterations": 0,
+                        "interval_width": 0.0,
+                        "converged": true
+                      },
+                      {
+                        "composition": [
+                          0.5,
+                          0.5
+                        ],
+                        "root_kind": "single_root",
+                        "tpd_RT": 0.0,
+                        "iterations": 0,
+                        "interval_width": 0.0,
+                        "converged": true
+                      },
+                      {
+                        "composition": [
+                          1.0,
+                          0.0
+                        ],
+                        "root_kind": "single_root",
+                        "tpd_RT": 0.13484098119274712,
+                        "iterations": 0,
+                        "interval_width": 0.0,
+                        "converged": true
+                      },
+                      {
+                        "composition": [
+                          0.49999996629481985,
+                          0.5000000337051802
+                        ],
+                        "root_kind": "single_root",
+                        "tpd_RT": -1.2132248779892396e-16,
+                        "iterations": 48,
+                        "interval_width": 7.267519919196275e-13,
+                        "converged": true
+                      },
+                      {
+                        "composition": [
+                          0.9963733774833311,
+                          0.003626622516668898
+                        ],
+                        "root_kind": "single_root",
+                        "tpd_RT": 0.13141409258817377,
+                        "iterations": 48,
+                        "interval_width": 6.337153024560394e-13,
+                        "converged": true
+                      }
+                    ],
+                    "phase_identification_parameter": 10.234765487729929,
+                    "provider": "peng_robinson@1.0",
+                    "algorithm": "binary_tpd_grid_golden@1.0"
+                  },
+                  "phases": {
+                    "liquid": {
+                      "composition": [
+                        0.5,
+                        0.5
+                      ],
+                      "Z": 0.34083099019354834,
+                      "h_J_mol": -25198.11193814723,
+                      "s_J_mol_K": -98.69923630445109
+                    }
+                  }
+                },
+                "legacy_fresh": {
+                  "T_K": 232.0029774476092,
+                  "P_Pa_abs": 8000000.0,
+                  "z": [
+                    0.5,
+                    0.5
+                  ],
+                  "classification": "single_liquid",
+                  "beta": 0.0,
+                  "H_eq_J_mol": -25198.070572696743,
+                  "S_eq_J_mol_K": -98.69934141814845,
+                  "stability": {
+                    "stable": true,
+                    "classification": "single_liquid",
+                    "converged": true,
+                    "iterations": 96,
+                    "minimum_tpd_RT": -1.7559476070059377e-15,
+                    "trials": [
+                      {
+                        "composition": [
+                          0.0,
+                          1.0
+                        ],
+                        "root_kind": "single_root",
+                        "tpd_RT": 0.6219832399290279,
+                        "iterations": 0,
+                        "interval_width": 0.0,
+                        "converged": true
+                      },
+                      {
+                        "composition": [
+                          0.5,
+                          0.5
+                        ],
+                        "root_kind": "single_root",
+                        "tpd_RT": 0.0,
+                        "iterations": 0,
+                        "interval_width": 0.0,
+                        "converged": true
+                      },
+                      {
+                        "composition": [
+                          1.0,
+                          0.0
+                        ],
+                        "root_kind": "single_root",
+                        "tpd_RT": 0.1348833405581792,
+                        "iterations": 0,
+                        "interval_width": 0.0,
+                        "converged": true
+                      },
+                      {
+                        "composition": [
+                          0.5000000183728874,
+                          0.49999998162711257
+                        ],
+                        "root_kind": "single_root",
+                        "tpd_RT": -1.7559476070059377e-15,
+                        "iterations": 48,
+                        "interval_width": 7.267519919196275e-13,
+                        "converged": true
+                      },
+                      {
+                        "composition": [
+                          0.9963715019713963,
+                          0.003628498028603655
+                        ],
+                        "root_kind": "single_root",
+                        "tpd_RT": 0.13145481929042152,
+                        "iterations": 48,
+                        "interval_width": 6.337153024560394e-13,
+                        "converged": true
+                      }
+                    ],
+                    "phase_identification_parameter": 10.23478174483623,
+                    "provider": "peng_robinson@1.0",
+                    "algorithm": "binary_tpd_grid_golden@1.0"
+                  },
+                  "phases": {
+                    "liquid": {
+                      "composition": [
+                        0.5,
+                        0.5
+                      ],
+                      "Z": 0.3408645255578398,
+                      "h_J_mol": -25198.070572696743,
+                      "s_J_mol_K": -98.69934141814845
+                    }
+                  }
+                },
+                "legacy_local": {
+                  "status": "compressed_witness",
+                  "witness": {
+                    "T_K": 232.0029774476092,
+                    "P_Pa_abs": 7999200.0,
+                    "z": [
+                      0.5,
+                      0.5
+                    ],
+                    "classification": "single_liquid",
+                    "beta": 0.0,
+                    "H_eq_J_mol": -25198.11193814723,
+                    "S_eq_J_mol_K": -98.69923630445109,
+                    "stability": {
+                      "stable": true,
+                      "classification": "single_liquid",
+                      "converged": true,
+                      "iterations": 96,
+                      "minimum_tpd_RT": -1.2132248779892396e-16,
+                      "trials": [
+                        {
+                          "composition": [
+                            0.0,
+                            1.0
+                          ],
+                          "root_kind": "single_root",
+                          "tpd_RT": 0.6219822343596864,
+                          "iterations": 0,
+                          "interval_width": 0.0,
+                          "converged": true
+                        },
+                        {
+                          "composition": [
+                            0.5,
+                            0.5
+                          ],
+                          "root_kind": "single_root",
+                          "tpd_RT": 0.0,
+                          "iterations": 0,
+                          "interval_width": 0.0,
+                          "converged": true
+                        },
+                        {
+                          "composition": [
+                            1.0,
+                            0.0
+                          ],
+                          "root_kind": "single_root",
+                          "tpd_RT": 0.13484098119274712,
+                          "iterations": 0,
+                          "interval_width": 0.0,
+                          "converged": true
+                        },
+                        {
+                          "composition": [
+                            0.49999996629481985,
+                            0.5000000337051802
+                          ],
+                          "root_kind": "single_root",
+                          "tpd_RT": -1.2132248779892396e-16,
+                          "iterations": 48,
+                          "interval_width": 7.267519919196275e-13,
+                          "converged": true
+                        },
+                        {
+                          "composition": [
+                            0.9963733774833311,
+                            0.003626622516668898
+                          ],
+                          "root_kind": "single_root",
+                          "tpd_RT": 0.13141409258817377,
+                          "iterations": 48,
+                          "interval_width": 6.337153024560394e-13,
+                          "converged": true
+                        }
+                      ],
+                      "phase_identification_parameter": 10.234765487729929,
+                      "provider": "peng_robinson@1.0",
+                      "algorithm": "binary_tpd_grid_golden@1.0"
+                    },
+                    "phases": {
+                      "liquid": {
+                        "composition": [
+                          0.5,
+                          0.5
+                        ],
+                        "Z": 0.34083099019354834,
+                        "h_J_mol": -25198.11193814723,
+                        "s_J_mol_K": -98.69923630445109
+                      }
+                    }
+                  },
+                  "sampled_pressure_decrement_Pa": 800.0,
+                  "quantified_bubble_margin_Pa": null,
+                  "cavitation_safe": null
+                },
+                "legacy_settings": {
+                  "flash_max_iterations": 100,
+                  "stability_max_iterations": 100,
+                  "rr_max_iterations": 200,
+                  "fugacity_tolerance": 1e-12,
+                  "material_tolerance": 1e-10,
+                  "profile": "high_accuracy"
+                }
+              }
+            }
+          }
+        },
+        "numerical_profile": "pr_high_accuracy_pt200@1"
+      }
+    }
+  ],
+  "execution": {
+    "method": "topological",
+    "equipment_order": [
+      "SEP_PR_1",
+      "PUMP_1"
+    ]
+  },
+  "balances": {
+    "mass": {
+      "status": "passed",
+      "component_residual_kg_h": {
+        "methane": 0.0,
+        "n_hexane": 0.0
+      },
+      "total_residual_kg_h": 0.0,
+      "component_tolerance_kg_h": 1e-08,
+      "total_tolerance_kg_h": 2e-08
+    },
+    "energy": {
+      "status": "passed",
+      "residual_W": -1.0186340659856796e-10,
+      "tolerance_W": 0.00022554815396365015,
+      "duty_W": 0.0,
+      "fluid_power_W": 20567.978871054584,
+      "model": "separator_pump_energy",
+      "positive_duty": "heat_into_process",
+      "positive_work": "work_into_process"
+    }
+  },
+  "warnings": [],
+  "limitations": [
+    "Only two listed cold-source recipes at 8 MPa, efficiency 0.8 and explicit PT200; no operating envelope or interpolation.",
+    "Methane/n_hexane, explicit zero kij; existing PR caloric and full inverse routines.",
+    "Local sampled phase evidence and endpoint checks do not prove continuous-path admissibility.",
+    "No bubble-pressure measurement, cavitation or NPSH prediction, hydraulic sizing or electrical power.",
+    "PT200 is explicit, pump-scoped and bounded at 200 iterations; no automatic fallback."
+  ],
+  "unavailable": [
+    {
+      "calculation": "Hydraulic sizing and cavitation",
+      "status": "not calculated",
+      "reason": "M20 qualifies material and fluid-energy integration only."
+    }
+  ]
+}

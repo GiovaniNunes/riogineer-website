@@ -9165,6 +9165,939 @@
       "properties": {
         "schema_version": {
           "type": "string",
+          "const": "1.14"
+        },
+        "kind": {
+          "type": "string",
+          "const": "flowsheet"
+        },
+        "case_id": {
+          "type": "string",
+          "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,79}$"
+        },
+        "profile": {
+          "type": "string",
+          "const": "separator_pump_energy"
+        },
+        "units": {
+          "type": "object",
+          "properties": {
+            "temperature": {
+              "type": "string",
+              "const": "K"
+            },
+            "pressure": {
+              "type": "string",
+              "const": "Pa_abs"
+            },
+            "component_mass_flow": {
+              "type": "string",
+              "const": "kg/h"
+            },
+            "heat_capacity": {
+              "type": "string",
+              "const": "J/(kg K)"
+            },
+            "duty": {
+              "type": "string",
+              "const": "W"
+            },
+            "recovery": {
+              "type": "string",
+              "const": "mass_fraction"
+            }
+          },
+          "required": [
+            "temperature",
+            "pressure",
+            "component_mass_flow",
+            "heat_capacity",
+            "duty",
+            "recovery"
+          ],
+          "additionalProperties": false
+        },
+        "requirements_sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "components": {
+          "minItems": 2,
+          "maxItems": 2,
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "methane",
+              "n_hexane"
+            ]
+          }
+        },
+        "boundaries": {
+          "minItems": 3,
+          "maxItems": 3,
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,79}$"
+              },
+              "type": {
+                "type": "string",
+                "enum": [
+                  "source",
+                  "sink"
+                ]
+              },
+              "ports": {
+                "minItems": 1,
+                "maxItems": 1,
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,79}$"
+                    },
+                    "direction": {
+                      "type": "string",
+                      "enum": [
+                        "in",
+                        "out"
+                      ]
+                    },
+                    "kind": {
+                      "type": "string",
+                      "const": "material"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "direction",
+                    "kind"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            },
+            "required": [
+              "id",
+              "type",
+              "ports"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "equipment": {
+          "minItems": 2,
+          "maxItems": 2,
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,79}$"
+                  },
+                  "type": {
+                    "type": "string",
+                    "const": "equilibrium_separator_2phase"
+                  },
+                  "model": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string",
+                        "const": "equilibrium_separator_energy_pr"
+                      },
+                      "version": {
+                        "type": "string",
+                        "const": "1.0"
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "version"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "ports": {
+                    "type": "array",
+                    "prefixItems": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string",
+                            "const": "inlet"
+                          },
+                          "direction": {
+                            "type": "string",
+                            "const": "in"
+                          },
+                          "kind": {
+                            "type": "string",
+                            "const": "material"
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "direction",
+                          "kind"
+                        ],
+                        "additionalProperties": false
+                      },
+                      {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string",
+                            "const": "vapor"
+                          },
+                          "direction": {
+                            "type": "string",
+                            "const": "out"
+                          },
+                          "kind": {
+                            "type": "string",
+                            "const": "material"
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "direction",
+                          "kind"
+                        ],
+                        "additionalProperties": false
+                      },
+                      {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string",
+                            "const": "liquid"
+                          },
+                          "direction": {
+                            "type": "string",
+                            "const": "out"
+                          },
+                          "kind": {
+                            "type": "string",
+                            "const": "material"
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "direction",
+                          "kind"
+                        ],
+                        "additionalProperties": false
+                      }
+                    ],
+                    "items": false,
+                    "minItems": 3,
+                    "maxItems": 3
+                  },
+                  "operating_parameters": {
+                    "oneOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "separator_pressure_Pa_abs": {
+                            "type": "number",
+                            "exclusiveMinimum": 0
+                          },
+                          "property_package": {
+                            "type": "string",
+                            "const": "peng_robinson@1.0"
+                          },
+                          "bip": {
+                            "type": "object",
+                            "properties": {
+                              "identifier": {
+                                "type": "string",
+                                "const": "m9_methane_nhexane_zero_kij@1.0"
+                              },
+                              "component_ids": {
+                                "type": "array",
+                                "prefixItems": [
+                                  {
+                                    "type": "string",
+                                    "const": "methane"
+                                  },
+                                  {
+                                    "type": "string",
+                                    "const": "n_hexane"
+                                  }
+                                ],
+                                "items": false,
+                                "minItems": 2,
+                                "maxItems": 2
+                              },
+                              "values": {
+                                "type": "array",
+                                "prefixItems": [
+                                  {
+                                    "type": "array",
+                                    "prefixItems": [
+                                      {
+                                        "type": "number",
+                                        "const": 0
+                                      },
+                                      {
+                                        "type": "number",
+                                        "const": 0
+                                      }
+                                    ],
+                                    "items": false,
+                                    "minItems": 2,
+                                    "maxItems": 2
+                                  },
+                                  {
+                                    "type": "array",
+                                    "prefixItems": [
+                                      {
+                                        "type": "number",
+                                        "const": 0
+                                      },
+                                      {
+                                        "type": "number",
+                                        "const": 0
+                                      }
+                                    ],
+                                    "items": false,
+                                    "minItems": 2,
+                                    "maxItems": 2
+                                  }
+                                ],
+                                "items": false,
+                                "minItems": 2,
+                                "maxItems": 2
+                              },
+                              "source": {
+                                "type": "string",
+                                "minLength": 1
+                              },
+                              "model": {
+                                "type": "string",
+                                "const": "peng_robinson@1.0"
+                              }
+                            },
+                            "required": [
+                              "identifier",
+                              "component_ids",
+                              "values",
+                              "source",
+                              "model"
+                            ],
+                            "additionalProperties": false
+                          },
+                          "mode": {
+                            "type": "string",
+                            "const": "specified_temperature"
+                          },
+                          "separator_temperature_K": {
+                            "type": "number",
+                            "minimum": 200,
+                            "maximum": 500
+                          }
+                        },
+                        "required": [
+                          "separator_pressure_Pa_abs",
+                          "property_package",
+                          "bip",
+                          "mode",
+                          "separator_temperature_K"
+                        ],
+                        "additionalProperties": false
+                      },
+                      {
+                        "type": "object",
+                        "properties": {
+                          "separator_pressure_Pa_abs": {
+                            "type": "number",
+                            "exclusiveMinimum": 0
+                          },
+                          "property_package": {
+                            "type": "string",
+                            "const": "peng_robinson@1.0"
+                          },
+                          "bip": {
+                            "type": "object",
+                            "properties": {
+                              "identifier": {
+                                "type": "string",
+                                "const": "m9_methane_nhexane_zero_kij@1.0"
+                              },
+                              "component_ids": {
+                                "type": "array",
+                                "prefixItems": [
+                                  {
+                                    "type": "string",
+                                    "const": "methane"
+                                  },
+                                  {
+                                    "type": "string",
+                                    "const": "n_hexane"
+                                  }
+                                ],
+                                "items": false,
+                                "minItems": 2,
+                                "maxItems": 2
+                              },
+                              "values": {
+                                "type": "array",
+                                "prefixItems": [
+                                  {
+                                    "type": "array",
+                                    "prefixItems": [
+                                      {
+                                        "type": "number",
+                                        "const": 0
+                                      },
+                                      {
+                                        "type": "number",
+                                        "const": 0
+                                      }
+                                    ],
+                                    "items": false,
+                                    "minItems": 2,
+                                    "maxItems": 2
+                                  },
+                                  {
+                                    "type": "array",
+                                    "prefixItems": [
+                                      {
+                                        "type": "number",
+                                        "const": 0
+                                      },
+                                      {
+                                        "type": "number",
+                                        "const": 0
+                                      }
+                                    ],
+                                    "items": false,
+                                    "minItems": 2,
+                                    "maxItems": 2
+                                  }
+                                ],
+                                "items": false,
+                                "minItems": 2,
+                                "maxItems": 2
+                              },
+                              "source": {
+                                "type": "string",
+                                "minLength": 1
+                              },
+                              "model": {
+                                "type": "string",
+                                "const": "peng_robinson@1.0"
+                              }
+                            },
+                            "required": [
+                              "identifier",
+                              "component_ids",
+                              "values",
+                              "source",
+                              "model"
+                            ],
+                            "additionalProperties": false
+                          },
+                          "mode": {
+                            "type": "string",
+                            "const": "adiabatic"
+                          }
+                        },
+                        "required": [
+                          "separator_pressure_Pa_abs",
+                          "property_package",
+                          "bip",
+                          "mode"
+                        ],
+                        "additionalProperties": false
+                      }
+                    ]
+                  }
+                },
+                "required": [
+                  "id",
+                  "type",
+                  "model",
+                  "ports",
+                  "operating_parameters"
+                ],
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,79}$"
+                  },
+                  "type": {
+                    "type": "string",
+                    "const": "pump"
+                  },
+                  "model": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string",
+                        "const": "separator_liquid_pump_pr"
+                      },
+                      "version": {
+                        "type": "string",
+                        "const": "2.0"
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "version"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "ports": {
+                    "type": "array",
+                    "prefixItems": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string",
+                            "const": "inlet"
+                          },
+                          "direction": {
+                            "type": "string",
+                            "const": "in"
+                          },
+                          "kind": {
+                            "type": "string",
+                            "const": "material"
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "direction",
+                          "kind"
+                        ],
+                        "additionalProperties": false
+                      },
+                      {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string",
+                            "const": "outlet"
+                          },
+                          "direction": {
+                            "type": "string",
+                            "const": "out"
+                          },
+                          "kind": {
+                            "type": "string",
+                            "const": "material"
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "direction",
+                          "kind"
+                        ],
+                        "additionalProperties": false
+                      }
+                    ],
+                    "items": false,
+                    "minItems": 2,
+                    "maxItems": 2
+                  },
+                  "operating_parameters": {
+                    "type": "object",
+                    "properties": {
+                      "property_package": {
+                        "type": "string",
+                        "const": "peng_robinson@1.0"
+                      },
+                      "bip": {
+                        "type": "object",
+                        "properties": {
+                          "identifier": {
+                            "type": "string",
+                            "minLength": 1
+                          },
+                          "component_ids": {
+                            "type": "array",
+                            "prefixItems": [
+                              {
+                                "type": "string",
+                                "const": "methane"
+                              },
+                              {
+                                "type": "string",
+                                "const": "n_hexane"
+                              }
+                            ],
+                            "items": false,
+                            "minItems": 2,
+                            "maxItems": 2
+                          },
+                          "values": {
+                            "type": "array",
+                            "prefixItems": [
+                              {
+                                "type": "array",
+                                "prefixItems": [
+                                  {
+                                    "type": "number",
+                                    "const": 0
+                                  },
+                                  {
+                                    "type": "number",
+                                    "const": 0
+                                  }
+                                ],
+                                "items": false,
+                                "minItems": 2,
+                                "maxItems": 2
+                              },
+                              {
+                                "type": "array",
+                                "prefixItems": [
+                                  {
+                                    "type": "number",
+                                    "const": 0
+                                  },
+                                  {
+                                    "type": "number",
+                                    "const": 0
+                                  }
+                                ],
+                                "items": false,
+                                "minItems": 2,
+                                "maxItems": 2
+                              }
+                            ],
+                            "items": false,
+                            "minItems": 2,
+                            "maxItems": 2
+                          },
+                          "source": {
+                            "type": "string",
+                            "minLength": 1
+                          },
+                          "model": {
+                            "type": "string",
+                            "const": "peng_robinson@1.0"
+                          }
+                        },
+                        "required": [
+                          "identifier",
+                          "component_ids",
+                          "values",
+                          "source",
+                          "model"
+                        ],
+                        "additionalProperties": false
+                      },
+                      "outlet_pressure_Pa_abs": {
+                        "type": "number",
+                        "exclusiveMinimum": 0
+                      },
+                      "isentropic_efficiency": {
+                        "type": "number",
+                        "minimum": 0.6,
+                        "maximum": 1
+                      },
+                      "numerical_profile": {
+                        "type": "string",
+                        "const": "pr_high_accuracy_pt200@1"
+                      }
+                    },
+                    "required": [
+                      "property_package",
+                      "bip",
+                      "outlet_pressure_Pa_abs",
+                      "isentropic_efficiency",
+                      "numerical_profile"
+                    ],
+                    "additionalProperties": false
+                  }
+                },
+                "required": [
+                  "id",
+                  "type",
+                  "model",
+                  "ports",
+                  "operating_parameters"
+                ],
+                "additionalProperties": false
+              }
+            ]
+          }
+        },
+        "streams": {
+          "minItems": 4,
+          "maxItems": 4,
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,79}$"
+              },
+              "service": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 80
+              },
+              "specified_state": {
+                "anyOf": [
+                  {
+                    "type": "object",
+                    "properties": {
+                      "temperature_K": {
+                        "type": "number",
+                        "exclusiveMinimum": 0
+                      },
+                      "pressure_Pa_abs": {
+                        "type": "number",
+                        "exclusiveMinimum": 0
+                      },
+                      "component_mass_flow_kg_h": {
+                        "type": "object",
+                        "propertyNames": {
+                          "type": "string",
+                          "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,79}$"
+                        },
+                        "additionalProperties": {
+                          "type": "number",
+                          "minimum": 0
+                        }
+                      }
+                    },
+                    "required": [
+                      "temperature_K",
+                      "pressure_Pa_abs",
+                      "component_mass_flow_kg_h"
+                    ],
+                    "additionalProperties": false
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "engineering_number": {
+                "type": "integer",
+                "exclusiveMinimum": 0,
+                "maximum": 9007199254740991
+              }
+            },
+            "required": [
+              "id",
+              "service",
+              "specified_state",
+              "engineering_number"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "connections": {
+          "minItems": 4,
+          "maxItems": 4,
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,79}$"
+              },
+              "stream_id": {
+                "type": "string",
+                "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,79}$"
+              },
+              "source": {
+                "type": "object",
+                "properties": {
+                  "owner_id": {
+                    "type": "string",
+                    "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,79}$"
+                  },
+                  "port_id": {
+                    "type": "string",
+                    "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,79}$"
+                  }
+                },
+                "required": [
+                  "owner_id",
+                  "port_id"
+                ],
+                "additionalProperties": false
+              },
+              "target": {
+                "type": "object",
+                "properties": {
+                  "owner_id": {
+                    "type": "string",
+                    "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,79}$"
+                  },
+                  "port_id": {
+                    "type": "string",
+                    "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,79}$"
+                  }
+                },
+                "required": [
+                  "owner_id",
+                  "port_id"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "id",
+              "stream_id",
+              "source",
+              "target"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "solver": {
+          "type": "object",
+          "properties": {
+            "method": {
+              "type": "string",
+              "const": "topological"
+            }
+          },
+          "required": [
+            "method"
+          ],
+          "additionalProperties": false
+        },
+        "calculation": {
+          "type": "object",
+          "properties": {
+            "status": {
+              "type": "string",
+              "enum": [
+                "not_run",
+                "current",
+                "stale",
+                "failed"
+              ]
+            },
+            "input_sha256": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "pattern": "^[a-f0-9]{64}$"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          },
+          "required": [
+            "status",
+            "input_sha256"
+          ],
+          "additionalProperties": false
+        },
+        "validation": {
+          "type": "object",
+          "properties": {
+            "status": {
+              "type": "string",
+              "const": "valid"
+            },
+            "messages": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "code": {
+                    "type": "string"
+                  },
+                  "path": {
+                    "type": "string"
+                  },
+                  "severity": {
+                    "type": "string",
+                    "enum": [
+                      "error",
+                      "warning"
+                    ]
+                  },
+                  "message": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "code",
+                  "path",
+                  "severity",
+                  "message"
+                ],
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "status",
+            "messages"
+          ],
+          "additionalProperties": false
+        },
+        "presentation": {
+          "type": "object",
+          "properties": {
+            "layout": {
+              "type": "string",
+              "enum": [
+                "wide",
+                "compact"
+              ]
+            }
+          },
+          "required": [
+            "layout"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "schema_version",
+        "kind",
+        "case_id",
+        "profile",
+        "units",
+        "requirements_sha256",
+        "components",
+        "boundaries",
+        "equipment",
+        "streams",
+        "connections",
+        "solver",
+        "calculation",
+        "validation",
+        "presentation"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "schema_version": {
+          "type": "string",
           "const": "1.1"
         },
         "kind": {

@@ -1,10 +1,26 @@
 import type { Results } from '@/lib/digital-engineer/contracts';
-const number = (v: number) =>
-  new Intl.NumberFormat('en-US', { maximumFractionDigits: 8 }).format(v);
+import { formatEngineeringNumber } from '@/lib/digital-engineer/number-format';
+const number = (v: number) => formatEngineeringNumber(v, 8);
+const record = (value: unknown): value is Record<string, unknown> =>
+  typeof value === 'object' && value !== null && !Array.isArray(value);
+
+function inletEvidence(diagnostics: Record<string, unknown>) {
+  const inlet = diagnostics.inlet;
+  if (!record(inlet) || inlet.status !== 'accepted' || !record(inlet.local))
+    return 'Not available in the recorded diagnostics';
+  switch (inlet.local.status) {
+    case 'compressed_witness':
+      return 'Verified compressed liquid — lower-pressure witness';
+    case 'saturated_source_liquid':
+      return 'Verified saturated source liquid — parent equilibrium coexistence';
+    default:
+      return 'Not available in the recorded diagnostics';
+  }
+}
 export function SeparatorPumpResults({
   results,
 }: {
-  results: Extract<Results, { schema_version: '1.14' }>;
+  results: Extract<Results, { schema_version: '1.14' | '1.15' }>;
 }) {
   const pump = results.equipment.find((e) => e.type === 'pump')!;
   const separator = results.equipment.find((e) => e.type === 'equilibrium_separator_2phase')!;
@@ -16,13 +32,29 @@ export function SeparatorPumpResults({
     <section aria-label="Separator-to-pump results">
       <h3>Qualified separator-to-pump integration</h3>
       <p>
-        Qualified tuple: {pump.thermodynamics.qualification_id}. Listed reference cases only;
-        arbitrary low-pressure inputs are unsupported.
+        Qualified tuple: {pump.thermodynamics.qualification_id}. Listed reference cases only; other
+        source, pressure, flow and efficiency combinations are unsupported.
       </p>
       <p>
         Separator: {separator.model.id}@{separator.model.version}. Pump: {pump.model.id}@
         {pump.model.version}.
       </p>
+      <p>
+        Pump numerical profile:{' '}
+        {'numerical_profile' in pump.thermodynamics
+          ? 'PT200 — explicitly selected for this reference'
+          : 'Historical default'}
+        . Separator calculation: historical settings.
+      </p>
+      {'numerical_profile' in pump.thermodynamics && (
+        <p>
+          Reference:{' '}
+          {pump.thermodynamics.qualification_id.includes('BELOW')
+            ? 'Below-boundary reference'
+            : 'Above-boundary reference'}
+          . Discharge: 8 MPa absolute; efficiency: 0.8.
+        </p>
+      )}
       <dl>
         <dt>
           {separator.thermodynamics.mode === 'adiabatic'
@@ -47,7 +79,9 @@ export function SeparatorPumpResults({
       </dl>
       {context?.specification_kind === 'upstream_derived' && (
         <p>
-          Inlet phase: {context.phase}; evidence: {context.saturation}; source:{' '}
+          Inlet phase: {context.phase}. Source saturation metadata:{' '}
+          {context.saturation === 'unknown' ? 'unknown (unspecified)' : context.saturation}. Local
+          phase evidence: {inletEvidence(pump.thermodynamics.diagnostics)}. Source:{' '}
           {context.source.equipment_id} / {context.source.port_id}. Pump outlet producer: {pump.id}{' '}
           / outlet; separator lineage retained.
         </p>

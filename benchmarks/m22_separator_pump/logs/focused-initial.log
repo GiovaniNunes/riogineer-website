@@ -1,0 +1,23 @@
+PT_BUBBLE_BELOW 108 PASS
+PT_BUBBLE_ABOVE 113 PASS
+test_actual_source_contradictions (test_m22_separator_pump.M22Integration) ... test_boundaries_and_conflicts (test_m22_separator_pump.M22Integration) ... ok
+test_controlled_ps_failure_no_fallback (test_m22_separator_pump.M22Integration) ... ok
+test_exact_recipes_and_fixtures (test_m22_separator_pump.M22Integration) ... ok
+test_independent_application_paths (test_m22_separator_pump.M22Integration) ... ok
+test_labels_do_not_authorize (test_m22_separator_pump.M22Integration) ... ok
+test_private_execution_tampering (test_m22_separator_pump.M22Integration) ... ok
+test_profile_identity_and_stale (test_m22_separator_pump.M22Integration) ... ok
+test_wrong_inverse_profile_rejected (test_m22_separator_pump.M22Integration) ... ok
+
+======================================================================
+FAIL: test_actual_source_contradictions (test_m22_separator_pump.M22Integration) (source='PT_BUBBLE_BELOW', mutation='composition_changed')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/giovaninunes/Folders/RioGineer/riogineer-website/engine/tests/test_m22_separator_pump.py", line 101, in test_actual_source_contradictions
+    with self.subTest(source=row['case_id'],mutation=n['case_id']),self.assertRaises(Failure):verify(n['stream'],n['source'],n['current'])
+AssertionError: Failure not raised
+
+----------------------------------------------------------------------
+Ran 9 tests in 15.348s
+
+FAILED (failures=1)

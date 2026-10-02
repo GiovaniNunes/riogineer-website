@@ -1,0 +1,82 @@
+
+> riogineer-website@0.1.0 prebuild
+> npm run content:generate
+
+
+> riogineer-website@0.1.0 content:generate
+> node scripts/generate-content.mjs
+
+Discovered 8 MDX documents.
+
+> riogineer-website@0.1.0 build
+> next build
+
+▲ Next.js 16.3.6 (Turbopack)
+- Environments: .env.local
+⚠ Warning: Next.js inferred your workspace root, but it may not be correct.
+ We detected multiple lockfiles and selected the directory of /Users/giovaninunes/Folders/RioGineer/riogineer-website/package-lock.json as the root directory.
+ To silence this warning, set `turbopack.root` in your Next.js config, or consider removing one of the lockfiles if it's not needed.
+   See https://nextjs.org/docs/app/api-reference/config/next-config-js/turbopack#root-directory for more information.
+ Detected additional lockfiles: 
+   * /Users/giovaninunes/Folders/RioGineer/riogineer-website/.local/m22-validation/package-lock.json
+
+✓ Running next.config.mjs took 10ms
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 3.0s
+  Running TypeScript ...
+
+  We detected TypeScript in your project and reconfigured your tsconfig.json file for you.
+  The following suggested values were added to your tsconfig.json. These values can be changed to fit your project's needs:
+
+  	- include was updated to add '.next/m22-build/types/**/*.ts'
+  	- include was updated to add '.next/m22-build/dev/types/**/*.ts'
+
+  Finished TypeScript in 3.0s ...
+  Collecting page data using 7 workers ...
+  Generating static pages using 7 workers (0/41) ...
+  Generating static pages using 7 workers (10/41) 
+  Generating static pages using 7 workers (20/41) 
+  Generating static pages using 7 workers (30/41) 
+✓ Generating static pages using 7 workers (41/41) in 484ms
+  Finalizing page optimization ...
+
+Route (app)
+┌ ○ /
+├ ○ /_not-found
+├ ○ /about
+├ ƒ /api/contact
+├ ƒ /api/digital-engineer/[operation]
+├ ƒ /api/digital-engineer/approve-requirements
+├ ƒ /api/digital-engineer/interpret-specification
+├ ○ /applications
+├   /applications/[slug]
+│ ├ ● /applications/process-engineering
+│ ├ ● /applications/offshore-field-development
+│ ├ ● /applications/reservoir-engineering
+│ └ ● /applications/engineering-knowledge
+├ ○ /articles
+├ ● /articles/[slug]
+├ ○ /contact
+├ ○ /demonstrations
+├   /demonstrations/[slug]
+│ ├ ● /demonstrations/three-phase-separator
+│ ├ ● /demonstrations/process-recycles
+│ ├ ● /demonstrations/automatic-pfd-generation
+│ └ ● /demonstrations/offshore-field-development
+├ ○ /digital-engineer
+├ ○ /field-design
+├   /og/[...path]
+│ ├ ● /og/home
+│ ├ ● /og/technology
+│ ├ ● /og/applications
+│ └ ● [+14 more paths]
+├ ○ /robots.txt
+├ ○ /sitemap.xml
+└ ○ /technology
+
+
+○  (Static)   prerendered as static content
+●  (SSG)      prerendered as static HTML (uses generateStaticParams)
+ƒ  (Dynamic)  server-rendered on demand
+

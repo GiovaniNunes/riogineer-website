@@ -1,0 +1,65 @@
+test_27_source_contradictions (test_separator_pump_integration.SeparatorPumpIntegration) ... ok
+test_absent_vapor_bulk_vl (test_separator_pump_integration.SeparatorPumpIntegration) ... ok
+test_all30_fresh_evidence (test_separator_pump_integration.SeparatorPumpIntegration) ... PT_VL_HEATING_DP0.0 PASS
+PT_VL_HEATING_DP10000.0 PASS
+PT_VL_HEATING_DP1000000.0 PASS
+PT_VL_INLET_EQUAL_DP0.0 PASS
+PT_VL_INLET_EQUAL_DP10000.0 PASS
+PT_VL_INLET_EQUAL_DP1000000.0 PASS
+PT_VAPOR_INLET_COOLING_DP0.0 PASS
+PT_VAPOR_INLET_COOLING_DP10000.0 PASS
+PT_VAPOR_INLET_COOLING_DP1000000.0 PASS
+PH_FLASH_DP0.0 PASS
+PH_FLASH_DP10000.0 PASS
+PH_FLASH_DP1000000.0 PASS
+PH_HEXANE_RICH_DP0.0 PASS
+PH_HEXANE_RICH_DP10000.0 PASS
+PH_HEXANE_RICH_DP1000000.0 PASS
+PT_BUBBLE_BELOW_DP0.0 PASS
+PT_BUBBLE_BELOW_DP10000.0 PASS
+PT_BUBBLE_BELOW_DP1000000.0 PASS
+PT_BUBBLE_ABOVE_DP0.0 PASS
+PT_BUBBLE_ABOVE_DP10000.0 PASS
+PT_BUBBLE_ABOVE_DP1000000.0 PASS
+PT_DEW_BELOW_DP0.0 PASS
+PT_DEW_BELOW_DP10000.0 PASS
+PT_DEW_BELOW_DP1000000.0 PASS
+ETA0.6 PASS
+ETA1.0 PASS
+SMALL1000.0 PASS
+SCALED5.0 PASS
+SCALED17.3 PASS
+SCALED200.0 PASS
+ok
+test_execution_resolution (test_separator_pump_integration.SeparatorPumpIntegration) ... ok
+test_identity_skips_inverse (test_separator_pump_integration.SeparatorPumpIntegration) ... ok
+test_names_do_not_authorize (test_separator_pump_integration.SeparatorPumpIntegration) ... ok
+test_preservation (test_separator_pump_integration.SeparatorPumpIntegration) ... ok
+test_roundtrip_and_received_coordinates (test_separator_pump_integration.SeparatorPumpIntegration) ... ok
+test_small_exception_work_screen (test_separator_pump_integration.SeparatorPumpIntegration) ... ok
+test_stale_and_atomic_failure (test_separator_pump_integration.SeparatorPumpIntegration) ... ok
+test_unsupported_and_injected_evidence (test_separator_pump_integration.SeparatorPumpIntegration) ... ok
+test_equipment_comparison_and_source_capture (test_variable_pump_evidence.EvidenceTests) ... ok
+test_independent_freeze_and_boundary_reserve (test_variable_pump_evidence.EvidenceTests) ... ok
+test_separator_actual_outputs (test_variable_pump_evidence.EvidenceTests) ... ok
+test_frozen_comparisons_and_current_source_integrity (test_pt200_profile.ImplementationEvidence) ... ok
+test_PS_holes_never_skipped (test_pt200_profile.Policy) ... ok
+test_additive_guard_and_legacy_rejection (test_pt200_profile.Policy) ... ok
+test_ambiguity_preserved_all_profiles (test_pt200_profile.Policy) ... ok
+test_iteration_limit_real_PT_and_no_payload (test_pt200_profile.Policy) ... ok
+test_nonfinite_inputs_and_properties (test_pt200_profile.Policy) ... ok
+test_phase_guard_remains_active (test_pt200_profile.Policy) ... ok
+test_residual_discontinuity_and_fresh_failure (test_pt200_profile.Policy) ... ok
+test_settings_immutable_and_no_automatic_fallback (test_pt200_profile.Policy) ... ok
+test_wrong_nested_profile_rejects (test_pt200_profile.Policy) ... ok
+test_canonical_selection_conflicts_and_custom_settings (test_pt200_profile.Selection) ... ok
+test_provider_PT_and_caloric_profile_provenance (test_pt200_profile.Selection) ... ok
+test_real_provider_inverse_calls_and_final_settings (test_pt200_profile.Selection) ... ok
+test_current_replay (test_m21_review.SourceReplayReview) ... ok
+test_meaningful_mismatches_rejected (test_m21_review.SourceReplayReview) ... ok
+
+----------------------------------------------------------------------
+Ran 29 tests in 168.339s
+
+OK
+PASS current M20 numerical comparisons; fresh UUIDs intentionally differ

@@ -19,7 +19,7 @@ class EvidenceTests(unittest.TestCase):
         # Old production pins are verified against recovered historical bytes,
         # while immutable references remain checked in the current tree too.
         regression.historical_integrity('M19')
-        from benchmarks.m21_pt200.verify import source_verify
+        from benchmarks.m22_separator_pump.integrity import source_verify
         source_verify()
         checks=regression.current_m19()
         self.assertTrue(all(c['passed'] for c in checks))

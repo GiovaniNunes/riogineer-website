@@ -112,9 +112,10 @@ class SeparatorPumpIntegration(unittest.TestCase):
             with self.assertRaisesRegex(Failure,'work_resolution'):run(s,self.source,identity(self.source),2e6,.8)
 
     def test_preservation(self):
-        regression.preservation()
+        from benchmarks.m22_separator_pump.integrity import preservation
+        preservation()
         regression.historical_integrity('M20')
-        from benchmarks.m21_pt200.verify import source_verify
+        from benchmarks.m22_separator_pump.integrity import source_verify
         source_verify()
         baseline=json.loads((ROOT/'benchmarks/m20_separator_pump/baseline.json').read_text())
         master=(ROOT/'docs/RIOGINEER_MASTER_CONTEXT.md').read_bytes()[:baseline['master_prefix_bytes']]

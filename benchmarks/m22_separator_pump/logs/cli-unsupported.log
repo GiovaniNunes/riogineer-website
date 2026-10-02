@@ -1,0 +1,14 @@
+{
+  "error": {
+    "code": "M20_UNSUPPORTED_INPUT",
+    "message": "M22 unsupported_qualified_tuple: only the two recorded cold-source recipes at 8 MPa and efficiency 0.8 with explicit PT200 are supported",
+    "issues": [
+      {
+        "code": "M20_UNSUPPORTED_INPUT",
+        "path": "/",
+        "severity": "error",
+        "message": "M22 unsupported_qualified_tuple: only the two recorded cold-source recipes at 8 MPa and efficiency 0.8 with explicit PT200 are supported"
+      }
+    ]
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "baseline_head": "253b91472a5007e7bd4749a6751c4efbc5066e14",
+  "checks": [
+    {
+      "contract": "requirements",
+      "historical_branches": 13,
+      "current_branches": 14,
+      "historical_branches_and_definitions_unchanged": true
+    },
+    {
+      "contract": "flowsheet",
+      "historical_branches": 14,
+      "current_branches": 15,
+      "historical_branches_and_definitions_unchanged": true
+    },
+    {
+      "contract": "results",
+      "historical_branches": 18,
+      "current_branches": 19,
+      "historical_branches_and_definitions_unchanged": true
+    },
+    {
+      "contract": "validation",
+      "historical_branches": 13,
+      "current_branches": 14,
+      "historical_branches_and_definitions_unchanged": true
+    }
+  ],
+  "method": "literal structural equality of each historical branch and all shared definitions; one additive branch per contract"
+}

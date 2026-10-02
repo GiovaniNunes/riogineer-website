@@ -136,7 +136,7 @@ class Selection(unittest.TestCase):
 
 class ImplementationEvidence(unittest.TestCase):
     def test_frozen_comparisons_and_current_source_integrity(self):
-        from benchmarks.m21_pt200.verify import preservation,source_verify
+        from benchmarks.m22_separator_pump.integrity import preservation,source_verify
         from benchmarks.m21_pt200.evidence import build
         preservation();source_verify()
         result=build();self.assertEqual(result['failed_checks'],0)

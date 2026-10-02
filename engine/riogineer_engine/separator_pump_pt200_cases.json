@@ -1,0 +1,40 @@
+[
+  {
+    "qualification_id": "PT_BUBBLE_BELOW_8MPA_PT200",
+    "recipe": {
+      "feed": {
+        "temperature_K": 230.60146798619095,
+        "pressure_Pa_abs": 7000000.0,
+        "component_mass_flow_kg_h": {
+          "methane": 2887.704,
+          "n_hexane": 15511.5648
+        }
+      },
+      "mode": "specified_temperature",
+      "separator_pressure_Pa_abs": 6000000.0,
+      "separator_temperature_K": 231.06755435138734
+    },
+    "outlet_pressure_Pa_abs": 8000000.0,
+    "isentropic_efficiency": 0.8,
+    "numerical_profile": "pr_high_accuracy_pt200@1"
+  },
+  {
+    "qualification_id": "PT_BUBBLE_ABOVE_8MPA_PT200",
+    "recipe": {
+      "feed": {
+        "temperature_K": 230.7220225690974,
+        "pressure_Pa_abs": 7000000.0,
+        "component_mass_flow_kg_h": {
+          "methane": 2887.704,
+          "n_hexane": 15511.5648
+        }
+      },
+      "mode": "specified_temperature",
+      "separator_pressure_Pa_abs": 6000000.0,
+      "separator_temperature_K": 231.16755435138973
+    },
+    "outlet_pressure_Pa_abs": 8000000.0,
+    "isentropic_efficiency": 0.8,
+    "numerical_profile": "pr_high_accuracy_pt200@1"
+  }
+]

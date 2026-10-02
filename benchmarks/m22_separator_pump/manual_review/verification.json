@@ -1,0 +1,64 @@
+{
+  "date": "2026-10-02",
+  "timezone": "America/Sao_Paulo",
+  "head": "253b91472a5007e7bd4749a6751c4efbc5066e14",
+  "branch": "main",
+  "index_empty": true,
+  "fresh_case_reproduction": {
+    "cases": 2,
+    "checks": 221,
+    "failures": 0,
+    "result_payload_equality": true,
+    "excluded_keys": [
+      "run_id"
+    ],
+    "engine_and_schema_unchanged": true
+  },
+  "frontend": {
+    "final": 13,
+    "files": 3,
+    "initial_passed": 11,
+    "initial_failed": 2,
+    "correction": "Scope limitation-text assertion to visible section; raw JSON is intentionally unchanged."
+  },
+  "browser": {
+    "passed": 2,
+    "services": "Existing ports 3122/8122; webServer disabled; no starts/stops"
+  },
+  "gates": {
+    "types": "passed: tsc --noEmit",
+    "lint": "passed: affected paths",
+    "format": "passed: affected paths",
+    "diff": "passed"
+  },
+  "prior_full_suites_not_rerun": {
+    "python": 693,
+    "frontend": 280,
+    "browser": 42
+  },
+  "preserved": {
+    "all_prior_evidence": true,
+    "all_backend_and_schema_source": true,
+    "docs_prefixes": true,
+    "configuration_bytes": true,
+    "configuration_sha256": {
+      "next-env.d.ts": "0f70629890b72a0a82e91972cc032c04b658b26c265373cb711cf576bfbf8fcc",
+      "tsconfig.json": "e2a28ab5d02bb5b555a28523be8786d9dc3a400fe125f14602261e24a6288126"
+    }
+  },
+  "validation_copy_synced": [
+    "src/app/digital-engineer/separator-pump-results.tsx",
+    "src/app/digital-engineer/workspace.tsx",
+    "src/lib/digital-engineer/number-format.ts",
+    "tests/e2e/m22-separator-pump.spec.ts",
+    "tests/m22-manual-review.test.ts",
+    "tests/m22-separator-pump.test.ts"
+  ],
+  "backend_restart_required": false,
+  "refresh_sufficient": true,
+  "acceptance": "correction review pending",
+  "commit": false,
+  "push": false,
+  "deploy": false,
+  "service_shutdown": false
+}
