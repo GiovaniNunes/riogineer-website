@@ -21,29 +21,39 @@ it('M20 all 30 runtime results round-trip through additive TypeScript contract',
 });
 it('M20 build identity, four streams and upstream changes invalidate exports', () => {
   engineeringRequirementsSchema.parse(fixture);
-  const f = flowsheetSchema.parse(
-    JSON.parse(
-      execFileSync(
-        'engine/.venv/bin/python',
-        [
-          '-B',
-          '-c',
-          'import json;from riogineer_engine.milestone20 import requirements;from riogineer_engine.core import build_flowsheet;print(json.dumps(build_flowsheet(requirements())))',
-        ],
-        { env: { ...process.env, PYTHONPATH: 'engine' }, encoding: 'utf8' },
-      ),
+  const runtime = JSON.parse(
+    execFileSync(
+      'engine/.venv/bin/python',
+      [
+        '-B',
+        '-c',
+        'import json;from riogineer_engine.milestone20 import requirements;from riogineer_engine.core import build_flowsheet,calculate;f=build_flowsheet(requirements());print(json.dumps(dict(flowsheet=f,result=calculate(f))))',
+      ],
+      { env: { ...process.env, PYTHONPATH: 'engine' }, encoding: 'utf8' },
     ),
   );
+  const f = flowsheetSchema.parse(runtime.flowsheet);
   expect(f.streams).toHaveLength(4);
   const evidence = JSON.parse(
     readFileSync('benchmarks/m20_separator_pump/implementation.json', 'utf8'),
   );
-  const r = resultsSchema.parse(
+  const archived = resultsSchema.parse(
     evidence.cases.find((c: { case_id: string }) => c.case_id === 'PH_FLASH_DP1000000.0').result,
   );
   let state = initialWorkflow(JSON.stringify(fixture));
   state = workflowReducer(state, { type: 'validated', revision: state.revision });
   state = workflowReducer(state, { type: 'built', revision: state.revision, flowsheet: f });
+  // Frozen historical results still parse, but cannot stand in for current-source results.
+  state = workflowReducer(state, {
+    type: 'calculated',
+    revision: state.revision,
+    results: archived,
+  });
+  expect(resultsAreCurrent(state)).toBe(false);
+  expect(state.validated).toBe(false);
+  state = workflowReducer(state, { type: 'validated', revision: state.revision });
+  state = workflowReducer(state, { type: 'built', revision: state.revision, flowsheet: f });
+  const r = resultsSchema.parse(runtime.result);
   state = workflowReducer(state, { type: 'calculated', revision: state.revision, results: r });
   expect(resultsAreCurrent(state)).toBe(true);
   const changed = structuredClone(fixture);
@@ -51,4 +61,4 @@ it('M20 build identity, four streams and upstream changes invalidate exports', (
   state = workflowReducer(state, { type: 'edit', draft: JSON.stringify(changed) });
   expect(resultsAreCurrent(state)).toBe(false);
   expect(state.validated).toBe(false);
-});
+}, 30000);

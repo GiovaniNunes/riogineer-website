@@ -1,0 +1,57 @@
+{
+  "status": "accepted_prototype",
+  "stage": "complete",
+  "profile": {
+    "identifier": "pr_high_accuracy_pt200@1",
+    "settings": {
+      "flash_max_iterations": 200,
+      "stability_max_iterations": 100,
+      "rr_max_iterations": 200,
+      "fugacity_tolerance": 1e-12,
+      "material_tolerance": 1e-10,
+      "profile": "high_accuracy",
+      "numerical_profile": "pr_high_accuracy_pt200@1"
+    },
+    "fallback": null
+  },
+  "production_support": false,
+  "metrics": {
+    "identity": false,
+    "delta_h_s_J_mol": 164.6116442682178,
+    "delta_h_J_mol": 205.7645553353068,
+    "h_target_J_mol": -25196.99309282405,
+    "W_target_W": 20564.52756883181,
+    "W_recovered_W": 20564.527568835445,
+    "target_recovered_residual_J_mol": 3.637978807091713e-11,
+    "reconstructed_efficiency": 0.7999999999998656,
+    "raw_efficiency_diagnostic": 0.7999999999998656,
+    "delta_s_J_mol_K": 0.1774474706487723,
+    "work_error_budget_J_mol": 2.5059975074098333e-06,
+    "relative_work_budget": 1.217895620227763e-08,
+    "work_resolved": true,
+    "component_in_mol_s": [
+      49.94209320187919,
+      49.999937802071926
+    ],
+    "component_out_mol_s": [
+      49.94209320187919,
+      49.999937802071926
+    ],
+    "component_mass_in_kg_s": [
+      0.8012110128191074,
+      4.308762640071157
+    ],
+    "component_mass_out_kg_s": [
+      0.8012110128191074,
+      4.308762640071157
+    ],
+    "mass_residual_kg_s": 0.0,
+    "energy_identity_residual_W": -1.4551915228366852e-10
+  },
+  "energy": {
+    "pump_residual_W": -1.4551915228366852e-10,
+    "pump_allowance_W": 0.00012540222005517012,
+    "integrated_residual_W": 1.1510792319313623e-11,
+    "integrated_allowance_W": 0.00022547438420692683
+  }
+}

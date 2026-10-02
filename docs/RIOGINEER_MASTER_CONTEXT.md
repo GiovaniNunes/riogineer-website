@@ -2127,3 +2127,151 @@ The user authorized the M20/prerequisite commit and normal push to `origin/main`
 No deployment, M21 work, expanded qualification or service shutdown. See
 `MILESTONE_20.md` for the exact inventory, final acceptance details and fresh-conversation
 handoff. Broader operation and the known 8 MPa failures require separate future work.
+
+## Pre-M21 — configurable separator-to-pump study (2026-10-01)
+
+**Decision D for extension into the investigated 8 MPa region; M21 remains
+unimplemented.** M20 still supports exactly its 30 accepted combinations. The
+study evaluates 64 entries (62 distinct combinations): 55 numerical acceptances
+including 30 anchors and two repeated controls, seven exclusions and two unresolved
+production paths. Additional exact candidates do not establish a configurable
+envelope. Independent source qualification remains separate from pump and
+execution/provenance qualification; a nearby 355 K source produces no liquid.
+
+Both 8 MPa PS failures reproduce at 461.9047619047619 and 466.6666666666667 K:
+initial stability converges, but PT equilibrium exhausts 100 iterations above the
+fixed fugacity tolerance. Independent liquid roots near 232 K and isolated local
+prototypes agree; default production PS remains rejected. Existing PH connected
+interval semantics explain successful PH diagnostics without repairing PS.
+Isolated 200/400-iteration PT scans resolve the sampled holes (maximum 152),
+without changing production or tolerances. Solver/control/guard qualification
+and source-family boundary evidence remain prerequisites to broader operation.
+
+See `PRE_MILESTONE_21_CONFIGURABLE_SEPARATOR_PUMP_QUALIFICATION.md` and
+`benchmarks/configurable_separator_pump/` for independent references, ledger,
+prototypes, reproduction, guards and limitations. Historical evidence, production,
+HEAD/index and both unrelated configuration files are preserved; only this context
+is appended. No commit, push, deployment or service change. Numerical phase/path
+sampling does not establish global uniqueness, universal convergence, NPSH,
+cavitation safety, hydraulic sizing or electrical power.
+
+### PRE-M21 — PT iteration-budget qualification (2026-10-01)
+
+Study-only extension: `PRE_MILESTONE_21_PT_ITERATION_BUDGET_QUALIFICATION.md` and
+`benchmarks/pt_iteration_budget/`. Decision A: explicit opt-in
+`pr_high_accuracy_pt200@1` qualified for the predeclared finite matrix, ready for
+separately authorized implementation; legacy100 defaults remain unchanged, no
+400 fallback and no configurable operating envelope. Caps 200/400 complete all
+70 PT inputs, six inverse anchors and 12 prototype chains; legacy100 completes
+41/70, 6/6 and 6/12. Both actual 8 MPa cold-source chains succeed in the prototype
+and remain excluded by production M20; all original 30 combinations remain admitted.
+Full-chain peak is 199 equilibrium iterations (PH sample 469.29133858267716 K),
+leaving only one iteration of observed headroom at 200. Normal successful PT traces
+remain exact; 400 adds no recovered cases. Final independent ledger: 7,895 checks,
+5,857 scalar comparisons, zero unresolved failures. Preserve the 195 original named
+reference failures: a separate independent PIP/volume/density audit identifies six
+swapped reference phase names without changing phase properties or tolerances.
+Final focused tests: 14 passed; existing solver regressions: 273/274 passed, sole
+failure the pre-existing M20 historical next-env hash assertion. Current config bytes,
+production and all prerequisite artifacts remain unchanged; master content before
+this entry is preserved. Source/settings identity, full-chain guards, timing samples,
+raw failures and read-only reproduction are frozen in the separate extension.
+No staging, commit, push, deployment, service or production changes.
+
+## M21 — explicit opt-in PT200 infrastructure (2026-10-01; review pending)
+
+Production implementation adds immutable `pr_high_accuracy_pt200@1` selection via
+provider PT/caloric/PS/PH APIs, standalone PS/PH and explicit expected-profile pump
+inverse guards. Named settings carry exact provenance; unknown/conflicting selections
+reject. Legacy omitted defaults and explicit-None behavior are preserved. No shared
+PT/EOS/stability/RR/caloric algorithm, tolerance, inverse policy or equipment caller
+selection changes. No named PT400, retries, fallback, pressure-triggered selection,
+UI selector, new equipment model, public schema change or expanded admission.
+
+Real production APIs reproduce the frozen 70 PT / six inverse / 12-chain finite
+qualification. PT200 accepts all; legacy100 retains 41/70, 6/6 and 6/12. Both 8 MPa
+chains succeed numerically and remain rejected by M20. All 30 admitted M20 workflows
+pass 1,680 independent checks. M21 ledger: 4,941 checks, 3,679 scalar comparisons,
+zero failures; separate 10,248 compatibility/propagation checks pass. All 140 PT
+runs retain frozen numerical payloads/iteration traces after accounting only for
+explicit named provenance. Peak remains 199 iterations, one iteration below the
+cap; no continuous envelope or universal convergence claim.
+
+Full Python run: 680 tests, eight assertion failures and one sandbox HTTP setup
+error. The explicit-None compatibility defect was fixed; 74 affected tests pass,
+and HTTP retry passes two tests. Seven historical source/result/config assertions
+across three methods remain failing and unchanged, separately audited against a
+new current-source manifest. Full frontend run was 276/277; the maintained freshness
+test now distinguishes archived stale data from actual current calculations, with
+six affected tests and two final-source tests passing. Contracts, lint, types and
+isolated build pass; no browser/user acceptance claimed. Source fingerprints are
+mapped honestly; frozen references and raw phase-audit failures are preserved.
+
+See `MILESTONE_21.md` and `benchmarks/m21_pt200/` for APIs, exact commands, intermediate
+failures, current-source adapters, inventory and review items. All prerequisite
+bytes, existing master prefix, unrelated configurations, HEAD and index are preserved.
+Implementation review/acceptance remains pending. No commit, push, deployment or
+running-service change. Equipment integration or broader qualification requires
+separate authorization.
+
+
+## M21 — final implementation review (2026-10-02; acceptance pending)
+
+Review found no further production correction. Maintained three historical-identity
+methods, strengthened full source-replay provenance/envelope checks and M20 comparison
+length checks, and added mutation tests. Complete ledger: 169 assertions, 41 obsolete
+historical/current comparisons, including 34 masked by earlier failures. Historical
+expectations and original failed logs are preserved. Current calculations now have
+separate frozen-reference numerical, current freshness and review-start preservation
+coverage. Recovered 103/104 historical pins (all production), verified a coherent
+36-source M19 snapshot, and reproduced all 30 old M20 semantic identities. The old
+next-env snapshot is unavailable; complete archival verification still explicitly
+fails. No historical numerical solver rerun is claimed.
+
+Focused Python run: 29 methods passed. One standard full Python discovery run after
+stabilization: 684 methods passed in 841.731 seconds, zero failures/errors,
+including temporary HTTP fixtures. Counts overlap and are not cumulative. Source
+replay, contracts, lint, TypeScript and preservation pass. Repository format check
+fails only on pre-existing tsconfig formatting; explicitly protected bytes are unchanged.
+Frontend test is unchanged, so no repeat frontend suite/browser/build was required.
+Original full failures and affected reruns remain separately recorded.
+
+Unchanged production source identity supports reuse of 4,941 independent checks
+(3,679 scalar), 10,248 compatibility/propagation checks, and the finite 70 PT / six
+anchor / 12-chain scope. Fresh M20 runs pass 1,680 checks across 30 workflows. Peak
+remains 199 iterations; legacy defaults and application exclusion of 8 MPa remain.
+Both prerequisite studies, frozen evidence, original logs, configs, HEAD and index
+are preserved. See MILESTONE_21.md and benchmarks/m21_pt200/review/ for the full
+assertion ledger, reproduction procedures, verification and exact inventory.
+Ready for user acceptance with disclosed limitations; user acceptance and authorized
+closeout are not recorded. No commit, push, deployment, service or equipment change.
+
+## M21 — user acceptance (2026-10-02; America/Sao_Paulo)
+
+Giovani Nunes accepts the documented M21 implementation and completed review, based
+on the presented evidence. This is user acceptance of internal numerical infrastructure,
+not browser acceptance, independent code inspection by the user or user-executed
+numerical verification. No browser acceptance is required or claimed.
+
+Recorded evidence remains 684 passed methods in one full Python run and 29 passed
+methods in a separate focused run; totals overlap and are not cumulative. Three
+historical-identity methods were maintained. The ledger covers 169 assertions,
+including 41 obsolete comparisons and 34 masked mismatches. Independent evidence
+remains 4,941 checks (3,679 scalar), 10,248 compatibility/propagation checks and
+1,680 checks across 30 M20 workflows. Original failures and corrections are preserved.
+Historical byte/semantic reconstruction is separate from numerical reproduction;
+the unavailable historical next-env snapshot and pre-existing tsconfig formatting
+remain disclosed limitations. Both current configuration files are preserved and
+excluded from the commit.
+
+PT200 remains explicit opt-in `pr_high_accuracy_pt200@1` through production numerical
+APIs. Historical defaults and M20 application admission are unchanged; there is no
+automatic fallback/escalation or continuous operating-envelope claim. Finite scope
+remains 70 PT inputs, six inverse anchors and 12 chains, with an observed peak of 199
+iterations. The 8 MPa chains succeed numerically but remain excluded from application
+workflows. Broader equipment integration requires a separately defined next milestone.
+
+Documentation closeout, exact inventory staging, a new commit and normal push to
+verified origin/main are authorized. See MILESTONE_21.md and
+benchmarks/m21_pt200/closeout/inventory.json. Earlier pending-acceptance entries are
+preserved as history. No deployment, M22 work or running-service changes are included.

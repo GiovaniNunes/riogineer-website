@@ -15,6 +15,7 @@ from riogineer_engine.separator_pump_process import ExecutionContext
 ROOT=Path(__file__).resolve().parents[2]
 sys.path.insert(0,str(ROOT))
 from benchmarks.low_pressure_separator_pump.phase_contract.negatives import cases as negatives
+from benchmarks.m21_pt200.review import regression
 
 class SeparatorPumpIntegration(unittest.TestCase):
     @classmethod
@@ -23,12 +24,17 @@ class SeparatorPumpIntegration(unittest.TestCase):
         cls.source=cls.sources['PH_FLASH']['result']
 
     def test_all30_fresh_evidence(self):
-        evidence=json.loads((ROOT/'benchmarks/m20_separator_pump/implementation.json').read_text())
+        # Archived results retain their original verified source identity.
+        evidence=regression.archived_m20_semantics()
         self.assertEqual(evidence['failed_checks'],0)
         self.assertEqual({r['case_id'] for r in evidence['cases']},{r['qualification_id'] for r in CASES})
         for r in evidence['cases']:
             self.assertTrue(all(c['passed'] for c in r['checks']))
-            self.assertEqual(r['result']['input_sha256'],semantic_hash(build_flowsheet(requirements(r['case_id']))))
+        # Current identity belongs to freshly calculated current results. The adapter
+        # also checks all 30 cases against the frozen independent numerical oracle.
+        current=regression.current_m20()
+        self.assertEqual(current['comparison_count'],1680)
+        self.assertEqual(current['failed_checks'],0)
 
     def test_27_source_contradictions(self):
         for row in negatives(self.source):
@@ -106,12 +112,12 @@ class SeparatorPumpIntegration(unittest.TestCase):
             with self.assertRaisesRegex(Failure,'work_resolution'):run(s,self.source,identity(self.source),2e6,.8)
 
     def test_preservation(self):
+        regression.preservation()
+        regression.historical_integrity('M20')
+        from benchmarks.m21_pt200.verify import source_verify
+        source_verify()
         baseline=json.loads((ROOT/'benchmarks/m20_separator_pump/baseline.json').read_text())
-        paths=baseline['sha256']
-        protected=[p for p in paths if p.startswith('benchmarks/low_pressure_separator_pump/') or p.startswith('PRE_MILESTONE_20_') or p in ['next-env.d.ts','tsconfig.json'] or (p.startswith('engine/riogineer_engine/') and p not in ['engine/riogineer_engine/core.py','engine/riogineer_engine/network.py'])]
-        for p in protected:
-            with self.subTest(p):self.assertEqual(hashlib.sha256((ROOT/p).read_bytes()).hexdigest(),paths[p])
         master=(ROOT/'docs/RIOGINEER_MASTER_CONTEXT.md').read_bytes()[:baseline['master_prefix_bytes']]
-        self.assertEqual(hashlib.sha256(master).hexdigest(),paths['docs/RIOGINEER_MASTER_CONTEXT.md'])
+        self.assertEqual(hashlib.sha256(master).hexdigest(),baseline['sha256']['docs/RIOGINEER_MASTER_CONTEXT.md'])
 
 if __name__=='__main__':unittest.main()

@@ -1,0 +1,14 @@
+test_PS_holes_never_skipped (benchmarks.pt_iteration_budget.test_budget.Policy) ... ok
+test_additive_guard_and_legacy_rejection (benchmarks.pt_iteration_budget.test_budget.Policy) ... ok
+test_ambiguity_preserved_all_profiles (benchmarks.pt_iteration_budget.test_budget.Policy) ... ok
+test_iteration_limit_real_PT_and_no_payload (benchmarks.pt_iteration_budget.test_budget.Policy) ... ok
+test_nonfinite_inputs_and_properties (benchmarks.pt_iteration_budget.test_budget.Policy) ... ok
+test_phase_guard_remains_active (benchmarks.pt_iteration_budget.test_budget.Policy) ... ok
+test_residual_discontinuity_and_fresh_failure (benchmarks.pt_iteration_budget.test_budget.Policy) ... ok
+test_settings_immutable_and_no_automatic_fallback (benchmarks.pt_iteration_budget.test_budget.Policy) ... ok
+test_wrong_nested_profile_rejects (benchmarks.pt_iteration_budget.test_budget.Policy) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 1.138s
+
+OK

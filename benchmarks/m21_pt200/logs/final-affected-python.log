@@ -1,0 +1,91 @@
+test_frozen_comparisons_and_current_source_integrity (test_pt200_profile.ImplementationEvidence) ... ok
+test_PS_holes_never_skipped (test_pt200_profile.Policy) ... ok
+test_additive_guard_and_legacy_rejection (test_pt200_profile.Policy) ... ok
+test_ambiguity_preserved_all_profiles (test_pt200_profile.Policy) ... ok
+test_iteration_limit_real_PT_and_no_payload (test_pt200_profile.Policy) ... ok
+test_nonfinite_inputs_and_properties (test_pt200_profile.Policy) ... ok
+test_phase_guard_remains_active (test_pt200_profile.Policy) ... ok
+test_residual_discontinuity_and_fresh_failure (test_pt200_profile.Policy) ... ok
+test_settings_immutable_and_no_automatic_fallback (test_pt200_profile.Policy) ... ok
+test_wrong_nested_profile_rejects (test_pt200_profile.Policy) ... ok
+test_canonical_selection_conflicts_and_custom_settings (test_pt200_profile.Selection) ... ok
+test_provider_PT_and_caloric_profile_provenance (test_pt200_profile.Selection) ... ERROR
+test_real_provider_inverse_calls_and_final_settings (test_pt200_profile.Selection) ... ok
+test_analytic_alpha_derivative_frozen (test_pr_caloric.CaloricTests) ... ok
+test_analytic_mixture_attraction_derivative_frozen (test_pr_caloric.CaloricTests) ... ok
+test_analytic_pure_attraction_derivative_frozen (test_pr_caloric.CaloricTests) ... ok
+test_complete_frozen_comparison_and_readonly_reference (test_pr_caloric.CaloricTests) ... ok
+test_component_ideal_h_s_integrals_frozen (test_pr_caloric.CaloricTests) ... ok
+test_consistent_reference_shift (test_pr_caloric.CaloricTests) ... ok
+test_cp_out_of_range_no_partial_results (test_pr_caloric.CaloricTests) ... ok
+test_dataset_provenance_immutable_and_exact (test_pr_caloric.CaloricTests) ... ok
+test_determinism_is_independent_of_call_order (test_pr_caloric.CaloricTests) ... ok
+test_exact_single_component_ids (test_pr_caloric.CaloricTests) ... ok
+test_frozen_temperature_sensitivity (test_pr_caloric.CaloricTests) ... ok
+test_ideal_mixing_pressure_and_reference (test_pr_caloric.CaloricTests) ... ok
+test_invalid_composition (test_pr_caloric.CaloricTests) ... ok
+test_invalid_phase_and_root (test_pr_caloric.CaloricTests) ... ok
+test_invalid_temperature_pressure (test_pr_caloric.CaloricTests) ... ok
+test_low_pressure_limits (test_pr_caloric.CaloricTests) ... ok
+test_manual_comparison_output_and_relative_error (test_pr_caloric.CaloricTests) ... ok
+test_methane_cp_frozen (test_pr_caloric.CaloricTests) ... ok
+test_missing_and_invalid_cp_data (test_pr_caloric.CaloricTests) ... ok
+test_n_hexane_cp_frozen (test_pr_caloric.CaloricTests) ... ok
+test_nonconvergence_propagates_without_caloric_values (test_pr_caloric.CaloricTests) ... ok
+test_nonfinite_intermediate_not_published (test_pr_caloric.CaloricTests) ... ok
+test_numerical_guards_abort_without_partial_properties (test_pr_caloric.CaloricTests) ... ok
+test_offline_production_has_no_benchmark_or_library_runtime (test_pr_caloric.CaloricTests) ... ok
+test_opt_in_capabilities (test_pr_caloric.CaloricTests) ... ok
+test_phase_mixture_ideal_h_frozen (test_pr_caloric.CaloricTests) ... ok
+test_phase_mixture_ideal_s_frozen (test_pr_caloric.CaloricTests) ... ok
+test_reordered_component_ids (test_pr_caloric.CaloricTests) ... ok
+test_residual_h_s_frozen (test_pr_caloric.CaloricTests) ... ok
+test_single_phase_semantics (test_pr_caloric.CaloricTests) ... ok
+test_total_phase_h_s_frozen (test_pr_caloric.CaloricTests) ... ok
+test_two_phase_aggregation_and_flow (test_pr_caloric.CaloricTests) ... ok
+test_units_and_invalid_helpers (test_pr_caloric.CaloricTests) ... ok
+test_unqualified_bips_and_provenance (test_pr_caloric.CaloricTests) ... ok
+test_unsupported_component_not_dropped_even_zero (test_pr_caloric.CaloricTests) ... ok
+test_all_27_independent_nearby_states (test_pr_flash.FlashTests) ... ok
+test_bip_identity_absence_and_validation (test_pr_flash.FlashTests) ... ok
+test_call_history_and_thread_isolation (test_pr_flash.FlashTests) ... ok
+test_cases_abc_frozen (test_pr_flash.FlashTests) ... ok
+test_exp_and_extreme_numerical_failure (test_pr_flash.FlashTests) ... ok
+test_independent_returned_equilibrium_closure (test_pr_flash.FlashTests) ... ok
+test_invalid_composition_and_order (test_pr_flash.FlashTests) ... ok
+test_invalid_temperature_pressure (test_pr_flash.FlashTests) ... ok
+test_m7_molar_projection_adapter_is_explicit (test_pr_flash.FlashTests) ... ok
+test_nonconvergence_taxonomy_and_no_valid_last_iterate (test_pr_flash.FlashTests) ... ok
+test_nonzero_bip_independent (test_pr_flash.FlashTests) ... ok
+test_permutation_and_immutable_inputs (test_pr_flash.FlashTests) ... ok
+test_pressure_scan_independent (test_pr_flash.FlashTests) ... ok
+test_provider_registry_and_scope (test_pr_flash.FlashTests) ... ok
+test_runtime_dependency_isolation (test_pr_flash.FlashTests) ... ok
+test_temperature_pressure_composition_sensitivity (test_pr_flash.FlashTests) ... ok
+test_unstable_no_root_wilson_recovers_via_qualified_restart (test_pr_flash.FlashTests) ... ok
+test_water_and_unknown_components_not_removed (test_pr_flash.FlashTests) ... ok
+test_wilson_is_only_initialization (test_pr_flash.FlashTests) ... ok
+test_endpoint_tendencies_are_not_stability (test_pr_flash.RRTests) ... ok
+test_frozen_K_isolated (test_pr_flash.RRTests) ... ok
+test_invalid_domains (test_pr_flash.RRTests) ... ok
+test_iteration_failure (test_pr_flash.RRTests) ... ok
+test_common_tangent (test_pr_flash.StabilityTests) ... ok
+test_frozen_classifications_and_tpd (test_pr_flash.StabilityTests) ... ok
+test_nonconvergence_never_classifies (test_pr_flash.StabilityTests) ... ok
+
+======================================================================
+ERROR: test_provider_PT_and_caloric_profile_provenance (test_pt200_profile.Selection)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/giovaninunes/Folders/RioGineer/riogineer-website/engine/tests/test_pt200_profile.py", line 110, in test_provider_PT_and_caloric_profile_provenance
+    self.assertEqual(fn(s,BIP,None).status,'invalid_input')
+  File "/Users/giovaninunes/Folders/RioGineer/riogineer-website/engine/riogineer_engine/property_packages.py", line 60, in flash_PT
+    return flash_pt(state,bip,resolve_pt_settings(numerical_profile,settings))
+  File "/Users/giovaninunes/Folders/RioGineer/riogineer-website/engine/riogineer_engine/pr_flash.py", line 177, in flash_pt
+    settings.validate()
+AttributeError: 'NoneType' object has no attribute 'validate'
+
+----------------------------------------------------------------------
+Ran 74 tests in 11.284s
+
+FAILED (errors=1)

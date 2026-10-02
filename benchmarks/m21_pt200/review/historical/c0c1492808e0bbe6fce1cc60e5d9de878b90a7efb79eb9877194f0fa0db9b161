@@ -1,0 +1,4554 @@
+{
+  "cases": [
+    {
+      "case_id": "a847d7ff8d40646c3eb748e17b00916fc5c53e8345f9e68fdbe547e14f9891d8",
+      "inputs": {
+        "P": 299970.0,
+        "T": 350.0,
+        "z": [
+          0.0077448171764516885,
+          0.9922551828235483
+        ]
+      },
+      "kind": "witness",
+      "result": {
+        "H_eq_J_mol": -20836.749109055145,
+        "H_eq_direct_J_mol": -20836.749109055112,
+        "PT_diagnostics": {
+          "PT_SS_TOL": 1e-26,
+          "error": 2.6285091880996995e-28,
+          "iterations": 6,
+          "stability_entry": "FlashVL.flash_TP_stability_test -> stability_test_Michelsen"
+        },
+        "P_Pa_abs": 299970.0,
+        "S_eq_J_mol_K": -59.37947110022791,
+        "S_eq_direct_J_mol_K": -59.37947110022779,
+        "T_K": 350.0,
+        "beta": 2.5084481903844523e-06,
+        "classification": "vapor_liquid",
+        "ln_fugacity_residual": [
+          -1.2372047830666588e-14,
+          1.0075273948473296e-14
+        ],
+        "material_residual": [
+          -8.673617379884035e-19,
+          -1.1102230246251565e-16
+        ],
+        "phases": {
+          "liquid": {
+            "MW_kg_kmol": 85.63229143459226,
+            "Z": 0.014351468926918414,
+            "composition": [
+              0.007743458465051426,
+              0.9922565415349485
+            ],
+            "direct_h_J_mol": -20836.812207197803,
+            "direct_s_J_mol_K": -59.3796461067341,
+            "h_J_mol": -20836.812207197836,
+            "h_ig_J_mol": 7865.395951566642,
+            "h_res_J_mol": -28702.20815876448,
+            "library_minus_direct_h_J_mol": -3.2741809263825417e-11,
+            "s_J_mol_K": -59.37964610673422,
+            "s_ig_J_mol_K": 15.634474222795342,
+            "s_res_J_mol_K": -75.01412032952956
+          },
+          "vapor": {
+            "MW_kg_kmol": 47.64469848098682,
+            "Z": 0.9649213076186015,
+            "composition": [
+              0.5493976195794531,
+              0.4506023804205468
+            ],
+            "direct_h_J_mol": 4317.441697926437,
+            "direct_s_J_mol_K": 10.387194995160138,
+            "h_J_mol": 4317.441697926435,
+            "h_ig_J_mol": 4615.725125536801,
+            "h_res_J_mol": -298.2834276103663,
+            "library_minus_direct_h_J_mol": -1.8189894035458565e-12,
+            "s_J_mol_K": 10.387194995160103,
+            "s_ig_J_mol_K": 10.950483082904155,
+            "s_res_J_mol_K": -0.5632880877440506
+          }
+        },
+        "z": [
+          0.0077448171764516885,
+          0.9922551828235483
+        ]
+      }
+    },
+    {
+      "case_id": "071e12b5b7b9960f0e2a2a419ba21c2aacb0ed6a6c0c8bc8974b87e9bcd56f13",
+      "inputs": {
+        "P": 309969.0,
+        "T": 350.00412608129585,
+        "z": [
+          0.0077448171764516885,
+          0.9922551828235483
+        ]
+      },
+      "kind": "witness",
+      "result": {
+        "H_eq_J_mol": -20835.392038949776,
+        "H_eq_direct_J_mol": -20835.39203894978,
+        "PT_diagnostics": {
+          "PT_SS_TOL": 1e-26,
+          "error": 0.0,
+          "iterations": 0,
+          "stability_entry": "FlashVL.flash_TP_stability_test -> stability_test_Michelsen"
+        },
+        "P_Pa_abs": 309969.0,
+        "S_eq_J_mol_K": -59.379571176321896,
+        "S_eq_direct_J_mol_K": -59.37957117632179,
+        "T_K": 350.00412608129585,
+        "beta": 0.0,
+        "classification": "single_liquid",
+        "ln_fugacity_residual": [],
+        "material_residual": [
+          0.0,
+          0.0
+        ],
+        "phases": {
+          "liquid": {
+            "MW_kg_kmol": 85.63219614468348,
+            "Z": 0.014829137525544768,
+            "composition": [
+              0.0077448171764516885,
+              0.9922551828235483
+            ],
+            "direct_h_J_mol": -20835.39203894978,
+            "direct_s_J_mol_K": -59.37957117632179,
+            "h_J_mol": -20835.392038949776,
+            "h_ig_J_mol": 7866.053140707187,
+            "h_res_J_mol": -28701.445179656963,
+            "library_minus_direct_h_J_mol": 3.637978807091713e-12,
+            "s_J_mol_K": -59.379571176321896,
+            "s_ig_J_mol_K": 15.363775095496498,
+            "s_res_J_mol_K": -74.7433462718184
+          }
+        },
+        "z": [
+          0.0077448171764516885,
+          0.9922551828235483
+        ]
+      }
+    },
+    {
+      "case_id": "8a5a915c05e43e85eba3ffcc03b4652bfc2bee152f2270eed1d3b62ba219bbaa",
+      "inputs": {
+        "P": 309969.0,
+        "T": 350.0057765810378,
+        "z": [
+          0.0077448171764516885,
+          0.9922551828235483
+        ]
+      },
+      "kind": "witness",
+      "result": {
+        "H_eq_J_mol": -20835.043980048376,
+        "H_eq_direct_J_mol": -20835.04398004836,
+        "PT_diagnostics": {
+          "PT_SS_TOL": 1e-26,
+          "error": 0.0,
+          "iterations": 0,
+          "stability_entry": "FlashVL.flash_TP_stability_test -> stability_test_Michelsen"
+        },
+        "P_Pa_abs": 309969.0,
+        "S_eq_J_mol_K": -59.378576736385945,
+        "S_eq_direct_J_mol_K": -59.378576736385874,
+        "T_K": 350.0057765810378,
+        "beta": 0.0,
+        "classification": "single_liquid",
+        "ln_fugacity_residual": [],
+        "material_residual": [
+          0.0,
+          0.0
+        ],
+        "phases": {
+          "liquid": {
+            "MW_kg_kmol": 85.63219614468348,
+            "Z": 0.014829111294561947,
+            "composition": [
+              0.0077448171764516885,
+              0.9922551828235483
+            ],
+            "direct_h_J_mol": -20835.04398004836,
+            "direct_s_J_mol_K": -59.378576736385874,
+            "h_J_mol": -20835.043980048376,
+            "h_ig_J_mol": 7866.319289621895,
+            "h_res_J_mol": -28701.36326967027,
+            "library_minus_direct_h_J_mol": -1.8189894035458565e-11,
+            "s_J_mol_K": -59.378576736385945,
+            "s_ig_J_mol_K": 15.3645355102097,
+            "s_res_J_mol_K": -74.74311224659564
+          }
+        },
+        "z": [
+          0.0077448171764516885,
+          0.9922551828235483
+        ]
+      }
+    },
+    {
+      "case_id": "f33164dcfbdaa60057dc5042f9e8e927af7e38cc1d38b166cac03c761e4d2d04",
+      "inputs": {
+        "P": 1299870.0,
+        "T": 350.40622381722113,
+        "z": [
+          0.0077448171764516885,
+          0.9922551828235483
+        ]
+      },
+      "kind": "witness",
+      "result": {
+        "H_eq_J_mol": -20697.808989729016,
+        "H_eq_direct_J_mol": -20697.808989729,
+        "PT_diagnostics": {
+          "PT_SS_TOL": 1e-26,
+          "error": 0.0,
+          "iterations": 0,
+          "stability_entry": "FlashVL.flash_TP_stability_test -> stability_test_Michelsen"
+        },
+        "P_Pa_abs": 1299870.0,
+        "S_eq_J_mol_K": -59.3795476824036,
+        "S_eq_direct_J_mol_K": -59.37954768240357,
+        "T_K": 350.40622381722113,
+        "beta": 0.0,
+        "classification": "single_liquid",
+        "ln_fugacity_residual": [],
+        "material_residual": [
+          0.0,
+          0.0
+        ],
+        "phases": {
+          "liquid": {
+            "MW_kg_kmol": 85.63219614468348,
+            "Z": 0.06190029787566126,
+            "composition": [
+              0.0077448171764516885,
+              0.9922551828235483
+            ],
+            "direct_h_J_mol": -20697.808989729,
+            "direct_s_J_mol_K": -59.37954768240357,
+            "h_J_mol": -20697.808989729016,
+            "h_ig_J_mol": 7930.92264939859,
+            "h_res_J_mol": -28628.731639127607,
+            "library_minus_direct_h_J_mol": -1.4551915228366852e-11,
+            "s_J_mol_K": -59.3795476824036,
+            "s_ig_J_mol_K": 3.6298329787798167,
+            "s_res_J_mol_K": -63.009380661183414
+          }
+        },
+        "z": [
+          0.0077448171764516885,
+          0.9922551828235483
+        ]
+      }
+    },
+    {
+      "case_id": "d570e0ef8dd557f0ec67f63320a6143708336e9c50a1916129590a1d0a50c245",
+      "inputs": {
+        "P": 1299870.0,
+        "T": 350.5714248725458,
+        "z": [
+          0.0077448171764516885,
+          0.9922551828235483
+        ]
+      },
+      "kind": "witness",
+      "result": {
+        "H_eq_J_mol": -20663.06378059165,
+        "H_eq_direct_J_mol": -20663.06378059164,
+        "PT_diagnostics": {
+          "PT_SS_TOL": 1e-26,
+          "error": 0.0,
+          "iterations": 0,
+          "stability_entry": "FlashVL.flash_TP_stability_test -> stability_test_Michelsen"
+        },
+        "P_Pa_abs": 1299870.0,
+        "S_eq_J_mol_K": -59.28041410999285,
+        "S_eq_direct_J_mol_K": -59.28041410999286,
+        "T_K": 350.5714248725458,
+        "beta": 0.0,
+        "classification": "single_liquid",
+        "ln_fugacity_residual": [],
+        "material_residual": [
+          0.0,
+          0.0
+        ],
+        "phases": {
+          "liquid": {
+            "MW_kg_kmol": 85.63219614468348,
+            "Z": 0.06188882285189834,
+            "composition": [
+              0.0077448171764516885,
+              0.9922551828235483
+            ],
+            "direct_h_J_mol": -20663.06378059164,
+            "direct_s_J_mol_K": -59.28041410999286,
+            "h_J_mol": -20663.06378059165,
+            "h_ig_J_mol": 7957.591519483182,
+            "h_res_J_mol": -28620.655300074828,
+            "library_minus_direct_h_J_mol": -7.275957614183426e-12,
+            "s_J_mol_K": -59.28041410999285,
+            "s_ig_J_mol_K": 3.70592347961394,
+            "s_res_J_mol_K": -62.98633758960679
+          }
+        },
+        "z": [
+          0.0077448171764516885,
+          0.9922551828235483
+        ]
+      }
+    },
+    {
+      "case_id": "5e9b720ab1f03f2484a3cd345bcd124626d8a50af83acfe033805c051d13a07d",
+      "inputs": {
+        "P": 299970.0,
+        "T": 300.0,
+        "z": [
+          0.015619720085965972,
+          0.984380279914034
+        ]
+      },
+      "kind": "witness",
+      "result": {
+        "H_eq_J_mol": -30575.809404979296,
+        "H_eq_direct_J_mol": -30575.8094049793,
+        "PT_diagnostics": {
+          "PT_SS_TOL": 1e-26,
+          "error": 7.099748146989106e-30,
+          "iterations": 5,
+          "stability_entry": "FlashVL.flash_TP_stability_test -> stability_test_Michelsen"
+        },
+        "P_Pa_abs": 299970.0,
+        "S_eq_J_mol_K": -89.45264609388445,
+        "S_eq_direct_J_mol_K": -89.45264609388434,
+        "T_K": 300.0,
+        "beta": 1.8474646817556129e-06,
+        "classification": "vapor_liquid",
+        "ln_fugacity_residual": [
+          -4.5102810375396984e-17,
+          2.6506574712925612e-15
+        ],
+        "material_residual": [
+          -3.469446951953614e-18,
+          -1.1102230246251565e-16
+        ],
+        "phases": {
+          "liquid": {
+            "MW_kg_kmol": 85.08002642982748,
+            "Z": 0.015468132400967288,
+            "composition": [
+              0.015618046313616778,
+              0.9843819536863831
+            ],
+            "direct_h_J_mol": -30575.86588019859,
+            "direct_s_J_mol_K": -89.45279904098183,
+            "h_J_mol": -30575.865880198588,
+            "h_ig_J_mol": 262.1455559835597,
+            "h_res_J_mol": -30838.011436182147,
+            "library_minus_direct_h_J_mol": 3.637978807091713e-12,
+            "s_J_mol_K": -89.45279904098194,
+            "s_ig_J_mol_K": -7.478625742463682,
+            "s_res_J_mol_K": -81.97417329851827
+          },
+          "vapor": {
+            "MW_kg_kmol": 21.541090684419142,
+            "Z": 0.9885034000845646,
+            "composition": [
+              0.9216014546678581,
+              0.07839854533214168
+            ],
+            "direct_h_J_mol": -6.827212813649453,
+            "direct_s_J_mol_K": -6.665236713540906,
+            "h_J_mol": -6.827212813649737,
+            "h_ig_J_mol": 81.85743328147856,
+            "h_res_J_mol": -88.6846460951283,
+            "library_minus_direct_h_J_mol": -2.8421709430404007e-13,
+            "s_J_mol_K": -6.665236713540929,
+            "s_ig_J_mol_K": -6.465242302675425,
+            "s_res_J_mol_K": -0.19999441086550418
+          }
+        },
+        "z": [
+          0.015619720085965972,
+          0.984380279914034
+        ]
+      }
+    },
+    {
+      "case_id": "4a485903c6652e10a8e0de839af80f30e0a6acc732c12550a0a632470e936b47",
+      "inputs": {
+        "P": 309969.0,
+        "T": 300.00262280227616,
+        "z": [
+          0.015619720085965972,
+          0.984380279914034
+        ]
+      },
+      "kind": "witness",
+      "result": {
+        "H_eq_J_mol": -30574.535083144452,
+        "H_eq_direct_J_mol": -30574.535083144438,
+        "PT_diagnostics": {
+          "PT_SS_TOL": 1e-26,
+          "error": 0.0,
+          "iterations": 0,
+          "stability_entry": "FlashVL.flash_TP_stability_test -> stability_test_Michelsen"
+        },
+        "P_Pa_abs": 309969.0,
+        "S_eq_J_mol_K": -89.45268528472278,
+        "S_eq_direct_J_mol_K": -89.45268528472258,
+        "T_K": 300.00262280227616,
+        "beta": 0.0,
+        "classification": "single_liquid",
+        "ln_fugacity_residual": [],
+        "material_residual": [
+          0.0,
+          0.0
+        ],
+        "phases": {
+          "liquid": {
+            "MW_kg_kmol": 85.07990904388778,
+            "Z": 0.015983283368518796,
+            "composition": [
+              0.015619720085965972,
+              0.984380279914034
+            ],
+            "direct_h_J_mol": -30574.535083144438,
+            "direct_s_J_mol_K": -89.45268528472258,
+            "h_J_mol": -30574.535083144452,
+            "h_ig_J_mol": 262.51774818460086,
+            "h_res_J_mol": -30837.052831329052,
+            "library_minus_direct_h_J_mol": -1.4551915228366852e-11,
+            "s_J_mol_K": -89.45268528472278,
+            "s_ig_J_mol_K": -7.7499572032304105,
+            "s_res_J_mol_K": -81.70272808149237
+          }
+        },
+        "z": [
+          0.015619720085965972,
+          0.984380279914034
+        ]
+      }
+    },
+    {
+      "case_id": "0e71007a66a689dbce7a4b7298d791f8218b21f0a2ac2a29b5c3b7577b134a2a",
+      "inputs": {
+        "P": 309969.0,
+        "T": 300.00434334458566,
+        "z": [
+          0.015619720085965972,
+          0.984380279914034
+        ]
+      },
+      "kind": "witness",
+      "result": {
+        "H_eq_J_mol": -30574.213531276906,
+        "H_eq_direct_J_mol": -30574.213531276873,
+        "PT_diagnostics": {
+          "PT_SS_TOL": 1e-26,
+          "error": 0.0,
+          "iterations": 0,
+          "stability_entry": "FlashVL.flash_TP_stability_test -> stability_test_Michelsen"
+        },
+        "P_Pa_abs": 309969.0,
+        "S_eq_J_mol_K": -89.45161345760847,
+        "S_eq_direct_J_mol_K": -89.45161345760867,
+        "T_K": 300.00434334458566,
+        "beta": 0.0,
+        "classification": "single_liquid",
+        "ln_fugacity_residual": [],
+        "material_residual": [
+          0.0,
+          0.0
+        ],
+        "phases": {
+          "liquid": {
+            "MW_kg_kmol": 85.07990904388778,
+            "Z": 0.01598322663407951,
+            "composition": [
+              0.015619720085965972,
+              0.984380279914034
+            ],
+            "direct_h_J_mol": -30574.213531276873,
+            "direct_s_J_mol_K": -89.45161345760867,
+            "h_J_mol": -30574.213531276906,
+            "h_ig_J_mol": 262.76212384069845,
+            "h_res_J_mol": -30836.975655117603,
+            "library_minus_direct_h_J_mol": -3.2741809263825417e-11,
+            "s_J_mol_K": -89.45161345760847,
+            "s_ig_J_mol_K": -7.749142627167562,
+            "s_res_J_mol_K": -81.70247083044092
+          }
+        },
+        "z": [
+          0.015619720085965972,
+          0.984380279914034
+        ]
+      }
+    },
+    {
+      "case_id": "4a65c84db006762cc56ba4b6774ba7d10825da3d15cdf731eb77cca5fc0e4f69",
+      "inputs": {
+        "P": 1299870.0,
+        "T": 300.2596801374845,
+        "z": [
+          0.015619720085965972,
+          0.984380279914034
+        ]
+      },
+      "kind": "witness",
+      "result": {
+        "H_eq_J_mol": -30447.326409342557,
+        "H_eq_direct_J_mol": -30447.32640934255,
+        "PT_diagnostics": {
+          "PT_SS_TOL": 1e-26,
+          "error": 0.0,
+          "iterations": 0,
+          "stability_entry": "FlashVL.flash_TP_stability_test -> stability_test_Michelsen"
+        },
+        "P_Pa_abs": 1299870.0,
+        "S_eq_J_mol_K": -89.45266957496193,
+        "S_eq_direct_J_mol_K": -89.45266957496187,
+        "T_K": 300.2596801374845,
+        "beta": 0.0,
+        "classification": "single_liquid",
+        "ln_fugacity_residual": [],
+        "material_residual": [
+          0.0,
+          0.0
+        ],
+        "phases": {
+          "liquid": {
+            "MW_kg_kmol": 85.07990904388778,
+            "Z": 0.06684713663082155,
+            "composition": [
+              0.015619720085965972,
+              0.984380279914034
+            ],
+            "direct_h_J_mol": -30447.32640934255,
+            "direct_s_J_mol_K": -89.45266957496187,
+            "h_J_mol": -30447.326409342557,
+            "h_ig_J_mol": 299.04046286643586,
+            "h_res_J_mol": -30746.366872208993,
+            "library_minus_direct_h_J_mol": -7.275957614183426e-12,
+            "s_J_mol_K": -89.45266957496193,
+            "s_ig_J_mol_K": -19.547443006202776,
+            "s_res_J_mol_K": -69.90522656875916
+          }
+        },
+        "z": [
+          0.015619720085965972,
+          0.984380279914034
+        ]
+      }
+    },
+    {
+      "case_id": "ef0d9b4d4e70dd0f60fe8cf2d52cc5fc805be6bdab819a75ae20ceaea32d1780",
+      "inputs": {
+        "P": 1299870.0,
+        "T": 300.4317789697866,
+        "z": [
+          0.015619720085965972,
+          0.984380279914034
+        ]
+      },
+      "kind": "witness",
+      "result": {
+        "H_eq_J_mol": -30415.20068492274,
+        "H_eq_direct_J_mol": -30415.200684922736,
+        "PT_diagnostics": {
+          "PT_SS_TOL": 1e-26,
+          "error": 0.0,
+          "iterations": 0,
+          "stability_entry": "FlashVL.flash_TP_stability_test -> stability_test_Michelsen"
+        },
+        "P_Pa_abs": 1299870.0,
+        "S_eq_J_mol_K": -89.34570709288529,
+        "S_eq_direct_J_mol_K": -89.34570709288529,
+        "T_K": 300.4317789697866,
+        "beta": 0.0,
+        "classification": "single_liquid",
+        "ln_fugacity_residual": [],
+        "material_residual": [
+          0.0,
+          0.0
+        ],
+        "phases": {
+          "liquid": {
+            "MW_kg_kmol": 85.07990904388778,
+            "Z": 0.06682316459616892,
+            "composition": [
+              0.015619720085965972,
+              0.984380279914034
+            ],
+            "direct_h_J_mol": -30415.200684922736,
+            "direct_s_J_mol_K": -89.34570709288529,
+            "h_J_mol": -30415.20068492274,
+            "h_ig_J_mol": 323.50556218447656,
+            "h_res_J_mol": -30738.706247107217,
+            "library_minus_direct_h_J_mol": -3.637978807091713e-12,
+            "s_J_mol_K": -89.34570709288529,
+            "s_ig_J_mol_K": -19.465986547625118,
+            "s_res_J_mol_K": -69.87972054526017
+          }
+        },
+        "z": [
+          0.015619720085965972,
+          0.984380279914034
+        ]
+      }
+    },
+    {
+      "case_id": "4726fe83f2d83655138f6e88aefc9475930554cdcc9dad6fb879db2c1ce00481",
+      "inputs": {
+        "P": 999900.0,
+        "T": 280.0,
+        "z": [
+          0.062495158908496176,
+          0.9375048410915038
+        ]
+      },
+      "kind": "witness",
+      "result": {
+        "H_eq_J_mol": -32811.853110868185,
+        "H_eq_direct_J_mol": -32811.85311086818,
+        "PT_diagnostics": {
+          "PT_SS_TOL": 1e-26,
+          "error": 9.486052385282667e-29,
+          "iterations": 5,
+          "stability_entry": "FlashVL.flash_TP_stability_test -> stability_test_Michelsen"
+        },
+        "P_Pa_abs": 999900.0,
+        "S_eq_J_mol_K": -98.9324484866451,
+        "S_eq_direct_J_mol_K": -98.93244848664514,
+        "T_K": 280.0,
+        "beta": 6.604261973307775e-06,
+        "classification": "vapor_liquid",
+        "ln_fugacity_residual": [
+          7.0811412289373266e-15,
+          6.772360450213455e-15
+        ],
+        "material_residual": [
+          0.0,
+          -1.1102230246251565e-16
+        ],
+        "phases": {
+          "liquid": {
+            "MW_kg_kmol": 81.79284352908931,
+            "Z": 0.052378811047893326,
+            "composition": [
+              0.06248904176477618,
+              0.9375109582352237
+            ],
+            "direct_h_J_mol": -32812.06397984899,
+            "direct_s_J_mol_K": -98.93296083985747,
+            "h_J_mol": -32812.063979848994,
+            "h_ig_J_mol": -2418.1944108536636,
+            "h_res_J_mol": -30393.86956899533,
+            "library_minus_direct_h_J_mol": -7.275957614183426e-12,
+            "s_J_mol_K": -98.93296083985743,
+            "s_ig_J_mol_K": -25.456874937169747,
+            "s_res_J_mol_K": -73.47608590268769
+          },
+          "vapor": {
+            "MW_kg_kmol": 16.83313255679424,
+            "Z": 0.9705223931447979,
+            "composition": [
+              0.9887308754051722,
+              0.011269124594827828
+            ],
+            "direct_h_J_mol": -882.8368138977223,
+            "direct_s_J_mol_K": -21.353783272062323,
+            "h_J_mol": -882.8368138977236,
+            "h_ig_J_mol": -664.3976725025751,
+            "h_res_J_mol": -218.43914139514845,
+            "library_minus_direct_h_J_mol": -1.2505552149377763e-12,
+            "s_J_mol_K": -21.35378327206236,
+            "s_ig_J_mol_K": -20.81988845152407,
+            "s_res_J_mol_K": -0.5338948205382887
+          }
+        },
+        "z": [
+          0.062495158908496176,
+          0.9375048410915038
+        ]
+      }
+    },
+    {
+      "case_id": "e9a98ead5b4c099f2a51207ff4788f2845fe464bf8b09cbf2d87aabb4bf80c31",
+      "inputs": {
+        "P": 1009899.0,
+        "T": 280.00232453092144,
+        "z": [
+          0.062495158908496176,
+          0.9375048410915038
+        ]
+      },
+      "kind": "witness",
+      "result": {
+        "H_eq_J_mol": -32810.66691265334,
+        "H_eq_direct_J_mol": -32810.66691265333,
+        "PT_diagnostics": {
+          "PT_SS_TOL": 1e-26,
+          "error": 0.0,
+          "iterations": 0,
+          "stability_entry": "FlashVL.flash_TP_stability_test -> stability_test_Michelsen"
+        },
+        "P_Pa_abs": 1009899.0,
+        "S_eq_J_mol_K": -98.93256703408076,
+        "S_eq_direct_J_mol_K": -98.93256703408069,
+        "T_K": 280.00232453092144,
+        "beta": 0.0,
+        "classification": "single_liquid",
+        "ln_fugacity_residual": [],
+        "material_residual": [
+          0.0,
+          0.0
+        ],
+        "phases": {
+          "liquid": {
+            "MW_kg_kmol": 81.79241451814036,
+            "Z": 0.052901150365638215,
+            "composition": [
+              0.062495158908496176,
+              0.9375048410915038
+            ],
+            "direct_h_J_mol": -32810.66691265333,
+            "direct_s_J_mol_K": -98.93256703408069,
+            "h_J_mol": -32810.66691265334,
+            "h_ig_J_mol": -2417.8803019734105,
+            "h_res_J_mol": -30392.786610679923,
+            "library_minus_direct_h_J_mol": -7.275957614183426e-12,
+            "s_J_mol_K": -98.93256703408076,
+            "s_ig_J_mol_K": -25.538348335054877,
+            "s_res_J_mol_K": -73.39421869902588
+          }
+        },
+        "z": [
+          0.062495158908496176,
+          0.9375048410915038
+        ]
+      }
+    },
+    {
+      "case_id": "6475b1c2fdb1467cff147ad7ada548ef7bb5aa435039148ac3feecd0b39d1c47",
+      "inputs": {
+        "P": 1009899.0,
+        "T": 280.00408500523304,
+        "z": [
+          0.062495158908496176,
+          0.9375048410915038
+        ]
+      },
+      "kind": "witness",
+      "result": {
+        "H_eq_J_mol": -32810.362034476384,
+        "H_eq_direct_J_mol": -32810.362034476384,
+        "PT_diagnostics": {
+          "PT_SS_TOL": 1e-26,
+          "error": 0.0,
+          "iterations": 0,
+          "stability_entry": "FlashVL.flash_TP_stability_test -> stability_test_Michelsen"
+        },
+        "P_Pa_abs": 1009899.0,
+        "S_eq_J_mol_K": -98.9314781959113,
+        "S_eq_direct_J_mol_K": -98.9314781959112,
+        "T_K": 280.00408500523304,
+        "beta": 0.0,
+        "classification": "single_liquid",
+        "ln_fugacity_residual": [],
+        "material_residual": [
+          0.0,
+          0.0
+        ],
+        "phases": {
+          "liquid": {
+            "MW_kg_kmol": 81.79241451814036,
+            "Z": 0.05290092754457528,
+            "composition": [
+              0.062495158908496176,
+              0.9375048410915038
+            ],
+            "direct_h_J_mol": -32810.362034476384,
+            "direct_s_J_mol_K": -98.9314781959112,
+            "h_J_mol": -32810.362034476384,
+            "h_ig_J_mol": -2417.651183623118,
+            "h_res_J_mol": -30392.71085085327,
+            "library_minus_direct_h_J_mol": 0.0,
+            "s_J_mol_K": -98.9314781959113,
+            "s_ig_J_mol_K": -25.53753006459805,
+            "s_res_J_mol_K": -73.39394813131324
+          }
+        },
+        "z": [
+          0.062495158908496176,
+          0.9375048410915038
+        ]
+      }
+    },
+    {
+      "case_id": "7161ac6528b97b82778df368b448bedd444526825d4913a09ded14bc422fa6b0",
+      "inputs": {
+        "P": 1999800.0,
+        "T": 280.230446071281,
+        "z": [
+          0.062495158908496176,
+          0.9375048410915038
+        ]
+      },
+      "kind": "witness",
+      "result": {
+        "H_eq_J_mol": -32690.035432345172,
+        "H_eq_direct_J_mol": -32690.035432345154,
+        "PT_diagnostics": {
+          "PT_SS_TOL": 1e-26,
+          "error": 0.0,
+          "iterations": 0,
+          "stability_entry": "FlashVL.flash_TP_stability_test -> stability_test_Michelsen"
+        },
+        "P_Pa_abs": 1999800.0,
+        "S_eq_J_mol_K": -98.93255335049179,
+        "S_eq_direct_J_mol_K": -98.93255335049176,
+        "T_K": 280.230446071281,
+        "beta": 0.0,
+        "classification": "single_liquid",
+        "ln_fugacity_residual": [],
+        "material_residual": [
+          0.0,
+          0.0
+        ],
+        "phases": {
+          "liquid": {
+            "MW_kg_kmol": 81.79241451814036,
+            "Z": 0.10451212832318126,
+            "composition": [
+              0.062495158908496176,
+              0.9375048410915038
+            ],
+            "direct_h_J_mol": -32690.035432345154,
+            "direct_s_J_mol_K": -98.93255335049176,
+            "h_J_mol": -32690.035432345172,
+            "h_ig_J_mol": -2388.1825061868594,
+            "h_res_J_mol": -30301.852926158313,
+            "library_minus_direct_h_J_mol": -1.8189894035458565e-11,
+            "s_J_mol_K": -98.93255335049179,
+            "s_ig_J_mol_K": -31.112743513057097,
+            "s_res_J_mol_K": -67.81980983743469
+          }
+        },
+        "z": [
+          0.062495158908496176,
+          0.9375048410915038
+        ]
+      }
+    },
+    {
+      "case_id": "844cbe4876c7023ac2d9589b0a687c341b6d0801b06660fd8f4f8a7c4d8ac274",
+      "inputs": {
+        "P": 1999800.0,
+        "T": 280.4065273987473,
+        "z": [
+          0.062495158908496176,
+          0.9375048410915038
+        ]
+      },
+      "kind": "witness",
+      "result": {
+        "H_eq_J_mol": -32659.570624640557,
+        "H_eq_direct_J_mol": -32659.570624640543,
+        "PT_diagnostics": {
+          "PT_SS_TOL": 1e-26,
+          "error": 0.0,
+          "iterations": 0,
+          "stability_entry": "FlashVL.flash_TP_stability_test -> stability_test_Michelsen"
+        },
+        "P_Pa_abs": 1999800.0,
+        "S_eq_J_mol_K": -98.82387408195282,
+        "S_eq_direct_J_mol_K": -98.8238740819528,
+        "T_K": 280.4065273987473,
+        "beta": 0.0,
+        "classification": "single_liquid",
+        "ln_fugacity_residual": [],
+        "material_residual": [
+          0.0,
+          0.0
+        ],
+        "phases": {
+          "liquid": {
+            "MW_kg_kmol": 81.79241451814036,
+            "Z": 0.10446781156090781,
+            "composition": [
+              0.062495158908496176,
+              0.9375048410915038
+            ],
+            "direct_h_J_mol": -32659.570624640543,
+            "direct_s_J_mol_K": -98.8238740819528,
+            "h_J_mol": -32659.570624640557,
+            "h_ig_J_mol": -2365.247478759819,
+            "h_res_J_mol": -30294.323145880735,
+            "library_minus_direct_h_J_mol": -1.4551915228366852e-11,
+            "s_J_mol_K": -98.82387408195282,
+            "s_ig_J_mol_K": -31.03092576389923,
+            "s_res_J_mol_K": -67.7929483180536
+          }
+        },
+        "z": [
+          0.062495158908496176,
+          0.9375048410915038
+        ]
+      }
+    },
+    {
+      "case_id": "bb6b6c9b7f3add4f0419668780695f64517e68e7509d90078861a1458821c3ac",
+      "inputs": {
+        "P": 999900.0,
+        "T": 291.742138656979,
+        "z": [
+          0.05718128748168017,
+          0.9428187125183198
+        ]
+      },
+      "kind": "witness",
+      "result": {
+        "H_eq_J_mol": -30898.820800785936,
+        "H_eq_direct_J_mol": -30898.820800785932,
+        "PT_diagnostics": {
+          "PT_SS_TOL": 1e-26,
+          "error": 3.5412459073436983e-29,
+          "iterations": 5,
+          "stability_entry": "FlashVL.flash_TP_stability_test -> stability_test_Michelsen"
+        },
+        "P_Pa_abs": 999900.0,
+        "S_eq_J_mol_K": -92.04433159984428,
+        "S_eq_direct_J_mol_K": -92.04433159984421,
+        "T_K": 291.742138656979,
+        "beta": 6.118802265747126e-06,
+        "classification": "vapor_liquid",
+        "ln_fugacity_residual": [
+          5.960509863456309e-15,
+          -1.5265566588595902e-15
+        ],
+        "material_residual": [
+          -6.938893903907228e-18,
+          0.0
+        ],
+        "phases": {
+          "liquid": {
+            "MW_kg_kmol": 82.1654862737267,
+            "Z": 0.051156602533624376,
+            "composition": [
+              0.05717563605653787,
+              0.9428243639434623
+            ],
+            "direct_h_J_mol": -30899.007066807088,
+            "direct_s_J_mol_K": -92.04477503278204,
+            "h_J_mol": -30899.00706680709,
+            "h_ig_J_mol": -870.2130931667723,
+            "h_res_J_mol": -30028.793973640317,
+            "library_minus_direct_h_J_mol": -3.637978807091713e-12,
+            "s_J_mol_K": -92.04477503278211,
+            "s_ig_J_mol_K": -20.163024771047006,
+            "s_res_J_mol_K": -71.8817502617351
+          },
+          "vapor": {
+            "MW_kg_kmol": 17.38991490139438,
+            "Z": 0.9725185138889678,
+            "composition": [
+              0.9807918761072691,
+              0.01920812389273085
+            ],
+            "direct_h_J_mol": -457.425027987254,
+            "direct_s_J_mol_K": -19.574229560142665,
+            "h_J_mol": -457.4250279872551,
+            "h_ig_J_mol": -241.53069105142654,
+            "h_res_J_mol": -215.8943369358285,
+            "library_minus_direct_h_J_mol": -1.0800249583553523e-12,
+            "s_J_mol_K": -19.574229560142683,
+            "s_ig_J_mol_K": -19.064017750388768,
+            "s_res_J_mol_K": -0.5102118097539143
+          }
+        },
+        "z": [
+          0.05718128748168017,
+          0.9428187125183198
+        ]
+      }
+    },
+    {
+      "case_id": "4f4e5b3a092ec3026ccfa100b6848fec2d8672c2128c28f032bec7b4a1375b5a",
+      "inputs": {
+        "P": 1009899.0,
+        "T": 291.74469290030964,
+        "z": [
+          0.05718128748168017,
+          0.9428187125183198
+        ]
+      },
+      "kind": "witness",
+      "result": {
+        "H_eq_J_mol": -30897.609805801785,
+        "H_eq_direct_J_mol": -30897.60980580177,
+        "PT_diagnostics": {
+          "PT_SS_TOL": 1e-26,
+          "error": 0.0,
+          "iterations": 0,
+          "stability_entry": "FlashVL.flash_TP_stability_test -> stability_test_Michelsen"
+        },
+        "P_Pa_abs": 1009899.0,
+        "S_eq_J_mol_K": -92.04443403854164,
+        "S_eq_direct_J_mol_K": -92.04443403854164,
+        "T_K": 291.74469290030964,
+        "beta": 0.0,
+        "classification": "single_liquid",
+        "ln_fugacity_residual": [],
+        "material_residual": [
+          0.0,
+          0.0
+        ],
+        "phases": {
+          "liquid": {
+            "MW_kg_kmol": 82.16508992481381,
+            "Z": 0.05166663354907494,
+            "composition": [
+              0.05718128748168017,
+              0.9428187125183198
+            ],
+            "direct_h_J_mol": -30897.60980580177,
+            "direct_s_J_mol_K": -92.04443403854164,
+            "h_J_mol": -30897.609805801785,
+            "h_ig_J_mol": -869.8651903663425,
+            "h_res_J_mol": -30027.744615435444,
+            "library_minus_direct_h_J_mol": -1.4551915228366852e-11,
+            "s_J_mol_K": -92.04443403854164,
+            "s_ig_J_mol_K": -20.244432377445758,
+            "s_res_J_mol_K": -71.80000166109588
+          }
+        },
+        "z": [
+          0.05718128748168017,
+          0.9428187125183198
+        ]
+      }
+    },
+    {
+      "case_id": "509be801c7019a7ee1db9a31c0dd12111cd1dbda3d1c8825dd9c0ec8814c12ad",
+      "inputs": {
+        "P": 1009899.0,
+        "T": 291.7464324062006,
+        "z": [
+          0.05718128748168017,
+          0.9428187125183198
+        ]
+      },
+      "kind": "witness",
+      "result": {
+        "H_eq_J_mol": -30897.299554790534,
+        "H_eq_direct_J_mol": -30897.299554790523,
+        "PT_diagnostics": {
+          "PT_SS_TOL": 1e-26,
+          "error": 0.0,
+          "iterations": 0,
+          "stability_entry": "FlashVL.flash_TP_stability_test -> stability_test_Michelsen"
+        },
+        "P_Pa_abs": 1009899.0,
+        "S_eq_J_mol_K": -92.04337060844722,
+        "S_eq_direct_J_mol_K": -92.04337060844712,
+        "T_K": 291.7464324062006,
+        "beta": 0.0,
+        "classification": "single_liquid",
+        "ln_fugacity_residual": [],
+        "material_residual": [
+          0.0,
+          0.0
+        ],
+        "phases": {
+          "liquid": {
+            "MW_kg_kmol": 82.16508992481381,
+            "Z": 0.051666438568802896,
+            "composition": [
+              0.05718128748168017,
+              0.9428187125183198
+            ],
+            "direct_h_J_mol": -30897.299554790523,
+            "direct_s_J_mol_K": -92.04337060844712,
+            "h_J_mol": -30897.299554790534,
+            "h_ig_J_mol": -869.6308780194186,
+            "h_res_J_mol": -30027.668676771114,
+            "library_minus_direct_h_J_mol": -1.0913936421275139e-11,
+            "s_J_mol_K": -92.04337060844722,
+            "s_ig_J_mol_K": -20.243629238077425,
+            "s_res_J_mol_K": -71.79974137036979
+          }
+        },
+        "z": [
+          0.05718128748168017,
+          0.9428187125183198
+        ]
+      }
+    },
+    {
+      "case_id": "9f0652b79931fef93356dfe0e0f0d2d7e13b3676f7b5d8af460d51f195db0cd1",
+      "inputs": {
+        "P": 1999800.0,
+        "T": 291.99515268583576,
+        "z": [
+          0.05718128748168017,
+          0.9428187125183198
+        ]
+      },
+      "kind": "witness",
+      "result": {
+        "H_eq_J_mol": -30774.865779689284,
+        "H_eq_direct_J_mol": -30774.86577968928,
+        "PT_diagnostics": {
+          "PT_SS_TOL": 1e-26,
+          "error": 0.0,
+          "iterations": 0,
+          "stability_entry": "FlashVL.flash_TP_stability_test -> stability_test_Michelsen"
+        },
+        "P_Pa_abs": 1999800.0,
+        "S_eq_J_mol_K": -92.0444192326168,
+        "S_eq_direct_J_mol_K": -92.04441923261683,
+        "T_K": 291.99515268583576,
+        "beta": 0.0,
+        "classification": "single_liquid",
+        "ln_fugacity_residual": [],
+        "material_residual": [
+          0.0,
+          0.0
+        ],
+        "phases": {
+          "liquid": {
+            "MW_kg_kmol": 82.16508992481381,
+            "Z": 0.10204623934167538,
+            "composition": [
+              0.05718128748168017,
+              0.9428187125183198
+            ],
+            "direct_h_J_mol": -30774.86577968928,
+            "direct_s_J_mol_K": -92.04441923261683,
+            "h_J_mol": -30774.865779689284,
+            "h_ig_J_mol": -836.1174135288665,
+            "h_res_J_mol": -29938.748366160416,
+            "library_minus_direct_h_J_mol": -3.637978807091713e-12,
+            "s_J_mol_K": -92.0444192326168,
+            "s_ig_J_mol_K": -25.809220957214226,
+            "s_res_J_mol_K": -66.23519827540258
+          }
+        },
+        "z": [
+          0.05718128748168017,
+          0.9428187125183198
+        ]
+      }
+    },
+    {
+      "case_id": "d3d0f5e8781572cdc06009a2026ec1203aaa5fc781e6cf548d4e6d6a889ea5ba",
+      "inputs": {
+        "P": 1999800.0,
+        "T": 292.16914728308694,
+        "z": [
+          0.05718128748168017,
+          0.9428187125183198
+        ]
+      },
+      "kind": "witness",
+      "result": {
+        "H_eq_J_mol": -30743.867531826407,
+        "H_eq_direct_J_mol": -30743.867531826396,
+        "PT_diagnostics": {
+          "PT_SS_TOL": 1e-26,
+          "error": 0.0,
+          "iterations": 0,
+          "stability_entry": "FlashVL.flash_TP_stability_test -> stability_test_Michelsen"
+        },
+        "P_Pa_abs": 1999800.0,
+        "S_eq_J_mol_K": -91.93829070613435,
+        "S_eq_direct_J_mol_K": -91.93829070613437,
+        "T_K": 292.16914728308694,
+        "beta": 0.0,
+        "classification": "single_liquid",
+        "ln_fugacity_residual": [],
+        "material_residual": [
+          0.0,
+          0.0
+        ],
+        "phases": {
+          "liquid": {
+            "MW_kg_kmol": 82.16508992481381,
+            "Z": 0.10200737990342794,
+            "composition": [
+              0.05718128748168017,
+              0.9428187125183198
+            ],
+            "direct_h_J_mol": -30743.867531826396,
+            "direct_s_J_mol_K": -91.93829070613437,
+            "h_J_mol": -30743.867531826407,
+            "h_ig_J_mol": -812.660105017268,
+            "h_res_J_mol": -29931.20742680914,
+            "library_minus_direct_h_J_mol": -1.0913936421275139e-11,
+            "s_J_mol_K": -91.93829070613435,
+            "s_ig_J_mol_K": -25.728910302525257,
+            "s_res_J_mol_K": -66.20938040360909
+          }
+        },
+        "z": [
+          0.05718128748168017,
+          0.9428187125183198
+        ]
+      }
+    },
+    {
+      "case_id": "bd5cd695664ddb5e91c4eaab96ac6a42925d59923b93897ec703cd70e1a5d2d2",
+      "inputs": {
+        "P": 99990.0,
+        "T": 296.0331464948125,
+        "z": [
+          0.004712273406185097,
+          0.9952877265938149
+        ]
+      },
+      "kind": "witness",
+      "result": {
+        "H_eq_J_mol": -31626.48549893095,
+        "H_eq_direct_J_mol": -31626.48549893094,
+        "PT_diagnostics": {
+          "PT_SS_TOL": 1e-26,
+          "error": 5.529914945599293e-28,
+          "iterations": 0,
+          "stability_entry": "FlashVL.flash_TP_stability_test -> stability_test_Michelsen"
+        },
+        "P_Pa_abs": 99990.0,
+        "S_eq_J_mol_K": -92.69911629361152,
+        "S_eq_direct_J_mol_K": -92.6991162936112,
+        "T_K": 296.0331464948125,
+        "beta": 7.175707194922766e-07,
+        "classification": "vapor_liquid",
+        "ln_fugacity_residual": [
+          -2.3418766925686896e-16,
+          -6.245004513516506e-17
+        ],
+        "material_residual": [
+          0.0,
+          0.0
+        ],
+        "phases": {
+          "liquid": {
+            "MW_kg_kmol": 85.84491671333049,
+            "Z": 0.005233638227104059,
+            "composition": [
+              0.004711695775393106,
+              0.9952883042246069
+            ],
+            "direct_h_J_mol": -31626.508070811997,
+            "direct_s_J_mol_K": -92.69918542543923,
+            "h_J_mol": -31626.508070812008,
+            "h_ig_J_mol": -300.91865652988184,
+            "h_res_J_mol": -31325.589414282127,
+            "library_minus_direct_h_J_mol": -1.0913936421275139e-11,
+            "s_J_mol_K": -92.69918542543955,
+            "s_ig_J_mol_K": -0.6536360815841993,
+            "s_res_J_mol_K": -92.04554934385536
+          },
+          "vapor": {
+            "MW_kg_kmol": 29.38953875997937,
+            "Z": 0.9927383480296369,
+            "composition": [
+              0.8096926910984089,
+              0.1903073089015911
+            ],
+            "direct_h_J_mol": -170.54081691070687,
+            "direct_s_J_mol_K": 3.642298609735831,
+            "h_J_mol": -170.54081691070573,
+            "h_ig_J_mol": -118.72147616653623,
+            "h_res_J_mol": -51.819340744169494,
+            "library_minus_direct_h_J_mol": 1.1368683772161603e-12,
+            "s_J_mol_K": 3.642298609735797,
+            "s_ig_J_mol_K": 3.757046510314324,
+            "s_res_J_mol_K": -0.1147479005785262
+          }
+        },
+        "z": [
+          0.004712273406185097,
+          0.9952877265938149
+        ]
+      }
+    },
+    {
+      "case_id": "ef30ffcfc8424da01f51767475563b1550e5c6f43beafd3f54cc4446ac7370b5",
+      "inputs": {
+        "P": 109989.0,
+        "T": 296.035652054568,
+        "z": [
+          0.004712273406185097,
+          0.9952877265938149
+        ]
+      },
+      "kind": "witness",
+      "result": {
+        "H_eq_J_mol": -31625.204160614525,
+        "H_eq_direct_J_mol": -31625.204160614518,
+        "PT_diagnostics": {
+          "PT_SS_TOL": 1e-26,
+          "error": 0.0,
+          "iterations": 0,
+          "stability_entry": "FlashVL.flash_TP_stability_test -> stability_test_Michelsen"
+        },
+        "P_Pa_abs": 109989.0,
+        "S_eq_J_mol_K": -92.69913938219517,
+        "S_eq_direct_J_mol_K": -92.6991393821958,
+        "T_K": 296.035652054568,
+        "beta": 0.0,
+        "classification": "single_liquid",
+        "ln_fugacity_residual": [],
+        "material_residual": [
+          0.0,
+          0.0
+        ],
+        "phases": {
+          "liquid": {
+            "MW_kg_kmol": 85.84487620260431,
+            "Z": 0.005756850207847929,
+            "composition": [
+              0.004712273406185097,
+              0.9952877265938149
+            ],
+            "direct_h_J_mol": -31625.204160614518,
+            "direct_s_J_mol_K": -92.6991393821958,
+            "h_J_mol": -31625.204160614525,
+            "h_ig_J_mol": -300.56331137725545,
+            "h_res_J_mol": -31324.64084923727,
+            "library_minus_direct_h_J_mol": -7.275957614183426e-12,
+            "s_J_mol_K": -92.69913938219517,
+            "s_ig_J_mol_K": -1.4448629509571493,
+            "s_res_J_mol_K": -91.25427643123803
+          }
+        },
+        "z": [
+          0.004712273406185097,
+          0.9952877265938149
+        ]
+      }
+    },
+    {
+      "case_id": "235a76ebbac4221fdcc48064715e6e99801ee79a21dd032d6518523cb7dfd63b",
+      "inputs": {
+        "P": 109989.0,
+        "T": 296.03737799546843,
+        "z": [
+          0.004712273406185097,
+          0.9952877265938149
+        ]
+      },
+      "kind": "witness",
+      "result": {
+        "H_eq_J_mol": -31624.882085104644,
+        "H_eq_direct_J_mol": -31624.882085104648,
+        "PT_diagnostics": {
+          "PT_SS_TOL": 1e-26,
+          "error": 0.0,
+          "iterations": 0,
+          "stability_entry": "FlashVL.flash_TP_stability_test -> stability_test_Michelsen"
+        },
+        "P_Pa_abs": 109989.0,
+        "S_eq_J_mol_K": -92.69805142346873,
+        "S_eq_direct_J_mol_K": -92.6980514234694,
+        "T_K": 296.03737799546843,
+        "beta": 0.0,
+        "classification": "single_liquid",
+        "ln_fugacity_residual": [],
+        "material_residual": [
+          0.0,
+          0.0
+        ],
+        "phases": {
+          "liquid": {
+            "MW_kg_kmol": 85.84487620260431,
+            "Z": 0.005756828824553555,
+            "composition": [
+              0.004712273406185097,
+              0.9952877265938149
+            ],
+            "direct_h_J_mol": -31624.882085104648,
+            "direct_s_J_mol_K": -92.6980514234694,
+            "h_J_mol": -31624.882085104644,
+            "h_ig_J_mol": -300.3186225816625,
+            "h_res_J_mol": -31324.563462522983,
+            "library_minus_direct_h_J_mol": 3.637978807091713e-12,
+            "s_J_mol_K": -92.69805142346873,
+            "s_ig_J_mol_K": -1.4440364015851426,
+            "s_res_J_mol_K": -91.25401502188359
+          }
+        },
+        "z": [
+          0.004712273406185097,
+          0.9952877265938149
+        ]
+      }
+    },
+    {
+      "case_id": "e6cb9a180290b179eda4b001d8e6399b07248846a715b40a4ec06ad1ee44e0bd",
+      "inputs": {
+        "P": 1099890.0,
+        "T": 296.2813069533912,
+        "z": [
+          0.004712273406185097,
+          0.9952877265938149
+        ]
+      },
+      "kind": "witness",
+      "result": {
+        "H_eq_J_mol": -31497.78160501629,
+        "H_eq_direct_J_mol": -31497.781605016284,
+        "PT_diagnostics": {
+          "PT_SS_TOL": 1e-26,
+          "error": 0.0,
+          "iterations": 0,
+          "stability_entry": "FlashVL.flash_TP_stability_test -> stability_test_Michelsen"
+        },
+        "P_Pa_abs": 1099890.0,
+        "S_eq_J_mol_K": -92.69912411326428,
+        "S_eq_direct_J_mol_K": -92.69912411326426,
+        "T_K": 296.2813069533912,
+        "beta": 0.0,
+        "classification": "single_liquid",
+        "ln_fugacity_residual": [],
+        "material_residual": [
+          0.0,
+          0.0
+        ],
+        "phases": {
+          "liquid": {
+            "MW_kg_kmol": 85.84487620260431,
+            "Z": 0.057421991827189545,
+            "composition": [
+              0.004712273406185097,
+              0.9952877265938149
+            ],
+            "direct_h_J_mol": -31497.781605016284,
+            "direct_s_J_mol_K": -92.69912411326426,
+            "h_J_mol": -31497.78160501629,
+            "h_ig_J_mol": -265.7256549400261,
+            "h_res_J_mol": -31232.055950076265,
+            "library_minus_direct_h_J_mol": -7.275957614183426e-12,
+            "s_J_mol_K": -92.69912411326428,
+            "s_ig_J_mol_K": -20.471988825377647,
+            "s_res_J_mol_K": -72.22713528788663
+          }
+        },
+        "z": [
+          0.004712273406185097,
+          0.9952877265938149
+        ]
+      }
+    },
+    {
+      "case_id": "3348e382c36a15274dca003263ede045a858b72ff530001b003c211251356cf4",
+      "inputs": {
+        "P": 1099890.0,
+        "T": 296.4539390799487,
+        "z": [
+          0.004712273406185097,
+          0.9952877265938149
+        ]
+      },
+      "kind": "witness",
+      "result": {
+        "H_eq_J_mol": -31465.601832905595,
+        "H_eq_direct_J_mol": -31465.6018329056,
+        "PT_diagnostics": {
+          "PT_SS_TOL": 1e-26,
+          "error": 0.0,
+          "iterations": 0,
+          "stability_entry": "FlashVL.flash_TP_stability_test -> stability_test_Michelsen"
+        },
+        "P_Pa_abs": 1099890.0,
+        "S_eq_J_mol_K": -92.59054351967892,
+        "S_eq_direct_J_mol_K": -92.59054351967896,
+        "T_K": 296.4539390799487,
+        "beta": 0.0,
+        "classification": "single_liquid",
+        "ln_fugacity_residual": [],
+        "material_residual": [
+          0.0,
+          0.0
+        ],
+        "phases": {
+          "liquid": {
+            "MW_kg_kmol": 85.84487620260431,
+            "Z": 0.05740047059614464,
+            "composition": [
+              0.004712273406185097,
+              0.9952877265938149
+            ],
+            "direct_h_J_mol": -31465.6018329056,
+            "direct_s_J_mol_K": -92.59054351967896,
+            "h_J_mol": -31465.601832905595,
+            "h_ig_J_mol": -241.23067258901233,
+            "h_res_J_mol": -31224.371160316583,
+            "library_minus_direct_h_J_mol": 3.637978807091713e-12,
+            "s_J_mol_K": -92.59054351967892,
+            "s_ig_J_mol_K": -20.389338155678757,
+            "s_res_J_mol_K": -72.20120536400016
+          }
+        },
+        "z": [
+          0.004712273406185097,
+          0.9952877265938149
+        ]
+      }
+    },
+    {
+      "case_id": "7efbfca204a34074b22d4542bcf8918514e366472d3a3c1e0072a1193cf2de52",
+      "inputs": {
+        "P": 5999400.0,
+        "T": 231.06755435138734,
+        "z": [
+          0.5,
+          0.5
+        ]
+      },
+      "kind": "witness",
+      "result": {
+        "H_eq_J_mol": -25403.78095229908,
+        "H_eq_direct_J_mol": -25403.78095229908,
+        "PT_diagnostics": {
+          "PT_SS_TOL": 1e-26,
+          "error": 0.0,
+          "iterations": 0,
+          "stability_entry": "FlashVL.flash_TP_stability_test -> stability_test_Michelsen"
+        },
+        "P_Pa_abs": 5999400.0,
+        "S_eq_J_mol_K": -98.8767108944131,
+        "S_eq_direct_J_mol_K": -98.87671089441304,
+        "T_K": 231.06755435138734,
+        "beta": 0.0,
+        "classification": "single_liquid",
+        "ln_fugacity_residual": [],
+        "material_residual": [
+          0.0,
+          0.0
+        ],
+        "phases": {
+          "liquid": {
+            "MW_kg_kmol": 51.10908,
+            "Z": 0.25732858167258776,
+            "composition": [
+              0.5,
+              0.5
+            ],
+            "direct_h_J_mol": -25403.78095229908,
+            "direct_s_J_mol_K": -98.87671089441304,
+            "h_J_mol": -25403.78095229908,
+            "h_ig_J_mol": -5558.155932854854,
+            "h_res_J_mol": -19845.62501944423,
+            "library_minus_direct_h_J_mol": 0.0,
+            "s_J_mol_K": -98.8767108944131,
+            "s_ig_J_mol_K": -49.21812163948676,
+            "s_res_J_mol_K": -49.658589254926326
+          }
+        },
+        "z": [
+          0.5,
+          0.5
+        ]
+      }
+    },
+    {
+      "case_id": "7501e9744b956fb4e164dab5a294c49a66edb6db491fb83c67384307727ced58",
+      "inputs": {
+        "P": 6009399.0,
+        "T": 231.07040417290557,
+        "z": [
+          0.5,
+          0.5
+        ]
+      },
+      "kind": "witness",
+      "result": {
+        "H_eq_J_mol": -25402.956964029763,
+        "H_eq_direct_J_mol": -25402.956964029752,
+        "PT_diagnostics": {
+          "PT_SS_TOL": 1e-26,
+          "error": 0.0,
+          "iterations": 0,
+          "stability_entry": "FlashVL.flash_TP_stability_test -> stability_test_Michelsen"
+        },
+        "P_Pa_abs": 6009399.0,
+        "S_eq_J_mol_K": -98.87671077406421,
+        "S_eq_direct_J_mol_K": -98.8767107740642,
+        "T_K": 231.07040417290557,
+        "beta": 0.0,
+        "classification": "single_liquid",
+        "ln_fugacity_residual": [],
+        "material_residual": [
+          0.0,
+          0.0
+        ],
+        "phases": {
+          "liquid": {
+            "MW_kg_kmol": 51.10908,
+            "Z": 0.2577500615846036,
+            "composition": [
+              0.5,
+              0.5
+            ],
+            "direct_h_J_mol": -25402.956964029752,
+            "direct_s_J_mol_K": -98.8767107740642,
+            "h_J_mol": -25402.956964029763,
+            "h_ig_J_mol": -5557.937750307269,
+            "h_res_J_mol": -19845.019213722495,
+            "library_minus_direct_h_J_mol": -1.0913936421275139e-11,
+            "s_J_mol_K": -98.87671077406421,
+            "s_ig_J_mol_K": -49.23102331089916,
+            "s_res_J_mol_K": -49.645687463165046
+          }
+        },
+        "z": [
+          0.5,
+          0.5
+        ]
+      }
+    },
+    {
+      "case_id": "cdf4e6927d81c614a04d05a8db4ee480e3a4a85b77bd6cdbab2728c2f07c443c",
+      "inputs": {
+        "P": 6009399.0,
+        "T": 231.07227289332477,
+        "z": [
+          0.5,
+          0.5
+        ]
+      },
+      "kind": "witness",
+      "result": {
+        "H_eq_J_mol": -25402.75095326767,
+        "H_eq_direct_J_mol": -25402.750953267667,
+        "PT_diagnostics": {
+          "PT_SS_TOL": 1e-26,
+          "error": 0.0,
+          "iterations": 0,
+          "stability_entry": "FlashVL.flash_TP_stability_test -> stability_test_Michelsen"
+        },
+        "P_Pa_abs": 6009399.0,
+        "S_eq_J_mol_K": -98.87581922791486,
+        "S_eq_direct_J_mol_K": -98.87581922791486,
+        "T_K": 231.07227289332477,
+        "beta": 0.0,
+        "classification": "single_liquid",
+        "ln_fugacity_residual": [],
+        "material_residual": [
+          0.0,
+          0.0
+        ],
+        "phases": {
+          "liquid": {
+            "MW_kg_kmol": 51.10908,
+            "Z": 0.2577487717833462,
+            "composition": [
+              0.5,
+              0.5
+            ],
+            "direct_h_J_mol": -25402.750953267667,
+            "direct_s_J_mol_K": -98.87581922791486,
+            "h_J_mol": -25402.75095326767,
+            "h_ig_J_mol": -5557.794680144814,
+            "h_res_J_mol": -19844.956273122858,
+            "library_minus_direct_h_J_mol": -3.637978807091713e-12,
+            "s_J_mol_K": -98.87581922791486,
+            "s_ig_J_mol_K": -49.23040415075853,
+            "s_res_J_mol_K": -49.64541507715632
+          }
+        },
+        "z": [
+          0.5,
+          0.5
+        ]
+      }
+    },
+    {
+      "case_id": "0512fd01a770735bf66eb6274ed6428caa0285c739c7de73d95ca3fa51970f54",
+      "inputs": {
+        "P": 6999300.0,
+        "T": 231.35030394824707,
+        "z": [
+          0.5,
+          0.5
+        ]
+      },
+      "kind": "witness",
+      "result": {
+        "H_eq_J_mol": -25321.448469087503,
+        "H_eq_direct_J_mol": -25321.448469087496,
+        "PT_diagnostics": {
+          "PT_SS_TOL": 1e-26,
+          "error": 0.0,
+          "iterations": 0,
+          "stability_entry": "FlashVL.flash_TP_stability_test -> stability_test_Michelsen"
+        },
+        "P_Pa_abs": 6999300.0,
+        "S_eq_J_mol_K": -98.87669907963661,
+        "S_eq_direct_J_mol_K": -98.87669907963664,
+        "T_K": 231.35030394824707,
+        "beta": 0.0,
+        "classification": "single_liquid",
+        "ln_fugacity_residual": [],
+        "material_residual": [
+          0.0,
+          0.0
+        ],
+        "phases": {
+          "liquid": {
+            "MW_kg_kmol": 51.10908,
+            "Z": 0.29936422944616786,
+            "composition": [
+              0.5,
+              0.5
+            ],
+            "direct_h_J_mol": -25321.448469087496,
+            "direct_s_J_mol_K": -98.87669907963664,
+            "h_J_mol": -25321.448469087503,
+            "h_ig_J_mol": -5536.501527940367,
+            "h_res_J_mol": -19784.946941147133,
+            "library_minus_direct_h_J_mol": -7.275957614183426e-12,
+            "s_J_mol_K": -98.87669907963661,
+            "s_ig_J_mol_K": -50.406144395320034,
+            "s_res_J_mol_K": -48.470554684316575
+          }
+        },
+        "z": [
+          0.5,
+          0.5
+        ]
+      }
+    },
+    {
+      "case_id": "715debff3e27e6877e427242ba72e1715951c6938877a71ec9f87aa0e00884a4",
+      "inputs": {
+        "P": 6999300.0,
+        "T": 231.53732712591554,
+        "z": [
+          0.5,
+          0.5
+        ]
+      },
+      "kind": "witness",
+      "result": {
+        "H_eq_J_mol": -25300.86396619056,
+        "H_eq_direct_J_mol": -25300.863966190554,
+        "PT_diagnostics": {
+          "PT_SS_TOL": 1e-26,
+          "error": 0.0,
+          "iterations": 0,
+          "stability_entry": "FlashVL.flash_TP_stability_test -> stability_test_Michelsen"
+        },
+        "P_Pa_abs": 6999300.0,
+        "S_eq_J_mol_K": -98.78775955270088,
+        "S_eq_direct_J_mol_K": -98.78775955270086,
+        "T_K": 231.53732712591554,
+        "beta": 0.0,
+        "classification": "single_liquid",
+        "ln_fugacity_residual": [],
+        "material_residual": [
+          0.0,
+          0.0
+        ],
+        "phases": {
+          "liquid": {
+            "MW_kg_kmol": 51.10908,
+            "Z": 0.2992132222896132,
+            "composition": [
+              0.5,
+              0.5
+            ],
+            "direct_h_J_mol": -25300.863966190554,
+            "direct_s_J_mol_K": -98.78775955270086,
+            "h_J_mol": -25300.86396619056,
+            "h_ig_J_mol": -5522.17048290865,
+            "h_res_J_mol": -19778.693483281913,
+            "library_minus_direct_h_J_mol": -7.275957614183426e-12,
+            "s_J_mol_K": -98.78775955270088,
+            "s_ig_J_mol_K": -50.344224203774324,
+            "s_res_J_mol_K": -48.44353534892655
+          }
+        },
+        "z": [
+          0.5,
+          0.5
+        ]
+      }
+    },
+    {
+      "case_id": "cca039a2dc689b87c85471c50185be67dab21b567e705b7df2f3f0cd1c5e7479",
+      "inputs": {
+        "P": 5999400.0,
+        "T": 231.16755435138973,
+        "z": [
+          0.4997106092421193,
+          0.5002893907578807
+        ]
+      },
+      "kind": "witness",
+      "result": {
+        "H_eq_J_mol": -25402.505527561792,
+        "H_eq_direct_J_mol": -25402.50552756179,
+        "PT_diagnostics": {
+          "PT_SS_TOL": 1e-26,
+          "error": 7.85829953711733e-27,
+          "iterations": 14,
+          "stability_entry": "FlashVL.flash_TP_stability_test -> stability_test_Michelsen"
+        },
+        "P_Pa_abs": 5999400.0,
+        "S_eq_J_mol_K": -98.84731293389677,
+        "S_eq_direct_J_mol_K": -98.84731293389676,
+        "T_K": 231.16755435138973,
+        "beta": 7.377422333036053e-05,
+        "classification": "vapor_liquid",
+        "ln_fugacity_residual": [
+          6.150635556423367e-14,
+          -6.483702463810914e-14
+        ],
+        "material_residual": [
+          0.0,
+          -1.1102230246251565e-16
+        ],
+        "phases": {
+          "liquid": {
+            "MW_kg_kmol": 51.13195883999485,
+            "Z": 0.2573317001640444,
+            "composition": [
+              0.49967377720141887,
+              0.5003262227985811
+            ],
+            "direct_h_J_mol": -25404.065143939155,
+            "direct_s_J_mol_K": -98.85102171273711,
+            "h_J_mol": -25404.06514393916,
+            "h_ig_J_mol": -5552.607737453827,
+            "h_res_J_mol": -19851.45740648533,
+            "library_minus_direct_h_J_mol": -3.637978807091713e-12,
+            "s_J_mol_K": -98.85102171273712,
+            "s_ig_J_mol_K": -49.19296653587547,
+            "s_res_J_mol_K": -49.65805517686165
+          },
+          "vapor": {
+            "MW_kg_kmol": 16.11803137676702,
+            "Z": 0.6963771110211092,
+            "composition": [
+              0.9989272974383506,
+              0.0010727025616493117
+            ],
+            "direct_h_J_mol": -4263.668038251683,
+            "direct_s_J_mol_K": -48.579007004521195,
+            "h_J_mol": -4263.668038251683,
+            "h_ig_J_mol": -2325.4694120662107,
+            "h_res_J_mol": -1938.1986261854724,
+            "library_minus_direct_h_J_mol": 0.0,
+            "s_J_mol_K": -48.57900700452122,
+            "s_ig_J_mol_K": -42.68441015480829,
+            "s_res_J_mol_K": -5.894596849712938
+          }
+        },
+        "z": [
+          0.4997106092421193,
+          0.5002893907578807
+        ]
+      }
+    },
+    {
+      "case_id": "1529c9a5cdccf21e4b145f6c104336a5ab1fec8d41370c6809c356b2fe978ced",
+      "inputs": {
+        "P": 6009399.0,
+        "T": 231.17040543390135,
+        "z": [
+          0.4997106092421193,
+          0.5002893907578807
+        ]
+      },
+      "kind": "witness",
+      "result": {
+        "H_eq_J_mol": -25401.963913470594,
+        "H_eq_direct_J_mol": -25401.963913470576,
+        "PT_diagnostics": {
+          "PT_SS_TOL": 1e-26,
+          "error": 0.0,
+          "iterations": 0,
+          "stability_entry": "FlashVL.flash_TP_stability_test -> stability_test_Michelsen"
+        },
+        "P_Pa_abs": 6009399.0,
+        "S_eq_J_mol_K": -98.84853581659992,
+        "S_eq_direct_J_mol_K": -98.84853581659988,
+        "T_K": 231.17040543390135,
+        "beta": 0.0,
+        "classification": "single_liquid",
+        "ln_fugacity_residual": [],
+        "material_residual": [
+          0.0,
+          0.0
+        ],
+        "phases": {
+          "liquid": {
+            "MW_kg_kmol": 51.12937571469052,
+            "Z": 0.2577450420130983,
+            "composition": [
+              0.4997106092421193,
+              0.5002893907578807
+            ],
+            "direct_h_J_mol": -25401.963913470576,
+            "direct_s_J_mol_K": -98.84853581659988,
+            "h_J_mol": -25401.963913470594,
+            "h_ig_J_mol": -5552.151256890332,
+            "h_res_J_mol": -19849.81265658026,
+            "library_minus_direct_h_J_mol": -1.8189894035458565e-11,
+            "s_J_mol_K": -98.84853581659992,
+            "s_ig_J_mol_K": -49.20496711544345,
+            "s_res_J_mol_K": -49.64356870115647
+          }
+        },
+        "z": [
+          0.4997106092421193,
+          0.5002893907578807
+        ]
+      }
+    },
+    {
+      "case_id": "0556902c0113ea53dad4f65f9ffe69c5703b1e5621b06acb045be58596d215e3",
+      "inputs": {
+        "P": 6009399.0,
+        "T": 231.17227405115156,
+        "z": [
+          0.4997106092421193,
+          0.5002893907578807
+        ]
+      },
+      "kind": "witness",
+      "result": {
+        "H_eq_J_mol": -25401.75781756418,
+        "H_eq_direct_J_mol": -25401.757817564172,
+        "PT_diagnostics": {
+          "PT_SS_TOL": 1e-26,
+          "error": 0.0,
+          "iterations": 0,
+          "stability_entry": "FlashVL.flash_TP_stability_test -> stability_test_Michelsen"
+        },
+        "P_Pa_abs": 6009399.0,
+        "S_eq_J_mol_K": -98.84764428780295,
+        "S_eq_direct_J_mol_K": -98.84764428780292,
+        "T_K": 231.17227405115156,
+        "beta": 0.0,
+        "classification": "single_liquid",
+        "ln_fugacity_residual": [],
+        "material_residual": [
+          0.0,
+          0.0
+        ],
+        "phases": {
+          "liquid": {
+            "MW_kg_kmol": 51.12937571469052,
+            "Z": 0.25774375326135657,
+            "composition": [
+              0.4997106092421193,
+              0.5002893907578807
+            ],
+            "direct_h_J_mol": -25401.757817564172,
+            "direct_s_J_mol_K": -98.84764428780292,
+            "h_J_mol": -25401.75781756418,
+            "h_ig_J_mol": -5552.008114764092,
+            "h_res_J_mol": -19849.749702800087,
+            "library_minus_direct_h_J_mol": -7.275957614183426e-12,
+            "s_J_mol_K": -98.84764428780295,
+            "s_ig_J_mol_K": -49.204347911841474,
+            "s_res_J_mol_K": -49.64329637596148
+          }
+        },
+        "z": [
+          0.4997106092421193,
+          0.5002893907578807
+        ]
+      }
+    },
+    {
+      "case_id": "9bfecbfb401cbc5498861d9edfb68432aab0968e39fbd47b04b0135d322f5183",
+      "inputs": {
+        "P": 6999300.0,
+        "T": 231.45042780545606,
+        "z": [
+          0.4997106092421193,
+          0.5002893907578807
+        ]
+      },
+      "kind": "witness",
+      "result": {
+        "H_eq_J_mol": -25320.421778546377,
+        "H_eq_direct_J_mol": -25320.421778546377,
+        "PT_diagnostics": {
+          "PT_SS_TOL": 1e-26,
+          "error": 0.0,
+          "iterations": 0,
+          "stability_entry": "FlashVL.flash_TP_stability_test -> stability_test_Michelsen"
+        },
+        "P_Pa_abs": 6999300.0,
+        "S_eq_J_mol_K": -98.84852411748557,
+        "S_eq_direct_J_mol_K": -98.84852411748557,
+        "T_K": 231.45042780545606,
+        "beta": 0.0,
+        "classification": "single_liquid",
+        "ln_fugacity_residual": [],
+        "material_residual": [
+          0.0,
+          0.0
+        ],
+        "phases": {
+          "liquid": {
+            "MW_kg_kmol": 51.12937571469052,
+            "Z": 0.29935804794657156,
+            "composition": [
+              0.4997106092421193,
+              0.5002893907578807
+            ],
+            "direct_h_J_mol": -25320.421778546377,
+            "direct_s_J_mol_K": -98.84852411748557,
+            "h_J_mol": -25320.421778546377,
+            "h_ig_J_mol": -5530.6936692879735,
+            "h_res_J_mol": -19789.7281092584,
+            "library_minus_direct_h_J_mol": 0.0,
+            "s_J_mol_K": -98.84852411748557,
+            "s_ig_J_mol_K": -50.38003594053197,
+            "s_res_J_mol_K": -48.468488176953606
+          }
+        },
+        "z": [
+          0.4997106092421193,
+          0.5002893907578807
+        ]
+      }
+    },
+    {
+      "case_id": "92107ef47128fe6103ac79c213dd4313f363b9ae71cdd37b040d219eda1abaf0",
+      "inputs": {
+        "P": 6999300.0,
+        "T": 231.63744064779354,
+        "z": [
+          0.4997106092421193,
+          0.5002893907578807
+        ]
+      },
+      "kind": "witness",
+      "result": {
+        "H_eq_J_mol": -25299.828780235846,
+        "H_eq_direct_J_mol": -25299.828780235854,
+        "PT_diagnostics": {
+          "PT_SS_TOL": 1e-26,
+          "error": 0.0,
+          "iterations": 0,
+          "stability_entry": "FlashVL.flash_TP_stability_test -> stability_test_Michelsen"
+        },
+        "P_Pa_abs": 6999300.0,
+        "S_eq_J_mol_K": -98.75958635736788,
+        "S_eq_direct_J_mol_K": -98.75958635736785,
+        "T_K": 231.63744064779354,
+        "beta": 0.0,
+        "classification": "single_liquid",
+        "ln_fugacity_residual": [],
+        "material_residual": [
+          0.0,
+          0.0
+        ],
+        "phases": {
+          "liquid": {
+            "MW_kg_kmol": 51.12937571469052,
+            "Z": 0.29920716192779584,
+            "composition": [
+              0.4997106092421193,
+              0.5002893907578807
+            ],
+            "direct_h_J_mol": -25299.828780235854,
+            "direct_s_J_mol_K": -98.75958635736785,
+            "h_J_mol": -25299.828780235846,
+            "h_ig_J_mol": -5516.355410160264,
+            "h_res_J_mol": -19783.473370075582,
+            "library_minus_direct_h_J_mol": 7.275957614183426e-12,
+            "s_J_mol_K": -98.75958635736788,
+            "s_ig_J_mol_K": -50.31811136654745,
+            "s_res_J_mol_K": -48.44147499082044
+          }
+        },
+        "z": [
+          0.4997106092421193,
+          0.5002893907578807
+        ]
+      }
+    },
+    {
+      "case_id": "af3ee9a45f501fa016c446d37b195be24e9b7a892da494fa5fa5e23cecba4334",
+      "inputs": {
+        "P": 5999400.0,
+        "T": 468.2158895316327,
+        "z": [
+          0.21404761041658718,
+          0.7859523895834128
+        ]
+      },
+      "kind": "witness",
+      "result": {
+        "H_eq_J_mol": 9395.393897282262,
+        "H_eq_direct_J_mol": 9395.393897282273,
+        "PT_diagnostics": {
+          "PT_SS_TOL": 1e-26,
+          "error": 8.46536498153983e-27,
+          "iterations": 51,
+          "stability_entry": "FlashVL.flash_TP_stability_test -> stability_test_Michelsen"
+        },
+        "P_Pa_abs": 5999400.0,
+        "S_eq_J_mol_K": 9.083572305490806,
+        "S_eq_direct_J_mol_K": 9.083572305490756,
+        "T_K": 468.2158895316327,
+        "beta": 0.00011080967573589384,
+        "classification": "vapor_liquid",
+        "ln_fugacity_residual": [
+          -6.494804694057166e-14,
+          6.494804694057166e-14
+        ],
+        "material_residual": [
+          -2.7755575615628914e-17,
+          0.0
+        ],
+        "phases": {
+          "liquid": {
+            "MW_kg_kmol": 71.16587846009358,
+            "Z": 0.31492862708066094,
+            "composition": [
+              0.21401587992661916,
+              0.7859841200733808
+            ],
+            "direct_h_J_mol": 9394.959531662078,
+            "direct_s_J_mol_K": 9.083275334303877,
+            "h_J_mol": 9394.959531662067,
+            "h_ig_J_mol": 24777.02331641512,
+            "h_res_J_mol": -15382.063784753054,
+            "library_minus_direct_h_J_mol": -1.0913936421275139e-11,
+            "s_J_mol_K": 9.083275334303927,
+            "s_ig_J_mol_K": 35.2717175265113,
+            "s_res_J_mol_K": -26.18844219220737
+          },
+          "vapor": {
+            "MW_kg_kmol": 51.08333172642264,
+            "Z": 0.6940304576592727,
+            "composition": [
+              0.5003671372266654,
+              0.49963286277333446
+            ],
+            "direct_h_J_mol": 13314.884550037099,
+            "direct_s_J_mol_K": 11.763286668206389,
+            "h_J_mol": 13314.884550037094,
+            "h_ig_J_mol": 18220.39416166959,
+            "h_res_J_mol": -4905.509611632494,
+            "library_minus_direct_h_J_mol": -5.4569682106375694e-12,
+            "s_J_mol_K": 11.763286668206408,
+            "s_ig_J_mol_K": 19.579744203214876,
+            "s_res_J_mol_K": -7.816457535008465
+          }
+        },
+        "z": [
+          0.21404761041658718,
+          0.7859523895834128
+        ]
+      }
+    },
+    {
+      "case_id": "87e0695f3ede34e97a8e0edc0d28cf10562662e8e62984605b78f83f1077391b",
+      "inputs": {
+        "P": 6009399.0,
+        "T": 468.24704787466635,
+        "z": [
+          0.21404761041658718,
+          0.7859523895834128
+        ]
+      },
+      "kind": "witness",
+      "result": {
+        "H_eq_J_mol": 9397.495014214224,
+        "H_eq_direct_J_mol": 9397.495014214217,
+        "PT_diagnostics": {
+          "PT_SS_TOL": 1e-26,
+          "error": 0.0,
+          "iterations": 0,
+          "stability_entry": "FlashVL.flash_TP_stability_test -> stability_test_Michelsen"
+        },
+        "P_Pa_abs": 6009399.0,
+        "S_eq_J_mol_K": 9.083696510963161,
+        "S_eq_direct_J_mol_K": 9.083696510963136,
+        "T_K": 468.24704787466635,
+        "beta": 0.0,
+        "classification": "single_liquid",
+        "ln_fugacity_residual": [],
+        "material_residual": [
+          0.0,
+          0.0
+        ],
+        "phases": {
+          "liquid": {
+            "MW_kg_kmol": 71.16365311960207,
+            "Z": 0.31529811173087224,
+            "composition": [
+              0.21404761041658718,
+              0.7859523895834128
+            ],
+            "direct_h_J_mol": 9397.495014214217,
+            "direct_s_J_mol_K": 9.083696510963136,
+            "h_J_mol": 9397.495014214224,
+            "h_ig_J_mol": 24781.629581979425,
+            "h_res_J_mol": -15384.134567765199,
+            "library_minus_direct_h_J_mol": 7.275957614183426e-12,
+            "s_J_mol_K": 9.083696510963161,
+            "s_ig_J_mol_K": 35.26770499067393,
+            "s_res_J_mol_K": -26.184008479710766
+          }
+        },
+        "z": [
+          0.21404761041658718,
+          0.7859523895834128
+        ]
+      }
+    },
+    {
+      "case_id": "4336615ee91d5738305311ba97d7c6ac0e996e079673c4cb00efd28bee2f8714",
+      "inputs": {
+        "P": 6009399.0,
+        "T": 468.2489064744391,
+        "z": [
+          0.21404761041658718,
+          0.7859523895834128
+        ]
+      },
+      "kind": "witness",
+      "result": {
+        "H_eq_J_mol": 9398.00580821875,
+        "H_eq_direct_J_mol": 9398.005808218748,
+        "PT_diagnostics": {
+          "PT_SS_TOL": 1e-26,
+          "error": 0.0,
+          "iterations": 0,
+          "stability_entry": "FlashVL.flash_TP_stability_test -> stability_test_Michelsen"
+        },
+        "P_Pa_abs": 6009399.0,
+        "S_eq_J_mol_K": 9.084787373133167,
+        "S_eq_direct_J_mol_K": 9.084787373133217,
+        "T_K": 468.2489064744391,
+        "beta": 0.0,
+        "classification": "single_liquid",
+        "ln_fugacity_residual": [],
+        "material_residual": [
+          0.0,
+          0.0
+        ],
+        "phases": {
+          "liquid": {
+            "MW_kg_kmol": 71.16365311960207,
+            "Z": 0.3153021021363223,
+            "composition": [
+              0.21404761041658718,
+              0.7859523895834128
+            ],
+            "direct_h_J_mol": 9398.005808218748,
+            "direct_s_J_mol_K": 9.084787373133217,
+            "h_J_mol": 9398.00580821875,
+            "h_ig_J_mol": 24781.947693420174,
+            "h_res_J_mol": -15383.941885201424,
+            "library_minus_direct_h_J_mol": 1.8189894035458565e-12,
+            "s_J_mol_K": 9.084787373133167,
+            "s_ig_J_mol_K": 35.26838435600217,
+            "s_res_J_mol_K": -26.183596982869
+          }
+        },
+        "z": [
+          0.21404761041658718,
+          0.7859523895834128
+        ]
+      }
+    },
+    {
+      "case_id": "8249168db196614b8fefaf1ea118470b0de1fae7aa9a45bc260386e1e2fc834c",
+      "inputs": {
+        "P": 6999300.0,
+        "T": 471.0477144201009,
+        "z": [
+          0.21404761041658718,
+          0.7859523895834128
+        ]
+      },
+      "kind": "witness",
+      "result": {
+        "H_eq_J_mol": 9595.312285336979,
+        "H_eq_direct_J_mol": 9595.312285336988,
+        "PT_diagnostics": {
+          "PT_SS_TOL": 1e-26,
+          "error": 0.0,
+          "iterations": 0,
+          "stability_entry": "FlashVL.flash_TP_stability_test -> stability_test_Michelsen"
+        },
+        "P_Pa_abs": 6999300.0,
+        "S_eq_J_mol_K": 9.08359659657502,
+        "S_eq_direct_J_mol_K": 9.083596596574985,
+        "T_K": 471.0477144201009,
+        "beta": 0.0,
+        "classification": "single_liquid",
+        "ln_fugacity_residual": [],
+        "material_residual": [
+          0.0,
+          0.0
+        ],
+        "phases": {
+          "liquid": {
+            "MW_kg_kmol": 71.16365311960207,
+            "Z": 0.3500286652748276,
+            "composition": [
+              0.21404761041658718,
+              0.7859523895834128
+            ],
+            "direct_h_J_mol": 9595.312285336988,
+            "direct_s_J_mol_K": 9.083596596574985,
+            "h_J_mol": 9595.312285336979,
+            "h_ig_J_mol": 25262.1205672931,
+            "h_res_J_mol": -15666.80828195612,
+            "library_minus_direct_h_J_mol": -9.094947017729282e-12,
+            "s_J_mol_K": 9.08359659657502,
+            "s_ig_J_mol_K": 35.02296027055237,
+            "s_res_J_mol_K": -25.939363673977354
+          }
+        },
+        "z": [
+          0.21404761041658718,
+          0.7859523895834128
+        ]
+      }
+    },
+    {
+      "case_id": "c57635d6b15e596255a843cd388eefd7791159c370511acbc076aea9a0b7fe28",
+      "inputs": {
+        "P": 6999300.0,
+        "T": 471.23977404514403,
+        "z": [
+          0.21404761041658718,
+          0.7859523895834128
+        ]
+      },
+      "kind": "witness",
+      "result": {
+        "H_eq_J_mol": 9645.293870459458,
+        "H_eq_direct_J_mol": 9645.293870459453,
+        "PT_diagnostics": {
+          "PT_SS_TOL": 1e-26,
+          "error": 0.0,
+          "iterations": 0,
+          "stability_entry": "FlashVL.flash_TP_stability_test -> stability_test_Michelsen"
+        },
+        "P_Pa_abs": 6999300.0,
+        "S_eq_J_mol_K": 9.189682234204724,
+        "S_eq_direct_J_mol_K": 9.189682234204746,
+        "T_K": 471.23977404514403,
+        "beta": 0.0,
+        "classification": "single_liquid",
+        "ln_fugacity_residual": [],
+        "material_residual": [
+          0.0,
+          0.0
+        ],
+        "phases": {
+          "liquid": {
+            "MW_kg_kmol": 71.16365311960207,
+            "Z": 0.35037624223879743,
+            "composition": [
+              0.21404761041658718,
+              0.7859523895834128
+            ],
+            "direct_h_J_mol": 9645.293870459453,
+            "direct_s_J_mol_K": 9.189682234204746,
+            "h_J_mol": 9645.293870459458,
+            "h_ig_J_mol": 25295.154331209218,
+            "h_res_J_mol": -15649.86046074976,
+            "library_minus_direct_h_J_mol": 5.4569682106375694e-12,
+            "s_J_mol_K": 9.189682234204724,
+            "s_ig_J_mol_K": 35.09307425256848,
+            "s_res_J_mol_K": -25.903392018363746
+          }
+        },
+        "z": [
+          0.21404761041658718,
+          0.7859523895834128
+        ]
+      }
+    },
+    {
+      "case_id": "d6fb7791554abef608dbeb3323fb3b00a1546445234829be4113e641322d7d99",
+      "inputs": {
+        "P": 1999800.0,
+        "T": 292.458990120748,
+        "z": [
+          0.05718128748168017,
+          0.9428187125183198
+        ]
+      },
+      "kind": "witness",
+      "result": {
+        "H_eq_J_mol": -30692.20378533419,
+        "H_eq_direct_J_mol": -30692.203785334197,
+        "PT_diagnostics": {
+          "PT_SS_TOL": 1e-26,
+          "error": 0.0,
+          "iterations": 0,
+          "stability_entry": "FlashVL.flash_TP_stability_test -> stability_test_Michelsen"
+        },
+        "P_Pa_abs": 1999800.0,
+        "S_eq_J_mol_K": -91.76155016050234,
+        "S_eq_direct_J_mol_K": -91.76155016050237,
+        "T_K": 292.458990120748,
+        "beta": 0.0,
+        "classification": "single_liquid",
+        "ln_fugacity_residual": [],
+        "material_residual": [
+          0.0,
+          0.0
+        ],
+        "phases": {
+          "liquid": {
+            "MW_kg_kmol": 82.16508992481381,
+            "Z": 0.10194281214372927,
+            "composition": [
+              0.05718128748168017,
+              0.9428187125183198
+            ],
+            "direct_h_J_mol": -30692.203785334197,
+            "direct_s_J_mol_K": -91.76155016050237,
+            "h_J_mol": -30692.20378533419,
+            "h_ig_J_mol": -773.5614354855142,
+            "h_res_J_mol": -29918.642349848677,
+            "library_minus_direct_h_J_mol": 7.275957614183426e-12,
+            "s_J_mol_K": -91.76155016050234,
+            "s_ig_J_mol_K": -25.595154611189447,
+            "s_res_J_mol_K": -66.16639554931288
+          }
+        },
+        "z": [
+          0.05718128748168017,
+          0.9428187125183198
+        ]
+      }
+    },
+    {
+      "case_id": "f010ec56347d712ef4be042662b0061e6267b1f1dd6e931ddba3f9b27bb19f1b",
+      "inputs": {
+        "P": 1999800.0,
+        "T": 291.9951526858355,
+        "z": [
+          0.05718128748168017,
+          0.9428187125183198
+        ]
+      },
+      "kind": "witness",
+      "result": {
+        "H_eq_J_mol": -30774.86577968932,
+        "H_eq_direct_J_mol": -30774.86577968932,
+        "PT_diagnostics": {
+          "PT_SS_TOL": 1e-26,
+          "error": 0.0,
+          "iterations": 0,
+          "stability_entry": "FlashVL.flash_TP_stability_test -> stability_test_Michelsen"
+        },
+        "P_Pa_abs": 1999800.0,
+        "S_eq_J_mol_K": -92.044419232617,
+        "S_eq_direct_J_mol_K": -92.04441923261699,
+        "T_K": 291.9951526858355,
+        "beta": 0.0,
+        "classification": "single_liquid",
+        "ln_fugacity_residual": [],
+        "material_residual": [
+          0.0,
+          0.0
+        ],
+        "phases": {
+          "liquid": {
+            "MW_kg_kmol": 82.16508992481381,
+            "Z": 0.10204623934167548,
+            "composition": [
+              0.05718128748168017,
+              0.9428187125183198
+            ],
+            "direct_h_J_mol": -30774.86577968932,
+            "direct_s_J_mol_K": -92.04441923261699,
+            "h_J_mol": -30774.86577968932,
+            "h_ig_J_mol": -836.1174135289012,
+            "h_res_J_mol": -29938.74836616042,
+            "library_minus_direct_h_J_mol": 0.0,
+            "s_J_mol_K": -92.044419232617,
+            "s_ig_J_mol_K": -25.80922095721439,
+            "s_res_J_mol_K": -66.23519827540261
+          }
+        },
+        "z": [
+          0.05718128748168017,
+          0.9428187125183198
+        ]
+      }
+    },
+    {
+      "case_id": "5dc49da83b9a0779fed5bfb785df50e1911361395c7e7ec579b01dd9e04d1390",
+      "inputs": {
+        "P": 1000899.9,
+        "T": 291.74239410356336,
+        "z": [
+          0.05718128748168017,
+          0.9428187125183198
+        ]
+      },
+      "kind": "witness",
+      "result": {
+        "H_eq_J_mol": -30898.726636889758,
+        "H_eq_direct_J_mol": -30898.726636889744,
+        "PT_diagnostics": {
+          "PT_SS_TOL": 1e-26,
+          "error": 0.0,
+          "iterations": 0,
+          "stability_entry": "FlashVL.flash_TP_stability_test -> stability_test_Michelsen"
+        },
+        "P_Pa_abs": 1000899.9,
+        "S_eq_J_mol_K": -92.04443417600982,
+        "S_eq_direct_J_mol_K": -92.0444341760098,
+        "T_K": 291.74239410356336,
+        "beta": 0.0,
+        "classification": "single_liquid",
+        "ln_fugacity_residual": [],
+        "material_residual": [
+          0.0,
+          0.0
+        ],
+        "phases": {
+          "liquid": {
+            "MW_kg_kmol": 82.16508992481381,
+            "Z": 0.051207454469326195,
+            "composition": [
+              0.05718128748168017,
+              0.9428187125183198
+            ],
+            "direct_h_J_mol": -30898.726636889744,
+            "direct_s_J_mol_K": -92.0444341760098,
+            "h_J_mol": -30898.726636889758,
+            "h_ig_J_mol": -870.1748378854936,
+            "h_res_J_mol": -30028.551799004264,
+            "library_minus_direct_h_J_mol": -1.4551915228366852e-11,
+            "s_J_mol_K": -92.04443417600982,
+            "s_ig_J_mol_K": -20.17107240056904,
+            "s_res_J_mol_K": -71.87336177544077
+          }
+        },
+        "z": [
+          0.05718128748168017,
+          0.9428187125183198
+        ]
+      }
+    },
+    {
+      "case_id": "56e045fd992bed4d2430e17a1a7320dd90afd184dada09be610aeacfbf78abad",
+      "inputs": {
+        "P": 1000899.9,
+        "T": 291.7425680537207,
+        "z": [
+          0.05718128748168017,
+          0.9428187125183198
+        ]
+      },
+      "kind": "witness",
+      "result": {
+        "H_eq_J_mol": -30898.695611540938,
+        "H_eq_direct_J_mol": -30898.69561154094,
+        "PT_diagnostics": {
+          "PT_SS_TOL": 1e-26,
+          "error": 0.0,
+          "iterations": 0,
+          "stability_entry": "FlashVL.flash_TP_stability_test -> stability_test_Michelsen"
+        },
+        "P_Pa_abs": 1000899.9,
+        "S_eq_J_mol_K": -92.04432783102803,
+        "S_eq_direct_J_mol_K": -92.04432783102817,
+        "T_K": 291.7425680537207,
+        "beta": 0.0,
+        "classification": "single_liquid",
+        "ln_fugacity_residual": [],
+        "material_residual": [
+          0.0,
+          0.0
+        ],
+        "phases": {
+          "liquid": {
+            "MW_kg_kmol": 82.16508992481381,
+            "Z": 0.051207435146219116,
+            "composition": [
+              0.05718128748168017,
+              0.9428187125183198
+            ],
+            "direct_h_J_mol": -30898.69561154094,
+            "direct_s_J_mol_K": -92.04432783102817,
+            "h_J_mol": -30898.695611540938,
+            "h_ig_J_mol": -870.1514068933304,
+            "h_res_J_mol": -30028.54420464761,
+            "library_minus_direct_h_J_mol": 3.637978807091713e-12,
+            "s_J_mol_K": -92.04432783102803,
+            "s_ig_J_mol_K": -20.170992086615108,
+            "s_res_J_mol_K": -71.87333574441293
+          }
+        },
+        "z": [
+          0.05718128748168017,
+          0.9428187125183198
+        ]
+      }
+    },
+    {
+      "case_id": "PT_VL_HEATING_P-0.001",
+      "inputs": {
+        "P": 299700.0000000004,
+        "T": 350.0,
+        "z": [
+          0.0077448171764516885,
+          0.9922551828235483
+        ]
+      },
+      "kind": "boundary",
+      "offset": {
+        "relative_P": -0.001
+      },
+      "result": {
+        "H_eq_J_mol": -20836.446694935094,
+        "H_eq_direct_J_mol": -20836.446694935075,
+        "PT_diagnostics": {
+          "PT_SS_TOL": 1e-26,
+          "error": 8.841405114297371e-29,
+          "iterations": 7,
+          "stability_entry": "FlashVL.flash_TP_stability_test -> stability_test_Michelsen"
+        },
+        "P_Pa_abs": 299700.0000000004,
+        "S_eq_J_mol_K": -59.37849955826755,
+        "S_eq_direct_J_mol_K": -59.3784995582675,
+        "T_K": 350.0,
+        "beta": 2.510177733352014e-05,
+        "classification": "vapor_liquid",
+        "ln_fugacity_residual": [
+          -3.316791286067655e-15,
+          8.493206138382448e-15
+        ],
+        "material_residual": [
+          8.673617379884035e-19,
+          -2.220446049250313e-16
+        ],
+        "phases": {
+          "liquid": {
+            "MW_kg_kmol": 85.63314904834857,
+            "Z": 0.014338646067118467,
+            "composition": [
+              0.007731229997185398,
+              0.9922687700028144
+            ],
+            "direct_h_J_mol": -20837.07817451535,
+            "direct_s_J_mol_K": -59.38025122496242,
+            "h_J_mol": -20837.07817451537,
+            "h_ig_J_mol": 7865.469316636319,
+            "h_res_J_mol": -28702.547491151687,
+            "library_minus_direct_h_J_mol": -1.8189894035458565e-11,
+            "s_J_mol_K": -59.38025122496247,
+            "s_ig_J_mol_K": 15.641694268698052,
+            "s_res_J_mol_K": -75.02194549366052
+          },
+          "vapor": {
+            "MW_kg_kmol": 47.67154766598422,
+            "Z": 0.9649129773958508,
+            "composition": [
+              0.5490147847735172,
+              0.4509852152264828
+            ],
+            "direct_h_J_mol": 4319.6894871574195,
+            "direct_s_J_mol_K": 10.402325189821381,
+            "h_J_mol": 4319.689487157417,
+            "h_ig_J_mol": 4618.021954748783,
+            "h_res_J_mol": -298.3324675913659,
+            "library_minus_direct_h_J_mol": -2.7284841053187847e-12,
+            "s_J_mol_K": 10.402325189821347,
+            "s_ig_J_mol_K": 10.965687423124981,
+            "s_res_J_mol_K": -0.5633622333036319
+          }
+        },
+        "z": [
+          0.0077448171764516885,
+          0.9922551828235483
+        ]
+      },
+      "source": "PT_VL_HEATING"
+    },
+    {
+      "case_id": "PT_VL_HEATING_P-1e-06",
+      "inputs": {
+        "P": 299999.7000000004,
+        "T": 350.0,
+        "z": [
+          0.0077448171764516885,
+          0.9922551828235483
+        ]
+      },
+      "kind": "boundary",
+      "offset": {
+        "relative_P": -1e-06
+      },
+      "result": {
+        "H_eq_J_mol": -20836.782320031674,
+        "H_eq_direct_J_mol": -20836.782320031663,
+        "PT_diagnostics": {
+          "PT_SS_TOL": 1e-26,
+          "error": 3.0383470802653033e-29,
+          "iterations": 0,
+          "stability_entry": "FlashVL.flash_TP_stability_test -> stability_test_Michelsen"
+        },
+        "P_Pa_abs": 299999.7000000004,
+        "S_eq_J_mol_K": -59.3795778040511,
+        "S_eq_direct_J_mol_K": -59.37957780405118,
+        "T_K": 350.0,
+        "beta": 2.5082582705618192e-08,
+        "classification": "vapor_liquid",
+        "ln_fugacity_residual": [
+          2.040034807748725e-15,
+          1.8318679906315083e-15
+        ],
+        "material_residual": [
+          8.673617379884035e-19,
+          0.0
+        ],
+        "phases": {
+          "liquid": {
+            "MW_kg_kmol": 85.63219709758204,
+            "Z": 0.014352879431141174,
+            "composition": [
+              0.007744803589344902,
+              0.992255196410655
+            ],
+            "direct_h_J_mol": -20836.782950958386,
+            "direct_s_J_mol_K": -59.379579553940346,
+            "h_J_mol": -20836.782950958397,
+            "h_ig_J_mol": 7865.387881452005,
+            "h_res_J_mol": -28702.170832410404,
+            "library_minus_direct_h_J_mol": -1.0913936421275139e-11,
+            "s_J_mol_K": -59.37957955394027,
+            "s_ig_J_mol_K": 15.633680419162381,
+            "s_res_J_mol_K": -75.01325997310265
+          },
+          "vapor": {
+            "MW_kg_kmol": 47.6417479824085,
+            "Z": 0.9649222226116471,
+            "composition": [
+              0.5494396898899953,
+              0.45056031011000464
+            ],
+            "direct_h_J_mol": 4317.194680134702,
+            "direct_s_J_mol_K": 10.385531603889783,
+            "h_J_mol": 4317.1946801346985,
+            "h_ig_J_mol": 4615.472723412668,
+            "h_res_J_mol": -298.2780432779691,
+            "library_minus_direct_h_J_mol": -3.637978807091713e-12,
+            "s_J_mol_K": 10.38553160388975,
+            "s_ig_J_mol_K": 10.948811553687367,
+            "s_res_J_mol_K": -0.5632799497976189
+          }
+        },
+        "z": [
+          0.0077448171764516885,
+          0.9922551828235483
+        ]
+      },
+      "source": "PT_VL_HEATING"
+    },
+    {
+      "case_id": "PT_VL_HEATING_P0.0",
+      "inputs": {
+        "P": 300000.0000000004,
+        "T": 350.0,
+        "z": [
+          0.0077448171764516885,
+          0.9922551828235483
+        ]
+      },
+      "kind": "boundary",
+      "offset": {
+        "relative_P": 0.0
+      },
+      "result": {
+        "H_eq_J_mol": -20836.782655441,
+        "H_eq_direct_J_mol": -20836.78265544098,
+        "PT_diagnostics": {
+          "PT_SS_TOL": 1e-26,
+          "error": 0.0,
+          "iterations": 0,
+          "stability_entry": "FlashVL.flash_TP_stability_test -> stability_test_Michelsen"
+        },
+        "P_Pa_abs": 300000.0000000004,
+        "S_eq_J_mol_K": -59.37957888170014,
+        "S_eq_direct_J_mol_K": -59.379578881700134,
+        "T_K": 350.0,
+        "beta": 0.0,
+        "classification": "single_liquid",
+        "ln_fugacity_residual": [],
+        "material_residual": [
+          0.0,
+          0.0
+        ],
+        "phases": {
+          "liquid": {
+            "MW_kg_kmol": 85.63219614468348,
+            "Z": 0.014352893678648105,
+            "composition": [
+              0.0077448171764516885,
+              0.9922551828235483
+            ],
+            "direct_h_J_mol": -20836.78265544098,
+            "direct_s_J_mol_K": -59.379578881700134,
+            "h_J_mol": -20836.782655441,
+            "h_ig_J_mol": 7865.38779993574,
+            "h_res_J_mol": -28702.170455376738,
+            "library_minus_direct_h_J_mol": -1.8189894035458565e-11,
+            "s_J_mol_K": -59.37957888170014,
+            "s_ig_J_mol_K": 15.633672401349473,
+            "s_res_J_mol_K": -75.01325128304961
+          }
+        },
+        "z": [
+          0.0077448171764516885,
+          0.9922551828235483
+        ]
+      },
+      "source": "PT_VL_HEATING"
+    },
+    {
+      "case_id": "PT_VL_HEATING_P1e-06",
+      "inputs": {
+        "P": 300000.3000000004,
+        "T": 350.0,
+        "z": [
+          0.0077448171764516885,
+          0.9922551828235483
+        ]
+      },
+      "kind": "boundary",
+      "offset": {
+        "relative_P": 1e-06
+      },
+      "result": {
+        "H_eq_J_mol": -20836.78263978145,
+        "H_eq_direct_J_mol": -20836.78263978143,
+        "PT_diagnostics": {
+          "PT_SS_TOL": 1e-26,
+          "error": 1.6664686622793874e-29,
+          "iterations": 0,
+          "stability_entry": "FlashVL.flash_TP_stability_test -> stability_test_Michelsen"
+        },
+        "P_Pa_abs": 300000.3000000004,
+        "S_eq_J_mol_K": -59.37957895629517,
+        "S_eq_direct_J_mol_K": -59.37957895629506,
+        "T_K": 350.0,
+        "beta": 0.0,
+        "classification": "single_liquid",
+        "ln_fugacity_residual": [],
+        "material_residual": [
+          0.0,
+          0.0
+        ],
+        "phases": {
+          "liquid": {
+            "MW_kg_kmol": 85.63219614468348,
+            "Z": 0.014352908012977042,
+            "composition": [
+              0.0077448171764516885,
+              0.9922551828235483
+            ],
+            "direct_h_J_mol": -20836.78263978143,
+            "direct_s_J_mol_K": -59.37957895629506,
+            "h_J_mol": -20836.78263978145,
+            "h_ig_J_mol": 7865.38779993574,
+            "h_res_J_mol": -28702.17043971719,
+            "library_minus_direct_h_J_mol": -1.8189894035458565e-11,
+            "s_J_mol_K": -59.37957895629517,
+            "s_ig_J_mol_K": 15.633664086891011,
+            "s_res_J_mol_K": -75.01324304318618
+          }
+        },
+        "z": [
+          0.0077448171764516885,
+          0.9922551828235483
+        ]
+      },
+      "source": "PT_VL_HEATING"
+    },
+    {
+      "case_id": "PT_VL_HEATING_P0.001",
+      "inputs": {
+        "P": 300300.00000000035,
+        "T": 350.0,
+        "z": [
+          0.0077448171764516885,
+          0.9922551828235483
+        ]
+      },
+      "kind": "boundary",
+      "offset": {
+        "relative_P": 0.001
+      },
+      "result": {
+        "H_eq_J_mol": -20836.76699576029,
+        "H_eq_direct_J_mol": -20836.766995760274,
+        "PT_diagnostics": {
+          "PT_SS_TOL": 1e-26,
+          "error": 0.0,
+          "iterations": 0,
+          "stability_entry": "FlashVL.flash_TP_stability_test -> stability_test_Michelsen"
+        },
+        "P_Pa_abs": 300300.00000000035,
+        "S_eq_J_mol_K": -59.37965347627603,
+        "S_eq_direct_J_mol_K": -59.37965347627597,
+        "T_K": 350.0,
+        "beta": 0.0,
+        "classification": "single_liquid",
+        "ln_fugacity_residual": [],
+        "material_residual": [
+          0.0,
+          0.0
+        ],
+        "phases": {
+          "liquid": {
+            "MW_kg_kmol": 85.63219614468348,
+            "Z": 0.01436722798919251,
+            "composition": [
+              0.0077448171764516885,
+              0.9922551828235483
+            ],
+            "direct_h_J_mol": -20836.766995760274,
+            "direct_s_J_mol_K": -59.37965347627597,
+            "h_J_mol": -20836.76699576029,
+            "h_ig_J_mol": 7865.38779993574,
+            "h_res_J_mol": -28702.154795696028,
+            "library_minus_direct_h_J_mol": -1.4551915228366852e-11,
+            "s_J_mol_K": -59.37965347627603,
+            "s_ig_J_mol_K": 15.62536209319322,
+            "s_res_J_mol_K": -75.00501556946925
+          }
+        },
+        "z": [
+          0.0077448171764516885,
+          0.9922551828235483
+        ]
+      },
+      "source": "PT_VL_HEATING"
+    },
+    {
+      "case_id": "PT_VL_HEATING_T-0.01",
+      "inputs": {
+        "P": 300000.0000000004,
+        "T": 349.99,
+        "z": [
+          0.0077448171764516885,
+          0.9922551828235483
+        ]
+      },
+      "kind": "boundary",
+      "offset": {
+        "delta_T_K": -0.01
+      },
+      "result": {
+        "H_eq_J_mol": -20838.891497907392,
+        "H_eq_direct_J_mol": -20838.89149790739,
+        "PT_diagnostics": {
+          "PT_SS_TOL": 1e-26,
+          "error": 0.0,
+          "iterations": 0,
+          "stability_entry": "FlashVL.flash_TP_stability_test -> stability_test_Michelsen"
+        },
+        "P_Pa_abs": 300000.0000000004,
+        "S_eq_J_mol_K": -59.385604231966305,
+        "S_eq_direct_J_mol_K": -59.38560423196638,
+        "T_K": 349.99,
+        "beta": 0.0,
+        "classification": "single_liquid",
+        "ln_fugacity_residual": [],
+        "material_residual": [
+          0.0,
+          0.0
+        ],
+        "phases": {
+          "liquid": {
+            "MW_kg_kmol": 85.63219614468348,
+            "Z": 0.014353047443312722,
+            "composition": [
+              0.0077448171764516885,
+              0.9922551828235483
+            ],
+            "direct_h_J_mol": -20838.89149790739,
+            "direct_s_J_mol_K": -59.38560423196638,
+            "h_J_mol": -20838.891497907392,
+            "h_ig_J_mol": 7863.77530147337,
+            "h_res_J_mol": -28702.666799380764,
+            "library_minus_direct_h_J_mol": -3.637978807091713e-12,
+            "s_J_mol_K": -59.385604231966305,
+            "s_ig_J_mol_K": 15.629065197068337,
+            "s_res_J_mol_K": -75.01466942903464
+          }
+        },
+        "z": [
+          0.0077448171764516885,
+          0.9922551828235483
+        ]
+      },
+      "source": "PT_VL_HEATING"
+    },
+    {
+      "case_id": "PT_VL_HEATING_T0.01",
+      "inputs": {
+        "P": 300000.0000000004,
+        "T": 350.01,
+        "z": [
+          0.0077448171764516885,
+          0.9922551828235483
+        ]
+      },
+      "kind": "boundary",
+      "offset": {
+        "delta_T_K": 0.01
+      },
+      "result": {
+        "H_eq_J_mol": -20834.623167771566,
+        "H_eq_direct_J_mol": -20834.623167771566,
+        "PT_diagnostics": {
+          "PT_SS_TOL": 1e-26,
+          "error": 6.893288456950795e-28,
+          "iterations": 6,
+          "stability_entry": "FlashVL.flash_TP_stability_test -> stability_test_Michelsen"
+        },
+        "P_Pa_abs": 300000.0000000004,
+        "S_eq_J_mol_K": -59.37340900507168,
+        "S_eq_direct_J_mol_K": -59.373409005071956,
+        "T_K": 350.01,
+        "beta": 3.6140246969458388e-06,
+        "classification": "vapor_liquid",
+        "ln_fugacity_residual": [
+          -1.6313339568085894e-14,
+          2.0247692411601292e-14
+        ],
+        "material_residual": [
+          0.0,
+          0.0
+        ],
+        "phases": {
+          "liquid": {
+            "MW_kg_kmol": 85.63233341062069,
+            "Z": 0.014352752453457627,
+            "composition": [
+              0.007742859940936191,
+              0.9922571400590638
+            ],
+            "direct_h_J_mol": -20834.714073259118,
+            "direct_s_J_mol_K": -59.37366113507917,
+            "h_J_mol": -20834.714073259118,
+            "h_ig_J_mol": 7867.012080371389,
+            "h_res_J_mol": -28701.72615363051,
+            "library_minus_direct_h_J_mol": 0.0,
+            "s_J_mol_K": -59.37366113507889,
+            "s_ig_J_mol_K": 15.638236851465773,
+            "s_res_J_mol_K": -75.01189798654467
+          },
+          "vapor": {
+            "MW_kg_kmol": 47.650872647288864,
+            "Z": 0.9649114152587527,
+            "composition": [
+              0.5493095839180993,
+              0.45069041608190075
+            ],
+            "direct_h_J_mol": 4318.818394435925,
+            "direct_s_J_mol_K": 10.390667653211406,
+            "h_J_mol": 4318.818394435926,
+            "h_ig_J_mol": 4617.193460416591,
+            "h_res_J_mol": -298.37506598066466,
+            "library_minus_direct_h_J_mol": 9.094947017729282e-13,
+            "s_J_mol_K": 10.390667653211406,
+            "s_ig_J_mol_K": 10.95411279803887,
+            "s_res_J_mol_K": -0.563445144827463
+          }
+        },
+        "z": [
+          0.0077448171764516885,
+          0.9922551828235483
+        ]
+      },
+      "source": "PT_VL_HEATING"
+    },
+    {
+      "case_id": "PH_FLASH_P-0.001",
+      "inputs": {
+        "P": 998999.9999994795,
+        "T": 291.742138656979,
+        "z": [
+          0.05718128748168017,
+          0.9428187125183198
+        ]
+      },
+      "kind": "boundary",
+      "offset": {
+        "relative_P": -0.001
+      },
+      "result": {
+        "H_eq_J_mol": -30898.622090962235,
+        "H_eq_direct_J_mol": -30898.622090962235,
+        "PT_diagnostics": {
+          "PT_SS_TOL": 1e-26,
+          "error": 3.386185435661193e-27,
+          "iterations": 5,
+          "stability_entry": "FlashVL.flash_TP_stability_test -> stability_test_Michelsen"
+        },
+        "P_Pa_abs": 998999.9999994795,
+        "S_eq_J_mol_K": -92.04326740303696,
+        "S_eq_direct_J_mol_K": -92.04326740303702,
+        "T_K": 291.742138656979,
+        "beta": 6.118705484941496e-05,
+        "classification": "vapor_liquid",
+        "ln_fugacity_residual": [
+          5.738465258531278e-14,
+          1.0269562977782698e-14
+        ],
+        "material_residual": [
+          6.938893903907228e-18,
+          1.1102230246251565e-16
+        ],
+        "phases": {
+          "liquid": {
+            "MW_kg_kmol": 82.16905351169056,
+            "Z": 0.05111217528944003,
+            "composition": [
+              0.057124771836496925,
+              0.9428752281635031
+            ],
+            "direct_h_J_mol": -30900.484822331204,
+            "direct_s_J_mol_K": -92.04770235033665,
+            "h_J_mol": -30900.484822331204,
+            "h_ig_J_mol": -870.2477151652282,
+            "h_res_J_mol": -30030.237107165976,
+            "library_minus_direct_h_J_mol": 0.0,
+            "s_J_mol_K": -92.04770235033659,
+            "s_ig_J_mol_K": -20.156840528598746,
+            "s_res_J_mol_K": -71.89086182173784
+          },
+          "vapor": {
+            "MW_kg_kmol": 17.390860044010278,
+            "Z": 0.9725400484477718,
+            "composition": [
+              0.9807783995905714,
+              0.019221600409428618
+            ],
+            "direct_h_J_mol": -457.25833340632903,
+            "direct_s_J_mol_K": -19.565911707522403,
+            "h_J_mol": -457.25833340633017,
+            "h_ig_J_mol": -241.53986417823216,
+            "h_res_J_mol": -215.718469228098,
+            "library_minus_direct_h_J_mol": -1.1368683772161603e-12,
+            "s_J_mol_K": -19.565911707522417,
+            "s_ig_J_mol_K": -19.056121061167925,
+            "s_res_J_mol_K": -0.5097906463544938
+          }
+        },
+        "z": [
+          0.05718128748168017,
+          0.9428187125183198
+        ]
+      },
+      "source": "PH_FLASH"
+    },
+    {
+      "case_id": "PH_FLASH_P-1e-06",
+      "inputs": {
+        "P": 999998.999999479,
+        "T": 291.742138656979,
+        "z": [
+          0.05718128748168017,
+          0.9428187125183198
+        ]
+      },
+      "kind": "boundary",
+      "offset": {
+        "relative_P": -1e-06
+      },
+      "result": {
+        "H_eq_J_mol": -30898.842655573422,
+        "H_eq_direct_J_mol": -30898.842655573408,
+        "PT_diagnostics": {
+          "PT_SS_TOL": 1e-26,
+          "error": 2.2285320572493584e-29,
+          "iterations": 0,
+          "stability_entry": "FlashVL.flash_TP_stability_test -> stability_test_Michelsen"
+        },
+        "P_Pa_abs": 999998.999999479,
+        "S_eq_J_mol_K": -92.04444862626768,
+        "S_eq_direct_J_mol_K": -92.04444862626774,
+        "T_K": 291.742138656979,
+        "beta": 6.118812954951736e-08,
+        "classification": "vapor_liquid",
+        "ln_fugacity_residual": [
+          6.279698983036042e-16,
+          -1.1102230246251565e-16
+        ],
+        "material_residual": [
+          -6.938893903907228e-18,
+          0.0
+        ],
+        "phases": {
+          "liquid": {
+            "MW_kg_kmol": 82.1650938882922,
+            "Z": 0.051161489357854716,
+            "composition": [
+              0.05718123096758174,
+              0.9428187690324182
+            ],
+            "direct_h_J_mol": -30898.844518225807,
+            "direct_s_J_mol_K": -92.04445306052921,
+            "h_J_mol": -30898.844518225822,
+            "h_ig_J_mol": -870.2092848511945,
+            "h_res_J_mol": -30028.635233374625,
+            "library_minus_direct_h_J_mol": -1.4551915228366852e-11,
+            "s_J_mol_K": -92.04445306052915,
+            "s_ig_J_mol_K": -20.16370465454512,
+            "s_res_J_mol_K": -71.88074840598404
+          },
+          "vapor": {
+            "MW_kg_kmol": 17.389811042978312,
+            "Z": 0.972516145105922,
+            "composition": [
+              0.9807933569945497,
+              0.019206643005450164
+            ],
+            "direct_h_J_mol": -457.4433656407764,
+            "direct_s_J_mol_K": -19.57514407157721,
+            "h_J_mol": -457.4433656407775,
+            "h_ig_J_mol": -241.52968304860835,
+            "h_res_J_mol": -215.91368259216915,
+            "library_minus_direct_h_J_mol": -1.0800249583553523e-12,
+            "s_J_mol_K": -19.575144071577228,
+            "s_ig_J_mol_K": -19.064885933145224,
+            "s_res_J_mol_K": -0.5102581384320048
+          }
+        },
+        "z": [
+          0.05718128748168017,
+          0.9428187125183198
+        ]
+      },
+      "source": "PH_FLASH"
+    },
+    {
+      "case_id": "PH_FLASH_P0.0",
+      "inputs": {
+        "P": 999999.999999479,
+        "T": 291.742138656979,
+        "z": [
+          0.05718128748168017,
+          0.9428187125183198
+        ]
+      },
+      "kind": "boundary",
+      "offset": {
+        "relative_P": 0.0
+      },
+      "result": {
+        "H_eq_J_mol": -30898.84287632552,
+        "H_eq_direct_J_mol": -30898.84287632552,
+        "PT_diagnostics": {
+          "PT_SS_TOL": 1e-26,
+          "error": 0.0,
+          "iterations": 0,
+          "stability_entry": "FlashVL.flash_TP_stability_test -> stability_test_Michelsen"
+        },
+        "P_Pa_abs": 999999.999999479,
+        "S_eq_J_mol_K": -92.04444980831721,
+        "S_eq_direct_J_mol_K": -92.04444980831708,
+        "T_K": 291.742138656979,
+        "beta": 0.0,
+        "classification": "single_liquid",
+        "ln_fugacity_residual": [],
+        "material_residual": [
+          0.0,
+          0.0
+        ],
+        "phases": {
+          "liquid": {
+            "MW_kg_kmol": 82.16508992481381,
+            "Z": 0.05116153871954138,
+            "composition": [
+              0.05718128748168017,
+              0.9428187125183198
+            ],
+            "direct_h_J_mol": -30898.84287632552,
+            "direct_s_J_mol_K": -92.04444980831708,
+            "h_J_mol": -30898.84287632552,
+            "h_ig_J_mol": -870.2092463834657,
+            "h_res_J_mol": -30028.633629942058,
+            "library_minus_direct_h_J_mol": 0.0,
+            "s_J_mol_K": -92.04444980831721,
+            "s_ig_J_mol_K": -20.163711521668084,
+            "s_res_J_mol_K": -71.88073828664912
+          }
+        },
+        "z": [
+          0.05718128748168017,
+          0.9428187125183198
+        ]
+      },
+      "source": "PH_FLASH"
+    },
+    {
+      "case_id": "PH_FLASH_P1e-06",
+      "inputs": {
+        "P": 1000000.9999994789,
+        "T": 291.742138656979,
+        "z": [
+          0.05718128748168017,
+          0.9428187125183198
+        ]
+      },
+      "kind": "boundary",
+      "offset": {
+        "relative_P": 1e-06
+      },
+      "result": {
+        "H_eq_J_mol": -30898.84279778539,
+        "H_eq_direct_J_mol": -30898.842797785393,
+        "PT_diagnostics": {
+          "PT_SS_TOL": 1e-26,
+          "error": 1.2818989709841442e-29,
+          "iterations": 0,
+          "stability_entry": "FlashVL.flash_TP_stability_test -> stability_test_Michelsen"
+        },
+        "P_Pa_abs": 1000000.9999994789,
+        "S_eq_J_mol_K": -92.0444499644871,
+        "S_eq_direct_J_mol_K": -92.04444996448707,
+        "T_K": 291.742138656979,
+        "beta": 0.0,
+        "classification": "single_liquid",
+        "ln_fugacity_residual": [],
+        "material_residual": [
+          0.0,
+          0.0
+        ],
+        "phases": {
+          "liquid": {
+            "MW_kg_kmol": 82.16508992481381,
+            "Z": 0.051161589774337254,
+            "composition": [
+              0.05718128748168017,
+              0.9428187125183198
+            ],
+            "direct_h_J_mol": -30898.842797785393,
+            "direct_s_J_mol_K": -92.04444996448707,
+            "h_J_mol": -30898.84279778539,
+            "h_ig_J_mol": -870.2092463834657,
+            "h_res_J_mol": -30028.633551401927,
+            "library_minus_direct_h_J_mol": 3.637978807091713e-12,
+            "s_J_mol_K": -92.0444499644871,
+            "s_ig_J_mol_K": -20.163719836126543,
+            "s_res_J_mol_K": -71.88073012836055
+          }
+        },
+        "z": [
+          0.05718128748168017,
+          0.9428187125183198
+        ]
+      },
+      "source": "PH_FLASH"
+    },
+    {
+      "case_id": "PH_FLASH_P0.001",
+      "inputs": {
+        "P": 1000999.9999994785,
+        "T": 291.742138656979,
+        "z": [
+          0.05718128748168017,
+          0.9428187125183198
+        ]
+      },
+      "kind": "boundary",
+      "offset": {
+        "relative_P": 0.001
+      },
+      "result": {
+        "H_eq_J_mol": -30898.764335787142,
+        "H_eq_direct_J_mol": -30898.764335787153,
+        "PT_diagnostics": {
+          "PT_SS_TOL": 1e-26,
+          "error": 0.0,
+          "iterations": 0,
+          "stability_entry": "FlashVL.flash_TP_stability_test -> stability_test_Michelsen"
+        },
+        "P_Pa_abs": 1000999.9999994785,
+        "S_eq_J_mol_K": -92.04460597639039,
+        "S_eq_direct_J_mol_K": -92.04460597639033,
+        "T_K": 291.742138656979,
+        "beta": 0.0,
+        "classification": "single_liquid",
+        "ln_fugacity_residual": [],
+        "material_residual": [
+          0.0,
+          0.0
+        ],
+        "phases": {
+          "liquid": {
+            "MW_kg_kmol": 82.16508992481381,
+            "Z": 0.051212593410550934,
+            "composition": [
+              0.05718128748168017,
+              0.9428187125183198
+            ],
+            "direct_h_J_mol": -30898.764335787153,
+            "direct_s_J_mol_K": -92.04460597639033,
+            "h_J_mol": -30898.764335787142,
+            "h_ig_J_mol": -870.2092463834657,
+            "h_res_J_mol": -30028.55508940368,
+            "library_minus_direct_h_J_mol": 1.0913936421275139e-11,
+            "s_J_mol_K": -92.04460597639039,
+            "s_ig_J_mol_K": -20.172021829824338,
+            "s_res_J_mol_K": -71.87258414656606
+          }
+        },
+        "z": [
+          0.05718128748168017,
+          0.9428187125183198
+        ]
+      },
+      "source": "PH_FLASH"
+    },
+    {
+      "case_id": "PH_FLASH_T-0.01",
+      "inputs": {
+        "P": 999999.999999479,
+        "T": 291.73213865697903,
+        "z": [
+          0.05718128748168017,
+          0.9428187125183198
+        ]
+      },
+      "kind": "boundary",
+      "offset": {
+        "delta_T_K": -0.01
+      },
+      "result": {
+        "H_eq_J_mol": -30900.62643514409,
+        "H_eq_direct_J_mol": -30900.626435144095,
+        "PT_diagnostics": {
+          "PT_SS_TOL": 1e-26,
+          "error": 0.0,
+          "iterations": 0,
+          "stability_entry": "FlashVL.flash_TP_stability_test -> stability_test_Michelsen"
+        },
+        "P_Pa_abs": 999999.999999479,
+        "S_eq_J_mol_K": -92.05056338997102,
+        "S_eq_direct_J_mol_K": -92.05056338997102,
+        "T_K": 291.73213865697903,
+        "beta": 0.0,
+        "classification": "single_liquid",
+        "ln_fugacity_residual": [],
+        "material_residual": [
+          0.0,
+          0.0
+        ],
+        "phases": {
+          "liquid": {
+            "MW_kg_kmol": 82.16508992481381,
+            "Z": 0.051162648618648346,
+            "composition": [
+              0.05718128748168017,
+              0.9428187125183198
+            ],
+            "direct_h_J_mol": -30900.626435144095,
+            "direct_s_J_mol_K": -92.05056338997102,
+            "h_J_mol": -30900.62643514409,
+            "h_ig_J_mol": -871.5562226033816,
+            "h_res_J_mol": -30029.070212540708,
+            "library_minus_direct_h_J_mol": 3.637978807091713e-12,
+            "s_J_mol_K": -92.05056338997102,
+            "s_ig_J_mol_K": -20.1683286102779,
+            "s_res_J_mol_K": -71.88223477969312
+          }
+        },
+        "z": [
+          0.05718128748168017,
+          0.9428187125183198
+        ]
+      },
+      "source": "PH_FLASH"
+    },
+    {
+      "case_id": "PH_FLASH_T0.01",
+      "inputs": {
+        "P": 999999.999999479,
+        "T": 291.752138656979,
+        "z": [
+          0.05718128748168017,
+          0.9428187125183198
+        ]
+      },
+      "kind": "boundary",
+      "offset": {
+        "delta_T_K": 0.01
+      },
+      "result": {
+        "H_eq_J_mol": -30897.03748195122,
+        "H_eq_direct_J_mol": -30897.037481951218,
+        "PT_diagnostics": {
+          "PT_SS_TOL": 1e-26,
+          "error": 4.812051521848172e-29,
+          "iterations": 5,
+          "stability_entry": "FlashVL.flash_TP_stability_test -> stability_test_Michelsen"
+        },
+        "P_Pa_abs": 999999.999999479,
+        "S_eq_J_mol_K": -92.03826159210129,
+        "S_eq_direct_J_mol_K": -92.03826159210126,
+        "T_K": 291.752138656979,
+        "beta": 4.456094610307632e-06,
+        "classification": "vapor_liquid",
+        "ln_fugacity_residual": [
+          5.415806691999592e-15,
+          5.079270337660091e-15
+        ],
+        "material_residual": [
+          1.3877787807814457e-17,
+          0.0
+        ],
+        "phases": {
+          "liquid": {
+            "MW_kg_kmol": 82.16537856827311,
+            "Z": 0.05116055224087871,
+            "composition": [
+              0.057177171797619886,
+              0.9428228282023802
+            ],
+            "direct_h_J_mol": -30897.173125913072,
+            "direct_s_J_mol_K": -92.03858450293225,
+            "h_J_mol": -30897.173125913076,
+            "h_ig_J_mol": -868.8650328831426,
+            "h_res_J_mol": -30028.308093029933,
+            "library_minus_direct_h_J_mol": -3.637978807091713e-12,
+            "s_J_mol_K": -92.03858450293228,
+            "s_ig_J_mol_K": -20.159199863835788,
+            "s_res_J_mol_K": -71.87938463909649
+          },
+          "vapor": {
+            "MW_kg_kmol": 17.390394071224954,
+            "Z": 0.9725173979224061,
+            "composition": [
+              0.9807850437624844,
+              0.019214956237515783
+            ],
+            "direct_h_J_mol": -457.0739541427052,
+            "direct_s_J_mol_K": -19.573599076409135,
+            "h_J_mol": -457.07395414270434,
+            "h_ig_J_mol": -241.15984105153905,
+            "h_res_J_mol": -215.9141130911653,
+            "library_minus_direct_h_J_mol": 8.526512829121202e-13,
+            "s_J_mol_K": -19.573599076409156,
+            "s_ig_J_mol_K": -19.063354516145413,
+            "s_res_J_mol_K": -0.5102445602637383
+          }
+        },
+        "z": [
+          0.05718128748168017,
+          0.9428187125183198
+        ]
+      },
+      "source": "PH_FLASH"
+    },
+    {
+      "case_id": "PT_BUBBLE_BELOW_P-0.001",
+      "inputs": {
+        "P": 5989289.25932858,
+        "T": 231.06755435138734,
+        "z": [
+          0.5,
+          0.5
+        ]
+      },
+      "kind": "boundary",
+      "offset": {
+        "relative_P": -0.001
+      },
+      "result": {
+        "H_eq_J_mol": -25401.464427255436,
+        "H_eq_direct_J_mol": -25401.46442725543,
+        "PT_diagnostics": {
+          "PT_SS_TOL": 1e-26,
+          "error": 3.5365620457189486e-27,
+          "iterations": 16,
+          "stability_entry": "FlashVL.flash_TP_stability_test -> stability_test_Michelsen"
+        },
+        "P_Pa_abs": 5989289.25932858,
+        "S_eq_J_mol_K": -98.86307808920351,
+        "S_eq_direct_J_mol_K": -98.86307808920348,
+        "T_K": 231.06755435138734,
+        "beta": 0.0007382158669705032,
+        "classification": "vapor_liquid",
+        "ln_fugacity_residual": [
+          3.93574062229618e-14,
+          -4.440892098500626e-14
+        ],
+        "material_residual": [
+          0.0,
+          0.0
+        ],
+        "phases": {
+          "liquid": {
+            "MW_kg_kmol": 51.13493044724193,
+            "Z": 0.25698162299805666,
+            "composition": [
+              0.4996314059084407,
+              0.5003685940915593
+            ],
+            "direct_h_J_mol": -25417.079048870146,
+            "direct_s_J_mol_K": -98.90022770406719,
+            "h_J_mol": -25417.079048870153,
+            "h_ig_J_mol": -5560.541664175929,
+            "h_res_J_mol": -19856.53738469422,
+            "library_minus_direct_h_J_mol": -7.275957614183426e-12,
+            "s_J_mol_K": -98.90022770406722,
+            "s_ig_J_mol_K": -49.213121953744704,
+            "s_res_J_mol_K": -49.687105750322516
+          },
+          "vapor": {
+            "MW_kg_kmol": 16.117466858964328,
+            "Z": 0.6963817090032245,
+            "composition": [
+              0.9989353467353205,
+              0.001064653264679469
+            ],
+            "direct_h_J_mol": -4265.242149463294,
+            "direct_s_J_mol_K": -48.576715942989274,
+            "h_J_mol": -4265.242149463293,
+            "h_ig_J_mol": -2328.788693507759,
+            "h_res_J_mol": -1936.4534559555336,
+            "library_minus_direct_h_J_mol": 9.094947017729282e-13,
+            "s_J_mol_K": -48.5767159429893,
+            "s_ig_J_mol_K": -42.685234099277146,
+            "s_res_J_mol_K": -5.891481843712156
+          }
+        },
+        "z": [
+          0.5,
+          0.5
+        ]
+      },
+      "source": "PT_BUBBLE_BELOW"
+    },
+    {
+      "case_id": "PT_BUBBLE_BELOW_P-1e-06",
+      "inputs": {
+        "P": 5995278.548587909,
+        "T": 231.06755435138734,
+        "z": [
+          0.5,
+          0.5
+        ]
+      },
+      "kind": "boundary",
+      "offset": {
+        "relative_P": -1e-06
+      },
+      "result": {
+        "H_eq_J_mol": -25403.98824751048,
+        "H_eq_direct_J_mol": -25403.988247510464,
+        "PT_diagnostics": {
+          "PT_SS_TOL": 1e-26,
+          "error": 3.647162809821263e-27,
+          "iterations": 0,
+          "stability_entry": "FlashVL.flash_TP_stability_test -> stability_test_Michelsen"
+        },
+        "P_Pa_abs": 5995278.548587909,
+        "S_eq_J_mol_K": -98.87613818609908,
+        "S_eq_direct_J_mol_K": -98.87613818609901,
+        "T_K": 231.06755435138734,
+        "beta": 7.385411820944719e-07,
+        "classification": "vapor_liquid",
+        "ln_fugacity_residual": [
+          9.769962616701378e-15,
+          8.881784197001252e-16
+        ],
+        "material_residual": [
+          -1.1102230246251565e-16,
+          0.0
+        ],
+        "phases": {
+          "liquid": {
+            "MW_kg_kmol": 51.10910584263822,
+            "Z": 0.2571541191318815,
+            "composition": [
+              0.4999996315172549,
+              0.500000368482745
+            ],
+            "direct_h_J_mol": -25404.003857590335,
+            "direct_s_J_mol_K": -98.87617532255538,
+            "h_J_mol": -25404.00385759035,
+            "h_ig_J_mol": -5558.158317865481,
+            "h_res_J_mol": -19845.84553972487,
+            "library_minus_direct_h_J_mol": -1.4551915228366852e-11,
+            "s_J_mol_K": -98.87617532255545,
+            "s_ig_J_mol_K": -49.21241684928186,
+            "s_res_J_mol_K": -49.663758473273596
+          },
+          "vapor": {
+            "MW_kg_kmol": 16.11764043897025,
+            "Z": 0.6960756610480688,
+            "composition": [
+              0.9989328717079448,
+              0.0010671282920550987
+            ],
+            "direct_h_J_mol": -4267.633606419866,
+            "direct_s_J_mol_K": -48.5926471034515,
+            "h_J_mol": -4267.633606419865,
+            "h_ig_J_mol": -2328.8047131631624,
+            "h_res_J_mol": -1938.828893256703,
+            "library_minus_direct_h_J_mol": 9.094947017729282e-13,
+            "s_J_mol_K": -48.59264710345153,
+            "s_ig_J_mol_K": -42.69346417299481,
+            "s_res_J_mol_K": -5.899182930456725
+          }
+        },
+        "z": [
+          0.5,
+          0.5
+        ]
+      },
+      "source": "PT_BUBBLE_BELOW"
+    },
+    {
+      "case_id": "PT_BUBBLE_BELOW_P0.0",
+      "inputs": {
+        "P": 5995284.543872453,
+        "T": 231.06755435138734,
+        "z": [
+          0.5,
+          0.5
+        ]
+      },
+      "kind": "boundary",
+      "offset": {
+        "relative_P": 0.0
+      },
+      "result": {
+        "H_eq_J_mol": -25403.990773187754,
+        "H_eq_direct_J_mol": -25403.990773187743,
+        "PT_diagnostics": {
+          "PT_SS_TOL": 1e-26,
+          "error": 0.0,
+          "iterations": 0,
+          "stability_entry": "FlashVL.flash_TP_stability_test -> stability_test_Michelsen"
+        },
+        "P_Pa_abs": 5995284.543872453,
+        "S_eq_J_mol_K": -98.87615125467184,
+        "S_eq_direct_J_mol_K": -98.87615125467177,
+        "T_K": 231.06755435138734,
+        "beta": 0.0,
+        "classification": "single_liquid",
+        "ln_fugacity_residual": [],
+        "material_residual": [
+          0.0,
+          0.0
+        ],
+        "phases": {
+          "liquid": {
+            "MW_kg_kmol": 51.10908,
+            "Z": 0.2571542917472451,
+            "composition": [
+              0.5,
+              0.5
+            ],
+            "direct_h_J_mol": -25403.990773187743,
+            "direct_s_J_mol_K": -98.87615125467177,
+            "h_J_mol": -25403.990773187754,
+            "h_ig_J_mol": -5558.155932854854,
+            "h_res_J_mol": -19845.834840332904,
+            "library_minus_direct_h_J_mol": -1.0913936421275139e-11,
+            "s_J_mol_K": -98.87615125467184,
+            "s_ig_J_mol_K": -49.212416144299,
+            "s_res_J_mol_K": -49.66373511037284
+          }
+        },
+        "z": [
+          0.5,
+          0.5
+        ]
+      },
+      "source": "PT_BUBBLE_BELOW"
+    },
+    {
+      "case_id": "PT_BUBBLE_BELOW_P1e-06",
+      "inputs": {
+        "P": 5995290.539156997,
+        "T": 231.06755435138734,
+        "z": [
+          0.5,
+          0.5
+        ]
+      },
+      "kind": "boundary",
+      "offset": {
+        "relative_P": 1e-06
+      },
+      "result": {
+        "H_eq_J_mol": -25403.99046753261,
+        "H_eq_direct_J_mol": -25403.990467532603,
+        "PT_diagnostics": {
+          "PT_SS_TOL": 1e-26,
+          "error": 2.995304857124182e-27,
+          "iterations": 0,
+          "stability_entry": "FlashVL.flash_TP_stability_test -> stability_test_Michelsen"
+        },
+        "P_Pa_abs": 5995290.539156997,
+        "S_eq_J_mol_K": -98.87615206997597,
+        "S_eq_direct_J_mol_K": -98.87615206997592,
+        "T_K": 231.06755435138734,
+        "beta": 0.0,
+        "classification": "single_liquid",
+        "ln_fugacity_residual": [],
+        "material_residual": [
+          0.0,
+          0.0
+        ],
+        "phases": {
+          "liquid": {
+            "MW_kg_kmol": 51.10908,
+            "Z": 0.2571545456500896,
+            "composition": [
+              0.5,
+              0.5
+            ],
+            "direct_h_J_mol": -25403.990467532603,
+            "direct_s_J_mol_K": -98.87615206997592,
+            "h_J_mol": -25403.99046753261,
+            "h_ig_J_mol": -5558.155932854854,
+            "h_res_J_mol": -19845.83453467776,
+            "library_minus_direct_h_J_mol": -7.275957614183426e-12,
+            "s_J_mol_K": -98.87615206997597,
+            "s_ig_J_mol_K": -49.21242445875746,
+            "s_res_J_mol_K": -49.66372761121852
+          }
+        },
+        "z": [
+          0.5,
+          0.5
+        ]
+      },
+      "source": "PT_BUBBLE_BELOW"
+    },
+    {
+      "case_id": "PT_BUBBLE_BELOW_P0.001",
+      "inputs": {
+        "P": 6001279.828416325,
+        "T": 231.06755435138734,
+        "z": [
+          0.5,
+          0.5
+        ]
+      },
+      "kind": "boundary",
+      "offset": {
+        "relative_P": 0.001
+      },
+      "result": {
+        "H_eq_J_mol": -25403.68510897895,
+        "H_eq_direct_J_mol": -25403.68510897895,
+        "PT_diagnostics": {
+          "PT_SS_TOL": 1e-26,
+          "error": 0.0,
+          "iterations": 0,
+          "stability_entry": "FlashVL.flash_TP_stability_test -> stability_test_Michelsen"
+        },
+        "P_Pa_abs": 6001279.828416325,
+        "S_eq_J_mol_K": -98.87696650607228,
+        "S_eq_direct_J_mol_K": -98.87696650607224,
+        "T_K": 231.06755435138734,
+        "beta": 0.0,
+        "classification": "single_liquid",
+        "ln_fugacity_residual": [],
+        "material_residual": [
+          0.0,
+          0.0
+        ],
+        "phases": {
+          "liquid": {
+            "MW_kg_kmol": 51.10908,
+            "Z": 0.25740819164478723,
+            "composition": [
+              0.5,
+              0.5
+            ],
+            "direct_h_J_mol": -25403.68510897895,
+            "direct_s_J_mol_K": -98.87696650607224,
+            "h_J_mol": -25403.68510897895,
+            "h_ig_J_mol": -5558.155932854854,
+            "h_res_J_mol": -19845.5291761241,
+            "library_minus_direct_h_J_mol": 0.0,
+            "s_J_mol_K": -98.87696650607228,
+            "s_ig_J_mol_K": -49.22072645245525,
+            "s_res_J_mol_K": -49.656240053617026
+          }
+        },
+        "z": [
+          0.5,
+          0.5
+        ]
+      },
+      "source": "PT_BUBBLE_BELOW"
+    },
+    {
+      "case_id": "PT_BUBBLE_BELOW_T-0.01",
+      "inputs": {
+        "P": 5995284.543872453,
+        "T": 231.05755435138735,
+        "z": [
+          0.5,
+          0.5
+        ]
+      },
+      "kind": "boundary",
+      "offset": {
+        "delta_T_K": -0.01
+      },
+      "result": {
+        "H_eq_J_mol": -25405.09320710683,
+        "H_eq_direct_J_mol": -25405.09320710682,
+        "PT_diagnostics": {
+          "PT_SS_TOL": 1e-26,
+          "error": 0.0,
+          "iterations": 0,
+          "stability_entry": "FlashVL.flash_TP_stability_test -> stability_test_Michelsen"
+        },
+        "P_Pa_abs": 5995284.543872453,
+        "S_eq_J_mol_K": -98.88092240386237,
+        "S_eq_direct_J_mol_K": -98.88092240386233,
+        "T_K": 231.05755435138735,
+        "beta": 0.0,
+        "classification": "single_liquid",
+        "ln_fugacity_residual": [],
+        "material_residual": [
+          0.0,
+          0.0
+        ],
+        "phases": {
+          "liquid": {
+            "MW_kg_kmol": 51.10908,
+            "Z": 0.2571611774778977,
+            "composition": [
+              0.5,
+              0.5
+            ],
+            "direct_h_J_mol": -25405.09320710682,
+            "direct_s_J_mol_K": -98.88092240386233,
+            "h_J_mol": -25405.09320710683,
+            "h_ig_J_mol": -5558.921522115259,
+            "h_res_J_mol": -19846.171684991572,
+            "library_minus_direct_h_J_mol": -1.0913936421275139e-11,
+            "s_J_mol_K": -98.88092240386237,
+            "s_ig_J_mol_K": -49.21572948627518,
+            "s_res_J_mol_K": -49.66519291758719
+          }
+        },
+        "z": [
+          0.5,
+          0.5
+        ]
+      },
+      "source": "PT_BUBBLE_BELOW"
+    },
+    {
+      "case_id": "PT_BUBBLE_BELOW_T0.01",
+      "inputs": {
+        "P": 5995284.543872453,
+        "T": 231.07755435138733,
+        "z": [
+          0.5,
+          0.5
+        ]
+      },
+      "kind": "boundary",
+      "offset": {
+        "delta_T_K": 0.01
+      },
+      "result": {
+        "H_eq_J_mol": -25402.44303986128,
+        "H_eq_direct_J_mol": -25402.44303986128,
+        "PT_diagnostics": {
+          "PT_SS_TOL": 1e-26,
+          "error": 1.0452406994178406e-27,
+          "iterations": 15,
+          "stability_entry": "FlashVL.flash_TP_stability_test -> stability_test_Michelsen"
+        },
+        "P_Pa_abs": 5995284.543872453,
+        "S_eq_J_mol_K": -98.86945321417218,
+        "S_eq_direct_J_mol_K": -98.86945321417217,
+        "T_K": 231.07755435138733,
+        "beta": 0.00011614831707986632,
+        "classification": "vapor_liquid",
+        "ln_fugacity_residual": [
+          2.55351295663786e-14,
+          -1.9539925233402755e-14
+        ],
+        "material_residual": [
+          1.1102230246251565e-16,
+          -1.1102230246251565e-16
+        ],
+        "phases": {
+          "liquid": {
+            "MW_kg_kmol": 51.11314466575908,
+            "Z": 0.25716019164453574,
+            "composition": [
+              0.49994204310010815,
+              0.5000579568998919
+            ],
+            "direct_h_J_mol": -25404.898162470752,
+            "direct_s_J_mol_K": -98.87529374288737,
+            "h_J_mol": -25404.898162470752,
+            "h_ig_J_mol": -5557.765402934552,
+            "h_res_J_mol": -19847.1327595362,
+            "library_minus_direct_h_J_mol": 0.0,
+            "s_J_mol_K": -98.87529374288738,
+            "s_ig_J_mol_K": -49.21052133482979,
+            "s_res_J_mol_K": -49.66477240805758
+          },
+          "vapor": {
+            "MW_kg_kmol": 16.11766766464523,
+            "Z": 0.6961265767348707,
+            "composition": [
+              0.998932483504877,
+              0.001067516495123297
+            ],
+            "direct_h_J_mol": -4267.074806967856,
+            "direct_s_J_mol_K": -48.590202559115305,
+            "h_J_mol": -4267.074806967857,
+            "h_ig_J_mol": -2328.470103155836,
+            "h_res_J_mol": -1938.6047038120203,
+            "library_minus_direct_h_J_mol": -9.094947017729282e-13,
+            "s_J_mol_K": -48.59020255911535,
+            "s_ig_J_mol_K": -42.692000959980376,
+            "s_res_J_mol_K": -5.898201599134972
+          }
+        },
+        "z": [
+          0.5,
+          0.5
+        ]
+      },
+      "source": "PT_BUBBLE_BELOW"
+    },
+    {
+      "case_id": "PT_DEW_BELOW_P-0.001",
+      "inputs": {
+        "P": 5993999.999999952,
+        "T": 468.2158895316327,
+        "z": [
+          0.21404761041658718,
+          0.7859523895834128
+        ]
+      },
+      "kind": "boundary",
+      "offset": {
+        "relative_P": -0.001
+      },
+      "result": {
+        "H_eq_J_mol": 9398.398060299938,
+        "H_eq_direct_J_mol": 9398.398060299949,
+        "PT_diagnostics": {
+          "PT_SS_TOL": 1e-26,
+          "error": 6.924719633643194e-27,
+          "iterations": 57,
+          "stability_entry": "FlashVL.flash_TP_stability_test -> stability_test_Michelsen"
+        },
+        "P_Pa_abs": 5993999.999999952,
+        "S_eq_J_mol_K": 9.09234704528705,
+        "S_eq_direct_J_mol_K": 9.092347045286987,
+        "T_K": 468.2158895316327,
+        "beta": 0.0011073212769302117,
+        "classification": "vapor_liquid",
+        "ln_fugacity_residual": [
+          -5.895284260759581e-14,
+          5.873079800267078e-14
+        ],
+        "material_residual": [
+          -2.7755575615628914e-17,
+          0.0
+        ],
+        "phases": {
+          "liquid": {
+            "MW_kg_kmol": 71.18590292484772,
+            "Z": 0.31463602754610914,
+            "composition": [
+              0.21373035684355846,
+              0.7862696431564415
+            ],
+            "direct_h_J_mol": 9394.05043146697,
+            "direct_s_J_mol_K": 9.089364683195122,
+            "h_J_mol": 9394.05043146696,
+            "h_ig_J_mol": 24783.56098273585,
+            "h_res_J_mol": -15389.51055126889,
+            "library_minus_direct_h_J_mol": -1.0913936421275139e-11,
+            "s_J_mol_K": 9.089364683195186,
+            "s_ig_J_mol_K": 35.293202820484126,
+            "s_res_J_mol_K": -26.20383813728894
+          },
+          "vapor": {
+            "MW_kg_kmol": 51.09254275088516,
+            "Z": 0.6940987941348113,
+            "composition": [
+              0.500235799878328,
+              0.49976420012167194
+            ],
+            "direct_h_J_mol": 13320.308260660167,
+            "direct_s_J_mol_K": 11.782677052423114,
+            "h_J_mol": 13320.308260660166,
+            "h_ig_J_mol": 18223.40141330639,
+            "h_res_J_mol": -4903.093152646226,
+            "library_minus_direct_h_J_mol": -1.8189894035458565e-12,
+            "s_J_mol_K": 11.782677052423145,
+            "s_ig_J_mol_K": 19.595093142037435,
+            "s_res_J_mol_K": -7.81241608961429
+          }
+        },
+        "z": [
+          0.21404761041658718,
+          0.7859523895834128
+        ]
+      },
+      "source": "PT_DEW_BELOW"
+    },
+    {
+      "case_id": "PT_DEW_BELOW_P-1e-06",
+      "inputs": {
+        "P": 5999993.999999952,
+        "T": 468.2158895316327,
+        "z": [
+          0.21404761041658718,
+          0.7859523895834128
+        ]
+      },
+      "kind": "boundary",
+      "offset": {
+        "relative_P": -1e-06
+      },
+      "result": {
+        "H_eq_J_mol": 9395.063911104211,
+        "H_eq_direct_J_mol": 9395.063911104222,
+        "PT_diagnostics": {
+          "PT_SS_TOL": 1e-26,
+          "error": 6.438337581767864e-27,
+          "iterations": 42,
+          "stability_entry": "FlashVL.flash_TP_stability_test -> stability_test_Michelsen"
+        },
+        "P_Pa_abs": 5999993.999999952,
+        "S_eq_J_mol_K": 9.082608260362276,
+        "S_eq_direct_J_mol_K": 9.082608260362226,
+        "T_K": 468.2158895316327,
+        "beta": 1.1081822759156882e-06,
+        "classification": "vapor_liquid",
+        "ln_fugacity_residual": [
+          -5.762057497804562e-14,
+          5.6066262743570405e-14
+        ],
+        "material_residual": [
+          0.0,
+          0.0
+        ],
+        "phases": {
+          "liquid": {
+            "MW_kg_kmol": 71.16367537340344,
+            "Z": 0.3149608176963163,
+            "composition": [
+              0.21404729310603474,
+              0.7859527068939652
+            ],
+            "direct_h_J_mol": 9395.059567884313,
+            "direct_s_J_mol_K": 9.082605292040341,
+            "h_J_mol": 9395.059567884302,
+            "h_ig_J_mol": 24776.3040439735,
+            "h_res_J_mol": -15381.2444760892,
+            "library_minus_direct_h_J_mol": -1.0913936421275139e-11,
+            "s_J_mol_K": 9.082605292040391,
+            "s_ig_J_mol_K": 35.269354032984666,
+            "s_res_J_mol_K": -26.186748740944275
+          },
+          "vapor": {
+            "MW_kg_kmol": 51.08232067032192,
+            "Z": 0.6940229287739362,
+            "composition": [
+              0.500381553584784,
+              0.499618446415216
+            ],
+            "direct_h_J_mol": 13314.288383339996,
+            "direct_s_J_mol_K": 11.761155517387433,
+            "h_J_mol": 13314.288383339986,
+            "h_ig_J_mol": 18220.064068081607,
+            "h_res_J_mol": -4905.775684741622,
+            "library_minus_direct_h_J_mol": -9.094947017729282e-12,
+            "s_J_mol_K": 11.761155517387458,
+            "s_ig_J_mol_K": 19.57805803715477,
+            "s_res_J_mol_K": -7.8169025197673045
+          }
+        },
+        "z": [
+          0.21404761041658718,
+          0.7859523895834128
+        ]
+      },
+      "source": "PT_DEW_BELOW"
+    },
+    {
+      "case_id": "PT_DEW_BELOW_P0.0",
+      "inputs": {
+        "P": 5999999.999999952,
+        "T": 468.2158895316327,
+        "z": [
+          0.21404761041658718,
+          0.7859523895834128
+        ]
+      },
+      "kind": "boundary",
+      "offset": {
+        "relative_P": 0.0
+      },
+      "result": {
+        "H_eq_J_mol": 9395.060578386827,
+        "H_eq_direct_J_mol": 9395.060578386834,
+        "PT_diagnostics": {
+          "PT_SS_TOL": 1e-26,
+          "error": 0.0,
+          "iterations": 0,
+          "stability_entry": "FlashVL.flash_TP_stability_test -> stability_test_Michelsen"
+        },
+        "P_Pa_abs": 5999999.999999952,
+        "S_eq_J_mol_K": 9.08259852372045,
+        "S_eq_direct_J_mol_K": 9.082598523720389,
+        "T_K": 468.2158895316327,
+        "beta": 0.0,
+        "classification": "single_liquid",
+        "ln_fugacity_residual": [],
+        "material_residual": [
+          0.0,
+          0.0
+        ],
+        "phases": {
+          "liquid": {
+            "MW_kg_kmol": 71.16365311960207,
+            "Z": 0.31496114285877636,
+            "composition": [
+              0.21404761041658718,
+              0.7859523895834128
+            ],
+            "direct_h_J_mol": 9395.060578386834,
+            "direct_s_J_mol_K": 9.082598523720389,
+            "h_J_mol": 9395.060578386827,
+            "h_ig_J_mol": 24776.296778464563,
+            "h_res_J_mol": -15381.236200077736,
+            "library_minus_direct_h_J_mol": -7.275957614183426e-12,
+            "s_J_mol_K": 9.08259852372045,
+            "s_ig_J_mol_K": 35.26933015919965,
+            "s_res_J_mol_K": -26.186731635479198
+          }
+        },
+        "z": [
+          0.21404761041658718,
+          0.7859523895834128
+        ]
+      },
+      "source": "PT_DEW_BELOW"
+    },
+    {
+      "case_id": "PT_DEW_BELOW_P1e-06",
+      "inputs": {
+        "P": 6000005.999999951,
+        "T": 468.2158895316327,
+        "z": [
+          0.21404761041658718,
+          0.7859523895834128
+        ]
+      },
+      "kind": "boundary",
+      "offset": {
+        "relative_P": 1e-06
+      },
+      "result": {
+        "H_eq_J_mol": 9395.056657901283,
+        "H_eq_direct_J_mol": 9395.056657901296,
+        "PT_diagnostics": {
+          "PT_SS_TOL": 1e-26,
+          "error": 9.263445698590613e-27,
+          "iterations": 38,
+          "stability_entry": "FlashVL.flash_TP_stability_test -> stability_test_Michelsen"
+        },
+        "P_Pa_abs": 6000005.999999951,
+        "S_eq_J_mol_K": 9.08258753174513,
+        "S_eq_direct_J_mol_K": 9.08258753174507,
+        "T_K": 468.2158895316327,
+        "beta": 0.0,
+        "classification": "single_liquid",
+        "ln_fugacity_residual": [],
+        "material_residual": [
+          0.0,
+          0.0
+        ],
+        "phases": {
+          "liquid": {
+            "MW_kg_kmol": 71.16365311960207,
+            "Z": 0.31496131516901454,
+            "composition": [
+              0.21404761041658718,
+              0.7859523895834128
+            ],
+            "direct_h_J_mol": 9395.056657901296,
+            "direct_s_J_mol_K": 9.08258753174507,
+            "h_J_mol": 9395.056657901283,
+            "h_ig_J_mol": 24776.296778464563,
+            "h_res_J_mol": -15381.24012056328,
+            "library_minus_direct_h_J_mol": -1.2732925824820995e-11,
+            "s_J_mol_K": 9.08258753174513,
+            "s_ig_J_mol_K": 35.269321844741185,
+            "s_res_J_mol_K": -26.186734312996055
+          }
+        },
+        "z": [
+          0.21404761041658718,
+          0.7859523895834128
+        ]
+      },
+      "source": "PT_DEW_BELOW"
+    },
+    {
+      "case_id": "PT_DEW_BELOW_P0.001",
+      "inputs": {
+        "P": 6005999.999999951,
+        "T": 468.2158895316327,
+        "z": [
+          0.21404761041658718,
+          0.7859523895834128
+        ]
+      },
+      "kind": "boundary",
+      "offset": {
+        "relative_P": 0.001
+      },
+      "result": {
+        "H_eq_J_mol": 9391.145612886397,
+        "H_eq_direct_J_mol": 9391.145612886407,
+        "PT_diagnostics": {
+          "PT_SS_TOL": 1e-26,
+          "error": 0.0,
+          "iterations": 0,
+          "stability_entry": "FlashVL.flash_TP_stability_test -> stability_test_Michelsen"
+        },
+        "P_Pa_abs": 6005999.999999951,
+        "S_eq_J_mol_K": 9.071618929762163,
+        "S_eq_direct_J_mol_K": 9.07161892976211,
+        "T_K": 468.2158895316327,
+        "beta": 0.0,
+        "classification": "single_liquid",
+        "ln_fugacity_residual": [],
+        "material_residual": [
+          0.0,
+          0.0
+        ],
+        "phases": {
+          "liquid": {
+            "MW_kg_kmol": 71.16365311960207,
+            "Z": 0.31513352820278556,
+            "composition": [
+              0.21404761041658718,
+              0.7859523895834128
+            ],
+            "direct_h_J_mol": 9391.145612886407,
+            "direct_s_J_mol_K": 9.07161892976211,
+            "h_J_mol": 9391.145612886397,
+            "h_ig_J_mol": 24776.296778464563,
+            "h_res_J_mol": -15385.151165578165,
+            "library_minus_direct_h_J_mol": -9.094947017729282e-12,
+            "s_J_mol_K": 9.071618929762163,
+            "s_ig_J_mol_K": 35.261019851043386,
+            "s_res_J_mol_K": -26.189400921281223
+          }
+        },
+        "z": [
+          0.21404761041658718,
+          0.7859523895834128
+        ]
+      },
+      "source": "PT_DEW_BELOW"
+    },
+    {
+      "case_id": "PT_DEW_BELOW_T-0.01",
+      "inputs": {
+        "P": 5999999.999999952,
+        "T": 468.2058895316327,
+        "z": [
+          0.21404761041658718,
+          0.7859523895834128
+        ]
+      },
+      "kind": "boundary",
+      "offset": {
+        "delta_T_K": -0.01
+      },
+      "result": {
+        "H_eq_J_mol": 9392.303551415516,
+        "H_eq_direct_J_mol": 9392.30355141552,
+        "PT_diagnostics": {
+          "PT_SS_TOL": 1e-26,
+          "error": 7.689483303400033e-27,
+          "iterations": 46,
+          "stability_entry": "FlashVL.flash_TP_stability_test -> stability_test_Michelsen"
+        },
+        "P_Pa_abs": 5999999.999999952,
+        "S_eq_J_mol_K": 9.076710093885152,
+        "S_eq_direct_J_mol_K": 9.076710093885167,
+        "T_K": 468.2058895316327,
+        "beta": 1.3362240249512362e-05,
+        "classification": "vapor_liquid",
+        "ln_fugacity_residual": [
+          -6.206146707654625e-14,
+          6.195044477408373e-14
+        ],
+        "material_residual": [
+          2.7755575615628914e-17,
+          0.0
+        ],
+        "phases": {
+          "liquid": {
+            "MW_kg_kmol": 71.16392152642491,
+            "Z": 0.31493779491230595,
+            "composition": [
+              0.2140437832809052,
+              0.7859562167190948
+            ],
+            "direct_h_J_mol": 9392.251169806477,
+            "direct_s_J_mol_K": 9.07667429825235,
+            "h_J_mol": 9392.251169806474,
+            "h_ig_J_mol": 24774.67294561507,
+            "h_res_J_mol": -15382.4217758086,
+            "library_minus_direct_h_J_mol": -3.637978807091713e-12,
+            "s_J_mol_K": 9.076674298252335,
+            "s_ig_J_mol_K": 35.265862496556956,
+            "s_res_J_mol_K": -26.18918819830462
+          },
+          "vapor": {
+            "MW_kg_kmol": 51.07695872425012,
+            "Z": 0.6940799045920893,
+            "composition": [
+              0.5004580080315031,
+              0.49954199196849686
+            ],
+            "direct_h_J_mol": 13312.372950621078,
+            "direct_s_J_mol_K": 11.75553893095255,
+            "h_J_mol": 13312.372950621077,
+            "h_ig_J_mol": 18217.06350566159,
+            "h_res_J_mol": -4904.690555040515,
+            "library_minus_direct_h_J_mol": -1.8189894035458565e-12,
+            "s_J_mol_K": 11.75553893095254,
+            "s_ig_J_mol_K": 19.57080320789393,
+            "s_res_J_mol_K": -7.8152642769413925
+          }
+        },
+        "z": [
+          0.21404761041658718,
+          0.7859523895834128
+        ]
+      },
+      "source": "PT_DEW_BELOW"
+    },
+    {
+      "case_id": "PT_DEW_BELOW_T0.01",
+      "inputs": {
+        "P": 5999999.999999952,
+        "T": 468.2258895316327,
+        "z": [
+          0.21404761041658718,
+          0.7859523895834128
+        ]
+      },
+      "kind": "boundary",
+      "offset": {
+        "delta_T_K": 0.01
+      },
+      "result": {
+        "H_eq_J_mol": 9397.810682467612,
+        "H_eq_direct_J_mol": 9397.810682467622,
+        "PT_diagnostics": {
+          "PT_SS_TOL": 1e-26,
+          "error": 0.0,
+          "iterations": 0,
+          "stability_entry": "FlashVL.flash_TP_stability_test -> stability_test_Michelsen"
+        },
+        "P_Pa_abs": 5999999.999999952,
+        "S_eq_J_mol_K": 9.08847204227133,
+        "S_eq_direct_J_mol_K": 9.088472042271341,
+        "T_K": 468.2258895316327,
+        "beta": 0.0,
+        "classification": "single_liquid",
+        "ln_fugacity_residual": [],
+        "material_residual": [
+          0.0,
+          0.0
+        ],
+        "phases": {
+          "liquid": {
+            "MW_kg_kmol": 71.16365311960207,
+            "Z": 0.31498265507123513,
+            "composition": [
+              0.21404761041658718,
+              0.7859523895834128
+            ],
+            "direct_h_J_mol": 9397.810682467622,
+            "direct_s_J_mol_K": 9.088472042271341,
+            "h_J_mol": 9397.810682467612,
+            "h_ig_J_mol": 24778.00826474555,
+            "h_res_J_mol": -15380.197582277937,
+            "library_minus_direct_h_J_mol": -9.094947017729282e-12,
+            "s_J_mol_K": 9.08847204227133,
+            "s_ig_J_mol_K": 35.27298545591802,
+            "s_res_J_mol_K": -26.18451341364668
+          }
+        },
+        "z": [
+          0.21404761041658718,
+          0.7859523895834128
+        ]
+      },
+      "source": "PT_DEW_BELOW"
+    }
+  ],
+  "cp_source_sha256": "9c707a81eb8896afc32cae53222b5596dabf98f318f6f26d97193016fe8f436b",
+  "dependencies": {
+    "chemicals": "1.5.2",
+    "fluids": "1.3.1",
+    "numpy": "2.2.6",
+    "pandas": "2.3.3",
+    "python-dateutil": "2.9.0.post0",
+    "pytz": "2026.4",
+    "scipy": "1.15.3",
+    "six": "1.17.0",
+    "teqp": "0.23.1",
+    "thermo": "0.6.0",
+    "tzdata": "2026.4"
+  },
+  "library_source_sha256": {
+    "ceos.py": "6a7846b96afa2dca96198f5f064079b4b04d0d981b8deb3878f6b9e9976529e4",
+    "eos.py": "65eea2a3c6f987e67142f6a219fec6750d1636088dfb512b9bea8286da99f398",
+    "eos_mix.py": "ad4f4b10bdf09528c9e58631ec6e58746c10f76d3ef4f3b251df80fc7633deff",
+    "flash_vl.py": "efbd6cb55b8ad13b5700c6b5f591c9844ff9aa534ef55999be2e35759fab8673",
+    "heat_capacity.py": "cecdde9db3d9c03c77ecc35a48a61fcd8b8bd3bd638e382c463fc515c5368ba2"
+  },
+  "methodology": "Unchanged Thermo PR/Poling model and units from first study; no new inverse solves",
+  "plan_sha256": "a5a1ec7918be6a47c6bb747a7023f72fd278693b25415f611a46ce2dd320a6e1",
+  "prior_reference_sha256": "f8561da75590265a6060f69edfa3b8c0895670178cbd12bcacbd6b819d6d1858",
+  "production_imported": false,
+  "source_sha256": "5a2c691a168c0b78000396763b339ca0381fd99673fbc0bccd24dbcac915b0c3"
+}

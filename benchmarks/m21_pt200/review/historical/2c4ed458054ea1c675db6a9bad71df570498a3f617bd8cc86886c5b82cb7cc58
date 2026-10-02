@@ -1,0 +1,921 @@
+{
+  "cases": [
+    {
+      "case_id": "PT_VL_HEATING_DP0.0",
+      "disposition": "accepted_tuple",
+      "failed_checks": [],
+      "inputs": {
+        "P1": 300000.0,
+        "P2": 300000.0,
+        "T1": 350.0,
+        "eta": 0.8,
+        "flow": 9.126923386193653,
+        "z": [
+          0.0077448171764516885,
+          0.9922551828235483
+        ]
+      },
+      "production": "identity",
+      "production_extension": false,
+      "reference": "identity",
+      "role": "unchanged_historical",
+      "source": "PT_VL_HEATING",
+      "stage": "complete"
+    },
+    {
+      "case_id": "PT_VL_HEATING_DP10000.0",
+      "disposition": "accepted_tuple",
+      "failed_checks": [],
+      "inputs": {
+        "P1": 300000.0,
+        "P2": 310000.0,
+        "T1": 350.0,
+        "eta": 0.8,
+        "flow": 9.126923386193653,
+        "z": [
+          0.0077448171764516885,
+          0.9922551828235483
+        ]
+      },
+      "production": "resolved",
+      "production_extension": false,
+      "reference": "resolved",
+      "role": "unchanged_historical",
+      "source": "PT_VL_HEATING",
+      "stage": "complete"
+    },
+    {
+      "case_id": "PT_VL_HEATING_DP1000000.0",
+      "disposition": "accepted_tuple",
+      "failed_checks": [],
+      "inputs": {
+        "P1": 300000.0,
+        "P2": 1300000.0,
+        "T1": 350.0,
+        "eta": 0.8,
+        "flow": 9.126923386193653,
+        "z": [
+          0.0077448171764516885,
+          0.9922551828235483
+        ]
+      },
+      "production": "resolved",
+      "production_extension": false,
+      "reference": "resolved",
+      "role": "unchanged_historical",
+      "source": "PT_VL_HEATING",
+      "stage": "complete"
+    },
+    {
+      "case_id": "PT_VL_INLET_EQUAL_DP0.0",
+      "disposition": "accepted_tuple",
+      "failed_checks": [],
+      "inputs": {
+        "P1": 300000.0,
+        "P2": 300000.0,
+        "T1": 300.0,
+        "eta": 0.8,
+        "flow": 46.53574897761956,
+        "z": [
+          0.015619720085965972,
+          0.984380279914034
+        ]
+      },
+      "production": "identity",
+      "production_extension": false,
+      "reference": "identity",
+      "role": "unchanged_historical",
+      "source": "PT_VL_INLET_EQUAL",
+      "stage": "complete"
+    },
+    {
+      "case_id": "PT_VL_INLET_EQUAL_DP10000.0",
+      "disposition": "accepted_tuple",
+      "failed_checks": [],
+      "inputs": {
+        "P1": 300000.0,
+        "P2": 310000.0,
+        "T1": 300.0,
+        "eta": 0.8,
+        "flow": 46.53574897761956,
+        "z": [
+          0.015619720085965972,
+          0.984380279914034
+        ]
+      },
+      "production": "resolved",
+      "production_extension": false,
+      "reference": "resolved",
+      "role": "unchanged_historical",
+      "source": "PT_VL_INLET_EQUAL",
+      "stage": "complete"
+    },
+    {
+      "case_id": "PT_VL_INLET_EQUAL_DP1000000.0",
+      "disposition": "accepted_tuple",
+      "failed_checks": [],
+      "inputs": {
+        "P1": 300000.0,
+        "P2": 1300000.0,
+        "T1": 300.0,
+        "eta": 0.8,
+        "flow": 46.53574897761956,
+        "z": [
+          0.015619720085965972,
+          0.984380279914034
+        ]
+      },
+      "production": "resolved",
+      "production_extension": false,
+      "reference": "resolved",
+      "role": "unchanged_historical",
+      "source": "PT_VL_INLET_EQUAL",
+      "stage": "complete"
+    },
+    {
+      "case_id": "PT_VAPOR_INLET_COOLING_DP0.0",
+      "disposition": "accepted_tuple",
+      "failed_checks": [],
+      "inputs": {
+        "P1": 1000000.0,
+        "P2": 1000000.0,
+        "T1": 280.0,
+        "eta": 0.8,
+        "flow": 9.579812466716218,
+        "z": [
+          0.062495158908496176,
+          0.9375048410915038
+        ]
+      },
+      "production": "identity",
+      "production_extension": false,
+      "reference": "identity",
+      "role": "unchanged_historical",
+      "source": "PT_VAPOR_INLET_COOLING",
+      "stage": "complete"
+    },
+    {
+      "case_id": "PT_VAPOR_INLET_COOLING_DP10000.0",
+      "disposition": "accepted_tuple",
+      "failed_checks": [],
+      "inputs": {
+        "P1": 1000000.0,
+        "P2": 1010000.0,
+        "T1": 280.0,
+        "eta": 0.8,
+        "flow": 9.579812466716218,
+        "z": [
+          0.062495158908496176,
+          0.9375048410915038
+        ]
+      },
+      "production": "resolved",
+      "production_extension": false,
+      "reference": "resolved",
+      "role": "unchanged_historical",
+      "source": "PT_VAPOR_INLET_COOLING",
+      "stage": "complete"
+    },
+    {
+      "case_id": "PT_VAPOR_INLET_COOLING_DP1000000.0",
+      "disposition": "accepted_tuple",
+      "failed_checks": [],
+      "inputs": {
+        "P1": 1000000.0,
+        "P2": 2000000.0,
+        "T1": 280.0,
+        "eta": 0.8,
+        "flow": 9.579812466716218,
+        "z": [
+          0.062495158908496176,
+          0.9375048410915038
+        ]
+      },
+      "production": "resolved",
+      "production_extension": false,
+      "reference": "resolved",
+      "role": "unchanged_historical",
+      "source": "PT_VAPOR_INLET_COOLING",
+      "stage": "complete"
+    },
+    {
+      "case_id": "PH_FLASH_DP0.0",
+      "disposition": "accepted_tuple",
+      "failed_checks": [],
+      "inputs": {
+        "P1": 1000000.0,
+        "P2": 1000000.0,
+        "T1": 291.742138656979,
+        "eta": 0.8,
+        "flow": 52.05576887048551,
+        "z": [
+          0.05718128748168017,
+          0.9428187125183198
+        ]
+      },
+      "production": "identity",
+      "production_extension": false,
+      "reference": "identity",
+      "role": "unchanged_historical",
+      "source": "PH_FLASH",
+      "stage": "complete"
+    },
+    {
+      "case_id": "PH_FLASH_DP10000.0",
+      "disposition": "accepted_tuple",
+      "failed_checks": [],
+      "inputs": {
+        "P1": 1000000.0,
+        "P2": 1010000.0,
+        "T1": 291.742138656979,
+        "eta": 0.8,
+        "flow": 52.05576887048551,
+        "z": [
+          0.05718128748168017,
+          0.9428187125183198
+        ]
+      },
+      "production": "resolved",
+      "production_extension": false,
+      "reference": "resolved",
+      "role": "unchanged_historical",
+      "source": "PH_FLASH",
+      "stage": "complete"
+    },
+    {
+      "case_id": "PH_FLASH_DP1000000.0",
+      "disposition": "accepted_tuple",
+      "failed_checks": [],
+      "inputs": {
+        "P1": 1000000.0,
+        "P2": 2000000.0,
+        "T1": 291.742138656979,
+        "eta": 0.8,
+        "flow": 52.05576887048551,
+        "z": [
+          0.05718128748168017,
+          0.9428187125183198
+        ]
+      },
+      "production": "resolved",
+      "production_extension": false,
+      "reference": "resolved",
+      "role": "unchanged_historical",
+      "source": "PH_FLASH",
+      "stage": "complete"
+    },
+    {
+      "case_id": "PH_HEXANE_RICH_DP0.0",
+      "disposition": "accepted_tuple",
+      "failed_checks": [],
+      "inputs": {
+        "P1": 100000.0,
+        "P2": 100000.0,
+        "T1": 296.0331464948125,
+        "eta": 0.8,
+        "flow": 88.16300094074947,
+        "z": [
+          0.004712273406185097,
+          0.9952877265938149
+        ]
+      },
+      "production": "identity",
+      "production_extension": false,
+      "reference": "identity",
+      "role": "unchanged_historical",
+      "source": "PH_HEXANE_RICH",
+      "stage": "complete"
+    },
+    {
+      "case_id": "PH_HEXANE_RICH_DP10000.0",
+      "disposition": "accepted_tuple",
+      "failed_checks": [],
+      "inputs": {
+        "P1": 100000.0,
+        "P2": 110000.0,
+        "T1": 296.0331464948125,
+        "eta": 0.8,
+        "flow": 88.16300094074947,
+        "z": [
+          0.004712273406185097,
+          0.9952877265938149
+        ]
+      },
+      "production": "resolved",
+      "production_extension": false,
+      "reference": "resolved",
+      "role": "unchanged_historical",
+      "source": "PH_HEXANE_RICH",
+      "stage": "complete"
+    },
+    {
+      "case_id": "PH_HEXANE_RICH_DP1000000.0",
+      "disposition": "accepted_tuple",
+      "failed_checks": [],
+      "inputs": {
+        "P1": 100000.0,
+        "P2": 1100000.0,
+        "T1": 296.0331464948125,
+        "eta": 0.8,
+        "flow": 88.16300094074947,
+        "z": [
+          0.004712273406185097,
+          0.9952877265938149
+        ]
+      },
+      "production": "resolved",
+      "production_extension": false,
+      "reference": "resolved",
+      "role": "unchanged_historical",
+      "source": "PH_HEXANE_RICH",
+      "stage": "complete"
+    },
+    {
+      "case_id": "PT_BUBBLE_BELOW_DP0.0",
+      "disposition": "accepted_tuple",
+      "failed_checks": [],
+      "inputs": {
+        "P1": 6000000.0,
+        "P2": 6000000.0,
+        "T1": 231.06755435138734,
+        "eta": 0.8,
+        "flow": 100.0,
+        "z": [
+          0.5,
+          0.5
+        ]
+      },
+      "production": "identity",
+      "production_extension": false,
+      "reference": "identity",
+      "role": "unchanged_historical",
+      "source": "PT_BUBBLE_BELOW",
+      "stage": "complete"
+    },
+    {
+      "case_id": "PT_BUBBLE_BELOW_DP10000.0",
+      "disposition": "accepted_tuple",
+      "failed_checks": [],
+      "inputs": {
+        "P1": 6000000.0,
+        "P2": 6010000.0,
+        "T1": 231.06755435138734,
+        "eta": 0.8,
+        "flow": 100.0,
+        "z": [
+          0.5,
+          0.5
+        ]
+      },
+      "production": "resolved",
+      "production_extension": false,
+      "reference": "resolved",
+      "role": "unchanged_historical",
+      "source": "PT_BUBBLE_BELOW",
+      "stage": "complete"
+    },
+    {
+      "case_id": "PT_BUBBLE_BELOW_DP1000000.0",
+      "disposition": "accepted_tuple",
+      "failed_checks": [],
+      "inputs": {
+        "P1": 6000000.0,
+        "P2": 7000000.0,
+        "T1": 231.06755435138734,
+        "eta": 0.8,
+        "flow": 100.0,
+        "z": [
+          0.5,
+          0.5
+        ]
+      },
+      "production": "resolved",
+      "production_extension": false,
+      "reference": "resolved",
+      "role": "unchanged_historical",
+      "source": "PT_BUBBLE_BELOW",
+      "stage": "complete"
+    },
+    {
+      "case_id": "PT_BUBBLE_ABOVE_DP0.0",
+      "disposition": "accepted_tuple",
+      "failed_checks": [],
+      "inputs": {
+        "P1": 6000000.0,
+        "P2": 6000000.0,
+        "T1": 231.16755435138973,
+        "eta": 0.8,
+        "flow": 99.94203100395112,
+        "z": [
+          0.4997106092421193,
+          0.5002893907578807
+        ]
+      },
+      "production": "identity",
+      "production_extension": false,
+      "reference": "identity",
+      "role": "unchanged_historical",
+      "source": "PT_BUBBLE_ABOVE",
+      "stage": "complete"
+    },
+    {
+      "case_id": "PT_BUBBLE_ABOVE_DP10000.0",
+      "disposition": "accepted_tuple",
+      "failed_checks": [],
+      "inputs": {
+        "P1": 6000000.0,
+        "P2": 6010000.0,
+        "T1": 231.16755435138973,
+        "eta": 0.8,
+        "flow": 99.94203100395112,
+        "z": [
+          0.4997106092421193,
+          0.5002893907578807
+        ]
+      },
+      "production": "resolved",
+      "production_extension": false,
+      "reference": "resolved",
+      "role": "unchanged_historical",
+      "source": "PT_BUBBLE_ABOVE",
+      "stage": "complete"
+    },
+    {
+      "case_id": "PT_BUBBLE_ABOVE_DP1000000.0",
+      "disposition": "accepted_tuple",
+      "failed_checks": [],
+      "inputs": {
+        "P1": 6000000.0,
+        "P2": 7000000.0,
+        "T1": 231.16755435138973,
+        "eta": 0.8,
+        "flow": 99.94203100395112,
+        "z": [
+          0.4997106092421193,
+          0.5002893907578807
+        ]
+      },
+      "production": "resolved",
+      "production_extension": false,
+      "reference": "resolved",
+      "role": "unchanged_historical",
+      "source": "PT_BUBBLE_ABOVE",
+      "stage": "complete"
+    },
+    {
+      "case_id": "PT_DEW_BELOW_DP0.0",
+      "disposition": "accepted_tuple",
+      "failed_checks": [],
+      "inputs": {
+        "P1": 6000000.0,
+        "P2": 6000000.0,
+        "T1": 468.2158895316327,
+        "eta": 0.8,
+        "flow": 0.13330552995967082,
+        "z": [
+          0.21404761041658718,
+          0.7859523895834128
+        ]
+      },
+      "production": "identity",
+      "production_extension": false,
+      "reference": "identity",
+      "role": "unchanged_historical",
+      "source": "PT_DEW_BELOW",
+      "stage": "complete"
+    },
+    {
+      "case_id": "PT_DEW_BELOW_DP10000.0",
+      "disposition": "accepted_tuple",
+      "failed_checks": [],
+      "inputs": {
+        "P1": 6000000.0,
+        "P2": 6010000.0,
+        "T1": 468.2158895316327,
+        "eta": 0.8,
+        "flow": 0.13330552995967082,
+        "z": [
+          0.21404761041658718,
+          0.7859523895834128
+        ]
+      },
+      "production": "resolved",
+      "production_extension": false,
+      "reference": "resolved",
+      "role": "unchanged_historical",
+      "source": "PT_DEW_BELOW",
+      "stage": "complete"
+    },
+    {
+      "case_id": "PT_DEW_BELOW_DP1000000.0",
+      "disposition": "accepted_tuple",
+      "failed_checks": [],
+      "inputs": {
+        "P1": 6000000.0,
+        "P2": 7000000.0,
+        "T1": 468.2158895316327,
+        "eta": 0.8,
+        "flow": 0.13330552995967082,
+        "z": [
+          0.21404761041658718,
+          0.7859523895834128
+        ]
+      },
+      "production": "resolved",
+      "production_extension": false,
+      "reference": "resolved",
+      "role": "unchanged_historical",
+      "source": "PT_DEW_BELOW",
+      "stage": "complete"
+    },
+    {
+      "case_id": "PT_BUBBLE_BELOW_8MPA",
+      "disposition": "unresolved",
+      "failed_checks": [],
+      "inputs": {
+        "P1": 6000000.0,
+        "P2": 8000000.0,
+        "T1": 231.06755435138734,
+        "eta": 0.8,
+        "flow": 100.0,
+        "z": [
+          0.5,
+          0.5
+        ]
+      },
+      "production": "production_failure",
+      "production_extension": false,
+      "reference": "resolved",
+      "role": "historical_solver_challenge",
+      "source": "PT_BUBBLE_BELOW",
+      "stage": "PS"
+    },
+    {
+      "case_id": "PT_BUBBLE_ABOVE_8MPA",
+      "disposition": "unresolved",
+      "failed_checks": [],
+      "inputs": {
+        "P1": 6000000.0,
+        "P2": 8000000.0,
+        "T1": 231.16755435138973,
+        "eta": 0.8,
+        "flow": 99.94203100395112,
+        "z": [
+          0.4997106092421193,
+          0.5002893907578807
+        ]
+      },
+      "production": "production_failure",
+      "production_extension": false,
+      "reference": "resolved",
+      "role": "historical_solver_challenge",
+      "source": "PT_BUBBLE_ABOVE",
+      "stage": "PS"
+    },
+    {
+      "case_id": "ETA0.6",
+      "disposition": "accepted_tuple",
+      "failed_checks": [],
+      "inputs": {
+        "P1": 1000000.0,
+        "P2": 2000000.0,
+        "T1": 291.742138656979,
+        "eta": 0.6,
+        "flow": 52.05576887048551,
+        "z": [
+          0.05718128748168017,
+          0.9428187125183198
+        ]
+      },
+      "production": "resolved",
+      "production_extension": false,
+      "reference": "resolved",
+      "role": "efficiency",
+      "source": "PH_FLASH",
+      "stage": "complete"
+    },
+    {
+      "case_id": "ETA1.0",
+      "disposition": "accepted_tuple",
+      "failed_checks": [],
+      "inputs": {
+        "P1": 1000000.0,
+        "P2": 2000000.0,
+        "T1": 291.742138656979,
+        "eta": 1.0,
+        "flow": 52.05576887048551,
+        "z": [
+          0.05718128748168017,
+          0.9428187125183198
+        ]
+      },
+      "production": "resolved",
+      "production_extension": false,
+      "reference": "resolved",
+      "role": "efficiency",
+      "source": "PH_FLASH",
+      "stage": "complete"
+    },
+    {
+      "case_id": "SMALL10.0",
+      "disposition": "rejected",
+      "failed_checks": [],
+      "inputs": {
+        "P1": 1000000.0,
+        "P2": 1000010.0,
+        "T1": 291.742138656979,
+        "eta": 0.8,
+        "flow": 52.05576887048551,
+        "z": [
+          0.05718128748168017,
+          0.9428187125183198
+        ]
+      },
+      "production": "unresolved_work",
+      "production_extension": false,
+      "reference": "unresolved_work",
+      "role": "small_work",
+      "source": "PH_FLASH",
+      "stage": "complete"
+    },
+    {
+      "case_id": "SMALL100.0",
+      "disposition": "rejected",
+      "failed_checks": [],
+      "inputs": {
+        "P1": 1000000.0,
+        "P2": 1000100.0,
+        "T1": 291.742138656979,
+        "eta": 0.8,
+        "flow": 52.05576887048551,
+        "z": [
+          0.05718128748168017,
+          0.9428187125183198
+        ]
+      },
+      "production": "unresolved_work",
+      "production_extension": false,
+      "reference": "unresolved_work",
+      "role": "small_work",
+      "source": "PH_FLASH",
+      "stage": "complete"
+    },
+    {
+      "case_id": "SMALL1000.0",
+      "disposition": "accepted_tuple",
+      "failed_checks": [],
+      "inputs": {
+        "P1": 1000000.0,
+        "P2": 1001000.0,
+        "T1": 291.742138656979,
+        "eta": 0.8,
+        "flow": 52.05576887048551,
+        "z": [
+          0.05718128748168017,
+          0.9428187125183198
+        ]
+      },
+      "production": "resolved",
+      "production_extension": false,
+      "reference": "resolved",
+      "role": "small_work",
+      "source": "PH_FLASH",
+      "stage": "complete"
+    },
+    {
+      "case_id": "SCALED5.0",
+      "disposition": "accepted_tuple",
+      "failed_checks": [],
+      "inputs": {
+        "P1": 1000000.0,
+        "P2": 2000000.0,
+        "T1": 291.742138656979,
+        "eta": 0.8,
+        "flow": 5.0,
+        "z": [
+          0.05718128748168017,
+          0.9428187125183198
+        ]
+      },
+      "production": "resolved",
+      "production_extension": false,
+      "reference": "resolved",
+      "role": "scaled_flow",
+      "source": "PH_FLASH",
+      "stage": "complete"
+    },
+    {
+      "case_id": "SCALED17.3",
+      "disposition": "accepted_tuple",
+      "failed_checks": [],
+      "inputs": {
+        "P1": 1000000.0,
+        "P2": 2000000.0,
+        "T1": 291.742138656979,
+        "eta": 0.8,
+        "flow": 17.3,
+        "z": [
+          0.05718128748168017,
+          0.9428187125183198
+        ]
+      },
+      "production": "resolved",
+      "production_extension": false,
+      "reference": "resolved",
+      "role": "scaled_flow",
+      "source": "PH_FLASH",
+      "stage": "complete"
+    },
+    {
+      "case_id": "SCALED200.0",
+      "disposition": "accepted_tuple",
+      "failed_checks": [],
+      "inputs": {
+        "P1": 1000000.0,
+        "P2": 2000000.0,
+        "T1": 291.742138656979,
+        "eta": 0.8,
+        "flow": 200.0,
+        "z": [
+          0.05718128748168017,
+          0.9428187125183198
+        ]
+      },
+      "production": "resolved",
+      "production_extension": false,
+      "reference": "resolved",
+      "role": "scaled_flow",
+      "source": "PH_FLASH",
+      "stage": "complete"
+    },
+    {
+      "case_id": "INVALID_ETA0.0",
+      "disposition": "rejected",
+      "failed_checks": [],
+      "inputs": {
+        "P1": 1000000.0,
+        "P2": 2000000.0,
+        "T1": 291.742138656979,
+        "eta": 0.0,
+        "flow": 52.05576887048551,
+        "z": [
+          0.05718128748168017,
+          0.9428187125183198
+        ]
+      },
+      "production": "invalid_efficiency",
+      "production_extension": false,
+      "reference": "invalid_efficiency",
+      "role": "negative",
+      "source": "PH_FLASH",
+      "stage": "input"
+    },
+    {
+      "case_id": "INVALID_ETA0.59",
+      "disposition": "rejected",
+      "failed_checks": [],
+      "inputs": {
+        "P1": 1000000.0,
+        "P2": 2000000.0,
+        "T1": 291.742138656979,
+        "eta": 0.59,
+        "flow": 52.05576887048551,
+        "z": [
+          0.05718128748168017,
+          0.9428187125183198
+        ]
+      },
+      "production": "invalid_efficiency",
+      "production_extension": false,
+      "reference": "invalid_efficiency",
+      "role": "negative",
+      "source": "PH_FLASH",
+      "stage": "input"
+    },
+    {
+      "case_id": "INVALID_ETA1.01",
+      "disposition": "rejected",
+      "failed_checks": [],
+      "inputs": {
+        "P1": 1000000.0,
+        "P2": 2000000.0,
+        "T1": 291.742138656979,
+        "eta": 1.01,
+        "flow": 52.05576887048551,
+        "z": [
+          0.05718128748168017,
+          0.9428187125183198
+        ]
+      },
+      "production": "invalid_efficiency",
+      "production_extension": false,
+      "reference": "invalid_efficiency",
+      "role": "negative",
+      "source": "PH_FLASH",
+      "stage": "input"
+    },
+    {
+      "case_id": "PRESSURE_DECREASE",
+      "disposition": "rejected",
+      "failed_checks": [],
+      "inputs": {
+        "P1": 1000000.0,
+        "P2": 900000.0,
+        "T1": 291.742138656979,
+        "eta": 0.8,
+        "flow": 52.05576887048551,
+        "z": [
+          0.05718128748168017,
+          0.9428187125183198
+        ]
+      },
+      "production": "invalid_pressure",
+      "production_extension": false,
+      "reference": "invalid_pressure",
+      "role": "negative",
+      "source": "PH_FLASH",
+      "stage": "prototype_input"
+    },
+    {
+      "case_id": "ABSENT_LIQUID",
+      "disposition": "rejected",
+      "failed_checks": [],
+      "inputs": {
+        "P1": 1000.0,
+        "P2": 2000.0,
+        "T1": 400.0,
+        "eta": 0.8,
+        "flow": 0.0,
+        "z": null
+      },
+      "production": "invalid_flow",
+      "production_extension": false,
+      "reference": "invalid_flow",
+      "role": "negative",
+      "source": "PT_VAPOR",
+      "stage": "prototype_input"
+    },
+    {
+      "case_id": "BULK_VL",
+      "disposition": "rejected",
+      "failed_checks": [],
+      "inputs": {
+        "P1": 300000.0,
+        "P2": 1300000.0,
+        "T1": 300.0,
+        "eta": 0.8,
+        "flow": 46.53574897761956,
+        "z": [
+          0.5,
+          0.5
+        ]
+      },
+      "production": "unsupported_phase",
+      "production_extension": false,
+      "reference": "unsupported_phase",
+      "role": "negative",
+      "source": "PT_VL_INLET_EQUAL",
+      "stage": "inlet_PT"
+    },
+    {
+      "case_id": "VAPOR",
+      "disposition": "rejected",
+      "failed_checks": [],
+      "inputs": {
+        "P1": 1000.0,
+        "P2": 2000.0,
+        "T1": 300.0,
+        "eta": 0.8,
+        "flow": 46.53574897761956,
+        "z": [
+          0.015619720085965972,
+          0.984380279914034
+        ]
+      },
+      "production": "unsupported_phase",
+      "production_extension": false,
+      "reference": "unsupported_phase",
+      "role": "negative",
+      "source": "PT_VL_INLET_EQUAL",
+      "stage": "inlet_PT"
+    }
+  ],
+  "counts": {
+    "accepted_tuple": 30,
+    "rejected": 9,
+    "unresolved": 2
+  },
+  "scope": "Numerical tuples only; no production extension yet",
+  "sha256": {
+    "PLAN.md": "844da35f26dc683fb3eca9994e42a65e1a1ffd3306eefd4ed67b86cb44af9e02",
+    "README.md": "6a494b3aa8516e09c616ec94c372142b0708415e1acc98ff4433dc9cef620f94",
+    "common.py": "4d117bc5badd11b49fe04e60cc359c8e6d73b50e9724f768296d85192366b60c",
+    "compare.py": "ea0f043386986a08c586275aa8418c108ecaa796ddec50af1c8fccde125cc43b",
+    "preservation.json": "4f58ee14bfe939533c86cb1006f2fdf3c24b94d40612de60f251ff13433dc213",
+    "production.json": "28410bb61af23f5cce56bc187c477e26df324a103296150621c43c09420a02ea",
+    "reference.json": "f8561da75590265a6060f69edfa3b8c0895670178cbd12bcacbd6b819d6d1858",
+    "reference.py": "115d5c32d736a2f842fb1dc84ad79b092c888a60121c56ed0143abc93387cb70",
+    "test_study.py": "df96793e6d06393dc32ead7913fafd0204e4c28fabb603d6410f58a2f0d7b3eb",
+    "verify.py": "029a67d7458198d791068cc067c0d418fcd73761575f55b72c7bbfa696ba899a"
+  }
+}

@@ -1,0 +1,33 @@
+PT_BUBBLE_BELOW_7500000.0 100 failed PS
+PT_BUBBLE_BELOW_7800000.0 100 failed PS
+PT_BUBBLE_BELOW_7000000.0 100 accepted_prototype complete
+PT_BUBBLE_BELOW_7000000.0 200 accepted_prototype complete
+PT_BUBBLE_BELOW_7500000.0 200 accepted_prototype complete
+PT_BUBBLE_BELOW_8000000.0 100 failed PS
+PT_BUBBLE_BELOW_7800000.0 200 accepted_prototype complete
+PT_BUBBLE_ABOVE_7500000.0 100 failed PS
+PT_BUBBLE_BELOW_8000000.0 200 accepted_prototype complete
+PT_BUBBLE_ABOVE_7000000.0 100 accepted_prototype complete
+PT_BUBBLE_ABOVE_7800000.0 100 failed PS
+PT_BUBBLE_ABOVE_7000000.0 200 accepted_prototype complete
+PT_BUBBLE_ABOVE_8000000.0 100 failed PS
+PT_BUBBLE_ABOVE_7500000.0 200 accepted_prototype complete
+PT_BUBBLE_ABOVE_7800000.0 200 accepted_prototype complete
+PH_FLASH 100 accepted_prototype complete
+PT_BUBBLE_ABOVE_8000000.0 200 accepted_prototype complete
+PH_FLASH 200 accepted_prototype complete
+PT_VL_HEATING 100 accepted_prototype complete
+PT_BUBBLE_BELOW 100 accepted_prototype complete
+PT_BUBBLE_BELOW 200 accepted_prototype complete
+PT_VL_HEATING 200 accepted_prototype complete
+PT_DEW_BELOW 100 accepted_prototype complete
+PT_DEW_BELOW 200 accepted_prototype complete
+implementation.json fdc1891b362a8497e66b356c1279603decdae28753c8911d478d0ceffd80e147
+ledger.json 69893270105c656e4320ff981f610a847f2444a28153daa0d0ce04f0aeaa8d97
+evidence.json 73ec6a4837082a7a1587aeb8c3a3f49667d3017e7332b9f68d624f63f41b375b
+Traceback (most recent call last):
+  File "/Users/giovaninunes/Folders/RioGineer/riogineer-website/benchmarks/m21_pt200/capture_sources.py", line 19, in <module>
+    p=argparse.ArgumentParser();p.add_argument('--capture',action='store_true');build(p.parse_args().capture)
+  File "/Users/giovaninunes/Folders/RioGineer/riogineer-website/benchmarks/m21_pt200/capture_sources.py", line 14, in build
+    for k in ('streams','equipment','input_sha256','requirements_sha256','units','status'):assert r[k]==old[name]['result'][k],(name,k)
+AssertionError: ('PT_BUBBLE_BELOW', 'input_sha256')

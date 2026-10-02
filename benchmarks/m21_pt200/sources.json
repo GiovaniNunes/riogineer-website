@@ -1,0 +1,2010 @@
+{
+  "PH_FLASH": {
+    "inputs": {
+      "F": 100.0,
+      "Pin": 30000000.0,
+      "Pout": 1000000.0,
+      "Tin": 300.0,
+      "mode": "adiabatic",
+      "z": [
+        0.5,
+        0.5
+      ]
+    },
+    "result": {
+      "balances": {
+        "energy": {
+          "duty_W": 0.0,
+          "model": "equilibrium_separator_energy_pr",
+          "positive_duty": "heat_into_equipment",
+          "residual_W": -1.862645149230957e-09,
+          "status": "passed",
+          "tolerance_W": 0.00010002316930366628
+        },
+        "mass": {
+          "component_residual_kg_h": {
+            "methane": -1.7280399333685637e-11,
+            "n_hexane": 9.276845958083868e-11
+          },
+          "component_tolerance_kg_h": 1e-08,
+          "status": "passed",
+          "total_residual_kg_h": 7.639755494892597e-11,
+          "total_tolerance_kg_h": 2e-08
+        }
+      },
+      "case_id": "MILESTONE_17_ADIABATIC",
+      "engine": {
+        "evaluator_sha256": "5f572bd718fccacc8aeef7f9f809af1d0db4dc9816301ffed6dca467ecb4ac17",
+        "implementation_sha256": "0b48d4fe7f00d3079a053b0ad80ef566b9ed4c5788c5c42d981f50cfb7eda2ab",
+        "model": {
+          "id": "acyclic_component_conservation",
+          "version": "1.0"
+        },
+        "version": "1.10.0"
+      },
+      "equipment": [
+        {
+          "duty_W": 0.0,
+          "energy_residual_W": -1.862645149230957e-09,
+          "id": "SEP_PR_1",
+          "mass_balance": {
+            "component_residual_kg_h": {
+              "methane": -1.7280399333685637e-11,
+              "n_hexane": 9.276845958083868e-11
+            },
+            "component_tolerance_kg_h": 1e-08,
+            "status": "passed",
+            "total_residual_kg_h": 7.639755494892597e-11,
+            "total_tolerance_kg_h": 2e-08
+          },
+          "material_streams": {
+            "inlet": "HYDROCARBON_FEED",
+            "liquid": "LIQUID_PRODUCT",
+            "vapor": "VAPOR_PRODUCT"
+          },
+          "model": {
+            "id": "equilibrium_separator_energy_pr",
+            "version": "1.0"
+          },
+          "thermodynamics": {
+            "F_mol_s": 100.0,
+            "bip": {
+              "component_ids": [
+                "methane",
+                "n_hexane"
+              ],
+              "identifier": "m9_methane_nhexane_zero_kij@1.0",
+              "model": "peng_robinson@1.0",
+              "source": "Explicit zero kij mathematical benchmark from pre_m8_methane_nhexane_canonical_pr@1.0; not calibrated physical BIPs.",
+              "values": [
+                [
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0
+                ]
+              ]
+            },
+            "caloric_dataset": "riogineer_caloric@1.0",
+            "caloric_reference": "ideal_gas_sensible_298.15K_101325Pa@1.0",
+            "component_dataset": "riogineer_components@1.0",
+            "component_molar_residual_kmol_h": {
+              "methane": -1.0800249583553523e-12,
+              "n_hexane": 1.0800249583553523e-12
+            },
+            "duty_W": 0.0,
+            "energy_allowance_W": 0.00010002316930366628,
+            "energy_residual_W": -1.862645149230957e-09,
+            "inlet": {
+              "H_eq_J_mol": -16303.948024671077,
+              "S_eq_J_mol_K": -72.15880132373434,
+              "beta": 0.0,
+              "classification": "single_liquid",
+              "max_log_fugacity_residual": 0.0,
+              "phases": {
+                "liquid": {
+                  "Z": 1.04595589143832,
+                  "composition": {
+                    "methane": 0.5,
+                    "n_hexane": 0.5
+                  },
+                  "h_J_mol": -16303.948024671077,
+                  "h_ig_J_mol": 165.75492421744335,
+                  "h_res_J_mol": -16469.70294888852,
+                  "s_J_mol_K": -72.15880132373434,
+                  "s_ig_J_mol_K": -40.9970708365727,
+                  "s_res_J_mol_K": -31.161730487161627
+                }
+              },
+              "pressure_Pa_abs": 30000000.0,
+              "pt_status": "success_single_phase",
+              "temperature_K": 300.0,
+              "z": {
+                "methane": 0.5,
+                "n_hexane": 0.5
+              }
+            },
+            "inlet_enthalpy_flow_W": -1630394.8024671078,
+            "mode": "adiabatic",
+            "molecular_provider": "molecular_composition@1.0",
+            "outlet": {
+              "H_eq_J_mol": -16303.948024671097,
+              "S_eq_J_mol_K": -57.29960279656648,
+              "beta": 0.4794423112951449,
+              "classification": "vapor_liquid",
+              "max_log_fugacity_residual": 5.049745344098966e-13,
+              "phases": {
+                "liquid": {
+                  "Z": 0.05116153871956797,
+                  "composition": {
+                    "methane": 0.05718128748168017,
+                    "n_hexane": 0.9428187125183198
+                  },
+                  "h_J_mol": -30898.842876325474,
+                  "h_ig_J_mol": -870.2092463834642,
+                  "h_res_J_mol": -30028.63362994201,
+                  "s_J_mol_K": -92.04444980831724,
+                  "s_ig_J_mol_K": -20.163711521672404,
+                  "s_res_J_mol_K": -71.88073828664484
+                },
+                "vapor": {
+                  "Z": 0.9725161211788265,
+                  "composition": {
+                    "methane": 0.9807933719514703,
+                    "n_hexane": 0.01920662804852966
+                  },
+                  "h_J_mol": -457.4435508709597,
+                  "h_ig_J_mol": -241.52967286780682,
+                  "h_res_J_mol": -215.9138780031529,
+                  "s_J_mol_K": -19.575153308614254,
+                  "s_ig_J_mol_K": -19.064894702214847,
+                  "s_res_J_mol_K": -0.5102586063994081
+                }
+              },
+              "pressure_Pa_abs": 1000000.0,
+              "pt_status": "success_two_phase",
+              "temperature_K": 291.742138656979,
+              "z": {
+                "methane": 0.5,
+                "n_hexane": 0.5
+              }
+            },
+            "ph": {
+              "bracket_K": [
+                289.76377952755905,
+                292.1259842519685
+              ],
+              "candidate_count": 1,
+              "capability": "flash_PH",
+              "enthalpy_residual_J_mol": -2.000888343900442e-11,
+              "evaluation_count": 171,
+              "final_bracket_K": [
+                291.742138656979,
+                291.7421386569796
+              ],
+              "pt_profile": "high_accuracy",
+              "root_iterations": 42,
+              "status": "success"
+            },
+            "phases": {
+              "liquid": {
+                "composition": {
+                  "methane": 0.05718128748168017,
+                  "n_hexane": 0.9428187125183198
+                },
+                "enthalpy_flow_W": -1608463.0231354465,
+                "h_J_mol": -30898.842876325474,
+                "molar_flow_mol_s": 52.05576887048551
+              },
+              "vapor": {
+                "composition": {
+                  "methane": 0.9807933719514704,
+                  "n_hexane": 0.01920662804852966
+                },
+                "enthalpy_flow_W": -21931.779331663114,
+                "h_J_mol": -457.4435508709597,
+                "molar_flow_mol_s": 47.94423112951449
+              }
+            },
+            "property_package": "peng_robinson@1.0",
+            "zero_duty_tolerance_W": 0.00010002316930366628
+          },
+          "type": "equilibrium_separator_2phase",
+          "work_W": 0.0
+        }
+      ],
+      "execution": {
+        "equipment_order": [
+          "SEP_PR_1"
+        ],
+        "method": "topological"
+      },
+      "input_sha256": "11c81c351e9402593d88b15064afb509af743184214273a7aae68a4f75b508c5",
+      "kind": "results",
+      "limitations": [
+        "Methane/n_hexane, explicit constant zero kij, 200\u2013500 K; qualified frozen matrix only.",
+        "PT-defined positive-flow inlet; L/V/VL inlet and outlet states within independently qualified scope.",
+        "PT mode calculates duty; adiabatic PH imposes zero duty. No shaft work or kinetic/potential energy changes.",
+        "Specified equal/reduced pressure; no hydraulics, vessel sizing, entrainment or separation-efficiency prediction.",
+        "One source -> separator -> vapor and liquid sinks; no mixed rigorous network, water, recycles or three-phase qualification."
+      ],
+      "process_result_version": "1.11",
+      "requirements_sha256": "8b3e6f5ec8204a0c9a000137f0eddfe721bac68127e84f5ffea112646b5f8108",
+      "run_id": "86daa1a0-499f-477e-9fc6-15dbd0e2ce0b",
+      "schema_version": "1.11",
+      "status": "completed",
+      "streams": {
+        "HYDROCARBON_FEED": {
+          "component_mass_flow_kg_h": {
+            "methane": 2887.704,
+            "n_hexane": 15511.5648
+          },
+          "component_mass_fractions": {
+            "methane": 0.15694667170686696,
+            "n_hexane": 0.843053328293133
+          },
+          "enthalpy_flow_W": -1630394.8024671078,
+          "mass_flow_kg_h": 18399.2688,
+          "pressure_Pa_abs": 30000000.0,
+          "properties": {
+            "density": {
+              "status": "not_calculated",
+              "unit": "kg/m3",
+              "value": null
+            },
+            "gas_volumetric_flow": {
+              "status": "not_calculated",
+              "unit": "m3/h",
+              "value": null
+            },
+            "molar_composition": {
+              "status": "calculated",
+              "unit": "mol/mol",
+              "value": {
+                "methane": 0.5,
+                "n_hexane": 0.5
+              }
+            },
+            "molar_flow": {
+              "status": "calculated",
+              "unit": "kmol/h",
+              "value": 360.0
+            },
+            "molecular_mass": {
+              "status": "calculated",
+              "unit": "kg/kmol",
+              "value": 51.109080000000006
+            },
+            "oil_volumetric_flow": {
+              "status": "not_calculated",
+              "unit": "m3/h",
+              "value": null
+            },
+            "water_volumetric_flow": {
+              "status": "not_calculated",
+              "unit": "m3/h",
+              "value": null
+            }
+          },
+          "temperature_K": 300.0
+        },
+        "LIQUID_PRODUCT": {
+          "component_mass_flow_kg_h": {
+            "methane": 171.91171194365597,
+            "n_hexane": 15225.8892373119
+          },
+          "component_mass_fractions": {
+            "methane": 0.011164692446031877,
+            "n_hexane": 0.9888353075539681
+          },
+          "enthalpy_flow_W": -1608463.0231354465,
+          "mass_flow_kg_h": 15397.800949255556,
+          "pressure_Pa_abs": 1000000.0,
+          "properties": {
+            "density": {
+              "status": "not_calculated",
+              "unit": "kg/m3",
+              "value": null
+            },
+            "gas_volumetric_flow": {
+              "status": "not_calculated",
+              "unit": "m3/h",
+              "value": null
+            },
+            "molar_composition": {
+              "status": "calculated",
+              "unit": "mol/mol",
+              "value": {
+                "methane": 0.05718128748168017,
+                "n_hexane": 0.9428187125183198
+              }
+            },
+            "molar_flow": {
+              "status": "calculated",
+              "unit": "kmol/h",
+              "value": 187.40076793374783
+            },
+            "molecular_mass": {
+              "status": "calculated",
+              "unit": "kg/kmol",
+              "value": 82.16508992481381
+            },
+            "oil_volumetric_flow": {
+              "status": "not_calculated",
+              "unit": "m3/h",
+              "value": null
+            },
+            "water_volumetric_flow": {
+              "status": "not_calculated",
+              "unit": "m3/h",
+              "value": null
+            }
+          },
+          "temperature_K": 291.742138656979
+        },
+        "VAPOR_PRODUCT": {
+          "component_mass_flow_kg_h": {
+            "methane": 2715.7922880563615,
+            "n_hexane": 285.6755626880072
+          },
+          "component_mass_fractions": {
+            "methane": 0.9048213817725353,
+            "n_hexane": 0.09517861822746466
+          },
+          "enthalpy_flow_W": -21931.779331663114,
+          "mass_flow_kg_h": 3001.4678507443687,
+          "pressure_Pa_abs": 1000000.0,
+          "properties": {
+            "density": {
+              "status": "not_calculated",
+              "unit": "kg/m3",
+              "value": null
+            },
+            "gas_volumetric_flow": {
+              "status": "not_calculated",
+              "unit": "m3/h",
+              "value": null
+            },
+            "molar_composition": {
+              "status": "calculated",
+              "unit": "mol/mol",
+              "value": {
+                "methane": 0.9807933719514704,
+                "n_hexane": 0.01920662804852966
+              }
+            },
+            "molar_flow": {
+              "status": "calculated",
+              "unit": "kmol/h",
+              "value": 172.59923206625217
+            },
+            "molecular_mass": {
+              "status": "calculated",
+              "unit": "kg/kmol",
+              "value": 17.38980999401119
+            },
+            "oil_volumetric_flow": {
+              "status": "not_calculated",
+              "unit": "m3/h",
+              "value": null
+            },
+            "water_volumetric_flow": {
+              "status": "not_calculated",
+              "unit": "m3/h",
+              "value": null
+            }
+          },
+          "temperature_K": 291.742138656979
+        }
+      },
+      "unavailable": [
+        {
+          "calculation": "Vessel sizing and entrainment",
+          "reason": "M17 qualifies equilibrium separation and energy only.",
+          "status": "not calculated"
+        }
+      ],
+      "units": {
+        "component_mass_flow": "kg/h",
+        "duty": "W",
+        "heat_capacity": "J/(kg K)",
+        "pressure": "Pa_abs",
+        "recovery": "mass_fraction",
+        "temperature": "K"
+      },
+      "warnings": []
+    }
+  },
+  "PT_BUBBLE_ABOVE": {
+    "inputs": {
+      "F": 100.0,
+      "Pin": 7000000.0,
+      "Pout": 6000000.0,
+      "Tin": 230.7220225690974,
+      "Tout": 231.16755435138973,
+      "mode": "specified_temperature",
+      "z": [
+        0.5,
+        0.5
+      ]
+    },
+    "result": {
+      "balances": {
+        "energy": {
+          "duty_W": -2.0256265997886658e-07,
+          "model": "equilibrium_separator_energy_pr",
+          "positive_duty": "heat_into_equipment",
+          "residual_W": 0.0,
+          "status": "passed",
+          "tolerance_W": 0.00010003608207587835
+        },
+        "mass": {
+          "component_residual_kg_h": {
+            "methane": 4.547473508864641e-13,
+            "n_hexane": -1.8189894035458565e-12
+          },
+          "component_tolerance_kg_h": 1e-08,
+          "status": "passed",
+          "total_residual_kg_h": 0.0,
+          "total_tolerance_kg_h": 2e-08
+        }
+      },
+      "case_id": "MILESTONE_17_SPECIFIED_TEMPERATURE",
+      "engine": {
+        "evaluator_sha256": "5f572bd718fccacc8aeef7f9f809af1d0db4dc9816301ffed6dca467ecb4ac17",
+        "implementation_sha256": "0b48d4fe7f00d3079a053b0ad80ef566b9ed4c5788c5c42d981f50cfb7eda2ab",
+        "model": {
+          "id": "acyclic_component_conservation",
+          "version": "1.0"
+        },
+        "version": "1.10.0"
+      },
+      "equipment": [
+        {
+          "duty_W": -2.0256265997886658e-07,
+          "energy_residual_W": 0.0,
+          "id": "SEP_PR_1",
+          "mass_balance": {
+            "component_residual_kg_h": {
+              "methane": 4.547473508864641e-13,
+              "n_hexane": -1.8189894035458565e-12
+            },
+            "component_tolerance_kg_h": 1e-08,
+            "status": "passed",
+            "total_residual_kg_h": 0.0,
+            "total_tolerance_kg_h": 2e-08
+          },
+          "material_streams": {
+            "inlet": "HYDROCARBON_FEED",
+            "liquid": "LIQUID_PRODUCT",
+            "vapor": "VAPOR_PRODUCT"
+          },
+          "model": {
+            "id": "equilibrium_separator_energy_pr",
+            "version": "1.0"
+          },
+          "thermodynamics": {
+            "F_mol_s": 100.0,
+            "bip": {
+              "component_ids": [
+                "methane",
+                "n_hexane"
+              ],
+              "identifier": "m9_methane_nhexane_zero_kij@1.0",
+              "model": "peng_robinson@1.0",
+              "source": "Explicit zero kij mathematical benchmark from pre_m8_methane_nhexane_canonical_pr@1.0; not calibrated physical BIPs.",
+              "values": [
+                [
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0
+                ]
+              ]
+            },
+            "caloric_dataset": "riogineer_caloric@1.0",
+            "caloric_reference": "ideal_gas_sensible_298.15K_101325Pa@1.0",
+            "component_dataset": "riogineer_components@1.0",
+            "component_molar_residual_kmol_h": {
+              "methane": 2.842170943040401e-14,
+              "n_hexane": -2.842170943040401e-14
+            },
+            "duty_W": -2.0256265997886658e-07,
+            "energy_allowance_W": 0.00010003608207587835,
+            "energy_residual_W": 0.0,
+            "inlet": {
+              "H_eq_J_mol": -25390.503668831105,
+              "S_eq_J_mol_K": -99.17584178166088,
+              "beta": 0.0,
+              "classification": "single_liquid",
+              "max_log_fugacity_residual": 0.0,
+              "phases": {
+                "liquid": {
+                  "Z": 0.29990393311625,
+                  "composition": {
+                    "methane": 0.5,
+                    "n_hexane": 0.5
+                  },
+                  "h_J_mol": -25390.503668831105,
+                  "h_ig_J_mol": -5584.599116703186,
+                  "h_res_J_mol": -19805.90455212792,
+                  "s_J_mol_K": -99.17584178166088,
+                  "s_ig_J_mol_K": -50.615158021127094,
+                  "s_res_J_mol_K": -48.560683760533784
+                }
+              },
+              "pressure_Pa_abs": 7000000.0,
+              "pt_status": "success_single_phase",
+              "temperature_K": 230.7220225690974,
+              "z": {
+                "methane": 0.5,
+                "n_hexane": 0.5
+              }
+            },
+            "inlet_enthalpy_flow_W": -2539050.3668831103,
+            "mode": "specified_temperature",
+            "molecular_provider": "molecular_composition@1.0",
+            "outlet": {
+              "H_eq_J_mol": -25390.503668833127,
+              "S_eq_J_mol_K": -98.8194776979535,
+              "beta": 0.0005796899604888495,
+              "classification": "vapor_liquid",
+              "max_log_fugacity_residual": 4.977684930906889e-13,
+              "phases": {
+                "liquid": {
+                  "Z": 0.25734898253335586,
+                  "composition": {
+                    "methane": 0.4997106092421193,
+                    "n_hexane": 0.5002893907578807
+                  },
+                  "h_J_mol": -25402.75764815932,
+                  "h_ig_J_mol": -5552.369657830293,
+                  "h_res_J_mol": -19850.38799032903,
+                  "s_J_mol_K": -98.84861756279588,
+                  "s_ig_J_mol_K": -49.192897468136465,
+                  "s_res_J_mol_K": -49.655720094659415
+                },
+                "vapor": {
+                  "Z": 0.6963465262453362,
+                  "composition": {
+                    "methane": 0.9989270483824741,
+                    "n_hexane": 0.0010729516175258884
+                  },
+                  "h_J_mol": -4263.907294669612,
+                  "h_ig_J_mol": -2325.4710219452245,
+                  "h_res_J_mol": -1938.436272724388,
+                  "s_J_mol_K": -48.58060046998245,
+                  "s_ig_J_mol_K": -42.685233573042915,
+                  "s_res_J_mol_K": -5.895366896939535
+                }
+              },
+              "pressure_Pa_abs": 6000000.0,
+              "pt_status": "success_two_phase",
+              "temperature_K": 231.16755435138973,
+              "z": {
+                "methane": 0.5,
+                "n_hexane": 0.5
+              }
+            },
+            "ph": null,
+            "phases": {
+              "liquid": {
+                "composition": {
+                  "methane": 0.4997106092421193,
+                  "n_hexane": 0.5002893907578807
+                },
+                "enthalpy_flow_W": -2538803.192458195,
+                "h_J_mol": -25402.75764815932,
+                "molar_flow_mol_s": 99.94203100395112
+              },
+              "vapor": {
+                "composition": {
+                  "methane": 0.9989270483824741,
+                  "n_hexane": 0.0010729516175258884
+                },
+                "enthalpy_flow_W": -247.17442511751446,
+                "h_J_mol": -4263.907294669612,
+                "molar_flow_mol_s": 0.057968996048884947
+              }
+            },
+            "property_package": "peng_robinson@1.0",
+            "zero_duty_tolerance_W": 0.00010003608207587835
+          },
+          "type": "equilibrium_separator_2phase",
+          "work_W": 0.0
+        }
+      ],
+      "execution": {
+        "equipment_order": [
+          "SEP_PR_1"
+        ],
+        "method": "topological"
+      },
+      "input_sha256": "373dda7e3030416ec1ce299d5973bf685b9520f0f9d214439a1c289efe523e3e",
+      "kind": "results",
+      "limitations": [
+        "Methane/n_hexane, explicit constant zero kij, 200\u2013500 K; qualified frozen matrix only.",
+        "PT-defined positive-flow inlet; L/V/VL inlet and outlet states within independently qualified scope.",
+        "PT mode calculates duty; adiabatic PH imposes zero duty. No shaft work or kinetic/potential energy changes.",
+        "Specified equal/reduced pressure; no hydraulics, vessel sizing, entrainment or separation-efficiency prediction.",
+        "One source -> separator -> vapor and liquid sinks; no mixed rigorous network, water, recycles or three-phase qualification."
+      ],
+      "process_result_version": "1.11",
+      "requirements_sha256": "0cf30f85ec572c7e330dfec5e552b1ecde44ec0fc23efb4052ac9bd38c74f3dc",
+      "run_id": "35d6c096-c221-4d26-89b8-f5b2dbebb89a",
+      "schema_version": "1.11",
+      "status": "completed",
+      "streams": {
+        "HYDROCARBON_FEED": {
+          "component_mass_flow_kg_h": {
+            "methane": 2887.704,
+            "n_hexane": 15511.5648
+          },
+          "component_mass_fractions": {
+            "methane": 0.15694667170686696,
+            "n_hexane": 0.843053328293133
+          },
+          "enthalpy_flow_W": -2539050.3668831103,
+          "mass_flow_kg_h": 18399.2688,
+          "pressure_Pa_abs": 7000000.0,
+          "properties": {
+            "density": {
+              "status": "not_calculated",
+              "unit": "kg/m3",
+              "value": null
+            },
+            "gas_volumetric_flow": {
+              "status": "not_calculated",
+              "unit": "m3/h",
+              "value": null
+            },
+            "molar_composition": {
+              "status": "calculated",
+              "unit": "mol/mol",
+              "value": {
+                "methane": 0.5,
+                "n_hexane": 0.5
+              }
+            },
+            "molar_flow": {
+              "status": "calculated",
+              "unit": "kmol/h",
+              "value": 360.0
+            },
+            "molecular_mass": {
+              "status": "calculated",
+              "unit": "kg/kmol",
+              "value": 51.109080000000006
+            },
+            "oil_volumetric_flow": {
+              "status": "not_calculated",
+              "unit": "m3/h",
+              "value": null
+            },
+            "water_volumetric_flow": {
+              "status": "not_calculated",
+              "unit": "m3/h",
+              "value": null
+            }
+          },
+          "temperature_K": 230.7220225690974
+        },
+        "LIQUID_PRODUCT": {
+          "component_mass_flow_kg_h": {
+            "methane": 2884.359646148787,
+            "n_hexane": 15511.545504256166
+          },
+          "component_mass_fractions": {
+            "methane": 0.1567935702302364,
+            "n_hexane": 0.8432064297697636
+          },
+          "enthalpy_flow_W": -2538803.192458195,
+          "mass_flow_kg_h": 18395.905150404953,
+          "pressure_Pa_abs": 6000000.0,
+          "properties": {
+            "density": {
+              "status": "not_calculated",
+              "unit": "kg/m3",
+              "value": null
+            },
+            "gas_volumetric_flow": {
+              "status": "not_calculated",
+              "unit": "m3/h",
+              "value": null
+            },
+            "molar_composition": {
+              "status": "calculated",
+              "unit": "mol/mol",
+              "value": {
+                "methane": 0.4997106092421193,
+                "n_hexane": 0.5002893907578807
+              }
+            },
+            "molar_flow": {
+              "status": "calculated",
+              "unit": "kmol/h",
+              "value": 359.791311614224
+            },
+            "molecular_mass": {
+              "status": "calculated",
+              "unit": "kg/kmol",
+              "value": 51.12937571469052
+            },
+            "oil_volumetric_flow": {
+              "status": "not_calculated",
+              "unit": "m3/h",
+              "value": null
+            },
+            "water_volumetric_flow": {
+              "status": "not_calculated",
+              "unit": "m3/h",
+              "value": null
+            }
+          },
+          "temperature_K": 231.16755435138973
+        },
+        "VAPOR_PRODUCT": {
+          "component_mass_flow_kg_h": {
+            "methane": 3.3443538512129916,
+            "n_hexane": 0.01929574383584341
+          },
+          "component_mass_fractions": {
+            "methane": 0.994263450073918,
+            "n_hexane": 0.00573654992608208
+          },
+          "enthalpy_flow_W": -247.17442511751446,
+          "mass_flow_kg_h": 3.3636495950488348,
+          "pressure_Pa_abs": 6000000.0,
+          "properties": {
+            "density": {
+              "status": "not_calculated",
+              "unit": "kg/m3",
+              "value": null
+            },
+            "gas_volumetric_flow": {
+              "status": "not_calculated",
+              "unit": "m3/h",
+              "value": null
+            },
+            "molar_composition": {
+              "status": "calculated",
+              "unit": "mol/mol",
+              "value": {
+                "methane": 0.9989270483824741,
+                "n_hexane": 0.0010729516175258884
+              }
+            },
+            "molar_flow": {
+              "status": "calculated",
+              "unit": "kmol/h",
+              "value": 0.2086883857759858
+            },
+            "molecular_mass": {
+              "status": "calculated",
+              "unit": "kg/kmol",
+              "value": 16.11804884369323
+            },
+            "oil_volumetric_flow": {
+              "status": "not_calculated",
+              "unit": "m3/h",
+              "value": null
+            },
+            "water_volumetric_flow": {
+              "status": "not_calculated",
+              "unit": "m3/h",
+              "value": null
+            }
+          },
+          "temperature_K": 231.16755435138973
+        }
+      },
+      "unavailable": [
+        {
+          "calculation": "Vessel sizing and entrainment",
+          "reason": "M17 qualifies equilibrium separation and energy only.",
+          "status": "not calculated"
+        }
+      ],
+      "units": {
+        "component_mass_flow": "kg/h",
+        "duty": "W",
+        "heat_capacity": "J/(kg K)",
+        "pressure": "Pa_abs",
+        "recovery": "mass_fraction",
+        "temperature": "K"
+      },
+      "warnings": []
+    }
+  },
+  "PT_BUBBLE_BELOW": {
+    "inputs": {
+      "F": 100.0,
+      "Pin": 7000000.0,
+      "Pout": 6000000.0,
+      "Tin": 230.60146798619095,
+      "Tout": 231.06755435138734,
+      "mode": "specified_temperature",
+      "z": [
+        0.5,
+        0.5
+      ]
+    },
+    "result": {
+      "balances": {
+        "energy": {
+          "duty_W": 0.0,
+          "model": "equilibrium_separator_energy_pr",
+          "positive_duty": "heat_into_equipment",
+          "residual_W": 0.0,
+          "status": "passed",
+          "tolerance_W": 0.00010003610090056071
+        },
+        "mass": {
+          "component_residual_kg_h": {
+            "methane": 0.0,
+            "n_hexane": 0.0
+          },
+          "component_tolerance_kg_h": 1e-08,
+          "status": "passed",
+          "total_residual_kg_h": 0.0,
+          "total_tolerance_kg_h": 2e-08
+        }
+      },
+      "case_id": "MILESTONE_17_SPECIFIED_TEMPERATURE",
+      "engine": {
+        "evaluator_sha256": "5f572bd718fccacc8aeef7f9f809af1d0db4dc9816301ffed6dca467ecb4ac17",
+        "implementation_sha256": "0b48d4fe7f00d3079a053b0ad80ef566b9ed4c5788c5c42d981f50cfb7eda2ab",
+        "model": {
+          "id": "acyclic_component_conservation",
+          "version": "1.0"
+        },
+        "version": "1.10.0"
+      },
+      "equipment": [
+        {
+          "duty_W": 0.0,
+          "energy_residual_W": 0.0,
+          "id": "SEP_PR_1",
+          "mass_balance": {
+            "component_residual_kg_h": {
+              "methane": 0.0,
+              "n_hexane": 0.0
+            },
+            "component_tolerance_kg_h": 1e-08,
+            "status": "passed",
+            "total_residual_kg_h": 0.0,
+            "total_tolerance_kg_h": 2e-08
+          },
+          "material_streams": {
+            "inlet": "HYDROCARBON_FEED",
+            "liquid": "LIQUID_PRODUCT",
+            "vapor": "VAPOR_PRODUCT"
+          },
+          "model": {
+            "id": "equilibrium_separator_energy_pr",
+            "version": "1.0"
+          },
+          "thermodynamics": {
+            "F_mol_s": 100.0,
+            "bip": {
+              "component_ids": [
+                "methane",
+                "n_hexane"
+              ],
+              "identifier": "m9_methane_nhexane_zero_kij@1.0",
+              "model": "peng_robinson@1.0",
+              "source": "Explicit zero kij mathematical benchmark from pre_m8_methane_nhexane_canonical_pr@1.0; not calibrated physical BIPs.",
+              "values": [
+                [
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0
+                ]
+              ]
+            },
+            "caloric_dataset": "riogineer_caloric@1.0",
+            "caloric_reference": "ideal_gas_sensible_298.15K_101325Pa@1.0",
+            "component_dataset": "riogineer_components@1.0",
+            "component_molar_residual_kmol_h": {
+              "methane": 0.0,
+              "n_hexane": 0.0
+            },
+            "duty_W": 0.0,
+            "energy_allowance_W": 0.00010003610090056071,
+            "energy_residual_W": 0.0,
+            "inlet": {
+              "H_eq_J_mol": -25403.75036140729,
+              "S_eq_J_mol_K": -99.23327086559726,
+              "beta": 0.0,
+              "classification": "single_liquid",
+              "max_log_fugacity_residual": 0.0,
+              "phases": {
+                "liquid": {
+                  "Z": 0.30000233328018705,
+                  "composition": {
+                    "methane": 0.5,
+                    "n_hexane": 0.5
+                  },
+                  "h_J_mol": -25403.75036140729,
+                  "h_ig_J_mol": -5593.820013924727,
+                  "h_res_J_mol": -19809.93034748256,
+                  "s_J_mol_K": -99.23327086559726,
+                  "s_ig_J_mol_K": -50.65513386240635,
+                  "s_res_J_mol_K": -48.5781370031909
+                }
+              },
+              "pressure_Pa_abs": 7000000.0,
+              "pt_status": "success_single_phase",
+              "temperature_K": 230.60146798619095,
+              "z": {
+                "methane": 0.5,
+                "n_hexane": 0.5
+              }
+            },
+            "inlet_enthalpy_flow_W": -2540375.0361407287,
+            "mode": "specified_temperature",
+            "molecular_provider": "molecular_composition@1.0",
+            "outlet": {
+              "H_eq_J_mol": -25403.75036140729,
+              "S_eq_J_mol_K": -98.87679248117601,
+              "beta": 0.0,
+              "classification": "single_liquid",
+              "max_log_fugacity_residual": 0.0,
+              "phases": {
+                "liquid": {
+                  "Z": 0.2573539914926344,
+                  "composition": {
+                    "methane": 0.5,
+                    "n_hexane": 0.5
+                  },
+                  "h_J_mol": -25403.75036140729,
+                  "h_ig_J_mol": -5558.155932854853,
+                  "h_res_J_mol": -19845.594428552435,
+                  "s_J_mol_K": -98.87679248117601,
+                  "s_ig_J_mol_K": -49.21895312732362,
+                  "s_res_J_mol_K": -49.65783935385238
+                }
+              },
+              "pressure_Pa_abs": 6000000.0,
+              "pt_status": "success_single_phase",
+              "temperature_K": 231.06755435138734,
+              "z": {
+                "methane": 0.5,
+                "n_hexane": 0.5
+              }
+            },
+            "ph": null,
+            "phases": {
+              "liquid": {
+                "composition": {
+                  "methane": 0.5,
+                  "n_hexane": 0.5
+                },
+                "enthalpy_flow_W": -2540375.0361407287,
+                "h_J_mol": -25403.75036140729,
+                "molar_flow_mol_s": 100.0
+              },
+              "vapor": {
+                "composition": null,
+                "enthalpy_flow_W": 0.0,
+                "h_J_mol": null,
+                "molar_flow_mol_s": 0.0
+              }
+            },
+            "property_package": "peng_robinson@1.0",
+            "zero_duty_tolerance_W": 0.00010003610090056071
+          },
+          "type": "equilibrium_separator_2phase",
+          "work_W": 0.0
+        }
+      ],
+      "execution": {
+        "equipment_order": [
+          "SEP_PR_1"
+        ],
+        "method": "topological"
+      },
+      "input_sha256": "a298cd8d8ffcb24c5d6394864134ccbb27fff0cc9f63652d2c55fd8cee618c5d",
+      "kind": "results",
+      "limitations": [
+        "Methane/n_hexane, explicit constant zero kij, 200\u2013500 K; qualified frozen matrix only.",
+        "PT-defined positive-flow inlet; L/V/VL inlet and outlet states within independently qualified scope.",
+        "PT mode calculates duty; adiabatic PH imposes zero duty. No shaft work or kinetic/potential energy changes.",
+        "Specified equal/reduced pressure; no hydraulics, vessel sizing, entrainment or separation-efficiency prediction.",
+        "One source -> separator -> vapor and liquid sinks; no mixed rigorous network, water, recycles or three-phase qualification."
+      ],
+      "process_result_version": "1.11",
+      "requirements_sha256": "5ed539b8e464aaf2d91f261e1e488a863dd5e945c56b737cc6679663bc3c1ad7",
+      "run_id": "ea65f82b-b624-481e-855f-a241ed690c2e",
+      "schema_version": "1.11",
+      "status": "completed",
+      "streams": {
+        "HYDROCARBON_FEED": {
+          "component_mass_flow_kg_h": {
+            "methane": 2887.704,
+            "n_hexane": 15511.5648
+          },
+          "component_mass_fractions": {
+            "methane": 0.15694667170686696,
+            "n_hexane": 0.843053328293133
+          },
+          "enthalpy_flow_W": -2540375.0361407287,
+          "mass_flow_kg_h": 18399.2688,
+          "pressure_Pa_abs": 7000000.0,
+          "properties": {
+            "density": {
+              "status": "not_calculated",
+              "unit": "kg/m3",
+              "value": null
+            },
+            "gas_volumetric_flow": {
+              "status": "not_calculated",
+              "unit": "m3/h",
+              "value": null
+            },
+            "molar_composition": {
+              "status": "calculated",
+              "unit": "mol/mol",
+              "value": {
+                "methane": 0.5,
+                "n_hexane": 0.5
+              }
+            },
+            "molar_flow": {
+              "status": "calculated",
+              "unit": "kmol/h",
+              "value": 360.0
+            },
+            "molecular_mass": {
+              "status": "calculated",
+              "unit": "kg/kmol",
+              "value": 51.109080000000006
+            },
+            "oil_volumetric_flow": {
+              "status": "not_calculated",
+              "unit": "m3/h",
+              "value": null
+            },
+            "water_volumetric_flow": {
+              "status": "not_calculated",
+              "unit": "m3/h",
+              "value": null
+            }
+          },
+          "temperature_K": 230.60146798619095
+        },
+        "LIQUID_PRODUCT": {
+          "component_mass_flow_kg_h": {
+            "methane": 2887.704,
+            "n_hexane": 15511.5648
+          },
+          "component_mass_fractions": {
+            "methane": 0.15694667170686696,
+            "n_hexane": 0.843053328293133
+          },
+          "enthalpy_flow_W": -2540375.0361407287,
+          "mass_flow_kg_h": 18399.2688,
+          "pressure_Pa_abs": 6000000.0,
+          "properties": {
+            "density": {
+              "status": "not_calculated",
+              "unit": "kg/m3",
+              "value": null
+            },
+            "gas_volumetric_flow": {
+              "status": "not_calculated",
+              "unit": "m3/h",
+              "value": null
+            },
+            "molar_composition": {
+              "status": "calculated",
+              "unit": "mol/mol",
+              "value": {
+                "methane": 0.5,
+                "n_hexane": 0.5
+              }
+            },
+            "molar_flow": {
+              "status": "calculated",
+              "unit": "kmol/h",
+              "value": 360.0
+            },
+            "molecular_mass": {
+              "status": "calculated",
+              "unit": "kg/kmol",
+              "value": 51.109080000000006
+            },
+            "oil_volumetric_flow": {
+              "status": "not_calculated",
+              "unit": "m3/h",
+              "value": null
+            },
+            "water_volumetric_flow": {
+              "status": "not_calculated",
+              "unit": "m3/h",
+              "value": null
+            }
+          },
+          "temperature_K": 231.06755435138734
+        },
+        "VAPOR_PRODUCT": {
+          "component_mass_flow_kg_h": {
+            "methane": 0.0,
+            "n_hexane": 0.0
+          },
+          "component_mass_fractions": null,
+          "enthalpy_flow_W": 0.0,
+          "mass_flow_kg_h": 0.0,
+          "pressure_Pa_abs": 6000000.0,
+          "properties": {
+            "density": {
+              "status": "not_calculated",
+              "unit": "kg/m3",
+              "value": null
+            },
+            "gas_volumetric_flow": {
+              "status": "not_calculated",
+              "unit": "m3/h",
+              "value": null
+            },
+            "molar_composition": {
+              "status": "not_calculated",
+              "unit": "mol/mol",
+              "value": null
+            },
+            "molar_flow": {
+              "status": "calculated",
+              "unit": "kmol/h",
+              "value": 0.0
+            },
+            "molecular_mass": {
+              "status": "not_calculated",
+              "unit": "kg/kmol",
+              "value": null
+            },
+            "oil_volumetric_flow": {
+              "status": "not_calculated",
+              "unit": "m3/h",
+              "value": null
+            },
+            "water_volumetric_flow": {
+              "status": "not_calculated",
+              "unit": "m3/h",
+              "value": null
+            }
+          },
+          "temperature_K": 231.06755435138734
+        }
+      },
+      "unavailable": [
+        {
+          "calculation": "Vessel sizing and entrainment",
+          "reason": "M17 qualifies equilibrium separation and energy only.",
+          "status": "not calculated"
+        }
+      ],
+      "units": {
+        "component_mass_flow": "kg/h",
+        "duty": "W",
+        "heat_capacity": "J/(kg K)",
+        "pressure": "Pa_abs",
+        "recovery": "mass_fraction",
+        "temperature": "K"
+      },
+      "warnings": []
+    }
+  },
+  "PT_DEW_BELOW": {
+    "inputs": {
+      "F": 100.0,
+      "Pin": 7000000.0,
+      "Pout": 6000000.0,
+      "Tin": 473.5245275694783,
+      "Tout": 468.2158895316327,
+      "mode": "specified_temperature",
+      "z": [
+        0.5,
+        0.5
+      ]
+    },
+    "result": {
+      "balances": {
+        "energy": {
+          "duty_W": -2.076849341392517e-06,
+          "model": "equilibrium_separator_energy_pr",
+          "positive_duty": "heat_into_equipment",
+          "residual_W": 0.0,
+          "status": "passed",
+          "tolerance_W": 0.00010001891330871124
+        },
+        "mass": {
+          "component_residual_kg_h": {
+            "methane": 0.0,
+            "n_hexane": 1.8189894035458565e-12
+          },
+          "component_tolerance_kg_h": 1e-08,
+          "status": "passed",
+          "total_residual_kg_h": 3.637978807091713e-12,
+          "total_tolerance_kg_h": 2e-08
+        }
+      },
+      "case_id": "MILESTONE_17_SPECIFIED_TEMPERATURE",
+      "engine": {
+        "evaluator_sha256": "5f572bd718fccacc8aeef7f9f809af1d0db4dc9816301ffed6dca467ecb4ac17",
+        "implementation_sha256": "0b48d4fe7f00d3079a053b0ad80ef566b9ed4c5788c5c42d981f50cfb7eda2ab",
+        "model": {
+          "id": "acyclic_component_conservation",
+          "version": "1.0"
+        },
+        "version": "1.10.0"
+      },
+      "equipment": [
+        {
+          "duty_W": -2.076849341392517e-06,
+          "energy_residual_W": 0.0,
+          "id": "SEP_PR_1",
+          "mass_balance": {
+            "component_residual_kg_h": {
+              "methane": 0.0,
+              "n_hexane": 1.8189894035458565e-12
+            },
+            "component_tolerance_kg_h": 1e-08,
+            "status": "passed",
+            "total_residual_kg_h": 3.637978807091713e-12,
+            "total_tolerance_kg_h": 2e-08
+          },
+          "material_streams": {
+            "inlet": "HYDROCARBON_FEED",
+            "liquid": "LIQUID_PRODUCT",
+            "vapor": "VAPOR_PRODUCT"
+          },
+          "model": {
+            "id": "equilibrium_separator_energy_pr",
+            "version": "1.0"
+          },
+          "thermodynamics": {
+            "F_mol_s": 100.0,
+            "bip": {
+              "component_ids": [
+                "methane",
+                "n_hexane"
+              ],
+              "identifier": "m9_methane_nhexane_zero_kij@1.0",
+              "model": "peng_robinson@1.0",
+              "source": "Explicit zero kij mathematical benchmark from pre_m8_methane_nhexane_canonical_pr@1.0; not calibrated physical BIPs.",
+              "values": [
+                [
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0
+                ]
+              ]
+            },
+            "caloric_dataset": "riogineer_caloric@1.0",
+            "caloric_reference": "ideal_gas_sensible_298.15K_101325Pa@1.0",
+            "component_dataset": "riogineer_components@1.0",
+            "component_molar_residual_kmol_h": {
+              "methane": 0.0,
+              "n_hexane": 0.0
+            },
+            "duty_W": -2.076849341392517e-06,
+            "energy_allowance_W": 0.00010001891330871124,
+            "energy_residual_W": 0.0,
+            "inlet": {
+              "H_eq_J_mol": 13309.057822547727,
+              "S_eq_J_mol_K": 10.881452561052171,
+              "beta": 1.0,
+              "classification": "single_vapor",
+              "max_log_fugacity_residual": 0.0,
+              "phases": {
+                "vapor": {
+                  "Z": 0.6746976489429497,
+                  "composition": {
+                    "methane": 0.5,
+                    "n_hexane": 0.5
+                  },
+                  "h_J_mol": 13309.057822547727,
+                  "h_ig_J_mol": 18895.66881867501,
+                  "h_res_J_mol": -5586.610996127283,
+                  "s_J_mol_K": 10.881452561052171,
+                  "s_ig_J_mol_K": 19.73545776553872,
+                  "s_res_J_mol_K": -8.854005204486548
+                }
+              },
+              "pressure_Pa_abs": 7000000.0,
+              "pt_status": "success_single_phase",
+              "temperature_K": 473.5245275694783,
+              "z": {
+                "methane": 0.5,
+                "n_hexane": 0.5
+              }
+            },
+            "inlet_enthalpy_flow_W": 1330905.7822547727,
+            "mode": "specified_temperature",
+            "molecular_provider": "molecular_composition@1.0",
+            "outlet": {
+              "H_eq_J_mol": 13309.057822526956,
+              "S_eq_J_mol_K": 11.757563356491046,
+              "beta": 0.9986669447004033,
+              "classification": "vapor_liquid",
+              "max_log_fugacity_residual": 7.009948177483238e-13,
+              "phases": {
+                "liquid": {
+                  "Z": 0.3149611428587781,
+                  "composition": {
+                    "methane": 0.21404761041658718,
+                    "n_hexane": 0.7859523895834128
+                  },
+                  "h_J_mol": 9395.060578386816,
+                  "h_ig_J_mol": 24776.296778464566,
+                  "h_res_J_mol": -15381.23620007775,
+                  "s_J_mol_K": 9.082598523720314,
+                  "s_ig_J_mol_K": 35.269330159199505,
+                  "s_res_J_mol_K": -26.18673163547919
+                },
+                "vapor": {
+                  "Z": 0.6940228527137023,
+                  "composition": {
+                    "methane": 0.500381699174474,
+                    "n_hexane": 0.4996183008255261
+                  },
+                  "h_J_mol": 13314.28236189576,
+                  "h_ig_J_mol": 18220.0607344919,
+                  "h_res_J_mol": -4905.778372596142,
+                  "s_J_mol_K": 11.761133992392717,
+                  "s_ig_J_mol_K": 19.578041007355946,
+                  "s_res_J_mol_K": -7.816907014963229
+                }
+              },
+              "pressure_Pa_abs": 6000000.0,
+              "pt_status": "success_two_phase",
+              "temperature_K": 468.2158895316327,
+              "z": {
+                "methane": 0.5,
+                "n_hexane": 0.5
+              }
+            },
+            "ph": null,
+            "phases": {
+              "liquid": {
+                "composition": {
+                  "methane": 0.21404761041658718,
+                  "n_hexane": 0.7859523895834128
+                },
+                "enthalpy_flow_W": 1252.413529405066,
+                "h_J_mol": 9395.060578386816,
+                "molar_flow_mol_s": 0.13330552995967082
+              },
+              "vapor": {
+                "composition": {
+                  "methane": 0.500381699174474,
+                  "n_hexane": 0.49961830082552605
+                },
+                "enthalpy_flow_W": 1329653.3687232907,
+                "h_J_mol": 13314.28236189576,
+                "molar_flow_mol_s": 99.86669447004033
+              }
+            },
+            "property_package": "peng_robinson@1.0",
+            "zero_duty_tolerance_W": 0.00010001891330871124
+          },
+          "type": "equilibrium_separator_2phase",
+          "work_W": 0.0
+        }
+      ],
+      "execution": {
+        "equipment_order": [
+          "SEP_PR_1"
+        ],
+        "method": "topological"
+      },
+      "input_sha256": "a8dffeeb916730f6ef534a26801b13b971df16ca02cc6515b82486f212878ac4",
+      "kind": "results",
+      "limitations": [
+        "Methane/n_hexane, explicit constant zero kij, 200\u2013500 K; qualified frozen matrix only.",
+        "PT-defined positive-flow inlet; L/V/VL inlet and outlet states within independently qualified scope.",
+        "PT mode calculates duty; adiabatic PH imposes zero duty. No shaft work or kinetic/potential energy changes.",
+        "Specified equal/reduced pressure; no hydraulics, vessel sizing, entrainment or separation-efficiency prediction.",
+        "One source -> separator -> vapor and liquid sinks; no mixed rigorous network, water, recycles or three-phase qualification."
+      ],
+      "process_result_version": "1.11",
+      "requirements_sha256": "aeb8a553055cb731cc3c11202a83edbf220d4bda5757a0c894cc6138043e7070",
+      "run_id": "b2b16b33-5528-488c-8587-7c3dc9e82bb0",
+      "schema_version": "1.11",
+      "status": "completed",
+      "streams": {
+        "HYDROCARBON_FEED": {
+          "component_mass_flow_kg_h": {
+            "methane": 2887.704,
+            "n_hexane": 15511.5648
+          },
+          "component_mass_fractions": {
+            "methane": 0.15694667170686696,
+            "n_hexane": 0.843053328293133
+          },
+          "enthalpy_flow_W": 1330905.7822547727,
+          "mass_flow_kg_h": 18399.2688,
+          "pressure_Pa_abs": 7000000.0,
+          "properties": {
+            "density": {
+              "status": "not_calculated",
+              "unit": "kg/m3",
+              "value": null
+            },
+            "gas_volumetric_flow": {
+              "status": "not_calculated",
+              "unit": "m3/h",
+              "value": null
+            },
+            "molar_composition": {
+              "status": "calculated",
+              "unit": "mol/mol",
+              "value": {
+                "methane": 0.5,
+                "n_hexane": 0.5
+              }
+            },
+            "molar_flow": {
+              "status": "calculated",
+              "unit": "kmol/h",
+              "value": 360.0
+            },
+            "molecular_mass": {
+              "status": "calculated",
+              "unit": "kg/kmol",
+              "value": 51.109080000000006
+            },
+            "oil_volumetric_flow": {
+              "status": "not_calculated",
+              "unit": "m3/h",
+              "value": null
+            },
+            "water_volumetric_flow": {
+              "status": "not_calculated",
+              "unit": "m3/h",
+              "value": null
+            }
+          },
+          "temperature_K": 473.5245275694783
+        },
+        "LIQUID_PRODUCT": {
+          "component_mass_flow_kg_h": {
+            "methane": 1.6479393333878782,
+            "n_hexane": 32.50349124132117
+          },
+          "component_mass_fractions": {
+            "methane": 0.04825388880219456,
+            "n_hexane": 0.9517461111978053
+          },
+          "enthalpy_flow_W": 1252.413529405066,
+          "mass_flow_kg_h": 34.15143057470905,
+          "pressure_Pa_abs": 6000000.0,
+          "properties": {
+            "density": {
+              "status": "not_calculated",
+              "unit": "kg/m3",
+              "value": null
+            },
+            "gas_volumetric_flow": {
+              "status": "not_calculated",
+              "unit": "m3/h",
+              "value": null
+            },
+            "molar_composition": {
+              "status": "calculated",
+              "unit": "mol/mol",
+              "value": {
+                "methane": 0.21404761041658718,
+                "n_hexane": 0.7859523895834128
+              }
+            },
+            "molar_flow": {
+              "status": "calculated",
+              "unit": "kmol/h",
+              "value": 0.47989990785481496
+            },
+            "molecular_mass": {
+              "status": "calculated",
+              "unit": "kg/kmol",
+              "value": 71.16365311960207
+            },
+            "oil_volumetric_flow": {
+              "status": "not_calculated",
+              "unit": "m3/h",
+              "value": null
+            },
+            "water_volumetric_flow": {
+              "status": "not_calculated",
+              "unit": "m3/h",
+              "value": null
+            }
+          },
+          "temperature_K": 468.2158895316327
+        },
+        "VAPOR_PRODUCT": {
+          "component_mass_flow_kg_h": {
+            "methane": 2886.056060666612,
+            "n_hexane": 15479.061308758677
+          },
+          "component_mass_fractions": {
+            "methane": 0.1571487947837127,
+            "n_hexane": 0.8428512052162873
+          },
+          "enthalpy_flow_W": 1329653.3687232907,
+          "mass_flow_kg_h": 18365.11736942529,
+          "pressure_Pa_abs": 6000000.0,
+          "properties": {
+            "density": {
+              "status": "not_calculated",
+              "unit": "kg/m3",
+              "value": null
+            },
+            "gas_volumetric_flow": {
+              "status": "not_calculated",
+              "unit": "m3/h",
+              "value": null
+            },
+            "molar_composition": {
+              "status": "calculated",
+              "unit": "mol/mol",
+              "value": {
+                "methane": 0.500381699174474,
+                "n_hexane": 0.49961830082552605
+              }
+            },
+            "molar_flow": {
+              "status": "calculated",
+              "unit": "kmol/h",
+              "value": 359.5201000921452
+            },
+            "molecular_mass": {
+              "status": "calculated",
+              "unit": "kg/kmol",
+              "value": 51.08231045974426
+            },
+            "oil_volumetric_flow": {
+              "status": "not_calculated",
+              "unit": "m3/h",
+              "value": null
+            },
+            "water_volumetric_flow": {
+              "status": "not_calculated",
+              "unit": "m3/h",
+              "value": null
+            }
+          },
+          "temperature_K": 468.2158895316327
+        }
+      },
+      "unavailable": [
+        {
+          "calculation": "Vessel sizing and entrainment",
+          "reason": "M17 qualifies equilibrium separation and energy only.",
+          "status": "not calculated"
+        }
+      ],
+      "units": {
+        "component_mass_flow": "kg/h",
+        "duty": "W",
+        "heat_capacity": "J/(kg K)",
+        "pressure": "Pa_abs",
+        "recovery": "mass_fraction",
+        "temperature": "K"
+      },
+      "warnings": []
+    }
+  },
+  "PT_VL_HEATING": {
+    "inputs": {
+      "F": 100.0,
+      "Pin": 30000000.0,
+      "Pout": 300000.0,
+      "Tin": 300.0,
+      "Tout": 350.0,
+      "mode": "specified_temperature",
+      "z": [
+        0.5,
+        0.5
+      ]
+    },
+    "result": {
+      "balances": {
+        "energy": {
+          "duty_W": 1832535.6197625543,
+          "model": "equilibrium_separator_energy_pr",
+          "positive_duty": "heat_into_equipment",
+          "residual_W": -5.820766091346741e-11,
+          "status": "passed",
+          "tolerance_W": 0.00010002316930366628
+        },
+        "mass": {
+          "component_residual_kg_h": {
+            "methane": -4.547473508864641e-13,
+            "n_hexane": 0.0
+          },
+          "component_tolerance_kg_h": 1e-08,
+          "status": "passed",
+          "total_residual_kg_h": 0.0,
+          "total_tolerance_kg_h": 2e-08
+        }
+      },
+      "case_id": "MILESTONE_17_SPECIFIED_TEMPERATURE",
+      "engine": {
+        "evaluator_sha256": "5f572bd718fccacc8aeef7f9f809af1d0db4dc9816301ffed6dca467ecb4ac17",
+        "implementation_sha256": "0b48d4fe7f00d3079a053b0ad80ef566b9ed4c5788c5c42d981f50cfb7eda2ab",
+        "model": {
+          "id": "acyclic_component_conservation",
+          "version": "1.0"
+        },
+        "version": "1.10.0"
+      },
+      "equipment": [
+        {
+          "duty_W": 1832535.6197625543,
+          "energy_residual_W": -5.820766091346741e-11,
+          "id": "SEP_PR_1",
+          "mass_balance": {
+            "component_residual_kg_h": {
+              "methane": -4.547473508864641e-13,
+              "n_hexane": 0.0
+            },
+            "component_tolerance_kg_h": 1e-08,
+            "status": "passed",
+            "total_residual_kg_h": 0.0,
+            "total_tolerance_kg_h": 2e-08
+          },
+          "material_streams": {
+            "inlet": "HYDROCARBON_FEED",
+            "liquid": "LIQUID_PRODUCT",
+            "vapor": "VAPOR_PRODUCT"
+          },
+          "model": {
+            "id": "equilibrium_separator_energy_pr",
+            "version": "1.0"
+          },
+          "thermodynamics": {
+            "F_mol_s": 100.0,
+            "bip": {
+              "component_ids": [
+                "methane",
+                "n_hexane"
+              ],
+              "identifier": "m9_methane_nhexane_zero_kij@1.0",
+              "model": "peng_robinson@1.0",
+              "source": "Explicit zero kij mathematical benchmark from pre_m8_methane_nhexane_canonical_pr@1.0; not calibrated physical BIPs.",
+              "values": [
+                [
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0
+                ]
+              ]
+            },
+            "caloric_dataset": "riogineer_caloric@1.0",
+            "caloric_reference": "ideal_gas_sensible_298.15K_101325Pa@1.0",
+            "component_dataset": "riogineer_components@1.0",
+            "component_molar_residual_kmol_h": {
+              "methane": -2.842170943040401e-14,
+              "n_hexane": 0.0
+            },
+            "duty_W": 1832535.6197625543,
+            "energy_allowance_W": 0.00010002316930366628,
+            "energy_residual_W": -5.820766091346741e-11,
+            "inlet": {
+              "H_eq_J_mol": -16303.948024671077,
+              "S_eq_J_mol_K": -72.15880132373434,
+              "beta": 0.0,
+              "classification": "single_liquid",
+              "max_log_fugacity_residual": 0.0,
+              "phases": {
+                "liquid": {
+                  "Z": 1.04595589143832,
+                  "composition": {
+                    "methane": 0.5,
+                    "n_hexane": 0.5
+                  },
+                  "h_J_mol": -16303.948024671077,
+                  "h_ig_J_mol": 165.75492421744335,
+                  "h_res_J_mol": -16469.70294888852,
+                  "s_J_mol_K": -72.15880132373434,
+                  "s_ig_J_mol_K": -40.9970708365727,
+                  "s_res_J_mol_K": -31.161730487161627
+                }
+              },
+              "pressure_Pa_abs": 30000000.0,
+              "pt_status": "success_single_phase",
+              "temperature_K": 300.0,
+              "z": {
+                "methane": 0.5,
+                "n_hexane": 0.5
+              }
+            },
+            "inlet_enthalpy_flow_W": -1630394.8024671078,
+            "mode": "specified_temperature",
+            "molecular_provider": "molecular_composition@1.0",
+            "outlet": {
+              "H_eq_J_mol": 2021.4081729544644,
+              "S_eq_J_mol_K": 4.018108151996614,
+              "beta": 0.9087307661380635,
+              "classification": "vapor_liquid",
+              "max_log_fugacity_residual": 2.1248280912544715e-13,
+              "phases": {
+                "liquid": {
+                  "Z": 0.014352893678648086,
+                  "composition": {
+                    "methane": 0.007744817176451689,
+                    "n_hexane": 0.9922551828235483
+                  },
+                  "h_J_mol": -20836.782655440977,
+                  "h_ig_J_mol": 7865.3877999357455,
+                  "h_res_J_mol": -28702.170455376723,
+                  "s_J_mol_K": -59.37957888170012,
+                  "s_ig_J_mol_K": 15.63367240134952,
+                  "s_res_J_mol_K": -75.01325128304964
+                },
+                "vapor": {
+                  "Z": 0.9649222318526667,
+                  "composition": {
+                    "methane": 0.5494401148007868,
+                    "n_hexane": 0.45055988519921325
+                  },
+                  "h_J_mol": 4317.192185246431,
+                  "h_ig_J_mol": 4615.470174147288,
+                  "h_res_J_mol": -298.2779889008566,
+                  "s_J_mol_K": 10.385514802895921,
+                  "s_ig_J_mol_K": 10.948794670510154,
+                  "s_res_J_mol_K": -0.5632798676142328
+                }
+              },
+              "pressure_Pa_abs": 300000.0,
+              "pt_status": "success_two_phase",
+              "temperature_K": 350.0,
+              "z": {
+                "methane": 0.5,
+                "n_hexane": 0.5
+              }
+            },
+            "ph": null,
+            "phases": {
+              "liquid": {
+                "composition": {
+                  "methane": 0.0077448171764516885,
+                  "n_hexane": 0.9922551828235484
+                },
+                "enthalpy_flow_W": -190175.71891097852,
+                "h_J_mol": -20836.782655440977,
+                "molar_flow_mol_s": 9.126923386193653
+              },
+              "vapor": {
+                "composition": {
+                  "methane": 0.5494401148007868,
+                  "n_hexane": 0.45055988519921325
+                },
+                "enthalpy_flow_W": 392316.536206425,
+                "h_J_mol": 4317.192185246431,
+                "molar_flow_mol_s": 90.87307661380635
+              }
+            },
+            "property_package": "peng_robinson@1.0",
+            "zero_duty_tolerance_W": 0.00010002316930366628
+          },
+          "type": "equilibrium_separator_2phase",
+          "work_W": 0.0
+        }
+      ],
+      "execution": {
+        "equipment_order": [
+          "SEP_PR_1"
+        ],
+        "method": "topological"
+      },
+      "input_sha256": "70f994c950750e24bb4024745cdb28dc602f9ce81ebf23972fd876858201a257",
+      "kind": "results",
+      "limitations": [
+        "Methane/n_hexane, explicit constant zero kij, 200\u2013500 K; qualified frozen matrix only.",
+        "PT-defined positive-flow inlet; L/V/VL inlet and outlet states within independently qualified scope.",
+        "PT mode calculates duty; adiabatic PH imposes zero duty. No shaft work or kinetic/potential energy changes.",
+        "Specified equal/reduced pressure; no hydraulics, vessel sizing, entrainment or separation-efficiency prediction.",
+        "One source -> separator -> vapor and liquid sinks; no mixed rigorous network, water, recycles or three-phase qualification."
+      ],
+      "process_result_version": "1.11",
+      "requirements_sha256": "ae617268a92289462a77bc8a619cac8c8337e024c94d29629ac677f36235e3cb",
+      "run_id": "27d68f7c-3ff2-4067-9ac2-c38aca1419f2",
+      "schema_version": "1.11",
+      "status": "completed",
+      "streams": {
+        "HYDROCARBON_FEED": {
+          "component_mass_flow_kg_h": {
+            "methane": 2887.704,
+            "n_hexane": 15511.5648
+          },
+          "component_mass_fractions": {
+            "methane": 0.15694667170686696,
+            "n_hexane": 0.843053328293133
+          },
+          "enthalpy_flow_W": -1630394.8024671078,
+          "mass_flow_kg_h": 18399.2688,
+          "pressure_Pa_abs": 30000000.0,
+          "properties": {
+            "density": {
+              "status": "not_calculated",
+              "unit": "kg/m3",
+              "value": null
+            },
+            "gas_volumetric_flow": {
+              "status": "not_calculated",
+              "unit": "m3/h",
+              "value": null
+            },
+            "molar_composition": {
+              "status": "calculated",
+              "unit": "mol/mol",
+              "value": {
+                "methane": 0.5,
+                "n_hexane": 0.5
+              }
+            },
+            "molar_flow": {
+              "status": "calculated",
+              "unit": "kmol/h",
+              "value": 360.0
+            },
+            "molecular_mass": {
+              "status": "calculated",
+              "unit": "kg/kmol",
+              "value": 51.109080000000006
+            },
+            "oil_volumetric_flow": {
+              "status": "not_calculated",
+              "unit": "m3/h",
+              "value": null
+            },
+            "water_volumetric_flow": {
+              "status": "not_calculated",
+              "unit": "m3/h",
+              "value": null
+            }
+          },
+          "temperature_K": 300.0
+        },
+        "LIQUID_PRODUCT": {
+          "component_mass_flow_kg_h": {
+            "methane": 4.082425286621861,
+            "n_hexane": 2809.528151687899
+          },
+          "component_mass_fractions": {
+            "methane": 0.0014509560491529352,
+            "n_hexane": 0.9985490439508471
+          },
+          "enthalpy_flow_W": -190175.71891097852,
+          "mass_flow_kg_h": 2813.610576974521,
+          "pressure_Pa_abs": 300000.0,
+          "properties": {
+            "density": {
+              "status": "not_calculated",
+              "unit": "kg/m3",
+              "value": null
+            },
+            "gas_volumetric_flow": {
+              "status": "not_calculated",
+              "unit": "m3/h",
+              "value": null
+            },
+            "molar_composition": {
+              "status": "calculated",
+              "unit": "mol/mol",
+              "value": {
+                "methane": 0.0077448171764516885,
+                "n_hexane": 0.9922551828235484
+              }
+            },
+            "molar_flow": {
+              "status": "calculated",
+              "unit": "kmol/h",
+              "value": 32.85692419029715
+            },
+            "molecular_mass": {
+              "status": "calculated",
+              "unit": "kg/kmol",
+              "value": 85.63219614468348
+            },
+            "oil_volumetric_flow": {
+              "status": "not_calculated",
+              "unit": "m3/h",
+              "value": null
+            },
+            "water_volumetric_flow": {
+              "status": "not_calculated",
+              "unit": "m3/h",
+              "value": null
+            }
+          },
+          "temperature_K": 350.0
+        },
+        "VAPOR_PRODUCT": {
+          "component_mass_flow_kg_h": {
+            "methane": 2883.621574713379,
+            "n_hexane": 12702.036648312102
+          },
+          "component_mass_fractions": {
+            "methane": 0.1850176318157201,
+            "n_hexane": 0.8149823681842798
+          },
+          "enthalpy_flow_W": 392316.536206425,
+          "mass_flow_kg_h": 15585.65822302548,
+          "pressure_Pa_abs": 300000.0,
+          "properties": {
+            "density": {
+              "status": "not_calculated",
+              "unit": "kg/m3",
+              "value": null
+            },
+            "gas_volumetric_flow": {
+              "status": "not_calculated",
+              "unit": "m3/h",
+              "value": null
+            },
+            "molar_composition": {
+              "status": "calculated",
+              "unit": "mol/mol",
+              "value": {
+                "methane": 0.5494401148007868,
+                "n_hexane": 0.45055988519921325
+              }
+            },
+            "molar_flow": {
+              "status": "calculated",
+              "unit": "kmol/h",
+              "value": 327.14307580970285
+            },
+            "molecular_mass": {
+              "status": "calculated",
+              "unit": "kg/kmol",
+              "value": 47.64171818232694
+            },
+            "oil_volumetric_flow": {
+              "status": "not_calculated",
+              "unit": "m3/h",
+              "value": null
+            },
+            "water_volumetric_flow": {
+              "status": "not_calculated",
+              "unit": "m3/h",
+              "value": null
+            }
+          },
+          "temperature_K": 350.0
+        }
+      },
+      "unavailable": [
+        {
+          "calculation": "Vessel sizing and entrainment",
+          "reason": "M17 qualifies equilibrium separation and energy only.",
+          "status": "not calculated"
+        }
+      ],
+      "units": {
+        "component_mass_flow": "kg/h",
+        "duty": "W",
+        "heat_capacity": "J/(kg K)",
+        "pressure": "Pa_abs",
+        "recovery": "mass_fraction",
+        "temperature": "K"
+      },
+      "warnings": []
+    }
+  }
+}

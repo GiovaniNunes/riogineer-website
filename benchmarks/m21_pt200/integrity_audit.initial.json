@@ -1,0 +1,93 @@
+{
+  "mismatches": [
+    {
+      "check": "M19_equipment_source_capture",
+      "classification": "pre_existing_historical_mismatch",
+      "current": "a81c2460abf076535d91b87d11891af368fe8d1d642151d8d8676c5497d2ed58",
+      "historical": "428c04b47578749b58a9184f85e2707a576d739c8f46e176185d83959a24b4b2",
+      "path": "engine/riogineer_engine/core.py",
+      "task_start": "a81c2460abf076535d91b87d11891af368fe8d1d642151d8d8676c5497d2ed58"
+    },
+    {
+      "check": "M19_equipment_source_capture",
+      "classification": "pre_existing_historical_mismatch",
+      "current": "a84b9f6e0b2c9c5a3e27bd1239207b5a3ed564484255d2adddbbb885b06c1b00",
+      "historical": "ba297f13c127bf0ee46141a99f4b0bdd9868df84948e2bd3c38ad31b652caab9",
+      "path": "engine/riogineer_engine/network.py",
+      "task_start": "a84b9f6e0b2c9c5a3e27bd1239207b5a3ed564484255d2adddbbb885b06c1b00"
+    },
+    {
+      "check": "M19_equipment_source_capture",
+      "classification": "authorized_M21_source_change",
+      "current": "27d4adfe7e6403b571889320930b3daf58c35a34a67060dd1029b6b27fd1a863",
+      "historical": "00c70809f3c67ac0300bbcfc8185d88029008964986502b57a5ecb4343f4b246",
+      "path": "engine/riogineer_engine/pr_ph_flash.py",
+      "task_start": "00c70809f3c67ac0300bbcfc8185d88029008964986502b57a5ecb4343f4b246"
+    },
+    {
+      "check": "M19_equipment_source_capture",
+      "classification": "authorized_M21_source_change",
+      "current": "ee02a7f7ddbd3ca1c00eb6f75acf99c8909f4854ea8d4b2850e3186fe1337547",
+      "historical": "7fb2456edce130ff99948bf3b5fdb9755a87a83406ce74fb9d81ea5412c45caa",
+      "path": "engine/riogineer_engine/pr_ps_flash.py",
+      "task_start": "7fb2456edce130ff99948bf3b5fdb9755a87a83406ce74fb9d81ea5412c45caa"
+    },
+    {
+      "check": "M19_equipment_source_capture",
+      "classification": "authorized_M21_source_change",
+      "current": "7409d848e842d9dcf364049a4c8b06c5eba9ff8e6407eaaa560c81d101003a27",
+      "historical": "bed4cc88b4cbebc68ffdaa9a39cbf3918f28b242c0cc95ed767680bf23706bdf",
+      "path": "engine/riogineer_engine/property_packages.py",
+      "task_start": "bed4cc88b4cbebc68ffdaa9a39cbf3918f28b242c0cc95ed767680bf23706bdf"
+    },
+    {
+      "check": "M19_equipment_source_capture",
+      "classification": "authorized_M21_source_change",
+      "current": "b05730cabfc7b1abd7a25814a8c801c4eb5897f9cd52d2366edfa35f3b4c50ab",
+      "historical": "7f9c59270901af6b20152b075dfed9499aa0f925823db9e7b7b6b6eb9e00374a",
+      "path": "engine/riogineer_engine/pump_energy.py",
+      "task_start": "7f9c59270901af6b20152b075dfed9499aa0f925823db9e7b7b6b6eb9e00374a"
+    },
+    {
+      "check": "M20_preservation",
+      "classification": "authorized_M21_source_change",
+      "current": "27d4adfe7e6403b571889320930b3daf58c35a34a67060dd1029b6b27fd1a863",
+      "historical": "00c70809f3c67ac0300bbcfc8185d88029008964986502b57a5ecb4343f4b246",
+      "path": "engine/riogineer_engine/pr_ph_flash.py",
+      "task_start": "00c70809f3c67ac0300bbcfc8185d88029008964986502b57a5ecb4343f4b246"
+    },
+    {
+      "check": "M20_preservation",
+      "classification": "authorized_M21_source_change",
+      "current": "ee02a7f7ddbd3ca1c00eb6f75acf99c8909f4854ea8d4b2850e3186fe1337547",
+      "historical": "7fb2456edce130ff99948bf3b5fdb9755a87a83406ce74fb9d81ea5412c45caa",
+      "path": "engine/riogineer_engine/pr_ps_flash.py",
+      "task_start": "7fb2456edce130ff99948bf3b5fdb9755a87a83406ce74fb9d81ea5412c45caa"
+    },
+    {
+      "check": "M20_preservation",
+      "classification": "authorized_M21_source_change",
+      "current": "7409d848e842d9dcf364049a4c8b06c5eba9ff8e6407eaaa560c81d101003a27",
+      "historical": "bed4cc88b4cbebc68ffdaa9a39cbf3918f28b242c0cc95ed767680bf23706bdf",
+      "path": "engine/riogineer_engine/property_packages.py",
+      "task_start": "bed4cc88b4cbebc68ffdaa9a39cbf3918f28b242c0cc95ed767680bf23706bdf"
+    },
+    {
+      "check": "M20_preservation",
+      "classification": "authorized_M21_source_change",
+      "current": "b05730cabfc7b1abd7a25814a8c801c4eb5897f9cd52d2366edfa35f3b4c50ab",
+      "historical": "7f9c59270901af6b20152b075dfed9499aa0f925823db9e7b7b6b6eb9e00374a",
+      "path": "engine/riogineer_engine/pump_energy.py",
+      "task_start": "7f9c59270901af6b20152b075dfed9499aa0f925823db9e7b7b6b6eb9e00374a"
+    },
+    {
+      "check": "M20_preservation",
+      "classification": "pre_existing_historical_mismatch",
+      "current": "0f70629890b72a0a82e91972cc032c04b658b26c265373cb711cf576bfbf8fcc",
+      "historical": "1f2e4a6d7f55de2de72375901050f2af22ed89992a781fce74d6e6a4d3fc94f0",
+      "path": "next-env.d.ts",
+      "task_start": "0f70629890b72a0a82e91972cc032c04b658b26c265373cb711cf576bfbf8fcc"
+    }
+  ],
+  "policy": "Historical expected hashes remain unchanged; current source_manifest.json and task-start preservation are separate checks."
+}

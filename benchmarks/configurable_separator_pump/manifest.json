@@ -1,0 +1,28 @@
+{
+  "files": {
+    "PRE_MILESTONE_21_CONFIGURABLE_SEPARATOR_PUMP_QUALIFICATION.md": "db45fb8b0bd73fd535427cf34e5131db991453cac2a33223a1164162be8f38b1",
+    "benchmarks/configurable_separator_pump/PLAN.md": "9f49ffcef69be0aa401c30ff31ed9e32fbcb1a4bea201a877305a666becd7354",
+    "benchmarks/configurable_separator_pump/README.md": "c9d24c418547bde72103b8682fdafb4ecc8807bb29a748e4f76a81caa660b089",
+    "benchmarks/configurable_separator_pump/baseline.json": "bc8c44cec0561d6d05cf4ba7742091b930fc15704e68658a1570a06b1661e844",
+    "benchmarks/configurable_separator_pump/candidate_ledger.json": "38c59795986daebbbe681da1e7b1032c642b255d13095fe1da4088b9e2f7bd7c",
+    "benchmarks/configurable_separator_pump/capture_sources.py": "67cfdcddcc1d77a8ae9720f7e2a75ef087e505394dae27a7de98efdadd62beb2",
+    "benchmarks/configurable_separator_pump/common.py": "e0fb7613e1eb4dee192d5855f6905ee5cf1f277d44515c69c6d04b9c9e1679de",
+    "benchmarks/configurable_separator_pump/compare.py": "b1d25bfb3db9113ac6c971c5f4dd94966aa9a67c62689566b6745e84e3350d7b",
+    "benchmarks/configurable_separator_pump/integration_checks.json": "a04c582e1d376f15bcddb5709ae5124c054c0a26ba897d6147ac3f13c5f1b185",
+    "benchmarks/configurable_separator_pump/integration_checks.py": "c62ed74e20528ca03261d9cf815353878d330e75d2d192327fbb28ad7ef8308d",
+    "benchmarks/configurable_separator_pump/iteration_diagnostic.json": "b1b93421e5fab8b10b494aee54a76a917db281b03171a6d9bb2193f3037684ce",
+    "benchmarks/configurable_separator_pump/iteration_diagnostic.py": "90fb348107d09f14eb6f8076601805e1d6261dc56b9dd298ea3cbcd6678f74e7",
+    "benchmarks/configurable_separator_pump/phase_compare.py": "131adaa49386023c1f4f117fbc5f9bf7232f65ce36f8c1ba50e4f3e66e85ecf1",
+    "benchmarks/configurable_separator_pump/phase_comparison.json": "89290549883eea74cec180723333ad7cfb42d2be83f1cb0713233b8142634f97",
+    "benchmarks/configurable_separator_pump/phase_reference.json": "6400b7c721d504a41f0d8ab63b033853f095fa04351841347161c31d0be4e230",
+    "benchmarks/configurable_separator_pump/phase_reference.py": "3beb7b2dcfae819905cf1639e3d1b7e85c3f7d52a9b4bf116b18700c3dd0ddb4",
+    "benchmarks/configurable_separator_pump/production.json": "af08e22d537b1e23f64ff4e00dd4c9a7e6d48b598d4f3f46cd41314fdf2c24b3",
+    "benchmarks/configurable_separator_pump/prototype.py": "60cfc62c9f466b9e4c9e698c6322707c7cf1373a067d6a07054d20101c74df65",
+    "benchmarks/configurable_separator_pump/reference.json": "6d21a5ab0a3b1ac3b3636b1385b89d3d04d3a68462f637c4d73f9f28f8152299",
+    "benchmarks/configurable_separator_pump/reference.py": "ecdefb6e207db343187bd25a367c59db9e93d6abb6cc097548aa3b8dc697bdd1",
+    "benchmarks/configurable_separator_pump/sources.json": "26eed72ae9877ba2af5538ce16679bd69afd844af2ef912aa02db8fd6faa711b",
+    "benchmarks/configurable_separator_pump/test_study.py": "8e0dc6aa0d075105c595d62bf4f2f66b6a641f7237d5fb62c84f45dceb1d40e6",
+    "benchmarks/configurable_separator_pump/verification.txt": "230bb81cdcb0c4f1e4bd78d2062c0d314266fc1aa79c81c8fa5bc3bc82fee11b",
+    "benchmarks/configurable_separator_pump/verify.py": "3bed53c27778e9b063f16a0c5da9a182ca5a9041f615dfe1b12b0e5fbea3a02d"
+  }
+}

@@ -1,0 +1,19 @@
+test_all_independent_comparisons (test_budget.Evidence) ... ok
+test_complete_PS_fresh_profile_and_balances (test_budget.Evidence) ... ok
+test_legacy_payload_and_iteration_sequence (test_budget.Evidence) ... ok
+test_reference_mapping_is_independent_and_preserves_values (test_budget.Evidence) ... ok
+test_scope_preserved (test_budget.Evidence) ... ok
+test_PS_holes_never_skipped (test_budget.Policy) ... ok
+test_additive_guard_and_legacy_rejection (test_budget.Policy) ... ok
+test_ambiguity_preserved_all_profiles (test_budget.Policy) ... ok
+test_iteration_limit_real_PT_and_no_payload (test_budget.Policy) ... ok
+test_nonfinite_inputs_and_properties (test_budget.Policy) ... ok
+test_phase_guard_remains_active (test_budget.Policy) ... ok
+test_residual_discontinuity_and_fresh_failure (test_budget.Policy) ... ok
+test_settings_immutable_and_no_automatic_fallback (test_budget.Policy) ... ok
+test_wrong_nested_profile_rejects (test_budget.Policy) ... ok
+
+----------------------------------------------------------------------
+Ran 14 tests in 1.380s
+
+OK

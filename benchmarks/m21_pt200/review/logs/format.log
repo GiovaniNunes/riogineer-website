@@ -1,0 +1,7 @@
+
+> riogineer-website@0.1.0 format:check
+> prettier --check src content scripts tests *.json *.mjs *.ts README.md DEVELOPMENT.md CONTENT_GUIDE.md CONTENT_REQUIRED.md .github
+
+Checking formatting...
+[warn] tsconfig.json
+[warn] Code style issues found in the above file. Run Prettier with --write to fix.

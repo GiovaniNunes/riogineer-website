@@ -1,0 +1,7 @@
+test_http_errors (test_engine.HttpTests) ... ok
+test_http_pipeline (test_engine.HttpTests) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.541s
+
+OK

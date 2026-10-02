@@ -1,0 +1,40 @@
+
+> riogineer-website@0.1.0 test
+> vitest run
+
+
+ RUN  v5.0.2 /private/tmp/riogineer-m21-gates
+
+ ❯ tests/separator-pump.test.ts (2 tests | 1 failed) 476ms
+   × M20 build identity, four streams and upstream changes invalidate exports 356ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/separator-pump.test.ts > M20 build identity, four streams and upstream changes invalidate exports
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ tests/separator-pump.test.ts:48:36
+     46|   state = workflowReducer(state, { type: 'built', revision: state.revi…
+     47|   state = workflowReducer(state, { type: 'calculated', revision: state…
+     48|   expect(resultsAreCurrent(state)).toBe(true);
+       |                                    ^
+     49|   const changed = structuredClone(fixture);
+     50|   changed.feeds[0].state.temperature_K += 1;
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed | 26 passed (27)
+      Tests  1 failed | 276 passed (277)
+   Start at  21:33:48
+   Duration  6.51s (tests 58%, import 35%, transform 7%, worker 1%)
+
+    Isolate  27 workers spawned · ~183ms startup each (spawn + environment, per file)
+             at least ~523ms faster with isolate: false — reuses workers across files instead of one per file
+

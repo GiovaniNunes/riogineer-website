@@ -1,0 +1,237 @@
+PRE-M21 executed verification record
+No historical artifact regenerated.
+
+final-study-tests.log
+test_conservation_and_identity (test_study.FrozenEvidence) ... ok
+test_independent_local_and_iteration_evidence (test_study.FrozenEvidence) ... ok
+test_matrix_and_counts (test_study.FrozenEvidence) ... ok
+test_nonfinite_pump_specifications_reject (test_study.FrozenEvidence) ... ok
+test_prototype_preserves_upstream_energy (test_study.FrozenEvidence) ... ok
+test_scope_and_no_prototype_promotion (test_study.FrozenEvidence) ... ok
+test_sources_and_tolerances (test_study.FrozenEvidence) ... ok
+test_competing_roots (test_study.PrototypePolicy) ... ok
+test_discontinuity_and_nonfinite (test_study.PrototypePolicy) ... ok
+test_fresh_final (test_study.PrototypePolicy) ... ok
+test_hole_cannot_be_bridged (test_study.PrototypePolicy) ... ok
+test_hole_does_not_hide_incomplete_coverage (test_study.PrototypePolicy) ... ok
+test_hole_during_refinement (test_study.PrototypePolicy) ... ok
+
+----------------------------------------------------------------------
+Ran 13 tests in 0.603s
+
+OK
+
+integration-tests.log
+test_27_source_contradictions (engine.tests.test_separator_pump_integration.SeparatorPumpIntegration) ... ok
+test_absent_vapor_bulk_vl (engine.tests.test_separator_pump_integration.SeparatorPumpIntegration) ... ok
+test_all30_fresh_evidence (engine.tests.test_separator_pump_integration.SeparatorPumpIntegration) ... ok
+test_execution_resolution (engine.tests.test_separator_pump_integration.SeparatorPumpIntegration) ... ok
+test_identity_skips_inverse (engine.tests.test_separator_pump_integration.SeparatorPumpIntegration) ... ok
+test_names_do_not_authorize (engine.tests.test_separator_pump_integration.SeparatorPumpIntegration) ... ok
+test_preservation (engine.tests.test_separator_pump_integration.SeparatorPumpIntegration) ... test_roundtrip_and_received_coordinates (engine.tests.test_separator_pump_integration.SeparatorPumpIntegration) ... ok
+test_small_exception_work_screen (engine.tests.test_separator_pump_integration.SeparatorPumpIntegration) ... ok
+test_stale_and_atomic_failure (engine.tests.test_separator_pump_integration.SeparatorPumpIntegration) ... ok
+test_unsupported_and_injected_evidence (engine.tests.test_separator_pump_integration.SeparatorPumpIntegration) ... ok
+
+======================================================================
+FAIL: test_preservation (engine.tests.test_separator_pump_integration.SeparatorPumpIntegration) [next-env.d.ts]
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/giovaninunes/Folders/RioGineer/riogineer-website/engine/tests/test_separator_pump_integration.py", line 113, in test_preservation
+    with self.subTest(p):self.assertEqual(hashlib.sha256((ROOT/p).read_bytes()).hexdigest(),paths[p])
+AssertionError: '0f70629890b72a0a82e91972cc032c04b658b26c265373cb711cf576bfbf8fcc' != '1f2e4a6d7f55de2de72375901050f2af22ed89992a781fce74d6e6a4d3fc94f0'
+- 0f70629890b72a0a82e91972cc032c04b658b26c265373cb711cf576bfbf8fcc
++ 1f2e4a6d7f55de2de72375901050f2af22ed89992a781fce74d6e6a4d3fc94f0
+
+
+----------------------------------------------------------------------
+Ran 11 tests in 8.787s
+
+FAILED (failures=1)
+
+sources-reproduction.log
+PT_VL_HEATING source reproduced
+PT_VL_INLET_EQUAL source reproduced
+PT_VAPOR_INLET_COOLING source reproduced
+PH_FLASH source reproduced
+PH_HEXANE_RICH source reproduced
+PT_BUBBLE_BELOW source reproduced
+PT_BUBBLE_ABOVE source reproduced
+PT_DEW_BELOW source reproduced
+PT_VAPOR source reproduced
+SCALED5.0 source reproduced
+SCALED17.3 source reproduced
+SCALED200.0 source reproduced
+PT_COOL source reproduced
+PT_WARM source reproduced
+PT_P_HOLDOUT source reproduced
+PT_Z source reproduced
+PH_PIN source reproduced
+PH_TIN source reproduced
+PH_POUT source reproduced
+PH_Z source reproduced
+COLD_COMPRESSED source reproduced
+COLD_SATURATED source reproduced
+WARM_HOLDOUT source reproduced
+FLOW_HOLDOUT source reproduced
+
+reference-reproduction.log
+reference source PT_VL_HEATING success
+reference source PT_VL_INLET_EQUAL success
+reference source PT_VAPOR_INLET_COOLING success
+reference source PH_FLASH success
+reference source PH_HEXANE_RICH success
+reference source PT_BUBBLE_BELOW success
+reference source PT_BUBBLE_ABOVE success
+reference source PT_DEW_BELOW success
+reference source PT_VAPOR success
+reference source SCALED5.0 success
+reference source SCALED17.3 success
+reference source SCALED200.0 success
+reference source PT_COOL success
+reference source PT_WARM success
+reference source PT_P_HOLDOUT success
+reference source PT_Z success
+reference source PH_PIN success
+reference source PH_TIN success
+reference source PH_POUT success
+reference source PH_Z success
+reference source COLD_COMPRESSED success
+reference source COLD_SATURATED success
+reference source WARM_HOLDOUT success
+reference source FLOW_HOLDOUT success
+reference path PT_VL_HEATING_DP0.0 identity
+reference path PT_VL_HEATING_DP10000.0 resolved
+reference path PT_VL_HEATING_DP1000000.0 resolved
+reference path PT_VL_INLET_EQUAL_DP0.0 identity
+reference path PT_VL_INLET_EQUAL_DP10000.0 resolved
+reference path PT_VL_INLET_EQUAL_DP1000000.0 resolved
+reference path PT_VAPOR_INLET_COOLING_DP0.0 identity
+reference path PT_VAPOR_INLET_COOLING_DP10000.0 resolved
+reference path PT_VAPOR_INLET_COOLING_DP1000000.0 resolved
+reference path PH_FLASH_DP0.0 identity
+reference path PH_FLASH_DP10000.0 resolved
+reference path PH_FLASH_DP1000000.0 resolved
+reference path PH_HEXANE_RICH_DP0.0 identity
+reference path PH_HEXANE_RICH_DP10000.0 resolved
+reference path PH_HEXANE_RICH_DP1000000.0 resolved
+reference path PT_BUBBLE_BELOW_DP0.0 identity
+reference path PT_BUBBLE_BELOW_DP10000.0 resolved
+reference path PT_BUBBLE_BELOW_DP1000000.0 resolved
+reference path PT_BUBBLE_ABOVE_DP0.0 identity
+reference path PT_BUBBLE_ABOVE_DP10000.0 resolved
+reference path PT_BUBBLE_ABOVE_DP1000000.0 resolved
+reference path PT_DEW_BELOW_DP0.0 identity
+reference path PT_DEW_BELOW_DP10000.0 resolved
+reference path PT_DEW_BELOW_DP1000000.0 resolved
+reference path ETA0.6 resolved
+reference path ETA1.0 resolved
+reference path SMALL1000.0 resolved
+reference path SCALED5.0 resolved
+reference path SCALED17.3 resolved
+reference path SCALED200.0 resolved
+reference path PT_BUBBLE_BELOW_8MPA resolved
+reference path PT_BUBBLE_ABOVE_8MPA resolved
+reference path PT_VL_HEATING_MID resolved
+reference path PT_VL_HEATING_HOLDOUT resolved
+reference path PH_FLASH_MID resolved
+reference path PH_FLASH_HOLDOUT resolved
+reference path PT_BUBBLE_BELOW_MID resolved
+reference path PT_BUBBLE_BELOW_HOLDOUT resolved
+reference path PT_BUBBLE_ABOVE_MID resolved
+reference path PT_BUBBLE_ABOVE_HOLDOUT resolved
+reference path PT_DEW_BELOW_MID resolved
+reference path PT_DEW_BELOW_HOLDOUT resolved
+reference path PT_COOL resolved
+reference path PT_WARM invalid_flow
+reference path PT_P_HOLDOUT resolved
+reference path PT_Z resolved
+reference path PH_PIN resolved
+reference path PH_TIN resolved
+reference path PH_POUT resolved
+reference path PH_Z resolved
+reference path COLD_COMPRESSED resolved
+reference path COLD_SATURATED resolved
+reference path WARM_HOLDOUT resolved
+reference path FLOW_HOLDOUT resolved
+reference path WORK_0.0 identity
+reference path WORK_10.0 unresolved_work
+reference path WORK_100.0 unresolved_work
+reference path WORK_999.0 resolved
+reference path WORK_1001.0 resolved
+reference path WORK_10000.0 resolved
+reference path ETA_LOW invalid_efficiency
+reference path ETA_HIGH invalid_efficiency
+reference path DECREASE invalid_pressure
+reference path ABSENT invalid_flow
+reference.json 6d21a5ab0a3b1ac3b3636b1385b89d3d04d3a68462f637c4d73f9f28f8152299
+
+final-production-reproduction.log
+PT_VL_INLET_EQUAL_DP0.0 accepted success complete
+PT_VL_HEATING_DP0.0 accepted success complete
+PT_VL_HEATING_DP1000000.0 accepted success complete
+PT_VAPOR_INLET_COOLING_DP0.0 accepted success complete
+PT_VL_INLET_EQUAL_DP1000000.0 accepted success complete
+PT_VL_HEATING_DP10000.0 accepted success complete
+PH_FLASH_DP0.0 accepted success complete
+PT_VL_INLET_EQUAL_DP10000.0 accepted success complete
+PT_VAPOR_INLET_COOLING_DP1000000.0 accepted success complete
+PH_HEXANE_RICH_DP0.0 accepted success complete
+PT_VAPOR_INLET_COOLING_DP10000.0 accepted success complete
+PH_FLASH_DP1000000.0 accepted success complete
+PT_BUBBLE_BELOW_DP0.0 accepted success complete
+PH_FLASH_DP10000.0 accepted success complete
+PH_HEXANE_RICH_DP1000000.0 accepted success complete
+PT_BUBBLE_ABOVE_DP0.0 accepted success complete
+PH_HEXANE_RICH_DP10000.0 accepted success complete
+PT_BUBBLE_BELOW_DP10000.0 accepted success complete
+PT_DEW_BELOW_DP0.0 accepted success complete
+PT_BUBBLE_BELOW_DP1000000.0 accepted success complete
+PT_BUBBLE_ABOVE_DP10000.0 accepted success complete
+PT_BUBBLE_ABOVE_DP1000000.0 accepted success complete
+PT_DEW_BELOW_DP1000000.0 accepted success complete
+PT_DEW_BELOW_DP10000.0 accepted success complete
+ETA0.6 accepted success complete
+ETA1.0 accepted success complete
+SCALED5.0 accepted success complete
+SMALL1000.0 accepted success complete
+SCALED17.3 accepted success complete
+SCALED200.0 accepted success complete
+PT_VL_HEATING_MID accepted success complete
+PT_VL_HEATING_HOLDOUT accepted success complete
+PH_FLASH_MID accepted success complete
+PH_FLASH_HOLDOUT accepted success complete
+PT_BUBBLE_BELOW_MID accepted success complete
+PT_BUBBLE_BELOW_HOLDOUT accepted success complete
+PT_BUBBLE_BELOW_8MPA unresolved failed PS
+PT_BUBBLE_ABOVE_8MPA unresolved failed PS
+PT_DEW_BELOW_MID accepted success complete
+PT_DEW_BELOW_HOLDOUT accepted success complete
+PT_WARM rejected failed prototype_input
+PT_BUBBLE_ABOVE_MID accepted success complete
+PT_BUBBLE_ABOVE_HOLDOUT accepted success complete
+PT_COOL accepted success complete
+PT_P_HOLDOUT accepted success complete
+PT_Z accepted success complete
+PH_PIN accepted success complete
+PH_TIN accepted success complete
+PH_POUT accepted success complete
+PH_Z accepted success complete
+WARM_HOLDOUT accepted success complete
+COLD_COMPRESSED accepted success complete
+WORK_0.0 accepted success complete
+FLOW_HOLDOUT accepted success complete
+COLD_SATURATED accepted success complete
+WORK_10.0 rejected failed complete
+WORK_100.0 rejected failed complete
+ETA_LOW rejected failed input
+ETA_HIGH rejected failed input
+DECREASE rejected failed prototype_input
+ABSENT rejected failed prototype_input
+WORK_999.0 accepted success complete
+WORK_1001.0 accepted success complete
+WORK_10000.0 accepted success complete
+production.json af08e22d537b1e23f64ff4e00dd4c9a7e6d48b598d4f3f46cd41314fdf2c24b3
+candidate_ledger.json 38c59795986daebbbe681da1e7b1032c642b255d13095fe1da4088b9e2f7bd7c
+
+Additional completed read-only reproductions: phase_reference.py, phase_compare.py, iteration_diagnostic.py, integration_checks.py.

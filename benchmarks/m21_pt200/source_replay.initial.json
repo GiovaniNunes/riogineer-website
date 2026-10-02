@@ -1,0 +1,127 @@
+[
+  {
+    "captured_engine": {
+      "evaluator_sha256": "5f572bd718fccacc8aeef7f9f809af1d0db4dc9816301ffed6dca467ecb4ac17",
+      "implementation_sha256": "0b48d4fe7f00d3079a053b0ad80ef566b9ed4c5788c5c42d981f50cfb7eda2ab",
+      "model": {
+        "id": "acyclic_component_conservation",
+        "version": "1.0"
+      },
+      "version": "1.10.0"
+    },
+    "captured_input_sha256": "a298cd8d8ffcb24c5d6394864134ccbb27fff0cc9f63652d2c55fd8cee618c5d",
+    "current_engine": {
+      "evaluator_sha256": "5f572bd718fccacc8aeef7f9f809af1d0db4dc9816301ffed6dca467ecb4ac17",
+      "implementation_sha256": "ccc22556f5ffbf3c2e36c8de46125e34787581be491ca925b6f9826247cec3e5",
+      "model": {
+        "id": "acyclic_component_conservation",
+        "version": "1.0"
+      },
+      "version": "1.10.0"
+    },
+    "current_input_sha256": "d4b282d3e61fba30cfaf2a8ab0ff5f5fd8510adeea4099b99a0ac2fb2fc7cc8f",
+    "fresh_run": true,
+    "numerical_fields_equal": true,
+    "source": "PT_BUBBLE_BELOW"
+  },
+  {
+    "captured_engine": {
+      "evaluator_sha256": "5f572bd718fccacc8aeef7f9f809af1d0db4dc9816301ffed6dca467ecb4ac17",
+      "implementation_sha256": "0b48d4fe7f00d3079a053b0ad80ef566b9ed4c5788c5c42d981f50cfb7eda2ab",
+      "model": {
+        "id": "acyclic_component_conservation",
+        "version": "1.0"
+      },
+      "version": "1.10.0"
+    },
+    "captured_input_sha256": "373dda7e3030416ec1ce299d5973bf685b9520f0f9d214439a1c289efe523e3e",
+    "current_engine": {
+      "evaluator_sha256": "5f572bd718fccacc8aeef7f9f809af1d0db4dc9816301ffed6dca467ecb4ac17",
+      "implementation_sha256": "ccc22556f5ffbf3c2e36c8de46125e34787581be491ca925b6f9826247cec3e5",
+      "model": {
+        "id": "acyclic_component_conservation",
+        "version": "1.0"
+      },
+      "version": "1.10.0"
+    },
+    "current_input_sha256": "70b6183f11b3ea816597a89c5be110af977edc50ac1ebeaa8c0bb8f07f42d31e",
+    "fresh_run": true,
+    "numerical_fields_equal": true,
+    "source": "PT_BUBBLE_ABOVE"
+  },
+  {
+    "captured_engine": {
+      "evaluator_sha256": "5f572bd718fccacc8aeef7f9f809af1d0db4dc9816301ffed6dca467ecb4ac17",
+      "implementation_sha256": "0b48d4fe7f00d3079a053b0ad80ef566b9ed4c5788c5c42d981f50cfb7eda2ab",
+      "model": {
+        "id": "acyclic_component_conservation",
+        "version": "1.0"
+      },
+      "version": "1.10.0"
+    },
+    "captured_input_sha256": "11c81c351e9402593d88b15064afb509af743184214273a7aae68a4f75b508c5",
+    "current_engine": {
+      "evaluator_sha256": "5f572bd718fccacc8aeef7f9f809af1d0db4dc9816301ffed6dca467ecb4ac17",
+      "implementation_sha256": "ccc22556f5ffbf3c2e36c8de46125e34787581be491ca925b6f9826247cec3e5",
+      "model": {
+        "id": "acyclic_component_conservation",
+        "version": "1.0"
+      },
+      "version": "1.10.0"
+    },
+    "current_input_sha256": "0bdc4002f1e81e5b7f183077640778df5325831d6e03fb6ca63cca5475882423",
+    "fresh_run": true,
+    "numerical_fields_equal": true,
+    "source": "PH_FLASH"
+  },
+  {
+    "captured_engine": {
+      "evaluator_sha256": "5f572bd718fccacc8aeef7f9f809af1d0db4dc9816301ffed6dca467ecb4ac17",
+      "implementation_sha256": "0b48d4fe7f00d3079a053b0ad80ef566b9ed4c5788c5c42d981f50cfb7eda2ab",
+      "model": {
+        "id": "acyclic_component_conservation",
+        "version": "1.0"
+      },
+      "version": "1.10.0"
+    },
+    "captured_input_sha256": "70f994c950750e24bb4024745cdb28dc602f9ce81ebf23972fd876858201a257",
+    "current_engine": {
+      "evaluator_sha256": "5f572bd718fccacc8aeef7f9f809af1d0db4dc9816301ffed6dca467ecb4ac17",
+      "implementation_sha256": "ccc22556f5ffbf3c2e36c8de46125e34787581be491ca925b6f9826247cec3e5",
+      "model": {
+        "id": "acyclic_component_conservation",
+        "version": "1.0"
+      },
+      "version": "1.10.0"
+    },
+    "current_input_sha256": "8fdd966fe9d301a8f84a5ed2c9f870130108077e7f0c799def7e25268dcb6829",
+    "fresh_run": true,
+    "numerical_fields_equal": true,
+    "source": "PT_VL_HEATING"
+  },
+  {
+    "captured_engine": {
+      "evaluator_sha256": "5f572bd718fccacc8aeef7f9f809af1d0db4dc9816301ffed6dca467ecb4ac17",
+      "implementation_sha256": "0b48d4fe7f00d3079a053b0ad80ef566b9ed4c5788c5c42d981f50cfb7eda2ab",
+      "model": {
+        "id": "acyclic_component_conservation",
+        "version": "1.0"
+      },
+      "version": "1.10.0"
+    },
+    "captured_input_sha256": "a8dffeeb916730f6ef534a26801b13b971df16ca02cc6515b82486f212878ac4",
+    "current_engine": {
+      "evaluator_sha256": "5f572bd718fccacc8aeef7f9f809af1d0db4dc9816301ffed6dca467ecb4ac17",
+      "implementation_sha256": "ccc22556f5ffbf3c2e36c8de46125e34787581be491ca925b6f9826247cec3e5",
+      "model": {
+        "id": "acyclic_component_conservation",
+        "version": "1.0"
+      },
+      "version": "1.10.0"
+    },
+    "current_input_sha256": "4b0d071a851c15d0e96c923e38d60b2d3ced7e6acd12cf1a66035d6b25c63457",
+    "fresh_run": true,
+    "numerical_fields_equal": true,
+    "source": "PT_DEW_BELOW"
+  }
+]

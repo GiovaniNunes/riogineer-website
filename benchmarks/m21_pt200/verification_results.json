@@ -1,0 +1,60 @@
+{
+  "browser": "not run; internal-only API change, unchanged UI/admission; no user acceptance claimed",
+  "build": "sandbox compile stall; own test process terminated; isolated outside-sandbox retry passed",
+  "final_affected_python": {
+    "log": "logs/final-affected-python-passed.log",
+    "passed": 74,
+    "tests": 74
+  },
+  "frontend_affected": {
+    "log": "logs/frontend-affected-passed.log",
+    "passed": 6,
+    "tests": 6
+  },
+  "frontend_final_source": {
+    "log": "logs/frontend-current-final.log",
+    "passed": 2,
+    "tests": 2
+  },
+  "frontend_full": {
+    "failed": 1,
+    "log": "logs/frontend-tests.log",
+    "passed": 276,
+    "tests": 277
+  },
+  "full_python": {
+    "all_green": false,
+    "command": "PYTHONPATH=engine:engine/tests engine/.venv/bin/python -B -m unittest discover -s engine/tests -v",
+    "failure_assertions": 8,
+    "log": "logs/full-python.log",
+    "seconds": 748.503,
+    "setup_errors": 1,
+    "tests_run": 680
+  },
+  "http_retry": {
+    "log": "logs/http-retry.log",
+    "passed": 2,
+    "tests": 2
+  },
+  "numerical": {
+    "compatibility_propagation_checks": 10248,
+    "failed": 0,
+    "independent_checks": 4941,
+    "m20_cases": 30,
+    "m20_current_checks": 1680,
+    "peak_iterations": 199,
+    "scalar_comparisons": 3679
+  },
+  "remaining_historical_assertions": {
+    "assertions_modified": false,
+    "count": 7,
+    "methods": [
+      "test_separator_pump_integration.SeparatorPumpIntegration.test_all30_fresh_evidence",
+      "test_separator_pump_integration.SeparatorPumpIntegration.test_preservation",
+      "test_variable_pump_evidence.EvidenceTests.test_equipment_comparison_and_source_capture"
+    ]
+  },
+  "reproduction": "final implementation/ledger/evidence bytes reproduce; current source numerical replay with explicit identity mapping; final M20 numerical replay passes",
+  "schema_lint_types": "passed in isolated copy; final maintained test lint/format also passed",
+  "status": "implemented; review and acceptance pending; historical assertions remain failing; no full all-green claim"
+}

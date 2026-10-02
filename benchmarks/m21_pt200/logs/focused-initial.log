@@ -1,0 +1,22 @@
+test_PS_holes_never_skipped (test_pt200_profile.Policy) ... ok
+test_additive_guard_and_legacy_rejection (test_pt200_profile.Policy) ... ERROR
+test_ambiguity_preserved_all_profiles (test_pt200_profile.Policy) ... ok
+test_iteration_limit_real_PT_and_no_payload (test_pt200_profile.Policy) ... ok
+test_nonfinite_inputs_and_properties (test_pt200_profile.Policy) ... ok
+test_phase_guard_remains_active (test_pt200_profile.Policy) ... ok
+test_residual_discontinuity_and_fresh_failure (test_pt200_profile.Policy) ... ok
+test_settings_immutable_and_no_automatic_fallback (test_pt200_profile.Policy) ... ok
+test_wrong_nested_profile_rejects (test_pt200_profile.Policy) ... ok
+
+======================================================================
+ERROR: test_additive_guard_and_legacy_rejection (test_pt200_profile.Policy)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/giovaninunes/Folders/RioGineer/riogineer-website/engine/tests/test_pt200_profile.py", line 61, in test_additive_guard_and_legacy_rejection
+    r=inverse(spec,BIP,profile,'PS');self.assertEqual(guard(r,spec,profile,'PS')['numerical_profile'],profile.identifier)
+KeyError: 'numerical_profile'
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.957s
+
+FAILED (errors=1)

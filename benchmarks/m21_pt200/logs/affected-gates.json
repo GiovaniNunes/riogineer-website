@@ -1,0 +1,29 @@
+[
+  {
+    "command": [
+      "npx",
+      "vitest",
+      "run",
+      "tests/separator-pump.test.ts",
+      "tests/separator-pump-summary.test.ts"
+    ],
+    "exit_code": 1
+  },
+  {
+    "command": [
+      "npx",
+      "eslint",
+      "tests/separator-pump.test.ts"
+    ],
+    "exit_code": 0
+  },
+  {
+    "command": [
+      "npx",
+      "prettier",
+      "--check",
+      "tests/separator-pump.test.ts"
+    ],
+    "exit_code": 0
+  }
+]

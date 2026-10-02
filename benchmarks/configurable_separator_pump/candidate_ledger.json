@@ -1,0 +1,2186 @@
+{
+  "candidates": [
+    {
+      "application": {
+        "reason": null,
+        "status": "admitted"
+      },
+      "case_id": "PT_VL_HEATING_DP0.0",
+      "disposition": "accepted",
+      "guarded_reason": null,
+      "guarded_status": "success",
+      "inputs": {
+        "P1": 300000.0,
+        "P2": 300000.0,
+        "T1": 350.0,
+        "eta": 0.8,
+        "flow": 9.126923386193653,
+        "z": [
+          0.0077448171764516885,
+          0.9922551828235484
+        ]
+      },
+      "production_stage": "complete",
+      "production_status": "accepted",
+      "prototype_status": "not_run",
+      "reference_status": "identity",
+      "remaining_gap": "No continuous-domain qualification; application scope unchanged",
+      "role": "M20_anchor",
+      "source": "PT_VL_HEATING",
+      "source_identity": {
+        "input_sha256": "6aa08fe4d333f698b5259d4415240847e8f0a0499488fe6a17e58d30699fbe06",
+        "requirements_sha256": "ae617268a92289462a77bc8a619cac8c8337e024c94d29629ac677f36235e3cb",
+        "run_id": "023bde48-9237-4545-bc5b-42303e21aae8"
+      },
+      "source_qualified": true
+    },
+    {
+      "application": {
+        "reason": null,
+        "status": "admitted"
+      },
+      "case_id": "PT_VL_HEATING_DP10000.0",
+      "disposition": "accepted",
+      "guarded_reason": null,
+      "guarded_status": "success",
+      "inputs": {
+        "P1": 300000.0,
+        "P2": 310000.0,
+        "T1": 350.0,
+        "eta": 0.8,
+        "flow": 9.126923386193653,
+        "z": [
+          0.0077448171764516885,
+          0.9922551828235484
+        ]
+      },
+      "production_stage": "complete",
+      "production_status": "accepted",
+      "prototype_status": "not_run",
+      "reference_status": "resolved",
+      "remaining_gap": "No continuous-domain qualification; application scope unchanged",
+      "role": "M20_anchor",
+      "source": "PT_VL_HEATING",
+      "source_identity": {
+        "input_sha256": "6aa08fe4d333f698b5259d4415240847e8f0a0499488fe6a17e58d30699fbe06",
+        "requirements_sha256": "ae617268a92289462a77bc8a619cac8c8337e024c94d29629ac677f36235e3cb",
+        "run_id": "023bde48-9237-4545-bc5b-42303e21aae8"
+      },
+      "source_qualified": true
+    },
+    {
+      "application": {
+        "reason": null,
+        "status": "admitted"
+      },
+      "case_id": "PT_VL_HEATING_DP1000000.0",
+      "disposition": "accepted",
+      "guarded_reason": null,
+      "guarded_status": "success",
+      "inputs": {
+        "P1": 300000.0,
+        "P2": 1300000.0,
+        "T1": 350.0,
+        "eta": 0.8,
+        "flow": 9.126923386193653,
+        "z": [
+          0.0077448171764516885,
+          0.9922551828235484
+        ]
+      },
+      "production_stage": "complete",
+      "production_status": "accepted",
+      "prototype_status": "not_run",
+      "reference_status": "resolved",
+      "remaining_gap": "No continuous-domain qualification; application scope unchanged",
+      "role": "M20_anchor",
+      "source": "PT_VL_HEATING",
+      "source_identity": {
+        "input_sha256": "6aa08fe4d333f698b5259d4415240847e8f0a0499488fe6a17e58d30699fbe06",
+        "requirements_sha256": "ae617268a92289462a77bc8a619cac8c8337e024c94d29629ac677f36235e3cb",
+        "run_id": "023bde48-9237-4545-bc5b-42303e21aae8"
+      },
+      "source_qualified": true
+    },
+    {
+      "application": {
+        "reason": null,
+        "status": "admitted"
+      },
+      "case_id": "PT_VL_INLET_EQUAL_DP0.0",
+      "disposition": "accepted",
+      "guarded_reason": null,
+      "guarded_status": "success",
+      "inputs": {
+        "P1": 300000.0,
+        "P2": 300000.0,
+        "T1": 300.0,
+        "eta": 0.8,
+        "flow": 46.53574897761956,
+        "z": [
+          0.015619720085965972,
+          0.984380279914034
+        ]
+      },
+      "production_stage": "complete",
+      "production_status": "accepted",
+      "prototype_status": "not_run",
+      "reference_status": "identity",
+      "remaining_gap": "No continuous-domain qualification; application scope unchanged",
+      "role": "M20_anchor",
+      "source": "PT_VL_INLET_EQUAL",
+      "source_identity": {
+        "input_sha256": "107319378f0bb3ce0d0392080c3b3b466a9561a653db6ad1bf364de15d9b069a",
+        "requirements_sha256": "475cf0151641c4c6b0f7ffbe5512b95128330ad821b16548f8df5125b0dcda4b",
+        "run_id": "a2db2054-3b77-4ba8-9f15-b20f6d381e48"
+      },
+      "source_qualified": true
+    },
+    {
+      "application": {
+        "reason": null,
+        "status": "admitted"
+      },
+      "case_id": "PT_VL_INLET_EQUAL_DP10000.0",
+      "disposition": "accepted",
+      "guarded_reason": null,
+      "guarded_status": "success",
+      "inputs": {
+        "P1": 300000.0,
+        "P2": 310000.0,
+        "T1": 300.0,
+        "eta": 0.8,
+        "flow": 46.53574897761956,
+        "z": [
+          0.015619720085965972,
+          0.984380279914034
+        ]
+      },
+      "production_stage": "complete",
+      "production_status": "accepted",
+      "prototype_status": "not_run",
+      "reference_status": "resolved",
+      "remaining_gap": "No continuous-domain qualification; application scope unchanged",
+      "role": "M20_anchor",
+      "source": "PT_VL_INLET_EQUAL",
+      "source_identity": {
+        "input_sha256": "107319378f0bb3ce0d0392080c3b3b466a9561a653db6ad1bf364de15d9b069a",
+        "requirements_sha256": "475cf0151641c4c6b0f7ffbe5512b95128330ad821b16548f8df5125b0dcda4b",
+        "run_id": "a2db2054-3b77-4ba8-9f15-b20f6d381e48"
+      },
+      "source_qualified": true
+    },
+    {
+      "application": {
+        "reason": null,
+        "status": "admitted"
+      },
+      "case_id": "PT_VL_INLET_EQUAL_DP1000000.0",
+      "disposition": "accepted",
+      "guarded_reason": null,
+      "guarded_status": "success",
+      "inputs": {
+        "P1": 300000.0,
+        "P2": 1300000.0,
+        "T1": 300.0,
+        "eta": 0.8,
+        "flow": 46.53574897761956,
+        "z": [
+          0.015619720085965972,
+          0.984380279914034
+        ]
+      },
+      "production_stage": "complete",
+      "production_status": "accepted",
+      "prototype_status": "not_run",
+      "reference_status": "resolved",
+      "remaining_gap": "No continuous-domain qualification; application scope unchanged",
+      "role": "M20_anchor",
+      "source": "PT_VL_INLET_EQUAL",
+      "source_identity": {
+        "input_sha256": "107319378f0bb3ce0d0392080c3b3b466a9561a653db6ad1bf364de15d9b069a",
+        "requirements_sha256": "475cf0151641c4c6b0f7ffbe5512b95128330ad821b16548f8df5125b0dcda4b",
+        "run_id": "a2db2054-3b77-4ba8-9f15-b20f6d381e48"
+      },
+      "source_qualified": true
+    },
+    {
+      "application": {
+        "reason": null,
+        "status": "admitted"
+      },
+      "case_id": "PT_VAPOR_INLET_COOLING_DP0.0",
+      "disposition": "accepted",
+      "guarded_reason": null,
+      "guarded_status": "success",
+      "inputs": {
+        "P1": 1000000.0,
+        "P2": 1000000.0,
+        "T1": 280.0,
+        "eta": 0.8,
+        "flow": 9.579812466716218,
+        "z": [
+          0.062495158908496176,
+          0.9375048410915039
+        ]
+      },
+      "production_stage": "complete",
+      "production_status": "accepted",
+      "prototype_status": "not_run",
+      "reference_status": "identity",
+      "remaining_gap": "No continuous-domain qualification; application scope unchanged",
+      "role": "M20_anchor",
+      "source": "PT_VAPOR_INLET_COOLING",
+      "source_identity": {
+        "input_sha256": "8850356b5d3fa2489d1c18832d2d0cc9ada83409b294f6ca040bdc15cc941833",
+        "requirements_sha256": "8dc070c0163f497f04be5742963f35fa1ee13daacd179da7ff538884828cb853",
+        "run_id": "c2d1c5c2-14c3-4f60-870a-7c7057778534"
+      },
+      "source_qualified": true
+    },
+    {
+      "application": {
+        "reason": null,
+        "status": "admitted"
+      },
+      "case_id": "PT_VAPOR_INLET_COOLING_DP10000.0",
+      "disposition": "accepted",
+      "guarded_reason": null,
+      "guarded_status": "success",
+      "inputs": {
+        "P1": 1000000.0,
+        "P2": 1010000.0,
+        "T1": 280.0,
+        "eta": 0.8,
+        "flow": 9.579812466716218,
+        "z": [
+          0.062495158908496176,
+          0.9375048410915039
+        ]
+      },
+      "production_stage": "complete",
+      "production_status": "accepted",
+      "prototype_status": "not_run",
+      "reference_status": "resolved",
+      "remaining_gap": "No continuous-domain qualification; application scope unchanged",
+      "role": "M20_anchor",
+      "source": "PT_VAPOR_INLET_COOLING",
+      "source_identity": {
+        "input_sha256": "8850356b5d3fa2489d1c18832d2d0cc9ada83409b294f6ca040bdc15cc941833",
+        "requirements_sha256": "8dc070c0163f497f04be5742963f35fa1ee13daacd179da7ff538884828cb853",
+        "run_id": "c2d1c5c2-14c3-4f60-870a-7c7057778534"
+      },
+      "source_qualified": true
+    },
+    {
+      "application": {
+        "reason": null,
+        "status": "admitted"
+      },
+      "case_id": "PT_VAPOR_INLET_COOLING_DP1000000.0",
+      "disposition": "accepted",
+      "guarded_reason": null,
+      "guarded_status": "success",
+      "inputs": {
+        "P1": 1000000.0,
+        "P2": 2000000.0,
+        "T1": 280.0,
+        "eta": 0.8,
+        "flow": 9.579812466716218,
+        "z": [
+          0.062495158908496176,
+          0.9375048410915039
+        ]
+      },
+      "production_stage": "complete",
+      "production_status": "accepted",
+      "prototype_status": "not_run",
+      "reference_status": "resolved",
+      "remaining_gap": "No continuous-domain qualification; application scope unchanged",
+      "role": "M20_anchor",
+      "source": "PT_VAPOR_INLET_COOLING",
+      "source_identity": {
+        "input_sha256": "8850356b5d3fa2489d1c18832d2d0cc9ada83409b294f6ca040bdc15cc941833",
+        "requirements_sha256": "8dc070c0163f497f04be5742963f35fa1ee13daacd179da7ff538884828cb853",
+        "run_id": "c2d1c5c2-14c3-4f60-870a-7c7057778534"
+      },
+      "source_qualified": true
+    },
+    {
+      "application": {
+        "reason": null,
+        "status": "admitted"
+      },
+      "case_id": "PH_FLASH_DP0.0",
+      "disposition": "accepted",
+      "guarded_reason": null,
+      "guarded_status": "success",
+      "inputs": {
+        "P1": 1000000.0,
+        "P2": 1000000.0,
+        "T1": 291.742138656979,
+        "eta": 0.8,
+        "flow": 52.05576887048551,
+        "z": [
+          0.05718128748168017,
+          0.9428187125183198
+        ]
+      },
+      "production_stage": "complete",
+      "production_status": "accepted",
+      "prototype_status": "not_run",
+      "reference_status": "identity",
+      "remaining_gap": "No continuous-domain qualification; application scope unchanged",
+      "role": "M20_anchor",
+      "source": "PH_FLASH",
+      "source_identity": {
+        "input_sha256": "c037dd5a63fd62ad8cb0a11d0c71b313a3387c5136d78f3b4a879b6269295794",
+        "requirements_sha256": "8b3e6f5ec8204a0c9a000137f0eddfe721bac68127e84f5ffea112646b5f8108",
+        "run_id": "59da3ece-1c13-46db-a2c5-7eac4eaa9eb5"
+      },
+      "source_qualified": true
+    },
+    {
+      "application": {
+        "reason": null,
+        "status": "admitted"
+      },
+      "case_id": "PH_FLASH_DP10000.0",
+      "disposition": "accepted",
+      "guarded_reason": null,
+      "guarded_status": "success",
+      "inputs": {
+        "P1": 1000000.0,
+        "P2": 1010000.0,
+        "T1": 291.742138656979,
+        "eta": 0.8,
+        "flow": 52.05576887048551,
+        "z": [
+          0.05718128748168017,
+          0.9428187125183198
+        ]
+      },
+      "production_stage": "complete",
+      "production_status": "accepted",
+      "prototype_status": "not_run",
+      "reference_status": "resolved",
+      "remaining_gap": "No continuous-domain qualification; application scope unchanged",
+      "role": "M20_anchor",
+      "source": "PH_FLASH",
+      "source_identity": {
+        "input_sha256": "c037dd5a63fd62ad8cb0a11d0c71b313a3387c5136d78f3b4a879b6269295794",
+        "requirements_sha256": "8b3e6f5ec8204a0c9a000137f0eddfe721bac68127e84f5ffea112646b5f8108",
+        "run_id": "59da3ece-1c13-46db-a2c5-7eac4eaa9eb5"
+      },
+      "source_qualified": true
+    },
+    {
+      "application": {
+        "reason": null,
+        "status": "admitted"
+      },
+      "case_id": "PH_FLASH_DP1000000.0",
+      "disposition": "accepted",
+      "guarded_reason": null,
+      "guarded_status": "success",
+      "inputs": {
+        "P1": 1000000.0,
+        "P2": 2000000.0,
+        "T1": 291.742138656979,
+        "eta": 0.8,
+        "flow": 52.05576887048551,
+        "z": [
+          0.05718128748168017,
+          0.9428187125183198
+        ]
+      },
+      "production_stage": "complete",
+      "production_status": "accepted",
+      "prototype_status": "not_run",
+      "reference_status": "resolved",
+      "remaining_gap": "No continuous-domain qualification; application scope unchanged",
+      "role": "M20_anchor",
+      "source": "PH_FLASH",
+      "source_identity": {
+        "input_sha256": "c037dd5a63fd62ad8cb0a11d0c71b313a3387c5136d78f3b4a879b6269295794",
+        "requirements_sha256": "8b3e6f5ec8204a0c9a000137f0eddfe721bac68127e84f5ffea112646b5f8108",
+        "run_id": "59da3ece-1c13-46db-a2c5-7eac4eaa9eb5"
+      },
+      "source_qualified": true
+    },
+    {
+      "application": {
+        "reason": null,
+        "status": "admitted"
+      },
+      "case_id": "PH_HEXANE_RICH_DP0.0",
+      "disposition": "accepted",
+      "guarded_reason": null,
+      "guarded_status": "success",
+      "inputs": {
+        "P1": 100000.0,
+        "P2": 100000.0,
+        "T1": 296.0331464948125,
+        "eta": 0.8,
+        "flow": 88.16300094074947,
+        "z": [
+          0.004712273406185097,
+          0.9952877265938148
+        ]
+      },
+      "production_stage": "complete",
+      "production_status": "accepted",
+      "prototype_status": "not_run",
+      "reference_status": "identity",
+      "remaining_gap": "No continuous-domain qualification; application scope unchanged",
+      "role": "M20_anchor",
+      "source": "PH_HEXANE_RICH",
+      "source_identity": {
+        "input_sha256": "53f8ad32750735a6644af61c298e7333e0c067465fd8a97217f63737ed50c15f",
+        "requirements_sha256": "705da0214769a3f457820dd7ce54459813c523fbcfc89d22516241901d296318",
+        "run_id": "92ca5338-5e24-4f73-bf66-935588689f7a"
+      },
+      "source_qualified": true
+    },
+    {
+      "application": {
+        "reason": null,
+        "status": "admitted"
+      },
+      "case_id": "PH_HEXANE_RICH_DP10000.0",
+      "disposition": "accepted",
+      "guarded_reason": null,
+      "guarded_status": "success",
+      "inputs": {
+        "P1": 100000.0,
+        "P2": 110000.0,
+        "T1": 296.0331464948125,
+        "eta": 0.8,
+        "flow": 88.16300094074947,
+        "z": [
+          0.004712273406185097,
+          0.9952877265938148
+        ]
+      },
+      "production_stage": "complete",
+      "production_status": "accepted",
+      "prototype_status": "not_run",
+      "reference_status": "resolved",
+      "remaining_gap": "No continuous-domain qualification; application scope unchanged",
+      "role": "M20_anchor",
+      "source": "PH_HEXANE_RICH",
+      "source_identity": {
+        "input_sha256": "53f8ad32750735a6644af61c298e7333e0c067465fd8a97217f63737ed50c15f",
+        "requirements_sha256": "705da0214769a3f457820dd7ce54459813c523fbcfc89d22516241901d296318",
+        "run_id": "92ca5338-5e24-4f73-bf66-935588689f7a"
+      },
+      "source_qualified": true
+    },
+    {
+      "application": {
+        "reason": null,
+        "status": "admitted"
+      },
+      "case_id": "PH_HEXANE_RICH_DP1000000.0",
+      "disposition": "accepted",
+      "guarded_reason": null,
+      "guarded_status": "success",
+      "inputs": {
+        "P1": 100000.0,
+        "P2": 1100000.0,
+        "T1": 296.0331464948125,
+        "eta": 0.8,
+        "flow": 88.16300094074947,
+        "z": [
+          0.004712273406185097,
+          0.9952877265938148
+        ]
+      },
+      "production_stage": "complete",
+      "production_status": "accepted",
+      "prototype_status": "not_run",
+      "reference_status": "resolved",
+      "remaining_gap": "No continuous-domain qualification; application scope unchanged",
+      "role": "M20_anchor",
+      "source": "PH_HEXANE_RICH",
+      "source_identity": {
+        "input_sha256": "53f8ad32750735a6644af61c298e7333e0c067465fd8a97217f63737ed50c15f",
+        "requirements_sha256": "705da0214769a3f457820dd7ce54459813c523fbcfc89d22516241901d296318",
+        "run_id": "92ca5338-5e24-4f73-bf66-935588689f7a"
+      },
+      "source_qualified": true
+    },
+    {
+      "application": {
+        "reason": null,
+        "status": "admitted"
+      },
+      "case_id": "PT_BUBBLE_BELOW_DP0.0",
+      "disposition": "accepted",
+      "guarded_reason": null,
+      "guarded_status": "success",
+      "inputs": {
+        "P1": 6000000.0,
+        "P2": 6000000.0,
+        "T1": 231.06755435138734,
+        "eta": 0.8,
+        "flow": 100.0,
+        "z": [
+          0.5,
+          0.5
+        ]
+      },
+      "production_stage": "complete",
+      "production_status": "accepted",
+      "prototype_status": "not_run",
+      "reference_status": "identity",
+      "remaining_gap": "No continuous-domain qualification; application scope unchanged",
+      "role": "M20_anchor",
+      "source": "PT_BUBBLE_BELOW",
+      "source_identity": {
+        "input_sha256": "70ce0f7e978afc575629db4eef07cee85b680e11bbc872cb2a451af9db20e04e",
+        "requirements_sha256": "5ed539b8e464aaf2d91f261e1e488a863dd5e945c56b737cc6679663bc3c1ad7",
+        "run_id": "82186d0e-1610-4e28-bca2-b39be2122fa6"
+      },
+      "source_qualified": true
+    },
+    {
+      "application": {
+        "reason": null,
+        "status": "admitted"
+      },
+      "case_id": "PT_BUBBLE_BELOW_DP10000.0",
+      "disposition": "accepted",
+      "guarded_reason": null,
+      "guarded_status": "success",
+      "inputs": {
+        "P1": 6000000.0,
+        "P2": 6010000.0,
+        "T1": 231.06755435138734,
+        "eta": 0.8,
+        "flow": 100.0,
+        "z": [
+          0.5,
+          0.5
+        ]
+      },
+      "production_stage": "complete",
+      "production_status": "accepted",
+      "prototype_status": "not_run",
+      "reference_status": "resolved",
+      "remaining_gap": "No continuous-domain qualification; application scope unchanged",
+      "role": "M20_anchor",
+      "source": "PT_BUBBLE_BELOW",
+      "source_identity": {
+        "input_sha256": "70ce0f7e978afc575629db4eef07cee85b680e11bbc872cb2a451af9db20e04e",
+        "requirements_sha256": "5ed539b8e464aaf2d91f261e1e488a863dd5e945c56b737cc6679663bc3c1ad7",
+        "run_id": "82186d0e-1610-4e28-bca2-b39be2122fa6"
+      },
+      "source_qualified": true
+    },
+    {
+      "application": {
+        "reason": null,
+        "status": "admitted"
+      },
+      "case_id": "PT_BUBBLE_BELOW_DP1000000.0",
+      "disposition": "accepted",
+      "guarded_reason": null,
+      "guarded_status": "success",
+      "inputs": {
+        "P1": 6000000.0,
+        "P2": 7000000.0,
+        "T1": 231.06755435138734,
+        "eta": 0.8,
+        "flow": 100.0,
+        "z": [
+          0.5,
+          0.5
+        ]
+      },
+      "production_stage": "complete",
+      "production_status": "accepted",
+      "prototype_status": "not_run",
+      "reference_status": "resolved",
+      "remaining_gap": "No continuous-domain qualification; application scope unchanged",
+      "role": "M20_anchor",
+      "source": "PT_BUBBLE_BELOW",
+      "source_identity": {
+        "input_sha256": "70ce0f7e978afc575629db4eef07cee85b680e11bbc872cb2a451af9db20e04e",
+        "requirements_sha256": "5ed539b8e464aaf2d91f261e1e488a863dd5e945c56b737cc6679663bc3c1ad7",
+        "run_id": "82186d0e-1610-4e28-bca2-b39be2122fa6"
+      },
+      "source_qualified": true
+    },
+    {
+      "application": {
+        "reason": null,
+        "status": "admitted"
+      },
+      "case_id": "PT_BUBBLE_ABOVE_DP0.0",
+      "disposition": "accepted",
+      "guarded_reason": null,
+      "guarded_status": "success",
+      "inputs": {
+        "P1": 6000000.0,
+        "P2": 6000000.0,
+        "T1": 231.16755435138973,
+        "eta": 0.8,
+        "flow": 99.94203100395112,
+        "z": [
+          0.4997106092421193,
+          0.5002893907578807
+        ]
+      },
+      "production_stage": "complete",
+      "production_status": "accepted",
+      "prototype_status": "not_run",
+      "reference_status": "identity",
+      "remaining_gap": "No continuous-domain qualification; application scope unchanged",
+      "role": "M20_anchor",
+      "source": "PT_BUBBLE_ABOVE",
+      "source_identity": {
+        "input_sha256": "b9057a2248e3ae530f84016191ed90ca2ac4f30bfda5b84b6092be136dbe8d14",
+        "requirements_sha256": "0cf30f85ec572c7e330dfec5e552b1ecde44ec0fc23efb4052ac9bd38c74f3dc",
+        "run_id": "5f1507db-d496-4337-9e94-6dbf284acbc3"
+      },
+      "source_qualified": true
+    },
+    {
+      "application": {
+        "reason": null,
+        "status": "admitted"
+      },
+      "case_id": "PT_BUBBLE_ABOVE_DP10000.0",
+      "disposition": "accepted",
+      "guarded_reason": null,
+      "guarded_status": "success",
+      "inputs": {
+        "P1": 6000000.0,
+        "P2": 6010000.0,
+        "T1": 231.16755435138973,
+        "eta": 0.8,
+        "flow": 99.94203100395112,
+        "z": [
+          0.4997106092421193,
+          0.5002893907578807
+        ]
+      },
+      "production_stage": "complete",
+      "production_status": "accepted",
+      "prototype_status": "not_run",
+      "reference_status": "resolved",
+      "remaining_gap": "No continuous-domain qualification; application scope unchanged",
+      "role": "M20_anchor",
+      "source": "PT_BUBBLE_ABOVE",
+      "source_identity": {
+        "input_sha256": "b9057a2248e3ae530f84016191ed90ca2ac4f30bfda5b84b6092be136dbe8d14",
+        "requirements_sha256": "0cf30f85ec572c7e330dfec5e552b1ecde44ec0fc23efb4052ac9bd38c74f3dc",
+        "run_id": "5f1507db-d496-4337-9e94-6dbf284acbc3"
+      },
+      "source_qualified": true
+    },
+    {
+      "application": {
+        "reason": null,
+        "status": "admitted"
+      },
+      "case_id": "PT_BUBBLE_ABOVE_DP1000000.0",
+      "disposition": "accepted",
+      "guarded_reason": null,
+      "guarded_status": "success",
+      "inputs": {
+        "P1": 6000000.0,
+        "P2": 7000000.0,
+        "T1": 231.16755435138973,
+        "eta": 0.8,
+        "flow": 99.94203100395112,
+        "z": [
+          0.4997106092421193,
+          0.5002893907578807
+        ]
+      },
+      "production_stage": "complete",
+      "production_status": "accepted",
+      "prototype_status": "not_run",
+      "reference_status": "resolved",
+      "remaining_gap": "No continuous-domain qualification; application scope unchanged",
+      "role": "M20_anchor",
+      "source": "PT_BUBBLE_ABOVE",
+      "source_identity": {
+        "input_sha256": "b9057a2248e3ae530f84016191ed90ca2ac4f30bfda5b84b6092be136dbe8d14",
+        "requirements_sha256": "0cf30f85ec572c7e330dfec5e552b1ecde44ec0fc23efb4052ac9bd38c74f3dc",
+        "run_id": "5f1507db-d496-4337-9e94-6dbf284acbc3"
+      },
+      "source_qualified": true
+    },
+    {
+      "application": {
+        "reason": null,
+        "status": "admitted"
+      },
+      "case_id": "PT_DEW_BELOW_DP0.0",
+      "disposition": "accepted",
+      "guarded_reason": null,
+      "guarded_status": "success",
+      "inputs": {
+        "P1": 6000000.0,
+        "P2": 6000000.0,
+        "T1": 468.2158895316327,
+        "eta": 0.8,
+        "flow": 0.13330552995967082,
+        "z": [
+          0.21404761041658718,
+          0.7859523895834128
+        ]
+      },
+      "production_stage": "complete",
+      "production_status": "accepted",
+      "prototype_status": "not_run",
+      "reference_status": "identity",
+      "remaining_gap": "No continuous-domain qualification; application scope unchanged",
+      "role": "M20_anchor",
+      "source": "PT_DEW_BELOW",
+      "source_identity": {
+        "input_sha256": "377caff917cb6df8b37577385929cb65d69e5bc20a7789f92d2107cb9b37f125",
+        "requirements_sha256": "aeb8a553055cb731cc3c11202a83edbf220d4bda5757a0c894cc6138043e7070",
+        "run_id": "40d85a3f-3ae3-4d5e-bfb0-db1d4607a6fd"
+      },
+      "source_qualified": true
+    },
+    {
+      "application": {
+        "reason": null,
+        "status": "admitted"
+      },
+      "case_id": "PT_DEW_BELOW_DP10000.0",
+      "disposition": "accepted",
+      "guarded_reason": null,
+      "guarded_status": "success",
+      "inputs": {
+        "P1": 6000000.0,
+        "P2": 6010000.0,
+        "T1": 468.2158895316327,
+        "eta": 0.8,
+        "flow": 0.13330552995967082,
+        "z": [
+          0.21404761041658718,
+          0.7859523895834128
+        ]
+      },
+      "production_stage": "complete",
+      "production_status": "accepted",
+      "prototype_status": "not_run",
+      "reference_status": "resolved",
+      "remaining_gap": "No continuous-domain qualification; application scope unchanged",
+      "role": "M20_anchor",
+      "source": "PT_DEW_BELOW",
+      "source_identity": {
+        "input_sha256": "377caff917cb6df8b37577385929cb65d69e5bc20a7789f92d2107cb9b37f125",
+        "requirements_sha256": "aeb8a553055cb731cc3c11202a83edbf220d4bda5757a0c894cc6138043e7070",
+        "run_id": "40d85a3f-3ae3-4d5e-bfb0-db1d4607a6fd"
+      },
+      "source_qualified": true
+    },
+    {
+      "application": {
+        "reason": null,
+        "status": "admitted"
+      },
+      "case_id": "PT_DEW_BELOW_DP1000000.0",
+      "disposition": "accepted",
+      "guarded_reason": null,
+      "guarded_status": "success",
+      "inputs": {
+        "P1": 6000000.0,
+        "P2": 7000000.0,
+        "T1": 468.2158895316327,
+        "eta": 0.8,
+        "flow": 0.13330552995967082,
+        "z": [
+          0.21404761041658718,
+          0.7859523895834128
+        ]
+      },
+      "production_stage": "complete",
+      "production_status": "accepted",
+      "prototype_status": "not_run",
+      "reference_status": "resolved",
+      "remaining_gap": "No continuous-domain qualification; application scope unchanged",
+      "role": "M20_anchor",
+      "source": "PT_DEW_BELOW",
+      "source_identity": {
+        "input_sha256": "377caff917cb6df8b37577385929cb65d69e5bc20a7789f92d2107cb9b37f125",
+        "requirements_sha256": "aeb8a553055cb731cc3c11202a83edbf220d4bda5757a0c894cc6138043e7070",
+        "run_id": "40d85a3f-3ae3-4d5e-bfb0-db1d4607a6fd"
+      },
+      "source_qualified": true
+    },
+    {
+      "application": {
+        "reason": null,
+        "status": "admitted"
+      },
+      "case_id": "ETA0.6",
+      "disposition": "accepted",
+      "guarded_reason": null,
+      "guarded_status": "success",
+      "inputs": {
+        "P1": 1000000.0,
+        "P2": 2000000.0,
+        "T1": 291.742138656979,
+        "eta": 0.6,
+        "flow": 52.05576887048551,
+        "z": [
+          0.05718128748168017,
+          0.9428187125183198
+        ]
+      },
+      "production_stage": "complete",
+      "production_status": "accepted",
+      "prototype_status": "not_run",
+      "reference_status": "resolved",
+      "remaining_gap": "No continuous-domain qualification; application scope unchanged",
+      "role": "M20_anchor",
+      "source": "PH_FLASH",
+      "source_identity": {
+        "input_sha256": "c037dd5a63fd62ad8cb0a11d0c71b313a3387c5136d78f3b4a879b6269295794",
+        "requirements_sha256": "8b3e6f5ec8204a0c9a000137f0eddfe721bac68127e84f5ffea112646b5f8108",
+        "run_id": "59da3ece-1c13-46db-a2c5-7eac4eaa9eb5"
+      },
+      "source_qualified": true
+    },
+    {
+      "application": {
+        "reason": null,
+        "status": "admitted"
+      },
+      "case_id": "ETA1.0",
+      "disposition": "accepted",
+      "guarded_reason": null,
+      "guarded_status": "success",
+      "inputs": {
+        "P1": 1000000.0,
+        "P2": 2000000.0,
+        "T1": 291.742138656979,
+        "eta": 1.0,
+        "flow": 52.05576887048551,
+        "z": [
+          0.05718128748168017,
+          0.9428187125183198
+        ]
+      },
+      "production_stage": "complete",
+      "production_status": "accepted",
+      "prototype_status": "not_run",
+      "reference_status": "resolved",
+      "remaining_gap": "No continuous-domain qualification; application scope unchanged",
+      "role": "M20_anchor",
+      "source": "PH_FLASH",
+      "source_identity": {
+        "input_sha256": "c037dd5a63fd62ad8cb0a11d0c71b313a3387c5136d78f3b4a879b6269295794",
+        "requirements_sha256": "8b3e6f5ec8204a0c9a000137f0eddfe721bac68127e84f5ffea112646b5f8108",
+        "run_id": "59da3ece-1c13-46db-a2c5-7eac4eaa9eb5"
+      },
+      "source_qualified": true
+    },
+    {
+      "application": {
+        "reason": null,
+        "status": "admitted"
+      },
+      "case_id": "SMALL1000.0",
+      "disposition": "accepted",
+      "guarded_reason": null,
+      "guarded_status": "success",
+      "inputs": {
+        "P1": 1000000.0,
+        "P2": 1001000.0,
+        "T1": 291.742138656979,
+        "eta": 0.8,
+        "flow": 52.05576887048551,
+        "z": [
+          0.05718128748168017,
+          0.9428187125183198
+        ]
+      },
+      "production_stage": "complete",
+      "production_status": "accepted",
+      "prototype_status": "not_run",
+      "reference_status": "resolved",
+      "remaining_gap": "No continuous-domain qualification; application scope unchanged",
+      "role": "M20_anchor",
+      "source": "PH_FLASH",
+      "source_identity": {
+        "input_sha256": "c037dd5a63fd62ad8cb0a11d0c71b313a3387c5136d78f3b4a879b6269295794",
+        "requirements_sha256": "8b3e6f5ec8204a0c9a000137f0eddfe721bac68127e84f5ffea112646b5f8108",
+        "run_id": "59da3ece-1c13-46db-a2c5-7eac4eaa9eb5"
+      },
+      "source_qualified": true
+    },
+    {
+      "application": {
+        "reason": null,
+        "status": "admitted"
+      },
+      "case_id": "SCALED5.0",
+      "disposition": "accepted",
+      "guarded_reason": null,
+      "guarded_status": "success",
+      "inputs": {
+        "P1": 1000000.0,
+        "P2": 2000000.0,
+        "T1": 291.742138656979,
+        "eta": 0.8,
+        "flow": 5.000000000000001,
+        "z": [
+          0.057181287481680165,
+          0.9428187125183197
+        ]
+      },
+      "production_stage": "complete",
+      "production_status": "accepted",
+      "prototype_status": "not_run",
+      "reference_status": "resolved",
+      "remaining_gap": "No continuous-domain qualification; application scope unchanged",
+      "role": "M20_anchor",
+      "source": "SCALED5.0",
+      "source_identity": {
+        "input_sha256": "84c4cd823bcf29bf3d67fee34ac28baf2756e759a507c06746509bde9ff10668",
+        "requirements_sha256": "4399659bfa681948208a75ac1fb041e28845c81bbb5918e4911e2a25d2f3d858",
+        "run_id": "6f6390f9-f25d-409f-b84a-b23a8056f89e"
+      },
+      "source_qualified": true
+    },
+    {
+      "application": {
+        "reason": null,
+        "status": "admitted"
+      },
+      "case_id": "SCALED17.3",
+      "disposition": "accepted",
+      "guarded_reason": null,
+      "guarded_status": "success",
+      "inputs": {
+        "P1": 1000000.0,
+        "P2": 2000000.0,
+        "T1": 291.742138656979,
+        "eta": 0.8,
+        "flow": 17.299999999999997,
+        "z": [
+          0.05718128748168015,
+          0.9428187125183198
+        ]
+      },
+      "production_stage": "complete",
+      "production_status": "accepted",
+      "prototype_status": "not_run",
+      "reference_status": "resolved",
+      "remaining_gap": "No continuous-domain qualification; application scope unchanged",
+      "role": "M20_anchor",
+      "source": "SCALED17.3",
+      "source_identity": {
+        "input_sha256": "1080728d838d1393f5ea47c23322a3e56cb7b93d5526fb77ac03f6fddf89cd35",
+        "requirements_sha256": "ba51075ffc7d46446da1933e8e791fbbb15af82528ea692588bc8223f97d3c99",
+        "run_id": "3850aafe-1fe5-4947-a6af-c7c184c8e952"
+      },
+      "source_qualified": true
+    },
+    {
+      "application": {
+        "reason": null,
+        "status": "admitted"
+      },
+      "case_id": "SCALED200.0",
+      "disposition": "accepted",
+      "guarded_reason": null,
+      "guarded_status": "success",
+      "inputs": {
+        "P1": 1000000.0,
+        "P2": 2000000.0,
+        "T1": 291.742138656979,
+        "eta": 0.8,
+        "flow": 200.0,
+        "z": [
+          0.05718128748168017,
+          0.9428187125183198
+        ]
+      },
+      "production_stage": "complete",
+      "production_status": "accepted",
+      "prototype_status": "not_run",
+      "reference_status": "resolved",
+      "remaining_gap": "No continuous-domain qualification; application scope unchanged",
+      "role": "M20_anchor",
+      "source": "SCALED200.0",
+      "source_identity": {
+        "input_sha256": "12657fee92e521c2ea5a279eb8e097c647b908c17ac90dbafbb95cd482d733d0",
+        "requirements_sha256": "202ba0e5a7053d2a49b29456cfa9adf934adec1936f0e8f4d0fd8eb840442000",
+        "run_id": "ca9034b4-faf4-4598-bd72-045897a38240"
+      },
+      "source_qualified": true
+    },
+    {
+      "application": {
+        "reason": "M20 unsupported_qualified_tuple: only the 30 listed source/Pout/efficiency combinations are supported; 8 MPa PS failures are excluded",
+        "status": "rejected"
+      },
+      "case_id": "PT_BUBBLE_BELOW_8MPA",
+      "disposition": "unresolved",
+      "guarded_reason": "PS: property_evaluation_failed; Complete scan contains property holes; no interval bridged: flash_not_converged: ",
+      "guarded_status": "failed",
+      "inputs": {
+        "P1": 6000000.0,
+        "P2": 8000000.0,
+        "T1": 231.06755435138734,
+        "eta": 0.8,
+        "flow": 100.0,
+        "z": [
+          0.5,
+          0.5
+        ]
+      },
+      "production_stage": "PS",
+      "production_status": "production_failure",
+      "prototype_status": "local_path_candidate",
+      "reference_status": "resolved",
+      "remaining_gap": "See retained solver/guard/reference diagnostics",
+      "role": "8MPa_challenge",
+      "source": "PT_BUBBLE_BELOW",
+      "source_identity": {
+        "input_sha256": "70ce0f7e978afc575629db4eef07cee85b680e11bbc872cb2a451af9db20e04e",
+        "requirements_sha256": "5ed539b8e464aaf2d91f261e1e488a863dd5e945c56b737cc6679663bc3c1ad7",
+        "run_id": "82186d0e-1610-4e28-bca2-b39be2122fa6"
+      },
+      "source_qualified": true
+    },
+    {
+      "application": {
+        "reason": "M20 unsupported_qualified_tuple: only the 30 listed source/Pout/efficiency combinations are supported; 8 MPa PS failures are excluded",
+        "status": "rejected"
+      },
+      "case_id": "PT_BUBBLE_ABOVE_8MPA",
+      "disposition": "unresolved",
+      "guarded_reason": "PS: property_evaluation_failed; Complete scan contains property holes; no interval bridged: flash_not_converged: ",
+      "guarded_status": "failed",
+      "inputs": {
+        "P1": 6000000.0,
+        "P2": 8000000.0,
+        "T1": 231.16755435138973,
+        "eta": 0.8,
+        "flow": 99.94203100395112,
+        "z": [
+          0.4997106092421193,
+          0.5002893907578807
+        ]
+      },
+      "production_stage": "PS",
+      "production_status": "production_failure",
+      "prototype_status": "local_path_candidate",
+      "reference_status": "resolved",
+      "remaining_gap": "See retained solver/guard/reference diagnostics",
+      "role": "8MPa_challenge",
+      "source": "PT_BUBBLE_ABOVE",
+      "source_identity": {
+        "input_sha256": "b9057a2248e3ae530f84016191ed90ca2ac4f30bfda5b84b6092be136dbe8d14",
+        "requirements_sha256": "0cf30f85ec572c7e330dfec5e552b1ecde44ec0fc23efb4052ac9bd38c74f3dc",
+        "run_id": "5f1507db-d496-4337-9e94-6dbf284acbc3"
+      },
+      "source_qualified": true
+    },
+    {
+      "application": {
+        "reason": "M20 unsupported_qualified_tuple: only the 30 listed source/Pout/efficiency combinations are supported; 8 MPa PS failures are excluded",
+        "status": "rejected"
+      },
+      "case_id": "PT_VL_HEATING_MID",
+      "disposition": "accepted",
+      "guarded_reason": null,
+      "guarded_status": "success",
+      "inputs": {
+        "P1": 300000.0,
+        "P2": 800000.0,
+        "T1": 350.0,
+        "eta": 0.7,
+        "flow": 9.126923386193653,
+        "z": [
+          0.0077448171764516885,
+          0.9922551828235484
+        ]
+      },
+      "production_stage": "complete",
+      "production_status": "accepted",
+      "prototype_status": "not_run",
+      "reference_status": "resolved",
+      "remaining_gap": "No continuous-domain qualification; application scope unchanged",
+      "role": "interior",
+      "source": "PT_VL_HEATING",
+      "source_identity": {
+        "input_sha256": "6aa08fe4d333f698b5259d4415240847e8f0a0499488fe6a17e58d30699fbe06",
+        "requirements_sha256": "ae617268a92289462a77bc8a619cac8c8337e024c94d29629ac677f36235e3cb",
+        "run_id": "023bde48-9237-4545-bc5b-42303e21aae8"
+      },
+      "source_qualified": true
+    },
+    {
+      "application": {
+        "reason": "M20 unsupported_qualified_tuple: only the 30 listed source/Pout/efficiency combinations are supported; 8 MPa PS failures are excluded",
+        "status": "rejected"
+      },
+      "case_id": "PT_VL_HEATING_HOLDOUT",
+      "disposition": "accepted",
+      "guarded_reason": null,
+      "guarded_status": "success",
+      "inputs": {
+        "P1": 300000.0,
+        "P2": 473456.0,
+        "T1": 350.0,
+        "eta": 0.873,
+        "flow": 9.126923386193653,
+        "z": [
+          0.0077448171764516885,
+          0.9922551828235484
+        ]
+      },
+      "production_stage": "complete",
+      "production_status": "accepted",
+      "prototype_status": "not_run",
+      "reference_status": "resolved",
+      "remaining_gap": "No continuous-domain qualification; application scope unchanged",
+      "role": "off_grid_holdout",
+      "source": "PT_VL_HEATING",
+      "source_identity": {
+        "input_sha256": "6aa08fe4d333f698b5259d4415240847e8f0a0499488fe6a17e58d30699fbe06",
+        "requirements_sha256": "ae617268a92289462a77bc8a619cac8c8337e024c94d29629ac677f36235e3cb",
+        "run_id": "023bde48-9237-4545-bc5b-42303e21aae8"
+      },
+      "source_qualified": true
+    },
+    {
+      "application": {
+        "reason": "M20 unsupported_qualified_tuple: only the 30 listed source/Pout/efficiency combinations are supported; 8 MPa PS failures are excluded",
+        "status": "rejected"
+      },
+      "case_id": "PH_FLASH_MID",
+      "disposition": "accepted",
+      "guarded_reason": null,
+      "guarded_status": "success",
+      "inputs": {
+        "P1": 1000000.0,
+        "P2": 1500000.0,
+        "T1": 291.742138656979,
+        "eta": 0.7,
+        "flow": 52.05576887048551,
+        "z": [
+          0.05718128748168017,
+          0.9428187125183198
+        ]
+      },
+      "production_stage": "complete",
+      "production_status": "accepted",
+      "prototype_status": "not_run",
+      "reference_status": "resolved",
+      "remaining_gap": "No continuous-domain qualification; application scope unchanged",
+      "role": "interior",
+      "source": "PH_FLASH",
+      "source_identity": {
+        "input_sha256": "c037dd5a63fd62ad8cb0a11d0c71b313a3387c5136d78f3b4a879b6269295794",
+        "requirements_sha256": "8b3e6f5ec8204a0c9a000137f0eddfe721bac68127e84f5ffea112646b5f8108",
+        "run_id": "59da3ece-1c13-46db-a2c5-7eac4eaa9eb5"
+      },
+      "source_qualified": true
+    },
+    {
+      "application": {
+        "reason": "M20 unsupported_qualified_tuple: only the 30 listed source/Pout/efficiency combinations are supported; 8 MPa PS failures are excluded",
+        "status": "rejected"
+      },
+      "case_id": "PH_FLASH_HOLDOUT",
+      "disposition": "accepted",
+      "guarded_reason": null,
+      "guarded_status": "success",
+      "inputs": {
+        "P1": 1000000.0,
+        "P2": 1173456.0,
+        "T1": 291.742138656979,
+        "eta": 0.873,
+        "flow": 52.05576887048551,
+        "z": [
+          0.05718128748168017,
+          0.9428187125183198
+        ]
+      },
+      "production_stage": "complete",
+      "production_status": "accepted",
+      "prototype_status": "not_run",
+      "reference_status": "resolved",
+      "remaining_gap": "No continuous-domain qualification; application scope unchanged",
+      "role": "off_grid_holdout",
+      "source": "PH_FLASH",
+      "source_identity": {
+        "input_sha256": "c037dd5a63fd62ad8cb0a11d0c71b313a3387c5136d78f3b4a879b6269295794",
+        "requirements_sha256": "8b3e6f5ec8204a0c9a000137f0eddfe721bac68127e84f5ffea112646b5f8108",
+        "run_id": "59da3ece-1c13-46db-a2c5-7eac4eaa9eb5"
+      },
+      "source_qualified": true
+    },
+    {
+      "application": {
+        "reason": "M20 unsupported_qualified_tuple: only the 30 listed source/Pout/efficiency combinations are supported; 8 MPa PS failures are excluded",
+        "status": "rejected"
+      },
+      "case_id": "PT_BUBBLE_BELOW_MID",
+      "disposition": "accepted",
+      "guarded_reason": null,
+      "guarded_status": "success",
+      "inputs": {
+        "P1": 6000000.0,
+        "P2": 6500000.0,
+        "T1": 231.06755435138734,
+        "eta": 0.7,
+        "flow": 100.0,
+        "z": [
+          0.5,
+          0.5
+        ]
+      },
+      "production_stage": "complete",
+      "production_status": "accepted",
+      "prototype_status": "not_run",
+      "reference_status": "resolved",
+      "remaining_gap": "No continuous-domain qualification; application scope unchanged",
+      "role": "interior",
+      "source": "PT_BUBBLE_BELOW",
+      "source_identity": {
+        "input_sha256": "70ce0f7e978afc575629db4eef07cee85b680e11bbc872cb2a451af9db20e04e",
+        "requirements_sha256": "5ed539b8e464aaf2d91f261e1e488a863dd5e945c56b737cc6679663bc3c1ad7",
+        "run_id": "82186d0e-1610-4e28-bca2-b39be2122fa6"
+      },
+      "source_qualified": true
+    },
+    {
+      "application": {
+        "reason": "M20 unsupported_qualified_tuple: only the 30 listed source/Pout/efficiency combinations are supported; 8 MPa PS failures are excluded",
+        "status": "rejected"
+      },
+      "case_id": "PT_BUBBLE_BELOW_HOLDOUT",
+      "disposition": "accepted",
+      "guarded_reason": null,
+      "guarded_status": "success",
+      "inputs": {
+        "P1": 6000000.0,
+        "P2": 6173456.0,
+        "T1": 231.06755435138734,
+        "eta": 0.873,
+        "flow": 100.0,
+        "z": [
+          0.5,
+          0.5
+        ]
+      },
+      "production_stage": "complete",
+      "production_status": "accepted",
+      "prototype_status": "not_run",
+      "reference_status": "resolved",
+      "remaining_gap": "No continuous-domain qualification; application scope unchanged",
+      "role": "off_grid_holdout",
+      "source": "PT_BUBBLE_BELOW",
+      "source_identity": {
+        "input_sha256": "70ce0f7e978afc575629db4eef07cee85b680e11bbc872cb2a451af9db20e04e",
+        "requirements_sha256": "5ed539b8e464aaf2d91f261e1e488a863dd5e945c56b737cc6679663bc3c1ad7",
+        "run_id": "82186d0e-1610-4e28-bca2-b39be2122fa6"
+      },
+      "source_qualified": true
+    },
+    {
+      "application": {
+        "reason": "M20 unsupported_qualified_tuple: only the 30 listed source/Pout/efficiency combinations are supported; 8 MPa PS failures are excluded",
+        "status": "rejected"
+      },
+      "case_id": "PT_BUBBLE_ABOVE_MID",
+      "disposition": "accepted",
+      "guarded_reason": null,
+      "guarded_status": "success",
+      "inputs": {
+        "P1": 6000000.0,
+        "P2": 6500000.0,
+        "T1": 231.16755435138973,
+        "eta": 0.7,
+        "flow": 99.94203100395112,
+        "z": [
+          0.4997106092421193,
+          0.5002893907578807
+        ]
+      },
+      "production_stage": "complete",
+      "production_status": "accepted",
+      "prototype_status": "not_run",
+      "reference_status": "resolved",
+      "remaining_gap": "No continuous-domain qualification; application scope unchanged",
+      "role": "interior",
+      "source": "PT_BUBBLE_ABOVE",
+      "source_identity": {
+        "input_sha256": "b9057a2248e3ae530f84016191ed90ca2ac4f30bfda5b84b6092be136dbe8d14",
+        "requirements_sha256": "0cf30f85ec572c7e330dfec5e552b1ecde44ec0fc23efb4052ac9bd38c74f3dc",
+        "run_id": "5f1507db-d496-4337-9e94-6dbf284acbc3"
+      },
+      "source_qualified": true
+    },
+    {
+      "application": {
+        "reason": "M20 unsupported_qualified_tuple: only the 30 listed source/Pout/efficiency combinations are supported; 8 MPa PS failures are excluded",
+        "status": "rejected"
+      },
+      "case_id": "PT_BUBBLE_ABOVE_HOLDOUT",
+      "disposition": "accepted",
+      "guarded_reason": null,
+      "guarded_status": "success",
+      "inputs": {
+        "P1": 6000000.0,
+        "P2": 6173456.0,
+        "T1": 231.16755435138973,
+        "eta": 0.873,
+        "flow": 99.94203100395112,
+        "z": [
+          0.4997106092421193,
+          0.5002893907578807
+        ]
+      },
+      "production_stage": "complete",
+      "production_status": "accepted",
+      "prototype_status": "not_run",
+      "reference_status": "resolved",
+      "remaining_gap": "No continuous-domain qualification; application scope unchanged",
+      "role": "off_grid_holdout",
+      "source": "PT_BUBBLE_ABOVE",
+      "source_identity": {
+        "input_sha256": "b9057a2248e3ae530f84016191ed90ca2ac4f30bfda5b84b6092be136dbe8d14",
+        "requirements_sha256": "0cf30f85ec572c7e330dfec5e552b1ecde44ec0fc23efb4052ac9bd38c74f3dc",
+        "run_id": "5f1507db-d496-4337-9e94-6dbf284acbc3"
+      },
+      "source_qualified": true
+    },
+    {
+      "application": {
+        "reason": "M20 unsupported_qualified_tuple: only the 30 listed source/Pout/efficiency combinations are supported; 8 MPa PS failures are excluded",
+        "status": "rejected"
+      },
+      "case_id": "PT_DEW_BELOW_MID",
+      "disposition": "accepted",
+      "guarded_reason": null,
+      "guarded_status": "success",
+      "inputs": {
+        "P1": 6000000.0,
+        "P2": 6500000.0,
+        "T1": 468.2158895316327,
+        "eta": 0.7,
+        "flow": 0.13330552995967082,
+        "z": [
+          0.21404761041658718,
+          0.7859523895834128
+        ]
+      },
+      "production_stage": "complete",
+      "production_status": "accepted",
+      "prototype_status": "not_run",
+      "reference_status": "resolved",
+      "remaining_gap": "No continuous-domain qualification; application scope unchanged",
+      "role": "interior",
+      "source": "PT_DEW_BELOW",
+      "source_identity": {
+        "input_sha256": "377caff917cb6df8b37577385929cb65d69e5bc20a7789f92d2107cb9b37f125",
+        "requirements_sha256": "aeb8a553055cb731cc3c11202a83edbf220d4bda5757a0c894cc6138043e7070",
+        "run_id": "40d85a3f-3ae3-4d5e-bfb0-db1d4607a6fd"
+      },
+      "source_qualified": true
+    },
+    {
+      "application": {
+        "reason": "M20 unsupported_qualified_tuple: only the 30 listed source/Pout/efficiency combinations are supported; 8 MPa PS failures are excluded",
+        "status": "rejected"
+      },
+      "case_id": "PT_DEW_BELOW_HOLDOUT",
+      "disposition": "accepted",
+      "guarded_reason": null,
+      "guarded_status": "success",
+      "inputs": {
+        "P1": 6000000.0,
+        "P2": 6173456.0,
+        "T1": 468.2158895316327,
+        "eta": 0.873,
+        "flow": 0.13330552995967082,
+        "z": [
+          0.21404761041658718,
+          0.7859523895834128
+        ]
+      },
+      "production_stage": "complete",
+      "production_status": "accepted",
+      "prototype_status": "not_run",
+      "reference_status": "resolved",
+      "remaining_gap": "No continuous-domain qualification; application scope unchanged",
+      "role": "off_grid_holdout",
+      "source": "PT_DEW_BELOW",
+      "source_identity": {
+        "input_sha256": "377caff917cb6df8b37577385929cb65d69e5bc20a7789f92d2107cb9b37f125",
+        "requirements_sha256": "aeb8a553055cb731cc3c11202a83edbf220d4bda5757a0c894cc6138043e7070",
+        "run_id": "40d85a3f-3ae3-4d5e-bfb0-db1d4607a6fd"
+      },
+      "source_qualified": true
+    },
+    {
+      "application": {
+        "reason": "M20 unsupported_qualified_tuple: only the 30 listed source/Pout/efficiency combinations are supported; 8 MPa PS failures are excluded",
+        "status": "rejected"
+      },
+      "case_id": "PT_COOL",
+      "disposition": "accepted",
+      "guarded_reason": null,
+      "guarded_status": "success",
+      "inputs": {
+        "P1": 300000.0,
+        "P2": 1031000.0,
+        "T1": 345.0,
+        "eta": 0.83,
+        "flow": 18.463817698946627,
+        "z": [
+          0.008692096501112372,
+          0.9913079034988876
+        ]
+      },
+      "production_stage": "complete",
+      "production_status": "accepted",
+      "prototype_status": "not_run",
+      "reference_status": "resolved",
+      "remaining_gap": "No continuous-domain qualification; application scope unchanged",
+      "role": "source_variation",
+      "source": "PT_COOL",
+      "source_identity": {
+        "input_sha256": "131e375e33078e79d213003f74170b0aff8f5950a0d02f92692985d2cf01e17a",
+        "requirements_sha256": "140043d3ef95cd2822cd140d10e7f3ca55f6680b2646a0d0390b3faddfe2857d",
+        "run_id": "f2b3914f-0cfa-479c-84e4-d40a7883bbee"
+      },
+      "source_qualified": true
+    },
+    {
+      "application": {
+        "reason": "M20 unsupported_qualified_tuple: only the 30 listed source/Pout/efficiency combinations are supported; 8 MPa PS failures are excluded",
+        "status": "rejected"
+      },
+      "case_id": "PT_WARM",
+      "disposition": "rejected",
+      "guarded_reason": "rejected: absent_liquid",
+      "guarded_status": "failed",
+      "inputs": {
+        "P1": 300000.0,
+        "P2": 1031000.0,
+        "T1": 355.0,
+        "eta": 0.83,
+        "flow": 0.0,
+        "z": null
+      },
+      "production_stage": "prototype_input",
+      "production_status": "invalid_flow",
+      "prototype_status": "not_run",
+      "reference_status": "invalid_flow",
+      "remaining_gap": "See retained solver/guard/reference diagnostics",
+      "role": "source_variation",
+      "source": "PT_WARM",
+      "source_identity": {
+        "input_sha256": "f183689dff66e11c0359a65fa89927e881d21d5ad4e8e8c9b660a35087b108ec",
+        "requirements_sha256": "01c37d1f53892d542bd3d18e349cdd0402572d3f6adce953cfd8affd628fddee",
+        "run_id": "d631aaf3-b9df-49c5-b334-4a6215774978"
+      },
+      "source_qualified": true
+    },
+    {
+      "application": {
+        "reason": "M20 unsupported_qualified_tuple: only the 30 listed source/Pout/efficiency combinations are supported; 8 MPa PS failures are excluded",
+        "status": "rejected"
+      },
+      "case_id": "PT_P_HOLDOUT",
+      "disposition": "accepted",
+      "guarded_reason": null,
+      "guarded_status": "success",
+      "inputs": {
+        "P1": 337000.0,
+        "P2": 1068000.0,
+        "T1": 348.3,
+        "eta": 0.83,
+        "flow": 19.096008072497746,
+        "z": [
+          0.009756095507503443,
+          0.9902439044924966
+        ]
+      },
+      "production_stage": "complete",
+      "production_status": "accepted",
+      "prototype_status": "not_run",
+      "reference_status": "resolved",
+      "remaining_gap": "No continuous-domain qualification; application scope unchanged",
+      "role": "source_variation",
+      "source": "PT_P_HOLDOUT",
+      "source_identity": {
+        "input_sha256": "7700449e86b97020c409baab0d51f20624772fbf94f22bfd692f21c124c828fc",
+        "requirements_sha256": "939a2eeb71196b02454ae37eca52d48f4543332ab3750f727288bf87ee52146d",
+        "run_id": "ce50f0ed-6076-44ea-96bb-0031a5a6eb5f"
+      },
+      "source_qualified": true
+    },
+    {
+      "application": {
+        "reason": "M20 unsupported_qualified_tuple: only the 30 listed source/Pout/efficiency combinations are supported; 8 MPa PS failures are excluded",
+        "status": "rejected"
+      },
+      "case_id": "PT_Z",
+      "disposition": "accepted",
+      "guarded_reason": null,
+      "guarded_status": "success",
+      "inputs": {
+        "P1": 300000.0,
+        "P2": 1031000.0,
+        "T1": 350.0,
+        "eta": 0.83,
+        "flow": 18.357204730574498,
+        "z": [
+          0.007744817176451906,
+          0.9922551828235481
+        ]
+      },
+      "production_stage": "complete",
+      "production_status": "accepted",
+      "prototype_status": "not_run",
+      "reference_status": "resolved",
+      "remaining_gap": "No continuous-domain qualification; application scope unchanged",
+      "role": "source_variation",
+      "source": "PT_Z",
+      "source_identity": {
+        "input_sha256": "fc53bf5b98e4b738c0ed6c273c7a6a0f7ccf5329e4876ff48fefce17a8abd377",
+        "requirements_sha256": "aecc14cdec1850883248e20ee02679e56dad52a55a17416f20badef87efd0d43",
+        "run_id": "8a3481dd-f1b8-473f-9917-2b65586fbb40"
+      },
+      "source_qualified": true
+    },
+    {
+      "application": {
+        "reason": "M20 unsupported_qualified_tuple: only the 30 listed source/Pout/efficiency combinations are supported; 8 MPa PS failures are excluded",
+        "status": "rejected"
+      },
+      "case_id": "PH_PIN",
+      "disposition": "accepted",
+      "guarded_reason": null,
+      "guarded_status": "success",
+      "inputs": {
+        "P1": 1000000.0,
+        "P2": 1731000.0,
+        "T1": 291.00056314243415,
+        "eta": 0.83,
+        "flow": 52.104685925630186,
+        "z": [
+          0.057488238722445746,
+          0.9425117612775542
+        ]
+      },
+      "production_stage": "complete",
+      "production_status": "accepted",
+      "prototype_status": "not_run",
+      "reference_status": "resolved",
+      "remaining_gap": "No continuous-domain qualification; application scope unchanged",
+      "role": "source_variation",
+      "source": "PH_PIN",
+      "source_identity": {
+        "input_sha256": "ae9900a74ca57ce502b3056a03c5b8e403a0ef56036f058378f8e2a34f154443",
+        "requirements_sha256": "0a5cca7981470aba621a2b6cf30ba5ddfe4afa301338a65f535f8631b7d4ea63",
+        "run_id": "b411931c-8fbd-41c5-85e7-506dd5c79124"
+      },
+      "source_qualified": true
+    },
+    {
+      "application": {
+        "reason": "M20 unsupported_qualified_tuple: only the 30 listed source/Pout/efficiency combinations are supported; 8 MPa PS failures are excluded",
+        "status": "rejected"
+      },
+      "case_id": "PH_TIN",
+      "disposition": "accepted",
+      "guarded_reason": null,
+      "guarded_status": "success",
+      "inputs": {
+        "P1": 1000000.0,
+        "P2": 1731000.0,
+        "T1": 295.2791816371358,
+        "eta": 0.83,
+        "flow": 51.812551391911654,
+        "z": [
+          0.055762945961096225,
+          0.9442370540389037
+        ]
+      },
+      "production_stage": "complete",
+      "production_status": "accepted",
+      "prototype_status": "not_run",
+      "reference_status": "resolved",
+      "remaining_gap": "No continuous-domain qualification; application scope unchanged",
+      "role": "source_variation",
+      "source": "PH_TIN",
+      "source_identity": {
+        "input_sha256": "9eef2726fd8104442102bba7c2a7bed38649d4bc9b969a9023c04ca3a3f533e3",
+        "requirements_sha256": "e382a056696f42f8f8f945b2d417427c27ad2294af04e56ae6ba6dcff0c891d7",
+        "run_id": "b8614074-4224-4a17-8020-41e37d5855cd"
+      },
+      "source_qualified": true
+    },
+    {
+      "application": {
+        "reason": "M20 unsupported_qualified_tuple: only the 30 listed source/Pout/efficiency combinations are supported; 8 MPa PS failures are excluded",
+        "status": "rejected"
+      },
+      "case_id": "PH_POUT",
+      "disposition": "accepted",
+      "guarded_reason": null,
+      "guarded_status": "success",
+      "inputs": {
+        "P1": 1173000.0,
+        "P2": 1904000.0,
+        "T1": 292.3041617478475,
+        "eta": 0.83,
+        "flow": 52.68685215558335,
+        "z": [
+          0.06664795068441005,
+          0.9333520493155899
+        ]
+      },
+      "production_stage": "complete",
+      "production_status": "accepted",
+      "prototype_status": "not_run",
+      "reference_status": "resolved",
+      "remaining_gap": "No continuous-domain qualification; application scope unchanged",
+      "role": "source_variation",
+      "source": "PH_POUT",
+      "source_identity": {
+        "input_sha256": "c65316312d0d053fa26f01f91c8eba9e6ceb9a916cc05e7f6f3b8d9d4b6b42a0",
+        "requirements_sha256": "a39e53aa18f3dead693ccbbc909f500dd81c66a6f6474a3ddd8613e4cf38959a",
+        "run_id": "0ed8cc10-7896-410f-8295-3bf7857317c3"
+      },
+      "source_qualified": true
+    },
+    {
+      "application": {
+        "reason": "M20 unsupported_qualified_tuple: only the 30 listed source/Pout/efficiency combinations are supported; 8 MPa PS failures are excluded",
+        "status": "rejected"
+      },
+      "case_id": "PH_Z",
+      "disposition": "accepted",
+      "guarded_reason": null,
+      "guarded_status": "success",
+      "inputs": {
+        "P1": 1000000.0,
+        "P2": 1731000.0,
+        "T1": 293.72286119582895,
+        "eta": 0.83,
+        "flow": 55.17297638241559,
+        "z": [
+          0.0563779645393295,
+          0.9436220354606705
+        ]
+      },
+      "production_stage": "complete",
+      "production_status": "accepted",
+      "prototype_status": "not_run",
+      "reference_status": "resolved",
+      "remaining_gap": "No continuous-domain qualification; application scope unchanged",
+      "role": "source_variation",
+      "source": "PH_Z",
+      "source_identity": {
+        "input_sha256": "5438fda120cca031de1053161682acdfb89a203a0fffcc68d96316013f271494",
+        "requirements_sha256": "498a97b93fb36306ab83f2c1bfce700b0c0034520d6afc4f77b3a409268e85ce",
+        "run_id": "9a72d66c-1193-49ab-95e5-3d335f505fc6"
+      },
+      "source_qualified": true
+    },
+    {
+      "application": {
+        "reason": "M20 unsupported_qualified_tuple: only the 30 listed source/Pout/efficiency combinations are supported; 8 MPa PS failures are excluded",
+        "status": "rejected"
+      },
+      "case_id": "COLD_COMPRESSED",
+      "disposition": "accepted",
+      "guarded_reason": null,
+      "guarded_status": "success",
+      "inputs": {
+        "P1": 6000000.0,
+        "P2": 6731000.0,
+        "T1": 230.96755435138735,
+        "eta": 0.83,
+        "flow": 100.0,
+        "z": [
+          0.5,
+          0.5
+        ]
+      },
+      "production_stage": "complete",
+      "production_status": "accepted",
+      "prototype_status": "not_run",
+      "reference_status": "resolved",
+      "remaining_gap": "No continuous-domain qualification; application scope unchanged",
+      "role": "source_variation",
+      "source": "COLD_COMPRESSED",
+      "source_identity": {
+        "input_sha256": "3db7e51706f626f5db14f1f5af9c419c619a1df5f668f3cf4bfd4709041bf986",
+        "requirements_sha256": "a6fdb722eb677b9a2bba0830eac31e00766a095a98f5eaf72da9896e106a004d",
+        "run_id": "ff25d68a-9691-4553-a4fe-38097eeb2d5e"
+      },
+      "source_qualified": true
+    },
+    {
+      "application": {
+        "reason": "M20 unsupported_qualified_tuple: only the 30 listed source/Pout/efficiency combinations are supported; 8 MPa PS failures are excluded",
+        "status": "rejected"
+      },
+      "case_id": "COLD_SATURATED",
+      "disposition": "accepted",
+      "guarded_reason": null,
+      "guarded_status": "success",
+      "inputs": {
+        "P1": 6000000.0,
+        "P2": 6731000.0,
+        "T1": 231.26755435138972,
+        "eta": 0.83,
+        "flow": 99.82650947036404,
+        "z": [
+          0.49913291124511056,
+          0.5008670887548894
+        ]
+      },
+      "production_stage": "complete",
+      "production_status": "accepted",
+      "prototype_status": "not_run",
+      "reference_status": "resolved",
+      "remaining_gap": "No continuous-domain qualification; application scope unchanged",
+      "role": "source_variation",
+      "source": "COLD_SATURATED",
+      "source_identity": {
+        "input_sha256": "41d19bae310fe1ed830cdcfde98c53da4c22d639256995c5ae1f21321a4e36a5",
+        "requirements_sha256": "04d0b8c4357f4d03958ace9c16d32da5ed44201fab848608630f1a94d645c771",
+        "run_id": "cf1c9d97-69f0-4b48-b5f8-a88adf544647"
+      },
+      "source_qualified": true
+    },
+    {
+      "application": {
+        "reason": "M20 unsupported_qualified_tuple: only the 30 listed source/Pout/efficiency combinations are supported; 8 MPa PS failures are excluded",
+        "status": "rejected"
+      },
+      "case_id": "WARM_HOLDOUT",
+      "disposition": "accepted",
+      "guarded_reason": null,
+      "guarded_status": "success",
+      "inputs": {
+        "P1": 6000000.0,
+        "P2": 6731000.0,
+        "T1": 468.11588953163266,
+        "eta": 0.83,
+        "flow": 0.39853201836876906,
+        "z": [
+          0.21400952338909268,
+          0.7859904766109074
+        ]
+      },
+      "production_stage": "complete",
+      "production_status": "accepted",
+      "prototype_status": "not_run",
+      "reference_status": "resolved",
+      "remaining_gap": "No continuous-domain qualification; application scope unchanged",
+      "role": "source_variation",
+      "source": "WARM_HOLDOUT",
+      "source_identity": {
+        "input_sha256": "d13edbdb4690bcd2d3501307ca0037a8cd75ec7e297dea2d2574743f694fa20e",
+        "requirements_sha256": "734e23aff0ceeb3853c197f5ac1e6dc342ce297ebaee3af999c9b1a8ba831441",
+        "run_id": "367f6217-66dd-4774-9fb8-19b970cff5c7"
+      },
+      "source_qualified": true
+    },
+    {
+      "application": {
+        "reason": "M20 unsupported_qualified_tuple: only the 30 listed source/Pout/efficiency combinations are supported; 8 MPa PS failures are excluded",
+        "status": "rejected"
+      },
+      "case_id": "FLOW_HOLDOUT",
+      "disposition": "accepted",
+      "guarded_reason": null,
+      "guarded_status": "success",
+      "inputs": {
+        "P1": 1000000.0,
+        "P2": 1731000.0,
+        "T1": 291.742138656979,
+        "eta": 0.83,
+        "flow": 71.31640335256516,
+        "z": [
+          0.05718128748168017,
+          0.94281871251832
+        ]
+      },
+      "production_stage": "complete",
+      "production_status": "accepted",
+      "prototype_status": "not_run",
+      "reference_status": "resolved",
+      "remaining_gap": "No continuous-domain qualification; application scope unchanged",
+      "role": "source_variation",
+      "source": "FLOW_HOLDOUT",
+      "source_identity": {
+        "input_sha256": "3beb0b63ab37228b0c261aff8f19f70b2e203386281d404ae759604d1827b2c8",
+        "requirements_sha256": "be20a9d6d4f78f5f76c6c328712c4e371238fe21dd00d472c40a912f7c53747a",
+        "run_id": "316c68a6-aeb3-407f-85b9-4b820a9c6742"
+      },
+      "source_qualified": true
+    },
+    {
+      "application": {
+        "reason": null,
+        "status": "admitted"
+      },
+      "case_id": "WORK_0.0",
+      "disposition": "accepted",
+      "guarded_reason": null,
+      "guarded_status": "success",
+      "inputs": {
+        "P1": 1000000.0,
+        "P2": 1000000.0,
+        "T1": 291.742138656979,
+        "eta": 0.8,
+        "flow": 52.05576887048551,
+        "z": [
+          0.05718128748168017,
+          0.9428187125183198
+        ]
+      },
+      "production_stage": "complete",
+      "production_status": "accepted",
+      "prototype_status": "not_run",
+      "reference_status": "identity",
+      "remaining_gap": "No continuous-domain qualification; application scope unchanged",
+      "role": "work_boundary",
+      "source": "PH_FLASH",
+      "source_identity": {
+        "input_sha256": "c037dd5a63fd62ad8cb0a11d0c71b313a3387c5136d78f3b4a879b6269295794",
+        "requirements_sha256": "8b3e6f5ec8204a0c9a000137f0eddfe721bac68127e84f5ffea112646b5f8108",
+        "run_id": "59da3ece-1c13-46db-a2c5-7eac4eaa9eb5"
+      },
+      "source_qualified": true
+    },
+    {
+      "application": {
+        "reason": "M20 unsupported_qualified_tuple: only the 30 listed source/Pout/efficiency combinations are supported; 8 MPa PS failures are excluded",
+        "status": "rejected"
+      },
+      "case_id": "WORK_10.0",
+      "disposition": "rejected",
+      "guarded_reason": "unresolved: boundary_unresolved",
+      "guarded_status": "failed",
+      "inputs": {
+        "P1": 1000000.0,
+        "P2": 1000010.0,
+        "T1": 291.742138656979,
+        "eta": 0.8,
+        "flow": 52.05576887048551,
+        "z": [
+          0.05718128748168017,
+          0.9428187125183198
+        ]
+      },
+      "production_stage": "complete",
+      "production_status": "unresolved_work",
+      "prototype_status": "not_run",
+      "reference_status": "unresolved_work",
+      "remaining_gap": "See retained solver/guard/reference diagnostics",
+      "role": "work_boundary",
+      "source": "PH_FLASH",
+      "source_identity": {
+        "input_sha256": "c037dd5a63fd62ad8cb0a11d0c71b313a3387c5136d78f3b4a879b6269295794",
+        "requirements_sha256": "8b3e6f5ec8204a0c9a000137f0eddfe721bac68127e84f5ffea112646b5f8108",
+        "run_id": "59da3ece-1c13-46db-a2c5-7eac4eaa9eb5"
+      },
+      "source_qualified": true
+    },
+    {
+      "application": {
+        "reason": "M20 unsupported_qualified_tuple: only the 30 listed source/Pout/efficiency combinations are supported; 8 MPa PS failures are excluded",
+        "status": "rejected"
+      },
+      "case_id": "WORK_100.0",
+      "disposition": "rejected",
+      "guarded_reason": "unresolved: boundary_unresolved",
+      "guarded_status": "failed",
+      "inputs": {
+        "P1": 1000000.0,
+        "P2": 1000100.0,
+        "T1": 291.742138656979,
+        "eta": 0.8,
+        "flow": 52.05576887048551,
+        "z": [
+          0.05718128748168017,
+          0.9428187125183198
+        ]
+      },
+      "production_stage": "complete",
+      "production_status": "unresolved_work",
+      "prototype_status": "not_run",
+      "reference_status": "unresolved_work",
+      "remaining_gap": "See retained solver/guard/reference diagnostics",
+      "role": "work_boundary",
+      "source": "PH_FLASH",
+      "source_identity": {
+        "input_sha256": "c037dd5a63fd62ad8cb0a11d0c71b313a3387c5136d78f3b4a879b6269295794",
+        "requirements_sha256": "8b3e6f5ec8204a0c9a000137f0eddfe721bac68127e84f5ffea112646b5f8108",
+        "run_id": "59da3ece-1c13-46db-a2c5-7eac4eaa9eb5"
+      },
+      "source_qualified": true
+    },
+    {
+      "application": {
+        "reason": "M20 unsupported_qualified_tuple: only the 30 listed source/Pout/efficiency combinations are supported; 8 MPa PS failures are excluded",
+        "status": "rejected"
+      },
+      "case_id": "WORK_999.0",
+      "disposition": "accepted",
+      "guarded_reason": null,
+      "guarded_status": "success",
+      "inputs": {
+        "P1": 1000000.0,
+        "P2": 1000999.0,
+        "T1": 291.742138656979,
+        "eta": 0.8,
+        "flow": 52.05576887048551,
+        "z": [
+          0.05718128748168017,
+          0.9428187125183198
+        ]
+      },
+      "production_stage": "complete",
+      "production_status": "accepted",
+      "prototype_status": "not_run",
+      "reference_status": "resolved",
+      "remaining_gap": "No continuous-domain qualification; application scope unchanged",
+      "role": "work_boundary",
+      "source": "PH_FLASH",
+      "source_identity": {
+        "input_sha256": "c037dd5a63fd62ad8cb0a11d0c71b313a3387c5136d78f3b4a879b6269295794",
+        "requirements_sha256": "8b3e6f5ec8204a0c9a000137f0eddfe721bac68127e84f5ffea112646b5f8108",
+        "run_id": "59da3ece-1c13-46db-a2c5-7eac4eaa9eb5"
+      },
+      "source_qualified": true
+    },
+    {
+      "application": {
+        "reason": "M20 unsupported_qualified_tuple: only the 30 listed source/Pout/efficiency combinations are supported; 8 MPa PS failures are excluded",
+        "status": "rejected"
+      },
+      "case_id": "WORK_1001.0",
+      "disposition": "accepted",
+      "guarded_reason": null,
+      "guarded_status": "success",
+      "inputs": {
+        "P1": 1000000.0,
+        "P2": 1001001.0,
+        "T1": 291.742138656979,
+        "eta": 0.8,
+        "flow": 52.05576887048551,
+        "z": [
+          0.05718128748168017,
+          0.9428187125183198
+        ]
+      },
+      "production_stage": "complete",
+      "production_status": "accepted",
+      "prototype_status": "not_run",
+      "reference_status": "resolved",
+      "remaining_gap": "No continuous-domain qualification; application scope unchanged",
+      "role": "work_boundary",
+      "source": "PH_FLASH",
+      "source_identity": {
+        "input_sha256": "c037dd5a63fd62ad8cb0a11d0c71b313a3387c5136d78f3b4a879b6269295794",
+        "requirements_sha256": "8b3e6f5ec8204a0c9a000137f0eddfe721bac68127e84f5ffea112646b5f8108",
+        "run_id": "59da3ece-1c13-46db-a2c5-7eac4eaa9eb5"
+      },
+      "source_qualified": true
+    },
+    {
+      "application": {
+        "reason": null,
+        "status": "admitted"
+      },
+      "case_id": "WORK_10000.0",
+      "disposition": "accepted",
+      "guarded_reason": null,
+      "guarded_status": "success",
+      "inputs": {
+        "P1": 1000000.0,
+        "P2": 1010000.0,
+        "T1": 291.742138656979,
+        "eta": 0.8,
+        "flow": 52.05576887048551,
+        "z": [
+          0.05718128748168017,
+          0.9428187125183198
+        ]
+      },
+      "production_stage": "complete",
+      "production_status": "accepted",
+      "prototype_status": "not_run",
+      "reference_status": "resolved",
+      "remaining_gap": "No continuous-domain qualification; application scope unchanged",
+      "role": "work_boundary",
+      "source": "PH_FLASH",
+      "source_identity": {
+        "input_sha256": "c037dd5a63fd62ad8cb0a11d0c71b313a3387c5136d78f3b4a879b6269295794",
+        "requirements_sha256": "8b3e6f5ec8204a0c9a000137f0eddfe721bac68127e84f5ffea112646b5f8108",
+        "run_id": "59da3ece-1c13-46db-a2c5-7eac4eaa9eb5"
+      },
+      "source_qualified": true
+    },
+    {
+      "application": {
+        "reason": "{'schema_version': '1.12', 'kind': 'requirements', 'case_id': 'MILESTONE_20_PH_FLASH_DP1000000_0', 'profile': 'separator_pump_energy', 'units': {'temperature': 'K', 'pressure': 'Pa_abs', 'component_mass_flow': 'kg/h', 'heat_capacity': 'J/(kg K)', 'duty': 'W', 'recovery': 'mass_fraction'}, 'provenance': {'source': 'M20 qualified separator-liquid integration; explicit input tuple.', 'basis': 'qualified_equilibrium_energy'}, 'components': ['methane', 'n_hexane'], 'feeds': [{'id': 'HYDROCARBON_FEED', 'state': {'temperature_K': 300.0, 'pressure_Pa_abs': 30000000.0, 'component_mass_flow_kg_h': {'methane': 2887.704, 'n_hexane': 15511.5648}}}], 'equipment': [{'id': 'SEP_PR_1', 'type': 'equilibrium_separator_2phase', 'model': {'id': 'equilibrium_separator_energy_pr', 'version': '1.0'}, 'parameters': {'property_package': 'peng_robinson@1.0', 'bip': {'identifier': 'm9_methane_nhexane_zero_kij@1.0', 'component_ids': ['methane', 'n_hexane'], 'values': [[0, 0], [0, 0]], 'model': 'peng_robinson@1.0', 'source': 'Explicit zero kij mathematical benchmark from pre_m8_methane_nhexane_canonical_pr@1.0; not calibrated physical BIPs.'}, 'mode': 'adiabatic', 'separator_pressure_Pa_abs': 1000000.0}}, {'id': 'PUMP_1', 'type': 'pump', 'model': {'id': 'separator_liquid_pump_pr', 'version': '1.0'}, 'parameters': {'property_package': 'peng_robinson@1.0', 'bip': {'identifier': 'm9_methane_nhexane_zero_kij@1.0', 'component_ids': ['methane', 'n_hexane'], 'values': [[0, 0], [0, 0]], 'model': 'peng_robinson@1.0', 'source': 'Explicit zero kij mathematical benchmark from pre_m8_methane_nhexane_canonical_pr@1.0; not calibrated physical BIPs.'}, 'outlet_pressure_Pa_abs': 1500000.0, 'isentropic_efficiency': 0.599}}], 'sinks': [{'id': 'VAPOR_PRODUCT_SINK'}, {'id': 'LIQUID_PRODUCT_SINK'}], 'streams': [{'id': 'HYDROCARBON_FEED', 'service': 'HYDROCARBON_FEED'}, {'id': 'VAPOR_PRODUCT', 'service': 'VAPOR_PRODUCT'}, {'id': 'LIQUID_PRODUCT', 'service': 'LIQUID_PRODUCT'}, {'id': 'PUMP_PRODUCT', 'service': 'PUMP_PRODUCT'}], 'connections': [{'id': 'C_HYDROCARBON_FEED', 'stream_id': 'HYDROCARBON_FEED', 'source': {'owner_id': 'HYDROCARBON_FEED', 'port_id': 'outlet'}, 'target': {'owner_id': 'SEP_PR_1', 'port_id': 'inlet'}}, {'id': 'C_VAPOR_PRODUCT', 'stream_id': 'VAPOR_PRODUCT', 'source': {'owner_id': 'SEP_PR_1', 'port_id': 'vapor'}, 'target': {'owner_id': 'VAPOR_PRODUCT_SINK', 'port_id': 'inlet'}}, {'id': 'C_LIQUID_PRODUCT', 'stream_id': 'LIQUID_PRODUCT', 'source': {'owner_id': 'SEP_PR_1', 'port_id': 'liquid'}, 'target': {'owner_id': 'PUMP_1', 'port_id': 'inlet'}}, {'id': 'PUMP_TO_PRODUCT', 'stream_id': 'PUMP_PRODUCT', 'source': {'owner_id': 'PUMP_1', 'port_id': 'outlet'}, 'target': {'owner_id': 'LIQUID_PRODUCT_SINK', 'port_id': 'inlet'}}], 'required_outputs': ['streams', 'mass_balance', 'energy_balance']} is not valid under any of the given schemas",
+        "status": "rejected"
+      },
+      "case_id": "ETA_LOW",
+      "disposition": "rejected",
+      "guarded_reason": "rejected: efficiency",
+      "guarded_status": "failed",
+      "inputs": {
+        "P1": 1000000.0,
+        "P2": 1500000.0,
+        "T1": 291.742138656979,
+        "eta": 0.599,
+        "flow": 52.05576887048551,
+        "z": [
+          0.05718128748168017,
+          0.9428187125183198
+        ]
+      },
+      "production_stage": "input",
+      "production_status": "invalid_efficiency",
+      "prototype_status": "not_run",
+      "reference_status": "invalid_efficiency",
+      "remaining_gap": "See retained solver/guard/reference diagnostics",
+      "role": "negative",
+      "source": "PH_FLASH",
+      "source_identity": {
+        "input_sha256": "c037dd5a63fd62ad8cb0a11d0c71b313a3387c5136d78f3b4a879b6269295794",
+        "requirements_sha256": "8b3e6f5ec8204a0c9a000137f0eddfe721bac68127e84f5ffea112646b5f8108",
+        "run_id": "59da3ece-1c13-46db-a2c5-7eac4eaa9eb5"
+      },
+      "source_qualified": true
+    },
+    {
+      "application": {
+        "reason": "{'schema_version': '1.12', 'kind': 'requirements', 'case_id': 'MILESTONE_20_PH_FLASH_DP1000000_0', 'profile': 'separator_pump_energy', 'units': {'temperature': 'K', 'pressure': 'Pa_abs', 'component_mass_flow': 'kg/h', 'heat_capacity': 'J/(kg K)', 'duty': 'W', 'recovery': 'mass_fraction'}, 'provenance': {'source': 'M20 qualified separator-liquid integration; explicit input tuple.', 'basis': 'qualified_equilibrium_energy'}, 'components': ['methane', 'n_hexane'], 'feeds': [{'id': 'HYDROCARBON_FEED', 'state': {'temperature_K': 300.0, 'pressure_Pa_abs': 30000000.0, 'component_mass_flow_kg_h': {'methane': 2887.704, 'n_hexane': 15511.5648}}}], 'equipment': [{'id': 'SEP_PR_1', 'type': 'equilibrium_separator_2phase', 'model': {'id': 'equilibrium_separator_energy_pr', 'version': '1.0'}, 'parameters': {'property_package': 'peng_robinson@1.0', 'bip': {'identifier': 'm9_methane_nhexane_zero_kij@1.0', 'component_ids': ['methane', 'n_hexane'], 'values': [[0, 0], [0, 0]], 'model': 'peng_robinson@1.0', 'source': 'Explicit zero kij mathematical benchmark from pre_m8_methane_nhexane_canonical_pr@1.0; not calibrated physical BIPs.'}, 'mode': 'adiabatic', 'separator_pressure_Pa_abs': 1000000.0}}, {'id': 'PUMP_1', 'type': 'pump', 'model': {'id': 'separator_liquid_pump_pr', 'version': '1.0'}, 'parameters': {'property_package': 'peng_robinson@1.0', 'bip': {'identifier': 'm9_methane_nhexane_zero_kij@1.0', 'component_ids': ['methane', 'n_hexane'], 'values': [[0, 0], [0, 0]], 'model': 'peng_robinson@1.0', 'source': 'Explicit zero kij mathematical benchmark from pre_m8_methane_nhexane_canonical_pr@1.0; not calibrated physical BIPs.'}, 'outlet_pressure_Pa_abs': 1500000.0, 'isentropic_efficiency': 1.001}}], 'sinks': [{'id': 'VAPOR_PRODUCT_SINK'}, {'id': 'LIQUID_PRODUCT_SINK'}], 'streams': [{'id': 'HYDROCARBON_FEED', 'service': 'HYDROCARBON_FEED'}, {'id': 'VAPOR_PRODUCT', 'service': 'VAPOR_PRODUCT'}, {'id': 'LIQUID_PRODUCT', 'service': 'LIQUID_PRODUCT'}, {'id': 'PUMP_PRODUCT', 'service': 'PUMP_PRODUCT'}], 'connections': [{'id': 'C_HYDROCARBON_FEED', 'stream_id': 'HYDROCARBON_FEED', 'source': {'owner_id': 'HYDROCARBON_FEED', 'port_id': 'outlet'}, 'target': {'owner_id': 'SEP_PR_1', 'port_id': 'inlet'}}, {'id': 'C_VAPOR_PRODUCT', 'stream_id': 'VAPOR_PRODUCT', 'source': {'owner_id': 'SEP_PR_1', 'port_id': 'vapor'}, 'target': {'owner_id': 'VAPOR_PRODUCT_SINK', 'port_id': 'inlet'}}, {'id': 'C_LIQUID_PRODUCT', 'stream_id': 'LIQUID_PRODUCT', 'source': {'owner_id': 'SEP_PR_1', 'port_id': 'liquid'}, 'target': {'owner_id': 'PUMP_1', 'port_id': 'inlet'}}, {'id': 'PUMP_TO_PRODUCT', 'stream_id': 'PUMP_PRODUCT', 'source': {'owner_id': 'PUMP_1', 'port_id': 'outlet'}, 'target': {'owner_id': 'LIQUID_PRODUCT_SINK', 'port_id': 'inlet'}}], 'required_outputs': ['streams', 'mass_balance', 'energy_balance']} is not valid under any of the given schemas",
+        "status": "rejected"
+      },
+      "case_id": "ETA_HIGH",
+      "disposition": "rejected",
+      "guarded_reason": "rejected: efficiency",
+      "guarded_status": "failed",
+      "inputs": {
+        "P1": 1000000.0,
+        "P2": 1500000.0,
+        "T1": 291.742138656979,
+        "eta": 1.001,
+        "flow": 52.05576887048551,
+        "z": [
+          0.05718128748168017,
+          0.9428187125183198
+        ]
+      },
+      "production_stage": "input",
+      "production_status": "invalid_efficiency",
+      "prototype_status": "not_run",
+      "reference_status": "invalid_efficiency",
+      "remaining_gap": "See retained solver/guard/reference diagnostics",
+      "role": "negative",
+      "source": "PH_FLASH",
+      "source_identity": {
+        "input_sha256": "c037dd5a63fd62ad8cb0a11d0c71b313a3387c5136d78f3b4a879b6269295794",
+        "requirements_sha256": "8b3e6f5ec8204a0c9a000137f0eddfe721bac68127e84f5ffea112646b5f8108",
+        "run_id": "59da3ece-1c13-46db-a2c5-7eac4eaa9eb5"
+      },
+      "source_qualified": true
+    },
+    {
+      "application": {
+        "reason": "M20 unsupported_qualified_tuple: only the 30 listed source/Pout/efficiency combinations are supported; 8 MPa PS failures are excluded",
+        "status": "rejected"
+      },
+      "case_id": "DECREASE",
+      "disposition": "rejected",
+      "guarded_reason": "rejected: pressure_decrease",
+      "guarded_status": "failed",
+      "inputs": {
+        "P1": 1000000.0,
+        "P2": 999999.0,
+        "T1": 291.742138656979,
+        "eta": 0.8,
+        "flow": 52.05576887048551,
+        "z": [
+          0.05718128748168017,
+          0.9428187125183198
+        ]
+      },
+      "production_stage": "prototype_input",
+      "production_status": "invalid_pressure",
+      "prototype_status": "not_run",
+      "reference_status": "invalid_pressure",
+      "remaining_gap": "See retained solver/guard/reference diagnostics",
+      "role": "negative",
+      "source": "PH_FLASH",
+      "source_identity": {
+        "input_sha256": "c037dd5a63fd62ad8cb0a11d0c71b313a3387c5136d78f3b4a879b6269295794",
+        "requirements_sha256": "8b3e6f5ec8204a0c9a000137f0eddfe721bac68127e84f5ffea112646b5f8108",
+        "run_id": "59da3ece-1c13-46db-a2c5-7eac4eaa9eb5"
+      },
+      "source_qualified": true
+    },
+    {
+      "application": {
+        "reason": "M20 unsupported_qualified_tuple: only the 30 listed source/Pout/efficiency combinations are supported; 8 MPa PS failures are excluded",
+        "status": "rejected"
+      },
+      "case_id": "ABSENT",
+      "disposition": "rejected",
+      "guarded_reason": "rejected: absent_liquid",
+      "guarded_status": "failed",
+      "inputs": {
+        "P1": 1000.0,
+        "P2": 2000.0,
+        "T1": 400.0,
+        "eta": 0.8,
+        "flow": 0.0,
+        "z": null
+      },
+      "production_stage": "prototype_input",
+      "production_status": "invalid_flow",
+      "prototype_status": "not_run",
+      "reference_status": "invalid_flow",
+      "remaining_gap": "See retained solver/guard/reference diagnostics",
+      "role": "negative",
+      "source": "PT_VAPOR",
+      "source_identity": {
+        "input_sha256": "06024404bf8f2813747443c04f3f87dc8f2a7f31a9553f1c177e742c7fcbb1e6",
+        "requirements_sha256": "057e10ad4f8f5eda7d5996a0d2c651ca5cd7dea816a96db01f66795cef798c2e",
+        "run_id": "094d619b-388d-4134-b0c2-7ba8a98184b3"
+      },
+      "source_qualified": true
+    }
+  ],
+  "comparison_count": 5138,
+  "contract_negative_count": 27,
+  "contract_negative_failures": 0,
+  "counts": {
+    "accepted": 55,
+    "rejected": 7,
+    "unresolved": 2
+  },
+  "failed_comparisons": 0,
+  "numeric_comparison_count": 3997,
+  "prototype_comparison_count": 130,
+  "prototype_failed_comparisons": 0
+}

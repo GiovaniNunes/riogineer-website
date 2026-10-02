@@ -1,0 +1,14 @@
+{
+  "status": "success_two_phase",
+  "iterations": 152,
+  "settings": {
+    "flash_max_iterations": 200,
+    "stability_max_iterations": 100,
+    "rr_max_iterations": 200,
+    "fugacity_tolerance": 1e-12,
+    "material_tolerance": 1e-10,
+    "profile": "high_accuracy",
+    "numerical_profile": "pr_high_accuracy_pt200@1"
+  },
+  "physical_package": "peng_robinson@1.0"
+}

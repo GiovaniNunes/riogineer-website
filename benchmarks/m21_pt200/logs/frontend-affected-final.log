@@ -1,0 +1,27 @@
+
+ RUN  v5.0.2 /Users/giovaninunes/Folders/RioGineer/riogineer-website
+
+ ❯ tests/separator-pump.test.ts (2 tests | 1 failed) 8128ms
+   × M20 build identity, four streams and upstream changes invalidate exports 8073ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/separator-pump.test.ts > M20 build identity, four streams and upstream changes invalidate exports
+Error: Test timed out in 5000ms.
+If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+ ❯ tests/separator-pump.test.ts:22:1
+     20|   for (const row of evidence.cases) expect(resultsSchema.parse(row.res…
+     21| });
+     22| it('M20 build identity, four streams and upstream changes invalidate e…
+       | ^
+     23|   engineeringRequirementsSchema.parse(fixture);
+     24|   const runtime = JSON.parse(
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed | 1 passed (2)
+      Tests  1 failed | 5 passed (6)
+   Start at  21:36:35
+   Duration  8.39s (tests 94%, transform 3%, import 2%)
+

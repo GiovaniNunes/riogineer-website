@@ -3,6 +3,7 @@
 A complete finite scan identifies candidates, not mathematical global uniqueness.
 A discontinuity is never accepted without a fresh enthalpy residual check.
 """
+from .numerical_profiles import resolve_pt_settings
 from dataclasses import dataclass
 from .pr_eos import ThermodynamicError, finite, require
 from .pr_flash import SolverSettings
@@ -73,14 +74,14 @@ class PHResult:
     provenance: CaloricProvenance = CaloricProvenance()
 
 
-def flash_ph(specification, bip, evaluator, settings=PHSettings()):
+def flash_ph(specification, bip, evaluator, settings=PHSettings(), *, numerical_profile=None):
     """Evaluator is the existing provider equilibrium_caloric_PT method.
 
     No accepted payload is returned on failure. Trial summaries retain failures,
     without exposing an intermediate phase result as an accepted PH solution.
     """
     trials=[]; brackets=[]; selected=None; final_bracket=None; iterations=0
-    pt_settings=SolverSettings.high_accuracy()
+    pt_settings=resolve_pt_settings(numerical_profile, default=SolverSettings.high_accuracy())
 
     def result(status, reason='', caloric=None, temperature=None, residual=None):
         diagnostics=PHDiagnostics(settings,pt_settings,tuple(trials),tuple(brackets),

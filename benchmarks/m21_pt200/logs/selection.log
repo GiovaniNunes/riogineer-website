@@ -1,0 +1,8 @@
+test_canonical_selection_conflicts_and_custom_settings (test_pt200_profile.Selection) ... ok
+test_provider_PT_and_caloric_profile_provenance (test_pt200_profile.Selection) ... ok
+test_real_provider_inverse_calls_and_final_settings (test_pt200_profile.Selection) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 3.621s
+
+OK

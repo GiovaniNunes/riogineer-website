@@ -1,0 +1,56 @@
+{
+  "assertion_audit": {
+    "masked_mismatches": 34,
+    "mismatches": 41,
+    "original_affected_methods": 3,
+    "original_observed_failures": 7,
+    "total": 169
+  },
+  "checks": {
+    "contracts": "passed",
+    "format": "FAILED: pre-existing tsconfig.json; preserved as explicitly requested",
+    "frontend": "unchanged; not rerun; prior full 276/277 and final affected 2/2 retained",
+    "lint": "passed",
+    "preservation": "passed",
+    "source_replay": "passed; unchanged replay record",
+    "typescript": "passed: tsc --noEmit --incremental false"
+  },
+  "counts_are_not_cumulative": true,
+  "date": "2026-10-02",
+  "focused_python_single_run": {
+    "errors": 0,
+    "failures": 0,
+    "log": "logs/focused-python.log",
+    "methods": 29,
+    "seconds": 146.527
+  },
+  "full_python_single_run": {
+    "errors": 0,
+    "failures": 0,
+    "log": "logs/full-python.log",
+    "methods": 684,
+    "seconds": 841.731
+  },
+  "historical": {
+    "coherent_M19_source_pins": 36,
+    "complete_archive_exit_code": 1,
+    "numerical_solver_rerun": false,
+    "pinned_entries": 104,
+    "reproduced_M20_semantic_identities": 30,
+    "unavailable": [
+      "next-env.d.ts"
+    ],
+    "verified_entries": 103
+  },
+  "numerical": {
+    "compatibility_propagation_checks": 10248,
+    "independent_checks": 4941,
+    "m20_checks": 1680,
+    "m20_workflows": 30,
+    "peak_iterations": 199,
+    "production_source_manifest_unchanged": true,
+    "scalar_comparisons": 3679
+  },
+  "production_changes_in_review": false,
+  "status": "Ready for user acceptance with disclosed historical-configuration and pre-existing formatting limitations; acceptance and authorized closeout pending"
+}

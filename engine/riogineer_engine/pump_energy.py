@@ -1,4 +1,5 @@
 """M18 guarded liquid pump. Composes unchanged PT/caloric, PS and PH providers."""
+from .numerical_profiles import resolve_pt_settings
 from dataclasses import asdict, replace
 from math import fsum, isfinite
 import json
@@ -107,13 +108,21 @@ def accepted(c, expected, bip, stage, witness=False):
         raise PumpFailure(stage, 'invalid_payload', str(error)) from error
 
 
-def inverse(result, specification, capability):
+def inverse(result, specification, capability, *, numerical_profile=None):
+    expected_pt = resolve_pt_settings(numerical_profile, default=SolverSettings.high_accuracy())
     stage = capability; is_ps = capability == 'PS'
     try:
         d = result.diagnostics
         require(result.status == 'success' and result.caloric is not None, stage, result.status, d.reason)
         require(result.specification == specification and d.settings == (PSSettings() if is_ps else PHSettings()) and
-                d.pt_settings == SolverSettings.high_accuracy(), stage, 'inverse_controls')
+                d.pt_settings == expected_pt, stage, 'inverse_controls')
+        require(result.caloric.equilibrium is not None and
+                result.caloric.equilibrium.provenance.settings == expected_pt,
+                stage, 'final_PT_controls')
+        actual_state = result.caloric.equilibrium.overall_state
+        require(actual_state.pressure_Pa_abs == specification.pressure_Pa_abs and
+                actual_state.composition == specification.composition,
+                stage, 'final_PT_association')
         scans = [t for t in d.trials if t.stage == 'scan']; finals = [t for t in d.trials if t.stage == 'final']
         failures = [t for t in d.trials if t.status != 'success']
         n = 64 if is_ps else 128
@@ -134,10 +143,13 @@ def inverse(result, specification, capability):
         require(finite_tree(asdict(d)) and residual == final_residual == actual-target and final_value == actual,
                 stage, 'fresh_residual_mismatch')
         require(isfinite(residual) and abs(residual) <= (1e-8 if is_ps else 1e-6), stage, 'inverse_residual')
-        return dict(status='success', capability=capability, pt_profile='high_accuracy', candidate_count=1,
+        approved = dict(status='success', capability=capability, pt_profile='high_accuracy', candidate_count=1,
             scan_count=n, fresh_final_count=1, temperature_bounds_K=[200.,500.], bracket_K=list(d.selected_bracket_K),
             final_bracket_K=list(d.final_bracket_K), root_iterations=d.root_iterations,
             evaluation_count=len(d.trials), residual=residual, failure_count=len(failures))
+        if numerical_profile is not None:
+            approved.update(numerical_profile=expected_pt.numerical_profile, pt_settings=asdict(expected_pt))
+        return approved
     except (KeyError, TypeError, AttributeError, ValueError, ArithmeticError) as error:
         if isinstance(error, PumpFailure): raise
         raise PumpFailure(stage, 'invalid_inverse_payload', str(error)) from error

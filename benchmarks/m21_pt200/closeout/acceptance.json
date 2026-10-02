@@ -1,0 +1,29 @@
+{
+  "accepted": "Documented M21 finite-scope implementation and completed review",
+  "assertion_count": 169,
+  "browser_acceptance": false,
+  "commit_message": "Complete Milestone 21 opt-in PT200 profile and record user acceptance",
+  "configuration_sha256": {
+    "next-env.d.ts": "0f70629890b72a0a82e91972cc032c04b658b26c265373cb711cf576bfbf8fcc",
+    "tsconfig.json": "e2a28ab5d02bb5b555a28523be8786d9dc3a400fe125f14602261e24a6288126"
+  },
+  "date": "2026-10-02",
+  "limitations": [
+    "Historical next-env.d.ts bytes unavailable",
+    "Pre-existing tsconfig.json formatting"
+  ],
+  "maintained_historical_identity_methods": 3,
+  "masked_mismatches": 34,
+  "obsolete_comparisons": 41,
+  "peak_iterations": 199,
+  "recorded_full_run_methods": 684,
+  "recorded_separate_focused_run_methods": 29,
+  "regressions_repeated": false,
+  "scope": "Explicit opt-in PT200; historical defaults and M20 admission unchanged; numerical 8 MPa chains remain application-excluded",
+  "starting_head": "b256ee38e1dedc62872e18b5fc8832bf12bc5a2c",
+  "timezone": "America/Sao_Paulo",
+  "user": "Giovani Nunes",
+  "user_executed_numerical_verification_claimed": false,
+  "user_independent_code_inspection_claimed": false,
+  "verified_remote_main_at_start": "b256ee38e1dedc62872e18b5fc8832bf12bc5a2c"
+}

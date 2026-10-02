@@ -1,0 +1,26 @@
+test_all_independent_comparisons (test_budget.Evidence) ... FAIL
+test_complete_PS_fresh_profile_and_balances (test_budget.Evidence) ... ok
+test_legacy_payload_and_iteration_sequence (test_budget.Evidence) ... ok
+test_scope_preserved (test_budget.Evidence) ... ok
+test_PS_holes_never_skipped (test_budget.Policy) ... ok
+test_additive_guard_and_legacy_rejection (test_budget.Policy) ... ok
+test_ambiguity_preserved_all_profiles (test_budget.Policy) ... ok
+test_iteration_limit_real_PT_and_no_payload (test_budget.Policy) ... ok
+test_nonfinite_inputs_and_properties (test_budget.Policy) ... ok
+test_phase_guard_remains_active (test_budget.Policy) ... ok
+test_residual_discontinuity_and_fresh_failure (test_budget.Policy) ... ok
+test_settings_immutable_and_no_automatic_fallback (test_budget.Policy) ... ok
+test_wrong_nested_profile_rejects (test_budget.Policy) ... ok
+
+======================================================================
+FAIL: test_all_independent_comparisons (test_budget.Evidence)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/giovaninunes/Folders/RioGineer/riogineer-website/benchmarks/pt_iteration_budget/test_budget.py", line 81, in test_all_independent_comparisons
+    l=read(HERE/'candidate_ledger.json');self.assertEqual(l['failed_comparisons'],0)
+AssertionError: 195 != 0
+
+----------------------------------------------------------------------
+Ran 13 tests in 1.393s
+
+FAILED (failures=1)

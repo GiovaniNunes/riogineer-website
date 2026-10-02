@@ -1,0 +1,20 @@
+PASS baseline preservation: 548 task-start paths; four source edits and one frontend test explicitly allowed; master prefix protected
+PASS current complete production/schema source manifest; prerequisite bytes/configurations unchanged
+PASS new Python syntax and strict JSON; git diff --check
+ M docs/RIOGINEER_MASTER_CONTEXT.md
+ M engine/riogineer_engine/pr_ph_flash.py
+ M engine/riogineer_engine/pr_ps_flash.py
+ M engine/riogineer_engine/property_packages.py
+ M engine/riogineer_engine/pump_energy.py
+ M next-env.d.ts
+ M tests/separator-pump.test.ts
+ M tsconfig.json
+?? MILESTONE_21.md
+?? PRE_MILESTONE_21_CONFIGURABLE_SEPARATOR_PUMP_QUALIFICATION.md
+?? PRE_MILESTONE_21_PT_ITERATION_BUDGET_QUALIFICATION.md
+?? benchmarks/configurable_separator_pump/
+?? benchmarks/m21_pt200/
+?? benchmarks/pt_iteration_budget/
+?? engine/riogineer_engine/numerical_profiles.py
+?? engine/tests/test_pt200_profile.py
+

@@ -1,0 +1,997 @@
+{
+  "artifact_sha256": {
+    "performance.json": "3d990c49a389bc90c4c5f9c20d72f695076d36cfaf4a7aff9424e807d02a7a63",
+    "phase_identity_comparison.json": "768caf2441fb6fb6daa2531d7d2d14c388a3ce2e4e859a7b392cf919dde33371",
+    "phase_identity_reference.json": "b277627630018124eadd0f4acbd06d5bd369e3a4dafd3352f8b2c5ea2d64fb11",
+    "production.json": "551423ed1096370274ccd04ea0fefea2d7e4fc041ea27b434e94ed69fe7bdce2",
+    "qualified_ledger.json": "8f449e38a425b7454c6faba3f07490c060ca5d74f23b993da5a1a2f4866bd3c2",
+    "reference.json": "470600a892af74e395e44628ab19139e95305d2db9d9297414e65d16d9fadb5f"
+  },
+  "challenges": [
+    {
+      "cap": 100,
+      "case_id": "PT_BUBBLE_BELOW_8000000.0",
+      "stage": "PS",
+      "status": "failed"
+    },
+    {
+      "cap": 100,
+      "case_id": "PT_BUBBLE_ABOVE_8000000.0",
+      "stage": "PS",
+      "status": "failed"
+    },
+    {
+      "cap": 200,
+      "case_id": "PT_BUBBLE_BELOW_8000000.0",
+      "energy": {
+        "integrated_allowance_W": 0.00022554815396365015,
+        "integrated_residual_W": -1.0186340659856796e-10,
+        "pump_allowance_W": 0.00012547595216252873,
+        "pump_residual_W": -1.0186340659856796e-10
+      },
+      "metrics": {
+        "W_recovered_W": 20567.978871054584,
+        "W_target_W": 20567.978871054584,
+        "component_in_mol_s": [
+          50.0,
+          50.0
+        ],
+        "component_mass_in_kg_s": [
+          0.80214,
+          4.308768
+        ],
+        "component_mass_out_kg_s": [
+          0.80214,
+          4.308768
+        ],
+        "component_out_mol_s": [
+          50.0,
+          50.0
+        ],
+        "delta_h_J_mol": 205.67978871054584,
+        "delta_h_s_J_mol": 164.54383096843594,
+        "delta_s_J_mol_K": 0.17745106302756142,
+        "energy_identity_residual_W": -1.0186340659856796e-10,
+        "h_target_J_mol": -25198.070572696743,
+        "identity": false,
+        "mass_residual_kg_s": 0.0,
+        "raw_efficiency_diagnostic": 0.7999999999999965,
+        "reconstructed_efficiency": 0.7999999999999965,
+        "relative_work_budget": 1.2184076155716844e-08,
+        "target_recovered_residual_J_mol": 0.0,
+        "work_error_budget_J_mol": 2.50601820934104e-06,
+        "work_resolved": true
+      },
+      "retained_upstream_Hdot_W": -2540375.0361407287,
+      "stage": "complete",
+      "states": {
+        "inlet": {
+          "H_eq_J_mol": -25403.75036140729,
+          "P_Pa_abs": 6000000.0,
+          "S_eq_J_mol_K": -98.87679248117601,
+          "T_K": 231.06755435138734,
+          "beta": 0.0,
+          "classification": "single_liquid",
+          "z": [
+            0.5,
+            0.5
+          ]
+        },
+        "isentropic": {
+          "H_eq_J_mol": -25239.206530438852,
+          "P_Pa_abs": 8000000.0,
+          "S_eq_J_mol_K": -98.87679248119088,
+          "T_K": 231.62864734074992,
+          "beta": 0.0,
+          "classification": "single_liquid",
+          "z": [
+            0.5,
+            0.5
+          ]
+        },
+        "outlet": {
+          "H_eq_J_mol": -25198.070572696743,
+          "P_Pa_abs": 8000000.0,
+          "S_eq_J_mol_K": -98.69934141814845,
+          "T_K": 232.0029774476092,
+          "beta": 0.0,
+          "classification": "single_liquid",
+          "z": [
+            0.5,
+            0.5
+          ]
+        }
+      },
+      "status": "accepted_prototype"
+    },
+    {
+      "cap": 200,
+      "case_id": "PT_BUBBLE_ABOVE_8000000.0",
+      "energy": {
+        "integrated_allowance_W": 0.00022547438420692683,
+        "integrated_residual_W": 1.1510792319313623e-11,
+        "pump_allowance_W": 0.00012540222005517012,
+        "pump_residual_W": -1.4551915228366852e-10
+      },
+      "metrics": {
+        "W_recovered_W": 20564.527568835445,
+        "W_target_W": 20564.52756883181,
+        "component_in_mol_s": [
+          49.94209320187919,
+          49.999937802071926
+        ],
+        "component_mass_in_kg_s": [
+          0.8012110128191074,
+          4.308762640071157
+        ],
+        "component_mass_out_kg_s": [
+          0.8012110128191074,
+          4.308762640071157
+        ],
+        "component_out_mol_s": [
+          49.94209320187919,
+          49.999937802071926
+        ],
+        "delta_h_J_mol": 205.7645553353068,
+        "delta_h_s_J_mol": 164.6116442682178,
+        "delta_s_J_mol_K": 0.1774474706487723,
+        "energy_identity_residual_W": -1.4551915228366852e-10,
+        "h_target_J_mol": -25196.99309282405,
+        "identity": false,
+        "mass_residual_kg_s": 0.0,
+        "raw_efficiency_diagnostic": 0.7999999999998656,
+        "reconstructed_efficiency": 0.7999999999998656,
+        "relative_work_budget": 1.217895620227763e-08,
+        "target_recovered_residual_J_mol": 3.637978807091713e-11,
+        "work_error_budget_J_mol": 2.5059975074098333e-06,
+        "work_resolved": true
+      },
+      "retained_upstream_Hdot_W": -2538803.192458195,
+      "stage": "complete",
+      "states": {
+        "inlet": {
+          "H_eq_J_mol": -25402.75764815932,
+          "P_Pa_abs": 6000000.0,
+          "S_eq_J_mol_K": -98.84861756279588,
+          "T_K": 231.16755435138973,
+          "beta": 0.0,
+          "classification": "single_liquid",
+          "z": [
+            0.4997106092421193,
+            0.5002893907578807
+          ]
+        },
+        "isentropic": {
+          "H_eq_J_mol": -25238.146003891103,
+          "P_Pa_abs": 8000000.0,
+          "S_eq_J_mol_K": -98.84861756280813,
+          "T_K": 231.7288906905257,
+          "beta": 0.0,
+          "classification": "single_liquid",
+          "z": [
+            0.4997106092421193,
+            0.5002893907578807
+          ]
+        },
+        "outlet": {
+          "H_eq_J_mol": -25196.993092824014,
+          "P_Pa_abs": 8000000.0,
+          "S_eq_J_mol_K": -98.67117009214711,
+          "T_K": 232.1032000731769,
+          "beta": 0.0,
+          "classification": "single_liquid",
+          "z": [
+            0.4997106092421193,
+            0.5002893907578807
+          ]
+        }
+      },
+      "status": "accepted_prototype"
+    },
+    {
+      "cap": 400,
+      "case_id": "PT_BUBBLE_BELOW_8000000.0",
+      "energy": {
+        "integrated_allowance_W": 0.00022554815396365015,
+        "integrated_residual_W": -1.0186340659856796e-10,
+        "pump_allowance_W": 0.00012547595216252873,
+        "pump_residual_W": -1.0186340659856796e-10
+      },
+      "metrics": {
+        "W_recovered_W": 20567.978871054584,
+        "W_target_W": 20567.978871054584,
+        "component_in_mol_s": [
+          50.0,
+          50.0
+        ],
+        "component_mass_in_kg_s": [
+          0.80214,
+          4.308768
+        ],
+        "component_mass_out_kg_s": [
+          0.80214,
+          4.308768
+        ],
+        "component_out_mol_s": [
+          50.0,
+          50.0
+        ],
+        "delta_h_J_mol": 205.67978871054584,
+        "delta_h_s_J_mol": 164.54383096843594,
+        "delta_s_J_mol_K": 0.17745106302756142,
+        "energy_identity_residual_W": -1.0186340659856796e-10,
+        "h_target_J_mol": -25198.070572696743,
+        "identity": false,
+        "mass_residual_kg_s": 0.0,
+        "raw_efficiency_diagnostic": 0.7999999999999965,
+        "reconstructed_efficiency": 0.7999999999999965,
+        "relative_work_budget": 1.2184076155716844e-08,
+        "target_recovered_residual_J_mol": 0.0,
+        "work_error_budget_J_mol": 2.50601820934104e-06,
+        "work_resolved": true
+      },
+      "retained_upstream_Hdot_W": -2540375.0361407287,
+      "stage": "complete",
+      "states": {
+        "inlet": {
+          "H_eq_J_mol": -25403.75036140729,
+          "P_Pa_abs": 6000000.0,
+          "S_eq_J_mol_K": -98.87679248117601,
+          "T_K": 231.06755435138734,
+          "beta": 0.0,
+          "classification": "single_liquid",
+          "z": [
+            0.5,
+            0.5
+          ]
+        },
+        "isentropic": {
+          "H_eq_J_mol": -25239.206530438852,
+          "P_Pa_abs": 8000000.0,
+          "S_eq_J_mol_K": -98.87679248119088,
+          "T_K": 231.62864734074992,
+          "beta": 0.0,
+          "classification": "single_liquid",
+          "z": [
+            0.5,
+            0.5
+          ]
+        },
+        "outlet": {
+          "H_eq_J_mol": -25198.070572696743,
+          "P_Pa_abs": 8000000.0,
+          "S_eq_J_mol_K": -98.69934141814845,
+          "T_K": 232.0029774476092,
+          "beta": 0.0,
+          "classification": "single_liquid",
+          "z": [
+            0.5,
+            0.5
+          ]
+        }
+      },
+      "status": "accepted_prototype"
+    },
+    {
+      "cap": 400,
+      "case_id": "PT_BUBBLE_ABOVE_8000000.0",
+      "energy": {
+        "integrated_allowance_W": 0.00022547438420692683,
+        "integrated_residual_W": 1.1510792319313623e-11,
+        "pump_allowance_W": 0.00012540222005517012,
+        "pump_residual_W": -1.4551915228366852e-10
+      },
+      "metrics": {
+        "W_recovered_W": 20564.527568835445,
+        "W_target_W": 20564.52756883181,
+        "component_in_mol_s": [
+          49.94209320187919,
+          49.999937802071926
+        ],
+        "component_mass_in_kg_s": [
+          0.8012110128191074,
+          4.308762640071157
+        ],
+        "component_mass_out_kg_s": [
+          0.8012110128191074,
+          4.308762640071157
+        ],
+        "component_out_mol_s": [
+          49.94209320187919,
+          49.999937802071926
+        ],
+        "delta_h_J_mol": 205.7645553353068,
+        "delta_h_s_J_mol": 164.6116442682178,
+        "delta_s_J_mol_K": 0.1774474706487723,
+        "energy_identity_residual_W": -1.4551915228366852e-10,
+        "h_target_J_mol": -25196.99309282405,
+        "identity": false,
+        "mass_residual_kg_s": 0.0,
+        "raw_efficiency_diagnostic": 0.7999999999998656,
+        "reconstructed_efficiency": 0.7999999999998656,
+        "relative_work_budget": 1.217895620227763e-08,
+        "target_recovered_residual_J_mol": 3.637978807091713e-11,
+        "work_error_budget_J_mol": 2.5059975074098333e-06,
+        "work_resolved": true
+      },
+      "retained_upstream_Hdot_W": -2538803.192458195,
+      "stage": "complete",
+      "states": {
+        "inlet": {
+          "H_eq_J_mol": -25402.75764815932,
+          "P_Pa_abs": 6000000.0,
+          "S_eq_J_mol_K": -98.84861756279588,
+          "T_K": 231.16755435138973,
+          "beta": 0.0,
+          "classification": "single_liquid",
+          "z": [
+            0.4997106092421193,
+            0.5002893907578807
+          ]
+        },
+        "isentropic": {
+          "H_eq_J_mol": -25238.146003891103,
+          "P_Pa_abs": 8000000.0,
+          "S_eq_J_mol_K": -98.84861756280813,
+          "T_K": 231.7288906905257,
+          "beta": 0.0,
+          "classification": "single_liquid",
+          "z": [
+            0.4997106092421193,
+            0.5002893907578807
+          ]
+        },
+        "outlet": {
+          "H_eq_J_mol": -25196.993092824014,
+          "P_Pa_abs": 8000000.0,
+          "S_eq_J_mol_K": -98.67117009214711,
+          "T_K": 232.1032000731769,
+          "beta": 0.0,
+          "classification": "single_liquid",
+          "z": [
+            0.4997106092421193,
+            0.5002893907578807
+          ]
+        }
+      },
+      "status": "accepted_prototype"
+    }
+  ],
+  "compatibility": {
+    "PT_200_400_exact": 70,
+    "legacy_inverse_anchors_exact": true,
+    "legacy_pairs_exact": true,
+    "legacy_successful_PT_pairs": 82
+  },
+  "cost": {
+    "100": {
+      "PT_matrix_peak": 100,
+      "failed_inverse_PT_evaluations": 10,
+      "inverse_PT_evaluations": 1744,
+      "inverse_equilibrium_iterations": 17325,
+      "peak_inverse_call": {
+        "P": 7000000.0,
+        "T": 469.29133858267716,
+        "case_id": "PT_BUBBLE_BELOW_7000000.0",
+        "equilibrium_iterations": 100,
+        "final_stability_iterations": 0,
+        "kind": "PH",
+        "pt_settings": {
+          "flash_max_iterations": 100,
+          "fugacity_tolerance": 1e-12,
+          "material_tolerance": 1e-10,
+          "profile": "high_accuracy",
+          "rr_max_iterations": 200,
+          "stability_max_iterations": 100
+        },
+        "restarts": 0,
+        "stability_iterations": 96,
+        "status": "flash_not_converged",
+        "z": [
+          0.5,
+          0.5
+        ]
+      }
+    },
+    "200": {
+      "PT_matrix_peak": 171,
+      "failed_inverse_PT_evaluations": 0,
+      "inverse_PT_evaluations": 2992,
+      "inverse_equilibrium_iterations": 35955,
+      "peak_inverse_call": {
+        "P": 8000000.0,
+        "T": 469.29133858267716,
+        "case_id": "PT_BUBBLE_BELOW_8000000.0",
+        "equilibrium_iterations": 199,
+        "final_stability_iterations": 96,
+        "kind": "PH",
+        "pt_settings": {
+          "flash_max_iterations": 200,
+          "fugacity_tolerance": 1e-12,
+          "material_tolerance": 1e-10,
+          "profile": "high_accuracy",
+          "rr_max_iterations": 200,
+          "stability_max_iterations": 100
+        },
+        "restarts": 0,
+        "stability_iterations": 96,
+        "status": "success_two_phase",
+        "z": [
+          0.5,
+          0.5
+        ]
+      }
+    },
+    "400": {
+      "PT_matrix_peak": 171,
+      "failed_inverse_PT_evaluations": 0,
+      "inverse_PT_evaluations": 2992,
+      "inverse_equilibrium_iterations": 35955,
+      "peak_inverse_call": {
+        "P": 8000000.0,
+        "T": 469.29133858267716,
+        "case_id": "PT_BUBBLE_BELOW_8000000.0",
+        "equilibrium_iterations": 199,
+        "final_stability_iterations": 96,
+        "kind": "PH",
+        "pt_settings": {
+          "flash_max_iterations": 400,
+          "fugacity_tolerance": 1e-12,
+          "material_tolerance": 1e-10,
+          "profile": "high_accuracy",
+          "rr_max_iterations": 200,
+          "stability_max_iterations": 100
+        },
+        "restarts": 0,
+        "stability_iterations": 96,
+        "status": "success_two_phase",
+        "z": [
+          0.5,
+          0.5
+        ]
+      }
+    }
+  },
+  "decision": "A",
+  "ledger": {
+    "comparison_count": 7895,
+    "failed_comparisons": 0,
+    "profile_counts": {
+      "100": {
+        "PT": {
+          "accepted": 41,
+          "total": 70
+        },
+        "chains": {
+          "accepted": 6,
+          "total": 12
+        },
+        "inverses": {
+          "accepted": 6,
+          "total": 6
+        }
+      },
+      "200": {
+        "PT": {
+          "accepted": 70,
+          "total": 70
+        },
+        "chains": {
+          "accepted": 12,
+          "total": 12
+        },
+        "inverses": {
+          "accepted": 6,
+          "total": 6
+        }
+      },
+      "400": {
+        "PT": {
+          "accepted": 70,
+          "total": 70
+        },
+        "chains": {
+          "accepted": 12,
+          "total": 12
+        },
+        "inverses": {
+          "accepted": 6,
+          "total": 6
+        }
+      }
+    },
+    "raw_named_reference_failed_comparisons": 195,
+    "scalar_comparison_count": 5857
+  },
+  "recommended_profile": {
+    "fallback": null,
+    "identifier": "pr_high_accuracy_pt200@1",
+    "settings": {
+      "flash_max_iterations": 200,
+      "fugacity_tolerance": 1e-12,
+      "material_tolerance": 1e-10,
+      "profile": "high_accuracy",
+      "rr_max_iterations": 200,
+      "stability_max_iterations": 100
+    }
+  },
+  "scope": "Finite PLAN.md matrix only; no production admission",
+  "timings": [
+    {
+      "cap": 100,
+      "case_id": "LIQUID",
+      "deterministic": {
+        "PT_evaluations": 1,
+        "equilibrium_iterations": 0,
+        "final_stability_iterations": 0,
+        "has_payload": true,
+        "property_evaluation_attempts": 1,
+        "restarts": 0,
+        "result_sha256": "571fe4bf0c5db800de16f906b2fdfd6618d067a950003768e4cc0432ae3cf3af",
+        "stability_iterations": 48,
+        "status": "success_single_phase"
+      },
+      "kind": "PT",
+      "median_seconds": 0.010152042144909501
+    },
+    {
+      "cap": 200,
+      "case_id": "LIQUID",
+      "deterministic": {
+        "PT_evaluations": 1,
+        "equilibrium_iterations": 0,
+        "final_stability_iterations": 0,
+        "has_payload": true,
+        "property_evaluation_attempts": 1,
+        "restarts": 0,
+        "result_sha256": "e837d739d9bfb0fa5501c5cf2adf9b01ce2d5cf682a312dee565387c1a7bc330",
+        "stability_iterations": 48,
+        "status": "success_single_phase"
+      },
+      "kind": "PT",
+      "median_seconds": 0.010250666877254844
+    },
+    {
+      "cap": 400,
+      "case_id": "LIQUID",
+      "deterministic": {
+        "PT_evaluations": 1,
+        "equilibrium_iterations": 0,
+        "final_stability_iterations": 0,
+        "has_payload": true,
+        "property_evaluation_attempts": 1,
+        "restarts": 0,
+        "result_sha256": "bfc10b14197a05a379a10b1b200001a76f4792e8fd0686b03f4528fef837ed68",
+        "stability_iterations": 48,
+        "status": "success_single_phase"
+      },
+      "kind": "PT",
+      "median_seconds": 0.010135499993339181
+    },
+    {
+      "cap": 100,
+      "case_id": "VAPOR",
+      "deterministic": {
+        "PT_evaluations": 1,
+        "equilibrium_iterations": 0,
+        "final_stability_iterations": 0,
+        "has_payload": true,
+        "property_evaluation_attempts": 1,
+        "restarts": 0,
+        "result_sha256": "1b4315408f57cad618671caef37ece5bfc3d051c68234341add326e507cf34d2",
+        "stability_iterations": 48,
+        "status": "success_single_phase"
+      },
+      "kind": "PT",
+      "median_seconds": 0.010666165966540575
+    },
+    {
+      "cap": 200,
+      "case_id": "VAPOR",
+      "deterministic": {
+        "PT_evaluations": 1,
+        "equilibrium_iterations": 0,
+        "final_stability_iterations": 0,
+        "has_payload": true,
+        "property_evaluation_attempts": 1,
+        "restarts": 0,
+        "result_sha256": "8cf7fd1060bb0930308a49494f3549495e7579c3fcdb553a8ab98798ebcac88c",
+        "stability_iterations": 48,
+        "status": "success_single_phase"
+      },
+      "kind": "PT",
+      "median_seconds": 0.010590041056275368
+    },
+    {
+      "cap": 400,
+      "case_id": "VAPOR",
+      "deterministic": {
+        "PT_evaluations": 1,
+        "equilibrium_iterations": 0,
+        "final_stability_iterations": 0,
+        "has_payload": true,
+        "property_evaluation_attempts": 1,
+        "restarts": 0,
+        "result_sha256": "1e5ccd8d2861918bf11c0c3930db3e1bbc3e197540033de01d823e4233cc0c24",
+        "stability_iterations": 48,
+        "status": "success_single_phase"
+      },
+      "kind": "PT",
+      "median_seconds": 0.010800999822095037
+    },
+    {
+      "cap": 100,
+      "case_id": "VL",
+      "deterministic": {
+        "PT_evaluations": 1,
+        "equilibrium_iterations": 7,
+        "final_stability_iterations": 96,
+        "has_payload": true,
+        "property_evaluation_attempts": 1,
+        "restarts": 0,
+        "result_sha256": "6e7555c914a319af5a2acc43df385fcf2916a030e9af491697cf80ff011f38fc",
+        "stability_iterations": 94,
+        "status": "success_two_phase"
+      },
+      "kind": "PT",
+      "median_seconds": 0.02492004190571606
+    },
+    {
+      "cap": 200,
+      "case_id": "VL",
+      "deterministic": {
+        "PT_evaluations": 1,
+        "equilibrium_iterations": 7,
+        "final_stability_iterations": 96,
+        "has_payload": true,
+        "property_evaluation_attempts": 1,
+        "restarts": 0,
+        "result_sha256": "ae8b5095e06579e91e06475507e6af3f871b01d5c0a072dab0c39a1488bf4196",
+        "stability_iterations": 94,
+        "status": "success_two_phase"
+      },
+      "kind": "PT",
+      "median_seconds": 0.02480266708880663
+    },
+    {
+      "cap": 400,
+      "case_id": "VL",
+      "deterministic": {
+        "PT_evaluations": 1,
+        "equilibrium_iterations": 7,
+        "final_stability_iterations": 96,
+        "has_payload": true,
+        "property_evaluation_attempts": 1,
+        "restarts": 0,
+        "result_sha256": "c7fe4f9d435d236a1d967fe27220f99cebc3226eb733b71e2b93dc192332831f",
+        "stability_iterations": 94,
+        "status": "success_two_phase"
+      },
+      "kind": "PT",
+      "median_seconds": 0.024918457958847284
+    },
+    {
+      "cap": 100,
+      "case_id": "PT_BUBBLE_BELOW_8000000.0_55_0.0",
+      "deterministic": {
+        "PT_evaluations": 1,
+        "equilibrium_iterations": 100,
+        "final_stability_iterations": 0,
+        "has_payload": false,
+        "property_evaluation_attempts": 1,
+        "restarts": 0,
+        "result_sha256": "58b1ee72634261b5c463be64b33958c5d71081b772f24bad9eaf9a5c833f7ac7",
+        "stability_iterations": 96,
+        "status": "flash_not_converged"
+      },
+      "kind": "PT",
+      "median_seconds": 0.023373708128929138
+    },
+    {
+      "cap": 200,
+      "case_id": "PT_BUBBLE_BELOW_8000000.0_55_0.0",
+      "deterministic": {
+        "PT_evaluations": 1,
+        "equilibrium_iterations": 109,
+        "final_stability_iterations": 96,
+        "has_payload": true,
+        "property_evaluation_attempts": 1,
+        "restarts": 0,
+        "result_sha256": "2b11294a75cd3f157496affc41791da44c7eddc6b67ca142abc8127eee7493a7",
+        "stability_iterations": 96,
+        "status": "success_two_phase"
+      },
+      "kind": "PT",
+      "median_seconds": 0.03611687500961125
+    },
+    {
+      "cap": 400,
+      "case_id": "PT_BUBBLE_BELOW_8000000.0_55_0.0",
+      "deterministic": {
+        "PT_evaluations": 1,
+        "equilibrium_iterations": 109,
+        "final_stability_iterations": 96,
+        "has_payload": true,
+        "property_evaluation_attempts": 1,
+        "restarts": 0,
+        "result_sha256": "67d8dada52b9989196fc7ab1ca452081efd8a7596560f773656f8af9cafd28e4",
+        "stability_iterations": 96,
+        "status": "success_two_phase"
+      },
+      "kind": "PT",
+      "median_seconds": 0.03569245804101229
+    },
+    {
+      "cap": 100,
+      "case_id": "PT_BUBBLE_BELOW_8000000.0_56_0.0",
+      "deterministic": {
+        "PT_evaluations": 1,
+        "equilibrium_iterations": 100,
+        "final_stability_iterations": 0,
+        "has_payload": false,
+        "property_evaluation_attempts": 1,
+        "restarts": 0,
+        "result_sha256": "971f63e162e740d83e7be38557c49cd72b3622d7fbb824040a18c1fc117f56d4",
+        "stability_iterations": 96,
+        "status": "flash_not_converged"
+      },
+      "kind": "PT",
+      "median_seconds": 0.02314012497663498
+    },
+    {
+      "cap": 200,
+      "case_id": "PT_BUBBLE_BELOW_8000000.0_56_0.0",
+      "deterministic": {
+        "PT_evaluations": 1,
+        "equilibrium_iterations": 152,
+        "final_stability_iterations": 96,
+        "has_payload": true,
+        "property_evaluation_attempts": 1,
+        "restarts": 0,
+        "result_sha256": "fc92687f00db791bdee0f0334b798b34ed61ed75f4a7aae490322e2f834fade2",
+        "stability_iterations": 96,
+        "status": "success_two_phase"
+      },
+      "kind": "PT",
+      "median_seconds": 0.040591124910861254
+    },
+    {
+      "cap": 400,
+      "case_id": "PT_BUBBLE_BELOW_8000000.0_56_0.0",
+      "deterministic": {
+        "PT_evaluations": 1,
+        "equilibrium_iterations": 152,
+        "final_stability_iterations": 96,
+        "has_payload": true,
+        "property_evaluation_attempts": 1,
+        "restarts": 0,
+        "result_sha256": "e9b305b6fe5237cdd24422a875dbfd6b46212991199fcb032c8b6129c01a4f09",
+        "stability_iterations": 96,
+        "status": "success_two_phase"
+      },
+      "kind": "PT",
+      "median_seconds": 0.04053020803257823
+    },
+    {
+      "cap": 100,
+      "case_id": "HOLDOUT_2",
+      "deterministic": {
+        "PT_evaluations": 1,
+        "equilibrium_iterations": 100,
+        "final_stability_iterations": 0,
+        "has_payload": false,
+        "property_evaluation_attempts": 1,
+        "restarts": 0,
+        "result_sha256": "dcace30c2953999693e9bf319b9d5d9ca6cee16d3907861e079b6ecfea089728",
+        "stability_iterations": 94,
+        "status": "flash_not_converged"
+      },
+      "kind": "PT",
+      "median_seconds": 0.022927749902009964
+    },
+    {
+      "cap": 200,
+      "case_id": "HOLDOUT_2",
+      "deterministic": {
+        "PT_evaluations": 1,
+        "equilibrium_iterations": 171,
+        "final_stability_iterations": 96,
+        "has_payload": true,
+        "property_evaluation_attempts": 1,
+        "restarts": 0,
+        "result_sha256": "a30f60a4d32f30233d0636e67f8a1b7628b81fc6f38d6bae90b4028f371918a9",
+        "stability_iterations": 94,
+        "status": "success_two_phase"
+      },
+      "kind": "PT",
+      "median_seconds": 0.043138416949659586
+    },
+    {
+      "cap": 400,
+      "case_id": "HOLDOUT_2",
+      "deterministic": {
+        "PT_evaluations": 1,
+        "equilibrium_iterations": 171,
+        "final_stability_iterations": 96,
+        "has_payload": true,
+        "property_evaluation_attempts": 1,
+        "restarts": 0,
+        "result_sha256": "62a2c5c7504e0ddcdd81392b6fb72b8940e88846a6d3bf305ac412e44d6bb7b3",
+        "stability_iterations": 94,
+        "status": "success_two_phase"
+      },
+      "kind": "PT",
+      "median_seconds": 0.042909666895866394
+    },
+    {
+      "cap": 100,
+      "case_id": "INVALID_PRESSURE",
+      "deterministic": {
+        "PT_evaluations": 0,
+        "equilibrium_iterations": 0,
+        "final_stability_iterations": 0,
+        "has_payload": false,
+        "property_evaluation_attempts": 1,
+        "restarts": 0,
+        "result_sha256": "13e39aeb6e2b20f07226d73f400d9853691c9c3fb31450073fd491bb546f5b8f",
+        "stability_iterations": 0,
+        "status": "invalid_input"
+      },
+      "kind": "PT",
+      "median_seconds": 3.4624943509697914e-05
+    },
+    {
+      "cap": 200,
+      "case_id": "INVALID_PRESSURE",
+      "deterministic": {
+        "PT_evaluations": 0,
+        "equilibrium_iterations": 0,
+        "final_stability_iterations": 0,
+        "has_payload": false,
+        "property_evaluation_attempts": 1,
+        "restarts": 0,
+        "result_sha256": "13e39aeb6e2b20f07226d73f400d9853691c9c3fb31450073fd491bb546f5b8f",
+        "stability_iterations": 0,
+        "status": "invalid_input"
+      },
+      "kind": "PT",
+      "median_seconds": 3.4667085856199265e-05
+    },
+    {
+      "cap": 400,
+      "case_id": "INVALID_PRESSURE",
+      "deterministic": {
+        "PT_evaluations": 0,
+        "equilibrium_iterations": 0,
+        "final_stability_iterations": 0,
+        "has_payload": false,
+        "property_evaluation_attempts": 1,
+        "restarts": 0,
+        "result_sha256": "13e39aeb6e2b20f07226d73f400d9853691c9c3fb31450073fd491bb546f5b8f",
+        "stability_iterations": 0,
+        "status": "invalid_input"
+      },
+      "kind": "PT",
+      "median_seconds": 3.4833094105124474e-05
+    },
+    {
+      "cap": 1,
+      "case_id": "CAP1_EXHAUSTION",
+      "deterministic": {
+        "PT_evaluations": 1,
+        "equilibrium_iterations": 1,
+        "final_stability_iterations": 0,
+        "has_payload": false,
+        "property_evaluation_attempts": 1,
+        "restarts": 0,
+        "result_sha256": "04ee4b3c3e19990537c0450bb3c617e74cd0d31c11909a5d9b0189250405acf6",
+        "stability_iterations": 95,
+        "status": "flash_not_converged"
+      },
+      "kind": "PT",
+      "median_seconds": 0.01188987516798079
+    },
+    {
+      "cap": 100,
+      "case_id": "PH_FLASH",
+      "deterministic": {
+        "PT_evaluations": 272,
+        "counts_scope": "PS/PH evaluator calls; timing also includes context/inlet/final/local/balance guards",
+        "equilibrium_iterations": 654,
+        "has_payload": true,
+        "restarts": 0,
+        "result_sha256": "55767ecd93df19b9341a697b0d1d703d607444dc4514319fe71ca0cf378688e9",
+        "stability_iterations": 28398,
+        "stage": "complete",
+        "status": "accepted_prototype"
+      },
+      "kind": "chain",
+      "median_seconds": 3.7472617090679705
+    },
+    {
+      "cap": 200,
+      "case_id": "PH_FLASH",
+      "deterministic": {
+        "PT_evaluations": 272,
+        "counts_scope": "PS/PH evaluator calls; timing also includes context/inlet/final/local/balance guards",
+        "equilibrium_iterations": 654,
+        "has_payload": true,
+        "restarts": 0,
+        "result_sha256": "760514ea82b05574c891a27d4cfebf2ad18a8567dc1919dcd5b19fa6a2c339ef",
+        "stability_iterations": 28398,
+        "stage": "complete",
+        "status": "accepted_prototype"
+      },
+      "kind": "chain",
+      "median_seconds": 3.748329667141661
+    },
+    {
+      "cap": 400,
+      "case_id": "PH_FLASH",
+      "deterministic": {
+        "PT_evaluations": 272,
+        "counts_scope": "PS/PH evaluator calls; timing also includes context/inlet/final/local/balance guards",
+        "equilibrium_iterations": 654,
+        "has_payload": true,
+        "restarts": 0,
+        "result_sha256": "8c43a18ea779d40c31f7805555e0375c70defa26703d2321a906636c0c1108fc",
+        "stability_iterations": 28398,
+        "stage": "complete",
+        "status": "accepted_prototype"
+      },
+      "kind": "chain",
+      "median_seconds": 3.7410893328487873
+    },
+    {
+      "cap": 100,
+      "case_id": "PT_BUBBLE_ABOVE_8000000.0",
+      "deterministic": {
+        "PT_evaluations": 64,
+        "counts_scope": "PS/PH evaluator calls; timing also includes context/inlet/final/local/balance guards",
+        "equilibrium_iterations": 1462,
+        "has_payload": false,
+        "restarts": 0,
+        "result_sha256": "554b4e06bcc2d8f44e5d38b151da0cfbec93d2fa154bc2c2bfc6c87f8813bed9",
+        "stability_iterations": 9630,
+        "stage": "PS",
+        "status": "failed"
+      },
+      "kind": "chain",
+      "median_seconds": 1.4735136670060456
+    },
+    {
+      "cap": 200,
+      "case_id": "PT_BUBBLE_ABOVE_8000000.0",
+      "deterministic": {
+        "PT_evaluations": 272,
+        "counts_scope": "PS/PH evaluator calls; timing also includes context/inlet/final/local/balance guards",
+        "equilibrium_iterations": 4736,
+        "has_payload": true,
+        "restarts": 0,
+        "result_sha256": "45ae59ca3c4faf9c9e27e547cd14f2d21d4843c4feb4e26548748f5e65bd0b8c",
+        "stability_iterations": 37275,
+        "stage": "complete",
+        "status": "accepted_prototype"
+      },
+      "kind": "chain",
+      "median_seconds": 5.2972537078894675
+    },
+    {
+      "cap": 400,
+      "case_id": "PT_BUBBLE_ABOVE_8000000.0",
+      "deterministic": {
+        "PT_evaluations": 272,
+        "counts_scope": "PS/PH evaluator calls; timing also includes context/inlet/final/local/balance guards",
+        "equilibrium_iterations": 4736,
+        "has_payload": true,
+        "restarts": 0,
+        "result_sha256": "f093136fdeb5316e508ef9239a4be905ebbd5d5b35eeda085bb38382e0d03ec6",
+        "stability_iterations": 37275,
+        "stage": "complete",
+        "status": "accepted_prototype"
+      },
+      "kind": "chain",
+      "median_seconds": 5.329176625004038
+    }
+  ]
+}

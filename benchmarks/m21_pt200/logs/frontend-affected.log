@@ -1,0 +1,33 @@
+
+ RUN  v5.0.2 /private/tmp/riogineer-m21-gates
+
+ ❯ tests/separator-pump.test.ts (2 tests | 1 failed) 8957ms
+   × M20 build identity, four streams and upstream changes invalidate exports 8897ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/separator-pump.test.ts > M20 build identity, four streams and upstream changes invalidate exports
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ tests/separator-pump.test.ts:55:36
+     53|   const r = resultsSchema.parse(runtime.result);
+     54|   state = workflowReducer(state, { type: 'calculated', revision: state…
+     55|   expect(resultsAreCurrent(state)).toBe(true);
+       |                                    ^
+     56|   const changed = structuredClone(fixture);
+     57|   changed.feeds[0].state.temperature_K += 1;
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed | 1 passed (2)
+      Tests  1 failed | 5 passed (6)
+   Start at  21:35:27
+   Duration  9.28s (tests 94%, transform 3%, import 2%)
+

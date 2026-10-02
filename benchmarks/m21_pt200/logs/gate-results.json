@@ -1,0 +1,51 @@
+[
+  {
+    "gate": "contracts",
+    "command": [
+      "npm",
+      "run",
+      "contracts:check"
+    ],
+    "cwd": "/tmp/riogineer-m21-gates",
+    "exit_code": 0
+  },
+  {
+    "gate": "frontend-tests",
+    "command": [
+      "npm",
+      "test"
+    ],
+    "cwd": "/tmp/riogineer-m21-gates",
+    "exit_code": 1
+  },
+  {
+    "gate": "lint",
+    "command": [
+      "npm",
+      "run",
+      "lint"
+    ],
+    "cwd": "/tmp/riogineer-m21-gates",
+    "exit_code": 0
+  },
+  {
+    "gate": "typecheck",
+    "command": [
+      "npm",
+      "run",
+      "typecheck"
+    ],
+    "cwd": "/tmp/riogineer-m21-gates",
+    "exit_code": 0
+  },
+  {
+    "gate": "build",
+    "command": [
+      "npm",
+      "run",
+      "build"
+    ],
+    "cwd": "/tmp/riogineer-m21-gates",
+    "exit_code": 143
+  }
+]
